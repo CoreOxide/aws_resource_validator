@@ -54,7 +54,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AssociateConfigurationItemsToApplicationRequestRequestTypeDef
+# AssociateConfigurationItemsToApplicationRequestTypeDef
 
 ### applicationConfigurationId
 - **Type**: <class 'str'>
@@ -86,7 +86,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchDeleteAgentsRequestRequestTypeDef
+# BatchDeleteAgentsRequestTypeDef
 
 ### deleteAgents
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.discovery_classes.DeleteAgentTypeDef]
@@ -146,7 +146,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchDeleteImportDataRequestRequestTypeDef
+# BatchDeleteImportDataRequestTypeDef
 
 ### importTaskIds
 - **Type**: typing.Sequence[str]
@@ -212,13 +212,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# CreateApplicationRequestRequestTypeDef
+# CreateApplicationRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### description
+- **Type**: typing.Optional[str]
+
+### wave
 - **Type**: typing.Optional[str]
 
 
@@ -233,7 +236,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTagsRequestRequestTypeDef
+# CreateTagsRequestTypeDef
 
 ### configurationIds
 - **Type**: typing.Sequence[str]
@@ -378,14 +381,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteApplicationsRequestRequestTypeDef
+# DeleteApplicationsRequestTypeDef
 
 ### configurationIds
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# DeleteTagsRequestRequestTypeDef
+# DeleteTagsRequestTypeDef
 
 ### configurationIds
 - **Type**: typing.Sequence[str]
@@ -407,7 +410,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeAgentsRequestDescribeAgentsPaginateTypeDef
+# DescribeAgentsRequestPaginateTypeDef
 
 ### agentIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -419,7 +422,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery_classes.PaginatorConfigTypeDef]
 
 
-# DescribeAgentsRequestRequestTypeDef
+# DescribeAgentsRequestTypeDef
 
 ### agentIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -440,16 +443,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.discovery_classes.AgentInfoTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeBatchDeleteConfigurationTaskRequestRequestTypeDef
+
+# DescribeBatchDeleteConfigurationTaskRequestTypeDef
 
 ### taskId
 - **Type**: <class 'str'>
@@ -467,7 +469,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeConfigurationsRequestRequestTypeDef
+# DescribeConfigurationsRequestTypeDef
 
 ### configurationIds
 - **Type**: typing.Sequence[str]
@@ -485,7 +487,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeContinuousExportsRequestDescribeContinuousExportsPaginateTypeDef
+# DescribeContinuousExportsRequestPaginateTypeDef
 
 ### exportIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -494,7 +496,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery_classes.PaginatorConfigTypeDef]
 
 
-# DescribeContinuousExportsRequestRequestTypeDef
+# DescribeContinuousExportsRequestTypeDef
 
 ### exportIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -512,16 +514,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.discovery_classes.ContinuousExportDescriptionTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeExportConfigurationsRequestDescribeExportConfigurationsPaginateTypeDef
+
+# DescribeExportConfigurationsRequestPaginateTypeDef
 
 ### exportIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -530,7 +531,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery_classes.PaginatorConfigTypeDef]
 
 
-# DescribeExportConfigurationsRequestRequestTypeDef
+# DescribeExportConfigurationsRequestTypeDef
 
 ### exportIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -548,16 +549,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.discovery_classes.ExportInfoTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeExportTasksRequestDescribeExportTasksPaginateTypeDef
+
+# DescribeExportTasksRequestPaginateTypeDef
 
 ### exportIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -569,7 +569,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery_classes.PaginatorConfigTypeDef]
 
 
-# DescribeExportTasksRequestRequestTypeDef
+# DescribeExportTasksRequestTypeDef
 
 ### exportIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -590,16 +590,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.discovery_classes.ExportInfoTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeImportTasksRequestDescribeImportTasksPaginateTypeDef
+
+# DescribeImportTasksRequestPaginateTypeDef
 
 ### filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.discovery_classes.ImportTaskFilterTypeDef]]
@@ -608,7 +607,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery_classes.PaginatorConfigTypeDef]
 
 
-# DescribeImportTasksRequestRequestTypeDef
+# DescribeImportTasksRequestTypeDef
 
 ### filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.discovery_classes.ImportTaskFilterTypeDef]]
@@ -622,10 +621,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DescribeImportTasksResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### tasks
 - **Type**: typing.List[aws_resource_validator.pydantic_models.discovery_classes.ImportTaskTypeDef]
 - **Required**: Yes
@@ -634,8 +629,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeTagsRequestDescribeTagsPaginateTypeDef
+
+# DescribeTagsRequestPaginateTypeDef
 
 ### filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.discovery_classes.TagFilterTypeDef]]
@@ -644,7 +642,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery_classes.PaginatorConfigTypeDef]
 
 
-# DescribeTagsRequestRequestTypeDef
+# DescribeTagsRequestTypeDef
 
 ### filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.discovery_classes.TagFilterTypeDef]]
@@ -662,16 +660,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.discovery_classes.ConfigurationTagTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DisassociateConfigurationItemsFromApplicationRequestRequestTypeDef
+
+# DisassociateConfigurationItemsFromApplicationRequestTypeDef
 
 ### applicationConfigurationId
 - **Type**: <class 'str'>
@@ -838,7 +835,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ImportTaskFilterTypeDef
 
 ### name
-- **Type**: typing.Optional[typing.Literal['IMPORT_TASK_ID', 'NAME', 'STATUS']]
+- **Type**: typing.Optional[typing.Literal['FILE_CLASSIFICATION', 'IMPORT_TASK_ID', 'NAME', 'STATUS']]
 
 ### values
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -859,7 +856,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### status
-- **Type**: typing.Optional[typing.Literal['DELETE_COMPLETE', 'DELETE_FAILED', 'DELETE_FAILED_LIMIT_EXCEEDED', 'DELETE_IN_PROGRESS', 'IMPORT_COMPLETE', 'IMPORT_COMPLETE_WITH_ERRORS', 'IMPORT_FAILED', 'IMPORT_FAILED_RECORD_LIMIT_EXCEEDED', 'IMPORT_FAILED_SERVER_LIMIT_EXCEEDED', 'IMPORT_IN_PROGRESS', 'INTERNAL_ERROR']]
+- **Type**: typing.Optional[typing.Literal['DELETE_COMPLETE', 'DELETE_FAILED', 'DELETE_FAILED_LIMIT_EXCEEDED', 'DELETE_IN_PROGRESS', 'IMPORT_COMPLETE', 'IMPORT_COMPLETE_WITH_ERRORS', 'IMPORT_FAILED', 'IMPORT_FAILED_RECORD_LIMIT_EXCEEDED', 'IMPORT_FAILED_SERVER_LIMIT_EXCEEDED', 'IMPORT_FAILED_UNSUPPORTED_FILE_TYPE', 'IMPORT_IN_PROGRESS', 'INTERNAL_ERROR']]
 
 ### importRequestTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -869,6 +866,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### importDeletedTime
 - **Type**: typing.Optional[datetime.datetime]
+
+### fileClassification
+- **Type**: typing.Optional[typing.Literal['IMPORT_TEMPLATE', 'MODELIZEIT_EXPORT', 'RVTOOLS_EXPORT', 'VMWARE_NSX_EXPORT']]
 
 ### serverImportSuccess
 - **Type**: typing.Optional[int]
@@ -886,7 +886,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListConfigurationsRequestListConfigurationsPaginateTypeDef
+# ListConfigurationsRequestPaginateTypeDef
 
 ### configurationType
 - **Type**: typing.Literal['APPLICATION', 'CONNECTION', 'PROCESS', 'SERVER']
@@ -902,7 +902,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery_classes.PaginatorConfigTypeDef]
 
 
-# ListConfigurationsRequestRequestTypeDef
+# ListConfigurationsRequestTypeDef
 
 ### configurationType
 - **Type**: typing.Literal['APPLICATION', 'CONNECTION', 'PROCESS', 'SERVER']
@@ -927,16 +927,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[typing.Dict[str, str]]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListServerNeighborsRequestRequestTypeDef
+
+# ListServerNeighborsRequestTypeDef
 
 ### configurationId
 - **Type**: <class 'str'>
@@ -961,10 +960,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.discovery_classes.NeighborConnectionDetailTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### knownDependencyCount
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -972,6 +967,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # NeighborConnectionDetailTypeDef
@@ -1054,7 +1052,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartBatchDeleteConfigurationTaskRequestRequestTypeDef
+# StartBatchDeleteConfigurationTaskRequestTypeDef
 
 ### configurationType
 - **Type**: typing.Literal['SERVER']
@@ -1103,7 +1101,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartDataCollectionByAgentIdsRequestRequestTypeDef
+# StartDataCollectionByAgentIdsRequestTypeDef
 
 ### agentIds
 - **Type**: typing.Sequence[str]
@@ -1121,7 +1119,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartExportTaskRequestRequestTypeDef
+# StartExportTaskRequestTypeDef
 
 ### exportDataFormat
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['CSV']]]
@@ -1130,10 +1128,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.discovery_classes.ExportFilterTypeDef]]
 
 ### startTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery_classes.TimestampTypeDef]
 
 ### endTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery_classes.TimestampTypeDef]
 
 ### preferences
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery_classes.ExportPreferencesTypeDef]
@@ -1150,7 +1148,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartImportTaskRequestRequestTypeDef
+# StartImportTaskRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -1175,7 +1173,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopContinuousExportRequestRequestTypeDef
+# StopContinuousExportRequestTypeDef
 
 ### exportId
 - **Type**: <class 'str'>
@@ -1197,7 +1195,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopDataCollectionByAgentIdsRequestRequestTypeDef
+# StopDataCollectionByAgentIdsRequestTypeDef
 
 ### agentIds
 - **Type**: typing.Sequence[str]
@@ -1237,7 +1235,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateApplicationRequestRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UpdateApplicationRequestTypeDef
 
 ### configurationId
 - **Type**: <class 'str'>
@@ -1247,6 +1251,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### description
+- **Type**: typing.Optional[str]
+
+### wave
 - **Type**: typing.Optional[str]
 
 

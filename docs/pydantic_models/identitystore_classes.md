@@ -2,30 +2,9 @@
 
 # AddressTypeDef
 
-### StreetAddress
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Locality
-- **Type**: typing.Optional[str]
-
-### Region
-- **Type**: typing.Optional[str]
-
-### PostalCode
-- **Type**: typing.Optional[str]
-
-### Country
-- **Type**: typing.Optional[str]
-
-### Formatted
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[str]
-
-### Primary
-- **Type**: typing.Optional[bool]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AlternateIdentifierTypeDef
 
@@ -52,7 +31,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateGroupMembershipRequestRequestTypeDef
+# CreateGroupMembershipRequestTypeDef
 
 ### IdentityStoreId
 - **Type**: <class 'str'>
@@ -82,7 +61,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateGroupRequestRequestTypeDef
+# CreateGroupRequestTypeDef
 
 ### IdentityStoreId
 - **Type**: <class 'str'>
@@ -110,7 +89,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateUserRequestRequestTypeDef
+# CreateUserRequestTypeDef
 
 ### IdentityStoreId
 - **Type**: <class 'str'>
@@ -171,7 +150,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteGroupMembershipRequestRequestTypeDef
+# DeleteGroupMembershipRequestTypeDef
 
 ### IdentityStoreId
 - **Type**: <class 'str'>
@@ -182,7 +161,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteGroupRequestRequestTypeDef
+# DeleteGroupRequestTypeDef
 
 ### IdentityStoreId
 - **Type**: <class 'str'>
@@ -193,7 +172,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteUserRequestRequestTypeDef
+# DeleteUserRequestTypeDef
 
 ### IdentityStoreId
 - **Type**: <class 'str'>
@@ -204,7 +183,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeGroupMembershipRequestRequestTypeDef
+# DescribeGroupMembershipRequestTypeDef
 
 ### IdentityStoreId
 - **Type**: <class 'str'>
@@ -238,7 +217,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeGroupRequestRequestTypeDef
+# DescribeGroupRequestTypeDef
 
 ### IdentityStoreId
 - **Type**: <class 'str'>
@@ -276,7 +255,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeUserRequestRequestTypeDef
+# DescribeUserRequestTypeDef
 
 ### IdentityStoreId
 - **Type**: <class 'str'>
@@ -360,15 +339,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EmailTypeDef
 
-### Value
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[str]
-
-### Primary
-- **Type**: typing.Optional[bool]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ExternalIdTypeDef
 
@@ -392,7 +365,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetGroupIdRequestRequestTypeDef
+# GetGroupIdRequestTypeDef
 
 ### IdentityStoreId
 - **Type**: <class 'str'>
@@ -418,7 +391,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetGroupMembershipIdRequestRequestTypeDef
+# GetGroupMembershipIdRequestTypeDef
 
 ### IdentityStoreId
 - **Type**: <class 'str'>
@@ -448,7 +421,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetUserIdRequestRequestTypeDef
+# GetUserIdRequestTypeDef
 
 ### IdentityStoreId
 - **Type**: <class 'str'>
@@ -522,7 +495,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# IsMemberInGroupsRequestRequestTypeDef
+# IsMemberInGroupsRequestTypeDef
 
 ### IdentityStoreId
 - **Type**: <class 'str'>
@@ -548,7 +521,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListGroupMembershipsForMemberRequestListGroupMembershipsForMemberPaginateTypeDef
+# ListGroupMembershipsForMemberRequestPaginateTypeDef
 
 ### IdentityStoreId
 - **Type**: <class 'str'>
@@ -562,7 +535,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.identitystore_classes.PaginatorConfigTypeDef]
 
 
-# ListGroupMembershipsForMemberRequestRequestTypeDef
+# ListGroupMembershipsForMemberRequestTypeDef
 
 ### IdentityStoreId
 - **Type**: <class 'str'>
@@ -585,16 +558,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore_classes.GroupMembershipTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListGroupMembershipsRequestListGroupMembershipsPaginateTypeDef
+
+# ListGroupMembershipsRequestPaginateTypeDef
 
 ### IdentityStoreId
 - **Type**: <class 'str'>
@@ -608,7 +580,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.identitystore_classes.PaginatorConfigTypeDef]
 
 
-# ListGroupMembershipsRequestRequestTypeDef
+# ListGroupMembershipsRequestTypeDef
 
 ### IdentityStoreId
 - **Type**: <class 'str'>
@@ -631,16 +603,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore_classes.GroupMembershipTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListGroupsRequestListGroupsPaginateTypeDef
+
+# ListGroupsRequestPaginateTypeDef
 
 ### IdentityStoreId
 - **Type**: <class 'str'>
@@ -653,7 +624,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.identitystore_classes.PaginatorConfigTypeDef]
 
 
-# ListGroupsRequestRequestTypeDef
+# ListGroupsRequestTypeDef
 
 ### IdentityStoreId
 - **Type**: <class 'str'>
@@ -675,16 +646,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore_classes.GroupTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListUsersRequestListUsersPaginateTypeDef
+
+# ListUsersRequestPaginateTypeDef
 
 ### IdentityStoreId
 - **Type**: <class 'str'>
@@ -697,7 +667,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.identitystore_classes.PaginatorConfigTypeDef]
 
 
-# ListUsersRequestRequestTypeDef
+# ListUsersRequestTypeDef
 
 ### IdentityStoreId
 - **Type**: <class 'str'>
@@ -719,13 +689,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore_classes.UserTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # MemberIdTypeDef
@@ -769,23 +738,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PhoneNumberTypeDef
 
-### Value
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[str]
-
-### Primary
-- **Type**: typing.Optional[bool]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResponseMetadataTypeDef
 
 ### RequestId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### HostId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -801,6 +760,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
+
 
 # UniqueAttributeTypeDef
 
@@ -813,7 +775,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateGroupRequestRequestTypeDef
+# UpdateGroupRequestTypeDef
 
 ### IdentityStoreId
 - **Type**: <class 'str'>
@@ -828,7 +790,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateUserRequestRequestTypeDef
+# UpdateUserRequestTypeDef
 
 ### IdentityStoreId
 - **Type**: <class 'str'>

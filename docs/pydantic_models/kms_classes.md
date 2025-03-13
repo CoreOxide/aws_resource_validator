@@ -24,7 +24,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelKeyDeletionRequestRequestTypeDef
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CancelKeyDeletionRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -42,14 +48,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ConnectCustomKeyStoreRequestRequestTypeDef
+# ConnectCustomKeyStoreRequestTypeDef
 
 ### CustomKeyStoreId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CreateAliasRequestRequestTypeDef
+# CreateAliasRequestTypeDef
 
 ### AliasName
 - **Type**: <class 'str'>
@@ -60,7 +66,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCustomKeyStoreRequestRequestTypeDef
+# CreateCustomKeyStoreRequestTypeDef
 
 ### CustomKeyStoreName
 - **Type**: <class 'str'>
@@ -105,7 +111,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateGrantRequestRequestTypeDef
+# CreateGrantRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -123,7 +129,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Constraints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kms_classes.GrantConstraintsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kms_classes.GrantConstraintsUnionTypeDef]
 
 ### GrantTokens
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -150,7 +156,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateKeyRequestRequestTypeDef
+# CreateKeyRequestTypeDef
 
 ### Policy
 - **Type**: typing.Optional[str]
@@ -227,10 +233,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kms_classes.XksProxyConfigurationTypeTypeDef]
 
 
-# DecryptRequestRequestTypeDef
+# DecryptRequestTypeDef
 
 ### CiphertextBlob
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kms_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### EncryptionContext
@@ -275,28 +281,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAliasRequestRequestTypeDef
+# DeleteAliasRequestTypeDef
 
 ### AliasName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteCustomKeyStoreRequestRequestTypeDef
+# DeleteCustomKeyStoreRequestTypeDef
 
 ### CustomKeyStoreId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteImportedKeyMaterialRequestRequestTypeDef
+# DeleteImportedKeyMaterialRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeriveSharedSecretRequestRequestTypeDef
+# DeriveSharedSecretRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -307,7 +313,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PublicKey
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kms_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### GrantTokens
@@ -347,7 +353,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeCustomKeyStoresRequestDescribeCustomKeyStoresPaginateTypeDef
+# DescribeCustomKeyStoresRequestPaginateTypeDef
 
 ### CustomKeyStoreId
 - **Type**: typing.Optional[str]
@@ -359,7 +365,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kms_classes.PaginatorConfigTypeDef]
 
 
-# DescribeCustomKeyStoresRequestRequestTypeDef
+# DescribeCustomKeyStoresRequestTypeDef
 
 ### CustomKeyStoreId
 - **Type**: typing.Optional[str]
@@ -393,7 +399,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeKeyRequestRequestTypeDef
+# DescribeKeyRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -414,21 +420,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisableKeyRequestRequestTypeDef
+# DisableKeyRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisableKeyRotationRequestRequestTypeDef
+# DisableKeyRotationRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisconnectCustomKeyStoreRequestRequestTypeDef
+# DisconnectCustomKeyStoreRequestTypeDef
 
 ### CustomKeyStoreId
 - **Type**: <class 'str'>
@@ -442,14 +448,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EnableKeyRequestRequestTypeDef
+# EnableKeyRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# EnableKeyRotationRequestRequestTypeDef
+# EnableKeyRotationRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -459,14 +465,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# EncryptRequestRequestTypeDef
+# EncryptRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Plaintext
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kms_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### EncryptionContext
@@ -501,7 +507,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GenerateDataKeyPairRequestRequestTypeDef
+# GenerateDataKeyPairRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -555,7 +561,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GenerateDataKeyPairWithoutPlaintextRequestRequestTypeDef
+# GenerateDataKeyPairWithoutPlaintextRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -598,7 +604,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GenerateDataKeyRequestRequestTypeDef
+# GenerateDataKeyRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -646,7 +652,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GenerateDataKeyWithoutPlaintextRequestRequestTypeDef
+# GenerateDataKeyWithoutPlaintextRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -683,10 +689,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GenerateMacRequestRequestTypeDef
+# GenerateMacRequestTypeDef
 
 ### Message
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kms_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### KeyId
@@ -723,7 +729,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GenerateRandomRequestRequestTypeDef
+# GenerateRandomRequestTypeDef
 
 ### NumberOfBytes
 - **Type**: typing.Optional[int]
@@ -750,7 +756,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetKeyPolicyRequestRequestTypeDef
+# GetKeyPolicyRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -775,7 +781,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetKeyRotationStatusRequestRequestTypeDef
+# GetKeyRotationStatusRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -809,7 +815,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetParametersForImportRequestRequestTypeDef
+# GetParametersForImportRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -847,7 +853,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPublicKeyRequestRequestTypeDef
+# GetPublicKeyRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -896,15 +902,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GrantConstraintsExtraOutputTypeDef
-
-### EncryptionContextSubset
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### EncryptionContextEquals
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
 # GrantConstraintsOutputTypeDef
 
 ### EncryptionContextSubset
@@ -922,6 +919,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### EncryptionContextEquals
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
+
+# GrantConstraintsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # GrantListEntryTypeDef
 
@@ -953,22 +956,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kms_classes.GrantConstraintsOutputTypeDef]
 
 
-# ImportKeyMaterialRequestRequestTypeDef
+# ImportKeyMaterialRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ImportToken
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kms_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### EncryptedKeyMaterial
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kms_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### ValidTo
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kms_classes.TimestampTypeDef]
 
 ### ExpirationModel
 - **Type**: typing.Optional[typing.Literal['KEY_MATERIAL_DOES_NOT_EXPIRE', 'KEY_MATERIAL_EXPIRES']]
@@ -1062,7 +1065,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kms_classes.XksKeyConfigurationTypeTypeDef]
 
 
-# ListAliasesRequestListAliasesPaginateTypeDef
+# ListAliasesRequestPaginateTypeDef
 
 ### KeyId
 - **Type**: typing.Optional[str]
@@ -1071,7 +1074,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kms_classes.PaginatorConfigTypeDef]
 
 
-# ListAliasesRequestRequestTypeDef
+# ListAliasesRequestTypeDef
 
 ### KeyId
 - **Type**: typing.Optional[str]
@@ -1102,7 +1105,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListGrantsRequestListGrantsPaginateTypeDef
+# ListGrantsRequestPaginateTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -1118,7 +1121,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kms_classes.PaginatorConfigTypeDef]
 
 
-# ListGrantsRequestRequestTypeDef
+# ListGrantsRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -1156,7 +1159,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListKeyPoliciesRequestListKeyPoliciesPaginateTypeDef
+# ListKeyPoliciesRequestPaginateTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -1166,7 +1169,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kms_classes.PaginatorConfigTypeDef]
 
 
-# ListKeyPoliciesRequestRequestTypeDef
+# ListKeyPoliciesRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -1198,7 +1201,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListKeyRotationsRequestListKeyRotationsPaginateTypeDef
+# ListKeyRotationsRequestPaginateTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -1208,7 +1211,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kms_classes.PaginatorConfigTypeDef]
 
 
-# ListKeyRotationsRequestRequestTypeDef
+# ListKeyRotationsRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -1240,13 +1243,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListKeysRequestListKeysPaginateTypeDef
+# ListKeysRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kms_classes.PaginatorConfigTypeDef]
 
 
-# ListKeysRequestRequestTypeDef
+# ListKeysRequestTypeDef
 
 ### Limit
 - **Type**: typing.Optional[int]
@@ -1274,7 +1277,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListResourceTagsRequestListResourceTagsPaginateTypeDef
+# ListResourceTagsRequestPaginateTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -1284,7 +1287,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kms_classes.PaginatorConfigTypeDef]
 
 
-# ListResourceTagsRequestRequestTypeDef
+# ListResourceTagsRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -1316,7 +1319,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListRetirableGrantsRequestListRetirableGrantsPaginateTypeDef
+# ListRetirableGrantsRequestPaginateTypeDef
 
 ### RetiringPrincipal
 - **Type**: <class 'str'>
@@ -1326,7 +1329,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kms_classes.PaginatorConfigTypeDef]
 
 
-# ListRetirableGrantsRequestRequestTypeDef
+# ListRetirableGrantsRequestTypeDef
 
 ### RetiringPrincipal
 - **Type**: <class 'str'>
@@ -1372,7 +1375,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutKeyPolicyRequestRequestTypeDef
+# PutKeyPolicyRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -1389,10 +1392,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ReEncryptRequestRequestTypeDef
+# ReEncryptRequestTypeDef
 
 ### CiphertextBlob
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kms_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### DestinationKeyId
@@ -1454,10 +1457,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['RSAES_OAEP_SHA_256']]
 
 ### AttestationDocument
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kms_classes.BlobTypeDef]
 
 
-# ReplicateKeyRequestRequestTypeDef
+# ReplicateKeyRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -1521,7 +1524,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RetireGrantRequestRequestTypeDef
+# RetireGrantRequestTypeDef
 
 ### GrantToken
 - **Type**: typing.Optional[str]
@@ -1536,7 +1539,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# RevokeGrantRequestRequestTypeDef
+# RevokeGrantRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -1550,7 +1553,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# RotateKeyOnDemandRequestRequestTypeDef
+# RotateKeyOnDemandRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -1580,7 +1583,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AUTOMATIC', 'ON_DEMAND']]
 
 
-# ScheduleKeyDeletionRequestRequestTypeDef
+# ScheduleKeyDeletionRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -1613,14 +1616,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SignRequestRequestTypeDef
+# SignRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Message
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kms_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### SigningAlgorithm
@@ -1656,7 +1659,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -1678,7 +1681,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -1689,7 +1698,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAliasRequestRequestTypeDef
+# UpdateAliasRequestTypeDef
 
 ### AliasName
 - **Type**: <class 'str'>
@@ -1700,7 +1709,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateCustomKeyStoreRequestRequestTypeDef
+# UpdateCustomKeyStoreRequestTypeDef
 
 ### CustomKeyStoreId
 - **Type**: <class 'str'>
@@ -1731,7 +1740,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['PUBLIC_ENDPOINT', 'VPC_ENDPOINT_SERVICE']]
 
 
-# UpdateKeyDescriptionRequestRequestTypeDef
+# UpdateKeyDescriptionRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -1742,7 +1751,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePrimaryRegionRequestRequestTypeDef
+# UpdatePrimaryRegionRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
@@ -1753,10 +1762,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# VerifyMacRequestRequestTypeDef
+# VerifyMacRequestTypeDef
 
 ### Message
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kms_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### KeyId
@@ -1768,7 +1777,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Mac
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kms_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### GrantTokens
@@ -1797,18 +1806,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# VerifyRequestRequestTypeDef
+# VerifyRequestTypeDef
 
 ### KeyId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Message
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kms_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### Signature
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kms_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### SigningAlgorithm

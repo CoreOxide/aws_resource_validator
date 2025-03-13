@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BulkPublishRequestRequestTypeDef
+# BulkPublishRequestTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>
@@ -60,7 +60,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DeleteDatasetRequestRequestTypeDef
+# DeleteDatasetRequestTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>
@@ -86,7 +86,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDatasetRequestRequestTypeDef
+# DescribeDatasetRequestTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>
@@ -112,7 +112,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeIdentityPoolUsageRequestRequestTypeDef
+# DescribeIdentityPoolUsageRequestTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>
@@ -130,7 +130,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeIdentityUsageRequestRequestTypeDef
+# DescribeIdentityUsageRequestTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>
@@ -159,7 +159,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetBulkPublishDetailsRequestRequestTypeDef
+# GetBulkPublishDetailsRequestTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>
@@ -193,7 +193,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCognitoEventsRequestRequestTypeDef
+# GetCognitoEventsRequestTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>
@@ -211,7 +211,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetIdentityPoolConfigurationRequestRequestTypeDef
+# GetIdentityPoolConfigurationRequestTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>
@@ -225,7 +225,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PushSync
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.PushSyncTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.PushSyncOutputTypeDef'>
 - **Required**: Yes
 
 ### CognitoStreams
@@ -270,7 +270,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDatasetsRequestRequestTypeDef
+# ListDatasetsRequestTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>
@@ -297,16 +297,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListIdentityPoolUsageRequestRequestTypeDef
+
+# ListIdentityPoolUsageRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -329,16 +328,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListRecordsRequestRequestTypeDef
+
+# ListRecordsRequestTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>
@@ -369,10 +367,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Records
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_sync_classes.RecordTypeDef]
-- **Required**: Yes
-
-### NextToken
-- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Count
@@ -407,8 +401,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# PushSyncTypeDef
+
+# PushSyncOutputTypeDef
 
 ### ApplicationArns
 - **Type**: typing.Optional[typing.List[str]]
@@ -416,6 +413,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RoleArn
 - **Type**: typing.Optional[str]
 
+
+# PushSyncTypeDef
+
+### ApplicationArns
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### RoleArn
+- **Type**: typing.Optional[str]
+
+
+# PushSyncUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RecordPatchTypeDef
 
@@ -435,7 +447,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DeviceLastModifiedDate
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_sync_classes.TimestampTypeDef]
 
 
 # RecordTypeDef
@@ -459,7 +471,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# RegisterDeviceRequestRequestTypeDef
+# RegisterDeviceRequestTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>
@@ -495,10 +507,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -511,8 +519,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# SetCognitoEventsRequestRequestTypeDef
+
+# SetCognitoEventsRequestTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>
@@ -523,14 +534,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetIdentityPoolConfigurationRequestRequestTypeDef
+# SetIdentityPoolConfigurationRequestTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PushSync
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_sync_classes.PushSyncTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_sync_classes.PushSyncUnionTypeDef]
 
 ### CognitoStreams
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_sync_classes.CognitoStreamsTypeDef]
@@ -543,7 +554,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PushSync
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.PushSyncTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.PushSyncOutputTypeDef'>
 - **Required**: Yes
 
 ### CognitoStreams
@@ -555,7 +566,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SubscribeToDatasetRequestRequestTypeDef
+# SubscribeToDatasetRequestTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>
@@ -574,7 +585,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UnsubscribeFromDatasetRequestRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UnsubscribeFromDatasetRequestTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>
@@ -593,7 +610,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRecordsRequestRequestTypeDef
+# UpdateRecordsRequestTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>

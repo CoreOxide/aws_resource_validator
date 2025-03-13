@@ -1,6 +1,6 @@
 # Kinesisanalyticsv2 Classes
 
-# AddApplicationCloudWatchLoggingOptionRequestRequestTypeDef
+# AddApplicationCloudWatchLoggingOptionRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -40,7 +40,7 @@
 - **Required**: Yes
 
 
-# AddApplicationInputProcessingConfigurationRequestRequestTypeDef
+# AddApplicationInputProcessingConfigurationRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -82,7 +82,7 @@
 - **Required**: Yes
 
 
-# AddApplicationInputRequestRequestTypeDef
+# AddApplicationInputRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -116,7 +116,7 @@
 - **Required**: Yes
 
 
-# AddApplicationOutputRequestRequestTypeDef
+# AddApplicationOutputRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -150,7 +150,7 @@
 - **Required**: Yes
 
 
-# AddApplicationReferenceDataSourceRequestRequestTypeDef
+# AddApplicationReferenceDataSourceRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -184,7 +184,7 @@
 - **Required**: Yes
 
 
-# AddApplicationVpcConfigurationRequestRequestTypeDef
+# AddApplicationVpcConfigurationRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -348,7 +348,7 @@
 - **Required**: Yes
 
 ### RuntimeEnvironment
-- **Type**: typing.Literal['FLINK-1_11', 'FLINK-1_13', 'FLINK-1_15', 'FLINK-1_18', 'FLINK-1_19', 'FLINK-1_6', 'FLINK-1_8', 'SQL-1_0', 'ZEPPELIN-FLINK-1_0', 'ZEPPELIN-FLINK-2_0', 'ZEPPELIN-FLINK-3_0']
+- **Type**: typing.Literal['FLINK-1_11', 'FLINK-1_13', 'FLINK-1_15', 'FLINK-1_18', 'FLINK-1_19', 'FLINK-1_20', 'FLINK-1_6', 'FLINK-1_8', 'SQL-1_0', 'ZEPPELIN-FLINK-1_0', 'ZEPPELIN-FLINK-2_0', 'ZEPPELIN-FLINK-3_0']
 - **Required**: Yes
 
 ### ApplicationStatus
@@ -510,7 +510,7 @@
 - **Required**: Yes
 
 ### RuntimeEnvironment
-- **Type**: typing.Literal['FLINK-1_11', 'FLINK-1_13', 'FLINK-1_15', 'FLINK-1_18', 'FLINK-1_19', 'FLINK-1_6', 'FLINK-1_8', 'SQL-1_0', 'ZEPPELIN-FLINK-1_0', 'ZEPPELIN-FLINK-2_0', 'ZEPPELIN-FLINK-3_0']
+- **Type**: typing.Literal['FLINK-1_11', 'FLINK-1_13', 'FLINK-1_15', 'FLINK-1_18', 'FLINK-1_19', 'FLINK-1_20', 'FLINK-1_6', 'FLINK-1_8', 'SQL-1_0', 'ZEPPELIN-FLINK-1_0', 'ZEPPELIN-FLINK-2_0', 'ZEPPELIN-FLINK-3_0']
 - **Required**: Yes
 
 ### ApplicationMode
@@ -561,6 +561,12 @@
 
 
 # BaseValidatorModel
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# BlobTypeDef
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
@@ -695,7 +701,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ZipFileContent
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.BlobTypeDef]
 
 ### S3ContentLocation
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.S3ContentLocationTypeDef]
@@ -707,13 +713,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ZipFileContentUpdate
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.BlobTypeDef]
 
 ### S3ContentLocationUpdate
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.S3ContentLocationUpdateTypeDef]
 
 
-# CreateApplicationPresignedUrlRequestRequestTypeDef
+# CreateApplicationPresignedUrlRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -738,14 +744,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateApplicationRequestRequestTypeDef
+# CreateApplicationRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### RuntimeEnvironment
-- **Type**: typing.Literal['FLINK-1_11', 'FLINK-1_13', 'FLINK-1_15', 'FLINK-1_18', 'FLINK-1_19', 'FLINK-1_6', 'FLINK-1_8', 'SQL-1_0', 'ZEPPELIN-FLINK-1_0', 'ZEPPELIN-FLINK-2_0', 'ZEPPELIN-FLINK-3_0']
+- **Type**: typing.Literal['FLINK-1_11', 'FLINK-1_13', 'FLINK-1_15', 'FLINK-1_18', 'FLINK-1_19', 'FLINK-1_20', 'FLINK-1_6', 'FLINK-1_8', 'SQL-1_0', 'ZEPPELIN-FLINK-1_0', 'ZEPPELIN-FLINK-2_0', 'ZEPPELIN-FLINK-3_0']
 - **Required**: Yes
 
 ### ServiceExecutionRole
@@ -779,7 +785,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateApplicationSnapshotRequestRequestTypeDef
+# CreateApplicationSnapshotRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -815,7 +821,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.MavenReferenceTypeDef]
 
 
-# DeleteApplicationCloudWatchLoggingOptionRequestRequestTypeDef
+# DeleteApplicationCloudWatchLoggingOptionRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -855,7 +861,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteApplicationInputProcessingConfigurationRequestRequestTypeDef
+# DeleteApplicationInputProcessingConfigurationRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -885,7 +891,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteApplicationOutputRequestRequestTypeDef
+# DeleteApplicationOutputRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -915,7 +921,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteApplicationReferenceDataSourceRequestRequestTypeDef
+# DeleteApplicationReferenceDataSourceRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -945,18 +951,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteApplicationRequestRequestTypeDef
+# DeleteApplicationRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### CreateTimestamp
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 
-# DeleteApplicationSnapshotRequestRequestTypeDef
+# DeleteApplicationSnapshotRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -967,11 +973,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SnapshotCreationTimestamp
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 
-# DeleteApplicationVpcConfigurationRequestRequestTypeDef
+# DeleteApplicationVpcConfigurationRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -1027,7 +1033,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.S3ContentBaseLocationUpdateTypeDef]
 
 
-# DescribeApplicationOperationRequestRequestTypeDef
+# DescribeApplicationOperationRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -1049,7 +1055,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeApplicationRequestRequestTypeDef
+# DescribeApplicationRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -1070,7 +1076,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeApplicationSnapshotRequestRequestTypeDef
+# DescribeApplicationSnapshotRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -1092,7 +1098,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeApplicationVersionRequestRequestTypeDef
+# DescribeApplicationVersionRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -1121,7 +1127,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DiscoverInputSchemaRequestRequestTypeDef
+# DiscoverInputSchemaRequestTypeDef
 
 ### ServiceExecutionRole
 - **Type**: <class 'str'>
@@ -1166,7 +1172,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EnvironmentPropertiesTypeDef
 
 ### PropertyGroups
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.PropertyGroupTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.PropertyGroupUnionTypeDef]
 - **Required**: Yes
 
 
@@ -1179,7 +1185,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EnvironmentPropertyUpdatesTypeDef
 
 ### PropertyGroups
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.PropertyGroupTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.PropertyGroupUnionTypeDef]
 - **Required**: Yes
 
 
@@ -1367,7 +1373,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputSchema
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.SourceSchemaTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.SourceSchemaUnionTypeDef'>
 - **Required**: Yes
 
 ### InputProcessingConfiguration
@@ -1535,7 +1541,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListApplicationOperationsRequestListApplicationOperationsPaginateTypeDef
+# ListApplicationOperationsRequestPaginateTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -1551,7 +1557,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.PaginatorConfigTypeDef]
 
 
-# ListApplicationOperationsRequestRequestTypeDef
+# ListApplicationOperationsRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -1584,7 +1590,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListApplicationSnapshotsRequestListApplicationSnapshotsPaginateTypeDef
+# ListApplicationSnapshotsRequestPaginateTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -1594,7 +1600,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.PaginatorConfigTypeDef]
 
 
-# ListApplicationSnapshotsRequestRequestTypeDef
+# ListApplicationSnapshotsRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -1621,7 +1627,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListApplicationVersionsRequestListApplicationVersionsPaginateTypeDef
+# ListApplicationVersionsRequestPaginateTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -1631,7 +1637,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.PaginatorConfigTypeDef]
 
 
-# ListApplicationVersionsRequestRequestTypeDef
+# ListApplicationVersionsRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -1658,13 +1664,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListApplicationsRequestListApplicationsPaginateTypeDef
+# ListApplicationsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.PaginatorConfigTypeDef]
 
 
-# ListApplicationsRequestRequestTypeDef
+# ListApplicationsRequestTypeDef
 
 ### Limit
 - **Type**: typing.Optional[int]
@@ -1687,7 +1693,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -1921,19 +1927,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# PropertyGroupUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # RecordColumnTypeDef
 
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### SqlType
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Mapping
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RecordFormatTypeDef
 
@@ -1970,7 +1974,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ReferenceSchema
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.SourceSchemaTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.SourceSchemaUnionTypeDef'>
 - **Required**: Yes
 
 ### S3ReferenceDataSource
@@ -1990,7 +1994,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.S3ReferenceDataSourceUpdateTypeDef]
 
 ### ReferenceSchemaUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.SourceSchemaTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.SourceSchemaUnionTypeDef]
 
 
 # ResponseMetadataTypeDef
@@ -2015,7 +2019,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RollbackApplicationRequestRequestTypeDef
+# RollbackApplicationRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -2201,7 +2205,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### RuntimeEnvironment
-- **Type**: typing.Optional[typing.Literal['FLINK-1_11', 'FLINK-1_13', 'FLINK-1_15', 'FLINK-1_18', 'FLINK-1_19', 'FLINK-1_6', 'FLINK-1_8', 'SQL-1_0', 'ZEPPELIN-FLINK-1_0', 'ZEPPELIN-FLINK-2_0', 'ZEPPELIN-FLINK-3_0']]
+- **Type**: typing.Optional[typing.Literal['FLINK-1_11', 'FLINK-1_13', 'FLINK-1_15', 'FLINK-1_18', 'FLINK-1_19', 'FLINK-1_20', 'FLINK-1_6', 'FLINK-1_8', 'SQL-1_0', 'ZEPPELIN-FLINK-1_0', 'ZEPPELIN-FLINK-2_0', 'ZEPPELIN-FLINK-3_0']]
 
 
 # SourceSchemaOutputTypeDef
@@ -2231,6 +2235,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RecordEncoding
 - **Type**: typing.Optional[str]
 
+
+# SourceSchemaUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SqlApplicationConfigurationDescriptionTypeDef
 
@@ -2279,7 +2289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartApplicationRequestRequestTypeDef
+# StartApplicationRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -2300,7 +2310,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopApplicationRequestRequestTypeDef
+# StopApplicationRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -2321,7 +2331,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -2342,7 +2352,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceRequestRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -2353,7 +2369,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateApplicationMaintenanceConfigurationRequestRequestTypeDef
+# UpdateApplicationMaintenanceConfigurationRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -2379,7 +2395,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateApplicationRequestRequestTypeDef
+# UpdateApplicationRequestTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -2404,7 +2420,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RuntimeEnvironmentUpdate
-- **Type**: typing.Optional[typing.Literal['FLINK-1_11', 'FLINK-1_13', 'FLINK-1_15', 'FLINK-1_18', 'FLINK-1_19', 'FLINK-1_6', 'FLINK-1_8', 'SQL-1_0', 'ZEPPELIN-FLINK-1_0', 'ZEPPELIN-FLINK-2_0', 'ZEPPELIN-FLINK-3_0']]
+- **Type**: typing.Optional[typing.Literal['FLINK-1_11', 'FLINK-1_13', 'FLINK-1_15', 'FLINK-1_18', 'FLINK-1_19', 'FLINK-1_20', 'FLINK-1_6', 'FLINK-1_8', 'SQL-1_0', 'ZEPPELIN-FLINK-1_0', 'ZEPPELIN-FLINK-2_0', 'ZEPPELIN-FLINK-3_0']]
 
 
 # UpdateApplicationResponseTypeDef

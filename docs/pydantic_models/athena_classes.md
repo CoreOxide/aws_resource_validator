@@ -37,7 +37,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchGetNamedQueryInputRequestTypeDef
+# BatchGetNamedQueryInputTypeDef
 
 ### NamedQueryIds
 - **Type**: typing.Sequence[str]
@@ -59,7 +59,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchGetPreparedStatementInputRequestTypeDef
+# BatchGetPreparedStatementInputTypeDef
 
 ### PreparedStatementNames
 - **Type**: typing.Sequence[str]
@@ -85,7 +85,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchGetQueryExecutionInputRequestTypeDef
+# BatchGetQueryExecutionInputTypeDef
 
 ### QueryExecutionIds
 - **Type**: typing.Sequence[str]
@@ -164,7 +164,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.CalculationStatusTypeDef]
 
 
-# CancelCapacityReservationInputRequestTypeDef
+# CancelCapacityReservationInputTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -209,6 +209,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
+# CapacityAssignmentUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # CapacityReservationTypeDef
 
 ### Name
@@ -240,53 +246,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ColumnInfoTypeDef
 
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CatalogName
-- **Type**: typing.Optional[str]
-
-### SchemaName
-- **Type**: typing.Optional[str]
-
-### TableName
-- **Type**: typing.Optional[str]
-
-### Label
-- **Type**: typing.Optional[str]
-
-### Precision
-- **Type**: typing.Optional[int]
-
-### Scale
-- **Type**: typing.Optional[int]
-
-### Nullable
-- **Type**: typing.Optional[typing.Literal['NOT_NULL', 'NULLABLE', 'UNKNOWN']]
-
-### CaseSensitive
-- **Type**: typing.Optional[bool]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ColumnTypeDef
 
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Comment
-- **Type**: typing.Optional[str]
-
-
-# CreateCapacityReservationInputRequestTypeDef
+# CreateCapacityReservationInputTypeDef
 
 ### TargetDpus
 - **Type**: <class 'int'>
@@ -300,27 +270,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.athena_classes.TagTypeDef]]
 
 
-# CreateDataCatalogInputRequestTypeDef
+# CreateDataCatalogOutputTypeDef
 
-### Name
-- **Type**: <class 'str'>
+### DataCatalog
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.DataCatalogTypeDef'>
 - **Required**: Yes
 
-### Type
-- **Type**: typing.Literal['GLUE', 'HIVE', 'LAMBDA']
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-### Description
-- **Type**: typing.Optional[str]
 
-### Parameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.athena_classes.TagTypeDef]]
-
-
-# CreateNamedQueryInputRequestTypeDef
+# CreateNamedQueryInputTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -355,7 +316,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateNotebookInputRequestTypeDef
+# CreateNotebookInputTypeDef
 
 ### WorkGroup
 - **Type**: <class 'str'>
@@ -380,7 +341,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePreparedStatementInputRequestTypeDef
+# CreatePreparedStatementInputTypeDef
 
 ### StatementName
 - **Type**: <class 'str'>
@@ -398,7 +359,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreatePresignedNotebookUrlRequestRequestTypeDef
+# CreatePresignedNotebookUrlRequestTypeDef
 
 ### SessionId
 - **Type**: <class 'str'>
@@ -424,7 +385,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateWorkGroupInputRequestTypeDef
+# CreateWorkGroupInputTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -449,29 +410,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DataCatalogSummaryTypeDef
 
-### CatalogName
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[typing.Literal['GLUE', 'HIVE', 'LAMBDA']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DataCatalogTypeDef
 
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Literal['GLUE', 'HIVE', 'LAMBDA']
-- **Required**: Yes
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Parameters
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DatabaseTypeDef
 
@@ -492,35 +439,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteCapacityReservationInputRequestTypeDef
+# DeleteCapacityReservationInputTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDataCatalogInputRequestTypeDef
+# DeleteDataCatalogInputTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### DeleteCatalogOnly
+- **Type**: typing.Optional[bool]
 
-# DeleteNamedQueryInputRequestTypeDef
+
+# DeleteDataCatalogOutputTypeDef
+
+### DataCatalog
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.DataCatalogTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DeleteNamedQueryInputTypeDef
 
 ### NamedQueryId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteNotebookInputRequestTypeDef
+# DeleteNotebookInputTypeDef
 
 ### NotebookId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePreparedStatementInputRequestTypeDef
+# DeletePreparedStatementInputTypeDef
 
 ### StatementName
 - **Type**: <class 'str'>
@@ -531,7 +492,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteWorkGroupInputRequestTypeDef
+# DeleteWorkGroupInputTypeDef
 
 ### WorkGroup
 - **Type**: <class 'str'>
@@ -589,6 +550,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
+# EngineConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # EngineVersionTypeDef
 
 ### SelectedEngineVersion
@@ -620,7 +587,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ExportNotebookInputRequestTypeDef
+# ExportNotebookInputTypeDef
 
 ### NotebookId
 - **Type**: <class 'str'>
@@ -648,7 +615,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetCalculationExecutionCodeRequestRequestTypeDef
+# GetCalculationExecutionCodeRequestTypeDef
 
 ### CalculationExecutionId
 - **Type**: <class 'str'>
@@ -666,7 +633,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCalculationExecutionRequestRequestTypeDef
+# GetCalculationExecutionRequestTypeDef
 
 ### CalculationExecutionId
 - **Type**: <class 'str'>
@@ -708,7 +675,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCalculationExecutionStatusRequestRequestTypeDef
+# GetCalculationExecutionStatusRequestTypeDef
 
 ### CalculationExecutionId
 - **Type**: <class 'str'>
@@ -730,7 +697,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCapacityAssignmentConfigurationInputRequestTypeDef
+# GetCapacityAssignmentConfigurationInputTypeDef
 
 ### CapacityReservationName
 - **Type**: <class 'str'>
@@ -748,7 +715,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCapacityReservationInputRequestTypeDef
+# GetCapacityReservationInputTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -766,7 +733,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDataCatalogInputRequestTypeDef
+# GetDataCatalogInputTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -787,7 +754,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDatabaseInputRequestTypeDef
+# GetDatabaseInputTypeDef
 
 ### CatalogName
 - **Type**: <class 'str'>
@@ -812,7 +779,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetNamedQueryInputRequestTypeDef
+# GetNamedQueryInputTypeDef
 
 ### NamedQueryId
 - **Type**: <class 'str'>
@@ -830,7 +797,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetNotebookMetadataInputRequestTypeDef
+# GetNotebookMetadataInputTypeDef
 
 ### NotebookId
 - **Type**: <class 'str'>
@@ -848,7 +815,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPreparedStatementInputRequestTypeDef
+# GetPreparedStatementInputTypeDef
 
 ### StatementName
 - **Type**: <class 'str'>
@@ -870,7 +837,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetQueryExecutionInputRequestTypeDef
+# GetQueryExecutionInputTypeDef
 
 ### QueryExecutionId
 - **Type**: <class 'str'>
@@ -888,7 +855,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetQueryResultsInputGetQueryResultsPaginateTypeDef
+# GetQueryResultsInputPaginateTypeDef
 
 ### QueryExecutionId
 - **Type**: <class 'str'>
@@ -898,7 +865,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.PaginatorConfigTypeDef]
 
 
-# GetQueryResultsInputRequestTypeDef
+# GetQueryResultsInputTypeDef
 
 ### QueryExecutionId
 - **Type**: <class 'str'>
@@ -929,7 +896,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetQueryRuntimeStatisticsInputRequestTypeDef
+# GetQueryRuntimeStatisticsInputTypeDef
 
 ### QueryExecutionId
 - **Type**: <class 'str'>
@@ -947,7 +914,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSessionRequestRequestTypeDef
+# GetSessionRequestTypeDef
 
 ### SessionId
 - **Type**: <class 'str'>
@@ -997,7 +964,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSessionStatusRequestRequestTypeDef
+# GetSessionStatusRequestTypeDef
 
 ### SessionId
 - **Type**: <class 'str'>
@@ -1019,7 +986,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTableMetadataInputRequestTypeDef
+# GetTableMetadataInputTypeDef
 
 ### CatalogName
 - **Type**: <class 'str'>
@@ -1048,7 +1015,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetWorkGroupInputRequestTypeDef
+# GetWorkGroupInputTypeDef
 
 ### WorkGroup
 - **Type**: <class 'str'>
@@ -1075,30 +1042,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ImportNotebookInputRequestTypeDef
-
-### WorkGroup
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['IPYNB']
-- **Required**: Yes
-
-### Payload
-- **Type**: typing.Optional[str]
-
-### NotebookS3LocationUri
-- **Type**: typing.Optional[str]
-
-### ClientRequestToken
-- **Type**: typing.Optional[str]
-
-
 # ImportNotebookOutputTypeDef
 
 ### NotebookId
@@ -1110,7 +1053,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListApplicationDPUSizesInputRequestTypeDef
+# ListApplicationDPUSizesInputTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1133,7 +1076,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCalculationExecutionsRequestRequestTypeDef
+# ListCalculationExecutionsRequestTypeDef
 
 ### SessionId
 - **Type**: <class 'str'>
@@ -1163,7 +1106,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCapacityReservationsInputRequestTypeDef
+# ListCapacityReservationsInputTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1186,7 +1129,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDataCatalogsInputListDataCatalogsPaginateTypeDef
+# ListDataCatalogsInputPaginateTypeDef
 
 ### WorkGroup
 - **Type**: typing.Optional[str]
@@ -1195,7 +1138,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.PaginatorConfigTypeDef]
 
 
-# ListDataCatalogsInputRequestTypeDef
+# ListDataCatalogsInputTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1221,7 +1164,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDatabasesInputListDatabasesPaginateTypeDef
+# ListDatabasesInputPaginateTypeDef
 
 ### CatalogName
 - **Type**: <class 'str'>
@@ -1234,7 +1177,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.PaginatorConfigTypeDef]
 
 
-# ListDatabasesInputRequestTypeDef
+# ListDatabasesInputTypeDef
 
 ### CatalogName
 - **Type**: <class 'str'>
@@ -1264,7 +1207,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListEngineVersionsInputRequestTypeDef
+# ListEngineVersionsInputTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1287,7 +1230,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListExecutorsRequestRequestTypeDef
+# ListExecutorsRequestTypeDef
 
 ### SessionId
 - **Type**: <class 'str'>
@@ -1321,7 +1264,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListNamedQueriesInputListNamedQueriesPaginateTypeDef
+# ListNamedQueriesInputPaginateTypeDef
 
 ### WorkGroup
 - **Type**: typing.Optional[str]
@@ -1330,7 +1273,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.PaginatorConfigTypeDef]
 
 
-# ListNamedQueriesInputRequestTypeDef
+# ListNamedQueriesInputTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1356,7 +1299,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListNotebookMetadataInputRequestTypeDef
+# ListNotebookMetadataInputTypeDef
 
 ### WorkGroup
 - **Type**: <class 'str'>
@@ -1386,7 +1329,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListNotebookSessionsRequestRequestTypeDef
+# ListNotebookSessionsRequestTypeDef
 
 ### NotebookId
 - **Type**: <class 'str'>
@@ -1413,7 +1356,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPreparedStatementsInputRequestTypeDef
+# ListPreparedStatementsInputTypeDef
 
 ### WorkGroup
 - **Type**: <class 'str'>
@@ -1440,7 +1383,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListQueryExecutionsInputListQueryExecutionsPaginateTypeDef
+# ListQueryExecutionsInputPaginateTypeDef
 
 ### WorkGroup
 - **Type**: typing.Optional[str]
@@ -1449,7 +1392,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.PaginatorConfigTypeDef]
 
 
-# ListQueryExecutionsInputRequestTypeDef
+# ListQueryExecutionsInputTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1475,7 +1418,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSessionsRequestRequestTypeDef
+# ListSessionsRequestTypeDef
 
 ### WorkGroup
 - **Type**: <class 'str'>
@@ -1505,7 +1448,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTableMetadataInputListTableMetadataPaginateTypeDef
+# ListTableMetadataInputPaginateTypeDef
 
 ### CatalogName
 - **Type**: <class 'str'>
@@ -1525,7 +1468,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.PaginatorConfigTypeDef]
 
 
-# ListTableMetadataInputRequestTypeDef
+# ListTableMetadataInputTypeDef
 
 ### CatalogName
 - **Type**: <class 'str'>
@@ -1562,7 +1505,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceInputListTagsForResourcePaginateTypeDef
+# ListTagsForResourceInputPaginateTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -1572,7 +1515,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.PaginatorConfigTypeDef]
 
 
-# ListTagsForResourceInputRequestTypeDef
+# ListTagsForResourceInputTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -1599,7 +1542,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListWorkGroupsInputRequestTypeDef
+# ListWorkGroupsInputTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1648,24 +1591,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # NotebookMetadataTypeDef
 
-### NotebookId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Name
-- **Type**: typing.Optional[str]
-
-### WorkGroup
-- **Type**: typing.Optional[str]
-
-### CreationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['IPYNB']]
-
-### LastModifiedTime
-- **Type**: typing.Optional[datetime.datetime]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # NotebookSessionSummaryTypeDef
 
@@ -1715,14 +1643,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# PutCapacityAssignmentConfigurationInputRequestTypeDef
+# PutCapacityAssignmentConfigurationInputTypeDef
 
 ### CapacityReservationName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### CapacityAssignments
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.athena_classes.CapacityAssignmentTypeDef, aws_resource_validator.pydantic_models.athena_classes.CapacityAssignmentOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.athena_classes.CapacityAssignmentUnionTypeDef]
 - **Required**: Yes
 
 
@@ -2100,7 +2028,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.athena_classes.SessionStatusTypeDef]
 
 
-# StartCalculationExecutionRequestRequestTypeDef
+# StartCalculationExecutionRequestTypeDef
 
 ### SessionId
 - **Type**: <class 'str'>
@@ -2134,7 +2062,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartQueryExecutionInputRequestTypeDef
+# StartQueryExecutionInputTypeDef
 
 ### QueryString
 - **Type**: <class 'str'>
@@ -2170,14 +2098,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartSessionRequestRequestTypeDef
+# StartSessionRequestTypeDef
 
 ### WorkGroup
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### EngineConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.EngineConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.athena_classes.EngineConfigurationUnionTypeDef'>
 - **Required**: Yes
 
 ### Description
@@ -2208,7 +2136,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopCalculationExecutionRequestRequestTypeDef
+# StopCalculationExecutionRequestTypeDef
 
 ### CalculationExecutionId
 - **Type**: <class 'str'>
@@ -2226,7 +2154,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopQueryExecutionInputRequestTypeDef
+# StopQueryExecutionInputTypeDef
 
 ### QueryExecutionId
 - **Type**: <class 'str'>
@@ -2258,7 +2186,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# TagResourceInputRequestTypeDef
+# TagResourceInputTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -2278,7 +2206,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TerminateSessionRequestRequestTypeDef
+# TerminateSessionRequestTypeDef
 
 ### SessionId
 - **Type**: <class 'str'>
@@ -2332,7 +2260,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceInputRequestTypeDef
+# UntagResourceInputTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -2343,7 +2271,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateCapacityReservationInputRequestTypeDef
+# UpdateCapacityReservationInputTypeDef
 
 ### TargetDpus
 - **Type**: <class 'int'>
@@ -2354,24 +2282,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDataCatalogInputRequestTypeDef
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['GLUE', 'HIVE', 'LAMBDA']
-- **Required**: Yes
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Parameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-
-# UpdateNamedQueryInputRequestTypeDef
+# UpdateNamedQueryInputTypeDef
 
 ### NamedQueryId
 - **Type**: <class 'str'>
@@ -2389,28 +2300,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateNotebookInputRequestTypeDef
-
-### NotebookId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Payload
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['IPYNB']
-- **Required**: Yes
-
-### SessionId
-- **Type**: typing.Optional[str]
-
-### ClientRequestToken
-- **Type**: typing.Optional[str]
-
-
-# UpdateNotebookMetadataInputRequestTypeDef
+# UpdateNotebookMetadataInputTypeDef
 
 ### NotebookId
 - **Type**: <class 'str'>
@@ -2424,7 +2314,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdatePreparedStatementInputRequestTypeDef
+# UpdatePreparedStatementInputTypeDef
 
 ### StatementName
 - **Type**: <class 'str'>
@@ -2442,7 +2332,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateWorkGroupInputRequestTypeDef
+# UpdateWorkGroupInputTypeDef
 
 ### WorkGroup
 - **Type**: <class 'str'>

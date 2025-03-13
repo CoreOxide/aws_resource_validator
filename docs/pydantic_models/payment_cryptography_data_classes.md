@@ -1,5 +1,31 @@
 # Payment Cryptography Data Classes
 
+# AmexAttributesTypeDef
+
+### MajorKeyDerivationMode
+- **Type**: typing.Literal['EMV_OPTION_A', 'EMV_OPTION_B']
+- **Required**: Yes
+
+### PrimaryAccountNumber
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PanSequenceNumber
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ApplicationTransactionCounter
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AuthorizationRequestKeyIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CurrentPinAttributes
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.CurrentPinAttributesTypeDef]
+
+
 # AmexCardSecurityCodeVersion1TypeDef
 
 ### CardExpiryDate
@@ -140,7 +166,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DecryptDataInputRequestTypeDef
+# CurrentPinAttributesTypeDef
+
+### CurrentPinPekIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CurrentEncryptedPinBlock
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DecryptDataInputTypeDef
 
 ### KeyIdentifier
 - **Type**: <class 'str'>
@@ -175,6 +212,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+
+# DerivationMethodAttributesTypeDef
+
+### EmvCommon
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.EmvCommonAttributesTypeDef]
+
+### Amex
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.AmexAttributesTypeDef]
+
+### Visa
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.VisaAttributesTypeDef]
+
+### Emv2000
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.Emv2000AttributesTypeDef]
+
+### Mastercard
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.MasterCardAttributesTypeDef]
 
 
 # DiscoverDynamicCardVerificationCodeTypeDef
@@ -273,6 +328,83 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# EcdhDerivationAttributesTypeDef
+
+### CertificateAuthorityPublicKeyIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PublicKeyCertificate
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### KeyAlgorithm
+- **Type**: typing.Literal['AES_128', 'AES_192', 'AES_256', 'TDES_2KEY', 'TDES_3KEY']
+- **Required**: Yes
+
+### KeyDerivationFunction
+- **Type**: typing.Literal['ANSI_X963', 'NIST_SP800']
+- **Required**: Yes
+
+### KeyDerivationHashAlgorithm
+- **Type**: typing.Literal['SHA_256', 'SHA_384', 'SHA_512']
+- **Required**: Yes
+
+### SharedInformation
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# Emv2000AttributesTypeDef
+
+### MajorKeyDerivationMode
+- **Type**: typing.Literal['EMV_OPTION_A', 'EMV_OPTION_B']
+- **Required**: Yes
+
+### PrimaryAccountNumber
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PanSequenceNumber
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ApplicationTransactionCounter
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# EmvCommonAttributesTypeDef
+
+### MajorKeyDerivationMode
+- **Type**: typing.Literal['EMV_OPTION_A', 'EMV_OPTION_B']
+- **Required**: Yes
+
+### PrimaryAccountNumber
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PanSequenceNumber
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ApplicationCryptogram
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Mode
+- **Type**: typing.Literal['CBC', 'ECB']
+- **Required**: Yes
+
+### PinBlockPaddingType
+- **Type**: typing.Literal['ISO_IEC_7816_4', 'NO_PADDING']
+- **Required**: Yes
+
+### PinBlockLengthPosition
+- **Type**: typing.Literal['FRONT_OF_PIN_BLOCK', 'NONE']
+- **Required**: Yes
+
+
 # EmvEncryptionAttributesTypeDef
 
 ### MajorKeyDerivationMode
@@ -298,7 +430,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EncryptDataInputRequestTypeDef
+# EncryptDataInputTypeDef
 
 ### KeyIdentifier
 - **Type**: <class 'str'>
@@ -350,7 +482,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.EmvEncryptionAttributesTypeDef]
 
 
-# GenerateCardValidationDataInputRequestTypeDef
+# GenerateCardValidationDataInputTypeDef
 
 ### KeyIdentifier
 - **Type**: <class 'str'>
@@ -387,7 +519,81 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GenerateMacInputRequestTypeDef
+# GenerateMacEmvPinChangeInputTypeDef
+
+### NewPinPekIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NewEncryptedPinBlock
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PinBlockFormat
+- **Type**: typing.Literal['ISO_FORMAT_0', 'ISO_FORMAT_1', 'ISO_FORMAT_3']
+- **Required**: Yes
+
+### SecureMessagingIntegrityKeyIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SecureMessagingConfidentialityKeyIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### MessageData
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DerivationMethodAttributes
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.DerivationMethodAttributesTypeDef'>
+- **Required**: Yes
+
+
+# GenerateMacEmvPinChangeOutputTypeDef
+
+### NewPinPekArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SecureMessagingIntegrityKeyArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SecureMessagingConfidentialityKeyArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Mac
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EncryptedPinBlock
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NewPinPekKeyCheckValue
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SecureMessagingIntegrityKeyCheckValue
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SecureMessagingConfidentialityKeyCheckValue
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### VisaAmexDerivationOutputs
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.VisaAmexDerivationOutputsTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GenerateMacInputTypeDef
 
 ### KeyIdentifier
 - **Type**: <class 'str'>
@@ -424,7 +630,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GeneratePinDataInputRequestTypeDef
+# GeneratePinDataInputTypeDef
 
 ### GenerationKeyIdentifier
 - **Type**: <class 'str'>
@@ -443,11 +649,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PinBlockFormat
-- **Type**: typing.Literal['ISO_FORMAT_0', 'ISO_FORMAT_3']
+- **Type**: typing.Literal['ISO_FORMAT_0', 'ISO_FORMAT_3', 'ISO_FORMAT_4']
 - **Required**: Yes
 
 ### PinDataLength
 - **Type**: typing.Optional[int]
+
+### EncryptionWrappedKey
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.WrappedKeyTypeDef]
 
 
 # GeneratePinDataOutputTypeDef
@@ -623,6 +832,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.MacAlgorithmDukptTypeDef]
 
 
+# MasterCardAttributesTypeDef
+
+### MajorKeyDerivationMode
+- **Type**: typing.Literal['EMV_OPTION_A', 'EMV_OPTION_B']
+- **Required**: Yes
+
+### PrimaryAccountNumber
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PanSequenceNumber
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ApplicationCryptogram
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
 # PinDataTypeDef
 
 ### PinOffset
@@ -662,7 +890,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.Ibm3624PinVerificationTypeDef]
 
 
-# ReEncryptDataInputRequestTypeDef
+# ReEncryptDataInputTypeDef
 
 ### IncomingKeyIdentifier
 - **Type**: <class 'str'>
@@ -852,7 +1080,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['OAEP_SHA1', 'OAEP_SHA256', 'OAEP_SHA512', 'PKCS1']]
 
 
-# TranslatePinDataInputRequestTypeDef
+# TranslatePinDataInputTypeDef
 
 ### IncomingKeyIdentifier
 - **Type**: <class 'str'>
@@ -928,7 +1156,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# VerifyAuthRequestCryptogramInputRequestTypeDef
+# VerifyAuthRequestCryptogramInputTypeDef
 
 ### KeyIdentifier
 - **Type**: <class 'str'>
@@ -973,7 +1201,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# VerifyCardValidationDataInputRequestTypeDef
+# VerifyCardValidationDataInputTypeDef
 
 ### KeyIdentifier
 - **Type**: <class 'str'>
@@ -1007,7 +1235,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# VerifyMacInputRequestTypeDef
+# VerifyMacInputTypeDef
 
 ### KeyIdentifier
 - **Type**: <class 'str'>
@@ -1044,7 +1272,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# VerifyPinDataInputRequestTypeDef
+# VerifyPinDataInputTypeDef
 
 ### VerificationKeyIdentifier
 - **Type**: <class 'str'>
@@ -1067,7 +1295,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PinBlockFormat
-- **Type**: typing.Literal['ISO_FORMAT_0', 'ISO_FORMAT_3']
+- **Type**: typing.Literal['ISO_FORMAT_0', 'ISO_FORMAT_3', 'ISO_FORMAT_4']
 - **Required**: Yes
 
 ### PinDataLength
@@ -1075,6 +1303,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### DukptAttributes
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.DukptAttributesTypeDef]
+
+### EncryptionWrappedKey
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.WrappedKeyTypeDef]
 
 
 # VerifyPinDataOutputTypeDef
@@ -1098,6 +1329,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+
+# VisaAmexDerivationOutputsTypeDef
+
+### AuthorizationRequestKeyArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AuthorizationRequestKeyCheckValue
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CurrentPinPekArn
+- **Type**: typing.Optional[str]
+
+### CurrentPinPekKeyCheckValue
+- **Type**: typing.Optional[str]
+
+
+# VisaAttributesTypeDef
+
+### MajorKeyDerivationMode
+- **Type**: typing.Literal['EMV_OPTION_A', 'EMV_OPTION_B']
+- **Required**: Yes
+
+### PrimaryAccountNumber
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PanSequenceNumber
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ApplicationTransactionCounter
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AuthorizationRequestKeyIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CurrentPinAttributes
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.CurrentPinAttributesTypeDef]
 
 
 # VisaPinTypeDef
@@ -1133,6 +1407,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Tr31KeyBlock
 - **Type**: typing.Optional[str]
+
+### DiffieHellmanSymmetricKey
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.EcdhDerivationAttributesTypeDef]
 
 
 # WrappedKeyTypeDef

@@ -132,6 +132,18 @@
 - **Min Length**: 25
 - **Max Length**: 25
 
+### IdentityCenterApplicationArn
+- **Type**: string
+- **Pattern**: `arn:[\w-]+:sso::\d{12}:application/(sso)?ins-[a-zA-Z0-9-.]{16}/apl-[a-zA-Z0-9]{16}`
+- **Min Length**: 10
+- **Max Length**: 1224
+
+### IdentityCenterInstanceArn
+- **Type**: string
+- **Pattern**: `arn:[\w-]+:sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}`
+- **Min Length**: 10
+- **Max Length**: 1224
+
 ### ListingId
 - **Type**: string
 - **Pattern**: `[0-9a-zA-Z./-]+`
@@ -280,6 +292,12 @@
 - **Min Length**: 0
 - **Max Length**: 32
 
+### SshPublicKeyBody
+- **Type**: string
+- **Pattern**: `\s*(ssh|ecdsa)-[a-z0-9-]+[ \t]+(([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{1,3})?(={0,3})?)(\s*|[ \t]+[\S \t]*\s*)`
+- **Min Length**: 0
+- **Max Length**: 2048
+
 ### SshPublicKeyId
 - **Type**: string
 - **Pattern**: `key-[0-9a-f]{17}`
@@ -303,6 +321,12 @@
 - **Pattern**: `vpce-[0-9a-f]{17}`
 - **Min Length**: 22
 - **Max Length**: 22
+
+### WebAppId
+- **Type**: string
+- **Pattern**: `webapp-[0-9a-f]{17}`
+- **Min Length**: 24
+- **Max Length**: 24
 
 ### WorkflowDescription
 - **Type**: string

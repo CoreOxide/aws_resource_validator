@@ -13,7 +13,7 @@
 - **Type**: typing.Optional[typing.Dict[typing.Literal['MD5', 'SHA-1', 'SHA-256', 'SHA-512'], str]]
 
 
-# AssociateExternalConnectionRequestRequestTypeDef
+# AssociateExternalConnectionRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -44,65 +44,15 @@
 
 # AssociatedPackageTypeDef
 
-### format
-- **Type**: typing.Optional[typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### namespace
-- **Type**: typing.Optional[str]
-
-### package
-- **Type**: typing.Optional[str]
-
-### associationType
-- **Type**: typing.Optional[typing.Literal['STRONG', 'WEAK']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BaseValidatorModel
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# CopyPackageVersionsRequestRequestTypeDef
-
-### domain
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sourceRepository
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### destinationRepository
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### format
-- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
-- **Required**: Yes
-
-### package
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### domainOwner
-- **Type**: typing.Optional[str]
-
-### namespace
-- **Type**: typing.Optional[str]
-
-### versions
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### versionRevisions
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### allowOverwrite
-- **Type**: typing.Optional[bool]
-
-### includeFromUpstream
-- **Type**: typing.Optional[bool]
-
 
 # CopyPackageVersionsResultTypeDef
 
@@ -119,7 +69,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDomainRequestRequestTypeDef
+# CreateDomainRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -143,7 +93,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePackageGroupRequestRequestTypeDef
+# CreatePackageGroupRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -177,7 +127,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateRepositoryRequestRequestTypeDef
+# CreateRepositoryRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -211,7 +161,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDomainPermissionsPolicyRequestRequestTypeDef
+# DeleteDomainPermissionsPolicyRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -235,7 +185,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDomainRequestRequestTypeDef
+# DeleteDomainRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -256,7 +206,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeletePackageGroupRequestRequestTypeDef
+# DeletePackageGroupRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -281,31 +231,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeletePackageRequestRequestTypeDef
-
-### domain
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### repository
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### format
-- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
-- **Required**: Yes
-
-### package
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### domainOwner
-- **Type**: typing.Optional[str]
-
-### namespace
-- **Type**: typing.Optional[str]
-
-
 # DeletePackageResultTypeDef
 
 ### deletedPackage
@@ -315,38 +240,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
-
-
-# DeletePackageVersionsRequestRequestTypeDef
-
-### domain
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### repository
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### format
-- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
-- **Required**: Yes
-
-### package
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### versions
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-### domainOwner
-- **Type**: typing.Optional[str]
-
-### namespace
-- **Type**: typing.Optional[str]
-
-### expectedStatus
-- **Type**: typing.Optional[typing.Literal['Archived', 'Deleted', 'Disposed', 'Published', 'Unfinished', 'Unlisted']]
 
 
 # DeletePackageVersionsResultTypeDef
@@ -364,7 +257,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteRepositoryPermissionsPolicyRequestRequestTypeDef
+# DeleteRepositoryPermissionsPolicyRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -392,7 +285,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteRepositoryRequestRequestTypeDef
+# DeleteRepositoryRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -417,7 +310,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDomainRequestRequestTypeDef
+# DescribeDomainRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -438,7 +331,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribePackageGroupRequestRequestTypeDef
+# DescribePackageGroupRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -463,31 +356,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribePackageRequestRequestTypeDef
-
-### domain
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### repository
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### format
-- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
-- **Required**: Yes
-
-### package
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### domainOwner
-- **Type**: typing.Optional[str]
-
-### namespace
-- **Type**: typing.Optional[str]
-
-
 # DescribePackageResultTypeDef
 
 ### package
@@ -497,35 +365,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
-
-
-# DescribePackageVersionRequestRequestTypeDef
-
-### domain
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### repository
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### format
-- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
-- **Required**: Yes
-
-### package
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### packageVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### domainOwner
-- **Type**: typing.Optional[str]
-
-### namespace
-- **Type**: typing.Optional[str]
 
 
 # DescribePackageVersionResultTypeDef
@@ -539,7 +378,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeRepositoryRequestRequestTypeDef
+# DescribeRepositoryRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -564,7 +403,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateExternalConnectionRequestRequestTypeDef
+# DisassociateExternalConnectionRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -591,41 +430,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
-
-
-# DisposePackageVersionsRequestRequestTypeDef
-
-### domain
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### repository
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### format
-- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
-- **Required**: Yes
-
-### package
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### versions
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-### domainOwner
-- **Type**: typing.Optional[str]
-
-### namespace
-- **Type**: typing.Optional[str]
-
-### versionRevisions
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### expectedStatus
-- **Type**: typing.Optional[typing.Literal['Archived', 'Deleted', 'Disposed', 'Published', 'Unfinished', 'Unlisted']]
 
 
 # DisposePackageVersionsResultTypeDef
@@ -703,27 +507,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetAssociatedPackageGroupRequestRequestTypeDef
-
-### domain
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### format
-- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
-- **Required**: Yes
-
-### package
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### domainOwner
-- **Type**: typing.Optional[str]
-
-### namespace
-- **Type**: typing.Optional[str]
-
-
 # GetAssociatedPackageGroupResultTypeDef
 
 ### packageGroup
@@ -739,7 +522,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAuthorizationTokenRequestRequestTypeDef
+# GetAuthorizationTokenRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -767,7 +550,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDomainPermissionsPolicyRequestRequestTypeDef
+# GetDomainPermissionsPolicyRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -786,42 +569,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
-
-
-# GetPackageVersionAssetRequestRequestTypeDef
-
-### domain
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### repository
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### format
-- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
-- **Required**: Yes
-
-### package
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### packageVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### asset
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### domainOwner
-- **Type**: typing.Optional[str]
-
-### namespace
-- **Type**: typing.Optional[str]
-
-### packageVersionRevision
-- **Type**: typing.Optional[str]
 
 
 # GetPackageVersionAssetResultTypeDef
@@ -847,84 +594,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPackageVersionReadmeRequestRequestTypeDef
-
-### domain
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### repository
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### format
-- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
-- **Required**: Yes
-
-### package
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### packageVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### domainOwner
-- **Type**: typing.Optional[str]
-
-### namespace
-- **Type**: typing.Optional[str]
-
-
-# GetPackageVersionReadmeResultTypeDef
-
-### format
-- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
-- **Required**: Yes
-
-### namespace
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### package
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### version
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### versionRevision
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### readme
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetRepositoryEndpointRequestRequestTypeDef
-
-### domain
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### repository
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### format
-- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
-- **Required**: Yes
-
-### domainOwner
-- **Type**: typing.Optional[str]
-
-
 # GetRepositoryEndpointResultTypeDef
 
 ### repositoryEndpoint
@@ -936,7 +605,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRepositoryPermissionsPolicyRequestRequestTypeDef
+# GetRepositoryPermissionsPolicyRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -970,7 +639,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAllowedRepositoriesForGroupRequestListAllowedRepositoriesForGroupPaginateTypeDef
+# ListAllowedRepositoriesForGroupRequestPaginateTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -991,7 +660,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PaginatorConfigTypeDef]
 
 
-# ListAllowedRepositoriesForGroupRequestRequestTypeDef
+# ListAllowedRepositoriesForGroupRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -1021,16 +690,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListAssociatedPackagesRequestListAssociatedPackagesPaginateTypeDef
+
+# ListAssociatedPackagesRequestPaginateTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -1050,7 +718,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PaginatorConfigTypeDef]
 
 
-# ListAssociatedPackagesRequestRequestTypeDef
+# ListAssociatedPackagesRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -1079,22 +747,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact_classes.AssociatedPackageTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListDomainsRequestListDomainsPaginateTypeDef
+
+# ListDomainsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PaginatorConfigTypeDef]
 
 
-# ListDomainsRequestRequestTypeDef
+# ListDomainsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1109,16 +776,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact_classes.DomainSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListPackageGroupsRequestListPackageGroupsPaginateTypeDef
+
+# ListPackageGroupsRequestPaginateTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -1134,7 +800,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PaginatorConfigTypeDef]
 
 
-# ListPackageGroupsRequestRequestTypeDef
+# ListPackageGroupsRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -1159,357 +825,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact_classes.PackageGroupSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# ListPackageVersionAssetsRequestListPackageVersionAssetsPaginateTypeDef
-
-### domain
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### repository
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### format
-- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
-- **Required**: Yes
-
-### package
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### packageVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### domainOwner
-- **Type**: typing.Optional[str]
-
-### namespace
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PaginatorConfigTypeDef]
-
-
-# ListPackageVersionAssetsRequestRequestTypeDef
-
-### domain
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### repository
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### format
-- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
-- **Required**: Yes
-
-### package
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### packageVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### domainOwner
-- **Type**: typing.Optional[str]
-
-### namespace
-- **Type**: typing.Optional[str]
-
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
-
-
-# ListPackageVersionAssetsResultTypeDef
-
-### format
-- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
-- **Required**: Yes
-
-### namespace
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### package
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### version
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### versionRevision
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### assets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact_classes.AssetSummaryTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# ListPackageVersionDependenciesRequestRequestTypeDef
-
-### domain
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### repository
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### format
-- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
-- **Required**: Yes
-
-### package
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### packageVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### domainOwner
-- **Type**: typing.Optional[str]
-
-### namespace
-- **Type**: typing.Optional[str]
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListPackageVersionDependenciesResultTypeDef
-
-### format
-- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
-- **Required**: Yes
-
-### namespace
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### package
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### version
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### versionRevision
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### dependencies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact_classes.PackageDependencyTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# ListPackageVersionsRequestListPackageVersionsPaginateTypeDef
-
-### domain
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### repository
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### format
-- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
-- **Required**: Yes
-
-### package
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### domainOwner
-- **Type**: typing.Optional[str]
-
-### namespace
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[typing.Literal['Archived', 'Deleted', 'Disposed', 'Published', 'Unfinished', 'Unlisted']]
-
-### sortBy
-- **Type**: typing.Optional[typing.Literal['PUBLISHED_TIME']]
-
-### originType
-- **Type**: typing.Optional[typing.Literal['EXTERNAL', 'INTERNAL', 'UNKNOWN']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PaginatorConfigTypeDef]
-
-
-# ListPackageVersionsRequestRequestTypeDef
-
-### domain
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### repository
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### format
-- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
-- **Required**: Yes
-
-### package
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### domainOwner
-- **Type**: typing.Optional[str]
-
-### namespace
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[typing.Literal['Archived', 'Deleted', 'Disposed', 'Published', 'Unfinished', 'Unlisted']]
-
-### sortBy
-- **Type**: typing.Optional[typing.Literal['PUBLISHED_TIME']]
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-### originType
-- **Type**: typing.Optional[typing.Literal['EXTERNAL', 'INTERNAL', 'UNKNOWN']]
-
-
-# ListPackageVersionsResultTypeDef
-
-### defaultDisplayVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### format
-- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
-- **Required**: Yes
-
-### namespace
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### package
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### versions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact_classes.PackageVersionSummaryTypeDef]
-- **Required**: Yes
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# ListPackagesRequestListPackagesPaginateTypeDef
-
-### domain
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### repository
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### domainOwner
-- **Type**: typing.Optional[str]
-
-### format
-- **Type**: typing.Optional[typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']]
-
-### namespace
-- **Type**: typing.Optional[str]
-
-### packagePrefix
-- **Type**: typing.Optional[str]
-
-### publish
-- **Type**: typing.Optional[typing.Literal['ALLOW', 'BLOCK']]
-
-### upstream
-- **Type**: typing.Optional[typing.Literal['ALLOW', 'BLOCK']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PaginatorConfigTypeDef]
-
-
-# ListPackagesRequestRequestTypeDef
-
-### domain
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### repository
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### domainOwner
-- **Type**: typing.Optional[str]
-
-### format
-- **Type**: typing.Optional[typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']]
-
-### namespace
-- **Type**: typing.Optional[str]
-
-### packagePrefix
-- **Type**: typing.Optional[str]
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-### publish
-- **Type**: typing.Optional[typing.Literal['ALLOW', 'BLOCK']]
-
-### upstream
-- **Type**: typing.Optional[typing.Literal['ALLOW', 'BLOCK']]
 
 
 # ListPackagesResultTypeDef
@@ -1518,16 +839,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact_classes.PackageSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListRepositoriesInDomainRequestListRepositoriesInDomainPaginateTypeDef
+
+# ListRepositoriesInDomainRequestPaginateTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -1546,7 +866,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PaginatorConfigTypeDef]
 
 
-# ListRepositoriesInDomainRequestRequestTypeDef
+# ListRepositoriesInDomainRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -1574,16 +894,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact_classes.RepositorySummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListRepositoriesRequestListRepositoriesPaginateTypeDef
+
+# ListRepositoriesRequestPaginateTypeDef
 
 ### repositoryPrefix
 - **Type**: typing.Optional[str]
@@ -1592,7 +911,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PaginatorConfigTypeDef]
 
 
-# ListRepositoriesRequestRequestTypeDef
+# ListRepositoriesRequestTypeDef
 
 ### repositoryPrefix
 - **Type**: typing.Optional[str]
@@ -1610,16 +929,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact_classes.RepositorySummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListSubPackageGroupsRequestListSubPackageGroupsPaginateTypeDef
+
+# ListSubPackageGroupsRequestPaginateTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -1636,7 +954,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PaginatorConfigTypeDef]
 
 
-# ListSubPackageGroupsRequestRequestTypeDef
+# ListSubPackageGroupsRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -1662,16 +980,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact_classes.PackageGroupSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1706,18 +1023,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PackageDescriptionTypeDef
 
-### format
-- **Type**: typing.Optional[typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### namespace
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### originConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PackageOriginConfigurationTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PackageGroupAllowedRepositoryTypeDef
 
@@ -1837,60 +1145,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PackageSummaryTypeDef
 
-### format
-- **Type**: typing.Optional[typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### namespace
-- **Type**: typing.Optional[str]
-
-### package
-- **Type**: typing.Optional[str]
-
-### originConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PackageOriginConfigurationTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PackageVersionDescriptionTypeDef
 
-### format
-- **Type**: typing.Optional[typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### namespace
-- **Type**: typing.Optional[str]
-
-### packageName
-- **Type**: typing.Optional[str]
-
-### displayName
-- **Type**: typing.Optional[str]
-
-### version
-- **Type**: typing.Optional[str]
-
-### summary
-- **Type**: typing.Optional[str]
-
-### homePage
-- **Type**: typing.Optional[str]
-
-### sourceCodeRepository
-- **Type**: typing.Optional[str]
-
-### publishedTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### licenses
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeartifact_classes.LicenseInfoTypeDef]]
-
-### revision
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[typing.Literal['Archived', 'Deleted', 'Disposed', 'Published', 'Unfinished', 'Unlisted']]
-
-### origin
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PackageVersionOriginTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PackageVersionErrorTypeDef
 
@@ -1939,86 +1202,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PublishPackageVersionRequestRequestTypeDef
-
-### domain
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### repository
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### format
-- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
-- **Required**: Yes
-
-### package
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### packageVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### assetContent
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
-- **Required**: Yes
-
-### assetName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### assetSHA256
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### domainOwner
-- **Type**: typing.Optional[str]
-
-### namespace
-- **Type**: typing.Optional[str]
-
-### unfinished
-- **Type**: typing.Optional[bool]
-
-
-# PublishPackageVersionResultTypeDef
-
-### format
-- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
-- **Required**: Yes
-
-### namespace
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### package
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### version
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### versionRevision
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['Archived', 'Deleted', 'Disposed', 'Published', 'Unfinished', 'Unlisted']
-- **Required**: Yes
-
-### asset
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.AssetSummaryTypeDef'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# PutDomainPermissionsPolicyRequestRequestTypeDef
+# PutDomainPermissionsPolicyRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -2046,35 +1230,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutPackageOriginConfigurationRequestRequestTypeDef
-
-### domain
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### repository
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### format
-- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
-- **Required**: Yes
-
-### package
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### restrictions
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.PackageOriginRestrictionsTypeDef'>
-- **Required**: Yes
-
-### domainOwner
-- **Type**: typing.Optional[str]
-
-### namespace
-- **Type**: typing.Optional[str]
-
-
 # PutPackageOriginConfigurationResultTypeDef
 
 ### originConfiguration
@@ -2086,7 +1241,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutRepositoryPermissionsPolicyRequestRequestTypeDef
+# PutRepositoryPermissionsPolicyRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -2227,7 +1382,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Archived', 'Deleted', 'Disposed', 'Published', 'Unfinished', 'Unlisted']]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2249,7 +1404,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2260,7 +1415,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePackageGroupOriginConfigurationRequestRequestTypeDef
+# UpdatePackageGroupOriginConfigurationRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -2290,7 +1445,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### allowedRepositoryUpdates
-- **Type**: typing.List[typing.Literal['EXTERNAL_UPSTREAM', 'INTERNAL_UPSTREAM', 'PUBLISH']]
+- **Type**: typing.Dict[typing.Literal['EXTERNAL_UPSTREAM', 'INTERNAL_UPSTREAM', 'PUBLISH'], typing.Dict[typing.Literal['ADDED', 'REMOVED'], typing.List[str]]]
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -2298,7 +1453,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePackageGroupRequestRequestTypeDef
+# UpdatePackageGroupRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>
@@ -2329,45 +1484,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePackageVersionsStatusRequestRequestTypeDef
-
-### domain
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### repository
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### format
-- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
-- **Required**: Yes
-
-### package
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### versions
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-### targetStatus
-- **Type**: typing.Literal['Archived', 'Deleted', 'Disposed', 'Published', 'Unfinished', 'Unlisted']
-- **Required**: Yes
-
-### domainOwner
-- **Type**: typing.Optional[str]
-
-### namespace
-- **Type**: typing.Optional[str]
-
-### versionRevisions
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### expectedStatus
-- **Type**: typing.Optional[typing.Literal['Archived', 'Deleted', 'Disposed', 'Published', 'Unfinished', 'Unlisted']]
-
-
 # UpdatePackageVersionsStatusResultTypeDef
 
 ### successfulVersions
@@ -2383,7 +1499,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRepositoryRequestRequestTypeDef
+# UpdateRepositoryRequestTypeDef
 
 ### domain
 - **Type**: <class 'str'>

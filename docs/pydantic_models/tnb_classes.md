@@ -6,51 +6,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelSolNetworkOperationInputRequestTypeDef
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CancelSolNetworkOperationInputTypeDef
 
 ### nsLcmOpOccId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CreateSolFunctionPackageInputRequestTypeDef
+# CreateSolFunctionPackageInputTypeDef
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateSolFunctionPackageOutputTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### onboardingState
-- **Type**: typing.Literal['CREATED', 'ERROR', 'ONBOARDED']
-- **Required**: Yes
-
-### operationalState
-- **Type**: typing.Literal['DISABLED', 'ENABLED']
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### usageState
-- **Type**: typing.Literal['IN_USE', 'NOT_IN_USE']
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# CreateSolNetworkInstanceInputRequestTypeDef
+# CreateSolNetworkInstanceInputTypeDef
 
 ### nsName
 - **Type**: <class 'str'>
@@ -67,85 +42,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateSolNetworkInstanceOutputTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nsInstanceName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nsdInfoId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# CreateSolNetworkPackageInputRequestTypeDef
+# CreateSolNetworkPackageInputTypeDef
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateSolNetworkPackageOutputTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nsdOnboardingState
-- **Type**: typing.Literal['CREATED', 'ERROR', 'ONBOARDED']
-- **Required**: Yes
-
-### nsdOperationalState
-- **Type**: typing.Literal['DISABLED', 'ENABLED']
-- **Required**: Yes
-
-### nsdUsageState
-- **Type**: typing.Literal['IN_USE', 'NOT_IN_USE']
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# DeleteSolFunctionPackageInputRequestTypeDef
+# DeleteSolFunctionPackageInputTypeDef
 
 ### vnfPkgId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSolNetworkInstanceInputRequestTypeDef
+# DeleteSolNetworkInstanceInputTypeDef
 
 ### nsInstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSolNetworkPackageInputRequestTypeDef
+# DeleteSolNetworkPackageInputTypeDef
 
 ### nsdInfoId
 - **Type**: <class 'str'>
@@ -174,7 +91,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.tnb_classes.ToscaOverrideTypeDef]]
 
 
-# GetSolFunctionInstanceInputRequestTypeDef
+# GetSolFunctionInstanceInputTypeDef
 
 ### vnfInstanceId
 - **Type**: <class 'str'>
@@ -192,62 +109,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSolFunctionInstanceOutputTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### instantiatedVnfInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.GetSolVnfInfoTypeDef'>
-- **Required**: Yes
-
-### instantiationState
-- **Type**: typing.Literal['INSTANTIATED', 'NOT_INSTANTIATED']
-- **Required**: Yes
-
-### metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.GetSolFunctionInstanceMetadataTypeDef'>
-- **Required**: Yes
-
-### nsInstanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### vnfPkgId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### vnfProductName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### vnfProvider
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### vnfdId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### vnfdVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetSolFunctionPackageContentInputRequestTypeDef
+# GetSolFunctionPackageContentInputTypeDef
 
 ### accept
 - **Type**: typing.Literal['application/zip']
@@ -273,7 +135,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSolFunctionPackageDescriptorInputRequestTypeDef
+# GetSolFunctionPackageDescriptorInputTypeDef
 
 ### accept
 - **Type**: typing.Literal['text/plain']
@@ -299,7 +161,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSolFunctionPackageInputRequestTypeDef
+# GetSolFunctionPackageInputTypeDef
 
 ### vnfPkgId
 - **Type**: <class 'str'>
@@ -320,64 +182,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.tnb_classes.FunctionArtifactMetaTypeDef]
 
 
-# GetSolFunctionPackageOutputTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.GetSolFunctionPackageMetadataTypeDef'>
-- **Required**: Yes
-
-### onboardingState
-- **Type**: typing.Literal['CREATED', 'ERROR', 'ONBOARDED']
-- **Required**: Yes
-
-### operationalState
-- **Type**: typing.Literal['DISABLED', 'ENABLED']
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### usageState
-- **Type**: typing.Literal['IN_USE', 'NOT_IN_USE']
-- **Required**: Yes
-
-### vnfProductName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### vnfProvider
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### vnfdId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### vnfdVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
 # GetSolInstantiatedVnfInfoTypeDef
 
 ### vnfState
 - **Type**: typing.Optional[typing.Literal['STARTED', 'STOPPED']]
 
 
-# GetSolNetworkInstanceInputRequestTypeDef
+# GetSolNetworkInstanceInputTypeDef
 
 ### nsInstanceId
 - **Type**: <class 'str'>
@@ -395,54 +206,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSolNetworkInstanceOutputTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### lcmOpInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.LcmOperationInfoTypeDef'>
-- **Required**: Yes
-
-### metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.GetSolNetworkInstanceMetadataTypeDef'>
-- **Required**: Yes
-
-### nsInstanceDescription
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nsInstanceName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nsState
-- **Type**: typing.Literal['DELETED', 'IMPAIRED', 'INSTANTIATED', 'INSTANTIATE_IN_PROGRESS', 'NOT_INSTANTIATED', 'STOPPED', 'TERMINATE_IN_PROGRESS', 'UPDATE_IN_PROGRESS']
-- **Required**: Yes
-
-### nsdId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nsdInfoId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetSolNetworkOperationInputRequestTypeDef
+# GetSolNetworkOperationInputTypeDef
 
 ### nsLcmOpOccId
 - **Type**: <class 'str'>
@@ -459,48 +223,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
+### instantiateMetadata
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.tnb_classes.InstantiateMetadataTypeDef]
 
-# GetSolNetworkOperationOutputTypeDef
+### modifyVnfInfoMetadata
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.tnb_classes.ModifyVnfInfoMetadataTypeDef]
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### error
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.ProblemDetailsTypeDef'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### lcmOperationType
-- **Type**: typing.Literal['INSTANTIATE', 'TERMINATE', 'UPDATE']
-- **Required**: Yes
-
-### metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.GetSolNetworkOperationMetadataTypeDef'>
-- **Required**: Yes
-
-### nsInstanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### operationState
-- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'COMPLETED', 'FAILED', 'PROCESSING']
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### tasks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.tnb_classes.GetSolNetworkOperationTaskDetailsTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
+### updateNsMetadata
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.tnb_classes.UpdateNsMetadataTypeDef]
 
 
 # GetSolNetworkOperationTaskDetailsTypeDef
@@ -524,7 +254,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CANCELLED', 'COMPLETED', 'ERROR', 'IN_PROGRESS', 'SCHEDULED', 'SKIPPED', 'STARTED']]
 
 
-# GetSolNetworkPackageContentInputRequestTypeDef
+# GetSolNetworkPackageContentInputTypeDef
 
 ### accept
 - **Type**: typing.Literal['application/zip']
@@ -550,7 +280,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSolNetworkPackageDescriptorInputRequestTypeDef
+# GetSolNetworkPackageDescriptorInputTypeDef
 
 ### nsdInfoId
 - **Type**: <class 'str'>
@@ -572,7 +302,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSolNetworkPackageInputRequestTypeDef
+# GetSolNetworkPackageInputTypeDef
 
 ### nsdInfoId
 - **Type**: <class 'str'>
@@ -591,57 +321,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### nsd
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.tnb_classes.NetworkArtifactMetaTypeDef]
-
-
-# GetSolNetworkPackageOutputTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.GetSolNetworkPackageMetadataTypeDef'>
-- **Required**: Yes
-
-### nsdId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nsdName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nsdOnboardingState
-- **Type**: typing.Literal['CREATED', 'ERROR', 'ONBOARDED']
-- **Required**: Yes
-
-### nsdOperationalState
-- **Type**: typing.Literal['DISABLED', 'ENABLED']
-- **Required**: Yes
-
-### nsdUsageState
-- **Type**: typing.Literal['IN_USE', 'NOT_IN_USE']
-- **Required**: Yes
-
-### nsdVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### vnfPkgIds
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
 
 
 # GetSolVnfInfoTypeDef
@@ -671,7 +350,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.tnb_classes.GetSolVnfcResourceInfoMetadataTypeDef]
 
 
-# InstantiateSolNetworkInstanceInputRequestTypeDef
+# InstantiateMetadataTypeDef
+
+### nsdInfoId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### additionalParamsForNs
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+
+# InstantiateSolNetworkInstanceInputTypeDef
 
 ### nsInstanceId
 - **Type**: <class 'str'>
@@ -711,36 +400,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListSolFunctionInstanceInfoTypeDef
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### instantiationState
-- **Type**: typing.Literal['INSTANTIATED', 'NOT_INSTANTIATED']
-- **Required**: Yes
-
-### metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.ListSolFunctionInstanceMetadataTypeDef'>
-- **Required**: Yes
-
-### nsInstanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### vnfPkgId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### instantiatedVnfInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.tnb_classes.GetSolInstantiatedVnfInfoTypeDef]
-
-### vnfPkgName
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ListSolFunctionInstanceMetadataTypeDef
 
@@ -753,13 +415,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListSolFunctionInstancesInputListSolFunctionInstancesPaginateTypeDef
+# ListSolFunctionInstancesInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.tnb_classes.PaginatorConfigTypeDef]
 
 
-# ListSolFunctionInstancesInputRequestTypeDef
+# ListSolFunctionInstancesInputTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -774,52 +436,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.tnb_classes.ListSolFunctionInstanceInfoTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
+
 
 # ListSolFunctionPackageInfoTypeDef
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### onboardingState
-- **Type**: typing.Literal['CREATED', 'ERROR', 'ONBOARDED']
-- **Required**: Yes
-
-### operationalState
-- **Type**: typing.Literal['DISABLED', 'ENABLED']
-- **Required**: Yes
-
-### usageState
-- **Type**: typing.Literal['IN_USE', 'NOT_IN_USE']
-- **Required**: Yes
-
-### metadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.tnb_classes.ListSolFunctionPackageMetadataTypeDef]
-
-### vnfProductName
-- **Type**: typing.Optional[str]
-
-### vnfProvider
-- **Type**: typing.Optional[str]
-
-### vnfdId
-- **Type**: typing.Optional[str]
-
-### vnfdVersion
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ListSolFunctionPackageMetadataTypeDef
 
@@ -832,13 +461,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListSolFunctionPackagesInputListSolFunctionPackagesPaginateTypeDef
+# ListSolFunctionPackagesInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.tnb_classes.PaginatorConfigTypeDef]
 
 
-# ListSolFunctionPackagesInputRequestTypeDef
+# ListSolFunctionPackagesInputTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -853,49 +482,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.tnb_classes.ListSolFunctionPackageInfoTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
+
 
 # ListSolNetworkInstanceInfoTypeDef
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.ListSolNetworkInstanceMetadataTypeDef'>
-- **Required**: Yes
-
-### nsInstanceDescription
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nsInstanceName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nsState
-- **Type**: typing.Literal['DELETED', 'IMPAIRED', 'INSTANTIATED', 'INSTANTIATE_IN_PROGRESS', 'NOT_INSTANTIATED', 'STOPPED', 'TERMINATE_IN_PROGRESS', 'UPDATE_IN_PROGRESS']
-- **Required**: Yes
-
-### nsdId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nsdInfoId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ListSolNetworkInstanceMetadataTypeDef
 
@@ -908,13 +507,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListSolNetworkInstancesInputListSolNetworkInstancesPaginateTypeDef
+# ListSolNetworkInstancesInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.tnb_classes.PaginatorConfigTypeDef]
 
 
-# ListSolNetworkInstancesInputRequestTypeDef
+# ListSolNetworkInstancesInputTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -929,56 +528,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.tnb_classes.ListSolNetworkInstanceInfoTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
+
 
 # ListSolNetworkOperationsInfoTypeDef
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### lcmOperationType
-- **Type**: typing.Literal['INSTANTIATE', 'TERMINATE', 'UPDATE']
-- **Required**: Yes
+# ListSolNetworkOperationsInputPaginateTypeDef
 
 ### nsInstanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### operationState
-- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'COMPLETED', 'FAILED', 'PROCESSING']
-- **Required**: Yes
-
-### error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.tnb_classes.ProblemDetailsTypeDef]
-
-### metadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.tnb_classes.ListSolNetworkOperationsMetadataTypeDef]
-
-
-# ListSolNetworkOperationsInputListSolNetworkOperationsPaginateTypeDef
+- **Type**: typing.Optional[str]
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.tnb_classes.PaginatorConfigTypeDef]
 
 
-# ListSolNetworkOperationsInputRequestTypeDef
+# ListSolNetworkOperationsInputTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
 
 ### nextToken
+- **Type**: typing.Optional[str]
+
+### nsInstanceId
 - **Type**: typing.Optional[str]
 
 
@@ -992,6 +573,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
+### nsdInfoId
+- **Type**: typing.Optional[str]
+
+### vnfInstanceId
+- **Type**: typing.Optional[str]
+
 
 # ListSolNetworkOperationsOutputTypeDef
 
@@ -999,59 +586,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.tnb_classes.ListSolNetworkOperationsInfoTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
+
 
 # ListSolNetworkPackageInfoTypeDef
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.ListSolNetworkPackageMetadataTypeDef'>
-- **Required**: Yes
-
-### nsdOnboardingState
-- **Type**: typing.Literal['CREATED', 'ERROR', 'ONBOARDED']
-- **Required**: Yes
-
-### nsdOperationalState
-- **Type**: typing.Literal['DISABLED', 'ENABLED']
-- **Required**: Yes
-
-### nsdUsageState
-- **Type**: typing.Literal['IN_USE', 'NOT_IN_USE']
-- **Required**: Yes
-
-### nsdDesigner
-- **Type**: typing.Optional[str]
-
-### nsdId
-- **Type**: typing.Optional[str]
-
-### nsdInvariantId
-- **Type**: typing.Optional[str]
-
-### nsdName
-- **Type**: typing.Optional[str]
-
-### nsdVersion
-- **Type**: typing.Optional[str]
-
-### vnfPkgIds
-- **Type**: typing.Optional[typing.List[str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ListSolNetworkPackageMetadataTypeDef
 
@@ -1064,13 +611,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListSolNetworkPackagesInputListSolNetworkPackagesPaginateTypeDef
+# ListSolNetworkPackagesInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.tnb_classes.PaginatorConfigTypeDef]
 
 
-# ListSolNetworkPackagesInputRequestTypeDef
+# ListSolNetworkPackagesInputTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1085,16 +632,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.tnb_classes.ListSolNetworkPackageInfoTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceInputRequestTypeDef
+
+# ListTagsForResourceInputTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1109,6 +655,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# ModifyVnfInfoMetadataTypeDef
+
+### vnfConfigurableProperties
+- **Type**: typing.Dict[str, typing.Any]
+- **Required**: Yes
+
+### vnfInstanceId
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 
@@ -1140,10 +697,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutSolFunctionPackageContentInputRequestTypeDef
+# PutSolFunctionPackageContentInputTypeDef
 
 ### file
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### vnfPkgId
@@ -1160,41 +717,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.tnb_classes.FunctionArtifactMetaTypeDef]
 
 
-# PutSolFunctionPackageContentOutputTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.PutSolFunctionPackageContentMetadataTypeDef'>
-- **Required**: Yes
-
-### vnfProductName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### vnfProvider
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### vnfdId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### vnfdVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# PutSolNetworkPackageContentInputRequestTypeDef
+# PutSolNetworkPackageContentInputTypeDef
 
 ### file
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### nsdInfoId
@@ -1211,48 +737,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.tnb_classes.NetworkArtifactMetaTypeDef]
 
 
-# PutSolNetworkPackageContentOutputTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.PutSolNetworkPackageContentMetadataTypeDef'>
-- **Required**: Yes
-
-### nsdId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nsdName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nsdVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### vnfPkgIds
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
 # ResponseMetadataTypeDef
 
 ### RequestId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### HostId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -1268,8 +755,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# TagResourceInputRequestTypeDef
+
+# TagResourceInputTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1280,7 +770,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TerminateSolNetworkInstanceInputRequestTypeDef
+# TerminateSolNetworkInstanceInputTypeDef
 
 ### nsInstanceId
 - **Type**: <class 'str'>
@@ -1314,7 +804,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceInputRequestTypeDef
+# UntagResourceInputTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1325,7 +815,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateSolFunctionPackageInputRequestTypeDef
+# UpdateNsMetadataTypeDef
+
+### nsdInfoId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### additionalParamsForNs
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+
+# UpdateSolFunctionPackageInputTypeDef
 
 ### operationalState
 - **Type**: typing.Literal['DISABLED', 'ENABLED']
@@ -1347,14 +847,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateSolNetworkInstanceInputRequestTypeDef
+# UpdateSolNetworkInstanceInputTypeDef
 
 ### nsInstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### updateType
-- **Type**: typing.Literal['MODIFY_VNF_INFORMATION']
+- **Type**: typing.Literal['MODIFY_VNF_INFORMATION', 'UPDATE_NS']
 - **Required**: Yes
 
 ### modifyVnfInfoData
@@ -1362,6 +862,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### updateNs
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.tnb_classes.UpdateSolNetworkServiceDataTypeDef]
 
 
 # UpdateSolNetworkInstanceOutputTypeDef
@@ -1390,7 +893,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateSolNetworkPackageInputRequestTypeDef
+# UpdateSolNetworkPackageInputTypeDef
 
 ### nsdInfoId
 - **Type**: <class 'str'>
@@ -1412,10 +915,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ValidateSolFunctionPackageContentInputRequestTypeDef
+# UpdateSolNetworkServiceDataTypeDef
+
+### nsdInfoId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### additionalParamsForNs
+- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+
+
+# ValidateSolFunctionPackageContentInputTypeDef
 
 ### file
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### vnfPkgId
@@ -1432,41 +945,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.tnb_classes.FunctionArtifactMetaTypeDef]
 
 
-# ValidateSolFunctionPackageContentOutputTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.ValidateSolFunctionPackageContentMetadataTypeDef'>
-- **Required**: Yes
-
-### vnfProductName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### vnfProvider
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### vnfdId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### vnfdVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# ValidateSolNetworkPackageContentInputRequestTypeDef
+# ValidateSolNetworkPackageContentInputTypeDef
 
 ### file
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### nsdInfoId
@@ -1481,40 +963,5 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### nsd
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.tnb_classes.NetworkArtifactMetaTypeDef]
-
-
-# ValidateSolNetworkPackageContentOutputTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.ValidateSolNetworkPackageContentMetadataTypeDef'>
-- **Required**: Yes
-
-### nsdId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nsdName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nsdVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### vnfPkgIds
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.tnb_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
 
 

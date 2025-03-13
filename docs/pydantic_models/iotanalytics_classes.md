@@ -1,19 +1,5 @@
 # Iotanalytics Classes
 
-# AddAttributesActivityTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### attributes
-- **Type**: typing.Mapping[str, str]
-- **Required**: Yes
-
-### next
-- **Type**: typing.Optional[str]
-
-
 # BaseValidatorModel
 
 Oops! This Pydantic model is currently empty. Stay tuned!
@@ -32,7 +18,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchPutMessageRequestRequestTypeDef
+# BatchPutMessageRequestTypeDef
 
 ### channelName
 - **Type**: <class 'str'>
@@ -54,7 +40,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CancelPipelineReprocessingRequestRequestTypeDef
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CancelPipelineReprocessingRequestTypeDef
 
 ### pipelineName
 - **Type**: <class 'str'>
@@ -63,20 +55,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### reprocessingId
 - **Type**: <class 'str'>
 - **Required**: Yes
-
-
-# ChannelActivityTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### channelName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### next
-- **Type**: typing.Optional[str]
 
 
 # ChannelMessagesTypeDef
@@ -89,6 +67,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### size
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.EstimatedResourceSizeTypeDef]
+
+
+# ChannelStorageOutputTypeDef
+
+### serviceManagedS3
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### customerManagedS3
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.CustomerManagedChannelS3StorageTypeDef]
 
 
 # ChannelStorageSummaryTypeDef
@@ -108,6 +95,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### customerManagedS3
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.CustomerManagedChannelS3StorageTypeDef]
 
+
+# ChannelStorageUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ChannelSummaryTypeDef
 
@@ -136,7 +129,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### storage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.ChannelStorageTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.ChannelStorageOutputTypeDef]
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -159,13 +152,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ColumnTypeDef
 
-### name
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ContainerDatasetActionOutputTypeDef
+
+### image
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### type
+### executionRoleArn
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+### resourceConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotanalytics_classes.ResourceConfigurationTypeDef'>
+- **Required**: Yes
+
+### variables
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotanalytics_classes.VariableTypeDef]]
 
 
 # ContainerDatasetActionTypeDef
@@ -186,14 +192,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotanalytics_classes.VariableTypeDef]]
 
 
-# CreateChannelRequestRequestTypeDef
+# ContainerDatasetActionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CreateChannelRequestTypeDef
 
 ### channelName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### channelStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.ChannelStorageTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.ChannelStorageUnionTypeDef]
 
 ### retentionPeriod
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.RetentionPeriodTypeDef]
@@ -221,7 +233,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDatasetContentRequestRequestTypeDef
+# CreateDatasetContentRequestTypeDef
 
 ### datasetName
 - **Type**: <class 'str'>
@@ -242,14 +254,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDatasetRequestRequestTypeDef
+# CreateDatasetRequestTypeDef
 
 ### datasetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### actions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotanalytics_classes.DatasetActionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotanalytics_classes.DatasetActionUnionTypeDef]
 - **Required**: Yes
 
 ### triggers
@@ -290,14 +302,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDatastoreRequestRequestTypeDef
+# CreateDatastoreRequestTypeDef
 
 ### datastoreName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### datastoreStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.DatastoreStorageTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.DatastoreStorageUnionTypeDef]
 
 ### retentionPeriod
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.RetentionPeriodTypeDef]
@@ -306,10 +318,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotanalytics_classes.TagTypeDef]]
 
 ### fileFormatConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.FileFormatConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.FileFormatConfigurationUnionTypeDef]
 
 ### datastorePartitions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.DatastorePartitionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.DatastorePartitionsUnionTypeDef]
 
 
 # CreateDatastoreResponseTypeDef
@@ -331,14 +343,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePipelineRequestRequestTypeDef
+# CreatePipelineRequestTypeDef
 
 ### pipelineName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### pipelineActivities
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotanalytics_classes.PipelineActivityTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotanalytics_classes.PipelineActivityUnionTypeDef]
 - **Required**: Yes
 
 ### tags
@@ -412,6 +424,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# DatasetActionOutputTypeDef
+
+### actionName
+- **Type**: typing.Optional[str]
+
+### queryAction
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.SqlQueryDatasetActionOutputTypeDef]
+
+### containerAction
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.ContainerDatasetActionOutputTypeDef]
+
+
 # DatasetActionSummaryTypeDef
 
 ### actionName
@@ -427,11 +451,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### queryAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.SqlQueryDatasetActionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.SqlQueryDatasetActionUnionTypeDef]
 
 ### containerAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.ContainerDatasetActionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.ContainerDatasetActionUnionTypeDef]
 
+
+# DatasetActionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DatasetContentDeliveryDestinationTypeDef
 
@@ -534,7 +564,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### actions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotanalytics_classes.DatasetActionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotanalytics_classes.DatasetActionOutputTypeDef]]
 
 ### triggers
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotanalytics_classes.DatasetTriggerTypeDef]]
@@ -594,7 +624,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.TimestampPartitionTypeDef]
 
 
-# DatastorePartitionsPaginatorTypeDef
+# DatastorePartitionsOutputTypeDef
 
 ### partitions
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotanalytics_classes.DatastorePartitionTypeDef]]
@@ -606,10 +636,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotanalytics_classes.DatastorePartitionTypeDef]]
 
 
+# DatastorePartitionsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # DatastoreStatisticsTypeDef
 
 ### size
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.EstimatedResourceSizeTypeDef]
+
+
+# DatastoreStorageOutputTypeDef
+
+### serviceManagedS3
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### customerManagedS3
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.CustomerManagedDatastoreS3StorageTypeDef]
+
+### iotSiteWiseMultiLayerStorage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.DatastoreIotSiteWiseMultiLayerStorageTypeDef]
 
 
 # DatastoreStorageSummaryTypeDef
@@ -636,32 +684,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.DatastoreIotSiteWiseMultiLayerStorageTypeDef]
 
 
-# DatastoreSummaryPaginatorTypeDef
+# DatastoreStorageUnionTypeDef
 
-### datastoreName
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### datastoreStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.DatastoreStorageSummaryTypeDef]
-
-### status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING']]
-
-### creationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### lastUpdateTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### lastMessageArrivalTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### fileFormatType
-- **Type**: typing.Optional[typing.Literal['JSON', 'PARQUET']]
-
-### datastorePartitions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.DatastorePartitionsPaginatorTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DatastoreSummaryTypeDef
 
@@ -687,7 +714,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['JSON', 'PARQUET']]
 
 ### datastorePartitions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.DatastorePartitionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.DatastorePartitionsOutputTypeDef]
 
 
 # DatastoreTypeDef
@@ -696,7 +723,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### storage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.DatastoreStorageTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.DatastoreStorageOutputTypeDef]
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -717,20 +744,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### fileFormatConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.FileFormatConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.FileFormatConfigurationOutputTypeDef]
 
 ### datastorePartitions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.DatastorePartitionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.DatastorePartitionsOutputTypeDef]
 
 
-# DeleteChannelRequestRequestTypeDef
+# DeleteChannelRequestTypeDef
 
 ### channelName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDatasetContentRequestRequestTypeDef
+# DeleteDatasetContentRequestTypeDef
 
 ### datasetName
 - **Type**: <class 'str'>
@@ -740,21 +767,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteDatasetRequestRequestTypeDef
+# DeleteDatasetRequestTypeDef
 
 ### datasetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDatastoreRequestRequestTypeDef
+# DeleteDatastoreRequestTypeDef
 
 ### datastoreName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePipelineRequestRequestTypeDef
+# DeletePipelineRequestTypeDef
 
 ### pipelineName
 - **Type**: <class 'str'>
@@ -779,7 +806,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeChannelRequestRequestTypeDef
+# DescribeChannelRequestTypeDef
 
 ### channelName
 - **Type**: <class 'str'>
@@ -804,7 +831,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDatasetRequestRequestTypeDef
+# DescribeDatasetRequestTypeDef
 
 ### datasetName
 - **Type**: <class 'str'>
@@ -822,7 +849,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDatastoreRequestRequestTypeDef
+# DescribeDatastoreRequestTypeDef
 
 ### datastoreName
 - **Type**: <class 'str'>
@@ -858,7 +885,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribePipelineRequestRequestTypeDef
+# DescribePipelineRequestTypeDef
 
 ### pipelineName
 - **Type**: <class 'str'>
@@ -874,50 +901,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.iotanalytics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
-
-
-# DeviceRegistryEnrichActivityTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### attribute
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### thingName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### roleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### next
-- **Type**: typing.Optional[str]
-
-
-# DeviceShadowEnrichActivityTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### attribute
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### thingName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### roleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### next
-- **Type**: typing.Optional[str]
 
 
 # EmptyResponseMetadataTypeDef
@@ -936,6 +919,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
+# FileFormatConfigurationOutputTypeDef
+
+### jsonConfiguration
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### parquetConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.ParquetConfigurationOutputTypeDef]
+
+
 # FileFormatConfigurationTypeDef
 
 ### jsonConfiguration
@@ -945,21 +937,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.ParquetConfigurationTypeDef]
 
 
-# FilterActivityTypeDef
+# FileFormatConfigurationUnionTypeDef
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### filter
-- **Type**: <class 'str'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### next
-- **Type**: typing.Optional[str]
-
-
-# GetDatasetContentRequestRequestTypeDef
+# GetDatasetContentRequestTypeDef
 
 ### datasetName
 - **Type**: <class 'str'>
@@ -1029,24 +1013,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LambdaActivityTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### lambdaName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### batchSize
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### next
-- **Type**: typing.Optional[str]
-
-
 # LateDataRuleConfigurationTypeDef
 
 ### deltaTimeSessionWindowConfiguration
@@ -1063,13 +1029,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListChannelsRequestListChannelsPaginateTypeDef
+# ListChannelsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.PaginatorConfigTypeDef]
 
 
-# ListChannelsRequestRequestTypeDef
+# ListChannelsRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1084,32 +1050,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.iotanalytics_classes.ChannelSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.iotanalytics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListDatasetContentsRequestListDatasetContentsPaginateTypeDef
+
+# ListDatasetContentsRequestPaginateTypeDef
 
 ### datasetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### scheduledOnOrAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.TimestampTypeDef]
 
 ### scheduledBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.TimestampTypeDef]
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.PaginatorConfigTypeDef]
 
 
-# ListDatasetContentsRequestRequestTypeDef
+# ListDatasetContentsRequestTypeDef
 
 ### datasetName
 - **Type**: <class 'str'>
@@ -1122,10 +1087,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### scheduledOnOrAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.TimestampTypeDef]
 
 ### scheduledBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.TimestampTypeDef]
 
 
 # ListDatasetContentsResponseTypeDef
@@ -1134,22 +1099,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.iotanalytics_classes.DatasetContentSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.iotanalytics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListDatasetsRequestListDatasetsPaginateTypeDef
+
+# ListDatasetsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.PaginatorConfigTypeDef]
 
 
-# ListDatasetsRequestRequestTypeDef
+# ListDatasetsRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1164,22 +1128,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.iotanalytics_classes.DatasetSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.iotanalytics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListDatastoresRequestListDatastoresPaginateTypeDef
+
+# ListDatastoresRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.PaginatorConfigTypeDef]
 
 
-# ListDatastoresRequestRequestTypeDef
+# ListDatastoresRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1188,43 +1151,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDatastoresResponsePaginatorTypeDef
-
-### datastoreSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotanalytics_classes.DatastoreSummaryPaginatorTypeDef]
-- **Required**: Yes
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotanalytics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
 # ListDatastoresResponseTypeDef
 
 ### datastoreSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.iotanalytics_classes.DatastoreSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.iotanalytics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListPipelinesRequestListPipelinesPaginateTypeDef
+
+# ListPipelinesRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.PaginatorConfigTypeDef]
 
 
-# ListPipelinesRequestRequestTypeDef
+# ListPipelinesRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1239,16 +1186,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.iotanalytics_classes.PipelineSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.iotanalytics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1281,24 +1227,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# MathActivityTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### attribute
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### math
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### next
-- **Type**: typing.Optional[str]
-
-
 # MessageTypeDef
 
 ### messageId
@@ -1306,7 +1234,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### payload
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotanalytics_classes.BlobTypeDef'>
 - **Required**: Yes
 
 
@@ -1329,6 +1257,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# ParquetConfigurationOutputTypeDef
+
+### schemaDefinition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.SchemaDefinitionOutputTypeDef]
+
+
 # ParquetConfigurationTypeDef
 
 ### schemaDefinition
@@ -1342,35 +1276,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PipelineActivityTypeDef
+# PipelineActivityOutputTypeDef
 
-### channel
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.ChannelActivityTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### datastore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.DatastoreActivityTypeDef]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### addAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.AddAttributesActivityTypeDef]
+# PipelineActivityUnionTypeDef
 
-### removeAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.RemoveAttributesActivityTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### selectAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.SelectAttributesActivityTypeDef]
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.FilterActivityTypeDef]
-
-### math
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.MathActivityTypeDef]
-
-### deviceRegistryEnrich
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.DeviceRegistryEnrichActivityTypeDef]
-
-### deviceShadowEnrich
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.DeviceShadowEnrichActivityTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PipelineSummaryTypeDef
 
@@ -1396,7 +1312,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### activities
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotanalytics_classes.PipelineActivityTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotanalytics_classes.PipelineActivityOutputTypeDef]]
 
 ### reprocessingSummaries
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotanalytics_classes.ReprocessingSummaryTypeDef]]
@@ -1408,7 +1324,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# PutLoggingOptionsRequestRequestTypeDef
+# PutLoggingOptionsRequestTypeDef
 
 ### loggingOptions
 - **Type**: <class 'aws_resource_validator.pydantic_models.iotanalytics_classes.LoggingOptionsTypeDef'>
@@ -1421,31 +1337,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.DeltaTimeTypeDef]
 
 
-# RemoveAttributesActivityTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### attributes
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-### next
-- **Type**: typing.Optional[str]
-
-
 # ReprocessingSummaryTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### status
-- **Type**: typing.Optional[typing.Literal['CANCELLED', 'FAILED', 'RUNNING', 'SUCCEEDED']]
-
-### creationTime
-- **Type**: typing.Optional[datetime.datetime]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResourceConfigurationTypeDef
 
@@ -1464,10 +1360,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -1480,6 +1372,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
+
 
 # RetentionPeriodTypeDef
 
@@ -1490,14 +1385,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# RunPipelineActivityRequestRequestTypeDef
+# RunPipelineActivityRequestTypeDef
 
 ### pipelineActivity
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotanalytics_classes.PipelineActivityTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotanalytics_classes.PipelineActivityUnionTypeDef'>
 - **Required**: Yes
 
 ### payloads
-- **Type**: typing.Sequence[typing.Union[str, bytes, typing.IO[typing.Any]]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotanalytics_classes.BlobTypeDef]
 - **Required**: Yes
 
 
@@ -1534,7 +1429,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.GlueConfigurationTypeDef]
 
 
-# SampleChannelDataRequestRequestTypeDef
+# SampleChannelDataRequestTypeDef
 
 ### channelName
 - **Type**: <class 'str'>
@@ -1544,10 +1439,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### startTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.TimestampTypeDef]
 
 ### endTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.TimestampTypeDef]
 
 
 # SampleChannelDataResponseTypeDef
@@ -1567,24 +1462,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# SchemaDefinitionOutputTypeDef
+
+### columns
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotanalytics_classes.ColumnTypeDef]]
+
+
 # SchemaDefinitionTypeDef
 
 ### columns
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotanalytics_classes.ColumnTypeDef]]
 
 
-# SelectAttributesActivityTypeDef
+# SqlQueryDatasetActionOutputTypeDef
 
-### name
+### sqlQuery
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### attributes
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-### next
-- **Type**: typing.Optional[str]
+### filters
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotanalytics_classes.QueryFilterTypeDef]]
 
 
 # SqlQueryDatasetActionTypeDef
@@ -1597,17 +1494,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotanalytics_classes.QueryFilterTypeDef]]
 
 
-# StartPipelineReprocessingRequestRequestTypeDef
+# SqlQueryDatasetActionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# StartPipelineReprocessingRequestTypeDef
 
 ### pipelineName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### startTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.TimestampTypeDef]
 
 ### endTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.TimestampTypeDef]
 
 ### channelMessages
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.ChannelMessagesTypeDef]
@@ -1624,7 +1527,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1656,6 +1559,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # TriggeringDatasetTypeDef
 
 ### name
@@ -1663,7 +1572,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1674,27 +1583,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateChannelRequestRequestTypeDef
+# UpdateChannelRequestTypeDef
 
 ### channelName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### channelStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.ChannelStorageTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.ChannelStorageUnionTypeDef]
 
 ### retentionPeriod
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.RetentionPeriodTypeDef]
 
 
-# UpdateDatasetRequestRequestTypeDef
+# UpdateDatasetRequestTypeDef
 
 ### datasetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### actions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotanalytics_classes.DatasetActionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotanalytics_classes.DatasetActionUnionTypeDef]
 - **Required**: Yes
 
 ### triggers
@@ -1713,7 +1622,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotanalytics_classes.LateDataRuleTypeDef]]
 
 
-# UpdateDatastoreRequestRequestTypeDef
+# UpdateDatastoreRequestTypeDef
 
 ### datastoreName
 - **Type**: <class 'str'>
@@ -1723,20 +1632,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.RetentionPeriodTypeDef]
 
 ### datastoreStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.DatastoreStorageTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.DatastoreStorageUnionTypeDef]
 
 ### fileFormatConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.FileFormatConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotanalytics_classes.FileFormatConfigurationUnionTypeDef]
 
 
-# UpdatePipelineRequestRequestTypeDef
+# UpdatePipelineRequestTypeDef
 
 ### pipelineName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### pipelineActivities
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotanalytics_classes.PipelineActivityTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotanalytics_classes.PipelineActivityUnionTypeDef]
 - **Required**: Yes
 
 

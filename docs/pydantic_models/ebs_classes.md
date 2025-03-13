@@ -6,6 +6,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # BlockTypeDef
 
 ### BlockIndex
@@ -27,7 +33,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CompleteSnapshotRequestRequestTypeDef
+# CompleteSnapshotRequestTypeDef
 
 ### SnapshotId
 - **Type**: <class 'str'>
@@ -58,7 +64,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSnapshotBlockRequestRequestTypeDef
+# GetSnapshotBlockRequestTypeDef
 
 ### SnapshotId
 - **Type**: <class 'str'>
@@ -96,7 +102,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListChangedBlocksRequestRequestTypeDef
+# ListChangedBlocksRequestTypeDef
 
 ### SecondSnapshotId
 - **Type**: <class 'str'>
@@ -133,16 +139,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ebs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListSnapshotBlocksRequestRequestTypeDef
+
+# ListSnapshotBlocksRequestTypeDef
 
 ### SnapshotId
 - **Type**: <class 'str'>
@@ -176,16 +181,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ebs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# PutSnapshotBlockRequestRequestTypeDef
+
+# PutSnapshotBlockRequestTypeDef
 
 ### SnapshotId
 - **Type**: <class 'str'>
@@ -196,7 +200,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### BlockData
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.ebs_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### DataLength
@@ -236,10 +240,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -252,8 +252,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# StartSnapshotRequestRequestTypeDef
+
+# StartSnapshotRequestTypeDef
 
 ### VolumeSize
 - **Type**: <class 'int'>

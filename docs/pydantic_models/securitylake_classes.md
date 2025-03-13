@@ -43,7 +43,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateAwsLogSourceRequestRequestTypeDef
+# CreateAwsLogSourceRequestTypeDef
 
 ### sources
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.securitylake_classes.AwsLogSourceConfigurationTypeDef]
@@ -61,7 +61,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCustomLogSourceRequestRequestTypeDef
+# CreateCustomLogSourceRequestTypeDef
 
 ### configuration
 - **Type**: <class 'aws_resource_validator.pydantic_models.securitylake_classes.CustomLogSourceConfigurationTypeDef'>
@@ -89,7 +89,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDataLakeExceptionSubscriptionRequestRequestTypeDef
+# CreateDataLakeExceptionSubscriptionRequestTypeDef
 
 ### notificationEndpoint
 - **Type**: <class 'str'>
@@ -103,13 +103,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CreateDataLakeOrganizationConfigurationRequestRequestTypeDef
+# CreateDataLakeOrganizationConfigurationRequestTypeDef
 
 ### autoEnableNewAccount
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.securitylake_classes.DataLakeAutoEnableNewAccountConfigurationTypeDef, aws_resource_validator.pydantic_models.securitylake_classes.DataLakeAutoEnableNewAccountConfigurationOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securitylake_classes.DataLakeAutoEnableNewAccountConfigurationUnionTypeDef]]
 
 
-# CreateDataLakeRequestRequestTypeDef
+# CreateDataLakeRequestTypeDef
 
 ### configurations
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.securitylake_classes.DataLakeConfigurationTypeDef]
@@ -134,7 +134,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateSubscriberNotificationRequestRequestTypeDef
+# CreateSubscriberNotificationRequestTypeDef
 
 ### configuration
 - **Type**: <class 'aws_resource_validator.pydantic_models.securitylake_classes.NotificationConfigurationTypeDef'>
@@ -156,7 +156,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateSubscriberRequestRequestTypeDef
+# CreateSubscriberRequestTypeDef
 
 ### sources
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.securitylake_classes.LogSourceResourceTypeDef]
@@ -267,6 +267,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# DataLakeAutoEnableNewAccountConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # DataLakeConfigurationTypeDef
 
 ### region
@@ -277,10 +283,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.securitylake_classes.DataLakeEncryptionConfigurationTypeDef]
 
 ### lifecycleConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securitylake_classes.DataLakeLifecycleConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securitylake_classes.DataLakeLifecycleConfigurationUnionTypeDef]
 
 ### replicationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securitylake_classes.DataLakeReplicationConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securitylake_classes.DataLakeReplicationConfigurationUnionTypeDef]
 
 
 # DataLakeEncryptionConfigurationTypeDef
@@ -322,6 +328,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securitylake_classes.DataLakeLifecycleTransitionTypeDef]]
 
 
+# DataLakeLifecycleConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # DataLakeLifecycleExpirationTypeDef
 
 ### days
@@ -354,6 +366,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### roleArn
 - **Type**: typing.Optional[str]
 
+
+# DataLakeReplicationConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DataLakeResourceTypeDef
 
@@ -429,7 +447,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'FAILED', 'INITIALIZED', 'PENDING']]
 
 
-# DeleteAwsLogSourceRequestRequestTypeDef
+# DeleteAwsLogSourceRequestTypeDef
 
 ### sources
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.securitylake_classes.AwsLogSourceConfigurationTypeDef]
@@ -447,7 +465,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteCustomLogSourceRequestRequestTypeDef
+# DeleteCustomLogSourceRequestTypeDef
 
 ### sourceName
 - **Type**: <class 'str'>
@@ -457,27 +475,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteDataLakeOrganizationConfigurationRequestRequestTypeDef
+# DeleteDataLakeOrganizationConfigurationRequestTypeDef
 
 ### autoEnableNewAccount
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.securitylake_classes.DataLakeAutoEnableNewAccountConfigurationTypeDef, aws_resource_validator.pydantic_models.securitylake_classes.DataLakeAutoEnableNewAccountConfigurationOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securitylake_classes.DataLakeAutoEnableNewAccountConfigurationUnionTypeDef]]
 
 
-# DeleteDataLakeRequestRequestTypeDef
+# DeleteDataLakeRequestTypeDef
 
 ### regions
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# DeleteSubscriberNotificationRequestRequestTypeDef
+# DeleteSubscriberNotificationRequestTypeDef
 
 ### subscriberId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSubscriberRequestRequestTypeDef
+# DeleteSubscriberRequestTypeDef
 
 ### subscriberId
 - **Type**: <class 'str'>
@@ -514,7 +532,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDataLakeSourcesRequestGetDataLakeSourcesPaginateTypeDef
+# GetDataLakeSourcesRequestPaginateTypeDef
 
 ### accounts
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -523,7 +541,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.securitylake_classes.PaginatorConfigTypeDef]
 
 
-# GetDataLakeSourcesRequestRequestTypeDef
+# GetDataLakeSourcesRequestTypeDef
 
 ### accounts
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -545,16 +563,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.securitylake_classes.DataLakeSourceTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.securitylake_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetSubscriberRequestRequestTypeDef
+
+# GetSubscriberRequestTypeDef
 
 ### subscriberId
 - **Type**: <class 'str'>
@@ -592,7 +609,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['POST', 'PUT']]
 
 
-# ListDataLakeExceptionsRequestListDataLakeExceptionsPaginateTypeDef
+# ListDataLakeExceptionsRequestPaginateTypeDef
 
 ### regions
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -601,7 +618,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.securitylake_classes.PaginatorConfigTypeDef]
 
 
-# ListDataLakeExceptionsRequestRequestTypeDef
+# ListDataLakeExceptionsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -619,16 +636,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.securitylake_classes.DataLakeExceptionTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.securitylake_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListDataLakesRequestRequestTypeDef
+
+# ListDataLakesRequestTypeDef
 
 ### regions
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -645,7 +661,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListLogSourcesRequestListLogSourcesPaginateTypeDef
+# ListLogSourcesRequestPaginateTypeDef
 
 ### accounts
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -660,7 +676,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.securitylake_classes.PaginatorConfigTypeDef]
 
 
-# ListLogSourcesRequestRequestTypeDef
+# ListLogSourcesRequestTypeDef
 
 ### accounts
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -680,10 +696,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListLogSourcesResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### sources
 - **Type**: typing.List[aws_resource_validator.pydantic_models.securitylake_classes.LogSourceTypeDef]
 - **Required**: Yes
@@ -692,14 +704,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.securitylake_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListSubscribersRequestListSubscribersPaginateTypeDef
+
+# ListSubscribersRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.securitylake_classes.PaginatorConfigTypeDef]
 
 
-# ListSubscribersRequestRequestTypeDef
+# ListSubscribersRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -710,10 +725,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListSubscribersResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### subscribers
 - **Type**: typing.List[aws_resource_validator.pydantic_models.securitylake_classes.SubscriberResourceTypeDef]
 - **Required**: Yes
@@ -722,8 +733,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.securitylake_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -783,7 +797,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RegisterDataLakeDelegatedAdministratorRequestRequestTypeDef
+# RegisterDataLakeDelegatedAdministratorRequestTypeDef
 
 ### accountId
 - **Type**: <class 'str'>
@@ -865,7 +879,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -887,7 +901,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -898,7 +912,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDataLakeExceptionSubscriptionRequestRequestTypeDef
+# UpdateDataLakeExceptionSubscriptionRequestTypeDef
 
 ### notificationEndpoint
 - **Type**: <class 'str'>
@@ -912,7 +926,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# UpdateDataLakeRequestRequestTypeDef
+# UpdateDataLakeRequestTypeDef
 
 ### configurations
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.securitylake_classes.DataLakeConfigurationTypeDef]
@@ -933,7 +947,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateSubscriberNotificationRequestRequestTypeDef
+# UpdateSubscriberNotificationRequestTypeDef
 
 ### configuration
 - **Type**: <class 'aws_resource_validator.pydantic_models.securitylake_classes.NotificationConfigurationTypeDef'>
@@ -955,7 +969,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateSubscriberRequestRequestTypeDef
+# UpdateSubscriberRequestTypeDef
 
 ### subscriberId
 - **Type**: <class 'str'>

@@ -16,13 +16,27 @@
 - **Min Length**: 1
 - **Max Length**: 1024
 
+### DeviceCreationTagKey
+- **Type**: string
+- **Pattern**: `(?!aws:)[A-Za-z0-9 _=@:.+-/]+`
+- **Min Length**: 1
+- **Max Length**: 128
+
+### DeviceCreationTagValue
+- **Type**: string
+- **Pattern**: `[A-Za-z0-9 _=@:.+-/]+`
+- **Min Length**: 0
+- **Max Length**: 256
+
 ### DeviceId
 - **Type**: string
 - **Pattern**: `[a-zA-Z0-9]{24}`
 
 ### DeviceName
 - **Type**: string
-- **Pattern**: `[0-9\p{IsAlphabetic}+:,.@\'" -]{1,64}`
+- **Pattern**: `$|^[0-9\p{IsAlphabetic}+:,.@\'" -]*`
+- **Min Length**: 0
+- **Max Length**: 64
 
 ### EnvironmentId
 - **Type**: string
@@ -30,7 +44,9 @@
 
 ### EnvironmentName
 - **Type**: string
-- **Pattern**: `[0-9\p{IsAlphabetic}+:,.@\'" -][0-9\p{IsAlphabetic}+=:,.@\'" -]{0,63}`
+- **Pattern**: `$|^[0-9\p{IsAlphabetic}+:,.@\'" -][0-9\p{IsAlphabetic}+=:,.@\'" -]*`
+- **Min Length**: 0
+- **Max Length**: 64
 
 ### KmsKeyArn
 - **Type**: string

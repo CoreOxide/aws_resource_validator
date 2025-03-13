@@ -6,6 +6,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # BotAliasMetadataTypeDef
 
 ### name
@@ -35,33 +41,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # BotChannelAssociationTypeDef
 
-### name
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### description
-- **Type**: typing.Optional[str]
-
-### botAlias
-- **Type**: typing.Optional[str]
-
-### botName
-- **Type**: typing.Optional[str]
-
-### createdDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### type
-- **Type**: typing.Optional[typing.Literal['Facebook', 'Kik', 'Slack', 'Twilio-Sms']]
-
-### botConfiguration
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### status
-- **Type**: typing.Optional[typing.Literal['CREATED', 'FAILED', 'IN_PROGRESS']]
-
-### failureReason
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BotMetadataTypeDef
 
@@ -139,7 +121,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateBotVersionRequestRequestTypeDef
+# CreateBotVersionRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -164,11 +146,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### clarificationPrompt
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.PromptTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.PromptOutputTypeDef'>
 - **Required**: Yes
 
 ### abortStatement
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementOutputTypeDef'>
 - **Required**: Yes
 
 ### status
@@ -224,7 +206,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateIntentVersionRequestRequestTypeDef
+# CreateIntentVersionRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -245,7 +227,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### slots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.SlotTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.SlotOutputTypeDef]
 - **Required**: Yes
 
 ### sampleUtterances
@@ -253,19 +235,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### confirmationPrompt
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.PromptTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.PromptOutputTypeDef'>
 - **Required**: Yes
 
 ### rejectionStatement
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementOutputTypeDef'>
 - **Required**: Yes
 
 ### followUpPrompt
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.FollowUpPromptTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.FollowUpPromptOutputTypeDef'>
 - **Required**: Yes
 
 ### conclusionStatement
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementOutputTypeDef'>
 - **Required**: Yes
 
 ### dialogCodeHook
@@ -313,7 +295,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateSlotTypeVersionRequestRequestTypeDef
+# CreateSlotTypeVersionRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -334,7 +316,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### enumerationValues
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.EnumerationValueTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.EnumerationValueOutputTypeDef]
 - **Required**: Yes
 
 ### lastUpdatedDate
@@ -370,7 +352,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteBotAliasRequestRequestTypeDef
+# DeleteBotAliasRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -381,7 +363,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteBotChannelAssociationRequestRequestTypeDef
+# DeleteBotChannelAssociationRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -396,32 +378,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteBotRequestRequestTypeDef
+# DeleteBotRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteBotVersionRequestRequestTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### version
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# DeleteIntentRequestRequestTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# DeleteIntentVersionRequestRequestTypeDef
+# DeleteBotVersionRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -432,14 +396,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteSlotTypeRequestRequestTypeDef
+# DeleteIntentRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSlotTypeVersionRequestRequestTypeDef
+# DeleteIntentVersionRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -450,7 +414,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteUtterancesRequestRequestTypeDef
+# DeleteSlotTypeRequestTypeDef
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteSlotTypeVersionRequestTypeDef
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### version
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteUtterancesRequestTypeDef
 
 ### botName
 - **Type**: <class 'str'>
@@ -468,7 +450,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EnumerationValueTypeDef
+# EnumerationValueOutputTypeDef
 
 ### value
 - **Type**: <class 'str'>
@@ -476,6 +458,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### synonyms
 - **Type**: typing.Optional[typing.List[str]]
+
+
+# EnumerationValueTypeDef
+
+### value
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### synonyms
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# EnumerationValueUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# FollowUpPromptOutputTypeDef
+
+### prompt
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.PromptOutputTypeDef'>
+- **Required**: Yes
+
+### rejectionStatement
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementOutputTypeDef'>
+- **Required**: Yes
 
 
 # FollowUpPromptTypeDef
@@ -489,17 +498,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# FollowUpPromptUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # FulfillmentActivityTypeDef
 
-### type
-- **Type**: typing.Literal['CodeHook', 'ReturnIntent']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### codeHook
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.CodeHookTypeDef]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-
-# GetBotAliasRequestRequestTypeDef
+# GetBotAliasRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -549,7 +560,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetBotAliasesRequestGetBotAliasesPaginateTypeDef
+# GetBotAliasesRequestPaginateTypeDef
 
 ### botName
 - **Type**: <class 'str'>
@@ -562,7 +573,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PaginatorConfigTypeDef]
 
 
-# GetBotAliasesRequestRequestTypeDef
+# GetBotAliasesRequestTypeDef
 
 ### botName
 - **Type**: <class 'str'>
@@ -584,16 +595,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.BotAliasMetadataTypeDef]
 - **Required**: Yes
 
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
 ### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
+- **Type**: typing.Optional[str]
 
 
-# GetBotChannelAssociationRequestRequestTypeDef
+# GetBotChannelAssociationRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -608,50 +618,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetBotChannelAssociationResponseTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### botAlias
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### botName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createdDate
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['Facebook', 'Kik', 'Slack', 'Twilio-Sms']
-- **Required**: Yes
-
-### botConfiguration
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['CREATED', 'FAILED', 'IN_PROGRESS']
-- **Required**: Yes
-
-### failureReason
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetBotChannelAssociationsRequestGetBotChannelAssociationsPaginateTypeDef
+# GetBotChannelAssociationsRequestPaginateTypeDef
 
 ### botName
 - **Type**: <class 'str'>
@@ -668,7 +635,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PaginatorConfigTypeDef]
 
 
-# GetBotChannelAssociationsRequestRequestTypeDef
+# GetBotChannelAssociationsRequestTypeDef
 
 ### botName
 - **Type**: <class 'str'>
@@ -694,16 +661,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.BotChannelAssociationTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetBotRequestRequestTypeDef
+
+# GetBotRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -737,11 +703,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### clarificationPrompt
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.PromptTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.PromptOutputTypeDef'>
 - **Required**: Yes
 
 ### abortStatement
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementOutputTypeDef'>
 - **Required**: Yes
 
 ### status
@@ -793,7 +759,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetBotVersionsRequestGetBotVersionsPaginateTypeDef
+# GetBotVersionsRequestPaginateTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -803,7 +769,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PaginatorConfigTypeDef]
 
 
-# GetBotVersionsRequestRequestTypeDef
+# GetBotVersionsRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -822,16 +788,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.BotMetadataTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetBotsRequestGetBotsPaginateTypeDef
+
+# GetBotsRequestPaginateTypeDef
 
 ### nameContains
 - **Type**: typing.Optional[str]
@@ -840,7 +805,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PaginatorConfigTypeDef]
 
 
-# GetBotsRequestRequestTypeDef
+# GetBotsRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -858,16 +823,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.BotMetadataTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetBuiltinIntentRequestRequestTypeDef
+
+# GetBuiltinIntentRequestTypeDef
 
 ### signature
 - **Type**: <class 'str'>
@@ -893,7 +857,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetBuiltinIntentsRequestGetBuiltinIntentsPaginateTypeDef
+# GetBuiltinIntentsRequestPaginateTypeDef
 
 ### locale
 - **Type**: typing.Optional[typing.Literal['de-DE', 'en-AU', 'en-GB', 'en-IN', 'en-US', 'es-419', 'es-ES', 'es-US', 'fr-CA', 'fr-FR', 'it-IT', 'ja-JP', 'ko-KR']]
@@ -905,7 +869,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PaginatorConfigTypeDef]
 
 
-# GetBuiltinIntentsRequestRequestTypeDef
+# GetBuiltinIntentsRequestTypeDef
 
 ### locale
 - **Type**: typing.Optional[typing.Literal['de-DE', 'en-AU', 'en-GB', 'en-IN', 'en-US', 'es-419', 'es-ES', 'es-US', 'fr-CA', 'fr-FR', 'it-IT', 'ja-JP', 'ko-KR']]
@@ -926,16 +890,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.BuiltinIntentMetadataTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetBuiltinSlotTypesRequestGetBuiltinSlotTypesPaginateTypeDef
+
+# GetBuiltinSlotTypesRequestPaginateTypeDef
 
 ### locale
 - **Type**: typing.Optional[typing.Literal['de-DE', 'en-AU', 'en-GB', 'en-IN', 'en-US', 'es-419', 'es-ES', 'es-US', 'fr-CA', 'fr-FR', 'it-IT', 'ja-JP', 'ko-KR']]
@@ -947,7 +910,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PaginatorConfigTypeDef]
 
 
-# GetBuiltinSlotTypesRequestRequestTypeDef
+# GetBuiltinSlotTypesRequestTypeDef
 
 ### locale
 - **Type**: typing.Optional[typing.Literal['de-DE', 'en-AU', 'en-GB', 'en-IN', 'en-US', 'es-419', 'es-ES', 'es-US', 'fr-CA', 'fr-FR', 'it-IT', 'ja-JP', 'ko-KR']]
@@ -968,16 +931,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.BuiltinSlotTypeMetadataTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetExportRequestRequestTypeDef
+
+# GetExportRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -1031,7 +993,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetImportRequestRequestTypeDef
+# GetImportRequestTypeDef
 
 ### importId
 - **Type**: <class 'str'>
@@ -1073,7 +1035,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetIntentRequestRequestTypeDef
+# GetIntentRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -1095,7 +1057,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### slots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.SlotTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.SlotOutputTypeDef]
 - **Required**: Yes
 
 ### sampleUtterances
@@ -1103,19 +1065,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### confirmationPrompt
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.PromptTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.PromptOutputTypeDef'>
 - **Required**: Yes
 
 ### rejectionStatement
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementOutputTypeDef'>
 - **Required**: Yes
 
 ### followUpPrompt
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.FollowUpPromptTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.FollowUpPromptOutputTypeDef'>
 - **Required**: Yes
 
 ### conclusionStatement
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementOutputTypeDef'>
 - **Required**: Yes
 
 ### dialogCodeHook
@@ -1163,7 +1125,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetIntentVersionsRequestGetIntentVersionsPaginateTypeDef
+# GetIntentVersionsRequestPaginateTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -1173,7 +1135,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PaginatorConfigTypeDef]
 
 
-# GetIntentVersionsRequestRequestTypeDef
+# GetIntentVersionsRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -1192,16 +1154,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.IntentMetadataTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetIntentsRequestGetIntentsPaginateTypeDef
+
+# GetIntentsRequestPaginateTypeDef
 
 ### nameContains
 - **Type**: typing.Optional[str]
@@ -1210,7 +1171,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PaginatorConfigTypeDef]
 
 
-# GetIntentsRequestRequestTypeDef
+# GetIntentsRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1228,16 +1189,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.IntentMetadataTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetMigrationRequestRequestTypeDef
+
+# GetMigrationRequestTypeDef
 
 ### migrationId
 - **Type**: <class 'str'>
@@ -1291,7 +1251,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMigrationsRequestRequestTypeDef
+# GetMigrationsRequestTypeDef
 
 ### sortByAttribute
 - **Type**: typing.Optional[typing.Literal['MIGRATION_DATE_TIME', 'V1_BOT_NAME']]
@@ -1318,16 +1278,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.MigrationSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetSlotTypeRequestRequestTypeDef
+
+# GetSlotTypeRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -1349,7 +1308,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### enumerationValues
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.EnumerationValueTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.EnumerationValueOutputTypeDef]
 - **Required**: Yes
 
 ### lastUpdatedDate
@@ -1385,7 +1344,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSlotTypeVersionsRequestGetSlotTypeVersionsPaginateTypeDef
+# GetSlotTypeVersionsRequestPaginateTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -1395,7 +1354,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PaginatorConfigTypeDef]
 
 
-# GetSlotTypeVersionsRequestRequestTypeDef
+# GetSlotTypeVersionsRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -1414,16 +1373,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.SlotTypeMetadataTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetSlotTypesRequestGetSlotTypesPaginateTypeDef
+
+# GetSlotTypesRequestPaginateTypeDef
 
 ### nameContains
 - **Type**: typing.Optional[str]
@@ -1432,7 +1390,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PaginatorConfigTypeDef]
 
 
-# GetSlotTypesRequestRequestTypeDef
+# GetSlotTypesRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1450,16 +1408,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.SlotTypeMetadataTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetUtterancesViewRequestRequestTypeDef
+
+# GetUtterancesViewRequestTypeDef
 
 ### botName
 - **Type**: <class 'str'>
@@ -1539,7 +1496,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1609,18 +1566,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # MigrationAlertTypeDef
 
-### type
-- **Type**: typing.Optional[typing.Literal['ERROR', 'WARN']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### message
-- **Type**: typing.Optional[str]
-
-### details
-- **Type**: typing.Optional[typing.List[str]]
-
-### referenceURLs
-- **Type**: typing.Optional[typing.List[str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MigrationSummaryTypeDef
 
@@ -1679,7 +1627,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PromptTypeDef
+# PromptOutputTypeDef
 
 ### messages
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.MessageTypeDef]
@@ -1693,7 +1641,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutBotAliasRequestRequestTypeDef
+# PromptTypeDef
+
+### messages
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lex_models_classes.MessageTypeDef]
+- **Required**: Yes
+
+### maxAttempts
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### responseCard
+- **Type**: typing.Optional[str]
+
+
+# PromptUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# PutBotAliasRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -1763,7 +1731,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutBotRequestRequestTypeDef
+# PutBotRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -1790,10 +1758,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### clarificationPrompt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PromptTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PromptUnionTypeDef]
 
 ### abortStatement
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.StatementTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.StatementUnionTypeDef]
 
 ### idleSessionTTLInSeconds
 - **Type**: typing.Optional[int]
@@ -1840,11 +1808,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### clarificationPrompt
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.PromptTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.PromptOutputTypeDef'>
 - **Required**: Yes
 
 ### abortStatement
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementOutputTypeDef'>
 - **Required**: Yes
 
 ### status
@@ -1904,7 +1872,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutIntentRequestRequestTypeDef
+# PutIntentRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -1914,22 +1882,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### slots
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lex_models_classes.SlotTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lex_models_classes.SlotUnionTypeDef]]
 
 ### sampleUtterances
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### confirmationPrompt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PromptTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PromptUnionTypeDef]
 
 ### rejectionStatement
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.StatementTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.StatementUnionTypeDef]
 
 ### followUpPrompt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.FollowUpPromptTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.FollowUpPromptUnionTypeDef]
 
 ### conclusionStatement
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.StatementTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.StatementUnionTypeDef]
 
 ### dialogCodeHook
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.CodeHookTypeDef]
@@ -1967,7 +1935,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### slots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.SlotTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.SlotOutputTypeDef]
 - **Required**: Yes
 
 ### sampleUtterances
@@ -1975,19 +1943,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### confirmationPrompt
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.PromptTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.PromptOutputTypeDef'>
 - **Required**: Yes
 
 ### rejectionStatement
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementOutputTypeDef'>
 - **Required**: Yes
 
 ### followUpPrompt
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.FollowUpPromptTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.FollowUpPromptOutputTypeDef'>
 - **Required**: Yes
 
 ### conclusionStatement
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementOutputTypeDef'>
 - **Required**: Yes
 
 ### dialogCodeHook
@@ -2039,7 +2007,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutSlotTypeRequestRequestTypeDef
+# PutSlotTypeRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -2049,7 +2017,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### enumerationValues
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lex_models_classes.EnumerationValueTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lex_models_classes.EnumerationValueUnionTypeDef]]
 
 ### checksum
 - **Type**: typing.Optional[str]
@@ -2078,7 +2046,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### enumerationValues
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.EnumerationValueTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.EnumerationValueOutputTypeDef]
 - **Required**: Yes
 
 ### lastUpdatedDate
@@ -2124,10 +2092,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -2140,19 +2104,73 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# SlotDefaultValueSpecTypeDef
+
+# SlotDefaultValueSpecOutputTypeDef
 
 ### defaultValueList
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.SlotDefaultValueTypeDef]
 - **Required**: Yes
 
 
+# SlotDefaultValueSpecTypeDef
+
+### defaultValueList
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lex_models_classes.SlotDefaultValueTypeDef]
+- **Required**: Yes
+
+
+# SlotDefaultValueSpecUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # SlotDefaultValueTypeDef
 
 ### defaultValue
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+
+# SlotOutputTypeDef
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### slotConstraint
+- **Type**: typing.Literal['Optional', 'Required']
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### slotType
+- **Type**: typing.Optional[str]
+
+### slotTypeVersion
+- **Type**: typing.Optional[str]
+
+### valueElicitationPrompt
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PromptOutputTypeDef]
+
+### priority
+- **Type**: typing.Optional[int]
+
+### sampleUtterances
+- **Type**: typing.Optional[typing.List[str]]
+
+### responseCard
+- **Type**: typing.Optional[str]
+
+### obfuscationSetting
+- **Type**: typing.Optional[typing.Literal['DEFAULT_OBFUSCATION', 'NONE']]
+
+### defaultValueSpec
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.SlotDefaultValueSpecOutputTypeDef]
 
 
 # SlotTypeConfigurationTypeDef
@@ -2181,13 +2199,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### valueElicitationPrompt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PromptTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PromptUnionTypeDef]
 
 ### priority
 - **Type**: typing.Optional[int]
 
 ### sampleUtterances
-- **Type**: typing.Optional[typing.List[str]]
+- **Type**: typing.Optional[typing.Sequence[str]]
 
 ### responseCard
 - **Type**: typing.Optional[str]
@@ -2196,7 +2214,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DEFAULT_OBFUSCATION', 'NONE']]
 
 ### defaultValueSpec
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.SlotDefaultValueSpecTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.SlotDefaultValueSpecUnionTypeDef]
 
 
 # SlotTypeMetadataTypeDef
@@ -2224,10 +2242,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartImportRequestRequestTypeDef
+# SlotUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# StartImportRequestTypeDef
 
 ### payload
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### resourceType
@@ -2277,7 +2301,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartMigrationRequestRequestTypeDef
+# StartMigrationRequestTypeDef
 
 ### v1BotName
 - **Type**: <class 'str'>
@@ -2339,7 +2363,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StatementTypeDef
+# StatementOutputTypeDef
 
 ### messages
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.MessageTypeDef]
@@ -2349,7 +2373,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestRequestTypeDef
+# StatementTypeDef
+
+### messages
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lex_models_classes.MessageTypeDef]
+- **Required**: Yes
+
+### responseCard
+- **Type**: typing.Optional[str]
+
+
+# StatementUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2371,7 +2411,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>

@@ -68,6 +68,18 @@
 - **Min Length**: 1
 - **Max Length**: 300
 
+### EnvironmentVariableName
+- **Type**: string
+- **Pattern**: `[A-Za-z0-9_]+`
+- **Min Length**: 1
+- **Max Length**: 128
+
+### EnvironmentVariableValue
+- **Type**: string
+- **Pattern**: `.*`
+- **Min Length**: 1
+- **Max Length**: 2000
+
 ### GitBranchNamePattern
 - **Type**: string
 - **Pattern**: `.*`
@@ -134,6 +146,24 @@
 - **Type**: string
 - **Pattern**: `arn:aws(-[\w]+)*:iam::[0-9]{12}:role/.*`
 - **Max Length**: 1024
+
+### RuleExecutionToken
+- **Type**: string
+- **Pattern**: `[a-zA-Z0-9\-\.]+`
+- **Min Length**: 1
+- **Max Length**: 200
+
+### RuleName
+- **Type**: string
+- **Pattern**: `[A-Za-z0-9.@\-_]+`
+- **Min Length**: 1
+- **Max Length**: 100
+
+### RuleProvider
+- **Type**: string
+- **Pattern**: `[0-9A-Za-z_-]+`
+- **Min Length**: 1
+- **Max Length**: 35
 
 ### StageName
 - **Type**: string

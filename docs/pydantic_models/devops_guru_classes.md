@@ -18,10 +18,10 @@
 - **Type**: typing.Optional[int]
 
 
-# AddNotificationChannelRequestRequestTypeDef
+# AddNotificationChannelRequestTypeDef
 
 ### Config
-- **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.NotificationChannelConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.NotificationChannelConfigUnionTypeDef'>
 - **Default**: <class 'aws_resource_validator.pydantic_models.base_validator_model.BaseValidatorModel.Config'>
 
 
@@ -72,12 +72,9 @@
 
 # AnomalyResourceTypeDef
 
-### Name
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AnomalySourceDetailsTypeDef
 
@@ -122,7 +119,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
+# CloudFormationCollectionOutputTypeDef
+
+### StackNames
+- **Type**: typing.Optional[typing.List[str]]
+
+
 # CloudFormationCollectionTypeDef
+
+### StackNames
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# CloudFormationCollectionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CloudFormationCostEstimationResourceCollectionFilterOutputTypeDef
 
 ### StackNames
 - **Type**: typing.Optional[typing.List[str]]
@@ -131,7 +146,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CloudFormationCostEstimationResourceCollectionFilterTypeDef
 
 ### StackNames
-- **Type**: typing.Optional[typing.List[str]]
+- **Type**: typing.Optional[typing.Sequence[str]]
 
 
 # CloudFormationHealthTypeDef
@@ -188,14 +203,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# CostEstimationResourceCollectionFilterOutputTypeDef
+
+### CloudFormation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.CloudFormationCostEstimationResourceCollectionFilterOutputTypeDef]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.devops_guru_classes.TagCostEstimationResourceCollectionFilterOutputTypeDef]]
+
+
 # CostEstimationResourceCollectionFilterTypeDef
 
 ### CloudFormation
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.CloudFormationCostEstimationResourceCollectionFilterTypeDef]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.devops_guru_classes.TagCostEstimationResourceCollectionFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.devops_guru_classes.TagCostEstimationResourceCollectionFilterTypeDef]]
 
+
+# CostEstimationResourceCollectionFilterUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CostEstimationTimeRangeTypeDef
 
@@ -206,7 +236,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# DeleteInsightRequestRequestTypeDef
+# DeleteInsightRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -240,14 +270,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAccountOverviewRequestRequestTypeDef
+# DescribeAccountOverviewRequestTypeDef
 
 ### FromTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### ToTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.TimestampTypeDef]
 
 
 # DescribeAccountOverviewResponseTypeDef
@@ -269,7 +299,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAnomalyRequestRequestTypeDef
+# DescribeAnomalyRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -305,7 +335,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeFeedbackRequestRequestTypeDef
+# DescribeFeedbackRequestTypeDef
 
 ### InsightId
 - **Type**: typing.Optional[str]
@@ -322,7 +352,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeInsightRequestRequestTypeDef
+# DescribeInsightRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -347,7 +377,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeOrganizationHealthRequestRequestTypeDef
+# DescribeOrganizationHealthRequestTypeDef
 
 ### AccountIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -379,14 +409,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeOrganizationOverviewRequestRequestTypeDef
+# DescribeOrganizationOverviewRequestTypeDef
 
 ### FromTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### ToTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.TimestampTypeDef]
 
 ### AccountIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -410,7 +440,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeOrganizationResourceCollectionHealthRequestDescribeOrganizationResourceCollectionHealthPaginateTypeDef
+# DescribeOrganizationResourceCollectionHealthRequestPaginateTypeDef
 
 ### OrganizationResourceCollectionType
 - **Type**: typing.Literal['AWS_ACCOUNT', 'AWS_CLOUD_FORMATION', 'AWS_SERVICE', 'AWS_TAGS']
@@ -429,7 +459,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.PaginatorConfigTypeDef]
 
 
-# DescribeOrganizationResourceCollectionHealthRequestRequestTypeDef
+# DescribeOrganizationResourceCollectionHealthRequestTypeDef
 
 ### OrganizationResourceCollectionType
 - **Type**: typing.Literal['AWS_ACCOUNT', 'AWS_CLOUD_FORMATION', 'AWS_SERVICE', 'AWS_TAGS']
@@ -462,10 +492,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.devops_guru_classes.AccountHealthTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### Tags
 - **Type**: typing.List[aws_resource_validator.pydantic_models.devops_guru_classes.TagHealthTypeDef]
 - **Required**: Yes
@@ -474,8 +500,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# DescribeResourceCollectionHealthRequestDescribeResourceCollectionHealthPaginateTypeDef
+
+# DescribeResourceCollectionHealthRequestPaginateTypeDef
 
 ### ResourceCollectionType
 - **Type**: typing.Literal['AWS_CLOUD_FORMATION', 'AWS_SERVICE', 'AWS_TAGS']
@@ -485,7 +514,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.PaginatorConfigTypeDef]
 
 
-# DescribeResourceCollectionHealthRequestRequestTypeDef
+# DescribeResourceCollectionHealthRequestTypeDef
 
 ### ResourceCollectionType
 - **Type**: typing.Literal['AWS_CLOUD_FORMATION', 'AWS_SERVICE', 'AWS_TAGS']
@@ -505,10 +534,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.devops_guru_classes.ServiceHealthTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### Tags
 - **Type**: typing.List[aws_resource_validator.pydantic_models.devops_guru_classes.TagHealthTypeDef]
 - **Required**: Yes
@@ -516,6 +541,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # DescribeServiceIntegrationResponseTypeDef
@@ -532,23 +560,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EndTimeRangeTypeDef
 
 ### FromTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.TimestampTypeDef]
 
 ### ToTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.TimestampTypeDef]
 
 
 # EventResourceTypeDef
 
-### Type
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Name
-- **Type**: typing.Optional[str]
-
-### Arn
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EventSourcesConfigTypeDef
 
@@ -559,18 +581,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EventTimeRangeTypeDef
 
 ### FromTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### ToTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 
 # EventTypeDef
 
 ### ResourceCollection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionOutputTypeDef]
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -594,13 +616,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.devops_guru_classes.EventResourceTypeDef]]
 
 
-# GetCostEstimationRequestGetCostEstimationPaginateTypeDef
+# GetCostEstimationRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.PaginatorConfigTypeDef]
 
 
-# GetCostEstimationRequestRequestTypeDef
+# GetCostEstimationRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -609,7 +631,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetCostEstimationResponseTypeDef
 
 ### ResourceCollection
-- **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.CostEstimationResourceCollectionFilterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.CostEstimationResourceCollectionFilterOutputTypeDef'>
 - **Required**: Yes
 
 ### Status
@@ -628,16 +650,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'float'>
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# GetResourceCollectionRequestGetResourceCollectionPaginateTypeDef
+
+# GetResourceCollectionRequestPaginateTypeDef
 
 ### ResourceCollectionType
 - **Type**: typing.Literal['AWS_CLOUD_FORMATION', 'AWS_SERVICE', 'AWS_TAGS']
@@ -647,7 +668,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.PaginatorConfigTypeDef]
 
 
-# GetResourceCollectionRequestRequestTypeDef
+# GetResourceCollectionRequestTypeDef
 
 ### ResourceCollectionType
 - **Type**: typing.Literal['AWS_CLOUD_FORMATION', 'AWS_SERVICE', 'AWS_TAGS']
@@ -663,13 +684,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionFilterTypeDef'>
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # InsightFeedbackTypeDef
@@ -705,35 +725,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # KMSServerSideEncryptionIntegrationConfigTypeDef
 
-### KMSKeyId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### OptInStatus
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['AWS_OWNED_KMS_KEY', 'CUSTOMER_MANAGED_KEY']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # KMSServerSideEncryptionIntegrationTypeDef
 
-### KMSKeyId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### OptInStatus
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['AWS_OWNED_KMS_KEY', 'CUSTOMER_MANAGED_KEY']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ListAnomaliesForInsightFiltersTypeDef
 
 ### ServiceCollection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ServiceCollectionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ServiceCollectionUnionTypeDef]
 
 
-# ListAnomaliesForInsightRequestListAnomaliesForInsightPaginateTypeDef
+# ListAnomaliesForInsightRequestPaginateTypeDef
 
 ### InsightId
 - **Type**: <class 'str'>
@@ -752,7 +760,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.PaginatorConfigTypeDef]
 
 
-# ListAnomaliesForInsightRequestRequestTypeDef
+# ListAnomaliesForInsightRequestTypeDef
 
 ### InsightId
 - **Type**: <class 'str'>
@@ -784,16 +792,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.devops_guru_classes.ReactiveAnomalySummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListAnomalousLogGroupsRequestListAnomalousLogGroupsPaginateTypeDef
+
+# ListAnomalousLogGroupsRequestPaginateTypeDef
 
 ### InsightId
 - **Type**: <class 'str'>
@@ -803,7 +810,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.PaginatorConfigTypeDef]
 
 
-# ListAnomalousLogGroupsRequestRequestTypeDef
+# ListAnomalousLogGroupsRequestTypeDef
 
 ### InsightId
 - **Type**: <class 'str'>
@@ -826,13 +833,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.devops_guru_classes.AnomalousLogGroupTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # ListEventsFiltersTypeDef
@@ -853,10 +859,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AWS_CLOUD_TRAIL', 'AWS_CODE_DEPLOY']]
 
 ### ResourceCollection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionUnionTypeDef]
 
 
-# ListEventsRequestListEventsPaginateTypeDef
+# ListEventsRequestPaginateTypeDef
 
 ### Filters
 - **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.ListEventsFiltersTypeDef'>
@@ -869,7 +875,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.PaginatorConfigTypeDef]
 
 
-# ListEventsRequestRequestTypeDef
+# ListEventsRequestTypeDef
 
 ### Filters
 - **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.ListEventsFiltersTypeDef'>
@@ -891,45 +897,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.devops_guru_classes.EventTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# ListInsightsAnyStatusFilterTypeDef
-
-### Type
-- **Type**: typing.Literal['PROACTIVE', 'REACTIVE']
-- **Required**: Yes
-
-### StartTimeRange
-- **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.StartTimeRangeTypeDef'>
-- **Required**: Yes
+### NextToken
+- **Type**: typing.Optional[str]
 
 
-# ListInsightsClosedStatusFilterTypeDef
-
-### Type
-- **Type**: typing.Literal['PROACTIVE', 'REACTIVE']
-- **Required**: Yes
-
-### EndTimeRange
-- **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.EndTimeRangeTypeDef'>
-- **Required**: Yes
-
-
-# ListInsightsOngoingStatusFilterTypeDef
-
-### Type
-- **Type**: typing.Literal['PROACTIVE', 'REACTIVE']
-- **Required**: Yes
-
-
-# ListInsightsRequestListInsightsPaginateTypeDef
+# ListInsightsRequestPaginateTypeDef
 
 ### StatusFilter
 - **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.ListInsightsStatusFilterTypeDef'>
@@ -939,7 +915,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.PaginatorConfigTypeDef]
 
 
-# ListInsightsRequestRequestTypeDef
+# ListInsightsRequestTypeDef
 
 ### StatusFilter
 - **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.ListInsightsStatusFilterTypeDef'>
@@ -962,26 +938,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.devops_guru_classes.ReactiveInsightSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
+
 
 # ListInsightsStatusFilterTypeDef
 
-### Ongoing
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ListInsightsOngoingStatusFilterTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Closed
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ListInsightsClosedStatusFilterTypeDef]
-
-### Any
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ListInsightsAnyStatusFilterTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ListMonitoredResourcesFiltersTypeDef
 
@@ -994,7 +963,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListMonitoredResourcesRequestListMonitoredResourcesPaginateTypeDef
+# ListMonitoredResourcesRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ListMonitoredResourcesFiltersTypeDef]
@@ -1003,7 +972,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.PaginatorConfigTypeDef]
 
 
-# ListMonitoredResourcesRequestRequestTypeDef
+# ListMonitoredResourcesRequestTypeDef
 
 ### Filters
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ListMonitoredResourcesFiltersTypeDef]
@@ -1021,40 +990,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.devops_guru_classes.MonitoredResourceIdentifierTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
-
-
-# ListNotificationChannelsRequestListNotificationChannelsPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.PaginatorConfigTypeDef]
-
-
-# ListNotificationChannelsRequestRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListNotificationChannelsResponsePaginatorTypeDef
+# ListNotificationChannelsRequestPaginateTypeDef
 
-### Channels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.devops_guru_classes.NotificationChannelPaginatorTypeDef]
-- **Required**: Yes
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.PaginatorConfigTypeDef]
+
+
+# ListNotificationChannelsRequestTypeDef
 
 ### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
+- **Type**: typing.Optional[str]
 
 
 # ListNotificationChannelsResponseTypeDef
@@ -1063,16 +1016,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.devops_guru_classes.NotificationChannelTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListOrganizationInsightsRequestListOrganizationInsightsPaginateTypeDef
+
+# ListOrganizationInsightsRequestPaginateTypeDef
 
 ### StatusFilter
 - **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.ListInsightsStatusFilterTypeDef'>
@@ -1088,7 +1040,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.PaginatorConfigTypeDef]
 
 
-# ListOrganizationInsightsRequestRequestTypeDef
+# ListOrganizationInsightsRequestTypeDef
 
 ### StatusFilter
 - **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.ListInsightsStatusFilterTypeDef'>
@@ -1117,16 +1069,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.devops_guru_classes.ReactiveOrganizationInsightSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListRecommendationsRequestListRecommendationsPaginateTypeDef
+
+# ListRecommendationsRequestPaginateTypeDef
 
 ### InsightId
 - **Type**: <class 'str'>
@@ -1142,7 +1093,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.PaginatorConfigTypeDef]
 
 
-# ListRecommendationsRequestRequestTypeDef
+# ListRecommendationsRequestTypeDef
 
 ### InsightId
 - **Type**: <class 'str'>
@@ -1164,13 +1115,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.devops_guru_classes.RecommendationTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # LogAnomalyClassTypeDef
@@ -1217,30 +1167,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # MonitoredResourceIdentifierTypeDef
 
-### MonitoredResourceName
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### ResourcePermission
-- **Type**: typing.Optional[typing.Literal['FULL_PERMISSION', 'MISSING_PERMISSION']]
-
-### LastUpdated
-- **Type**: typing.Optional[datetime.datetime]
-
-### ResourceCollection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionTypeDef]
-
-
-# NotificationChannelConfigPaginatorTypeDef
+# NotificationChannelConfigOutputTypeDef
 
 ### Sns
 - **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.SnsChannelConfigTypeDef'>
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.NotificationFilterConfigPaginatorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.NotificationFilterConfigOutputTypeDef]
 
 
 # NotificationChannelConfigTypeDef
@@ -1253,14 +1191,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.NotificationFilterConfigTypeDef]
 
 
-# NotificationChannelPaginatorTypeDef
+# NotificationChannelConfigUnionTypeDef
 
-### Id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Config
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.NotificationChannelConfigPaginatorTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # NotificationChannelTypeDef
 
@@ -1268,10 +1203,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Config
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.NotificationChannelConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.NotificationChannelConfigOutputTypeDef]
 
 
-# NotificationFilterConfigPaginatorTypeDef
+# NotificationFilterConfigOutputTypeDef
 
 ### Severities
 - **Type**: typing.Optional[typing.List[typing.Literal['HIGH', 'LOW', 'MEDIUM']]]
@@ -1390,12 +1325,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PerformanceInsightsStatTypeDef
 
-### Type
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Value
-- **Type**: typing.Optional[float]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PredictionTimeRangeTypeDef
 
@@ -1437,7 +1369,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ResourceCollection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionOutputTypeDef]
 
 ### Limit
 - **Type**: typing.Optional[float]
@@ -1482,7 +1414,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ResourceCollection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionOutputTypeDef]
 
 ### Limit
 - **Type**: typing.Optional[float]
@@ -1518,10 +1450,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.PredictionTimeRangeTypeDef]
 
 ### ResourceCollection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionOutputTypeDef]
 
 ### ServiceCollection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ServiceCollectionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ServiceCollectionOutputTypeDef]
 
 ### AssociatedResourceArns
 - **Type**: typing.Optional[typing.List[str]]
@@ -1548,7 +1480,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.PredictionTimeRangeTypeDef]
 
 ### ResourceCollection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionOutputTypeDef]
 
 ### SsmOpsItemId
 - **Type**: typing.Optional[str]
@@ -1584,13 +1516,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.PredictionTimeRangeTypeDef]
 
 ### ResourceCollection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionOutputTypeDef]
 
 ### ServiceCollection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ServiceCollectionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ServiceCollectionOutputTypeDef]
 
 
-# PutFeedbackRequestRequestTypeDef
+# PutFeedbackRequestTypeDef
 
 ### InsightFeedback
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.InsightFeedbackTypeDef]
@@ -1598,87 +1530,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ReactiveAnomalySummaryTypeDef
 
-### Id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Severity
-- **Type**: typing.Optional[typing.Literal['HIGH', 'LOW', 'MEDIUM']]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['CLOSED', 'ONGOING']]
-
-### AnomalyTimeRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.AnomalyTimeRangeTypeDef]
-
-### AnomalyReportedTimeRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.AnomalyReportedTimeRangeTypeDef]
-
-### SourceDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.AnomalySourceDetailsTypeDef]
-
-### AssociatedInsightId
-- **Type**: typing.Optional[str]
-
-### ResourceCollection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['CAUSAL', 'CONTEXTUAL']]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### CausalAnomalyId
-- **Type**: typing.Optional[str]
-
-### AnomalyResources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.devops_guru_classes.AnomalyResourceTypeDef]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ReactiveAnomalyTypeDef
 
-### Id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Severity
-- **Type**: typing.Optional[typing.Literal['HIGH', 'LOW', 'MEDIUM']]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['CLOSED', 'ONGOING']]
-
-### AnomalyTimeRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.AnomalyTimeRangeTypeDef]
-
-### AnomalyReportedTimeRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.AnomalyReportedTimeRangeTypeDef]
-
-### SourceDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.AnomalySourceDetailsTypeDef]
-
-### AssociatedInsightId
-- **Type**: typing.Optional[str]
-
-### ResourceCollection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['CAUSAL', 'CONTEXTUAL']]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### CausalAnomalyId
-- **Type**: typing.Optional[str]
-
-### AnomalyResources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.devops_guru_classes.AnomalyResourceTypeDef]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ReactiveInsightSummaryTypeDef
 
@@ -1698,10 +1558,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.InsightTimeRangeTypeDef]
 
 ### ResourceCollection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionOutputTypeDef]
 
 ### ServiceCollection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ServiceCollectionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ServiceCollectionOutputTypeDef]
 
 ### AssociatedResourceArns
 - **Type**: typing.Optional[typing.List[str]]
@@ -1725,7 +1585,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.InsightTimeRangeTypeDef]
 
 ### ResourceCollection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionOutputTypeDef]
 
 ### SsmOpsItemId
 - **Type**: typing.Optional[str]
@@ -1758,20 +1618,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.InsightTimeRangeTypeDef]
 
 ### ResourceCollection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionOutputTypeDef]
 
 ### ServiceCollection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ServiceCollectionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ServiceCollectionOutputTypeDef]
 
 
 # RecommendationRelatedAnomalyResourceTypeDef
 
-### Name
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RecommendationRelatedAnomalySourceDetailTypeDef
 
@@ -1802,12 +1659,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # RecommendationRelatedEventResourceTypeDef
 
-### Name
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RecommendationRelatedEventTypeDef
 
@@ -1842,7 +1696,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RemoveNotificationChannelRequestRequestTypeDef
+# RemoveNotificationChannelRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -1858,22 +1712,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.devops_guru_classes.TagCollectionFilterTypeDef]]
 
 
+# ResourceCollectionOutputTypeDef
+
+### CloudFormation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.CloudFormationCollectionOutputTypeDef]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.devops_guru_classes.TagCollectionOutputTypeDef]]
+
+
 # ResourceCollectionTypeDef
 
 ### CloudFormation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.CloudFormationCollectionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.CloudFormationCollectionUnionTypeDef]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.devops_guru_classes.TagCollectionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.devops_guru_classes.TagCollectionUnionTypeDef]]
 
+
+# ResourceCollectionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResponseMetadataTypeDef
 
 ### RequestId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### HostId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -1889,6 +1754,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
+
 
 # SearchInsightsFiltersTypeDef
 
@@ -1899,47 +1767,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['CLOSED', 'ONGOING']]]
 
 ### ResourceCollection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionUnionTypeDef]
 
 ### ServiceCollection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ServiceCollectionTypeDef]
-
-
-# SearchInsightsRequestRequestTypeDef
-
-### StartTimeRange
-- **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.StartTimeRangeTypeDef'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['PROACTIVE', 'REACTIVE']
-- **Required**: Yes
-
-### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.SearchInsightsFiltersTypeDef]
-
-### MaxResults
-- **Type**: typing.Optional[int]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# SearchInsightsRequestSearchInsightsPaginateTypeDef
-
-### StartTimeRange
-- **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.StartTimeRangeTypeDef'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['PROACTIVE', 'REACTIVE']
-- **Required**: Yes
-
-### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.SearchInsightsFiltersTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ServiceCollectionUnionTypeDef]
 
 
 # SearchInsightsResponseTypeDef
@@ -1952,13 +1783,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.devops_guru_classes.ReactiveInsightSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # SearchOrganizationInsightsFiltersTypeDef
@@ -1970,55 +1800,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['CLOSED', 'ONGOING']]]
 
 ### ResourceCollection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ResourceCollectionUnionTypeDef]
 
 ### ServiceCollection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ServiceCollectionTypeDef]
-
-
-# SearchOrganizationInsightsRequestRequestTypeDef
-
-### AccountIds
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-### StartTimeRange
-- **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.StartTimeRangeTypeDef'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['PROACTIVE', 'REACTIVE']
-- **Required**: Yes
-
-### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.SearchOrganizationInsightsFiltersTypeDef]
-
-### MaxResults
-- **Type**: typing.Optional[int]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# SearchOrganizationInsightsRequestSearchOrganizationInsightsPaginateTypeDef
-
-### AccountIds
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-### StartTimeRange
-- **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.StartTimeRangeTypeDef'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['PROACTIVE', 'REACTIVE']
-- **Required**: Yes
-
-### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.SearchOrganizationInsightsFiltersTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ServiceCollectionUnionTypeDef]
 
 
 # SearchOrganizationInsightsResponseTypeDef
@@ -2031,13 +1816,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.devops_guru_classes.ReactiveInsightSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ServiceCollectionOutputTypeDef
+
+### ServiceNames
+- **Type**: typing.Optional[typing.List[typing.Literal['API_GATEWAY', 'APPLICATION_ELB', 'AUTO_SCALING_GROUP', 'CLOUD_FRONT', 'DYNAMO_DB', 'EC2', 'ECS', 'EKS', 'ELASTIC_BEANSTALK', 'ELASTI_CACHE', 'ELB', 'ES', 'KINESIS', 'LAMBDA', 'NAT_GATEWAY', 'NETWORK_ELB', 'RDS', 'REDSHIFT', 'ROUTE_53', 'S3', 'SAGE_MAKER', 'SNS', 'SQS', 'STEP_FUNCTIONS', 'SWF']]]
 
 
 # ServiceCollectionTypeDef
@@ -2046,17 +1836,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['API_GATEWAY', 'APPLICATION_ELB', 'AUTO_SCALING_GROUP', 'CLOUD_FRONT', 'DYNAMO_DB', 'EC2', 'ECS', 'EKS', 'ELASTIC_BEANSTALK', 'ELASTI_CACHE', 'ELB', 'ES', 'KINESIS', 'LAMBDA', 'NAT_GATEWAY', 'NETWORK_ELB', 'RDS', 'REDSHIFT', 'ROUTE_53', 'S3', 'SAGE_MAKER', 'SNS', 'SQS', 'STEP_FUNCTIONS', 'SWF']]]
 
 
+# ServiceCollectionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ServiceHealthTypeDef
 
-### ServiceName
-- **Type**: typing.Optional[typing.Literal['API_GATEWAY', 'APPLICATION_ELB', 'AUTO_SCALING_GROUP', 'CLOUD_FRONT', 'DYNAMO_DB', 'EC2', 'ECS', 'EKS', 'ELASTIC_BEANSTALK', 'ELASTI_CACHE', 'ELB', 'ES', 'KINESIS', 'LAMBDA', 'NAT_GATEWAY', 'NETWORK_ELB', 'RDS', 'REDSHIFT', 'ROUTE_53', 'S3', 'SAGE_MAKER', 'SNS', 'SQS', 'STEP_FUNCTIONS', 'SWF']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Insight
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.ServiceInsightHealthTypeDef]
-
-### AnalyzedResourceCount
-- **Type**: typing.Optional[int]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ServiceInsightHealthTypeDef
 
@@ -2081,21 +1871,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ServiceResourceCostTypeDef
 
-### Type
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### State
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
-
-### Count
-- **Type**: typing.Optional[int]
-
-### UnitCost
-- **Type**: typing.Optional[float]
-
-### Cost
-- **Type**: typing.Optional[float]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SnsChannelConfigTypeDef
 
@@ -2103,10 +1881,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartCostEstimationRequestRequestTypeDef
+# StartCostEstimationRequestTypeDef
 
 ### ResourceCollection
-- **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.CostEstimationResourceCollectionFilterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.CostEstimationResourceCollectionFilterUnionTypeDef'>
 - **Required**: Yes
 
 ### ClientToken
@@ -2116,13 +1894,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartTimeRangeTypeDef
 
 ### FromTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.TimestampTypeDef]
 
 ### ToTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.TimestampTypeDef]
 
 
 # TagCollectionFilterTypeDef
+
+### AppBoundaryKey
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TagValues
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
+# TagCollectionOutputTypeDef
 
 ### AppBoundaryKey
 - **Type**: <class 'str'>
@@ -2140,6 +1929,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagValues
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+
+# TagCollectionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TagCostEstimationResourceCollectionFilterOutputTypeDef
+
+### AppBoundaryKey
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TagValues
 - **Type**: typing.List[str]
 - **Required**: Yes
 
@@ -2151,7 +1957,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagValues
-- **Type**: typing.List[str]
+- **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
@@ -2179,13 +1985,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # UpdateCloudFormationCollectionFilterTypeDef
 
 ### StackNames
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# UpdateEventSourcesConfigRequestRequestTypeDef
+# UpdateEventSourcesConfigRequestTypeDef
 
 ### EventSources
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.EventSourcesConfigTypeDef]
@@ -2200,7 +2012,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.devops_guru_classes.UpdateTagCollectionFilterTypeDef]]
 
 
-# UpdateResourceCollectionRequestRequestTypeDef
+# UpdateResourceCollectionRequestTypeDef
 
 ### Action
 - **Type**: typing.Literal['ADD', 'REMOVE']
@@ -2223,7 +2035,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.devops_guru_classes.KMSServerSideEncryptionIntegrationConfigTypeDef]
 
 
-# UpdateServiceIntegrationRequestRequestTypeDef
+# UpdateServiceIntegrationRequestTypeDef
 
 ### ServiceIntegration
 - **Type**: <class 'aws_resource_validator.pydantic_models.devops_guru_classes.UpdateServiceIntegrationConfigTypeDef'>

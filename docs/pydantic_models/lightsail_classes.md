@@ -151,7 +151,7 @@
 - **Type**: typing.Optional[bool]
 
 
-# AllocateStaticIpRequestRequestTypeDef
+# AllocateStaticIpRequestTypeDef
 
 ### staticIpName
 - **Type**: <class 'str'>
@@ -169,7 +169,7 @@
 - **Required**: Yes
 
 
-# AttachCertificateToDistributionRequestRequestTypeDef
+# AttachCertificateToDistributionRequestTypeDef
 
 ### distributionName
 - **Type**: <class 'str'>
@@ -191,7 +191,7 @@
 - **Required**: Yes
 
 
-# AttachDiskRequestRequestTypeDef
+# AttachDiskRequestTypeDef
 
 ### diskName
 - **Type**: <class 'str'>
@@ -220,7 +220,7 @@
 - **Required**: Yes
 
 
-# AttachInstancesToLoadBalancerRequestRequestTypeDef
+# AttachInstancesToLoadBalancerRequestTypeDef
 
 ### loadBalancerName
 - **Type**: <class 'str'>
@@ -242,7 +242,7 @@
 - **Required**: Yes
 
 
-# AttachLoadBalancerTlsCertificateRequestRequestTypeDef
+# AttachLoadBalancerTlsCertificateRequestTypeDef
 
 ### loadBalancerName
 - **Type**: <class 'str'>
@@ -264,7 +264,7 @@
 - **Required**: Yes
 
 
-# AttachStaticIpRequestRequestTypeDef
+# AttachStaticIpRequestTypeDef
 
 ### staticIpName
 - **Type**: <class 'str'>
@@ -333,45 +333,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # BlueprintTypeDef
 
-### blueprintId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### name
-- **Type**: typing.Optional[str]
-
-### group
-- **Type**: typing.Optional[str]
-
-### type
-- **Type**: typing.Optional[typing.Literal['app', 'os']]
-
-### description
-- **Type**: typing.Optional[str]
-
-### isActive
-- **Type**: typing.Optional[bool]
-
-### minPower
-- **Type**: typing.Optional[int]
-
-### version
-- **Type**: typing.Optional[str]
-
-### versionCode
-- **Type**: typing.Optional[str]
-
-### productUrl
-- **Type**: typing.Optional[str]
-
-### licenseUrl
-- **Type**: typing.Optional[str]
-
-### platform
-- **Type**: typing.Optional[typing.Literal['LINUX_UNIX', 'WINDOWS']]
-
-### appCategory
-- **Type**: typing.Optional[typing.Literal['LfR']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BucketAccessLogConfigTypeDef
 
@@ -578,6 +542,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.QueryStringObjectTypeDef]
 
 
+# CacheSettingsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # CertificateSummaryTypeDef
 
 ### certificateArn
@@ -662,7 +632,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CloseInstancePublicPortsRequestRequestTypeDef
+# CloseInstancePublicPortsRequestTypeDef
 
 ### portInfo
 - **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.PortInfoTypeDef'>
@@ -783,7 +753,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ContainerServiceDeploymentRequestTypeDef
 
 ### containers
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.lightsail_classes.ContainerTypeDef]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.lightsail_classes.ContainerUnionTypeDef]]
 
 ### publicEndpoint
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.EndpointRequestTypeDef]
@@ -995,6 +965,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, typing.Literal['HTTP', 'HTTPS', 'TCP', 'UDP']]]
 
 
+# ContainerUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # CookieObjectOutputTypeDef
 
 ### option
@@ -1013,7 +989,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# CopySnapshotRequestRequestTypeDef
+# CopySnapshotRequestTypeDef
 
 ### targetSnapshotName
 - **Type**: <class 'str'>
@@ -1056,7 +1032,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.EstimateByTimeTypeDef]]
 
 
-# CreateBucketAccessKeyRequestRequestTypeDef
+# CreateBucketAccessKeyRequestTypeDef
 
 ### bucketName
 - **Type**: <class 'str'>
@@ -1078,7 +1054,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateBucketRequestRequestTypeDef
+# CreateBucketRequestTypeDef
 
 ### bucketName
 - **Type**: <class 'str'>
@@ -1110,7 +1086,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCertificateRequestRequestTypeDef
+# CreateCertificateRequestTypeDef
 
 ### certificateName
 - **Type**: <class 'str'>
@@ -1142,7 +1118,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCloudFormationStackRequestRequestTypeDef
+# CreateCloudFormationStackRequestTypeDef
 
 ### instances
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.InstanceEntryTypeDef]
@@ -1160,7 +1136,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateContactMethodRequestRequestTypeDef
+# CreateContactMethodRequestTypeDef
 
 ### protocol
 - **Type**: typing.Literal['Email', 'SMS']
@@ -1182,14 +1158,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateContainerServiceDeploymentRequestRequestTypeDef
+# CreateContainerServiceDeploymentRequestTypeDef
 
 ### serviceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### containers
-- **Type**: typing.Optional[typing.Mapping[str, typing.Union[aws_resource_validator.pydantic_models.lightsail_classes.ContainerTypeDef, aws_resource_validator.pydantic_models.lightsail_classes.ContainerOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.lightsail_classes.ContainerUnionTypeDef]]
 
 ### publicEndpoint
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.EndpointRequestTypeDef]
@@ -1217,7 +1193,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateContainerServiceRequestRequestTypeDef
+# CreateContainerServiceRequestTypeDef
 
 ### serviceName
 - **Type**: <class 'str'>
@@ -1255,7 +1231,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDiskFromSnapshotRequestRequestTypeDef
+# CreateDiskFromSnapshotRequestTypeDef
 
 ### diskName
 - **Type**: <class 'str'>
@@ -1299,7 +1275,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDiskRequestRequestTypeDef
+# CreateDiskRequestTypeDef
 
 ### diskName
 - **Type**: <class 'str'>
@@ -1331,7 +1307,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDiskSnapshotRequestRequestTypeDef
+# CreateDiskSnapshotRequestTypeDef
 
 ### diskSnapshotName
 - **Type**: <class 'str'>
@@ -1358,7 +1334,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDistributionRequestRequestTypeDef
+# CreateDistributionRequestTypeDef
 
 ### distributionName
 - **Type**: <class 'str'>
@@ -1377,7 +1353,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### cacheBehaviorSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.CacheSettingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.CacheSettingsUnionTypeDef]
 
 ### cacheBehaviors
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.CacheBehaviorPerPathTypeDef]]
@@ -1410,14 +1386,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDomainEntryRequestRequestTypeDef
+# CreateDomainEntryRequestTypeDef
 
 ### domainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### domainEntry
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.DomainEntryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.DomainEntryUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -1432,7 +1408,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDomainRequestRequestTypeDef
+# CreateDomainRequestTypeDef
 
 ### domainName
 - **Type**: <class 'str'>
@@ -1453,7 +1429,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateGUISessionAccessDetailsRequestRequestTypeDef
+# CreateGUISessionAccessDetailsRequestTypeDef
 
 ### resourceName
 - **Type**: <class 'str'>
@@ -1487,7 +1463,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateInstanceSnapshotRequestRequestTypeDef
+# CreateInstanceSnapshotRequestTypeDef
 
 ### instanceSnapshotName
 - **Type**: <class 'str'>
@@ -1512,7 +1488,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateInstancesFromSnapshotRequestRequestTypeDef
+# CreateInstancesFromSnapshotRequestTypeDef
 
 ### instanceNames
 - **Type**: typing.Sequence[str]
@@ -1568,7 +1544,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateInstancesRequestRequestTypeDef
+# CreateInstancesRequestTypeDef
 
 ### instanceNames
 - **Type**: typing.Sequence[str]
@@ -1616,7 +1592,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateKeyPairRequestRequestTypeDef
+# CreateKeyPairRequestTypeDef
 
 ### keyPairName
 - **Type**: <class 'str'>
@@ -1649,7 +1625,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLoadBalancerRequestRequestTypeDef
+# CreateLoadBalancerRequestTypeDef
 
 ### loadBalancerName
 - **Type**: <class 'str'>
@@ -1692,7 +1668,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLoadBalancerTlsCertificateRequestRequestTypeDef
+# CreateLoadBalancerTlsCertificateRequestTypeDef
 
 ### loadBalancerName
 - **Type**: <class 'str'>
@@ -1724,7 +1700,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateRelationalDatabaseFromSnapshotRequestRequestTypeDef
+# CreateRelationalDatabaseFromSnapshotRequestTypeDef
 
 ### relationalDatabaseName
 - **Type**: <class 'str'>
@@ -1746,7 +1722,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### restoreTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.TimestampTypeDef]
 
 ### useLatestRestorableTime
 - **Type**: typing.Optional[bool]
@@ -1766,7 +1742,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateRelationalDatabaseRequestRequestTypeDef
+# CreateRelationalDatabaseRequestTypeDef
 
 ### relationalDatabaseName
 - **Type**: <class 'str'>
@@ -1818,7 +1794,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateRelationalDatabaseSnapshotRequestRequestTypeDef
+# CreateRelationalDatabaseSnapshotRequestTypeDef
 
 ### relationalDatabaseName
 - **Type**: <class 'str'>
@@ -1843,7 +1819,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAlarmRequestRequestTypeDef
+# DeleteAlarmRequestTypeDef
 
 ### alarmName
 - **Type**: <class 'str'>
@@ -1861,7 +1837,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAutoSnapshotRequestRequestTypeDef
+# DeleteAutoSnapshotRequestTypeDef
 
 ### resourceName
 - **Type**: <class 'str'>
@@ -1883,7 +1859,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteBucketAccessKeyRequestRequestTypeDef
+# DeleteBucketAccessKeyRequestTypeDef
 
 ### bucketName
 - **Type**: <class 'str'>
@@ -1905,7 +1881,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteBucketRequestRequestTypeDef
+# DeleteBucketRequestTypeDef
 
 ### bucketName
 - **Type**: <class 'str'>
@@ -1926,7 +1902,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteCertificateRequestRequestTypeDef
+# DeleteCertificateRequestTypeDef
 
 ### certificateName
 - **Type**: <class 'str'>
@@ -1944,7 +1920,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteContactMethodRequestRequestTypeDef
+# DeleteContactMethodRequestTypeDef
 
 ### protocol
 - **Type**: typing.Literal['Email', 'SMS']
@@ -1962,7 +1938,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteContainerImageRequestRequestTypeDef
+# DeleteContainerImageRequestTypeDef
 
 ### serviceName
 - **Type**: <class 'str'>
@@ -1973,14 +1949,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteContainerServiceRequestRequestTypeDef
+# DeleteContainerServiceRequestTypeDef
 
 ### serviceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDiskRequestRequestTypeDef
+# DeleteDiskRequestTypeDef
 
 ### diskName
 - **Type**: <class 'str'>
@@ -2001,7 +1977,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDiskSnapshotRequestRequestTypeDef
+# DeleteDiskSnapshotRequestTypeDef
 
 ### diskSnapshotName
 - **Type**: <class 'str'>
@@ -2019,7 +1995,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDistributionRequestRequestTypeDef
+# DeleteDistributionRequestTypeDef
 
 ### distributionName
 - **Type**: typing.Optional[str]
@@ -2036,14 +2012,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDomainEntryRequestRequestTypeDef
+# DeleteDomainEntryRequestTypeDef
 
 ### domainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### domainEntry
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.DomainEntryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.DomainEntryUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -2058,7 +2034,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDomainRequestRequestTypeDef
+# DeleteDomainRequestTypeDef
 
 ### domainName
 - **Type**: <class 'str'>
@@ -2076,7 +2052,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteInstanceRequestRequestTypeDef
+# DeleteInstanceRequestTypeDef
 
 ### instanceName
 - **Type**: <class 'str'>
@@ -2097,7 +2073,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteInstanceSnapshotRequestRequestTypeDef
+# DeleteInstanceSnapshotRequestTypeDef
 
 ### instanceSnapshotName
 - **Type**: <class 'str'>
@@ -2115,7 +2091,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteKeyPairRequestRequestTypeDef
+# DeleteKeyPairRequestTypeDef
 
 ### keyPairName
 - **Type**: <class 'str'>
@@ -2136,7 +2112,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteKnownHostKeysRequestRequestTypeDef
+# DeleteKnownHostKeysRequestTypeDef
 
 ### instanceName
 - **Type**: <class 'str'>
@@ -2154,7 +2130,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteLoadBalancerRequestRequestTypeDef
+# DeleteLoadBalancerRequestTypeDef
 
 ### loadBalancerName
 - **Type**: <class 'str'>
@@ -2172,7 +2148,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteLoadBalancerTlsCertificateRequestRequestTypeDef
+# DeleteLoadBalancerTlsCertificateRequestTypeDef
 
 ### loadBalancerName
 - **Type**: <class 'str'>
@@ -2197,7 +2173,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteRelationalDatabaseRequestRequestTypeDef
+# DeleteRelationalDatabaseRequestTypeDef
 
 ### relationalDatabaseName
 - **Type**: <class 'str'>
@@ -2221,7 +2197,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteRelationalDatabaseSnapshotRequestRequestTypeDef
+# DeleteRelationalDatabaseSnapshotRequestTypeDef
 
 ### relationalDatabaseSnapshotName
 - **Type**: <class 'str'>
@@ -2241,14 +2217,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DestinationInfoTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### service
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-
-# DetachCertificateFromDistributionRequestRequestTypeDef
+# DetachCertificateFromDistributionRequestTypeDef
 
 ### distributionName
 - **Type**: <class 'str'>
@@ -2266,7 +2239,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DetachDiskRequestRequestTypeDef
+# DetachDiskRequestTypeDef
 
 ### diskName
 - **Type**: <class 'str'>
@@ -2284,7 +2257,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DetachInstancesFromLoadBalancerRequestRequestTypeDef
+# DetachInstancesFromLoadBalancerRequestTypeDef
 
 ### loadBalancerName
 - **Type**: <class 'str'>
@@ -2306,7 +2279,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DetachStaticIpRequestRequestTypeDef
+# DetachStaticIpRequestTypeDef
 
 ### staticIpName
 - **Type**: <class 'str'>
@@ -2324,7 +2297,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisableAddOnRequestRequestTypeDef
+# DisableAddOnRequestTypeDef
 
 ### addOnType
 - **Type**: typing.Literal['AutoSnapshot', 'StopInstanceOnIdle']
@@ -2508,68 +2481,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DomainEntryExtraOutputTypeDef
-
-### id
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### target
-- **Type**: typing.Optional[str]
-
-### isAlias
-- **Type**: typing.Optional[bool]
-
-### type
-- **Type**: typing.Optional[str]
-
-### options
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
 # DomainEntryOutputTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### name
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### target
-- **Type**: typing.Optional[str]
+# DomainEntryUnionTypeDef
 
-### isAlias
-- **Type**: typing.Optional[bool]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: typing.Optional[str]
-
-### options
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# DomainEntryTypeDef
-
-### id
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### target
-- **Type**: typing.Optional[str]
-
-### isAlias
-- **Type**: typing.Optional[bool]
-
-### type
-- **Type**: typing.Optional[str]
-
-### options
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DomainTypeDef
 
@@ -2635,7 +2557,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EnableAddOnRequestRequestTypeDef
+# EnableAddOnRequestTypeDef
 
 ### resourceName
 - **Type**: <class 'str'>
@@ -2743,7 +2665,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.DestinationInfoTypeDef]
 
 
-# ExportSnapshotRequestRequestTypeDef
+# ExportSnapshotRequestTypeDef
 
 ### sourceSnapshotName
 - **Type**: <class 'str'>
@@ -2761,13 +2683,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetActiveNamesRequestGetActiveNamesPaginateTypeDef
+# GetActiveNamesRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfigTypeDef]
 
 
-# GetActiveNamesRequestRequestTypeDef
+# GetActiveNamesRequestTypeDef
 
 ### pageToken
 - **Type**: typing.Optional[str]
@@ -2788,7 +2710,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAlarmsRequestRequestTypeDef
+# GetAlarmsRequestTypeDef
 
 ### alarmName
 - **Type**: typing.Optional[str]
@@ -2815,7 +2737,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAutoSnapshotsRequestRequestTypeDef
+# GetAutoSnapshotsRequestTypeDef
 
 ### resourceName
 - **Type**: <class 'str'>
@@ -2841,7 +2763,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetBlueprintsRequestGetBlueprintsPaginateTypeDef
+# GetBlueprintsRequestPaginateTypeDef
 
 ### includeInactive
 - **Type**: typing.Optional[bool]
@@ -2853,7 +2775,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfigTypeDef]
 
 
-# GetBlueprintsRequestRequestTypeDef
+# GetBlueprintsRequestTypeDef
 
 ### includeInactive
 - **Type**: typing.Optional[bool]
@@ -2880,7 +2802,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetBucketAccessKeysRequestRequestTypeDef
+# GetBucketAccessKeysRequestTypeDef
 
 ### bucketName
 - **Type**: <class 'str'>
@@ -2898,7 +2820,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetBucketBundlesRequestRequestTypeDef
+# GetBucketBundlesRequestTypeDef
 
 ### includeInactive
 - **Type**: typing.Optional[bool]
@@ -2915,7 +2837,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetBucketMetricDataRequestRequestTypeDef
+# GetBucketMetricDataRequestTypeDef
 
 ### bucketName
 - **Type**: <class 'str'>
@@ -2926,11 +2848,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### endTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### period
@@ -2961,7 +2883,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetBucketsRequestRequestTypeDef
+# GetBucketsRequestTypeDef
 
 ### bucketName
 - **Type**: typing.Optional[str]
@@ -2992,7 +2914,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetBundlesRequestGetBundlesPaginateTypeDef
+# GetBundlesRequestPaginateTypeDef
 
 ### includeInactive
 - **Type**: typing.Optional[bool]
@@ -3004,7 +2926,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfigTypeDef]
 
 
-# GetBundlesRequestRequestTypeDef
+# GetBundlesRequestTypeDef
 
 ### includeInactive
 - **Type**: typing.Optional[bool]
@@ -3031,7 +2953,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCertificatesRequestRequestTypeDef
+# GetCertificatesRequestTypeDef
 
 ### certificateStatuses
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['EXPIRED', 'FAILED', 'INACTIVE', 'ISSUED', 'PENDING_VALIDATION', 'REVOKED', 'VALIDATION_TIMED_OUT']]]
@@ -3061,13 +2983,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCloudFormationStackRecordsRequestGetCloudFormationStackRecordsPaginateTypeDef
+# GetCloudFormationStackRecordsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfigTypeDef]
 
 
-# GetCloudFormationStackRecordsRequestRequestTypeDef
+# GetCloudFormationStackRecordsRequestTypeDef
 
 ### pageToken
 - **Type**: typing.Optional[str]
@@ -3088,7 +3010,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetContactMethodsRequestRequestTypeDef
+# GetContactMethodsRequestTypeDef
 
 ### protocols
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['Email', 'SMS']]]
@@ -3116,7 +3038,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetContainerImagesRequestRequestTypeDef
+# GetContainerImagesRequestTypeDef
 
 ### serviceName
 - **Type**: <class 'str'>
@@ -3134,7 +3056,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetContainerLogRequestRequestTypeDef
+# GetContainerLogRequestTypeDef
 
 ### serviceName
 - **Type**: <class 'str'>
@@ -3145,10 +3067,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.TimestampTypeDef]
 
 ### endTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.TimestampTypeDef]
 
 ### filterPattern
 - **Type**: typing.Optional[str]
@@ -3172,7 +3094,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetContainerServiceDeploymentsRequestRequestTypeDef
+# GetContainerServiceDeploymentsRequestTypeDef
 
 ### serviceName
 - **Type**: <class 'str'>
@@ -3190,7 +3112,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetContainerServiceMetricDataRequestRequestTypeDef
+# GetContainerServiceMetricDataRequestTypeDef
 
 ### serviceName
 - **Type**: <class 'str'>
@@ -3201,11 +3123,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### endTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### period
@@ -3243,24 +3165,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetContainerServicesRequestRequestTypeDef
+# GetContainerServicesRequestTypeDef
 
 ### serviceName
 - **Type**: typing.Optional[str]
 
 
-# GetCostEstimateRequestRequestTypeDef
+# GetCostEstimateRequestTypeDef
 
 ### resourceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### startTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### endTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 
@@ -3275,7 +3197,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDiskRequestRequestTypeDef
+# GetDiskRequestTypeDef
 
 ### diskName
 - **Type**: <class 'str'>
@@ -3293,7 +3215,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDiskSnapshotRequestRequestTypeDef
+# GetDiskSnapshotRequestTypeDef
 
 ### diskSnapshotName
 - **Type**: <class 'str'>
@@ -3311,13 +3233,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDiskSnapshotsRequestGetDiskSnapshotsPaginateTypeDef
+# GetDiskSnapshotsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfigTypeDef]
 
 
-# GetDiskSnapshotsRequestRequestTypeDef
+# GetDiskSnapshotsRequestTypeDef
 
 ### pageToken
 - **Type**: typing.Optional[str]
@@ -3338,13 +3260,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDisksRequestGetDisksPaginateTypeDef
+# GetDisksRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfigTypeDef]
 
 
-# GetDisksRequestRequestTypeDef
+# GetDisksRequestTypeDef
 
 ### pageToken
 - **Type**: typing.Optional[str]
@@ -3376,7 +3298,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDistributionLatestCacheResetRequestRequestTypeDef
+# GetDistributionLatestCacheResetRequestTypeDef
 
 ### distributionName
 - **Type**: typing.Optional[str]
@@ -3397,7 +3319,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDistributionMetricDataRequestRequestTypeDef
+# GetDistributionMetricDataRequestTypeDef
 
 ### distributionName
 - **Type**: <class 'str'>
@@ -3408,11 +3330,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### endTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### period
@@ -3443,7 +3365,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDistributionsRequestRequestTypeDef
+# GetDistributionsRequestTypeDef
 
 ### distributionName
 - **Type**: typing.Optional[str]
@@ -3467,7 +3389,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDomainRequestRequestTypeDef
+# GetDomainRequestTypeDef
 
 ### domainName
 - **Type**: <class 'str'>
@@ -3485,13 +3407,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDomainsRequestGetDomainsPaginateTypeDef
+# GetDomainsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfigTypeDef]
 
 
-# GetDomainsRequestRequestTypeDef
+# GetDomainsRequestTypeDef
 
 ### pageToken
 - **Type**: typing.Optional[str]
@@ -3512,13 +3434,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetExportSnapshotRecordsRequestGetExportSnapshotRecordsPaginateTypeDef
+# GetExportSnapshotRecordsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfigTypeDef]
 
 
-# GetExportSnapshotRecordsRequestRequestTypeDef
+# GetExportSnapshotRecordsRequestTypeDef
 
 ### pageToken
 - **Type**: typing.Optional[str]
@@ -3539,7 +3461,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetInstanceAccessDetailsRequestRequestTypeDef
+# GetInstanceAccessDetailsRequestTypeDef
 
 ### instanceName
 - **Type**: <class 'str'>
@@ -3560,7 +3482,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetInstanceMetricDataRequestRequestTypeDef
+# GetInstanceMetricDataRequestTypeDef
 
 ### instanceName
 - **Type**: <class 'str'>
@@ -3575,11 +3497,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### endTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### unit
@@ -3606,7 +3528,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetInstancePortStatesRequestRequestTypeDef
+# GetInstancePortStatesRequestTypeDef
 
 ### instanceName
 - **Type**: <class 'str'>
@@ -3624,7 +3546,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetInstanceRequestRequestTypeDef
+# GetInstanceRequestTypeDef
 
 ### instanceName
 - **Type**: <class 'str'>
@@ -3642,7 +3564,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetInstanceSnapshotRequestRequestTypeDef
+# GetInstanceSnapshotRequestTypeDef
 
 ### instanceSnapshotName
 - **Type**: <class 'str'>
@@ -3660,13 +3582,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetInstanceSnapshotsRequestGetInstanceSnapshotsPaginateTypeDef
+# GetInstanceSnapshotsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfigTypeDef]
 
 
-# GetInstanceSnapshotsRequestRequestTypeDef
+# GetInstanceSnapshotsRequestTypeDef
 
 ### pageToken
 - **Type**: typing.Optional[str]
@@ -3687,7 +3609,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetInstanceStateRequestRequestTypeDef
+# GetInstanceStateRequestTypeDef
 
 ### instanceName
 - **Type**: <class 'str'>
@@ -3705,13 +3627,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetInstancesRequestGetInstancesPaginateTypeDef
+# GetInstancesRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfigTypeDef]
 
 
-# GetInstancesRequestRequestTypeDef
+# GetInstancesRequestTypeDef
 
 ### pageToken
 - **Type**: typing.Optional[str]
@@ -3732,7 +3654,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetKeyPairRequestRequestTypeDef
+# GetKeyPairRequestTypeDef
 
 ### keyPairName
 - **Type**: <class 'str'>
@@ -3750,7 +3672,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetKeyPairsRequestGetKeyPairsPaginateTypeDef
+# GetKeyPairsRequestPaginateTypeDef
 
 ### includeDefaultKeyPair
 - **Type**: typing.Optional[bool]
@@ -3759,7 +3681,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfigTypeDef]
 
 
-# GetKeyPairsRequestRequestTypeDef
+# GetKeyPairsRequestTypeDef
 
 ### pageToken
 - **Type**: typing.Optional[str]
@@ -3783,7 +3705,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetLoadBalancerMetricDataRequestRequestTypeDef
+# GetLoadBalancerMetricDataRequestTypeDef
 
 ### loadBalancerName
 - **Type**: <class 'str'>
@@ -3798,11 +3720,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### endTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### unit
@@ -3829,7 +3751,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetLoadBalancerRequestRequestTypeDef
+# GetLoadBalancerRequestTypeDef
 
 ### loadBalancerName
 - **Type**: <class 'str'>
@@ -3847,7 +3769,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetLoadBalancerTlsCertificatesRequestRequestTypeDef
+# GetLoadBalancerTlsCertificatesRequestTypeDef
 
 ### loadBalancerName
 - **Type**: <class 'str'>
@@ -3865,7 +3787,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetLoadBalancerTlsPoliciesRequestRequestTypeDef
+# GetLoadBalancerTlsPoliciesRequestTypeDef
 
 ### pageToken
 - **Type**: typing.Optional[str]
@@ -3886,13 +3808,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetLoadBalancersRequestGetLoadBalancersPaginateTypeDef
+# GetLoadBalancersRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfigTypeDef]
 
 
-# GetLoadBalancersRequestRequestTypeDef
+# GetLoadBalancersRequestTypeDef
 
 ### pageToken
 - **Type**: typing.Optional[str]
@@ -3913,7 +3835,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetOperationRequestRequestTypeDef
+# GetOperationRequestTypeDef
 
 ### operationId
 - **Type**: <class 'str'>
@@ -3931,7 +3853,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetOperationsForResourceRequestRequestTypeDef
+# GetOperationsForResourceRequestTypeDef
 
 ### resourceName
 - **Type**: <class 'str'>
@@ -3960,13 +3882,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetOperationsRequestGetOperationsPaginateTypeDef
+# GetOperationsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfigTypeDef]
 
 
-# GetOperationsRequestRequestTypeDef
+# GetOperationsRequestTypeDef
 
 ### pageToken
 - **Type**: typing.Optional[str]
@@ -3987,7 +3909,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRegionsRequestRequestTypeDef
+# GetRegionsRequestTypeDef
 
 ### includeAvailabilityZones
 - **Type**: typing.Optional[bool]
@@ -4007,13 +3929,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRelationalDatabaseBlueprintsRequestGetRelationalDatabaseBlueprintsPaginateTypeDef
+# GetRelationalDatabaseBlueprintsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfigTypeDef]
 
 
-# GetRelationalDatabaseBlueprintsRequestRequestTypeDef
+# GetRelationalDatabaseBlueprintsRequestTypeDef
 
 ### pageToken
 - **Type**: typing.Optional[str]
@@ -4034,7 +3956,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRelationalDatabaseBundlesRequestGetRelationalDatabaseBundlesPaginateTypeDef
+# GetRelationalDatabaseBundlesRequestPaginateTypeDef
 
 ### includeInactive
 - **Type**: typing.Optional[bool]
@@ -4043,7 +3965,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfigTypeDef]
 
 
-# GetRelationalDatabaseBundlesRequestRequestTypeDef
+# GetRelationalDatabaseBundlesRequestTypeDef
 
 ### pageToken
 - **Type**: typing.Optional[str]
@@ -4067,7 +3989,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRelationalDatabaseEventsRequestGetRelationalDatabaseEventsPaginateTypeDef
+# GetRelationalDatabaseEventsRequestPaginateTypeDef
 
 ### relationalDatabaseName
 - **Type**: <class 'str'>
@@ -4080,7 +4002,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfigTypeDef]
 
 
-# GetRelationalDatabaseEventsRequestRequestTypeDef
+# GetRelationalDatabaseEventsRequestTypeDef
 
 ### relationalDatabaseName
 - **Type**: <class 'str'>
@@ -4108,7 +4030,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRelationalDatabaseLogEventsRequestRequestTypeDef
+# GetRelationalDatabaseLogEventsRequestTypeDef
 
 ### relationalDatabaseName
 - **Type**: <class 'str'>
@@ -4119,10 +4041,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.TimestampTypeDef]
 
 ### endTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.TimestampTypeDef]
 
 ### startFromHead
 - **Type**: typing.Optional[bool]
@@ -4150,7 +4072,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRelationalDatabaseLogStreamsRequestRequestTypeDef
+# GetRelationalDatabaseLogStreamsRequestTypeDef
 
 ### relationalDatabaseName
 - **Type**: <class 'str'>
@@ -4168,7 +4090,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRelationalDatabaseMasterUserPasswordRequestRequestTypeDef
+# GetRelationalDatabaseMasterUserPasswordRequestTypeDef
 
 ### relationalDatabaseName
 - **Type**: <class 'str'>
@@ -4193,7 +4115,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRelationalDatabaseMetricDataRequestRequestTypeDef
+# GetRelationalDatabaseMetricDataRequestTypeDef
 
 ### relationalDatabaseName
 - **Type**: <class 'str'>
@@ -4208,11 +4130,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### endTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### unit
@@ -4239,7 +4161,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRelationalDatabaseParametersRequestGetRelationalDatabaseParametersPaginateTypeDef
+# GetRelationalDatabaseParametersRequestPaginateTypeDef
 
 ### relationalDatabaseName
 - **Type**: <class 'str'>
@@ -4249,7 +4171,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfigTypeDef]
 
 
-# GetRelationalDatabaseParametersRequestRequestTypeDef
+# GetRelationalDatabaseParametersRequestTypeDef
 
 ### relationalDatabaseName
 - **Type**: <class 'str'>
@@ -4274,7 +4196,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRelationalDatabaseRequestRequestTypeDef
+# GetRelationalDatabaseRequestTypeDef
 
 ### relationalDatabaseName
 - **Type**: <class 'str'>
@@ -4292,7 +4214,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRelationalDatabaseSnapshotRequestRequestTypeDef
+# GetRelationalDatabaseSnapshotRequestTypeDef
 
 ### relationalDatabaseSnapshotName
 - **Type**: <class 'str'>
@@ -4310,13 +4232,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRelationalDatabaseSnapshotsRequestGetRelationalDatabaseSnapshotsPaginateTypeDef
+# GetRelationalDatabaseSnapshotsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfigTypeDef]
 
 
-# GetRelationalDatabaseSnapshotsRequestRequestTypeDef
+# GetRelationalDatabaseSnapshotsRequestTypeDef
 
 ### pageToken
 - **Type**: typing.Optional[str]
@@ -4337,13 +4259,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRelationalDatabasesRequestGetRelationalDatabasesPaginateTypeDef
+# GetRelationalDatabasesRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfigTypeDef]
 
 
-# GetRelationalDatabasesRequestRequestTypeDef
+# GetRelationalDatabasesRequestTypeDef
 
 ### pageToken
 - **Type**: typing.Optional[str]
@@ -4364,7 +4286,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSetupHistoryRequestRequestTypeDef
+# GetSetupHistoryRequestTypeDef
 
 ### resourceName
 - **Type**: <class 'str'>
@@ -4389,7 +4311,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetStaticIpRequestRequestTypeDef
+# GetStaticIpRequestTypeDef
 
 ### staticIpName
 - **Type**: <class 'str'>
@@ -4407,13 +4329,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetStaticIpsRequestGetStaticIpsPaginateTypeDef
+# GetStaticIpsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfigTypeDef]
 
 
-# GetStaticIpsRequestRequestTypeDef
+# GetStaticIpsRequestTypeDef
 
 ### pageToken
 - **Type**: typing.Optional[str]
@@ -4476,7 +4398,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ImportKeyPairRequestRequestTypeDef
+# ImportKeyPairRequestTypeDef
 
 ### keyPairName
 - **Type**: <class 'str'>
@@ -4944,24 +4866,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # LoadBalancerTlsCertificateDomainValidationRecordTypeDef
 
-### name
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: typing.Optional[str]
-
-### value
-- **Type**: typing.Optional[str]
-
-### validationStatus
-- **Type**: typing.Optional[typing.Literal['FAILED', 'PENDING_VALIDATION', 'SUCCESS']]
-
-### domainName
-- **Type**: typing.Optional[str]
-
-### dnsRecordCreationState
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.LoadBalancerTlsCertificateDnsRecordCreationStateTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LoadBalancerTlsCertificateRenewalSummaryTypeDef
 
@@ -5148,27 +5055,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # MetricDatapointTypeDef
 
-### average
-- **Type**: typing.Optional[float]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### maximum
-- **Type**: typing.Optional[float]
-
-### minimum
-- **Type**: typing.Optional[float]
-
-### sampleCount
-- **Type**: typing.Optional[float]
-
-### sum
-- **Type**: typing.Optional[float]
-
-### timestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-### unit
-- **Type**: typing.Optional[typing.Literal['Bits', 'Bits/Second', 'Bytes', 'Bytes/Second', 'Count', 'Count/Second', 'Gigabits', 'Gigabits/Second', 'Gigabytes', 'Gigabytes/Second', 'Kilobits', 'Kilobits/Second', 'Kilobytes', 'Kilobytes/Second', 'Megabits', 'Megabits/Second', 'Megabytes', 'Megabytes/Second', 'Microseconds', 'Milliseconds', 'None', 'Percent', 'Seconds', 'Terabits', 'Terabits/Second', 'Terabytes', 'Terabytes/Second']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MonitoredResourceInfoTypeDef
 
@@ -5197,7 +5086,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# OpenInstancePublicPortsRequestRequestTypeDef
+# OpenInstancePublicPortsRequestTypeDef
 
 ### portInfo
 - **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.PortInfoTypeDef'>
@@ -5221,42 +5110,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # OperationTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### resourceName
-- **Type**: typing.Optional[str]
-
-### resourceType
-- **Type**: typing.Optional[typing.Literal['Alarm', 'Bucket', 'Certificate', 'CloudFormationStackRecord', 'ContactMethod', 'ContainerService', 'Disk', 'DiskSnapshot', 'Distribution', 'Domain', 'ExportSnapshotRecord', 'Instance', 'InstanceSnapshot', 'KeyPair', 'LoadBalancer', 'LoadBalancerTlsCertificate', 'PeeredVpc', 'RelationalDatabase', 'RelationalDatabaseSnapshot', 'StaticIp']]
-
-### createdAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ResourceLocationTypeDef]
-
-### isTerminal
-- **Type**: typing.Optional[bool]
-
-### operationDetails
-- **Type**: typing.Optional[str]
-
-### operationType
-- **Type**: typing.Optional[typing.Literal['AllocateStaticIp', 'AttachCertificateToDistribution', 'AttachDisk', 'AttachInstancesToLoadBalancer', 'AttachLoadBalancerTlsCertificate', 'AttachStaticIp', 'CloseInstancePublicPorts', 'CreateBucket', 'CreateBucketAccessKey', 'CreateCertificate', 'CreateContactMethod', 'CreateContainerService', 'CreateContainerServiceDeployment', 'CreateContainerServiceRegistryLogin', 'CreateDisk', 'CreateDiskFromSnapshot', 'CreateDiskSnapshot', 'CreateDistribution', 'CreateDomain', 'CreateInstance', 'CreateInstanceSnapshot', 'CreateInstancesFromSnapshot', 'CreateLoadBalancer', 'CreateLoadBalancerTlsCertificate', 'CreateRelationalDatabase', 'CreateRelationalDatabaseFromSnapshot', 'CreateRelationalDatabaseSnapshot', 'DeleteAlarm', 'DeleteBucket', 'DeleteBucketAccessKey', 'DeleteCertificate', 'DeleteContactMethod', 'DeleteContainerImage', 'DeleteContainerService', 'DeleteDisk', 'DeleteDiskSnapshot', 'DeleteDistribution', 'DeleteDomain', 'DeleteDomainEntry', 'DeleteInstance', 'DeleteInstanceSnapshot', 'DeleteKnownHostKeys', 'DeleteLoadBalancer', 'DeleteLoadBalancerTlsCertificate', 'DeleteRelationalDatabase', 'DeleteRelationalDatabaseSnapshot', 'DetachCertificateFromDistribution', 'DetachDisk', 'DetachInstancesFromLoadBalancer', 'DetachStaticIp', 'DisableAddOn', 'EnableAddOn', 'GetAlarms', 'GetContactMethods', 'OpenInstancePublicPorts', 'PutAlarm', 'PutInstancePublicPorts', 'RebootInstance', 'RebootRelationalDatabase', 'RegisterContainerImage', 'ReleaseStaticIp', 'ResetDistributionCache', 'SendContactMethodVerification', 'SetIpAddressType', 'SetResourceAccessForBucket', 'SetupInstanceHttps', 'StartGUISession', 'StartInstance', 'StartRelationalDatabase', 'StopGUISession', 'StopInstance', 'StopRelationalDatabase', 'TestAlarm', 'UpdateBucket', 'UpdateBucketBundle', 'UpdateContainerService', 'UpdateDistribution', 'UpdateDistributionBundle', 'UpdateDomainEntry', 'UpdateInstanceMetadataOptions', 'UpdateLoadBalancerAttribute', 'UpdateRelationalDatabase', 'UpdateRelationalDatabaseParameters']]
-
-### status
-- **Type**: typing.Optional[typing.Literal['Completed', 'Failed', 'NotStarted', 'Started', 'Succeeded']]
-
-### statusChangedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### errorCode
-- **Type**: typing.Optional[str]
-
-### errorDetails
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # OriginTypeDef
 
@@ -5365,7 +5221,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ContainerServiceECRImagePullerRoleTypeDef]
 
 
-# PutAlarmRequestRequestTypeDef
+# PutAlarmRequestTypeDef
 
 ### alarmName
 - **Type**: <class 'str'>
@@ -5418,7 +5274,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutInstancePublicPortsRequestRequestTypeDef
+# PutInstancePublicPortsRequestTypeDef
 
 ### portInfos
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.PortInfoTypeDef]
@@ -5467,7 +5323,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RebootInstanceRequestRequestTypeDef
+# RebootInstanceRequestTypeDef
 
 ### instanceName
 - **Type**: <class 'str'>
@@ -5485,7 +5341,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RebootRelationalDatabaseRequestRequestTypeDef
+# RebootRelationalDatabaseRequestTypeDef
 
 ### relationalDatabaseName
 - **Type**: <class 'str'>
@@ -5524,7 +5380,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.AvailabilityZoneTypeDef]]
 
 
-# RegisterContainerImageRequestRequestTypeDef
+# RegisterContainerImageRequestTypeDef
 
 ### serviceName
 - **Type**: <class 'str'>
@@ -5802,7 +5658,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ReleaseStaticIpRequestRequestTypeDef
+# ReleaseStaticIpRequestTypeDef
 
 ### staticIpName
 - **Type**: <class 'str'>
@@ -5835,7 +5691,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ResetDistributionCacheRequestRequestTypeDef
+# ResetDistributionCacheRequestTypeDef
 
 ### distributionName
 - **Type**: typing.Optional[str]
@@ -5898,15 +5754,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ResourceRecordTypeDef
 
-### name
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: typing.Optional[str]
-
-### value
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResponseMetadataTypeDef
 
@@ -5930,7 +5780,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SendContactMethodVerificationRequestRequestTypeDef
+# SendContactMethodVerificationRequestTypeDef
 
 ### protocol
 - **Type**: typing.Literal['Email']
@@ -5960,7 +5810,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# SetIpAddressTypeRequestRequestTypeDef
+# SetIpAddressTypeRequestTypeDef
 
 ### resourceType
 - **Type**: typing.Literal['Alarm', 'Bucket', 'Certificate', 'CloudFormationStackRecord', 'ContactMethod', 'ContainerService', 'Disk', 'DiskSnapshot', 'Distribution', 'Domain', 'ExportSnapshotRecord', 'Instance', 'InstanceSnapshot', 'KeyPair', 'LoadBalancer', 'LoadBalancerTlsCertificate', 'PeeredVpc', 'RelationalDatabase', 'RelationalDatabaseSnapshot', 'StaticIp']
@@ -5989,7 +5839,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetResourceAccessForBucketRequestRequestTypeDef
+# SetResourceAccessForBucketRequestTypeDef
 
 ### resourceName
 - **Type**: <class 'str'>
@@ -6075,7 +5925,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['failed', 'inProgress', 'succeeded']]
 
 
-# SetupInstanceHttpsRequestRequestTypeDef
+# SetupInstanceHttpsRequestTypeDef
 
 ### instanceName
 - **Type**: <class 'str'>
@@ -6117,7 +5967,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['LetsEncrypt']]
 
 
-# StartGUISessionRequestRequestTypeDef
+# StartGUISessionRequestTypeDef
 
 ### resourceName
 - **Type**: <class 'str'>
@@ -6135,7 +5985,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartInstanceRequestRequestTypeDef
+# StartInstanceRequestTypeDef
 
 ### instanceName
 - **Type**: <class 'str'>
@@ -6153,7 +6003,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartRelationalDatabaseRequestRequestTypeDef
+# StartRelationalDatabaseRequestTypeDef
 
 ### relationalDatabaseName
 - **Type**: <class 'str'>
@@ -6201,7 +6051,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# StopGUISessionRequestRequestTypeDef
+# StopGUISessionRequestTypeDef
 
 ### resourceName
 - **Type**: <class 'str'>
@@ -6228,7 +6078,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StopInstanceRequestRequestTypeDef
+# StopInstanceRequestTypeDef
 
 ### instanceName
 - **Type**: <class 'str'>
@@ -6249,7 +6099,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopRelationalDatabaseRequestRequestTypeDef
+# StopRelationalDatabaseRequestTypeDef
 
 ### relationalDatabaseName
 - **Type**: <class 'str'>
@@ -6270,7 +6120,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceName
 - **Type**: <class 'str'>
@@ -6304,7 +6154,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TestAlarmRequestRequestTypeDef
+# TestAlarmRequestTypeDef
 
 ### alarmName
 - **Type**: <class 'str'>
@@ -6335,6 +6185,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # UnpeerVpcResultTypeDef
 
 ### operation
@@ -6346,7 +6202,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceName
 - **Type**: <class 'str'>
@@ -6371,7 +6227,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateBucketBundleRequestRequestTypeDef
+# UpdateBucketBundleRequestTypeDef
 
 ### bucketName
 - **Type**: <class 'str'>
@@ -6393,7 +6249,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateBucketRequestRequestTypeDef
+# UpdateBucketRequestTypeDef
 
 ### bucketName
 - **Type**: <class 'str'>
@@ -6427,7 +6283,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateContainerServiceRequestRequestTypeDef
+# UpdateContainerServiceRequestTypeDef
 
 ### serviceName
 - **Type**: <class 'str'>
@@ -6460,7 +6316,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDistributionBundleRequestRequestTypeDef
+# UpdateDistributionBundleRequestTypeDef
 
 ### distributionName
 - **Type**: typing.Optional[str]
@@ -6480,7 +6336,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDistributionRequestRequestTypeDef
+# UpdateDistributionRequestTypeDef
 
 ### distributionName
 - **Type**: <class 'str'>
@@ -6493,7 +6349,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.CacheBehaviorTypeDef]
 
 ### cacheBehaviorSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.CacheSettingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.CacheSettingsUnionTypeDef]
 
 ### cacheBehaviors
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.CacheBehaviorPerPathTypeDef]]
@@ -6522,14 +6378,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDomainEntryRequestRequestTypeDef
+# UpdateDomainEntryRequestTypeDef
 
 ### domainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### domainEntry
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.DomainEntryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.DomainEntryUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -6544,7 +6400,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateInstanceMetadataOptionsRequestRequestTypeDef
+# UpdateInstanceMetadataOptionsRequestTypeDef
 
 ### instanceName
 - **Type**: <class 'str'>
@@ -6574,7 +6430,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateLoadBalancerAttributeRequestRequestTypeDef
+# UpdateLoadBalancerAttributeRequestTypeDef
 
 ### loadBalancerName
 - **Type**: <class 'str'>
@@ -6600,7 +6456,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRelationalDatabaseParametersRequestRequestTypeDef
+# UpdateRelationalDatabaseParametersRequestTypeDef
 
 ### relationalDatabaseName
 - **Type**: <class 'str'>
@@ -6622,7 +6478,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRelationalDatabaseRequestRequestTypeDef
+# UpdateRelationalDatabaseRequestTypeDef
 
 ### relationalDatabaseName
 - **Type**: <class 'str'>

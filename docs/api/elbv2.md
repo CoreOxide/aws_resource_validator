@@ -9,6 +9,16 @@
 - **Type**: string
 - **Pattern**: `^(2|4|5)\d\d$`
 
+### IpamPoolId
+- **Type**: string
+- **Pattern**: `^(ipam-pool-)[a-zA-Z0-9]+$`
+- **Max Length**: 1000
+
+### ListenerAttributeKey
+- **Type**: string
+- **Pattern**: `^[a-zA-Z0-9._]+$`
+- **Max Length**: 256
+
 ### LoadBalancerAttributeKey
 - **Type**: string
 - **Pattern**: `^[a-zA-Z0-9._]+$`

@@ -6,7 +6,9 @@
 
 ### ApplicationId
 - **Type**: string
-- **Pattern**: `[\w\d]{1,50}`
+- **Pattern**: `[\w\d\.-]+`
+- **Min Length**: 1
+- **Max Length**: 60
 
 ### Arn
 - **Type**: string
@@ -15,10 +17,14 @@
 ### ComponentId
 - **Type**: string
 - **Pattern**: `[\w\d-]+`
+- **Min Length**: 1
+- **Max Length**: 100
 
 ### DatabaseId
 - **Type**: string
 - **Pattern**: `.*[\w\d]+`
+- **Min Length**: 1
+- **Max Length**: 300
 
 ### InstanceId
 - **Type**: string

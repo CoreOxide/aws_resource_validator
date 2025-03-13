@@ -90,6 +90,12 @@
 - **Min Length**: 1
 - **Max Length**: 50
 
+### SNSNotificationArn
+- **Type**: string
+- **Pattern**: `^arn:aws(-\w+)*:[\w\d-]+:([\w\d-]*)?:[\w\d_-]*([:/].+)*$`
+- **Min Length**: 20
+- **Max Length**: 300
+
 ### TagKey
 - **Type**: string
 - **Pattern**: `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
@@ -112,5 +118,5 @@
 - **Type**: string
 - **Pattern**: `[a-zA-Z0-9\.\-_]*`
 - **Min Length**: 1
-- **Max Length**: 8
+- **Max Length**: 12
 

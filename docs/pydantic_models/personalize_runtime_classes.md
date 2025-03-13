@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# GetActionRecommendationsRequestRequestTypeDef
+# GetActionRecommendationsRequestTypeDef
 
 ### campaignArn
 - **Type**: typing.Optional[str]
@@ -39,7 +39,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPersonalizedRankingRequestRequestTypeDef
+# GetPersonalizedRankingRequestTypeDef
 
 ### campaignArn
 - **Type**: <class 'str'>
@@ -81,7 +81,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRecommendationsRequestRequestTypeDef
+# GetRecommendationsRequestTypeDef
 
 ### campaignArn
 - **Type**: typing.Optional[str]

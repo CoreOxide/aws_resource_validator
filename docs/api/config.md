@@ -20,6 +20,10 @@
 - **Min Length**: 1
 - **Max Length**: 256
 
+### ConfigurationRecorderFilterValue
+- **Type**: string
+- **Pattern**: `^[0-9a-zA-Z\\*\\.\\\/\\?-]*$`
+
 ### ConformancePackName
 - **Type**: string
 - **Pattern**: `[a-zA-Z][-a-zA-Z0-9]*`
@@ -28,7 +32,7 @@
 
 ### OrganizationConfigRuleName
 - **Type**: string
-- **Pattern**: `.*\S.*`
+- **Pattern**: `[A-Za-z0-9-_]+`
 - **Min Length**: 1
 - **Max Length**: 64
 
@@ -74,6 +78,12 @@
 - **Min Length**: 1
 - **Max Length**: 64
 
+### ResourceTypeValue
+- **Type**: string
+- **Pattern**: `[a-zA-Z0-9]{2,64}::[a-zA-Z0-9]{2,64}::[a-zA-Z0-9]{2,64}`
+- **Min Length**: 1
+- **Max Length**: 256
+
 ### RetentionConfigurationName
 - **Type**: string
 - **Pattern**: `[\w\-]+`
@@ -91,6 +101,18 @@
 ### SchemaVersionId
 - **Type**: string
 - **Pattern**: `[A-Za-z0-9-]+`
+- **Min Length**: 1
+- **Max Length**: 128
+
+### ServicePrincipal
+- **Type**: string
+- **Pattern**: `[\w+=,.@-]+`
+- **Min Length**: 1
+- **Max Length**: 128
+
+### ServicePrincipalValue
+- **Type**: string
+- **Pattern**: `[\w+=,.@-]+`
 - **Min Length**: 1
 - **Max Length**: 128
 

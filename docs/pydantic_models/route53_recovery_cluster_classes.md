@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# GetRoutingControlStateRequestRequestTypeDef
+# GetRoutingControlStateRequestTypeDef
 
 ### RoutingControlArn
 - **Type**: <class 'str'>
@@ -32,7 +32,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListRoutingControlsRequestListRoutingControlsPaginateTypeDef
+# ListRoutingControlsRequestPaginateTypeDef
 
 ### ControlPanelArn
 - **Type**: typing.Optional[str]
@@ -41,7 +41,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_cluster_classes.PaginatorConfigTypeDef]
 
 
-# ListRoutingControlsRequestRequestTypeDef
+# ListRoutingControlsRequestTypeDef
 
 ### ControlPanelArn
 - **Type**: typing.Optional[str]
@@ -59,13 +59,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_cluster_classes.RoutingControlTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_cluster_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # PaginatorConfigTypeDef
@@ -86,10 +85,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -101,6 +96,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # RoutingControlTypeDef
@@ -135,7 +133,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRoutingControlStateRequestRequestTypeDef
+# UpdateRoutingControlStateRequestTypeDef
 
 ### RoutingControlArn
 - **Type**: <class 'str'>
@@ -149,7 +147,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# UpdateRoutingControlStatesRequestRequestTypeDef
+# UpdateRoutingControlStatesRequestTypeDef
 
 ### UpdateRoutingControlStateEntries
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.route53_recovery_cluster_classes.UpdateRoutingControlStateEntryTypeDef]

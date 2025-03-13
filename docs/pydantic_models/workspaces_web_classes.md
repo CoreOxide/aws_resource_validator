@@ -1,6 +1,6 @@
 # Workspaces Web Classes
 
-# AssociateBrowserSettingsRequestRequestTypeDef
+# AssociateBrowserSettingsRequestTypeDef
 
 ### browserSettingsArn
 - **Type**: <class 'str'>
@@ -26,7 +26,33 @@
 - **Required**: Yes
 
 
-# AssociateIpAccessSettingsRequestRequestTypeDef
+# AssociateDataProtectionSettingsRequestTypeDef
+
+### dataProtectionSettingsArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### portalArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# AssociateDataProtectionSettingsResponseTypeDef
+
+### dataProtectionSettingsArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### portalArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_web_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# AssociateIpAccessSettingsRequestTypeDef
 
 ### ipAccessSettingsArn
 - **Type**: <class 'str'>
@@ -52,7 +78,7 @@
 - **Required**: Yes
 
 
-# AssociateNetworkSettingsRequestRequestTypeDef
+# AssociateNetworkSettingsRequestTypeDef
 
 ### networkSettingsArn
 - **Type**: <class 'str'>
@@ -78,7 +104,7 @@
 - **Required**: Yes
 
 
-# AssociateTrustStoreRequestRequestTypeDef
+# AssociateTrustStoreRequestTypeDef
 
 ### portalArn
 - **Type**: <class 'str'>
@@ -104,7 +130,7 @@
 - **Required**: Yes
 
 
-# AssociateUserAccessLoggingSettingsRequestRequestTypeDef
+# AssociateUserAccessLoggingSettingsRequestTypeDef
 
 ### portalArn
 - **Type**: <class 'str'>
@@ -130,7 +156,7 @@
 - **Required**: Yes
 
 
-# AssociateUserSettingsRequestRequestTypeDef
+# AssociateUserSettingsRequestTypeDef
 
 ### portalArn
 - **Type**: <class 'str'>
@@ -157,6 +183,12 @@
 
 
 # BaseValidatorModel
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# BlobTypeDef
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
@@ -260,7 +292,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_web_classes.CookieSpecificationTypeDef]]
 
 
-# CreateBrowserSettingsRequestRequestTypeDef
+# CookieSynchronizationConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CreateBrowserSettingsRequestTypeDef
 
 ### browserPolicy
 - **Type**: <class 'str'>
@@ -290,7 +328,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateIdentityProviderRequestRequestTypeDef
+# CreateDataProtectionSettingsRequestTypeDef
+
+### additionalEncryptionContext
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### clientToken
+- **Type**: typing.Optional[str]
+
+### customerManagedKey
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### displayName
+- **Type**: typing.Optional[str]
+
+### inlineRedactionConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_web_classes.InlineRedactionConfigurationUnionTypeDef]
+
+### tags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_web_classes.TagTypeDef]]
+
+
+# CreateDataProtectionSettingsResponseTypeDef
+
+### dataProtectionSettingsArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_web_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateIdentityProviderRequestTypeDef
 
 ### identityProviderDetails
 - **Type**: typing.Mapping[str, str]
@@ -326,7 +399,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateIpAccessSettingsRequestRequestTypeDef
+# CreateIpAccessSettingsRequestTypeDef
 
 ### ipRules
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.workspaces_web_classes.IpRuleTypeDef]
@@ -362,7 +435,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateNetworkSettingsRequestRequestTypeDef
+# CreateNetworkSettingsRequestTypeDef
 
 ### securityGroupIds
 - **Type**: typing.Sequence[str]
@@ -394,7 +467,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePortalRequestRequestTypeDef
+# CreatePortalRequestTypeDef
 
 ### additionalEncryptionContext
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -436,10 +509,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTrustStoreRequestRequestTypeDef
+# CreateTrustStoreRequestTypeDef
 
 ### certificateList
-- **Type**: typing.Sequence[typing.Union[str, bytes, typing.IO[typing.Any]]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.workspaces_web_classes.BlobTypeDef]
 - **Required**: Yes
 
 ### clientToken
@@ -460,7 +533,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateUserAccessLoggingSettingsRequestRequestTypeDef
+# CreateUserAccessLoggingSettingsRequestTypeDef
 
 ### kinesisStreamArn
 - **Type**: <class 'str'>
@@ -484,7 +557,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateUserSettingsRequestRequestTypeDef
+# CreateUserSettingsRequestTypeDef
 
 ### copyAllowed
 - **Type**: typing.Literal['Disabled', 'Enabled']
@@ -513,7 +586,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### cookieSynchronizationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_web_classes.CookieSynchronizationConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_web_classes.CookieSynchronizationConfigurationUnionTypeDef]
 
 ### customerManagedKey
 - **Type**: typing.Optional[str]
@@ -530,6 +603,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_web_classes.TagTypeDef]]
 
+### toolbarConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_web_classes.ToolbarConfigurationUnionTypeDef]
+
 
 # CreateUserSettingsResponseTypeDef
 
@@ -542,105 +618,191 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteBrowserSettingsRequestRequestTypeDef
+# CustomPatternTypeDef
+
+### patternName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### patternRegex
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### keywordRegex
+- **Type**: typing.Optional[str]
+
+### patternDescription
+- **Type**: typing.Optional[str]
+
+
+# DataProtectionSettingsSummaryTypeDef
+
+### dataProtectionSettingsArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### creationDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### description
+- **Type**: typing.Optional[str]
+
+### displayName
+- **Type**: typing.Optional[str]
+
+
+# DataProtectionSettingsTypeDef
+
+### dataProtectionSettingsArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### additionalEncryptionContext
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### associatedPortalArns
+- **Type**: typing.Optional[typing.List[str]]
+
+### creationDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### customerManagedKey
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### displayName
+- **Type**: typing.Optional[str]
+
+### inlineRedactionConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_web_classes.InlineRedactionConfigurationOutputTypeDef]
+
+
+# DeleteBrowserSettingsRequestTypeDef
 
 ### browserSettingsArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteIdentityProviderRequestRequestTypeDef
+# DeleteDataProtectionSettingsRequestTypeDef
+
+### dataProtectionSettingsArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteIdentityProviderRequestTypeDef
 
 ### identityProviderArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteIpAccessSettingsRequestRequestTypeDef
+# DeleteIpAccessSettingsRequestTypeDef
 
 ### ipAccessSettingsArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteNetworkSettingsRequestRequestTypeDef
+# DeleteNetworkSettingsRequestTypeDef
 
 ### networkSettingsArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePortalRequestRequestTypeDef
+# DeletePortalRequestTypeDef
 
 ### portalArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteTrustStoreRequestRequestTypeDef
+# DeleteTrustStoreRequestTypeDef
 
 ### trustStoreArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteUserAccessLoggingSettingsRequestRequestTypeDef
+# DeleteUserAccessLoggingSettingsRequestTypeDef
 
 ### userAccessLoggingSettingsArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteUserSettingsRequestRequestTypeDef
+# DeleteUserSettingsRequestTypeDef
 
 ### userSettingsArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisassociateBrowserSettingsRequestRequestTypeDef
+# DisassociateBrowserSettingsRequestTypeDef
 
 ### portalArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisassociateIpAccessSettingsRequestRequestTypeDef
+# DisassociateDataProtectionSettingsRequestTypeDef
 
 ### portalArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisassociateNetworkSettingsRequestRequestTypeDef
+# DisassociateIpAccessSettingsRequestTypeDef
 
 ### portalArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisassociateTrustStoreRequestRequestTypeDef
+# DisassociateNetworkSettingsRequestTypeDef
 
 ### portalArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisassociateUserAccessLoggingSettingsRequestRequestTypeDef
+# DisassociateTrustStoreRequestTypeDef
 
 ### portalArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisassociateUserSettingsRequestRequestTypeDef
+# DisassociateUserAccessLoggingSettingsRequestTypeDef
 
 ### portalArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetBrowserSettingsRequestRequestTypeDef
+# DisassociateUserSettingsRequestTypeDef
+
+### portalArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# ExpireSessionRequestTypeDef
+
+### portalId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sessionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetBrowserSettingsRequestTypeDef
 
 ### browserSettingsArn
 - **Type**: <class 'str'>
@@ -658,7 +820,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetIdentityProviderRequestRequestTypeDef
+# GetDataProtectionSettingsRequestTypeDef
+
+### dataProtectionSettingsArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetDataProtectionSettingsResponseTypeDef
+
+### dataProtectionSettings
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_web_classes.DataProtectionSettingsTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_web_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetIdentityProviderRequestTypeDef
 
 ### identityProviderArn
 - **Type**: <class 'str'>
@@ -676,7 +856,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetIpAccessSettingsRequestRequestTypeDef
+# GetIpAccessSettingsRequestTypeDef
 
 ### ipAccessSettingsArn
 - **Type**: <class 'str'>
@@ -694,7 +874,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetNetworkSettingsRequestRequestTypeDef
+# GetNetworkSettingsRequestTypeDef
 
 ### networkSettingsArn
 - **Type**: <class 'str'>
@@ -712,7 +892,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPortalRequestRequestTypeDef
+# GetPortalRequestTypeDef
 
 ### portalArn
 - **Type**: <class 'str'>
@@ -730,7 +910,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPortalServiceProviderMetadataRequestRequestTypeDef
+# GetPortalServiceProviderMetadataRequestTypeDef
 
 ### portalArn
 - **Type**: <class 'str'>
@@ -752,7 +932,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTrustStoreCertificateRequestRequestTypeDef
+# GetSessionRequestTypeDef
+
+### portalId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sessionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetSessionResponseTypeDef
+
+### session
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_web_classes.SessionTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_web_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetTrustStoreCertificateRequestTypeDef
 
 ### thumbprint
 - **Type**: <class 'str'>
@@ -778,7 +980,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTrustStoreRequestRequestTypeDef
+# GetTrustStoreRequestTypeDef
 
 ### trustStoreArn
 - **Type**: <class 'str'>
@@ -796,7 +998,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetUserAccessLoggingSettingsRequestRequestTypeDef
+# GetUserAccessLoggingSettingsRequestTypeDef
 
 ### userAccessLoggingSettingsArn
 - **Type**: <class 'str'>
@@ -814,7 +1016,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetUserSettingsRequestRequestTypeDef
+# GetUserSettingsRequestTypeDef
 
 ### userSettingsArn
 - **Type**: <class 'str'>
@@ -859,6 +1061,88 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### identityProviderType
 - **Type**: typing.Optional[typing.Literal['Facebook', 'Google', 'LoginWithAmazon', 'OIDC', 'SAML', 'SignInWithApple']]
+
+
+# InlineRedactionConfigurationOutputTypeDef
+
+### inlineRedactionPatterns
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_web_classes.InlineRedactionPatternOutputTypeDef]
+- **Required**: Yes
+
+### globalConfidenceLevel
+- **Type**: typing.Optional[int]
+
+### globalEnforcedUrls
+- **Type**: typing.Optional[typing.List[str]]
+
+### globalExemptUrls
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# InlineRedactionConfigurationTypeDef
+
+### inlineRedactionPatterns
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.workspaces_web_classes.InlineRedactionPatternTypeDef]
+- **Required**: Yes
+
+### globalConfidenceLevel
+- **Type**: typing.Optional[int]
+
+### globalEnforcedUrls
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### globalExemptUrls
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# InlineRedactionConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# InlineRedactionPatternOutputTypeDef
+
+### redactionPlaceHolder
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_web_classes.RedactionPlaceHolderTypeDef'>
+- **Required**: Yes
+
+### builtInPatternId
+- **Type**: typing.Optional[str]
+
+### confidenceLevel
+- **Type**: typing.Optional[int]
+
+### customPattern
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_web_classes.CustomPatternTypeDef]
+
+### enforcedUrls
+- **Type**: typing.Optional[typing.List[str]]
+
+### exemptUrls
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# InlineRedactionPatternTypeDef
+
+### redactionPlaceHolder
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_web_classes.RedactionPlaceHolderTypeDef'>
+- **Required**: Yes
+
+### builtInPatternId
+- **Type**: typing.Optional[str]
+
+### confidenceLevel
+- **Type**: typing.Optional[int]
+
+### customPattern
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_web_classes.CustomPatternTypeDef]
+
+### enforcedUrls
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### exemptUrls
+- **Type**: typing.Optional[typing.Sequence[str]]
 
 
 # IpAccessSettingsSummaryTypeDef
@@ -915,7 +1199,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListBrowserSettingsRequestRequestTypeDef
+# ListBrowserSettingsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -930,16 +1214,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_web_classes.BrowserSettingsSummaryTypeDef]
 - **Required**: Yes
 
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_web_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
 ### nextToken
-- **Type**: <class 'str'>
+- **Type**: typing.Optional[str]
+
+
+# ListDataProtectionSettingsRequestPaginateTypeDef
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_web_classes.PaginatorConfigTypeDef]
+
+
+# ListDataProtectionSettingsRequestTypeDef
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListDataProtectionSettingsResponseTypeDef
+
+### dataProtectionSettings
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_web_classes.DataProtectionSettingsSummaryTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_web_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListIdentityProvidersRequestRequestTypeDef
+
+# ListIdentityProvidersRequestTypeDef
 
 ### portalArn
 - **Type**: <class 'str'>
@@ -958,16 +1270,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_web_classes.IdentityProviderSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_web_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListIpAccessSettingsRequestRequestTypeDef
+
+# ListIpAccessSettingsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -982,16 +1293,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_web_classes.IpAccessSettingsSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_web_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListNetworkSettingsRequestRequestTypeDef
+
+# ListNetworkSettingsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1006,16 +1316,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_web_classes.NetworkSettingsSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_web_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListPortalsRequestRequestTypeDef
+
+# ListPortalsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1026,10 +1335,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListPortalsResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### portals
 - **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_web_classes.PortalSummaryTypeDef]
 - **Required**: Yes
@@ -1038,8 +1343,72 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_web_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListSessionsRequestPaginateTypeDef
+
+### portalId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sessionId
+- **Type**: typing.Optional[str]
+
+### sortBy
+- **Type**: typing.Optional[typing.Literal['StartTimeAscending', 'StartTimeDescending']]
+
+### status
+- **Type**: typing.Optional[typing.Literal['Active', 'Terminated']]
+
+### username
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_web_classes.PaginatorConfigTypeDef]
+
+
+# ListSessionsRequestTypeDef
+
+### portalId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### sessionId
+- **Type**: typing.Optional[str]
+
+### sortBy
+- **Type**: typing.Optional[typing.Literal['StartTimeAscending', 'StartTimeDescending']]
+
+### status
+- **Type**: typing.Optional[typing.Literal['Active', 'Terminated']]
+
+### username
+- **Type**: typing.Optional[str]
+
+
+# ListSessionsResponseTypeDef
+
+### sessions
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_web_classes.SessionSummaryTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_web_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1057,7 +1426,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTrustStoreCertificatesRequestRequestTypeDef
+# ListTrustStoreCertificatesRequestTypeDef
 
 ### trustStoreArn
 - **Type**: <class 'str'>
@@ -1076,10 +1445,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_web_classes.CertificateSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### trustStoreArn
 - **Type**: <class 'str'>
 - **Required**: Yes
@@ -1088,8 +1453,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_web_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTrustStoresRequestRequestTypeDef
+
+# ListTrustStoresRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1100,10 +1468,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListTrustStoresResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### trustStores
 - **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_web_classes.TrustStoreSummaryTypeDef]
 - **Required**: Yes
@@ -1112,8 +1476,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_web_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListUserAccessLoggingSettingsRequestRequestTypeDef
+
+# ListUserAccessLoggingSettingsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1124,10 +1491,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListUserAccessLoggingSettingsResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### userAccessLoggingSettings
 - **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_web_classes.UserAccessLoggingSettingsSummaryTypeDef]
 - **Required**: Yes
@@ -1136,8 +1499,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_web_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListUserSettingsRequestRequestTypeDef
+
+# ListUserSettingsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1148,10 +1514,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListUserSettingsResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### userSettings
 - **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_web_classes.UserSettingsSummaryTypeDef]
 - **Required**: Yes
@@ -1159,6 +1521,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_web_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # NetworkSettingsSummaryTypeDef
@@ -1190,6 +1555,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# PaginatorConfigTypeDef
+
+### MaxItems
+- **Type**: typing.Optional[int]
+
+### PageSize
+- **Type**: typing.Optional[int]
+
+### StartingToken
+- **Type**: typing.Optional[str]
+
+
 # PortalSummaryTypeDef
 
 ### portalArn
@@ -1207,6 +1584,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### creationDate
 - **Type**: typing.Optional[datetime.datetime]
+
+### dataProtectionSettingsArn
+- **Type**: typing.Optional[str]
 
 ### displayName
 - **Type**: typing.Optional[str]
@@ -1266,6 +1646,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### customerManagedKey
 - **Type**: typing.Optional[str]
 
+### dataProtectionSettingsArn
+- **Type**: typing.Optional[str]
+
 ### displayName
 - **Type**: typing.Optional[str]
 
@@ -1303,6 +1686,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# RedactionPlaceHolderTypeDef
+
+### redactionPlaceHolderType
+- **Type**: typing.Literal['CustomText']
+- **Required**: Yes
+
+### redactionPlaceHolderText
+- **Type**: typing.Optional[str]
+
+
 # ResponseMetadataTypeDef
 
 ### RequestId
@@ -1325,7 +1718,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestRequestTypeDef
+# SessionSummaryTypeDef
+
+### endTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### portalArn
+- **Type**: typing.Optional[str]
+
+### sessionId
+- **Type**: typing.Optional[str]
+
+### startTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### status
+- **Type**: typing.Optional[typing.Literal['Active', 'Terminated']]
+
+### username
+- **Type**: typing.Optional[str]
+
+
+# SessionTypeDef
+
+### clientIpAddresses
+- **Type**: typing.Optional[typing.List[str]]
+
+### endTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### portalArn
+- **Type**: typing.Optional[str]
+
+### sessionId
+- **Type**: typing.Optional[str]
+
+### startTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### status
+- **Type**: typing.Optional[typing.Literal['Active', 'Terminated']]
+
+### username
+- **Type**: typing.Optional[str]
+
+
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1350,6 +1788,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# ToolbarConfigurationOutputTypeDef
+
+### hiddenToolbarItems
+- **Type**: typing.Optional[typing.List[typing.Literal['DualMonitor', 'FullScreen', 'Microphone', 'Webcam', 'Windows']]]
+
+### maxDisplayResolution
+- **Type**: typing.Optional[typing.Literal['size1024X768', 'size1280X720', 'size1920X1080', 'size2560X1440', 'size3440X1440', 'size3840X2160', 'size4096X2160', 'size800X600']]
+
+### toolbarType
+- **Type**: typing.Optional[typing.Literal['Docked', 'Floating']]
+
+### visualMode
+- **Type**: typing.Optional[typing.Literal['Dark', 'Light']]
+
+
+# ToolbarConfigurationTypeDef
+
+### hiddenToolbarItems
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['DualMonitor', 'FullScreen', 'Microphone', 'Webcam', 'Windows']]]
+
+### maxDisplayResolution
+- **Type**: typing.Optional[typing.Literal['size1024X768', 'size1280X720', 'size1920X1080', 'size2560X1440', 'size3440X1440', 'size3840X2160', 'size4096X2160', 'size800X600']]
+
+### toolbarType
+- **Type**: typing.Optional[typing.Literal['Docked', 'Floating']]
+
+### visualMode
+- **Type**: typing.Optional[typing.Literal['Dark', 'Light']]
+
+
+# ToolbarConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # TrustStoreSummaryTypeDef
 
 ### trustStoreArn
@@ -1366,7 +1840,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1377,7 +1851,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateBrowserSettingsRequestRequestTypeDef
+# UpdateBrowserSettingsRequestTypeDef
 
 ### browserSettingsArn
 - **Type**: <class 'str'>
@@ -1401,7 +1875,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateIdentityProviderRequestRequestTypeDef
+# UpdateDataProtectionSettingsRequestTypeDef
+
+### dataProtectionSettingsArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### clientToken
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### displayName
+- **Type**: typing.Optional[str]
+
+### inlineRedactionConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_web_classes.InlineRedactionConfigurationUnionTypeDef]
+
+
+# UpdateDataProtectionSettingsResponseTypeDef
+
+### dataProtectionSettings
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_web_classes.DataProtectionSettingsTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_web_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateIdentityProviderRequestTypeDef
 
 ### identityProviderArn
 - **Type**: <class 'str'>
@@ -1431,7 +1935,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateIpAccessSettingsRequestRequestTypeDef
+# UpdateIpAccessSettingsRequestTypeDef
 
 ### ipAccessSettingsArn
 - **Type**: <class 'str'>
@@ -1461,7 +1965,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateNetworkSettingsRequestRequestTypeDef
+# UpdateNetworkSettingsRequestTypeDef
 
 ### networkSettingsArn
 - **Type**: <class 'str'>
@@ -1491,7 +1995,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePortalRequestRequestTypeDef
+# UpdatePortalRequestTypeDef
 
 ### portalArn
 - **Type**: <class 'str'>
@@ -1521,14 +2025,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateTrustStoreRequestRequestTypeDef
+# UpdateTrustStoreRequestTypeDef
 
 ### trustStoreArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### certificatesToAdd
-- **Type**: typing.Optional[typing.Sequence[typing.Union[str, bytes, typing.IO[typing.Any]]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_web_classes.BlobTypeDef]]
 
 ### certificatesToDelete
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1548,7 +2052,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateUserAccessLoggingSettingsRequestRequestTypeDef
+# UpdateUserAccessLoggingSettingsRequestTypeDef
 
 ### userAccessLoggingSettingsArn
 - **Type**: <class 'str'>
@@ -1572,7 +2076,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateUserSettingsRequestRequestTypeDef
+# UpdateUserSettingsRequestTypeDef
 
 ### userSettingsArn
 - **Type**: <class 'str'>
@@ -1582,7 +2086,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### cookieSynchronizationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_web_classes.CookieSynchronizationConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_web_classes.CookieSynchronizationConfigurationUnionTypeDef]
 
 ### copyAllowed
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
@@ -1604,6 +2108,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### printAllowed
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
+
+### toolbarConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_web_classes.ToolbarConfigurationUnionTypeDef]
 
 ### uploadAllowed
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
@@ -1673,6 +2180,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### printAllowed
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
 
+### toolbarConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_web_classes.ToolbarConfigurationOutputTypeDef]
+
 ### uploadAllowed
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
 
@@ -1715,6 +2225,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### printAllowed
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
+
+### toolbarConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_web_classes.ToolbarConfigurationOutputTypeDef]
 
 ### uploadAllowed
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]

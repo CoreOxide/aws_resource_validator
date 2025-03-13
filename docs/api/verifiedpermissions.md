@@ -18,6 +18,12 @@
 - **Min Length**: 1
 - **Max Length**: 255
 
+### Decimal
+- **Type**: string
+- **Pattern**: `-?\d{1,15}\.\d{1,4}`
+- **Min Length**: 3
+- **Max Length**: 23
+
 ### DiscoveryUrl
 - **Type**: string
 - **Pattern**: `https://.*`
@@ -54,6 +60,12 @@
 - **Min Length**: 1
 - **Max Length**: 200
 
+### IpAddr
+- **Type**: string
+- **Pattern**: `[0-9a-fA-F\.:\/]*`
+- **Min Length**: 1
+- **Max Length**: 44
+
 ### Issuer
 - **Type**: string
 - **Pattern**: `https://.*`
@@ -63,7 +75,7 @@
 ### Namespace
 - **Type**: string
 - **Pattern**: `.*`
-- **Min Length**: 1
+- **Min Length**: 0
 - **Max Length**: 100
 
 ### NextToken

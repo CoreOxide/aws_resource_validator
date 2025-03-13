@@ -66,7 +66,7 @@
 
 ### FunctionArnString
 - **Type**: string
-- **Pattern**: `(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}:)?(\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\$LATEST|[a-zA-Z0-9-_]+))?`
+- **Pattern**: `(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:)?(\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\$LATEST|[a-zA-Z0-9-_]+))?`
 - **Min Length**: 1
 - **Max Length**: 1024
 
@@ -78,7 +78,7 @@
 
 ### IdentityCenterApplicationArn
 - **Type**: string
-- **Pattern**: `arn:[^:]+:sso:.*$`
+- **Pattern**: `arn:[^:]+:sso::\d{12}:application/.*$`
 - **Min Length**: 10
 - **Max Length**: 1224
 

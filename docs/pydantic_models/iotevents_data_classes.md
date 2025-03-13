@@ -89,7 +89,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchAcknowledgeAlarmRequestRequestTypeDef
+# BatchAcknowledgeAlarmRequestTypeDef
 
 ### acknowledgeActionRequests
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotevents_data_classes.AcknowledgeAlarmActionRequestTypeDef]
@@ -131,7 +131,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchDeleteDetectorRequestRequestTypeDef
+# BatchDeleteDetectorRequestTypeDef
 
 ### detectors
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotevents_data_classes.DeleteDetectorRequestTypeDef]
@@ -149,7 +149,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchDisableAlarmRequestRequestTypeDef
+# BatchDisableAlarmRequestTypeDef
 
 ### disableActionRequests
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotevents_data_classes.DisableAlarmActionRequestTypeDef]
@@ -167,7 +167,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchEnableAlarmRequestRequestTypeDef
+# BatchEnableAlarmRequestTypeDef
 
 ### enableActionRequests
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotevents_data_classes.EnableAlarmActionRequestTypeDef]
@@ -197,7 +197,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchPutMessageRequestRequestTypeDef
+# BatchPutMessageRequestTypeDef
 
 ### messages
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotevents_data_classes.MessageTypeDef]
@@ -215,7 +215,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchResetAlarmRequestRequestTypeDef
+# BatchResetAlarmRequestTypeDef
 
 ### resetActionRequests
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotevents_data_classes.ResetAlarmActionRequestTypeDef]
@@ -233,7 +233,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchSnoozeAlarmRequestRequestTypeDef
+# BatchSnoozeAlarmRequestTypeDef
 
 ### snoozeActionRequests
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotevents_data_classes.SnoozeAlarmActionRequestTypeDef]
@@ -263,7 +263,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchUpdateDetectorRequestRequestTypeDef
+# BatchUpdateDetectorRequestTypeDef
 
 ### detectors
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotevents_data_classes.UpdateDetectorRequestTypeDef]
@@ -280,6 +280,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_data_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CustomerActionTypeDef
 
@@ -316,7 +322,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeAlarmRequestRequestTypeDef
+# DescribeAlarmRequestTypeDef
 
 ### alarmModelName
 - **Type**: <class 'str'>
@@ -337,7 +343,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDetectorRequestRequestTypeDef
+# DescribeDetectorRequestTypeDef
 
 ### detectorModelName
 - **Type**: <class 'str'>
@@ -482,7 +488,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAlarmsRequestRequestTypeDef
+# ListAlarmsRequestTypeDef
 
 ### alarmModelName
 - **Type**: <class 'str'>
@@ -501,16 +507,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.iotevents_data_classes.AlarmSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_data_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListDetectorsRequestRequestTypeDef
+
+# ListDetectorsRequestTypeDef
 
 ### detectorModelName
 - **Type**: <class 'str'>
@@ -532,13 +537,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.iotevents_data_classes.DetectorSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_data_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # MessageTypeDef
@@ -552,7 +556,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### payload
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_data_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### timestamp
@@ -588,10 +592,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -604,6 +604,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
+
 
 # RuleEvaluationTypeDef
 
@@ -613,15 +616,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SimpleRuleEvaluationTypeDef
 
-### inputPropertyValue
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### operator
-- **Type**: typing.Optional[typing.Literal['EQUAL', 'GREATER', 'GREATER_OR_EQUAL', 'LESS', 'LESS_OR_EQUAL', 'NOT_EQUAL']]
-
-### thresholdValue
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SnoozeActionConfigurationTypeDef
 

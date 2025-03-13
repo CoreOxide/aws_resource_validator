@@ -102,6 +102,12 @@
 - **Min Length**: 1
 - **Max Length**: 255
 
+### fieldName
+- **Type**: string
+- **Pattern**: `^[a-zA-Z0-9_.-]+$`
+- **Min Length**: 1
+- **Max Length**: 64
+
 ### s3BucketName
 - **Type**: string
 - **Pattern**: `^[a-z0-9.-]+$`

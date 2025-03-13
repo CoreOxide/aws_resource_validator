@@ -1,23 +1,56 @@
 # Deadline Classes
 
-# AcceleratorCountRangeTypeDef
+# AcceleratorCapabilitiesOutputTypeDef
 
-### min
-- **Type**: <class 'int'>
+### selections
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.AcceleratorSelectionTypeDef]
 - **Required**: Yes
 
-### max
-- **Type**: typing.Optional[int]
+### count
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AcceleratorCountRangeTypeDef]
+
+
+# AcceleratorCapabilitiesTypeDef
+
+### selections
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.AcceleratorSelectionTypeDef]
+- **Required**: Yes
+
+### count
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AcceleratorCountRangeTypeDef]
+
+
+# AcceleratorCountRangeTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AcceleratorSelectionTypeDef
+
+### name
+- **Type**: typing.Literal['a10g', 'l4', 'l40s', 't4']
+- **Required**: Yes
+
+### runtime
+- **Type**: typing.Optional[str]
 
 
 # AcceleratorTotalMemoryMiBRangeTypeDef
 
-### min
-- **Type**: <class 'int'>
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AcquiredLimitTypeDef
+
+### limitId
+- **Type**: <class 'str'>
 - **Required**: Yes
 
-### max
-- **Type**: typing.Optional[int]
+### count
+- **Type**: <class 'int'>
+- **Required**: Yes
 
 
 # AssignedEnvironmentEnterSessionActionDefinitionTypeDef
@@ -42,40 +75,40 @@
 ### envExit
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AssignedEnvironmentExitSessionActionDefinitionTypeDef]
 
-### syncInputJobAttachments
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AssignedSyncInputJobAttachmentsSessionActionDefinitionTypeDef]
-
 ### taskRun
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AssignedTaskRunSessionActionDefinitionTypeDef]
 
+### syncInputJobAttachments
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AssignedSyncInputJobAttachmentsSessionActionDefinitionTypeDef]
+
 
 # AssignedSessionActionTypeDef
-
-### definition
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.AssignedSessionActionDefinitionTypeDef'>
-- **Required**: Yes
 
 ### sessionActionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### definition
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.AssignedSessionActionDefinitionTypeDef'>
+- **Required**: Yes
+
 
 # AssignedSessionTypeDef
-
-### jobId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### logConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.LogConfigurationTypeDef'>
-- **Required**: Yes
 
 ### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### jobId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### sessionActions
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.AssignedSessionActionTypeDef]
+- **Required**: Yes
+
+### logConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.LogConfigurationTypeDef'>
 - **Required**: Yes
 
 
@@ -87,31 +120,23 @@
 
 # AssignedTaskRunSessionActionDefinitionTypeDef
 
-### parameters
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.deadline_classes.TaskParameterValueTypeDef]
+### taskId
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### stepId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### taskId
-- **Type**: <class 'str'>
+### parameters
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.deadline_classes.TaskParameterValueTypeDef]
 - **Required**: Yes
 
 
-# AssociateMemberToFarmRequestRequestTypeDef
+# AssociateMemberToFarmRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
-- **Required**: Yes
-
-### identityStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### membershipLevel
-- **Type**: typing.Literal['CONTRIBUTOR', 'MANAGER', 'OWNER', 'VIEWER']
 - **Required**: Yes
 
 ### principalId
@@ -122,8 +147,16 @@
 - **Type**: typing.Literal['GROUP', 'USER']
 - **Required**: Yes
 
+### identityStoreId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-# AssociateMemberToFleetRequestRequestTypeDef
+### membershipLevel
+- **Type**: typing.Literal['CONTRIBUTOR', 'MANAGER', 'OWNER', 'VIEWER']
+- **Required**: Yes
+
+
+# AssociateMemberToFleetRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -133,14 +166,6 @@
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### identityStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### membershipLevel
-- **Type**: typing.Literal['CONTRIBUTOR', 'MANAGER', 'OWNER', 'VIEWER']
-- **Required**: Yes
-
 ### principalId
 - **Type**: <class 'str'>
 - **Required**: Yes
@@ -149,14 +174,22 @@
 - **Type**: typing.Literal['GROUP', 'USER']
 - **Required**: Yes
 
+### identityStoreId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-# AssociateMemberToJobRequestRequestTypeDef
+### membershipLevel
+- **Type**: typing.Literal['CONTRIBUTOR', 'MANAGER', 'OWNER', 'VIEWER']
+- **Required**: Yes
+
+
+# AssociateMemberToJobRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### identityStoreId
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -164,27 +197,12 @@
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### membershipLevel
-- **Type**: typing.Literal['CONTRIBUTOR', 'MANAGER', 'OWNER', 'VIEWER']
-- **Required**: Yes
-
 ### principalId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### principalType
 - **Type**: typing.Literal['GROUP', 'USER']
-- **Required**: Yes
-
-### queueId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# AssociateMemberToQueueRequestRequestTypeDef
-
-### farmId
-- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### identityStoreId
@@ -195,6 +213,17 @@
 - **Type**: typing.Literal['CONTRIBUTOR', 'MANAGER', 'OWNER', 'VIEWER']
 - **Required**: Yes
 
+
+# AssociateMemberToQueueRequestTypeDef
+
+### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### queueId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### principalId
 - **Type**: <class 'str'>
 - **Required**: Yes
@@ -203,12 +232,16 @@
 - **Type**: typing.Literal['GROUP', 'USER']
 - **Required**: Yes
 
-### queueId
+### identityStoreId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### membershipLevel
+- **Type**: typing.Literal['CONTRIBUTOR', 'MANAGER', 'OWNER', 'VIEWER']
+- **Required**: Yes
 
-# AssumeFleetRoleForReadRequestRequestTypeDef
+
+# AssumeFleetRoleForReadRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -230,7 +263,7 @@
 - **Required**: Yes
 
 
-# AssumeFleetRoleForWorkerRequestRequestTypeDef
+# AssumeFleetRoleForWorkerRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -256,7 +289,7 @@
 - **Required**: Yes
 
 
-# AssumeQueueRoleForReadRequestRequestTypeDef
+# AssumeQueueRoleForReadRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -278,7 +311,7 @@
 - **Required**: Yes
 
 
-# AssumeQueueRoleForUserRequestRequestTypeDef
+# AssumeQueueRoleForUserRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -300,7 +333,7 @@
 - **Required**: Yes
 
 
-# AssumeQueueRoleForWorkerRequestRequestTypeDef
+# AssumeQueueRoleForWorkerRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -310,11 +343,11 @@
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### queueId
+### workerId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### workerId
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -330,24 +363,36 @@
 - **Required**: Yes
 
 
-# AttachmentsTypeDef
+# AttachmentsOutputTypeDef
 
 ### manifests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.ManifestPropertiesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.ManifestPropertiesOutputTypeDef]
 - **Required**: Yes
 
 ### fileSystem
 - **Type**: typing.Optional[typing.Literal['COPIED', 'VIRTUAL']]
 
 
+# AttachmentsTypeDef
+
+### manifests
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.ManifestPropertiesTypeDef]
+- **Required**: Yes
+
+### fileSystem
+- **Type**: typing.Optional[typing.Literal['COPIED', 'VIRTUAL']]
+
+
+# AttachmentsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # AwsCredentialsTypeDef
 
 ### accessKeyId
 - **Type**: <class 'str'>
-- **Required**: Yes
-
-### expiration
-- **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### secretAccessKey
@@ -358,6 +403,10 @@
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### expiration
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
 
 # BaseValidatorModel
 
@@ -365,7 +414,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchGetJobEntityRequestRequestTypeDef
+# BatchGetJobEntityRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -375,12 +424,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### identifiers
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.JobEntityIdentifiersUnionTypeDef]
-- **Required**: Yes
-
 ### workerId
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+### identifiers
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.JobEntityIdentifiersUnionTypeDef]
 - **Required**: Yes
 
 
@@ -401,27 +450,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # BudgetActionToAddTypeDef
 
-### thresholdPercentage
-- **Type**: <class 'float'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: typing.Literal['STOP_SCHEDULING_AND_CANCEL_TASKS', 'STOP_SCHEDULING_AND_COMPLETE_TASKS']
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BudgetActionToRemoveTypeDef
 
-### thresholdPercentage
-- **Type**: <class 'float'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: typing.Literal['STOP_SCHEDULING_AND_CANCEL_TASKS', 'STOP_SCHEDULING_AND_COMPLETE_TASKS']
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# BudgetScheduleOutputTypeDef
+
+### fixed
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.FixedBudgetScheduleOutputTypeDef]
 
 
 # BudgetScheduleTypeDef
@@ -430,13 +472,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.FixedBudgetScheduleTypeDef]
 
 
+# BudgetScheduleUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # BudgetSummaryTypeDef
+
+### budgetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### usageTrackingResource
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.UsageTrackingResourceTypeDef'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACTIVE', 'INACTIVE']
+- **Required**: Yes
+
+### displayName
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 ### approximateDollarLimit
 - **Type**: <class 'float'>
 - **Required**: Yes
 
-### budgetId
+### usages
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ConsumedUsagesTypeDef'>
+- **Required**: Yes
+
+### createdBy
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -444,34 +512,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
-### createdBy
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### displayName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVE', 'INACTIVE']
-- **Required**: Yes
-
-### usageTrackingResource
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.UsageTrackingResourceTypeDef'>
-- **Required**: Yes
-
-### usages
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ConsumedUsagesTypeDef'>
-- **Required**: Yes
-
 ### description
+- **Type**: typing.Optional[str]
+
+### updatedBy
 - **Type**: typing.Optional[str]
 
 ### updatedAt
 - **Type**: typing.Optional[datetime.datetime]
-
-### updatedBy
-- **Type**: typing.Optional[str]
 
 
 # ConsumedUsagesTypeDef
@@ -481,7 +529,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CopyJobTemplateRequestRequestTypeDef
+# CopyJobTemplateRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -511,30 +559,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateBudgetRequestRequestTypeDef
+# CreateBudgetRequestTypeDef
 
-### actions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.BudgetActionToAddTypeDef]
+### farmId
+- **Type**: <class 'str'>
 - **Required**: Yes
 
-### approximateDollarLimit
-- **Type**: <class 'float'>
+### usageTrackingResource
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.UsageTrackingResourceTypeDef'>
 - **Required**: Yes
 
 ### displayName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### farmId
-- **Type**: <class 'str'>
+### approximateDollarLimit
+- **Type**: <class 'float'>
+- **Required**: Yes
+
+### actions
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.BudgetActionToAddTypeDef]
 - **Required**: Yes
 
 ### schedule
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.BudgetScheduleTypeDef'>
-- **Required**: Yes
-
-### usageTrackingResource
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.UsageTrackingResourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.BudgetScheduleUnionTypeDef'>
 - **Required**: Yes
 
 ### clientToken
@@ -555,7 +603,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateFarmRequestRequestTypeDef
+# CreateFarmRequestTypeDef
 
 ### displayName
 - **Type**: <class 'str'>
@@ -585,17 +633,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateFleetRequestRequestTypeDef
+# CreateFleetRequestTypeDef
 
-### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.FleetConfigurationTypeDef'>
+### farmId
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### displayName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### farmId
+### roleArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -603,8 +651,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
-### roleArn
-- **Type**: <class 'str'>
+### configuration
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.FleetConfigurationUnionTypeDef'>
 - **Required**: Yes
 
 ### clientToken
@@ -631,9 +679,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateJobRequestRequestTypeDef
+# CreateJobRequestTypeDef
 
 ### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -641,23 +693,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
-### queueId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### template
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### templateType
-- **Type**: typing.Literal['JSON', 'YAML']
-- **Required**: Yes
-
-### attachments
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AttachmentsTypeDef]
-
 ### clientToken
 - **Type**: typing.Optional[str]
+
+### template
+- **Type**: typing.Optional[str]
+
+### templateType
+- **Type**: typing.Optional[typing.Literal['JSON', 'YAML']]
+
+### parameters
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.deadline_classes.JobParameterTypeDef]]
+
+### attachments
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AttachmentsUnionTypeDef]
+
+### storageProfileId
+- **Type**: typing.Optional[str]
+
+### targetTaskRunStatus
+- **Type**: typing.Optional[typing.Literal['READY', 'SUSPENDED']]
 
 ### maxFailedTasksCount
 - **Type**: typing.Optional[int]
@@ -665,14 +720,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### maxRetriesPerTask
 - **Type**: typing.Optional[int]
 
-### parameters
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.deadline_classes.JobParameterTypeDef]]
+### maxWorkerCount
+- **Type**: typing.Optional[int]
 
-### storageProfileId
+### sourceJobId
 - **Type**: typing.Optional[str]
-
-### targetTaskRunStatus
-- **Type**: typing.Optional[typing.Literal['READY', 'SUSPENDED']]
 
 
 # CreateJobResponseTypeDef
@@ -686,18 +738,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLicenseEndpointRequestRequestTypeDef
+# CreateLicenseEndpointRequestTypeDef
 
-### securityGroupIds
-- **Type**: typing.Sequence[str]
+### vpcId
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### subnetIds
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
-### vpcId
-- **Type**: <class 'str'>
+### securityGroupIds
+- **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 ### clientToken
@@ -718,7 +770,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateMonitorRequestRequestTypeDef
+# CreateLimitRequestTypeDef
+
+### displayName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### amountRequirementName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### maxCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### clientToken
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+
+# CreateLimitResponseTypeDef
+
+### limitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateMonitorRequestTypeDef
 
 ### displayName
 - **Type**: <class 'str'>
@@ -728,11 +816,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### roleArn
+### subdomain
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### subdomain
+### roleArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -742,11 +830,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # CreateMonitorResponseTypeDef
 
-### identityCenterApplicationArn
+### monitorId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### monitorId
+### identityCenterApplicationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -755,9 +843,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateQueueEnvironmentRequestRequestTypeDef
+# CreateQueueEnvironmentRequestTypeDef
 
 ### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -765,16 +857,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
-### queueId
-- **Type**: <class 'str'>
+### templateType
+- **Type**: typing.Literal['JSON', 'YAML']
 - **Required**: Yes
 
 ### template
 - **Type**: <class 'str'>
-- **Required**: Yes
-
-### templateType
-- **Type**: typing.Literal['JSON', 'YAML']
 - **Required**: Yes
 
 ### clientToken
@@ -792,13 +880,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateQueueFleetAssociationRequestRequestTypeDef
+# CreateQueueFleetAssociationRequestTypeDef
 
 ### farmId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### fleetId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -806,31 +890,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-
-# CreateQueueRequestRequestTypeDef
-
-### displayName
+### fleetId
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+
+# CreateQueueLimitAssociationRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### allowedStorageProfileIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+### queueId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### limitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# CreateQueueRequestTypeDef
+
+### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### displayName
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 ### clientToken
+- **Type**: typing.Optional[str]
+
+### description
 - **Type**: typing.Optional[str]
 
 ### defaultBudgetAction
 - **Type**: typing.Optional[typing.Literal['NONE', 'STOP_SCHEDULING_AND_CANCEL_TASKS', 'STOP_SCHEDULING_AND_COMPLETE_TASKS']]
 
-### description
-- **Type**: typing.Optional[str]
-
 ### jobAttachmentSettings
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobAttachmentSettingsTypeDef]
+
+### roleArn
+- **Type**: typing.Optional[str]
 
 ### jobRunAsUser
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobRunAsUserTypeDef]
@@ -838,8 +941,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### requiredFileSystemLocationNames
 - **Type**: typing.Optional[typing.Sequence[str]]
 
-### roleArn
-- **Type**: typing.Optional[str]
+### allowedStorageProfileIds
+- **Type**: typing.Optional[typing.Sequence[str]]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -856,13 +959,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateStorageProfileRequestRequestTypeDef
+# CreateStorageProfileRequestTypeDef
 
-### displayName
+### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### farmId
+### displayName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -888,7 +991,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateWorkerRequestRequestTypeDef
+# CreateWorkerRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -898,11 +1001,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### clientToken
-- **Type**: typing.Optional[str]
-
 ### hostProperties
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.HostPropertiesRequestTypeDef]
+
+### clientToken
+- **Type**: typing.Optional[str]
 
 
 # CreateWorkerResponseTypeDef
@@ -916,14 +1019,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CustomerManagedFleetConfigurationPaginatorTypeDef
+# CustomerManagedFleetConfigurationOutputTypeDef
 
 ### mode
 - **Type**: typing.Literal['EVENT_BASED_AUTO_SCALING', 'NO_SCALING']
 - **Required**: Yes
 
 ### workerCapabilities
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.CustomerManagedWorkerCapabilitiesPaginatorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.CustomerManagedWorkerCapabilitiesOutputTypeDef'>
 - **Required**: Yes
 
 ### storageProfileId
@@ -944,10 +1047,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CustomerManagedWorkerCapabilitiesPaginatorTypeDef
+# CustomerManagedWorkerCapabilitiesOutputTypeDef
 
-### cpuArchitectureType
-- **Type**: typing.Literal['arm64', 'x86_64']
+### vCpuCount
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.VCpuCountRangeTypeDef'>
 - **Required**: Yes
 
 ### memoryMiB
@@ -958,30 +1061,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Literal['LINUX', 'MACOS', 'WINDOWS']
 - **Required**: Yes
 
-### vCpuCount
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.VCpuCountRangeTypeDef'>
+### cpuArchitectureType
+- **Type**: typing.Literal['arm64', 'x86_64']
 - **Required**: Yes
+
+### acceleratorTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['gpu']]]
 
 ### acceleratorCount
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AcceleratorCountRangeTypeDef]
 
 ### acceleratorTotalMemoryMiB
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AcceleratorTotalMemoryMiBRangeTypeDef]
-
-### acceleratorTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['gpu']]]
 
 ### customAmounts
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline_classes.FleetAmountCapabilityTypeDef]]
 
 ### customAttributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline_classes.FleetAttributeCapabilityPaginatorTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline_classes.FleetAttributeCapabilityOutputTypeDef]]
 
 
 # CustomerManagedWorkerCapabilitiesTypeDef
 
-### cpuArchitectureType
-- **Type**: typing.Literal['arm64', 'x86_64']
+### vCpuCount
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.VCpuCountRangeTypeDef'>
 - **Required**: Yes
 
 ### memoryMiB
@@ -992,18 +1095,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Literal['LINUX', 'MACOS', 'WINDOWS']
 - **Required**: Yes
 
-### vCpuCount
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.VCpuCountRangeTypeDef'>
+### cpuArchitectureType
+- **Type**: typing.Literal['arm64', 'x86_64']
 - **Required**: Yes
+
+### acceleratorTypes
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['gpu']]]
 
 ### acceleratorCount
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AcceleratorCountRangeTypeDef]
 
 ### acceleratorTotalMemoryMiB
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AcceleratorTotalMemoryMiBRangeTypeDef]
-
-### acceleratorTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['gpu']]]
 
 ### customAmounts
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.FleetAmountCapabilityTypeDef]]
@@ -1014,38 +1117,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DateTimeFilterExpressionTypeDef
 
-### dateTime
-- **Type**: typing.Union[datetime.datetime, str]
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### name
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DeleteBudgetRequestTypeDef
+
+### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
-
-### operator
-- **Type**: typing.Literal['EQUAL', 'GREATER_THAN', 'GREATER_THAN_EQUAL_TO', 'LESS_THAN', 'LESS_THAN_EQUAL_TO', 'NOT_EQUAL']
-- **Required**: Yes
-
-
-# DeleteBudgetRequestRequestTypeDef
 
 ### budgetId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### farmId
-- **Type**: <class 'str'>
-- **Required**: Yes
 
-
-# DeleteFarmRequestRequestTypeDef
+# DeleteFarmRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteFleetRequestRequestTypeDef
+# DeleteFleetRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -1059,14 +1153,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteLicenseEndpointRequestRequestTypeDef
+# DeleteLicenseEndpointRequestTypeDef
 
 ### licenseEndpointId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteMeteredProductRequestRequestTypeDef
+# DeleteLimitRequestTypeDef
+
+### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### limitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteMeteredProductRequestTypeDef
 
 ### licenseEndpointId
 - **Type**: <class 'str'>
@@ -1077,16 +1182,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteMonitorRequestRequestTypeDef
+# DeleteMonitorRequestTypeDef
 
 ### monitorId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteQueueEnvironmentRequestRequestTypeDef
+# DeleteQueueEnvironmentRequestTypeDef
 
 ### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -1094,14 +1203,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### queueId
+
+# DeleteQueueFleetAssociationRequestTypeDef
+
+### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-
-# DeleteQueueFleetAssociationRequestRequestTypeDef
-
-### farmId
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -1109,12 +1218,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+
+# DeleteQueueLimitAssociationRequestTypeDef
+
+### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### limitId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-# DeleteQueueRequestRequestTypeDef
+
+# DeleteQueueRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -1125,7 +1245,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteStorageProfileRequestRequestTypeDef
+# DeleteStorageProfileRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -1136,7 +1256,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteWorkerRequestRequestTypeDef
+# DeleteWorkerRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -1153,14 +1273,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DependencyCountsTypeDef
 
-### consumersResolved
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### consumersUnresolved
-- **Type**: <class 'int'>
-- **Required**: Yes
-
 ### dependenciesResolved
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -1169,8 +1281,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### consumersResolved
+- **Type**: <class 'int'>
+- **Required**: Yes
 
-# DisassociateMemberFromFarmRequestRequestTypeDef
+### consumersUnresolved
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+
+# DisassociateMemberFromFarmRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -1181,7 +1301,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateMemberFromFleetRequestRequestTypeDef
+# DisassociateMemberFromFleetRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -1196,9 +1316,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateMemberFromJobRequestRequestTypeDef
+# DisassociateMemberFromJobRequestTypeDef
 
 ### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -1210,14 +1334,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### queueId
+
+# DisassociateMemberFromQueueRequestTypeDef
+
+### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-
-# DisassociateMemberFromQueueRequestRequestTypeDef
-
-### farmId
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -1225,17 +1349,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### queueId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 
 # Ec2EbsVolumeTypeDef
 
-### iops
+### sizeGiB
 - **Type**: typing.Optional[int]
 
-### sizeGiB
+### iops
 - **Type**: typing.Optional[int]
 
 ### throughputMiB
@@ -1244,11 +1364,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EnvironmentDetailsEntityTypeDef
 
-### environmentId
+### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### jobId
+### environmentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -1263,16 +1383,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EnvironmentDetailsErrorTypeDef
 
-### code
-- **Type**: typing.Literal['AccessDeniedException', 'ConflictException', 'InternalServerException', 'MaxPayloadSizeExceeded', 'ResourceNotFoundException', 'ValidationException']
+### jobId
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### environmentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### jobId
-- **Type**: <class 'str'>
+### code
+- **Type**: typing.Literal['AccessDeniedException', 'ConflictException', 'InternalServerException', 'MaxPayloadSizeExceeded', 'ResourceNotFoundException', 'ValidationException']
 - **Required**: Yes
 
 ### message
@@ -1282,11 +1402,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EnvironmentDetailsIdentifiersTypeDef
 
-### environmentId
+### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### jobId
+### environmentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -1325,14 +1445,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### identityStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### membershipLevel
-- **Type**: typing.Literal['CONTRIBUTOR', 'MANAGER', 'OWNER', 'VIEWER']
-- **Required**: Yes
-
 ### principalId
 - **Type**: <class 'str'>
 - **Required**: Yes
@@ -1341,14 +1453,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Literal['GROUP', 'USER']
 - **Required**: Yes
 
+### identityStoreId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### membershipLevel
+- **Type**: typing.Literal['CONTRIBUTOR', 'MANAGER', 'OWNER', 'VIEWER']
+- **Required**: Yes
+
 
 # FarmSummaryTypeDef
 
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### createdBy
+### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -1356,7 +1472,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### farmId
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -1372,56 +1492,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # FieldSortExpressionTypeDef
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### sortOrder
 - **Type**: typing.Literal['ASCENDING', 'DESCENDING']
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 
 # FileSystemLocationTypeDef
 
-### name
-- **Type**: <class 'str'>
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# FixedBudgetScheduleOutputTypeDef
+
+### startTime
+- **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
-### path
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['LOCAL', 'SHARED']
+### endTime
+- **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 
 # FixedBudgetScheduleTypeDef
 
-### endTime
-- **Type**: typing.Union[datetime.datetime, str]
+### startTime
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.TimestampTypeDef'>
 - **Required**: Yes
 
-### startTime
-- **Type**: typing.Union[datetime.datetime, str]
+### endTime
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 
 # FleetAmountCapabilityTypeDef
 
-### min
-- **Type**: <class 'float'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### max
-- **Type**: typing.Optional[float]
-
-
-# FleetAttributeCapabilityPaginatorTypeDef
+# FleetAttributeCapabilityOutputTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -1449,16 +1563,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline_classes.FleetAmountCapabilityTypeDef]]
 
 ### attributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline_classes.FleetAttributeCapabilityTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline_classes.FleetAttributeCapabilityOutputTypeDef]]
 
 
-# FleetConfigurationPaginatorTypeDef
+# FleetConfigurationOutputTypeDef
 
 ### customerManaged
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.CustomerManagedFleetConfigurationPaginatorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.CustomerManagedFleetConfigurationOutputTypeDef]
 
 ### serviceManagedEc2
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.ServiceManagedEc2FleetConfigurationPaginatorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.ServiceManagedEc2FleetConfigurationOutputTypeDef]
 
 
 # FleetConfigurationTypeDef
@@ -1470,6 +1584,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.ServiceManagedEc2FleetConfigurationTypeDef]
 
 
+# FleetConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # FleetMemberTypeDef
 
 ### farmId
@@ -1480,14 +1600,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### identityStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### membershipLevel
-- **Type**: typing.Literal['CONTRIBUTOR', 'MANAGER', 'OWNER', 'VIEWER']
-- **Required**: Yes
-
 ### principalId
 - **Type**: <class 'str'>
 - **Required**: Yes
@@ -1496,77 +1608,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Literal['GROUP', 'USER']
 - **Required**: Yes
 
-
-# FleetSummaryPaginatorTypeDef
-
-### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.FleetConfigurationPaginatorTypeDef'>
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### createdBy
+### identityStoreId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### displayName
-- **Type**: <class 'str'>
+### membershipLevel
+- **Type**: typing.Literal['CONTRIBUTOR', 'MANAGER', 'OWNER', 'VIEWER']
 - **Required**: Yes
-
-### farmId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### fleetId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### maxWorkerCount
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### minWorkerCount
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS']
-- **Required**: Yes
-
-### workerCount
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### autoScalingStatus
-- **Type**: typing.Optional[typing.Literal['GROWING', 'SHRINKING', 'STEADY']]
-
-### targetWorkerCount
-- **Type**: typing.Optional[int]
-
-### updatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### updatedBy
-- **Type**: typing.Optional[str]
 
 
 # FleetSummaryTypeDef
 
-### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.FleetConfigurationTypeDef'>
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### createdBy
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### displayName
+### fleetId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -1574,16 +1627,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### fleetId
+### displayName
 - **Type**: <class 'str'>
-- **Required**: Yes
-
-### maxWorkerCount
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### minWorkerCount
-- **Type**: <class 'int'>
 - **Required**: Yes
 
 ### status
@@ -1592,6 +1637,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### workerCount
 - **Type**: <class 'int'>
+- **Required**: Yes
+
+### minWorkerCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### maxWorkerCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### configuration
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.FleetConfigurationOutputTypeDef'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### autoScalingStatus
@@ -1607,64 +1672,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetBudgetRequestRequestTypeDef
+# GetBudgetRequestTypeDef
 
-### budgetId
+### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### farmId
+### budgetId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
 # GetBudgetResponseTypeDef
 
-### actions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.ResponseBudgetActionTypeDef]
-- **Required**: Yes
-
-### approximateDollarLimit
-- **Type**: <class 'float'>
-- **Required**: Yes
-
 ### budgetId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### createdBy
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### displayName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### queueStoppedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### schedule
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.BudgetScheduleTypeDef'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVE', 'INACTIVE']
-- **Required**: Yes
-
-### updatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updatedBy
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -1672,8 +1693,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.UsageTrackingResourceTypeDef'>
 - **Required**: Yes
 
+### status
+- **Type**: typing.Literal['ACTIVE', 'INACTIVE']
+- **Required**: Yes
+
+### displayName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### approximateDollarLimit
+- **Type**: <class 'float'>
+- **Required**: Yes
+
 ### usages
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ConsumedUsagesTypeDef'>
+- **Required**: Yes
+
+### actions
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.ResponseBudgetActionTypeDef]
+- **Required**: Yes
+
+### schedule
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.BudgetScheduleOutputTypeDef'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### queueStoppedAt
+- **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -1681,7 +1746,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetFarmRequestRequestTypeDef
+# GetFarmRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -1690,15 +1755,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # GetFarmResponseTypeDef
 
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### createdBy
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
+### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -1706,11 +1763,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### farmId
+### description
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### kmsKeyArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -1727,7 +1792,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetFleetRequestFleetActiveWaitTypeDef
+# GetFleetRequestTypeDef
+
+### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### fleetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetFleetRequestWaitTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -1741,29 +1817,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.WaiterConfigTypeDef]
 
 
-# GetFleetRequestRequestTypeDef
-
-### farmId
-- **Type**: <class 'str'>
-- **Required**: Yes
+# GetFleetResponseTypeDef
 
 ### fleetId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-# GetFleetResponseTypeDef
+### displayName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS']
+- **Required**: Yes
 
 ### autoScalingStatus
 - **Type**: typing.Literal['GROWING', 'SHRINKING', 'STEADY']
+- **Required**: Yes
+
+### targetWorkerCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### workerCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### minWorkerCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### maxWorkerCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### configuration
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.FleetConfigurationOutputTypeDef'>
 - **Required**: Yes
 
 ### capabilities
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.FleetCapabilitiesTypeDef'>
 - **Required**: Yes
 
-### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.FleetConfigurationTypeDef'>
+### roleArn
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### createdAt
@@ -1774,52 +1879,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### displayName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### farmId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### fleetId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### maxWorkerCount
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### minWorkerCount
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### roleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS']
-- **Required**: Yes
-
-### targetWorkerCount
-- **Type**: <class 'int'>
-- **Required**: Yes
-
 ### updatedAt
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### updatedBy
 - **Type**: <class 'str'>
-- **Required**: Yes
-
-### workerCount
-- **Type**: <class 'int'>
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -1829,22 +1894,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # GetJobEntityErrorTypeDef
 
-### environmentDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.EnvironmentDetailsErrorTypeDef]
+### jobDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobDetailsErrorTypeDef]
 
 ### jobAttachmentDetails
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobAttachmentDetailsErrorTypeDef]
 
-### jobDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobDetailsErrorTypeDef]
-
 ### stepDetails
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.StepDetailsErrorTypeDef]
 
+### environmentDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.EnvironmentDetailsErrorTypeDef]
 
-# GetJobRequestJobCreateCompleteWaitTypeDef
+
+# GetJobRequestTypeDef
 
 ### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -1852,7 +1921,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+
+# GetJobRequestWaitTypeDef
+
+### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### queueId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -1860,44 +1940,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.WaiterConfigTypeDef]
 
 
-# GetJobRequestRequestTypeDef
-
-### farmId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### jobId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### queueId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
 # GetJobResponseTypeDef
 
-### attachments
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.AttachmentsTypeDef'>
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### createdBy
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### endedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
 ### jobId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -1909,44 +1958,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### maxFailedTasksCount
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### maxRetriesPerTask
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### parameters
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.deadline_classes.JobParameterTypeDef]
-- **Required**: Yes
-
 ### priority
 - **Type**: <class 'int'>
 - **Required**: Yes
 
-### startedAt
+### createdAt
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
-### storageProfileId
+### createdBy
 - **Type**: <class 'str'>
-- **Required**: Yes
-
-### targetTaskRunStatus
-- **Type**: typing.Literal['CANCELED', 'FAILED', 'PENDING', 'READY', 'SUCCEEDED', 'SUSPENDED']
-- **Required**: Yes
-
-### taskRunStatus
-- **Type**: typing.Literal['ASSIGNED', 'CANCELED', 'FAILED', 'INTERRUPTING', 'NOT_COMPATIBLE', 'PENDING', 'READY', 'RUNNING', 'SCHEDULED', 'STARTING', 'SUCCEEDED', 'SUSPENDED']
-- **Required**: Yes
-
-### taskRunStatusCounts
-- **Type**: typing.Dict[typing.Literal['ASSIGNED', 'CANCELED', 'FAILED', 'INTERRUPTING', 'NOT_COMPATIBLE', 'PENDING', 'READY', 'RUNNING', 'SCHEDULED', 'STARTING', 'SUCCEEDED', 'SUSPENDED'], int]
 - **Required**: Yes
 
 ### updatedAt
@@ -1957,12 +1978,71 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### startedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### endedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### taskRunStatus
+- **Type**: typing.Literal['ASSIGNED', 'CANCELED', 'FAILED', 'INTERRUPTING', 'NOT_COMPATIBLE', 'PENDING', 'READY', 'RUNNING', 'SCHEDULED', 'STARTING', 'SUCCEEDED', 'SUSPENDED']
+- **Required**: Yes
+
+### targetTaskRunStatus
+- **Type**: typing.Literal['CANCELED', 'FAILED', 'PENDING', 'READY', 'SUCCEEDED', 'SUSPENDED']
+- **Required**: Yes
+
+### taskRunStatusCounts
+- **Type**: typing.Dict[typing.Literal['ASSIGNED', 'CANCELED', 'FAILED', 'INTERRUPTING', 'NOT_COMPATIBLE', 'PENDING', 'READY', 'RUNNING', 'SCHEDULED', 'STARTING', 'SUCCEEDED', 'SUSPENDED'], int]
+- **Required**: Yes
+
+### storageProfileId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### maxFailedTasksCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### maxRetriesPerTask
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### parameters
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.deadline_classes.JobParameterTypeDef]
+- **Required**: Yes
+
+### attachments
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.AttachmentsOutputTypeDef'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### maxWorkerCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### sourceJobId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
 
-# GetLicenseEndpointRequestLicenseEndpointDeletedWaitTypeDef
+# GetLicenseEndpointRequestTypeDef
+
+### licenseEndpointId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetLicenseEndpointRequestWaitExtraTypeDef
 
 ### licenseEndpointId
 - **Type**: <class 'str'>
@@ -1972,7 +2052,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.WaiterConfigTypeDef]
 
 
-# GetLicenseEndpointRequestLicenseEndpointValidWaitTypeDef
+# GetLicenseEndpointRequestWaitTypeDef
 
 ### licenseEndpointId
 - **Type**: <class 'str'>
@@ -1980,27 +2060,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### WaiterConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.WaiterConfigTypeDef]
-
-
-# GetLicenseEndpointRequestRequestTypeDef
-
-### licenseEndpointId
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 
 # GetLicenseEndpointResponseTypeDef
 
-### dnsName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### licenseEndpointId
 - **Type**: <class 'str'>
-- **Required**: Yes
-
-### securityGroupIds
-- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### status
@@ -2011,12 +2076,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### vpcId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### dnsName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### subnetIds
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-### vpcId
-- **Type**: <class 'str'>
+### securityGroupIds
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -2024,44 +2097,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMonitorRequestRequestTypeDef
+# GetLimitRequestTypeDef
 
-### monitorId
+### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### limitId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetMonitorResponseTypeDef
+# GetLimitResponseTypeDef
+
+### displayName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### amountRequirementName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### maxCount
+- **Type**: <class 'int'>
+- **Required**: Yes
 
 ### createdAt
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### createdBy
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### displayName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### identityCenterApplicationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### identityCenterInstanceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### monitorId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### roleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### subdomain
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -2073,7 +2138,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### url
+### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### limitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### currentCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### description
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -2082,13 +2159,67 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetQueueEnvironmentRequestRequestTypeDef
+# GetMonitorRequestTypeDef
 
-### farmId
+### monitorId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### queueEnvironmentId
+
+# GetMonitorResponseTypeDef
+
+### monitorId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### displayName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### subdomain
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### url
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### roleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### identityCenterInstanceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### identityCenterApplicationArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetQueueEnvironmentRequestTypeDef
+
+### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -2096,14 +2227,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### queueEnvironmentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # GetQueueEnvironmentResponseTypeDef
 
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### createdBy
+### queueEnvironmentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -2115,16 +2246,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
-### queueEnvironmentId
-- **Type**: <class 'str'>
+### templateType
+- **Type**: typing.Literal['JSON', 'YAML']
 - **Required**: Yes
 
 ### template
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### templateType
-- **Type**: typing.Literal['JSON', 'YAML']
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### updatedAt
@@ -2140,9 +2275,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetQueueFleetAssociationRequestQueueFleetAssociationStoppedWaitTypeDef
+# GetQueueFleetAssociationRequestTypeDef
 
 ### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -2150,7 +2289,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+
+# GetQueueFleetAssociationRequestWaitTypeDef
+
+### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### queueId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### fleetId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -2158,36 +2308,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.WaiterConfigTypeDef]
 
 
-# GetQueueFleetAssociationRequestRequestTypeDef
-
-### farmId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### fleetId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### queueId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
 # GetQueueFleetAssociationResponseTypeDef
 
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### createdBy
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### fleetId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -2195,6 +2322,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Literal['ACTIVE', 'STOPPED', 'STOP_SCHEDULING_AND_CANCEL_TASKS', 'STOP_SCHEDULING_AND_COMPLETE_TASKS']
 - **Required**: Yes
 
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### updatedAt
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
@@ -2208,7 +2343,86 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetQueueRequestQueueSchedulingBlockedWaitTypeDef
+# GetQueueLimitAssociationRequestTypeDef
+
+### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### queueId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### limitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetQueueLimitAssociationRequestWaitTypeDef
+
+### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### queueId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### limitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### WaiterConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.WaiterConfigTypeDef]
+
+
+# GetQueueLimitAssociationResponseTypeDef
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### queueId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### limitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACTIVE', 'STOPPED', 'STOP_LIMIT_USAGE_AND_CANCEL_TASKS', 'STOP_LIMIT_USAGE_AND_COMPLETE_TASKS']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetQueueRequestTypeDef
+
+### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### queueId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetQueueRequestWaitExtraTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -2222,7 +2436,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.WaiterConfigTypeDef]
 
 
-# GetQueueRequestQueueSchedulingWaitTypeDef
+# GetQueueRequestWaitTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -2234,27 +2448,56 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### WaiterConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.WaiterConfigTypeDef]
-
-
-# GetQueueRequestRequestTypeDef
-
-### farmId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### queueId
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 
 # GetQueueResponseTypeDef
+
+### queueId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### displayName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['IDLE', 'SCHEDULING', 'SCHEDULING_BLOCKED']
+- **Required**: Yes
+
+### defaultBudgetAction
+- **Type**: typing.Literal['NONE', 'STOP_SCHEDULING_AND_CANCEL_TASKS', 'STOP_SCHEDULING_AND_COMPLETE_TASKS']
+- **Required**: Yes
+
+### blockedReason
+- **Type**: typing.Literal['BUDGET_THRESHOLD_REACHED', 'NO_BUDGET_CONFIGURED']
+- **Required**: Yes
+
+### jobAttachmentSettings
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.JobAttachmentSettingsTypeDef'>
+- **Required**: Yes
+
+### roleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### requiredFileSystemLocationNames
+- **Type**: typing.List[str]
+- **Required**: Yes
 
 ### allowedStorageProfileIds
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-### blockedReason
-- **Type**: typing.Literal['BUDGET_THRESHOLD_REACHED', 'NO_BUDGET_CONFIGURED']
+### jobRunAsUser
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.JobRunAsUserTypeDef'>
 - **Required**: Yes
 
 ### createdAt
@@ -2265,46 +2508,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### defaultBudgetAction
-- **Type**: typing.Literal['NONE', 'STOP_SCHEDULING_AND_CANCEL_TASKS', 'STOP_SCHEDULING_AND_COMPLETE_TASKS']
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### displayName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### farmId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### jobAttachmentSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.JobAttachmentSettingsTypeDef'>
-- **Required**: Yes
-
-### jobRunAsUser
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.JobRunAsUserTypeDef'>
-- **Required**: Yes
-
-### queueId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### requiredFileSystemLocationNames
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### roleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['IDLE', 'SCHEDULING', 'SCHEDULING_BLOCKED']
-- **Required**: Yes
-
 ### updatedAt
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
@@ -2318,17 +2521,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSessionActionRequestRequestTypeDef
+# GetSessionActionRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### jobId
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### queueId
+### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -2339,12 +2542,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # GetSessionActionResponseTypeDef
 
-### definition
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.SessionActionDefinitionTypeDef'>
+### sessionActionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ASSIGNED', 'CANCELED', 'CANCELING', 'FAILED', 'INTERRUPTED', 'NEVER_ATTEMPTED', 'RECLAIMED', 'RECLAIMING', 'RUNNING', 'SCHEDULED', 'SUCCEEDED']
+- **Required**: Yes
+
+### startedAt
+- **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### endedAt
 - **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### workerUpdatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### progressPercent
+- **Type**: <class 'float'>
+- **Required**: Yes
+
+### sessionId
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### processExitCode
@@ -2355,28 +2578,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### progressPercent
-- **Type**: <class 'float'>
+### definition
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.SessionActionDefinitionTypeDef'>
 - **Required**: Yes
 
-### sessionActionId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sessionId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### startedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ASSIGNED', 'CANCELED', 'CANCELING', 'FAILED', 'INTERRUPTED', 'NEVER_ATTEMPTED', 'RECLAIMED', 'RECLAIMING', 'RUNNING', 'SCHEDULED', 'SUCCEEDED']
-- **Required**: Yes
-
-### workerUpdatedAt
-- **Type**: <class 'datetime.datetime'>
+### acquiredLimits
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.AcquiredLimitTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -2384,17 +2591,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSessionRequestRequestTypeDef
+# GetSessionRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### jobId
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### queueId
+### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -2405,27 +2612,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # GetSessionResponseTypeDef
 
-### endedAt
-- **Type**: <class 'datetime.datetime'>
+### sessionId
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### fleetId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### hostProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.HostPropertiesResponseTypeDef'>
-- **Required**: Yes
-
-### lifecycleStatus
-- **Type**: typing.Literal['ENDED', 'STARTED', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS', 'UPDATE_SUCCEEDED']
-- **Required**: Yes
-
-### log
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.LogConfigurationTypeDef'>
-- **Required**: Yes
-
-### sessionId
+### workerId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -2433,8 +2628,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
-### targetLifecycleStatus
-- **Type**: typing.Literal['ENDED']
+### log
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.LogConfigurationTypeDef'>
+- **Required**: Yes
+
+### lifecycleStatus
+- **Type**: typing.Literal['ENDED', 'STARTED', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS', 'UPDATE_SUCCEEDED']
+- **Required**: Yes
+
+### endedAt
+- **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### updatedAt
@@ -2445,8 +2648,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### workerId
-- **Type**: <class 'str'>
+### targetLifecycleStatus
+- **Type**: typing.Literal['ENDED']
+- **Required**: Yes
+
+### hostProperties
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.HostPropertiesResponseTypeDef'>
 - **Required**: Yes
 
 ### workerLog
@@ -2458,13 +2665,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSessionsStatisticsAggregationRequestGetSessionsStatisticsAggregationPaginateTypeDef
+# GetSessionsStatisticsAggregationRequestPaginateTypeDef
 
-### aggregationId
+### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### farmId
+### aggregationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -2472,13 +2679,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# GetSessionsStatisticsAggregationRequestRequestTypeDef
+# GetSessionsStatisticsAggregationRequestTypeDef
 
-### aggregationId
+### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### farmId
+### aggregationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -2490,10 +2697,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 
 # GetSessionsStatisticsAggregationResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### statistics
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.StatisticsTypeDef]
@@ -2511,18 +2714,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetStepRequestRequestTypeDef
+
+# GetStepRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### jobId
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### queueId
+### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -2533,24 +2739,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # GetStepResponseTypeDef
 
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### createdBy
+### stepId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### dependencyCounts
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.DependencyCountsTypeDef'>
-- **Required**: Yes
-
-### description
+### name
 - **Type**: <class 'str'>
-- **Required**: Yes
-
-### endedAt
-- **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### lifecycleStatus
@@ -2561,36 +2755,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### parameterSpace
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ParameterSpaceTypeDef'>
-- **Required**: Yes
-
-### requiredCapabilities
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.StepRequiredCapabilitiesTypeDef'>
-- **Required**: Yes
-
-### startedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### stepId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### targetTaskRunStatus
-- **Type**: typing.Literal['CANCELED', 'FAILED', 'PENDING', 'READY', 'SUCCEEDED', 'SUSPENDED']
-- **Required**: Yes
-
 ### taskRunStatus
 - **Type**: typing.Literal['ASSIGNED', 'CANCELED', 'FAILED', 'INTERRUPTING', 'NOT_COMPATIBLE', 'PENDING', 'READY', 'RUNNING', 'SCHEDULED', 'STARTING', 'SUCCEEDED', 'SUSPENDED']
 - **Required**: Yes
 
 ### taskRunStatusCounts
 - **Type**: typing.Dict[typing.Literal['ASSIGNED', 'CANCELED', 'FAILED', 'INTERRUPTING', 'NOT_COMPATIBLE', 'PENDING', 'READY', 'RUNNING', 'SCHEDULED', 'STARTING', 'SUCCEEDED', 'SUSPENDED'], int]
+- **Required**: Yes
+
+### targetTaskRunStatus
+- **Type**: typing.Literal['CANCELED', 'FAILED', 'PENDING', 'READY', 'SUCCEEDED', 'SUSPENDED']
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### updatedAt
@@ -2601,12 +2783,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### startedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### endedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### dependencyCounts
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.DependencyCountsTypeDef'>
+- **Required**: Yes
+
+### requiredCapabilities
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.StepRequiredCapabilitiesTypeDef'>
+- **Required**: Yes
+
+### parameterSpace
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ParameterSpaceTypeDef'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
 
-# GetStorageProfileForQueueRequestRequestTypeDef
+# GetStorageProfileForQueueRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -2623,20 +2829,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # GetStorageProfileForQueueResponseTypeDef
 
-### displayName
+### storageProfileId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### fileSystemLocations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.FileSystemLocationTypeDef]
+### displayName
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### osFamily
 - **Type**: typing.Literal['LINUX', 'MACOS', 'WINDOWS']
 - **Required**: Yes
 
-### storageProfileId
-- **Type**: <class 'str'>
+### fileSystemLocations
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.FileSystemLocationTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -2644,7 +2850,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetStorageProfileRequestRequestTypeDef
+# GetStorageProfileRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -2657,11 +2863,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # GetStorageProfileResponseTypeDef
 
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### createdBy
+### storageProfileId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -2669,15 +2871,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### fileSystemLocations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.FileSystemLocationTypeDef]
-- **Required**: Yes
-
 ### osFamily
 - **Type**: typing.Literal['LINUX', 'MACOS', 'WINDOWS']
 - **Required**: Yes
 
-### storageProfileId
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -2689,22 +2891,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### fileSystemLocations
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.FileSystemLocationTypeDef]
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
 
-# GetTaskRequestRequestTypeDef
+# GetTaskRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### jobId
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### queueId
+### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -2719,6 +2925,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # GetTaskResponseTypeDef
 
+### taskId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### createdAt
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
@@ -2727,36 +2937,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### endedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### failureRetryCount
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### latestSessionActionId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### parameters
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.deadline_classes.TaskParameterValueTypeDef]
-- **Required**: Yes
-
 ### runStatus
 - **Type**: typing.Literal['ASSIGNED', 'CANCELED', 'FAILED', 'INTERRUPTING', 'NOT_COMPATIBLE', 'PENDING', 'READY', 'RUNNING', 'SCHEDULED', 'STARTING', 'SUCCEEDED', 'SUSPENDED']
-- **Required**: Yes
-
-### startedAt
-- **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### targetRunStatus
 - **Type**: typing.Literal['CANCELED', 'FAILED', 'PENDING', 'READY', 'SUCCEEDED', 'SUSPENDED']
 - **Required**: Yes
 
-### taskId
-- **Type**: <class 'str'>
+### failureRetryCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### parameters
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.deadline_classes.TaskParameterValueTypeDef]
+- **Required**: Yes
+
+### startedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### endedAt
+- **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### updatedAt
@@ -2767,12 +2969,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### latestSessionActionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
 
-# GetWorkerRequestRequestTypeDef
+# GetWorkerRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -2789,14 +2995,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # GetWorkerResponseTypeDef
 
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### createdBy
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
@@ -2805,16 +3003,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### workerId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### hostProperties
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.HostPropertiesResponseTypeDef'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['CREATED', 'IDLE', 'NOT_COMPATIBLE', 'NOT_RESPONDING', 'RUNNING', 'STARTED', 'STOPPED', 'STOPPING']
 - **Required**: Yes
 
 ### log
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.LogConfigurationTypeDef'>
 - **Required**: Yes
 
-### status
-- **Type**: typing.Literal['CREATED', 'IDLE', 'NOT_COMPATIBLE', 'NOT_RESPONDING', 'RUNNING', 'STARTED', 'STOPPED', 'STOPPING']
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### updatedAt
@@ -2825,10 +3035,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### workerId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
@@ -2836,44 +3042,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # HostPropertiesRequestTypeDef
 
-### hostName
-- **Type**: typing.Optional[str]
-
 ### ipAddresses
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.IpAddressesTypeDef]
-
-
-# HostPropertiesResponsePaginatorTypeDef
-
-### ec2InstanceArn
-- **Type**: typing.Optional[str]
-
-### ec2InstanceType
-- **Type**: typing.Optional[str]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.IpAddressesUnionTypeDef]
 
 ### hostName
 - **Type**: typing.Optional[str]
-
-### ipAddresses
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.IpAddressesPaginatorTypeDef]
 
 
 # HostPropertiesResponseTypeDef
 
+### ipAddresses
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.IpAddressesOutputTypeDef]
+
+### hostName
+- **Type**: typing.Optional[str]
+
 ### ec2InstanceArn
 - **Type**: typing.Optional[str]
 
 ### ec2InstanceType
 - **Type**: typing.Optional[str]
 
-### hostName
-- **Type**: typing.Optional[str]
 
-### ipAddresses
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.IpAddressesTypeDef]
-
-
-# IpAddressesPaginatorTypeDef
+# IpAddressesOutputTypeDef
 
 ### ipV4Addresses
 - **Type**: typing.Optional[typing.List[str]]
@@ -2891,25 +3082,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# JobAttachmentDetailsEntityTypeDef
+# IpAddressesUnionTypeDef
 
-### attachments
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.AttachmentsTypeDef'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# JobAttachmentDetailsEntityTypeDef
 
 ### jobId
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+### attachments
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.AttachmentsOutputTypeDef'>
 - **Required**: Yes
 
 
 # JobAttachmentDetailsErrorTypeDef
 
-### code
-- **Type**: typing.Literal['AccessDeniedException', 'ConflictException', 'InternalServerException', 'MaxPayloadSizeExceeded', 'ResourceNotFoundException', 'ValidationException']
-- **Required**: Yes
-
 ### jobId
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+### code
+- **Type**: typing.Literal['AccessDeniedException', 'ConflictException', 'InternalServerException', 'MaxPayloadSizeExceeded', 'ResourceNotFoundException', 'ValidationException']
 - **Required**: Yes
 
 ### message
@@ -2926,11 +3123,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # JobAttachmentSettingsTypeDef
 
-### rootPrefix
+### s3BucketName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### s3BucketName
+### rootPrefix
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -2955,24 +3152,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### jobRunAsUser
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobRunAsUserTypeDef]
 
+### queueRoleArn
+- **Type**: typing.Optional[str]
+
 ### parameters
 - **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.deadline_classes.JobParameterTypeDef]]
 
 ### pathMappingRules
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline_classes.PathMappingRuleTypeDef]]
 
-### queueRoleArn
-- **Type**: typing.Optional[str]
-
 
 # JobDetailsErrorTypeDef
 
-### code
-- **Type**: typing.Literal['AccessDeniedException', 'ConflictException', 'InternalServerException', 'MaxPayloadSizeExceeded', 'ResourceNotFoundException', 'ValidationException']
-- **Required**: Yes
-
 ### jobId
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+### code
+- **Type**: typing.Literal['AccessDeniedException', 'ConflictException', 'InternalServerException', 'MaxPayloadSizeExceeded', 'ResourceNotFoundException', 'ValidationException']
 - **Required**: Yes
 
 ### message
@@ -2989,32 +3186,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # JobEntityIdentifiersUnionTypeDef
 
-### environmentDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.EnvironmentDetailsIdentifiersTypeDef]
+### jobDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobDetailsIdentifiersTypeDef]
 
 ### jobAttachmentDetails
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobAttachmentDetailsIdentifiersTypeDef]
 
-### jobDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobDetailsIdentifiersTypeDef]
-
 ### stepDetails
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.StepDetailsIdentifiersTypeDef]
+
+### environmentDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.EnvironmentDetailsIdentifiersTypeDef]
 
 
 # JobEntityTypeDef
 
-### environmentDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.EnvironmentDetailsEntityTypeDef]
+### jobDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobDetailsEntityTypeDef]
 
 ### jobAttachmentDetails
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobAttachmentDetailsEntityTypeDef]
 
-### jobDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobDetailsEntityTypeDef]
-
 ### stepDetails
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.StepDetailsEntityTypeDef]
+
+### environmentDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.EnvironmentDetailsEntityTypeDef]
 
 
 # JobMemberTypeDef
@@ -3023,16 +3220,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### identityStoreId
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### jobId
 - **Type**: <class 'str'>
-- **Required**: Yes
-
-### membershipLevel
-- **Type**: typing.Literal['CONTRIBUTOR', 'MANAGER', 'OWNER', 'VIEWER']
 - **Required**: Yes
 
 ### principalId
@@ -3043,25 +3236,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Literal['GROUP', 'USER']
 - **Required**: Yes
 
-### queueId
+### identityStoreId
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+### membershipLevel
+- **Type**: typing.Literal['CONTRIBUTOR', 'MANAGER', 'OWNER', 'VIEWER']
 - **Required**: Yes
 
 
 # JobParameterTypeDef
 
-### float
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### int
-- **Type**: typing.Optional[str]
-
-### path
-- **Type**: typing.Optional[str]
-
-### string
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # JobRunAsUserTypeDef
 
@@ -3078,20 +3266,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # JobSearchSummaryTypeDef
 
-### createdAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### createdBy
-- **Type**: typing.Optional[str]
-
-### endedAt
-- **Type**: typing.Optional[datetime.datetime]
-
 ### jobId
 - **Type**: typing.Optional[str]
 
-### jobParameters
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.deadline_classes.JobParameterTypeDef]]
+### queueId
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
 
 ### lifecycleStatus
 - **Type**: typing.Optional[typing.Literal['ARCHIVED', 'CREATE_COMPLETE', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS', 'UPDATE_SUCCEEDED', 'UPLOAD_FAILED', 'UPLOAD_IN_PROGRESS']]
@@ -3099,45 +3281,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### lifecycleStatusMessage
 - **Type**: typing.Optional[str]
 
+### taskRunStatus
+- **Type**: typing.Optional[typing.Literal['ASSIGNED', 'CANCELED', 'FAILED', 'INTERRUPTING', 'NOT_COMPATIBLE', 'PENDING', 'READY', 'RUNNING', 'SCHEDULED', 'STARTING', 'SUCCEEDED', 'SUSPENDED']]
+
+### targetTaskRunStatus
+- **Type**: typing.Optional[typing.Literal['CANCELED', 'FAILED', 'PENDING', 'READY', 'SUCCEEDED', 'SUSPENDED']]
+
+### taskRunStatusCounts
+- **Type**: typing.Optional[typing.Dict[typing.Literal['ASSIGNED', 'CANCELED', 'FAILED', 'INTERRUPTING', 'NOT_COMPATIBLE', 'PENDING', 'READY', 'RUNNING', 'SCHEDULED', 'STARTING', 'SUCCEEDED', 'SUSPENDED'], int]]
+
+### priority
+- **Type**: typing.Optional[int]
+
 ### maxFailedTasksCount
 - **Type**: typing.Optional[int]
 
 ### maxRetriesPerTask
 - **Type**: typing.Optional[int]
 
-### name
+### createdBy
 - **Type**: typing.Optional[str]
 
-### priority
-- **Type**: typing.Optional[int]
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
 
-### queueId
-- **Type**: typing.Optional[str]
+### endedAt
+- **Type**: typing.Optional[datetime.datetime]
 
 ### startedAt
 - **Type**: typing.Optional[datetime.datetime]
 
-### targetTaskRunStatus
-- **Type**: typing.Optional[typing.Literal['CANCELED', 'FAILED', 'PENDING', 'READY', 'SUCCEEDED', 'SUSPENDED']]
+### jobParameters
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.deadline_classes.JobParameterTypeDef]]
 
-### taskRunStatus
-- **Type**: typing.Optional[typing.Literal['ASSIGNED', 'CANCELED', 'FAILED', 'INTERRUPTING', 'NOT_COMPATIBLE', 'PENDING', 'READY', 'RUNNING', 'SCHEDULED', 'STARTING', 'SUCCEEDED', 'SUSPENDED']]
+### maxWorkerCount
+- **Type**: typing.Optional[int]
 
-### taskRunStatusCounts
-- **Type**: typing.Optional[typing.Dict[typing.Literal['ASSIGNED', 'CANCELED', 'FAILED', 'INTERRUPTING', 'NOT_COMPATIBLE', 'PENDING', 'READY', 'RUNNING', 'SCHEDULED', 'STARTING', 'SUCCEEDED', 'SUSPENDED'], int]]
+### sourceJobId
+- **Type**: typing.Optional[str]
 
 
 # JobSummaryTypeDef
 
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### createdBy
+### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### jobId
+### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -3149,16 +3339,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### priority
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### updatedBy
+- **Type**: typing.Optional[str]
+
+### startedAt
+- **Type**: typing.Optional[datetime.datetime]
+
 ### endedAt
 - **Type**: typing.Optional[datetime.datetime]
+
+### taskRunStatus
+- **Type**: typing.Optional[typing.Literal['ASSIGNED', 'CANCELED', 'FAILED', 'INTERRUPTING', 'NOT_COMPATIBLE', 'PENDING', 'READY', 'RUNNING', 'SCHEDULED', 'STARTING', 'SUCCEEDED', 'SUSPENDED']]
+
+### targetTaskRunStatus
+- **Type**: typing.Optional[typing.Literal['CANCELED', 'FAILED', 'PENDING', 'READY', 'SUCCEEDED', 'SUSPENDED']]
+
+### taskRunStatusCounts
+- **Type**: typing.Optional[typing.Dict[typing.Literal['ASSIGNED', 'CANCELED', 'FAILED', 'INTERRUPTING', 'NOT_COMPATIBLE', 'PENDING', 'READY', 'RUNNING', 'SCHEDULED', 'STARTING', 'SUCCEEDED', 'SUSPENDED'], int]]
 
 ### maxFailedTasksCount
 - **Type**: typing.Optional[int]
@@ -3166,22 +3378,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### maxRetriesPerTask
 - **Type**: typing.Optional[int]
 
-### startedAt
-- **Type**: typing.Optional[datetime.datetime]
+### maxWorkerCount
+- **Type**: typing.Optional[int]
 
-### targetTaskRunStatus
-- **Type**: typing.Optional[typing.Literal['CANCELED', 'FAILED', 'PENDING', 'READY', 'SUCCEEDED', 'SUSPENDED']]
-
-### taskRunStatus
-- **Type**: typing.Optional[typing.Literal['ASSIGNED', 'CANCELED', 'FAILED', 'INTERRUPTING', 'NOT_COMPATIBLE', 'PENDING', 'READY', 'RUNNING', 'SCHEDULED', 'STARTING', 'SUCCEEDED', 'SUSPENDED']]
-
-### taskRunStatusCounts
-- **Type**: typing.Optional[typing.Dict[typing.Literal['ASSIGNED', 'CANCELED', 'FAILED', 'INTERRUPTING', 'NOT_COMPATIBLE', 'PENDING', 'READY', 'RUNNING', 'SCHEDULED', 'STARTING', 'SUCCEEDED', 'SUSPENDED'], int]]
-
-### updatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### updatedBy
+### sourceJobId
 - **Type**: typing.Optional[str]
 
 
@@ -3200,19 +3400,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAvailableMeteredProductsRequestListAvailableMeteredProductsPaginateTypeDef
+# LimitSummaryTypeDef
+
+### displayName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### amountRequirementName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### maxCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### limitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### currentCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### updatedBy
+- **Type**: typing.Optional[str]
+
+
+# ListAvailableMeteredProductsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# ListAvailableMeteredProductsRequestRequestTypeDef
-
-### maxResults
-- **Type**: typing.Optional[int]
+# ListAvailableMeteredProductsRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
 
 
 # ListAvailableMeteredProductsResponseTypeDef
@@ -3221,16 +3462,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.MeteredProductSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListBudgetsRequestListBudgetsPaginateTypeDef
+
+# ListBudgetsRequestPaginateTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -3243,17 +3483,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# ListBudgetsRequestRequestTypeDef
+# ListBudgetsRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
 
 ### status
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
@@ -3265,16 +3505,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.BudgetSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListFarmMembersRequestListFarmMembersPaginateTypeDef
+
+# ListFarmMembersRequestPaginateTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -3284,17 +3523,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# ListFarmMembersRequestRequestTypeDef
+# ListFarmMembersRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
 
 
 # ListFarmMembersResponseTypeDef
@@ -3303,16 +3542,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.FarmMemberTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListFarmsRequestListFarmsPaginateTypeDef
+
+# ListFarmsRequestPaginateTypeDef
 
 ### principalId
 - **Type**: typing.Optional[str]
@@ -3321,16 +3559,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# ListFarmsRequestRequestTypeDef
-
-### maxResults
-- **Type**: typing.Optional[int]
+# ListFarmsRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 ### principalId
 - **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
 
 
 # ListFarmsResponseTypeDef
@@ -3339,16 +3577,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.FarmSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListFleetMembersRequestListFleetMembersPaginateTypeDef
+
+# ListFleetMembersRequestPaginateTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -3362,7 +3599,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# ListFleetMembersRequestRequestTypeDef
+# ListFleetMembersRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -3372,11 +3609,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
 
 
 # ListFleetMembersResponseTypeDef
@@ -3385,25 +3622,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.FleetMemberTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListFleetsRequestListFleetsPaginateTypeDef
+
+# ListFleetsRequestPaginateTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### displayName
+### principalId
 - **Type**: typing.Optional[str]
 
-### principalId
+### displayName
 - **Type**: typing.Optional[str]
 
 ### status
@@ -3413,41 +3649,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# ListFleetsRequestRequestTypeDef
+# ListFleetsRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### displayName
-- **Type**: typing.Optional[str]
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-### nextToken
-- **Type**: typing.Optional[str]
-
 ### principalId
+- **Type**: typing.Optional[str]
+
+### displayName
 - **Type**: typing.Optional[str]
 
 ### status
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS']]
 
-
-# ListFleetsResponsePaginatorTypeDef
-
-### fleets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.FleetSummaryPaginatorTypeDef]
-- **Required**: Yes
-
 ### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
+- **Type**: typing.Optional[str]
 
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
+### maxResults
+- **Type**: typing.Optional[int]
 
 
 # ListFleetsResponseTypeDef
@@ -3456,26 +3677,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.FleetSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListJobMembersRequestListJobMembersPaginateTypeDef
+
+# ListJobMembersRequestPaginateTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### jobId
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### queueId
+### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -3483,13 +3703,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# ListJobMembersRequestRequestTypeDef
+# ListJobMembersRequestTypeDef
 
 ### farmId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -3497,11 +3713,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### maxResults
-- **Type**: typing.Optional[int]
+### jobId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
 
 
 # ListJobMembersResponseTypeDef
@@ -3510,16 +3730,68 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.JobMemberTypeDef]
 - **Required**: Yes
 
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
 ### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListJobParameterDefinitionsRequestPaginateTypeDef
+
+### farmId
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+### jobId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### queueId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
+
+
+# ListJobParameterDefinitionsRequestTypeDef
+
+### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### jobId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### queueId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+
+# ListJobParameterDefinitionsResponseTypeDef
+
+### jobParameterDefinitions
+- **Type**: typing.List[typing.Dict[str, typing.Any]]
 - **Required**: Yes
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListJobsRequestListJobsPaginateTypeDef
+
+# ListJobsRequestPaginateTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -3536,7 +3808,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# ListJobsRequestRequestTypeDef
+# ListJobsRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -3546,14 +3818,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### maxResults
-- **Type**: typing.Optional[int]
+### principalId
+- **Type**: typing.Optional[str]
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
-### principalId
-- **Type**: typing.Optional[str]
+### maxResults
+- **Type**: typing.Optional[int]
 
 
 # ListJobsResponseTypeDef
@@ -3562,28 +3834,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.JobSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListLicenseEndpointsRequestListLicenseEndpointsPaginateTypeDef
+
+# ListLicenseEndpointsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# ListLicenseEndpointsRequestRequestTypeDef
-
-### maxResults
-- **Type**: typing.Optional[int]
+# ListLicenseEndpointsRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
 
 
 # ListLicenseEndpointsResponseTypeDef
@@ -3592,16 +3863,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.LicenseEndpointSummaryTypeDef]
 - **Required**: Yes
 
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
 ### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListLimitsRequestPaginateTypeDef
+
+### farmId
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
+
+
+# ListLimitsRequestTypeDef
+
+### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+
+# ListLimitsResponseTypeDef
+
+### limits
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.LimitSummaryTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListMeteredProductsRequestListMeteredProductsPaginateTypeDef
+
+# ListMeteredProductsRequestPaginateTypeDef
 
 ### licenseEndpointId
 - **Type**: <class 'str'>
@@ -3611,17 +3918,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# ListMeteredProductsRequestRequestTypeDef
+# ListMeteredProductsRequestTypeDef
 
 ### licenseEndpointId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
 
 
 # ListMeteredProductsResponseTypeDef
@@ -3630,28 +3937,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.MeteredProductSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListMonitorsRequestListMonitorsPaginateTypeDef
+
+# ListMonitorsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# ListMonitorsRequestRequestTypeDef
-
-### maxResults
-- **Type**: typing.Optional[int]
+# ListMonitorsRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
 
 
 # ListMonitorsResponseTypeDef
@@ -3660,16 +3966,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.MonitorSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListQueueEnvironmentsRequestListQueueEnvironmentsPaginateTypeDef
+
+# ListQueueEnvironmentsRequestPaginateTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -3683,7 +3988,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# ListQueueEnvironmentsRequestRequestTypeDef
+# ListQueueEnvironmentsRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -3693,11 +3998,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
 
 
 # ListQueueEnvironmentsResponseTypeDef
@@ -3706,55 +4011,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.QueueEnvironmentSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListQueueFleetAssociationsRequestListQueueFleetAssociationsPaginateTypeDef
+
+# ListQueueFleetAssociationsRequestPaginateTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### fleetId
+### queueId
 - **Type**: typing.Optional[str]
 
-### queueId
+### fleetId
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# ListQueueFleetAssociationsRequestRequestTypeDef
+# ListQueueFleetAssociationsRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### queueId
+- **Type**: typing.Optional[str]
+
 ### fleetId
+- **Type**: typing.Optional[str]
+
+### nextToken
 - **Type**: typing.Optional[str]
 
 ### maxResults
 - **Type**: typing.Optional[int]
 
-### nextToken
-- **Type**: typing.Optional[str]
-
-### queueId
-- **Type**: typing.Optional[str]
-
 
 # ListQueueFleetAssociationsResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### queueFleetAssociations
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.QueueFleetAssociationSummaryTypeDef]
@@ -3764,8 +4064,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListQueueMembersRequestListQueueMembersPaginateTypeDef
+
+# ListQueueLimitAssociationsRequestPaginateTypeDef
+
+### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### queueId
+- **Type**: typing.Optional[str]
+
+### limitId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
+
+
+# ListQueueLimitAssociationsRequestTypeDef
+
+### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### queueId
+- **Type**: typing.Optional[str]
+
+### limitId
+- **Type**: typing.Optional[str]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+
+# ListQueueLimitAssociationsResponseTypeDef
+
+### queueLimitAssociations
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.QueueLimitAssociationSummaryTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListQueueMembersRequestPaginateTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -3779,7 +4131,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# ListQueueMembersRequestRequestTypeDef
+# ListQueueMembersRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -3789,11 +4141,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
 
 
 # ListQueueMembersResponseTypeDef
@@ -3802,16 +4154,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.QueueMemberTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListQueuesRequestListQueuesPaginateTypeDef
+
+# ListQueuesRequestPaginateTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -3827,17 +4178,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# ListQueuesRequestRequestTypeDef
+# ListQueuesRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-### nextToken
-- **Type**: typing.Optional[str]
 
 ### principalId
 - **Type**: typing.Optional[str]
@@ -3845,12 +4190,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### status
 - **Type**: typing.Optional[typing.Literal['IDLE', 'SCHEDULING', 'SCHEDULING_BLOCKED']]
 
+### nextToken
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
 
 # ListQueuesResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### queues
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.QueueSummaryTypeDef]
@@ -3860,18 +4207,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListSessionActionsRequestListSessionActionsPaginateTypeDef
+
+# ListSessionActionsRequestPaginateTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### jobId
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### queueId
+### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -3885,13 +4235,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# ListSessionActionsRequestRequestTypeDef
+# ListSessionActionsRequestTypeDef
 
 ### farmId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -3899,11 +4245,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### maxResults
-- **Type**: typing.Optional[int]
-
-### nextToken
-- **Type**: typing.Optional[str]
+### jobId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 ### sessionId
 - **Type**: typing.Optional[str]
@@ -3911,12 +4255,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### taskId
 - **Type**: typing.Optional[str]
 
+### nextToken
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
 
 # ListSessionActionsResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### sessionActions
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.SessionActionSummaryTypeDef]
@@ -3926,8 +4272,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListSessionsForWorkerRequestListSessionsForWorkerPaginateTypeDef
+
+# ListSessionsForWorkerRequestPaginateTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -3945,7 +4294,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# ListSessionsForWorkerRequestRequestTypeDef
+# ListSessionsForWorkerRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -3959,18 +4308,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
 
+### maxResults
+- **Type**: typing.Optional[int]
+
 
 # ListSessionsForWorkerResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### sessions
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.WorkerSessionSummaryTypeDef]
@@ -3980,18 +4325,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListSessionsRequestListSessionsPaginateTypeDef
+
+# ListSessionsRequestPaginateTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### jobId
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### queueId
+### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -3999,13 +4347,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# ListSessionsRequestRequestTypeDef
+# ListSessionsRequestTypeDef
 
 ### farmId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -4013,18 +4357,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### maxResults
-- **Type**: typing.Optional[int]
+### jobId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
+### maxResults
+- **Type**: typing.Optional[int]
+
 
 # ListSessionsResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### sessions
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.SessionSummaryTypeDef]
@@ -4034,18 +4378,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListStepConsumersRequestListStepConsumersPaginateTypeDef
+
+# ListStepConsumersRequestPaginateTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### jobId
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### queueId
+### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -4057,13 +4404,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# ListStepConsumersRequestRequestTypeDef
+# ListStepConsumersRequestTypeDef
 
 ### farmId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -4071,15 +4414,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### jobId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### stepId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
 
 
 # ListStepConsumersResponseTypeDef
@@ -4088,26 +4435,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.StepConsumerTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListStepDependenciesRequestListStepDependenciesPaginateTypeDef
+
+# ListStepDependenciesRequestPaginateTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### jobId
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### queueId
+### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -4119,13 +4465,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# ListStepDependenciesRequestRequestTypeDef
+# ListStepDependenciesRequestTypeDef
 
 ### farmId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -4133,15 +4475,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### jobId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### stepId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
 
 
 # ListStepDependenciesResponseTypeDef
@@ -4150,26 +4496,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.StepDependencyTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListStepsRequestListStepsPaginateTypeDef
+
+# ListStepsRequestPaginateTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### jobId
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### queueId
+### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -4177,13 +4522,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# ListStepsRequestRequestTypeDef
+# ListStepsRequestTypeDef
 
 ### farmId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -4191,18 +4532,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### maxResults
-- **Type**: typing.Optional[int]
+### jobId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
+### maxResults
+- **Type**: typing.Optional[int]
+
 
 # ListStepsResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### steps
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.StepSummaryTypeDef]
@@ -4212,8 +4553,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListStorageProfilesForQueueRequestListStorageProfilesForQueuePaginateTypeDef
+
+# ListStorageProfilesForQueueRequestPaginateTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -4227,7 +4571,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# ListStorageProfilesForQueueRequestRequestTypeDef
+# ListStorageProfilesForQueueRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -4237,19 +4581,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
 
 
 # ListStorageProfilesForQueueResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### storageProfiles
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.StorageProfileSummaryTypeDef]
 - **Required**: Yes
@@ -4258,8 +4598,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListStorageProfilesRequestListStorageProfilesPaginateTypeDef
+
+# ListStorageProfilesRequestPaginateTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -4269,24 +4612,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# ListStorageProfilesRequestRequestTypeDef
+# ListStorageProfilesRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
 
+### maxResults
+- **Type**: typing.Optional[int]
+
 
 # ListStorageProfilesResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### storageProfiles
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.StorageProfileSummaryTypeDef]
@@ -4296,8 +4635,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -4315,17 +4657,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTasksRequestListTasksPaginateTypeDef
+# ListTasksRequestPaginateTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### jobId
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### queueId
+### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -4337,13 +4679,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# ListTasksRequestRequestTypeDef
+# ListTasksRequestTypeDef
 
 ### farmId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -4351,22 +4689,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### jobId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### stepId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
 
+### maxResults
+- **Type**: typing.Optional[int]
+
 
 # ListTasksResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### tasks
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.TaskSummaryTypeDef]
@@ -4376,8 +4714,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListWorkersRequestListWorkersPaginateTypeDef
+
+# ListWorkersRequestPaginateTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -4391,7 +4732,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfigTypeDef]
 
 
-# ListWorkersRequestRequestTypeDef
+# ListWorkersRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -4401,33 +4742,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
 
-
-# ListWorkersResponsePaginatorTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### workers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.WorkerSummaryPaginatorTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
+### maxResults
+- **Type**: typing.Optional[int]
 
 
 # ListWorkersResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### workers
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.WorkerSummaryTypeDef]
@@ -4437,6 +4759,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
+
 
 # LogConfigurationTypeDef
 
@@ -4444,14 +4769,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### error
-- **Type**: typing.Optional[str]
-
 ### options
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### parameters
 - **Type**: typing.Optional[typing.Dict[str, str]]
+
+### error
+- **Type**: typing.Optional[str]
+
+
+# ManifestPropertiesOutputTypeDef
+
+### rootPath
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### rootPathFormat
+- **Type**: typing.Literal['posix', 'windows']
+- **Required**: Yes
+
+### fileSystemLocationName
+- **Type**: typing.Optional[str]
+
+### outputRelativeDirectories
+- **Type**: typing.Optional[typing.List[str]]
+
+### inputManifestPath
+- **Type**: typing.Optional[str]
+
+### inputManifestHash
+- **Type**: typing.Optional[str]
 
 
 # ManifestPropertiesTypeDef
@@ -4467,37 +4815,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### fileSystemLocationName
 - **Type**: typing.Optional[str]
 
-### inputManifestHash
-- **Type**: typing.Optional[str]
+### outputRelativeDirectories
+- **Type**: typing.Optional[typing.Sequence[str]]
 
 ### inputManifestPath
 - **Type**: typing.Optional[str]
 
-### outputRelativeDirectories
-- **Type**: typing.Optional[typing.List[str]]
+### inputManifestHash
+- **Type**: typing.Optional[str]
 
 
 # MemoryMiBRangeTypeDef
 
-### min
-- **Type**: <class 'int'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### max
-- **Type**: typing.Optional[int]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MeteredProductSummaryTypeDef
 
-### family
+### productId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### port
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### productId
+### family
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -4505,34 +4845,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### port
+- **Type**: <class 'int'>
+- **Required**: Yes
+
 
 # MonitorSummaryTypeDef
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### createdBy
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### displayName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### identityCenterApplicationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### identityCenterInstanceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### monitorId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### roleArn
+### displayName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -4541,6 +4865,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### url
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### roleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### identityCenterInstanceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### identityCenterApplicationArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -4565,27 +4909,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ParameterFilterExpressionTypeDef
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### operator
-- **Type**: typing.Literal['EQUAL', 'GREATER_THAN', 'GREATER_THAN_EQUAL_TO', 'LESS_THAN', 'LESS_THAN_EQUAL_TO', 'NOT_EQUAL']
-- **Required**: Yes
-
-### value
-- **Type**: <class 'str'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ParameterSortExpressionTypeDef
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### sortOrder
 - **Type**: typing.Literal['ASCENDING', 'DESCENDING']
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 
@@ -4601,31 +4936,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PathMappingRuleTypeDef
 
-### destinationPath
-- **Type**: <class 'str'>
+### sourcePathFormat
+- **Type**: typing.Literal['posix', 'windows']
 - **Required**: Yes
 
 ### sourcePath
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### sourcePathFormat
-- **Type**: typing.Literal['posix', 'windows']
+### destinationPath
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 
 # PosixUserTypeDef
 
-### group
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### user
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### group
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-# PutMeteredProductRequestRequestTypeDef
+
+# PutMeteredProductRequestTypeDef
 
 ### licenseEndpointId
 - **Type**: <class 'str'>
@@ -4638,6 +4973,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # QueueEnvironmentSummaryTypeDef
 
+### queueEnvironmentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
@@ -4646,12 +4985,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
-### queueEnvironmentId
+
+# QueueFleetAssociationSummaryTypeDef
+
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### fleetId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-# QueueFleetAssociationSummaryTypeDef
+### status
+- **Type**: typing.Literal['ACTIVE', 'STOPPED', 'STOP_SCHEDULING_AND_CANCEL_TASKS', 'STOP_SCHEDULING_AND_COMPLETE_TASKS']
+- **Required**: Yes
 
 ### createdAt
 - **Type**: <class 'datetime.datetime'>
@@ -4661,7 +5008,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### fleetId
+### updatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### updatedBy
+- **Type**: typing.Optional[str]
+
+
+# QueueLimitAssociationSummaryTypeDef
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -4669,8 +5029,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### limitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### status
-- **Type**: typing.Literal['ACTIVE', 'STOPPED', 'STOP_SCHEDULING_AND_CANCEL_TASKS', 'STOP_SCHEDULING_AND_COMPLETE_TASKS']
+- **Type**: typing.Literal['ACTIVE', 'STOPPED', 'STOP_LIMIT_USAGE_AND_CANCEL_TASKS', 'STOP_LIMIT_USAGE_AND_COMPLETE_TASKS']
 - **Required**: Yes
 
 ### updatedAt
@@ -4686,12 +5050,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### identityStoreId
+### queueId
 - **Type**: <class 'str'>
-- **Required**: Yes
-
-### membershipLevel
-- **Type**: typing.Literal['CONTRIBUTOR', 'MANAGER', 'OWNER', 'VIEWER']
 - **Required**: Yes
 
 ### principalId
@@ -4702,28 +5062,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Literal['GROUP', 'USER']
 - **Required**: Yes
 
-### queueId
+### identityStoreId
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+### membershipLevel
+- **Type**: typing.Literal['CONTRIBUTOR', 'MANAGER', 'OWNER', 'VIEWER']
 - **Required**: Yes
 
 
 # QueueSummaryTypeDef
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### createdBy
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### defaultBudgetAction
-- **Type**: typing.Literal['NONE', 'STOP_SCHEDULING_AND_CANCEL_TASKS', 'STOP_SCHEDULING_AND_COMPLETE_TASKS']
-- **Required**: Yes
-
-### displayName
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### farmId
 - **Type**: <class 'str'>
@@ -4733,8 +5081,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### displayName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### status
 - **Type**: typing.Literal['IDLE', 'SCHEDULING', 'SCHEDULING_BLOCKED']
+- **Required**: Yes
+
+### defaultBudgetAction
+- **Type**: typing.Literal['NONE', 'STOP_SCHEDULING_AND_CANCEL_TASKS', 'STOP_SCHEDULING_AND_COMPLETE_TASKS']
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### blockedReason
@@ -4749,17 +5113,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ResponseBudgetActionTypeDef
 
-### thresholdPercentage
-- **Type**: <class 'float'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: typing.Literal['STOP_SCHEDULING_AND_CANCEL_TASKS', 'STOP_SCHEDULING_AND_COMPLETE_TASKS']
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResponseMetadataTypeDef
 
@@ -4799,9 +5155,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### dateTimeFilter
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.DateTimeFilterExpressionTypeDef]
 
-### groupFilter
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
-
 ### parameterFilter
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.ParameterFilterExpressionTypeDef]
 
@@ -4811,40 +5164,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### stringFilter
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.StringFilterExpressionTypeDef]
 
+### groupFilter
+- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+
 
 # SearchGroupedFilterExpressionsTypeDef
 
-### filters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.SearchFilterExpressionTypeDef]
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### operator
-- **Type**: typing.Literal['AND', 'OR']
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-
-# SearchJobsRequestRequestTypeDef
+# SearchJobsRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
-- **Required**: Yes
-
-### itemOffset
-- **Type**: <class 'int'>
 - **Required**: Yes
 
 ### queueIds
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
+### itemOffset
+- **Type**: <class 'int'>
+- **Required**: Yes
+
 ### filterExpressions
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.SearchGroupedFilterExpressionsTypeDef]
 
-### pageSize
-- **Type**: typing.Optional[int]
-
 ### sortExpressions
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.SearchSortExpressionTypeDef]]
+
+### pageSize
+- **Type**: typing.Optional[int]
 
 
 # SearchJobsResponseTypeDef
@@ -4868,51 +5219,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SearchSortExpressionTypeDef
 
+### userJobsFirst
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.UserJobsFirstTypeDef]
+
 ### fieldSort
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.FieldSortExpressionTypeDef]
 
 ### parameterSort
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.ParameterSortExpressionTypeDef]
 
-### userJobsFirst
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.UserJobsFirstTypeDef]
 
-
-# SearchStepsRequestRequestTypeDef
+# SearchStepsRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
-- **Required**: Yes
-
-### itemOffset
-- **Type**: <class 'int'>
 - **Required**: Yes
 
 ### queueIds
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
-### filterExpressions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.SearchGroupedFilterExpressionsTypeDef]
+### itemOffset
+- **Type**: <class 'int'>
+- **Required**: Yes
 
 ### jobId
 - **Type**: typing.Optional[str]
 
-### pageSize
-- **Type**: typing.Optional[int]
+### filterExpressions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.SearchGroupedFilterExpressionsTypeDef]
 
 ### sortExpressions
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.SearchSortExpressionTypeDef]]
 
+### pageSize
+- **Type**: typing.Optional[int]
+
 
 # SearchStepsResponseTypeDef
 
-### nextItemOffset
-- **Type**: <class 'int'>
-- **Required**: Yes
-
 ### steps
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.StepSearchSummaryTypeDef]
+- **Required**: Yes
+
+### nextItemOffset
+- **Type**: <class 'int'>
 - **Required**: Yes
 
 ### totalResults
@@ -4924,41 +5275,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SearchTasksRequestRequestTypeDef
+# SearchTasksRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
-- **Required**: Yes
-
-### itemOffset
-- **Type**: <class 'int'>
 - **Required**: Yes
 
 ### queueIds
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
-### filterExpressions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.SearchGroupedFilterExpressionsTypeDef]
+### itemOffset
+- **Type**: <class 'int'>
+- **Required**: Yes
 
 ### jobId
 - **Type**: typing.Optional[str]
 
-### pageSize
-- **Type**: typing.Optional[int]
+### filterExpressions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.SearchGroupedFilterExpressionsTypeDef]
 
 ### sortExpressions
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.SearchSortExpressionTypeDef]]
 
+### pageSize
+- **Type**: typing.Optional[int]
+
 
 # SearchTasksResponseTypeDef
 
-### nextItemOffset
-- **Type**: <class 'int'>
-- **Required**: Yes
-
 ### tasks
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.TaskSearchSummaryTypeDef]
+- **Required**: Yes
+
+### nextItemOffset
+- **Type**: <class 'int'>
 - **Required**: Yes
 
 ### totalResults
@@ -4977,7 +5328,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SearchWorkersRequestRequestTypeDef
+# SearchWorkersRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -4994,14 +5345,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### filterExpressions
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.SearchGroupedFilterExpressionsTypeDef]
 
-### pageSize
-- **Type**: typing.Optional[int]
-
 ### sortExpressions
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.SearchSortExpressionTypeDef]]
 
+### pageSize
+- **Type**: typing.Optional[int]
+
 
 # SearchWorkersResponseTypeDef
+
+### workers
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.WorkerSearchSummaryTypeDef]
+- **Required**: Yes
 
 ### nextItemOffset
 - **Type**: <class 'int'>
@@ -5011,19 +5366,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
-### workers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.WorkerSearchSummaryTypeDef]
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
 
-# ServiceManagedEc2FleetConfigurationPaginatorTypeDef
+# ServiceManagedEc2FleetConfigurationOutputTypeDef
 
 ### instanceCapabilities
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ServiceManagedEc2InstanceCapabilitiesPaginatorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ServiceManagedEc2InstanceCapabilitiesOutputTypeDef'>
 - **Required**: Yes
 
 ### instanceMarketOptions
@@ -5042,10 +5393,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ServiceManagedEc2InstanceCapabilitiesPaginatorTypeDef
+# ServiceManagedEc2InstanceCapabilitiesOutputTypeDef
 
-### cpuArchitectureType
-- **Type**: typing.Literal['arm64', 'x86_64']
+### vCpuCount
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.VCpuCountRangeTypeDef'>
 - **Required**: Yes
 
 ### memoryMiB
@@ -5056,30 +5407,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Literal['LINUX', 'WINDOWS']
 - **Required**: Yes
 
-### vCpuCount
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.VCpuCountRangeTypeDef'>
+### cpuArchitectureType
+- **Type**: typing.Literal['arm64', 'x86_64']
 - **Required**: Yes
 
+### rootEbsVolume
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.Ec2EbsVolumeTypeDef]
+
+### acceleratorCapabilities
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AcceleratorCapabilitiesOutputTypeDef]
+
 ### allowedInstanceTypes
+- **Type**: typing.Optional[typing.List[str]]
+
+### excludedInstanceTypes
 - **Type**: typing.Optional[typing.List[str]]
 
 ### customAmounts
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline_classes.FleetAmountCapabilityTypeDef]]
 
 ### customAttributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline_classes.FleetAttributeCapabilityPaginatorTypeDef]]
-
-### excludedInstanceTypes
-- **Type**: typing.Optional[typing.List[str]]
-
-### rootEbsVolume
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.Ec2EbsVolumeTypeDef]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline_classes.FleetAttributeCapabilityOutputTypeDef]]
 
 
 # ServiceManagedEc2InstanceCapabilitiesTypeDef
 
-### cpuArchitectureType
-- **Type**: typing.Literal['arm64', 'x86_64']
+### vCpuCount
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.VCpuCountRangeTypeDef'>
 - **Required**: Yes
 
 ### memoryMiB
@@ -5090,11 +5444,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Literal['LINUX', 'WINDOWS']
 - **Required**: Yes
 
-### vCpuCount
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.VCpuCountRangeTypeDef'>
+### cpuArchitectureType
+- **Type**: typing.Literal['arm64', 'x86_64']
 - **Required**: Yes
 
+### rootEbsVolume
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.Ec2EbsVolumeTypeDef]
+
+### acceleratorCapabilities
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AcceleratorCapabilitiesTypeDef]
+
 ### allowedInstanceTypes
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### excludedInstanceTypes
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### customAmounts
@@ -5103,19 +5466,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### customAttributes
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.FleetAttributeCapabilityTypeDef]]
 
-### excludedInstanceTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### rootEbsVolume
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.Ec2EbsVolumeTypeDef]
-
 
 # ServiceManagedEc2InstanceMarketOptionsTypeDef
 
-### type
-- **Type**: typing.Literal['on-demand', 'spot']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SessionActionDefinitionSummaryTypeDef
 
@@ -5125,11 +5481,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### envExit
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.EnvironmentExitSessionActionDefinitionSummaryTypeDef]
 
-### syncInputJobAttachments
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.SyncInputJobAttachmentsSessionActionDefinitionSummaryTypeDef]
-
 ### taskRun
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.TaskRunSessionActionDefinitionSummaryTypeDef]
+
+### syncInputJobAttachments
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.SyncInputJobAttachmentsSessionActionDefinitionSummaryTypeDef]
 
 
 # SessionActionDefinitionTypeDef
@@ -5140,18 +5496,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### envExit
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.EnvironmentExitSessionActionDefinitionTypeDef]
 
-### syncInputJobAttachments
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.SyncInputJobAttachmentsSessionActionDefinitionTypeDef]
-
 ### taskRun
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.TaskRunSessionActionDefinitionTypeDef]
 
+### syncInputJobAttachments
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.SyncInputJobAttachmentsSessionActionDefinitionTypeDef]
+
 
 # SessionActionSummaryTypeDef
-
-### definition
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.SessionActionDefinitionSummaryTypeDef'>
-- **Required**: Yes
 
 ### sessionActionId
 - **Type**: <class 'str'>
@@ -5161,30 +5513,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Literal['ASSIGNED', 'CANCELED', 'CANCELING', 'FAILED', 'INTERRUPTED', 'NEVER_ATTEMPTED', 'RECLAIMED', 'RECLAIMING', 'RUNNING', 'SCHEDULED', 'SUCCEEDED']
 - **Required**: Yes
 
-### endedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### progressPercent
-- **Type**: typing.Optional[float]
+### definition
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.SessionActionDefinitionSummaryTypeDef'>
+- **Required**: Yes
 
 ### startedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### endedAt
 - **Type**: typing.Optional[datetime.datetime]
 
 ### workerUpdatedAt
 - **Type**: typing.Optional[datetime.datetime]
 
+### progressPercent
+- **Type**: typing.Optional[float]
+
 
 # SessionSummaryTypeDef
+
+### sessionId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 ### fleetId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### lifecycleStatus
-- **Type**: typing.Literal['ENDED', 'STARTED', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS', 'UPDATE_SUCCEEDED']
-- **Required**: Yes
-
-### sessionId
+### workerId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -5192,15 +5548,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
-### workerId
-- **Type**: <class 'str'>
+### lifecycleStatus
+- **Type**: typing.Literal['ENDED', 'STARTED', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS', 'UPDATE_SUCCEEDED']
 - **Required**: Yes
 
 ### endedAt
 - **Type**: typing.Optional[datetime.datetime]
-
-### targetLifecycleStatus
-- **Type**: typing.Optional[typing.Literal['ENDED']]
 
 ### updatedAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -5208,28 +5561,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### updatedBy
 - **Type**: typing.Optional[str]
 
+### targetLifecycleStatus
+- **Type**: typing.Optional[typing.Literal['ENDED']]
+
 
 # SessionsStatisticsResourcesTypeDef
-
-### fleetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
 
 ### queueIds
 - **Type**: typing.Optional[typing.Sequence[str]]
 
+### fleetIds
+- **Type**: typing.Optional[typing.Sequence[str]]
 
-# StartSessionsStatisticsAggregationRequestRequestTypeDef
 
-### endTime
-- **Type**: typing.Union[datetime.datetime, str]
-- **Required**: Yes
+# StartSessionsStatisticsAggregationRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
-- **Required**: Yes
-
-### groupBy
-- **Type**: typing.Sequence[typing.Literal['FLEET_ID', 'INSTANCE_TYPE', 'JOB_ID', 'LICENSE_PRODUCT', 'QUEUE_ID', 'USAGE_TYPE', 'USER_ID']]
 - **Required**: Yes
 
 ### resourceIds
@@ -5237,18 +5585,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.TimestampTypeDef'>
+- **Required**: Yes
+
+### endTime
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.TimestampTypeDef'>
+- **Required**: Yes
+
+### groupBy
+- **Type**: typing.Sequence[typing.Literal['FLEET_ID', 'INSTANCE_TYPE', 'JOB_ID', 'LICENSE_PRODUCT', 'QUEUE_ID', 'USAGE_TYPE', 'USER_ID']]
 - **Required**: Yes
 
 ### statistics
 - **Type**: typing.Sequence[typing.Literal['AVG', 'MAX', 'MIN', 'SUM']]
 - **Required**: Yes
 
-### period
-- **Type**: typing.Optional[typing.Literal['DAILY', 'HOURLY', 'MONTHLY', 'WEEKLY']]
-
 ### timezone
 - **Type**: typing.Optional[str]
+
+### period
+- **Type**: typing.Optional[typing.Literal['DAILY', 'HOURLY', 'MONTHLY', 'WEEKLY']]
 
 
 # StartSessionsStatisticsAggregationResponseTypeDef
@@ -5264,28 +5620,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # StatisticsTypeDef
 
-### costInUsd
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.StatsTypeDef'>
-- **Required**: Yes
-
 ### count
 - **Type**: <class 'int'>
+- **Required**: Yes
+
+### costInUsd
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.StatsTypeDef'>
 - **Required**: Yes
 
 ### runtimeInSeconds
 - **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.StatsTypeDef'>
 - **Required**: Yes
 
-### aggregationEndTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### aggregationStartTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### fleetId
+### queueId
 - **Type**: typing.Optional[str]
 
-### instanceType
+### fleetId
 - **Type**: typing.Optional[str]
 
 ### jobId
@@ -5294,49 +5644,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### jobName
 - **Type**: typing.Optional[str]
 
-### licenseProduct
-- **Type**: typing.Optional[str]
-
-### queueId
+### userId
 - **Type**: typing.Optional[str]
 
 ### usageType
 - **Type**: typing.Optional[typing.Literal['COMPUTE', 'LICENSE']]
 
-### userId
+### licenseProduct
 - **Type**: typing.Optional[str]
+
+### instanceType
+- **Type**: typing.Optional[str]
+
+### aggregationStartTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### aggregationEndTime
+- **Type**: typing.Optional[datetime.datetime]
 
 
 # StatsTypeDef
 
-### avg
-- **Type**: typing.Optional[float]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### max
-- **Type**: typing.Optional[float]
-
-### min
-- **Type**: typing.Optional[float]
-
-### sum
-- **Type**: typing.Optional[float]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StepAmountCapabilityTypeDef
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### max
-- **Type**: typing.Optional[float]
-
-### min
-- **Type**: typing.Optional[float]
-
-### value
-- **Type**: typing.Optional[float]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StepAttributeCapabilityTypeDef
 
@@ -5344,42 +5681,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### allOf
+### anyOf
 - **Type**: typing.Optional[typing.List[str]]
 
-### anyOf
+### allOf
 - **Type**: typing.Optional[typing.List[str]]
 
 
 # StepConsumerTypeDef
 
-### status
-- **Type**: typing.Literal['RESOLVED', 'UNRESOLVED']
-- **Required**: Yes
-
 ### stepId
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['RESOLVED', 'UNRESOLVED']
 - **Required**: Yes
 
 
 # StepDependencyTypeDef
 
-### status
-- **Type**: typing.Literal['RESOLVED', 'UNRESOLVED']
-- **Required**: Yes
-
 ### stepId
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['RESOLVED', 'UNRESOLVED']
 - **Required**: Yes
 
 
 # StepDetailsEntityTypeDef
 
-### dependencies
-- **Type**: typing.List[str]
+### jobId
+- **Type**: <class 'str'>
 - **Required**: Yes
 
-### jobId
+### stepId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -5387,30 +5724,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### stepId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### template
 - **Type**: typing.Dict[str, typing.Any]
+- **Required**: Yes
+
+### dependencies
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # StepDetailsErrorTypeDef
 
-### code
-- **Type**: typing.Literal['AccessDeniedException', 'ConflictException', 'InternalServerException', 'MaxPayloadSizeExceeded', 'ResourceNotFoundException', 'ValidationException']
-- **Required**: Yes
-
 ### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### message
+### stepId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### stepId
+### code
+- **Type**: typing.Literal['AccessDeniedException', 'ConflictException', 'InternalServerException', 'MaxPayloadSizeExceeded', 'ResourceNotFoundException', 'ValidationException']
+- **Required**: Yes
+
+### message
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -5428,35 +5765,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # StepParameterTypeDef
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: typing.Literal['FLOAT', 'INT', 'PATH', 'STRING']
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StepRequiredCapabilitiesTypeDef
-
-### amounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.StepAmountCapabilityTypeDef]
-- **Required**: Yes
 
 ### attributes
 - **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.StepAttributeCapabilityTypeDef]
 - **Required**: Yes
 
+### amounts
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.StepAmountCapabilityTypeDef]
+- **Required**: Yes
+
 
 # StepSearchSummaryTypeDef
 
-### createdAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### endedAt
-- **Type**: typing.Optional[datetime.datetime]
+### stepId
+- **Type**: typing.Optional[str]
 
 ### jobId
+- **Type**: typing.Optional[str]
+
+### queueId
+- **Type**: typing.Optional[str]
+
+### name
 - **Type**: typing.Optional[str]
 
 ### lifecycleStatus
@@ -5465,51 +5800,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### lifecycleStatusMessage
 - **Type**: typing.Optional[str]
 
-### name
-- **Type**: typing.Optional[str]
-
-### parameterSpace
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.ParameterSpaceTypeDef]
-
-### queueId
-- **Type**: typing.Optional[str]
-
-### startedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### stepId
-- **Type**: typing.Optional[str]
+### taskRunStatus
+- **Type**: typing.Optional[typing.Literal['ASSIGNED', 'CANCELED', 'FAILED', 'INTERRUPTING', 'NOT_COMPATIBLE', 'PENDING', 'READY', 'RUNNING', 'SCHEDULED', 'STARTING', 'SUCCEEDED', 'SUSPENDED']]
 
 ### targetTaskRunStatus
 - **Type**: typing.Optional[typing.Literal['CANCELED', 'FAILED', 'PENDING', 'READY', 'SUCCEEDED', 'SUSPENDED']]
 
-### taskRunStatus
-- **Type**: typing.Optional[typing.Literal['ASSIGNED', 'CANCELED', 'FAILED', 'INTERRUPTING', 'NOT_COMPATIBLE', 'PENDING', 'READY', 'RUNNING', 'SCHEDULED', 'STARTING', 'SUCCEEDED', 'SUSPENDED']]
-
 ### taskRunStatusCounts
 - **Type**: typing.Optional[typing.Dict[typing.Literal['ASSIGNED', 'CANCELED', 'FAILED', 'INTERRUPTING', 'NOT_COMPATIBLE', 'PENDING', 'READY', 'RUNNING', 'SCHEDULED', 'STARTING', 'SUCCEEDED', 'SUSPENDED'], int]]
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### startedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### endedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### parameterSpace
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.ParameterSpaceTypeDef]
 
 
 # StepSummaryTypeDef
 
-### createdAt
-- **Type**: <class 'datetime.datetime'>
+### stepId
+- **Type**: <class 'str'>
 - **Required**: Yes
 
-### createdBy
+### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### lifecycleStatus
 - **Type**: typing.Literal['CREATE_COMPLETE', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS', 'UPDATE_SUCCEEDED']
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### stepId
-- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### taskRunStatus
@@ -5520,17 +5844,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Dict[typing.Literal['ASSIGNED', 'CANCELED', 'FAILED', 'INTERRUPTING', 'NOT_COMPATIBLE', 'PENDING', 'READY', 'RUNNING', 'SCHEDULED', 'STARTING', 'SUCCEEDED', 'SUSPENDED'], int]
 - **Required**: Yes
 
-### dependencyCounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.DependencyCountsTypeDef]
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
 
-### endedAt
-- **Type**: typing.Optional[datetime.datetime]
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 ### lifecycleStatusMessage
 - **Type**: typing.Optional[str]
-
-### startedAt
-- **Type**: typing.Optional[datetime.datetime]
 
 ### targetTaskRunStatus
 - **Type**: typing.Optional[typing.Literal['CANCELED', 'FAILED', 'PENDING', 'READY', 'SUCCEEDED', 'SUSPENDED']]
@@ -5541,8 +5864,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### updatedBy
 - **Type**: typing.Optional[str]
 
+### startedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### endedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### dependencyCounts
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.DependencyCountsTypeDef]
+
 
 # StorageProfileSummaryTypeDef
+
+### storageProfileId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 ### displayName
 - **Type**: <class 'str'>
@@ -5552,25 +5888,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Literal['LINUX', 'MACOS', 'WINDOWS']
 - **Required**: Yes
 
-### storageProfileId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 
 # StringFilterExpressionTypeDef
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### operator
-- **Type**: typing.Literal['EQUAL', 'GREATER_THAN', 'GREATER_THAN_EQUAL_TO', 'LESS_THAN', 'LESS_THAN_EQUAL_TO', 'NOT_EQUAL']
-- **Required**: Yes
-
-### value
-- **Type**: <class 'str'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SyncInputJobAttachmentsSessionActionDefinitionSummaryTypeDef
 
@@ -5584,7 +5907,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -5596,58 +5919,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # TaskParameterValueTypeDef
 
-### float
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### int
-- **Type**: typing.Optional[str]
-
-### path
-- **Type**: typing.Optional[str]
-
-### string
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TaskRunSessionActionDefinitionSummaryTypeDef
 
-### stepId
+### taskId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### taskId
+### stepId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
 # TaskRunSessionActionDefinitionTypeDef
 
-### parameters
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.deadline_classes.TaskParameterValueTypeDef]
+### taskId
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### stepId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### taskId
-- **Type**: <class 'str'>
+### parameters
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.deadline_classes.TaskParameterValueTypeDef]
 - **Required**: Yes
 
 
 # TaskSearchSummaryTypeDef
 
-### endedAt
-- **Type**: typing.Optional[datetime.datetime]
+### taskId
+- **Type**: typing.Optional[str]
 
-### failureRetryCount
-- **Type**: typing.Optional[int]
+### stepId
+- **Type**: typing.Optional[str]
 
 ### jobId
 - **Type**: typing.Optional[str]
-
-### parameters
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.deadline_classes.TaskParameterValueTypeDef]]
 
 ### queueId
 - **Type**: typing.Optional[str]
@@ -5655,20 +5966,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### runStatus
 - **Type**: typing.Optional[typing.Literal['ASSIGNED', 'CANCELED', 'FAILED', 'INTERRUPTING', 'NOT_COMPATIBLE', 'PENDING', 'READY', 'RUNNING', 'SCHEDULED', 'STARTING', 'SUCCEEDED', 'SUSPENDED']]
 
-### startedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### stepId
-- **Type**: typing.Optional[str]
-
 ### targetRunStatus
 - **Type**: typing.Optional[typing.Literal['CANCELED', 'FAILED', 'PENDING', 'READY', 'SUCCEEDED', 'SUSPENDED']]
 
-### taskId
-- **Type**: typing.Optional[str]
+### parameters
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.deadline_classes.TaskParameterValueTypeDef]]
+
+### failureRetryCount
+- **Type**: typing.Optional[int]
+
+### startedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### endedAt
+- **Type**: typing.Optional[datetime.datetime]
 
 
 # TaskSummaryTypeDef
+
+### taskId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 ### createdAt
 - **Type**: <class 'datetime.datetime'>
@@ -5682,18 +6000,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Literal['ASSIGNED', 'CANCELED', 'FAILED', 'INTERRUPTING', 'NOT_COMPATIBLE', 'PENDING', 'READY', 'RUNNING', 'SCHEDULED', 'STARTING', 'SUCCEEDED', 'SUSPENDED']
 - **Required**: Yes
 
-### taskId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### endedAt
-- **Type**: typing.Optional[datetime.datetime]
+### targetRunStatus
+- **Type**: typing.Optional[typing.Literal['CANCELED', 'FAILED', 'PENDING', 'READY', 'SUCCEEDED', 'SUSPENDED']]
 
 ### failureRetryCount
 - **Type**: typing.Optional[int]
-
-### latestSessionActionId
-- **Type**: typing.Optional[str]
 
 ### parameters
 - **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.deadline_classes.TaskParameterValueTypeDef]]
@@ -5701,8 +6012,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### startedAt
 - **Type**: typing.Optional[datetime.datetime]
 
-### targetRunStatus
-- **Type**: typing.Optional[typing.Literal['CANCELED', 'FAILED', 'PENDING', 'READY', 'SUCCEEDED', 'SUSPENDED']]
+### endedAt
+- **Type**: typing.Optional[datetime.datetime]
 
 ### updatedAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -5710,8 +6021,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### updatedBy
 - **Type**: typing.Optional[str]
 
+### latestSessionActionId
+- **Type**: typing.Optional[str]
 
-# UntagResourceRequestRequestTypeDef
+
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -5722,15 +6042,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateBudgetRequestRequestTypeDef
+# UpdateBudgetRequestTypeDef
+
+### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 ### budgetId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### farmId
-- **Type**: <class 'str'>
-- **Required**: Yes
+### clientToken
+- **Type**: typing.Optional[str]
+
+### displayName
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
+
+### approximateDollarLimit
+- **Type**: typing.Optional[float]
 
 ### actionsToAdd
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.BudgetActionToAddTypeDef]]
@@ -5738,39 +6073,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### actionsToRemove
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.BudgetActionToRemoveTypeDef]]
 
-### approximateDollarLimit
-- **Type**: typing.Optional[float]
-
-### clientToken
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-### displayName
-- **Type**: typing.Optional[str]
-
 ### schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.BudgetScheduleTypeDef]
-
-### status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.BudgetScheduleUnionTypeDef]
 
 
-# UpdateFarmRequestRequestTypeDef
+# UpdateFarmRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### description
-- **Type**: typing.Optional[str]
-
 ### displayName
 - **Type**: typing.Optional[str]
 
+### description
+- **Type**: typing.Optional[str]
 
-# UpdateFleetRequestRequestTypeDef
+
+# UpdateFleetRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -5783,28 +6103,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### clientToken
 - **Type**: typing.Optional[str]
 
-### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.FleetConfigurationTypeDef]
+### displayName
+- **Type**: typing.Optional[str]
 
 ### description
 - **Type**: typing.Optional[str]
 
-### displayName
+### roleArn
 - **Type**: typing.Optional[str]
-
-### maxWorkerCount
-- **Type**: typing.Optional[int]
 
 ### minWorkerCount
 - **Type**: typing.Optional[int]
 
-### roleArn
-- **Type**: typing.Optional[str]
+### maxWorkerCount
+- **Type**: typing.Optional[int]
+
+### configuration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.FleetConfigurationUnionTypeDef]
 
 
-# UpdateJobRequestRequestTypeDef
+# UpdateJobRequestTypeDef
 
 ### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -5812,15 +6136,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### queueId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### clientToken
 - **Type**: typing.Optional[str]
 
-### lifecycleStatus
-- **Type**: typing.Optional[typing.Literal['ARCHIVED']]
+### targetTaskRunStatus
+- **Type**: typing.Optional[typing.Literal['CANCELED', 'FAILED', 'PENDING', 'READY', 'SUCCEEDED', 'SUSPENDED']]
+
+### priority
+- **Type**: typing.Optional[int]
 
 ### maxFailedTasksCount
 - **Type**: typing.Optional[int]
@@ -5828,18 +6151,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### maxRetriesPerTask
 - **Type**: typing.Optional[int]
 
-### priority
+### lifecycleStatus
+- **Type**: typing.Optional[typing.Literal['ARCHIVED']]
+
+### maxWorkerCount
 - **Type**: typing.Optional[int]
 
-### targetTaskRunStatus
-- **Type**: typing.Optional[typing.Literal['CANCELED', 'FAILED', 'PENDING', 'READY', 'SUCCEEDED', 'SUSPENDED']]
+
+# UpdateLimitRequestTypeDef
+
+### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### limitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### displayName
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### maxCount
+- **Type**: typing.Optional[int]
 
 
-# UpdateMonitorRequestRequestTypeDef
+# UpdateMonitorRequestTypeDef
 
 ### monitorId
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+### subdomain
+- **Type**: typing.Optional[str]
 
 ### displayName
 - **Type**: typing.Optional[str]
@@ -5847,21 +6193,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### roleArn
 - **Type**: typing.Optional[str]
 
-### subdomain
-- **Type**: typing.Optional[str]
 
-
-# UpdateQueueEnvironmentRequestRequestTypeDef
+# UpdateQueueEnvironmentRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### queueEnvironmentId
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### queueId
+### queueEnvironmentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -5871,24 +6214,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### priority
 - **Type**: typing.Optional[int]
 
-### template
-- **Type**: typing.Optional[str]
-
 ### templateType
 - **Type**: typing.Optional[typing.Literal['JSON', 'YAML']]
 
+### template
+- **Type**: typing.Optional[str]
 
-# UpdateQueueFleetAssociationRequestRequestTypeDef
+
+# UpdateQueueFleetAssociationRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### fleetId
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### queueId
+### fleetId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -5897,7 +6240,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateQueueRequestRequestTypeDef
+# UpdateQueueLimitAssociationRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -5907,26 +6250,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### allowedStorageProfileIdsToAdd
-- **Type**: typing.Optional[typing.Sequence[str]]
+### limitId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-### allowedStorageProfileIdsToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+### status
+- **Type**: typing.Literal['ACTIVE', 'STOP_LIMIT_USAGE_AND_CANCEL_TASKS', 'STOP_LIMIT_USAGE_AND_COMPLETE_TASKS']
+- **Required**: Yes
+
+
+# UpdateQueueRequestTypeDef
+
+### farmId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### queueId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 ### clientToken
-- **Type**: typing.Optional[str]
-
-### defaultBudgetAction
-- **Type**: typing.Optional[typing.Literal['NONE', 'STOP_SCHEDULING_AND_CANCEL_TASKS', 'STOP_SCHEDULING_AND_COMPLETE_TASKS']]
-
-### description
 - **Type**: typing.Optional[str]
 
 ### displayName
 - **Type**: typing.Optional[str]
 
+### description
+- **Type**: typing.Optional[str]
+
+### defaultBudgetAction
+- **Type**: typing.Optional[typing.Literal['NONE', 'STOP_SCHEDULING_AND_CANCEL_TASKS', 'STOP_SCHEDULING_AND_COMPLETE_TASKS']]
+
 ### jobAttachmentSettings
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobAttachmentSettingsTypeDef]
+
+### roleArn
+- **Type**: typing.Optional[str]
 
 ### jobRunAsUser
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobRunAsUserTypeDef]
@@ -5937,21 +6296,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### requiredFileSystemLocationNamesToRemove
 - **Type**: typing.Optional[typing.Sequence[str]]
 
-### roleArn
-- **Type**: typing.Optional[str]
+### allowedStorageProfileIdsToAdd
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### allowedStorageProfileIdsToRemove
+- **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# UpdateSessionRequestRequestTypeDef
+# UpdateSessionRequestTypeDef
+
+### targetLifecycleStatus
+- **Type**: typing.Literal['ENDED']
+- **Required**: Yes
 
 ### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### jobId
+### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### queueId
+### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -5959,21 +6325,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### targetLifecycleStatus
-- **Type**: typing.Literal['ENDED']
-- **Required**: Yes
-
 ### clientToken
 - **Type**: typing.Optional[str]
 
 
-# UpdateStepRequestRequestTypeDef
+# UpdateStepRequestTypeDef
 
-### farmId
-- **Type**: <class 'str'>
+### targetTaskRunStatus
+- **Type**: typing.Literal['CANCELED', 'FAILED', 'PENDING', 'READY', 'SUCCEEDED', 'SUSPENDED']
 - **Required**: Yes
 
-### jobId
+### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -5981,19 +6343,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### stepId
+### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### targetTaskRunStatus
-- **Type**: typing.Literal['CANCELED', 'FAILED', 'PENDING', 'READY', 'SUCCEEDED', 'SUSPENDED']
+### stepId
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### clientToken
 - **Type**: typing.Optional[str]
 
 
-# UpdateStorageProfileRequestRequestTypeDef
+# UpdateStorageProfileRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -6009,23 +6371,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### displayName
 - **Type**: typing.Optional[str]
 
+### osFamily
+- **Type**: typing.Optional[typing.Literal['LINUX', 'MACOS', 'WINDOWS']]
+
 ### fileSystemLocationsToAdd
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.FileSystemLocationTypeDef]]
 
 ### fileSystemLocationsToRemove
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.FileSystemLocationTypeDef]]
 
-### osFamily
-- **Type**: typing.Optional[typing.Literal['LINUX', 'MACOS', 'WINDOWS']]
 
+# UpdateTaskRequestTypeDef
 
-# UpdateTaskRequestRequestTypeDef
-
-### farmId
-- **Type**: <class 'str'>
+### targetRunStatus
+- **Type**: typing.Literal['CANCELED', 'FAILED', 'PENDING', 'READY', 'SUCCEEDED', 'SUSPENDED']
 - **Required**: Yes
 
-### jobId
+### farmId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -6033,12 +6395,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### stepId
+### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### targetRunStatus
-- **Type**: typing.Literal['CANCELED', 'FAILED', 'PENDING', 'READY', 'SUCCEEDED', 'SUSPENDED']
+### stepId
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### taskId
@@ -6049,7 +6411,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateWorkerRequestRequestTypeDef
+# UpdateWorkerRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -6063,14 +6425,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### status
+- **Type**: typing.Optional[typing.Literal['STARTED', 'STOPPED', 'STOPPING']]
+
 ### capabilities
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.WorkerCapabilitiesTypeDef]
 
 ### hostProperties
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.HostPropertiesRequestTypeDef]
-
-### status
-- **Type**: typing.Optional[typing.Literal['STARTED', 'STOPPED', 'STOPPING']]
 
 
 # UpdateWorkerResponseTypeDef
@@ -6084,7 +6446,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateWorkerScheduleRequestRequestTypeDef
+# UpdateWorkerScheduleRequestTypeDef
 
 ### farmId
 - **Type**: <class 'str'>
@@ -6130,23 +6492,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### completedStatus
 - **Type**: typing.Optional[typing.Literal['CANCELED', 'FAILED', 'INTERRUPTED', 'NEVER_ATTEMPTED', 'SUCCEEDED']]
 
-### endedAt
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
-
 ### processExitCode
 - **Type**: typing.Optional[int]
 
 ### progressMessage
 - **Type**: typing.Optional[str]
 
-### progressPercent
-- **Type**: typing.Optional[float]
-
 ### startedAt
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.TimestampTypeDef]
+
+### endedAt
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.TimestampTypeDef]
 
 ### updatedAt
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.TimestampTypeDef]
+
+### progressPercent
+- **Type**: typing.Optional[float]
 
 
 # UsageTrackingResourceTypeDef
@@ -6164,13 +6526,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # VCpuCountRangeTypeDef
 
-### min
-- **Type**: <class 'int'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### max
-- **Type**: typing.Optional[int]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # WaiterConfigTypeDef
 
@@ -6183,11 +6541,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # WindowsUserTypeDef
 
-### passwordArn
+### user
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### user
+### passwordArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -6227,51 +6585,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # WorkerSearchSummaryTypeDef
 
-### createdAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### createdBy
-- **Type**: typing.Optional[str]
-
 ### fleetId
-- **Type**: typing.Optional[str]
-
-### hostProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.HostPropertiesResponseTypeDef]
-
-### status
-- **Type**: typing.Optional[typing.Literal['CREATED', 'IDLE', 'NOT_COMPATIBLE', 'NOT_RESPONDING', 'RUNNING', 'STARTED', 'STOPPED', 'STOPPING']]
-
-### updatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### updatedBy
 - **Type**: typing.Optional[str]
 
 ### workerId
 - **Type**: typing.Optional[str]
 
+### status
+- **Type**: typing.Optional[typing.Literal['CREATED', 'IDLE', 'NOT_COMPATIBLE', 'NOT_RESPONDING', 'RUNNING', 'STARTED', 'STOPPED', 'STOPPING']]
+
+### hostProperties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.HostPropertiesResponseTypeDef]
+
+### createdBy
+- **Type**: typing.Optional[str]
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### updatedBy
+- **Type**: typing.Optional[str]
+
+### updatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # WorkerSessionSummaryTypeDef
 
-### jobId
+### sessionId
 - **Type**: <class 'str'>
-- **Required**: Yes
-
-### lifecycleStatus
-- **Type**: typing.Literal['ENDED', 'STARTED', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS', 'UPDATE_SUCCEEDED']
 - **Required**: Yes
 
 ### queueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### sessionId
+### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### startedAt
 - **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lifecycleStatus
+- **Type**: typing.Literal['ENDED', 'STARTED', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS', 'UPDATE_SUCCEEDED']
 - **Required**: Yes
 
 ### endedAt
@@ -6281,52 +6639,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ENDED']]
 
 
-# WorkerSummaryPaginatorTypeDef
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### createdBy
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### farmId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### fleetId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['CREATED', 'IDLE', 'NOT_COMPATIBLE', 'NOT_RESPONDING', 'RUNNING', 'STARTED', 'STOPPED', 'STOPPING']
-- **Required**: Yes
-
-### workerId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### hostProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.HostPropertiesResponsePaginatorTypeDef]
-
-### log
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.LogConfigurationTypeDef]
-
-### updatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### updatedBy
-- **Type**: typing.Optional[str]
-
-
 # WorkerSummaryTypeDef
 
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### createdBy
+### workerId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -6342,7 +6657,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Literal['CREATED', 'IDLE', 'NOT_COMPATIBLE', 'NOT_RESPONDING', 'RUNNING', 'STARTED', 'STOPPED', 'STOPPING']
 - **Required**: Yes
 
-### workerId
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
 - **Type**: <class 'str'>
 - **Required**: Yes
 

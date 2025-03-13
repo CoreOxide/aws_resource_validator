@@ -1,6 +1,6 @@
 # Route53Resolver Classes
 
-# AssociateFirewallRuleGroupRequestRequestTypeDef
+# AssociateFirewallRuleGroupRequestTypeDef
 
 ### CreatorRequestId
 - **Type**: <class 'str'>
@@ -40,7 +40,7 @@
 - **Required**: Yes
 
 
-# AssociateResolverEndpointIpAddressRequestRequestTypeDef
+# AssociateResolverEndpointIpAddressRequestTypeDef
 
 ### ResolverEndpointId
 - **Type**: <class 'str'>
@@ -62,7 +62,7 @@
 - **Required**: Yes
 
 
-# AssociateResolverQueryLogConfigRequestRequestTypeDef
+# AssociateResolverQueryLogConfigRequestTypeDef
 
 ### ResolverQueryLogConfigId
 - **Type**: <class 'str'>
@@ -84,7 +84,7 @@
 - **Required**: Yes
 
 
-# AssociateResolverRuleRequestRequestTypeDef
+# AssociateResolverRuleRequestTypeDef
 
 ### ResolverRuleId
 - **Type**: <class 'str'>
@@ -115,7 +115,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateFirewallDomainListRequestRequestTypeDef
+# CreateFirewallDomainListRequestTypeDef
 
 ### CreatorRequestId
 - **Type**: <class 'str'>
@@ -140,7 +140,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateFirewallRuleGroupRequestRequestTypeDef
+# CreateFirewallRuleGroupRequestTypeDef
 
 ### CreatorRequestId
 - **Type**: <class 'str'>
@@ -165,17 +165,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateFirewallRuleRequestRequestTypeDef
+# CreateFirewallRuleRequestTypeDef
 
 ### CreatorRequestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### FirewallRuleGroupId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### FirewallDomainListId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -190,6 +186,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+### FirewallDomainListId
+- **Type**: typing.Optional[str]
 
 ### BlockResponse
 - **Type**: typing.Optional[typing.Literal['NODATA', 'NXDOMAIN', 'OVERRIDE']]
@@ -209,6 +208,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Qtype
 - **Type**: typing.Optional[str]
 
+### DnsThreatProtection
+- **Type**: typing.Optional[typing.Literal['DGA', 'DNS_TUNNELING']]
+
+### ConfidenceThreshold
+- **Type**: typing.Optional[typing.Literal['HIGH', 'LOW', 'MEDIUM']]
+
 
 # CreateFirewallRuleResponseTypeDef
 
@@ -221,7 +226,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateOutpostResolverRequestRequestTypeDef
+# CreateOutpostResolverRequestTypeDef
 
 ### CreatorRequestId
 - **Type**: <class 'str'>
@@ -257,7 +262,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateResolverEndpointRequestRequestTypeDef
+# CreateResolverEndpointRequestTypeDef
 
 ### CreatorRequestId
 - **Type**: <class 'str'>
@@ -305,7 +310,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateResolverQueryLogConfigRequestRequestTypeDef
+# CreateResolverQueryLogConfigRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -334,7 +339,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateResolverRuleRequestRequestTypeDef
+# CreateResolverRuleRequestTypeDef
 
 ### CreatorRequestId
 - **Type**: <class 'str'>
@@ -371,7 +376,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteFirewallDomainListRequestRequestTypeDef
+# DeleteFirewallDomainListRequestTypeDef
 
 ### FirewallDomainListId
 - **Type**: <class 'str'>
@@ -389,7 +394,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteFirewallRuleGroupRequestRequestTypeDef
+# DeleteFirewallRuleGroupRequestTypeDef
 
 ### FirewallRuleGroupId
 - **Type**: <class 'str'>
@@ -407,15 +412,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteFirewallRuleRequestRequestTypeDef
+# DeleteFirewallRuleRequestTypeDef
 
 ### FirewallRuleGroupId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### FirewallDomainListId
-- **Type**: <class 'str'>
-- **Required**: Yes
+- **Type**: typing.Optional[str]
+
+### FirewallThreatProtectionId
+- **Type**: typing.Optional[str]
 
 ### Qtype
 - **Type**: typing.Optional[str]
@@ -432,7 +439,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteOutpostResolverRequestRequestTypeDef
+# DeleteOutpostResolverRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -450,7 +457,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteResolverEndpointRequestRequestTypeDef
+# DeleteResolverEndpointRequestTypeDef
 
 ### ResolverEndpointId
 - **Type**: <class 'str'>
@@ -468,7 +475,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteResolverQueryLogConfigRequestRequestTypeDef
+# DeleteResolverQueryLogConfigRequestTypeDef
 
 ### ResolverQueryLogConfigId
 - **Type**: <class 'str'>
@@ -486,7 +493,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteResolverRuleRequestRequestTypeDef
+# DeleteResolverRuleRequestTypeDef
 
 ### ResolverRuleId
 - **Type**: <class 'str'>
@@ -504,7 +511,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateFirewallRuleGroupRequestRequestTypeDef
+# DisassociateFirewallRuleGroupRequestTypeDef
 
 ### FirewallRuleGroupAssociationId
 - **Type**: <class 'str'>
@@ -522,7 +529,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateResolverEndpointIpAddressRequestRequestTypeDef
+# DisassociateResolverEndpointIpAddressRequestTypeDef
 
 ### ResolverEndpointId
 - **Type**: <class 'str'>
@@ -544,7 +551,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateResolverQueryLogConfigRequestRequestTypeDef
+# DisassociateResolverQueryLogConfigRequestTypeDef
 
 ### ResolverQueryLogConfigId
 - **Type**: <class 'str'>
@@ -566,7 +573,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateResolverRuleRequestRequestTypeDef
+# DisassociateResolverRuleRequestTypeDef
 
 ### VPCId
 - **Type**: <class 'str'>
@@ -770,6 +777,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### FirewallDomainListId
 - **Type**: typing.Optional[str]
 
+### FirewallThreatProtectionId
+- **Type**: typing.Optional[str]
+
 ### Name
 - **Type**: typing.Optional[str]
 
@@ -806,8 +816,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Qtype
 - **Type**: typing.Optional[str]
 
+### DnsThreatProtection
+- **Type**: typing.Optional[typing.Literal['DGA', 'DNS_TUNNELING']]
 
-# GetFirewallConfigRequestRequestTypeDef
+### ConfidenceThreshold
+- **Type**: typing.Optional[typing.Literal['HIGH', 'LOW', 'MEDIUM']]
+
+
+# GetFirewallConfigRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -825,7 +841,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetFirewallDomainListRequestRequestTypeDef
+# GetFirewallDomainListRequestTypeDef
 
 ### FirewallDomainListId
 - **Type**: <class 'str'>
@@ -843,7 +859,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetFirewallRuleGroupAssociationRequestRequestTypeDef
+# GetFirewallRuleGroupAssociationRequestTypeDef
 
 ### FirewallRuleGroupAssociationId
 - **Type**: <class 'str'>
@@ -861,7 +877,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetFirewallRuleGroupPolicyRequestRequestTypeDef
+# GetFirewallRuleGroupPolicyRequestTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
@@ -879,7 +895,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetFirewallRuleGroupRequestRequestTypeDef
+# GetFirewallRuleGroupRequestTypeDef
 
 ### FirewallRuleGroupId
 - **Type**: <class 'str'>
@@ -897,7 +913,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetOutpostResolverRequestRequestTypeDef
+# GetOutpostResolverRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -915,7 +931,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResolverConfigRequestRequestTypeDef
+# GetResolverConfigRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -933,7 +949,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResolverDnssecConfigRequestRequestTypeDef
+# GetResolverDnssecConfigRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -951,7 +967,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResolverEndpointRequestRequestTypeDef
+# GetResolverEndpointRequestTypeDef
 
 ### ResolverEndpointId
 - **Type**: <class 'str'>
@@ -969,7 +985,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResolverQueryLogConfigAssociationRequestRequestTypeDef
+# GetResolverQueryLogConfigAssociationRequestTypeDef
 
 ### ResolverQueryLogConfigAssociationId
 - **Type**: <class 'str'>
@@ -987,7 +1003,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResolverQueryLogConfigPolicyRequestRequestTypeDef
+# GetResolverQueryLogConfigPolicyRequestTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1005,7 +1021,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResolverQueryLogConfigRequestRequestTypeDef
+# GetResolverQueryLogConfigRequestTypeDef
 
 ### ResolverQueryLogConfigId
 - **Type**: <class 'str'>
@@ -1023,7 +1039,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResolverRuleAssociationRequestRequestTypeDef
+# GetResolverRuleAssociationRequestTypeDef
 
 ### ResolverRuleAssociationId
 - **Type**: <class 'str'>
@@ -1041,7 +1057,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResolverRulePolicyRequestRequestTypeDef
+# GetResolverRulePolicyRequestTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1059,7 +1075,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResolverRuleRequestRequestTypeDef
+# GetResolverRuleRequestTypeDef
 
 ### ResolverRuleId
 - **Type**: <class 'str'>
@@ -1077,7 +1093,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ImportFirewallDomainsRequestRequestTypeDef
+# ImportFirewallDomainsRequestTypeDef
 
 ### FirewallDomainListId
 - **Type**: <class 'str'>
@@ -1170,13 +1186,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFirewallConfigsRequestListFirewallConfigsPaginateTypeDef
+# ListFirewallConfigsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
 
 
-# ListFirewallConfigsRequestRequestTypeDef
+# ListFirewallConfigsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1199,13 +1215,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFirewallDomainListsRequestListFirewallDomainListsPaginateTypeDef
+# ListFirewallDomainListsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
 
 
-# ListFirewallDomainListsRequestRequestTypeDef
+# ListFirewallDomainListsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1228,7 +1244,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFirewallDomainsRequestListFirewallDomainsPaginateTypeDef
+# ListFirewallDomainsRequestPaginateTypeDef
 
 ### FirewallDomainListId
 - **Type**: <class 'str'>
@@ -1238,7 +1254,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
 
 
-# ListFirewallDomainsRequestRequestTypeDef
+# ListFirewallDomainsRequestTypeDef
 
 ### FirewallDomainListId
 - **Type**: <class 'str'>
@@ -1265,7 +1281,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFirewallRuleGroupAssociationsRequestRequestTypeDef
+# ListFirewallRuleGroupAssociationsRequestPaginateTypeDef
+
+### FirewallRuleGroupId
+- **Type**: typing.Optional[str]
+
+### VpcId
+- **Type**: typing.Optional[str]
+
+### Priority
+- **Type**: typing.Optional[int]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['COMPLETE', 'DELETING', 'UPDATING']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
+
+
+# ListFirewallRuleGroupAssociationsRequestTypeDef
 
 ### FirewallRuleGroupId
 - **Type**: typing.Optional[str]
@@ -1300,13 +1334,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFirewallRuleGroupsRequestListFirewallRuleGroupsPaginateTypeDef
+# ListFirewallRuleGroupsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
 
 
-# ListFirewallRuleGroupsRequestRequestTypeDef
+# ListFirewallRuleGroupsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1329,7 +1363,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFirewallRulesRequestListFirewallRulesPaginateTypeDef
+# ListFirewallRulesRequestPaginateTypeDef
 
 ### FirewallRuleGroupId
 - **Type**: <class 'str'>
@@ -1345,7 +1379,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
 
 
-# ListFirewallRulesRequestRequestTypeDef
+# ListFirewallRulesRequestTypeDef
 
 ### FirewallRuleGroupId
 - **Type**: <class 'str'>
@@ -1378,7 +1412,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListOutpostResolversRequestListOutpostResolversPaginateTypeDef
+# ListOutpostResolversRequestPaginateTypeDef
 
 ### OutpostArn
 - **Type**: typing.Optional[str]
@@ -1387,7 +1421,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
 
 
-# ListOutpostResolversRequestRequestTypeDef
+# ListOutpostResolversRequestTypeDef
 
 ### OutpostArn
 - **Type**: typing.Optional[str]
@@ -1413,13 +1447,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResolverConfigsRequestListResolverConfigsPaginateTypeDef
+# ListResolverConfigsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
 
 
-# ListResolverConfigsRequestRequestTypeDef
+# ListResolverConfigsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1442,7 +1476,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResolverDnssecConfigsRequestListResolverDnssecConfigsPaginateTypeDef
+# ListResolverDnssecConfigsRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.FilterTypeDef]]
@@ -1451,7 +1485,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
 
 
-# ListResolverDnssecConfigsRequestRequestTypeDef
+# ListResolverDnssecConfigsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1477,7 +1511,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResolverEndpointIpAddressesRequestListResolverEndpointIpAddressesPaginateTypeDef
+# ListResolverEndpointIpAddressesRequestPaginateTypeDef
 
 ### ResolverEndpointId
 - **Type**: <class 'str'>
@@ -1487,7 +1521,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
 
 
-# ListResolverEndpointIpAddressesRequestRequestTypeDef
+# ListResolverEndpointIpAddressesRequestTypeDef
 
 ### ResolverEndpointId
 - **Type**: <class 'str'>
@@ -1518,7 +1552,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResolverEndpointsRequestListResolverEndpointsPaginateTypeDef
+# ListResolverEndpointsRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.FilterTypeDef]]
@@ -1527,7 +1561,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
 
 
-# ListResolverEndpointsRequestRequestTypeDef
+# ListResolverEndpointsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1557,7 +1591,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResolverQueryLogConfigAssociationsRequestListResolverQueryLogConfigAssociationsPaginateTypeDef
+# ListResolverQueryLogConfigAssociationsRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.FilterTypeDef]]
@@ -1572,7 +1606,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
 
 
-# ListResolverQueryLogConfigAssociationsRequestRequestTypeDef
+# ListResolverQueryLogConfigAssociationsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1612,7 +1646,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResolverQueryLogConfigsRequestListResolverQueryLogConfigsPaginateTypeDef
+# ListResolverQueryLogConfigsRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.FilterTypeDef]]
@@ -1627,7 +1661,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
 
 
-# ListResolverQueryLogConfigsRequestRequestTypeDef
+# ListResolverQueryLogConfigsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1667,7 +1701,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResolverRuleAssociationsRequestListResolverRuleAssociationsPaginateTypeDef
+# ListResolverRuleAssociationsRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.FilterTypeDef]]
@@ -1676,7 +1710,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
 
 
-# ListResolverRuleAssociationsRequestRequestTypeDef
+# ListResolverRuleAssociationsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1706,7 +1740,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResolverRulesRequestListResolverRulesPaginateTypeDef
+# ListResolverRulesRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.FilterTypeDef]]
@@ -1715,7 +1749,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
 
 
-# ListResolverRulesRequestRequestTypeDef
+# ListResolverRulesRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1745,7 +1779,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestListTagsForResourcePaginateTypeDef
+# ListTagsForResourceRequestPaginateTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1755,7 +1789,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1830,7 +1864,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutFirewallRuleGroupPolicyRequestRequestTypeDef
+# PutFirewallRuleGroupPolicyRequestTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1852,7 +1886,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutResolverQueryLogConfigPolicyRequestRequestTypeDef
+# PutResolverQueryLogConfigPolicyRequestTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1874,7 +1908,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutResolverRulePolicyRequestRequestTypeDef
+# PutResolverRulePolicyRequestTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
@@ -2134,7 +2168,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2158,20 +2192,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # TargetAddressTypeDef
 
-### Ip
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Port
-- **Type**: typing.Optional[int]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Ipv6
-- **Type**: typing.Optional[str]
-
-### Protocol
-- **Type**: typing.Optional[typing.Literal['Do53', 'DoH', 'DoH-FIPS']]
-
-
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2182,7 +2207,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateFirewallConfigRequestRequestTypeDef
+# UpdateFirewallConfigRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -2204,7 +2229,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateFirewallDomainsRequestRequestTypeDef
+# UpdateFirewallDomainsRequestTypeDef
 
 ### FirewallDomainListId
 - **Type**: <class 'str'>
@@ -2242,7 +2267,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateFirewallRuleGroupAssociationRequestRequestTypeDef
+# UpdateFirewallRuleGroupAssociationRequestTypeDef
 
 ### FirewallRuleGroupAssociationId
 - **Type**: <class 'str'>
@@ -2269,15 +2294,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateFirewallRuleRequestRequestTypeDef
+# UpdateFirewallRuleRequestTypeDef
 
 ### FirewallRuleGroupId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### FirewallDomainListId
-- **Type**: <class 'str'>
-- **Required**: Yes
+- **Type**: typing.Optional[str]
+
+### FirewallThreatProtectionId
+- **Type**: typing.Optional[str]
 
 ### Priority
 - **Type**: typing.Optional[int]
@@ -2306,6 +2333,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Qtype
 - **Type**: typing.Optional[str]
 
+### DnsThreatProtection
+- **Type**: typing.Optional[typing.Literal['DGA', 'DNS_TUNNELING']]
+
+### ConfidenceThreshold
+- **Type**: typing.Optional[typing.Literal['HIGH', 'LOW', 'MEDIUM']]
+
 
 # UpdateFirewallRuleResponseTypeDef
 
@@ -2329,7 +2362,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateOutpostResolverRequestRequestTypeDef
+# UpdateOutpostResolverRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -2356,7 +2389,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateResolverConfigRequestRequestTypeDef
+# UpdateResolverConfigRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -2378,7 +2411,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateResolverDnssecConfigRequestRequestTypeDef
+# UpdateResolverDnssecConfigRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -2400,7 +2433,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateResolverEndpointRequestRequestTypeDef
+# UpdateResolverEndpointRequestTypeDef
 
 ### ResolverEndpointId
 - **Type**: <class 'str'>
@@ -2430,7 +2463,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateResolverRuleRequestRequestTypeDef
+# UpdateResolverRuleRequestTypeDef
 
 ### ResolverRuleId
 - **Type**: <class 'str'>

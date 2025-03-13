@@ -1,38 +1,5 @@
 # Comprehendmedical Classes
 
-# AttributeTypeDef
-
-### Type
-- **Type**: typing.Optional[typing.Literal['ACUITY', 'ADDRESS', 'AGE', 'ALCOHOL_CONSUMPTION', 'ALLERGIES', 'AMOUNT', 'BRAND_NAME', 'CONTACT_POINT', 'DATE', 'DIRECTION', 'DOSAGE', 'DURATION', 'DX_NAME', 'EMAIL', 'FORM', 'FREQUENCY', 'GENDER', 'GENERIC_NAME', 'ID', 'IDENTIFIER', 'NAME', 'PHONE_OR_FAX', 'PROCEDURE_NAME', 'PROFESSION', 'QUALITY', 'QUANTITY', 'RACE_ETHNICITY', 'RATE', 'REC_DRUG_USE', 'ROUTE_OR_MODE', 'STRENGTH', 'SYSTEM_ORGAN_SITE', 'TEST_NAME', 'TEST_UNIT', 'TEST_UNITS', 'TEST_VALUE', 'TIME_EXPRESSION', 'TIME_TO_DX_NAME', 'TIME_TO_MEDICATION_NAME', 'TIME_TO_PROCEDURE_NAME', 'TIME_TO_TEST_NAME', 'TIME_TO_TREATMENT_NAME', 'TOBACCO_USE', 'TREATMENT_NAME', 'URL']]
-
-### Score
-- **Type**: typing.Optional[float]
-
-### RelationshipScore
-- **Type**: typing.Optional[float]
-
-### RelationshipType
-- **Type**: typing.Optional[typing.Literal['ACUITY', 'ADMINISTERED_VIA', 'AMOUNT', 'DIRECTION', 'DOSAGE', 'DURATION', 'EVERY', 'FOR', 'FORM', 'FREQUENCY', 'NEGATIVE', 'OVERLAP', 'QUALITY', 'RATE', 'ROUTE_OR_MODE', 'STRENGTH', 'SYSTEM_ORGAN_SITE', 'TEST_UNIT', 'TEST_UNITS', 'TEST_VALUE', 'USAGE', 'WITH_DOSAGE']]
-
-### Id
-- **Type**: typing.Optional[int]
-
-### BeginOffset
-- **Type**: typing.Optional[int]
-
-### EndOffset
-- **Type**: typing.Optional[int]
-
-### Text
-- **Type**: typing.Optional[str]
-
-### Category
-- **Type**: typing.Optional[typing.Literal['ANATOMY', 'BEHAVIORAL_ENVIRONMENTAL_SOCIAL', 'MEDICAL_CONDITION', 'MEDICATION', 'PROTECTED_HEALTH_INFORMATION', 'TEST_TREATMENT_PROCEDURE', 'TIME_EXPRESSION']]
-
-### Traits
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehendmedical_classes.TraitTypeDef]]
-
-
 # BaseValidatorModel
 
 Oops! This Pydantic model is currently empty. Stay tuned!
@@ -54,10 +21,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS', 'PARTIAL_SUCCESS', 'STOPPED', 'STOP_REQUESTED', 'SUBMITTED']]
 
 ### SubmitTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehendmedical_classes.TimestampTypeDef]
 
 ### SubmitTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehendmedical_classes.TimestampTypeDef]
 
 
 # ComprehendMedicalAsyncJobPropertiesTypeDef
@@ -105,7 +72,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeEntitiesDetectionV2JobRequestRequestTypeDef
+# DescribeEntitiesDetectionV2JobRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
@@ -123,7 +90,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeICD10CMInferenceJobRequestRequestTypeDef
+# DescribeICD10CMInferenceJobRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
@@ -141,7 +108,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribePHIDetectionJobRequestRequestTypeDef
+# DescribePHIDetectionJobRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
@@ -159,7 +126,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeRxNormInferenceJobRequestRequestTypeDef
+# DescribeRxNormInferenceJobRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
@@ -177,7 +144,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeSNOMEDCTInferenceJobRequestRequestTypeDef
+# DescribeSNOMEDCTInferenceJobRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
@@ -192,13 +159,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.comprehendmedical_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# DetectEntitiesRequestRequestTypeDef
-
-### Text
-- **Type**: <class 'str'>
 - **Required**: Yes
 
 
@@ -225,13 +185,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DetectEntitiesV2RequestRequestTypeDef
-
-### Text
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
 # DetectEntitiesV2ResponseTypeDef
 
 ### Entities
@@ -252,13 +205,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.comprehendmedical_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# DetectPHIRequestRequestTypeDef
-
-### Text
-- **Type**: <class 'str'>
 - **Required**: Yes
 
 
@@ -283,66 +229,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EntityTypeDef
 
-### Id
-- **Type**: typing.Optional[int]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### BeginOffset
-- **Type**: typing.Optional[int]
-
-### EndOffset
-- **Type**: typing.Optional[int]
-
-### Score
-- **Type**: typing.Optional[float]
-
-### Text
-- **Type**: typing.Optional[str]
-
-### Category
-- **Type**: typing.Optional[typing.Literal['ANATOMY', 'BEHAVIORAL_ENVIRONMENTAL_SOCIAL', 'MEDICAL_CONDITION', 'MEDICATION', 'PROTECTED_HEALTH_INFORMATION', 'TEST_TREATMENT_PROCEDURE', 'TIME_EXPRESSION']]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['ACUITY', 'ADDRESS', 'AGE', 'ALCOHOL_CONSUMPTION', 'ALLERGIES', 'AMOUNT', 'BRAND_NAME', 'CONTACT_POINT', 'DATE', 'DIRECTION', 'DOSAGE', 'DURATION', 'DX_NAME', 'EMAIL', 'FORM', 'FREQUENCY', 'GENDER', 'GENERIC_NAME', 'ID', 'IDENTIFIER', 'NAME', 'PHONE_OR_FAX', 'PROCEDURE_NAME', 'PROFESSION', 'QUALITY', 'QUANTITY', 'RACE_ETHNICITY', 'RATE', 'REC_DRUG_USE', 'ROUTE_OR_MODE', 'STRENGTH', 'SYSTEM_ORGAN_SITE', 'TEST_NAME', 'TEST_UNIT', 'TEST_UNITS', 'TEST_VALUE', 'TIME_EXPRESSION', 'TIME_TO_DX_NAME', 'TIME_TO_MEDICATION_NAME', 'TIME_TO_PROCEDURE_NAME', 'TIME_TO_TEST_NAME', 'TIME_TO_TREATMENT_NAME', 'TOBACCO_USE', 'TREATMENT_NAME', 'URL']]
-
-### Traits
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehendmedical_classes.TraitTypeDef]]
-
-### Attributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehendmedical_classes.AttributeTypeDef]]
-
-
-# ICD10CMAttributeTypeDef
-
-### Type
-- **Type**: typing.Optional[typing.Literal['ACUITY', 'DIRECTION', 'QUALITY', 'QUANTITY', 'SYSTEM_ORGAN_SITE', 'TIME_EXPRESSION', 'TIME_TO_DX_NAME']]
-
-### Score
-- **Type**: typing.Optional[float]
-
-### RelationshipScore
-- **Type**: typing.Optional[float]
-
-### Id
-- **Type**: typing.Optional[int]
-
-### BeginOffset
-- **Type**: typing.Optional[int]
-
-### EndOffset
-- **Type**: typing.Optional[int]
-
-### Text
-- **Type**: typing.Optional[str]
-
-### Traits
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehendmedical_classes.ICD10CMTraitTypeDef]]
-
-### Category
-- **Type**: typing.Optional[typing.Literal['DX_NAME', 'TIME_EXPRESSION']]
-
-### RelationshipType
-- **Type**: typing.Optional[typing.Literal['OVERLAP', 'QUALITY', 'SYSTEM_ORGAN_SITE']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ICD10CMConceptTypeDef
 
@@ -358,36 +247,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ICD10CMEntityTypeDef
 
-### Id
-- **Type**: typing.Optional[int]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Text
-- **Type**: typing.Optional[str]
-
-### Category
-- **Type**: typing.Optional[typing.Literal['MEDICAL_CONDITION']]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['DX_NAME', 'TIME_EXPRESSION']]
-
-### Score
-- **Type**: typing.Optional[float]
-
-### BeginOffset
-- **Type**: typing.Optional[int]
-
-### EndOffset
-- **Type**: typing.Optional[int]
-
-### Attributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehendmedical_classes.ICD10CMAttributeTypeDef]]
-
-### Traits
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehendmedical_classes.ICD10CMTraitTypeDef]]
-
-### ICD10CMConcepts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehendmedical_classes.ICD10CMConceptTypeDef]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ICD10CMTraitTypeDef
 
@@ -396,13 +258,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Score
 - **Type**: typing.Optional[float]
-
-
-# InferICD10CMRequestRequestTypeDef
-
-### Text
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 
 # InferICD10CMResponseTypeDef
@@ -424,13 +279,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# InferRxNormRequestRequestTypeDef
-
-### Text
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
 # InferRxNormResponseTypeDef
 
 ### Entities
@@ -447,13 +295,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.comprehendmedical_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# InferSNOMEDCTRequestRequestTypeDef
-
-### Text
-- **Type**: <class 'str'>
 - **Required**: Yes
 
 
@@ -494,7 +335,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListEntitiesDetectionV2JobsRequestRequestTypeDef
+# ListEntitiesDetectionV2JobsRequestTypeDef
 
 ### Filter
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehendmedical_classes.ComprehendMedicalAsyncJobFilterTypeDef]
@@ -512,16 +353,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.comprehendmedical_classes.ComprehendMedicalAsyncJobPropertiesTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.comprehendmedical_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListICD10CMInferenceJobsRequestRequestTypeDef
+
+# ListICD10CMInferenceJobsRequestTypeDef
 
 ### Filter
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehendmedical_classes.ComprehendMedicalAsyncJobFilterTypeDef]
@@ -539,16 +379,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.comprehendmedical_classes.ComprehendMedicalAsyncJobPropertiesTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.comprehendmedical_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListPHIDetectionJobsRequestRequestTypeDef
+
+# ListPHIDetectionJobsRequestTypeDef
 
 ### Filter
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehendmedical_classes.ComprehendMedicalAsyncJobFilterTypeDef]
@@ -566,16 +405,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.comprehendmedical_classes.ComprehendMedicalAsyncJobPropertiesTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.comprehendmedical_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListRxNormInferenceJobsRequestRequestTypeDef
+
+# ListRxNormInferenceJobsRequestTypeDef
 
 ### Filter
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehendmedical_classes.ComprehendMedicalAsyncJobFilterTypeDef]
@@ -593,16 +431,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.comprehendmedical_classes.ComprehendMedicalAsyncJobPropertiesTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.comprehendmedical_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListSNOMEDCTInferenceJobsRequestRequestTypeDef
+
+# ListSNOMEDCTInferenceJobsRequestTypeDef
 
 ### Filter
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehendmedical_classes.ComprehendMedicalAsyncJobFilterTypeDef]
@@ -620,13 +457,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.comprehendmedical_classes.ComprehendMedicalAsyncJobPropertiesTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.comprehendmedical_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # OutputDataConfigTypeDef
@@ -645,10 +481,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -661,32 +493,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
-
-# RxNormAttributeTypeDef
-
-### Type
-- **Type**: typing.Optional[typing.Literal['DOSAGE', 'DURATION', 'FORM', 'FREQUENCY', 'RATE', 'ROUTE_OR_MODE', 'STRENGTH']]
-
-### Score
-- **Type**: typing.Optional[float]
-
-### RelationshipScore
-- **Type**: typing.Optional[float]
-
-### Id
-- **Type**: typing.Optional[int]
-
-### BeginOffset
-- **Type**: typing.Optional[int]
-
-### EndOffset
-- **Type**: typing.Optional[int]
-
-### Text
+### HostId
 - **Type**: typing.Optional[str]
-
-### Traits
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehendmedical_classes.RxNormTraitTypeDef]]
 
 
 # RxNormConceptTypeDef
@@ -703,36 +511,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # RxNormEntityTypeDef
 
-### Id
-- **Type**: typing.Optional[int]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Text
-- **Type**: typing.Optional[str]
-
-### Category
-- **Type**: typing.Optional[typing.Literal['MEDICATION']]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['BRAND_NAME', 'GENERIC_NAME']]
-
-### Score
-- **Type**: typing.Optional[float]
-
-### BeginOffset
-- **Type**: typing.Optional[int]
-
-### EndOffset
-- **Type**: typing.Optional[int]
-
-### Attributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehendmedical_classes.RxNormAttributeTypeDef]]
-
-### Traits
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehendmedical_classes.RxNormTraitTypeDef]]
-
-### RxNormConcepts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehendmedical_classes.RxNormConceptTypeDef]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RxNormTraitTypeDef
 
@@ -741,42 +522,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Score
 - **Type**: typing.Optional[float]
-
-
-# SNOMEDCTAttributeTypeDef
-
-### Category
-- **Type**: typing.Optional[typing.Literal['ANATOMY', 'MEDICAL_CONDITION', 'TEST_TREATMENT_PROCEDURE']]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['ACUITY', 'DIRECTION', 'QUALITY', 'SYSTEM_ORGAN_SITE', 'TEST_UNIT', 'TEST_VALUE']]
-
-### Score
-- **Type**: typing.Optional[float]
-
-### RelationshipScore
-- **Type**: typing.Optional[float]
-
-### RelationshipType
-- **Type**: typing.Optional[typing.Literal['ACUITY', 'DIRECTION', 'QUALITY', 'SYSTEM_ORGAN_SITE', 'TEST_UNIT', 'TEST_UNITS', 'TEST_VALUE']]
-
-### Id
-- **Type**: typing.Optional[int]
-
-### BeginOffset
-- **Type**: typing.Optional[int]
-
-### EndOffset
-- **Type**: typing.Optional[int]
-
-### Text
-- **Type**: typing.Optional[str]
-
-### Traits
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehendmedical_classes.SNOMEDCTTraitTypeDef]]
-
-### SNOMEDCTConcepts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehendmedical_classes.SNOMEDCTConceptTypeDef]]
 
 
 # SNOMEDCTConceptTypeDef
@@ -805,36 +550,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SNOMEDCTEntityTypeDef
 
-### Id
-- **Type**: typing.Optional[int]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Text
-- **Type**: typing.Optional[str]
-
-### Category
-- **Type**: typing.Optional[typing.Literal['ANATOMY', 'MEDICAL_CONDITION', 'TEST_TREATMENT_PROCEDURE']]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['DX_NAME', 'PROCEDURE_NAME', 'TEST_NAME', 'TREATMENT_NAME']]
-
-### Score
-- **Type**: typing.Optional[float]
-
-### BeginOffset
-- **Type**: typing.Optional[int]
-
-### EndOffset
-- **Type**: typing.Optional[int]
-
-### Attributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehendmedical_classes.SNOMEDCTAttributeTypeDef]]
-
-### Traits
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehendmedical_classes.SNOMEDCTTraitTypeDef]]
-
-### SNOMEDCTConcepts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehendmedical_classes.SNOMEDCTConceptTypeDef]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SNOMEDCTTraitTypeDef
 
@@ -845,7 +563,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# StartEntitiesDetectionV2JobRequestRequestTypeDef
+# StartEntitiesDetectionV2JobRequestTypeDef
 
 ### InputDataConfig
 - **Type**: <class 'aws_resource_validator.pydantic_models.comprehendmedical_classes.InputDataConfigTypeDef'>
@@ -884,7 +602,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartICD10CMInferenceJobRequestRequestTypeDef
+# StartICD10CMInferenceJobRequestTypeDef
 
 ### InputDataConfig
 - **Type**: <class 'aws_resource_validator.pydantic_models.comprehendmedical_classes.InputDataConfigTypeDef'>
@@ -923,7 +641,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartPHIDetectionJobRequestRequestTypeDef
+# StartPHIDetectionJobRequestTypeDef
 
 ### InputDataConfig
 - **Type**: <class 'aws_resource_validator.pydantic_models.comprehendmedical_classes.InputDataConfigTypeDef'>
@@ -962,7 +680,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartRxNormInferenceJobRequestRequestTypeDef
+# StartRxNormInferenceJobRequestTypeDef
 
 ### InputDataConfig
 - **Type**: <class 'aws_resource_validator.pydantic_models.comprehendmedical_classes.InputDataConfigTypeDef'>
@@ -1001,7 +719,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartSNOMEDCTInferenceJobRequestRequestTypeDef
+# StartSNOMEDCTInferenceJobRequestTypeDef
 
 ### InputDataConfig
 - **Type**: <class 'aws_resource_validator.pydantic_models.comprehendmedical_classes.InputDataConfigTypeDef'>
@@ -1040,7 +758,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopEntitiesDetectionV2JobRequestRequestTypeDef
+# StopEntitiesDetectionV2JobRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
@@ -1058,7 +776,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopICD10CMInferenceJobRequestRequestTypeDef
+# StopICD10CMInferenceJobRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
@@ -1076,7 +794,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopPHIDetectionJobRequestRequestTypeDef
+# StopPHIDetectionJobRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
@@ -1094,7 +812,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopRxNormInferenceJobRequestRequestTypeDef
+# StopRxNormInferenceJobRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
@@ -1112,7 +830,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopSNOMEDCTInferenceJobRequestRequestTypeDef
+# StopSNOMEDCTInferenceJobRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
@@ -1130,6 +848,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # TraitTypeDef
 
 ### Name
@@ -1141,10 +865,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # UnmappedAttributeTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['ANATOMY', 'BEHAVIORAL_ENVIRONMENTAL_SOCIAL', 'MEDICAL_CONDITION', 'MEDICATION', 'PROTECTED_HEALTH_INFORMATION', 'TEST_TREATMENT_PROCEDURE', 'TIME_EXPRESSION']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Attribute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehendmedical_classes.AttributeTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

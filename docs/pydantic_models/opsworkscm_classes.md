@@ -12,7 +12,7 @@
 - **Type**: typing.Optional[int]
 
 
-# AssociateNodeRequestRequestTypeDef
+# AssociateNodeRequestTypeDef
 
 ### ServerName
 - **Type**: <class 'str'>
@@ -119,7 +119,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateBackupRequestRequestTypeDef
+# CreateBackupRequestTypeDef
 
 ### ServerName
 - **Type**: <class 'str'>
@@ -143,7 +143,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateServerRequestRequestTypeDef
+# CreateServerRequestTypeDef
 
 ### Engine
 - **Type**: <class 'str'>
@@ -225,14 +225,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteBackupRequestRequestTypeDef
+# DeleteBackupRequestTypeDef
 
 ### BackupId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteServerRequestRequestTypeDef
+# DeleteServerRequestTypeDef
 
 ### ServerName
 - **Type**: <class 'str'>
@@ -250,7 +250,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeBackupsRequestDescribeBackupsPaginateTypeDef
+# DescribeBackupsRequestPaginateTypeDef
 
 ### BackupId
 - **Type**: typing.Optional[str]
@@ -262,7 +262,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworkscm_classes.PaginatorConfigTypeDef]
 
 
-# DescribeBackupsRequestRequestTypeDef
+# DescribeBackupsRequestTypeDef
 
 ### BackupId
 - **Type**: typing.Optional[str]
@@ -283,16 +283,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.opsworkscm_classes.BackupTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# DescribeEventsRequestDescribeEventsPaginateTypeDef
+
+# DescribeEventsRequestPaginateTypeDef
 
 ### ServerName
 - **Type**: <class 'str'>
@@ -302,7 +301,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworkscm_classes.PaginatorConfigTypeDef]
 
 
-# DescribeEventsRequestRequestTypeDef
+# DescribeEventsRequestTypeDef
 
 ### ServerName
 - **Type**: <class 'str'>
@@ -321,16 +320,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.opsworkscm_classes.ServerEventTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# DescribeNodeAssociationStatusRequestNodeAssociatedWaitTypeDef
+
+# DescribeNodeAssociationStatusRequestTypeDef
+
+### NodeAssociationStatusToken
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ServerName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeNodeAssociationStatusRequestWaitTypeDef
 
 ### NodeAssociationStatusToken
 - **Type**: <class 'str'>
@@ -342,17 +351,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### WaiterConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworkscm_classes.WaiterConfigTypeDef]
-
-
-# DescribeNodeAssociationStatusRequestRequestTypeDef
-
-### NodeAssociationStatusToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ServerName
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 
 # DescribeNodeAssociationStatusResponseTypeDef
@@ -370,7 +368,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeServersRequestDescribeServersPaginateTypeDef
+# DescribeServersRequestPaginateTypeDef
 
 ### ServerName
 - **Type**: typing.Optional[str]
@@ -379,7 +377,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworkscm_classes.PaginatorConfigTypeDef]
 
 
-# DescribeServersRequestRequestTypeDef
+# DescribeServersRequestTypeDef
 
 ### ServerName
 - **Type**: typing.Optional[str]
@@ -397,16 +395,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.opsworkscm_classes.ServerTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# DisassociateNodeRequestRequestTypeDef
+
+# DisassociateNodeRequestTypeDef
 
 ### ServerName
 - **Type**: <class 'str'>
@@ -440,7 +437,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExportServerEngineAttributeRequestRequestTypeDef
+# ExportServerEngineAttributeRequestTypeDef
 
 ### ExportAttributeName
 - **Type**: <class 'str'>
@@ -469,7 +466,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTagsForResourceRequestListTagsForResourcePaginateTypeDef
+# ListTagsForResourceRequestPaginateTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -479,7 +476,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworkscm_classes.PaginatorConfigTypeDef]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -498,13 +495,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.opsworkscm_classes.TagTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # PaginatorConfigTypeDef
@@ -525,10 +521,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -541,8 +533,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# RestoreServerRequestRequestTypeDef
+
+# RestoreServerRequestTypeDef
 
 ### BackupId
 - **Type**: <class 'str'>
@@ -660,7 +655,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartMaintenanceRequestRequestTypeDef
+# StartMaintenanceRequestTypeDef
 
 ### ServerName
 - **Type**: <class 'str'>
@@ -681,7 +676,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -703,7 +698,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -714,7 +709,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateServerEngineAttributesRequestRequestTypeDef
+# UpdateServerEngineAttributesRequestTypeDef
 
 ### ServerName
 - **Type**: <class 'str'>
@@ -739,7 +734,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateServerRequestRequestTypeDef
+# UpdateServerRequestTypeDef
 
 ### ServerName
 - **Type**: <class 'str'>

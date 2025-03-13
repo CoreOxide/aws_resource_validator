@@ -8,13 +8,13 @@
 
 ### DeploymentName
 - **Type**: string
-- **Pattern**: `^[A-Za-z0-9_\s\.-]+$`
+- **Pattern**: `^[A-Za-z0-9_\.-]+$`
 - **Min Length**: 1
-- **Max Length**: 25
+- **Max Length**: 50
 
 ### DeploymentPatternName
 - **Type**: string
-- **Pattern**: `^[a-zA-Z0-9-]+$`
+- **Pattern**: `^[A-Za-z0-9][a-zA-Z0-9-]*$`
 - **Min Length**: 1
 - **Max Length**: 256
 
@@ -24,15 +24,21 @@
 - **Min Length**: 3
 - **Max Length**: 256
 
+### TagKey
+- **Type**: string
+- **Pattern**: `^(?!aws:)[a-zA-Z+-=._:/]+$`
+- **Min Length**: 1
+- **Max Length**: 128
+
 ### WorkloadName
 - **Type**: string
-- **Pattern**: `^[a-zA-Z0-9-]+$`
+- **Pattern**: `^[A-Za-z][a-zA-Z0-9-_]*$`
 - **Min Length**: 1
-- **Max Length**: 256
+- **Max Length**: 100
 
 ### WorkloadVersionName
 - **Type**: string
-- **Pattern**: `^[a-zA-Z0-9-]+$`
+- **Pattern**: `^[A-Za-z0-9][a-zA-Z0-9-]*$`
 - **Min Length**: 5
 - **Max Length**: 30
 

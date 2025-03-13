@@ -42,6 +42,12 @@
 - **Min Length**: 0
 - **Max Length**: 1000
 
+### DestinationURI
+- **Type**: string
+- **Pattern**: `^(\w+\:\/\/[\w.-]+[\w/!@#+=.-]+$)|(\w+\:\/\/[\w.-]+[\w/!@#+=.-]+[\w/!@#+=.-]+[\w/!@#+=.,-]+$)`
+- **Min Length**: 1
+- **Max Length**: 1000
+
 ### EventBridgeBus
 - **Type**: string
 - **Pattern**: `^[a-zA-Z0-9\/\._\-]+$`

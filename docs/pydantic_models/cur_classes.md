@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DeleteReportDefinitionRequestRequestTypeDef
+# DeleteReportDefinitionRequestTypeDef
 
 ### ReportName
 - **Type**: <class 'str'>
@@ -24,13 +24,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeReportDefinitionsRequestDescribeReportDefinitionsPaginateTypeDef
+# DescribeReportDefinitionsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cur_classes.PaginatorConfigTypeDef]
 
 
-# DescribeReportDefinitionsRequestRequestTypeDef
+# DescribeReportDefinitionsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -42,7 +42,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeReportDefinitionsResponseTypeDef
 
 ### ReportDefinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cur_classes.ReportDefinitionExtraOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cur_classes.ReportDefinitionOutputTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -53,7 +53,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ReportName
 - **Type**: <class 'str'>
@@ -71,14 +71,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyReportDefinitionRequestRequestTypeDef
+# ModifyReportDefinitionRequestTypeDef
 
 ### ReportName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ReportDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.cur_classes.ReportDefinitionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cur_classes.ReportDefinitionUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -94,64 +94,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutReportDefinitionRequestRequestTypeDef
+# PutReportDefinitionRequestTypeDef
 
 ### ReportDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.cur_classes.ReportDefinitionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cur_classes.ReportDefinitionUnionTypeDef'>
 - **Required**: Yes
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cur_classes.TagTypeDef]]
-
-
-# ReportDefinitionExtraOutputTypeDef
-
-### ReportName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### TimeUnit
-- **Type**: typing.Literal['DAILY', 'HOURLY', 'MONTHLY']
-- **Required**: Yes
-
-### Format
-- **Type**: typing.Literal['Parquet', 'textORcsv']
-- **Required**: Yes
-
-### Compression
-- **Type**: typing.Literal['GZIP', 'Parquet', 'ZIP']
-- **Required**: Yes
-
-### AdditionalSchemaElements
-- **Type**: typing.List[typing.Literal['MANUAL_DISCOUNT_COMPATIBILITY', 'RESOURCES', 'SPLIT_COST_ALLOCATION_DATA']]
-- **Required**: Yes
-
-### S3Bucket
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### S3Prefix
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### S3Region
-- **Type**: typing.Literal['af-south-1', 'ap-east-1', 'ap-northeast-1', 'ap-northeast-2', 'ap-northeast-3', 'ap-south-1', 'ap-south-2', 'ap-southeast-1', 'ap-southeast-2', 'ap-southeast-3', 'ca-central-1', 'cn-north-1', 'cn-northwest-1', 'eu-central-1', 'eu-central-2', 'eu-north-1', 'eu-south-1', 'eu-south-2', 'eu-west-1', 'eu-west-2', 'eu-west-3', 'me-central-1', 'me-south-1', 'sa-east-1', 'us-east-1', 'us-east-2', 'us-west-1', 'us-west-2']
-- **Required**: Yes
-
-### AdditionalArtifacts
-- **Type**: typing.Optional[typing.List[typing.Literal['ATHENA', 'QUICKSIGHT', 'REDSHIFT']]]
-
-### RefreshClosedReports
-- **Type**: typing.Optional[bool]
-
-### ReportVersioning
-- **Type**: typing.Optional[typing.Literal['CREATE_NEW_REPORT', 'OVERWRITE_REPORT']]
-
-### BillingViewArn
-- **Type**: typing.Optional[str]
-
-### ReportStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cur_classes.ReportStatusTypeDef]
 
 
 # ReportDefinitionOutputTypeDef
@@ -254,6 +204,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cur_classes.ReportStatusTypeDef]
 
 
+# ReportDefinitionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ReportStatusTypeDef
 
 ### lastDelivery
@@ -285,7 +241,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ReportName
 - **Type**: <class 'str'>
@@ -307,7 +263,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ReportName
 - **Type**: <class 'str'>

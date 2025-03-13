@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateTokenRequestRequestTypeDef
+# CreateTokenRequestTypeDef
 
 ### clientId
 - **Type**: <class 'str'>
@@ -66,7 +66,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTokenWithIAMRequestRequestTypeDef
+# CreateTokenWithIAMRequestTypeDef
 
 ### clientId
 - **Type**: <class 'str'>
@@ -139,7 +139,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RegisterClientRequestRequestTypeDef
+# RegisterClientRequestTypeDef
 
 ### clientName
 - **Type**: <class 'str'>
@@ -218,7 +218,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartDeviceAuthorizationRequestRequestTypeDef
+# StartDeviceAuthorizationRequestTypeDef
 
 ### clientId
 - **Type**: <class 'str'>

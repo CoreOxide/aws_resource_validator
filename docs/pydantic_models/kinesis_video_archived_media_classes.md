@@ -20,11 +20,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ClipTimestampRangeTypeDef
 
 ### StartTimestamp
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_archived_media_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTimestamp
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_archived_media_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 
@@ -40,10 +40,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DASHTimestampRangeTypeDef
 
 ### StartTimestamp
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesis_video_archived_media_classes.TimestampTypeDef]
 
 ### EndTimestamp
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesis_video_archived_media_classes.TimestampTypeDef]
 
 
 # FragmentSelectorTypeDef
@@ -75,7 +75,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetClipInputRequestTypeDef
+# GetClipInputTypeDef
 
 ### ClipFragmentSelector
 - **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_archived_media_classes.ClipFragmentSelectorTypeDef'>
@@ -103,7 +103,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDASHStreamingSessionURLInputRequestTypeDef
+# GetDASHStreamingSessionURLInputTypeDef
 
 ### StreamName
 - **Type**: typing.Optional[str]
@@ -141,7 +141,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetHLSStreamingSessionURLInputRequestTypeDef
+# GetHLSStreamingSessionURLInputTypeDef
 
 ### StreamName
 - **Type**: typing.Optional[str]
@@ -182,18 +182,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetImagesInputGetImagesPaginateTypeDef
+# GetImagesInputPaginateTypeDef
 
 ### ImageSelectorType
 - **Type**: typing.Literal['PRODUCER_TIMESTAMP', 'SERVER_TIMESTAMP']
 - **Required**: Yes
 
 ### StartTimestamp
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_archived_media_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTimestamp
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_archived_media_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### Format
@@ -222,18 +222,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesis_video_archived_media_classes.PaginatorConfigTypeDef]
 
 
-# GetImagesInputRequestTypeDef
+# GetImagesInputTypeDef
 
 ### ImageSelectorType
 - **Type**: typing.Literal['PRODUCER_TIMESTAMP', 'SERVER_TIMESTAMP']
 - **Required**: Yes
 
 ### StartTimestamp
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_archived_media_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTimestamp
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_archived_media_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### Format
@@ -271,16 +271,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.kinesis_video_archived_media_classes.ImageTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_archived_media_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# GetMediaForFragmentListInputRequestTypeDef
+
+# GetMediaForFragmentListInputTypeDef
 
 ### Fragments
 - **Type**: typing.Sequence[str]
@@ -320,10 +319,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # HLSTimestampRangeTypeDef
 
 ### StartTimestamp
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesis_video_archived_media_classes.TimestampTypeDef]
 
 ### EndTimestamp
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesis_video_archived_media_classes.TimestampTypeDef]
 
 
 # ImageTypeDef
@@ -338,7 +337,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFragmentsInputListFragmentsPaginateTypeDef
+# ListFragmentsInputPaginateTypeDef
 
 ### StreamName
 - **Type**: typing.Optional[str]
@@ -353,7 +352,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesis_video_archived_media_classes.PaginatorConfigTypeDef]
 
 
-# ListFragmentsInputRequestTypeDef
+# ListFragmentsInputTypeDef
 
 ### StreamName
 - **Type**: typing.Optional[str]
@@ -377,13 +376,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.kinesis_video_archived_media_classes.FragmentTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_archived_media_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # PaginatorConfigTypeDef
@@ -404,10 +402,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -420,15 +414,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
+
 
 # TimestampRangeTypeDef
 
 ### StartTimestamp
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_archived_media_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTimestamp
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_archived_media_classes.TimestampTypeDef'>
 - **Required**: Yes
 
+
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

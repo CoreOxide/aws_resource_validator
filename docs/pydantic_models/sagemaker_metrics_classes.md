@@ -6,6 +6,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
+# BatchGetMetricsRequestTypeDef
+
+### MetricQueries
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_metrics_classes.MetricQueryTypeDef]
+- **Required**: Yes
+
+
+# BatchGetMetricsResponseTypeDef
+
+### MetricQueryResults
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_metrics_classes.MetricQueryResultTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_metrics_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
 # BatchPutMetricsErrorTypeDef
 
 ### Code
@@ -15,7 +33,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# BatchPutMetricsRequestRequestTypeDef
+# BatchPutMetricsRequestTypeDef
 
 ### TrialComponentName
 - **Type**: <class 'str'>
@@ -37,6 +55,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# MetricQueryResultTypeDef
+
+### Status
+- **Type**: typing.Literal['Complete', 'InternalError', 'Truncated', 'ValidationError']
+- **Required**: Yes
+
+### XAxisValues
+- **Type**: typing.List[int]
+- **Required**: Yes
+
+### MetricValues
+- **Type**: typing.List[float]
+- **Required**: Yes
+
+### Message
+- **Type**: typing.Optional[str]
+
+
+# MetricQueryTypeDef
+
+### MetricName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### MetricStat
+- **Type**: typing.Literal['Avg', 'Count', 'Last', 'Max', 'Min', 'StdDev']
+- **Required**: Yes
+
+### Period
+- **Type**: typing.Literal['FiveMinute', 'IterationNumber', 'OneHour', 'OneMinute']
+- **Required**: Yes
+
+### XAxisType
+- **Type**: typing.Literal['IterationNumber', 'Timestamp']
+- **Required**: Yes
+
+### Start
+- **Type**: typing.Optional[int]
+
+### End
+- **Type**: typing.Optional[int]
+
+
 # RawMetricDataTypeDef
 
 ### MetricName
@@ -44,7 +109,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Timestamp
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_metrics_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### Value
@@ -61,10 +126,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -77,4 +138,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
+
+
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

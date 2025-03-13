@@ -8,9 +8,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # CallInstructionsMessageTypeTypeDef
 
-### Text
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CloudWatchLogsDestinationTypeDef
 
@@ -21,7 +21,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateConfigurationSetEventDestinationRequestRequestTypeDef
+# CreateConfigurationSetEventDestinationRequestTypeDef
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
@@ -34,13 +34,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateConfigurationSetRequestRequestTypeDef
+# CreateConfigurationSetRequestTypeDef
 
 ### ConfigurationSetName
 - **Type**: typing.Optional[str]
 
 
-# DeleteConfigurationSetEventDestinationRequestRequestTypeDef
+# DeleteConfigurationSetEventDestinationRequestTypeDef
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
@@ -51,7 +51,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteConfigurationSetRequestRequestTypeDef
+# DeleteConfigurationSetRequestTypeDef
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
@@ -97,7 +97,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice_classes.SnsDestinationTypeDef]
 
 
-# GetConfigurationSetEventDestinationsRequestRequestTypeDef
+# GetConfigurationSetEventDestinationsRequestTypeDef
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
@@ -124,7 +124,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListConfigurationSetsRequestRequestTypeDef
+# ListConfigurationSetsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -139,34 +139,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sms_voice_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
+
 
 # PlainTextMessageTypeTypeDef
 
-### LanguageCode
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Text
-- **Type**: typing.Optional[str]
-
-### VoiceId
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResponseMetadataTypeDef
 
 ### RequestId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### HostId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -182,20 +171,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
+
 
 # SSMLMessageTypeTypeDef
 
-### LanguageCode
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Text
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### VoiceId
-- **Type**: typing.Optional[str]
-
-
-# SendVoiceMessageRequestRequestTypeDef
+# SendVoiceMessageRequestTypeDef
 
 ### CallerId
 - **Type**: typing.Optional[str]
@@ -230,7 +216,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateConfigurationSetEventDestinationRequestRequestTypeDef
+# UpdateConfigurationSetEventDestinationRequestTypeDef
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>

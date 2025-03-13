@@ -16,6 +16,16 @@
 - **Min Length**: 1
 - **Max Length**: 1024
 
+### BedrockGuardrailIdentifier
+- **Type**: string
+- **Pattern**: `^(([a-z0-9]+)|(arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:[0-9]{12}:guardrail/[a-z0-9]+))$`
+- **Min Length**: 1
+- **Max Length**: 2048
+
+### BedrockGuardrailVersion
+- **Type**: string
+- **Pattern**: `^(([1-9][0-9]{0,7})|(DRAFT))$`
+
 ### BedrockKnowledgeBaseArn
 - **Type**: string
 - **Pattern**: `^arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,40}:[0-9]{12}:knowledge-base\/[A-Za-z0-9]{10}$|^[A-Za-z0-9]{10}$`
@@ -167,7 +177,7 @@
 
 ### S3ObjectPath
 - **Type**: string
-- **Pattern**: `[\.\-\!\*\_\\'\(\)a-zA-Z0-9][\.\-\!\*\_\\'\(\)\/a-zA-Z0-9]*$`
+- **Pattern**: `^[.!*\'()_\-a-zA-Z0-9][.!*\'()_\-\/a-zA-Z0-9]*$`
 - **Min Length**: 1
 - **Max Length**: 1024
 

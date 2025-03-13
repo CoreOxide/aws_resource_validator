@@ -39,7 +39,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetEntitlementsRequestGetEntitlementsPaginateTypeDef
+# GetEntitlementsRequestPaginateTypeDef
 
 ### ProductCode
 - **Type**: <class 'str'>
@@ -52,7 +52,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_entitlement_classes.PaginatorConfigTypeDef]
 
 
-# GetEntitlementsRequestRequestTypeDef
+# GetEntitlementsRequestTypeDef
 
 ### ProductCode
 - **Type**: <class 'str'>

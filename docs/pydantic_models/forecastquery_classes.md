@@ -21,7 +21,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.forecastquery_classes.DataPointTypeDef]]]
 
 
-# QueryForecastRequestRequestTypeDef
+# QueryForecastRequestTypeDef
 
 ### ForecastArn
 - **Type**: <class 'str'>
@@ -52,7 +52,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# QueryWhatIfForecastRequestRequestTypeDef
+# QueryWhatIfForecastRequestTypeDef
 
 ### WhatIfForecastArn
 - **Type**: <class 'str'>
@@ -89,10 +89,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -104,5 +100,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 

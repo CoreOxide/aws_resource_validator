@@ -15,7 +15,7 @@
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.GroundTruthManifestTypeDef]
 
 
-# AssociateFacesRequestRequestTypeDef
+# AssociateFacesRequestTypeDef
 
 ### CollectionId
 - **Type**: <class 'str'>
@@ -112,6 +112,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # BoundingBoxTypeDef
 
 ### Width
@@ -190,7 +196,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.ComparedFaceTypeDef]
 
 
-# CompareFacesRequestRequestTypeDef
+# CompareFacesRequestTypeDef
 
 ### SourceImage
 - **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ImageTypeDef'>
@@ -326,7 +332,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CopyProjectVersionRequestRequestTypeDef
+# CopyProjectVersionRequestTypeDef
 
 ### SourceProjectArn
 - **Type**: <class 'str'>
@@ -375,7 +381,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CreateCollectionRequestRequestTypeDef
+# CreateCollectionRequestTypeDef
 
 ### CollectionId
 - **Type**: <class 'str'>
@@ -404,7 +410,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDatasetRequestRequestTypeDef
+# CreateDatasetRequestTypeDef
 
 ### DatasetType
 - **Type**: typing.Literal['TEST', 'TRAIN']
@@ -432,7 +438,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateFaceLivenessSessionRequestRequestTypeDef
+# CreateFaceLivenessSessionRequestSettingsTypeDef
+
+### OutputConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.LivenessOutputConfigTypeDef]
+
+### AuditImagesLimit
+- **Type**: typing.Optional[int]
+
+
+# CreateFaceLivenessSessionRequestTypeDef
 
 ### KmsKeyId
 - **Type**: typing.Optional[str]
@@ -442,15 +457,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
-
-
-# CreateFaceLivenessSessionRequestSettingsTypeDef
-
-### OutputConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.LivenessOutputConfigTypeDef]
-
-### AuditImagesLimit
-- **Type**: typing.Optional[int]
 
 
 # CreateFaceLivenessSessionResponseTypeDef
@@ -464,7 +470,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateProjectRequestRequestTypeDef
+# CreateProjectRequestTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
@@ -491,7 +497,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateProjectVersionRequestRequestTypeDef
+# CreateProjectVersionRequestTypeDef
 
 ### ProjectArn
 - **Type**: <class 'str'>
@@ -506,10 +512,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TrainingData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.TrainingDataTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.TrainingDataUnionTypeDef]
 
 ### TestingData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.TestingDataTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.TestingDataUnionTypeDef]
 
 ### Tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -535,7 +541,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateStreamProcessorRequestRequestTypeDef
+# CreateStreamProcessorRequestTypeDef
 
 ### Input
 - **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.StreamProcessorInputTypeDef'>
@@ -550,7 +556,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Settings
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.StreamProcessorSettingsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.StreamProcessorSettingsUnionTypeDef'>
 - **Required**: Yes
 
 ### RoleArn
@@ -567,7 +573,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RegionsOfInterest
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.rekognition_classes.RegionOfInterestTypeDef, aws_resource_validator.pydantic_models.rekognition_classes.RegionOfInterestOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rekognition_classes.RegionOfInterestUnionTypeDef]]
 
 ### DataSharingPreference
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.StreamProcessorDataSharingPreferenceTypeDef]
@@ -584,7 +590,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateUserRequestRequestTypeDef
+# CreateUserRequestTypeDef
 
 ### CollectionId
 - **Type**: <class 'str'>
@@ -625,7 +631,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DatasetChangesTypeDef
 
 ### GroundTruth
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.BlobTypeDef'>
 - **Required**: Yes
 
 
@@ -713,7 +719,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DeleteCollectionRequestRequestTypeDef
+# DeleteCollectionRequestTypeDef
 
 ### CollectionId
 - **Type**: <class 'str'>
@@ -731,14 +737,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDatasetRequestRequestTypeDef
+# DeleteDatasetRequestTypeDef
 
 ### DatasetArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteFacesRequestRequestTypeDef
+# DeleteFacesRequestTypeDef
 
 ### CollectionId
 - **Type**: <class 'str'>
@@ -764,7 +770,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteProjectPolicyRequestRequestTypeDef
+# DeleteProjectPolicyRequestTypeDef
 
 ### ProjectArn
 - **Type**: <class 'str'>
@@ -778,7 +784,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteProjectRequestRequestTypeDef
+# DeleteProjectRequestTypeDef
 
 ### ProjectArn
 - **Type**: <class 'str'>
@@ -796,7 +802,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteProjectVersionRequestRequestTypeDef
+# DeleteProjectVersionRequestTypeDef
 
 ### ProjectVersionArn
 - **Type**: <class 'str'>
@@ -814,14 +820,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteStreamProcessorRequestRequestTypeDef
+# DeleteStreamProcessorRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteUserRequestRequestTypeDef
+# DeleteUserRequestTypeDef
 
 ### CollectionId
 - **Type**: <class 'str'>
@@ -835,7 +841,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeCollectionRequestRequestTypeDef
+# DescribeCollectionRequestTypeDef
 
 ### CollectionId
 - **Type**: <class 'str'>
@@ -869,7 +875,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDatasetRequestRequestTypeDef
+# DescribeDatasetRequestTypeDef
 
 ### DatasetArn
 - **Type**: <class 'str'>
@@ -887,7 +893,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeProjectVersionsRequestDescribeProjectVersionsPaginateTypeDef
+# DescribeProjectVersionsRequestPaginateTypeDef
 
 ### ProjectArn
 - **Type**: <class 'str'>
@@ -900,7 +906,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.PaginatorConfigTypeDef]
 
 
-# DescribeProjectVersionsRequestProjectVersionRunningWaitTypeDef
+# DescribeProjectVersionsRequestTypeDef
+
+### ProjectArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### VersionNames
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+
+# DescribeProjectVersionsRequestWaitExtraTypeDef
 
 ### ProjectArn
 - **Type**: <class 'str'>
@@ -919,7 +941,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.WaiterConfigTypeDef]
 
 
-# DescribeProjectVersionsRequestProjectVersionTrainingCompletedWaitTypeDef
+# DescribeProjectVersionsRequestWaitTypeDef
 
 ### ProjectArn
 - **Type**: <class 'str'>
@@ -936,22 +958,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### WaiterConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.WaiterConfigTypeDef]
-
-
-# DescribeProjectVersionsRequestRequestTypeDef
-
-### ProjectArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### VersionNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### MaxResults
-- **Type**: typing.Optional[int]
 
 
 # DescribeProjectVersionsResponseTypeDef
@@ -968,7 +974,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeProjectsRequestDescribeProjectsPaginateTypeDef
+# DescribeProjectsRequestPaginateTypeDef
 
 ### ProjectNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -980,7 +986,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.PaginatorConfigTypeDef]
 
 
-# DescribeProjectsRequestRequestTypeDef
+# DescribeProjectsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1009,7 +1015,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeStreamProcessorRequestRequestTypeDef
+# DescribeStreamProcessorRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -1079,7 +1085,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DetectCustomLabelsRequestRequestTypeDef
+# DetectCustomLabelsRequestTypeDef
 
 ### ProjectVersionArn
 - **Type**: <class 'str'>
@@ -1107,7 +1113,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DetectFacesRequestRequestTypeDef
+# DetectFacesRequestTypeDef
 
 ### Image
 - **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ImageTypeDef'>
@@ -1183,7 +1189,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# DetectLabelsRequestRequestTypeDef
+# DetectLabelsRequestTypeDef
 
 ### Image
 - **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ImageTypeDef'>
@@ -1234,7 +1240,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.DetectLabelsImagePropertiesSettingsTypeDef]
 
 
-# DetectModerationLabelsRequestRequestTypeDef
+# DetectModerationLabelsRequestTypeDef
 
 ### Image
 - **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ImageTypeDef'>
@@ -1277,7 +1283,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DetectProtectiveEquipmentRequestRequestTypeDef
+# DetectProtectiveEquipmentRequestTypeDef
 
 ### Image
 - **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ImageTypeDef'>
@@ -1312,10 +1318,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.DetectionFilterTypeDef]
 
 ### RegionsOfInterest
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rekognition_classes.RegionOfInterestTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rekognition_classes.RegionOfInterestUnionTypeDef]]
 
 
-# DetectTextRequestRequestTypeDef
+# DetectTextRequestTypeDef
 
 ### Image
 - **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ImageTypeDef'>
@@ -1352,7 +1358,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# DisassociateFacesRequestRequestTypeDef
+# DisassociateFacesRequestTypeDef
 
 ### CollectionId
 - **Type**: <class 'str'>
@@ -1395,7 +1401,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DistributeDatasetEntriesRequestRequestTypeDef
+# DistributeDatasetEntriesRequestTypeDef
 
 ### Datasets
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.rekognition_classes.DistributeDatasetTypeDef]
@@ -1435,27 +1441,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EmotionTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['ANGRY', 'CALM', 'CONFUSED', 'DISGUSTED', 'FEAR', 'HAPPY', 'SAD', 'SURPRISED', 'UNKNOWN']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Confidence
-- **Type**: typing.Optional[float]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EquipmentDetectionTypeDef
 
-### BoundingBox
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.BoundingBoxTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Confidence
-- **Type**: typing.Optional[float]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['FACE_COVER', 'HAND_COVER', 'HEAD_COVER']]
-
-### CoversBodyPart
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.CoversBodyPartTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EvaluationResultTypeDef
 
@@ -1652,7 +1646,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition_classes.PointTypeDef]]
 
 
-# GetCelebrityInfoRequestRequestTypeDef
+# GetCelebrityInfoRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -1678,7 +1672,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCelebrityRecognitionRequestRequestTypeDef
+# GetCelebrityRecognitionRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
@@ -1741,7 +1735,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['SEGMENTS', 'TIMESTAMPS']]
 
 
-# GetContentModerationRequestRequestTypeDef
+# GetContentModerationRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
@@ -1806,7 +1800,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetFaceDetectionRequestRequestTypeDef
+# GetFaceDetectionRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
@@ -1857,7 +1851,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetFaceLivenessSessionResultsRequestRequestTypeDef
+# GetFaceLivenessSessionResultsRequestTypeDef
 
 ### SessionId
 - **Type**: <class 'str'>
@@ -1891,7 +1885,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetFaceSearchRequestRequestTypeDef
+# GetFaceSearchRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
@@ -1954,7 +1948,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['SEGMENTS', 'TIMESTAMPS']]
 
 
-# GetLabelDetectionRequestRequestTypeDef
+# GetLabelDetectionRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
@@ -2019,7 +2013,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetMediaAnalysisJobRequestRequestTypeDef
+# GetMediaAnalysisJobRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
@@ -2081,7 +2075,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPersonTrackingRequestRequestTypeDef
+# GetPersonTrackingRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
@@ -2135,7 +2129,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetSegmentDetectionRequestRequestTypeDef
+# GetSegmentDetectionRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
@@ -2194,7 +2188,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetTextDetectionRequestRequestTypeDef
+# GetTextDetectionRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
@@ -2299,13 +2293,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ImageTypeDef
 
 ### Bytes
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.BlobTypeDef]
 
 ### S3Object
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.S3ObjectTypeDef]
 
 
-# IndexFacesRequestRequestTypeDef
+# IndexFacesRequestTypeDef
 
 ### CollectionId
 - **Type**: <class 'str'>
@@ -2386,9 +2380,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # KnownGenderTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['Female', 'Male', 'Nonbinary', 'Unlisted']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LabelAliasTypeDef
 
@@ -2449,23 +2443,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # LandmarkTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['chinBottom', 'eyeLeft', 'eyeRight', 'leftEyeBrowLeft', 'leftEyeBrowRight', 'leftEyeBrowUp', 'leftEyeDown', 'leftEyeLeft', 'leftEyeRight', 'leftEyeUp', 'leftPupil', 'midJawlineLeft', 'midJawlineRight', 'mouthDown', 'mouthLeft', 'mouthRight', 'mouthUp', 'nose', 'noseLeft', 'noseRight', 'rightEyeBrowLeft', 'rightEyeBrowRight', 'rightEyeBrowUp', 'rightEyeDown', 'rightEyeLeft', 'rightEyeRight', 'rightEyeUp', 'rightPupil', 'upperJawlineLeft', 'upperJawlineRight']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### X
-- **Type**: typing.Optional[float]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Y
-- **Type**: typing.Optional[float]
-
-
-# ListCollectionsRequestListCollectionsPaginateTypeDef
+# ListCollectionsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.PaginatorConfigTypeDef]
 
 
-# ListCollectionsRequestRequestTypeDef
+# ListCollectionsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2492,7 +2480,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDatasetEntriesRequestListDatasetEntriesPaginateTypeDef
+# ListDatasetEntriesRequestPaginateTypeDef
 
 ### DatasetArn
 - **Type**: <class 'str'>
@@ -2514,7 +2502,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.PaginatorConfigTypeDef]
 
 
-# ListDatasetEntriesRequestRequestTypeDef
+# ListDatasetEntriesRequestTypeDef
 
 ### DatasetArn
 - **Type**: <class 'str'>
@@ -2553,7 +2541,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDatasetLabelsRequestListDatasetLabelsPaginateTypeDef
+# ListDatasetLabelsRequestPaginateTypeDef
 
 ### DatasetArn
 - **Type**: <class 'str'>
@@ -2563,7 +2551,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.PaginatorConfigTypeDef]
 
 
-# ListDatasetLabelsRequestRequestTypeDef
+# ListDatasetLabelsRequestTypeDef
 
 ### DatasetArn
 - **Type**: <class 'str'>
@@ -2590,7 +2578,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFacesRequestListFacesPaginateTypeDef
+# ListFacesRequestPaginateTypeDef
 
 ### CollectionId
 - **Type**: <class 'str'>
@@ -2606,7 +2594,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.PaginatorConfigTypeDef]
 
 
-# ListFacesRequestRequestTypeDef
+# ListFacesRequestTypeDef
 
 ### CollectionId
 - **Type**: <class 'str'>
@@ -2643,7 +2631,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListMediaAnalysisJobsRequestRequestTypeDef
+# ListMediaAnalysisJobsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2666,7 +2654,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListProjectPoliciesRequestListProjectPoliciesPaginateTypeDef
+# ListProjectPoliciesRequestPaginateTypeDef
 
 ### ProjectArn
 - **Type**: <class 'str'>
@@ -2676,7 +2664,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.PaginatorConfigTypeDef]
 
 
-# ListProjectPoliciesRequestRequestTypeDef
+# ListProjectPoliciesRequestTypeDef
 
 ### ProjectArn
 - **Type**: <class 'str'>
@@ -2703,13 +2691,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListStreamProcessorsRequestListStreamProcessorsPaginateTypeDef
+# ListStreamProcessorsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.PaginatorConfigTypeDef]
 
 
-# ListStreamProcessorsRequestRequestTypeDef
+# ListStreamProcessorsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2732,7 +2720,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2750,7 +2738,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListUsersRequestListUsersPaginateTypeDef
+# ListUsersRequestPaginateTypeDef
 
 ### CollectionId
 - **Type**: <class 'str'>
@@ -2760,7 +2748,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.PaginatorConfigTypeDef]
 
 
-# ListUsersRequestRequestTypeDef
+# ListUsersRequestTypeDef
 
 ### CollectionId
 - **Type**: <class 'str'>
@@ -3133,7 +3121,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Feature
 - **Type**: typing.Optional[typing.Literal['CONTENT_MODERATION', 'CUSTOM_LABELS']]
 
-### BaseValidatorModelVersion
+### BaseModelVersion
 - **Type**: typing.Optional[str]
 
 ### FeatureConfig
@@ -3190,7 +3178,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[int]]
 
 
-# PutProjectPolicyRequestRequestTypeDef
+# PutProjectPolicyRequestTypeDef
 
 ### ProjectArn
 - **Type**: <class 'str'>
@@ -3219,7 +3207,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RecognizeCelebritiesRequestRequestTypeDef
+# RecognizeCelebritiesRequestTypeDef
 
 ### Image
 - **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ImageTypeDef'>
@@ -3262,6 +3250,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Polygon
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rekognition_classes.PointTypeDef]]
 
+
+# RegionOfInterestUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResponseMetadataTypeDef
 
@@ -3306,7 +3300,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchFacesByImageRequestRequestTypeDef
+# SearchFacesByImageRequestTypeDef
 
 ### CollectionId
 - **Type**: <class 'str'>
@@ -3349,7 +3343,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SearchFacesRequestRequestTypeDef
+# SearchFacesRequestTypeDef
 
 ### CollectionId
 - **Type**: <class 'str'>
@@ -3385,7 +3379,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SearchUsersByImageRequestRequestTypeDef
+# SearchUsersByImageRequestTypeDef
 
 ### CollectionId
 - **Type**: <class 'str'>
@@ -3428,7 +3422,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SearchUsersRequestRequestTypeDef
+# SearchUsersRequestTypeDef
 
 ### CollectionId
 - **Type**: <class 'str'>
@@ -3490,51 +3484,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SegmentDetectionTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['SHOT', 'TECHNICAL_CUE']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### StartTimestampMillis
-- **Type**: typing.Optional[int]
-
-### EndTimestampMillis
-- **Type**: typing.Optional[int]
-
-### DurationMillis
-- **Type**: typing.Optional[int]
-
-### StartTimecodeSMPTE
-- **Type**: typing.Optional[str]
-
-### EndTimecodeSMPTE
-- **Type**: typing.Optional[str]
-
-### DurationSMPTE
-- **Type**: typing.Optional[str]
-
-### TechnicalCueSegment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.TechnicalCueSegmentTypeDef]
-
-### ShotSegment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.ShotSegmentTypeDef]
-
-### StartFrameNumber
-- **Type**: typing.Optional[int]
-
-### EndFrameNumber
-- **Type**: typing.Optional[int]
-
-### DurationFrames
-- **Type**: typing.Optional[int]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SegmentTypeInfoTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['SHOT', 'TECHNICAL_CUE']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### ModelVersion
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ShotSegmentTypeDef
 
@@ -3554,7 +3512,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# StartCelebrityRecognitionRequestRequestTypeDef
+# StartCelebrityRecognitionRequestTypeDef
 
 ### Video
 - **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.VideoTypeDef'>
@@ -3581,7 +3539,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartContentModerationRequestRequestTypeDef
+# StartContentModerationRequestTypeDef
 
 ### Video
 - **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.VideoTypeDef'>
@@ -3611,7 +3569,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartFaceDetectionRequestRequestTypeDef
+# StartFaceDetectionRequestTypeDef
 
 ### Video
 - **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.VideoTypeDef'>
@@ -3641,7 +3599,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartFaceSearchRequestRequestTypeDef
+# StartFaceSearchRequestTypeDef
 
 ### Video
 - **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.VideoTypeDef'>
@@ -3675,7 +3633,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartLabelDetectionRequestRequestTypeDef
+# StartLabelDetectionRequestTypeDef
 
 ### Video
 - **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.VideoTypeDef'>
@@ -3711,7 +3669,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartMediaAnalysisJobRequestRequestTypeDef
+# StartMediaAnalysisJobRequestTypeDef
 
 ### OperationsConfig
 - **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.MediaAnalysisOperationsConfigTypeDef'>
@@ -3746,7 +3704,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartPersonTrackingRequestRequestTypeDef
+# StartPersonTrackingRequestTypeDef
 
 ### Video
 - **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.VideoTypeDef'>
@@ -3773,7 +3731,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartProjectVersionRequestRequestTypeDef
+# StartProjectVersionRequestTypeDef
 
 ### ProjectVersionArn
 - **Type**: <class 'str'>
@@ -3807,7 +3765,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.StartShotDetectionFilterTypeDef]
 
 
-# StartSegmentDetectionRequestRequestTypeDef
+# StartSegmentDetectionRequestTypeDef
 
 ### Video
 - **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.VideoTypeDef'>
@@ -3847,7 +3805,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# StartStreamProcessorRequestRequestTypeDef
+# StartStreamProcessorRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -3886,10 +3844,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.DetectionFilterTypeDef]
 
 ### RegionsOfInterest
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rekognition_classes.RegionOfInterestTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rekognition_classes.RegionOfInterestUnionTypeDef]]
 
 
-# StartTextDetectionRequestRequestTypeDef
+# StartTextDetectionRequestTypeDef
 
 ### Video
 - **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.VideoTypeDef'>
@@ -3919,7 +3877,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopProjectVersionRequestRequestTypeDef
+# StopProjectVersionRequestTypeDef
 
 ### ProjectVersionArn
 - **Type**: <class 'str'>
@@ -3937,7 +3895,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopStreamProcessorRequestRequestTypeDef
+# StopStreamProcessorRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -4009,6 +3967,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.ConnectedHomeSettingsTypeDef]
 
 
+# StreamProcessorSettingsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # StreamProcessorTypeDef
 
 ### Name
@@ -4033,7 +3997,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -4042,24 +4006,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Tags
 - **Type**: typing.Mapping[str, str]
 - **Required**: Yes
-
-
-# TechnicalCueSegmentTypeDef
-
-### Type
-- **Type**: typing.Optional[typing.Literal['BlackFrames', 'ColorBars', 'Content', 'EndCredits', 'OpeningCredits', 'Slate', 'StudioLogo']]
-
-### Confidence
-- **Type**: typing.Optional[float]
-
-
-# TestingDataExtraOutputTypeDef
-
-### Assets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition_classes.AssetTypeDef]]
-
-### AutoCreate
-- **Type**: typing.Optional[bool]
 
 
 # TestingDataOutputTypeDef
@@ -4092,6 +4038,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
+# TestingDataUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # TextDetectionResultTypeDef
 
 ### Timestamp
@@ -4103,30 +4055,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # TextDetectionTypeDef
 
-### DetectedText
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[typing.Literal['LINE', 'WORD']]
-
-### Id
-- **Type**: typing.Optional[int]
-
-### ParentId
-- **Type**: typing.Optional[int]
-
-### Confidence
-- **Type**: typing.Optional[float]
-
-### Geometry
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.GeometryTypeDef]
-
-
-# TrainingDataExtraOutputTypeDef
-
-### Assets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition_classes.AssetTypeDef]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TrainingDataOutputTypeDef
 
@@ -4151,6 +4082,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Assets
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rekognition_classes.AssetTypeDef]]
 
+
+# TrainingDataUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UnindexedFaceTypeDef
 
@@ -4209,7 +4146,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['ASSOCIATED_TO_A_DIFFERENT_USER', 'FACE_NOT_FOUND']]]
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -4220,7 +4157,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDatasetEntriesRequestRequestTypeDef
+# UpdateDatasetEntriesRequestTypeDef
 
 ### DatasetArn
 - **Type**: <class 'str'>
@@ -4231,7 +4168,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateStreamProcessorRequestRequestTypeDef
+# UpdateStreamProcessorRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -4241,7 +4178,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.StreamProcessorSettingsForUpdateTypeDef]
 
 ### RegionsOfInterestForUpdate
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.rekognition_classes.RegionOfInterestTypeDef, aws_resource_validator.pydantic_models.rekognition_classes.RegionOfInterestOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rekognition_classes.RegionOfInterestUnionTypeDef]]
 
 ### DataSharingPreferenceForUpdate
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.StreamProcessorDataSharingPreferenceTypeDef]

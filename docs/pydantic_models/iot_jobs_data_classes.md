@@ -6,7 +6,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DescribeJobExecutionRequestRequestTypeDef
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CommandParameterValueTypeDef
+
+### S
+- **Type**: typing.Optional[str]
+
+### B
+- **Type**: typing.Optional[bool]
+
+### I
+- **Type**: typing.Optional[int]
+
+### L
+- **Type**: typing.Optional[int]
+
+### D
+- **Type**: typing.Optional[float]
+
+### BIN
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iot_jobs_data_classes.BlobTypeDef]
+
+### UL
+- **Type**: typing.Optional[str]
+
+
+# DescribeJobExecutionRequestTypeDef
 
 ### jobId
 - **Type**: <class 'str'>
@@ -34,7 +64,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPendingJobExecutionsRequestRequestTypeDef
+# GetPendingJobExecutionsRequestTypeDef
 
 ### thingName
 - **Type**: <class 'str'>
@@ -131,10 +161,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -147,8 +173,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# StartNextPendingJobExecutionRequestRequestTypeDef
+
+# StartCommandExecutionRequestTypeDef
+
+### targetArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### commandArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### parameters
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.iot_jobs_data_classes.CommandParameterValueTypeDef]]
+
+### executionTimeoutSeconds
+- **Type**: typing.Optional[int]
+
+### clientToken
+- **Type**: typing.Optional[str]
+
+
+# StartCommandExecutionResponseTypeDef
+
+### executionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.iot_jobs_data_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# StartNextPendingJobExecutionRequestTypeDef
 
 ### thingName
 - **Type**: <class 'str'>
@@ -172,7 +232,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateJobExecutionRequestRequestTypeDef
+# UpdateJobExecutionRequestTypeDef
 
 ### jobId
 - **Type**: <class 'str'>

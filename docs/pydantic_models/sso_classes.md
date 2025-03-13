@@ -25,7 +25,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRoleCredentialsRequestRequestTypeDef
+# GetRoleCredentialsRequestTypeDef
 
 ### roleName
 - **Type**: <class 'str'>
@@ -51,7 +51,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListAccountRolesRequestListAccountRolesPaginateTypeDef
+# ListAccountRolesRequestPaginateTypeDef
 
 ### accessToken
 - **Type**: <class 'str'>
@@ -65,7 +65,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_classes.PaginatorConfigTypeDef]
 
 
-# ListAccountRolesRequestRequestTypeDef
+# ListAccountRolesRequestTypeDef
 
 ### accessToken
 - **Type**: <class 'str'>
@@ -84,10 +84,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListAccountRolesResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### roleList
 - **Type**: typing.List[aws_resource_validator.pydantic_models.sso_classes.RoleInfoTypeDef]
 - **Required**: Yes
@@ -96,8 +92,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.sso_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListAccountsRequestListAccountsPaginateTypeDef
+
+# ListAccountsRequestPaginateTypeDef
 
 ### accessToken
 - **Type**: <class 'str'>
@@ -107,7 +106,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_classes.PaginatorConfigTypeDef]
 
 
-# ListAccountsRequestRequestTypeDef
+# ListAccountsRequestTypeDef
 
 ### accessToken
 - **Type**: <class 'str'>
@@ -122,10 +121,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListAccountsResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### accountList
 - **Type**: typing.List[aws_resource_validator.pydantic_models.sso_classes.AccountInfoTypeDef]
 - **Required**: Yes
@@ -134,8 +129,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.sso_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# LogoutRequestRequestTypeDef
+
+# LogoutRequestTypeDef
 
 ### accessToken
 - **Type**: <class 'str'>
@@ -160,10 +158,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -175,6 +169,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # RoleCredentialsTypeDef

@@ -15,7 +15,7 @@
 - **Required**: Yes
 
 
-# AddPermissionRequestRequestTypeDef
+# AddPermissionRequestTypeDef
 
 ### QueueUrl
 - **Type**: <class 'str'>
@@ -58,7 +58,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CancelMessageMoveTaskRequestRequestTypeDef
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CancelMessageMoveTaskRequestTypeDef
 
 ### TaskHandle
 - **Type**: <class 'str'>
@@ -97,7 +103,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ChangeMessageVisibilityBatchRequestRequestTypeDef
+# ChangeMessageVisibilityBatchRequestTypeDef
 
 ### QueueUrl
 - **Type**: <class 'str'>
@@ -137,7 +143,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ChangeMessageVisibilityRequestRequestTypeDef
+# ChangeMessageVisibilityRequestTypeDef
 
 ### QueueUrl
 - **Type**: <class 'str'>
@@ -152,7 +158,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateQueueRequestRequestTypeDef
+# CreateQueueRequestServiceResourceCreateQueueTypeDef
 
 ### QueueName
 - **Type**: <class 'str'>
@@ -165,7 +171,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateQueueRequestServiceResourceCreateQueueTypeDef
+# CreateQueueRequestTypeDef
 
 ### QueueName
 - **Type**: <class 'str'>
@@ -207,7 +213,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteMessageBatchRequestRequestTypeDef
+# DeleteMessageBatchRequestTypeDef
 
 ### QueueUrl
 - **Type**: <class 'str'>
@@ -240,7 +246,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteMessageRequestRequestTypeDef
+# DeleteMessageRequestTypeDef
 
 ### QueueUrl
 - **Type**: <class 'str'>
@@ -251,7 +257,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteQueueRequestRequestTypeDef
+# DeleteQueueRequestTypeDef
 
 ### QueueUrl
 - **Type**: <class 'str'>
@@ -265,7 +271,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetQueueAttributesRequestRequestTypeDef
+# GetQueueAttributesRequestTypeDef
 
 ### QueueUrl
 - **Type**: <class 'str'>
@@ -286,7 +292,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetQueueUrlRequestRequestTypeDef
+# GetQueueUrlRequestServiceResourceGetQueueByNameTypeDef
 
 ### QueueName
 - **Type**: <class 'str'>
@@ -296,7 +302,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetQueueUrlRequestServiceResourceGetQueueByNameTypeDef
+# GetQueueUrlRequestTypeDef
 
 ### QueueName
 - **Type**: <class 'str'>
@@ -317,7 +323,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListDeadLetterSourceQueuesRequestListDeadLetterSourceQueuesPaginateTypeDef
+# ListDeadLetterSourceQueuesRequestPaginateTypeDef
 
 ### QueueUrl
 - **Type**: <class 'str'>
@@ -327,7 +333,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sqs_classes.PaginatorConfigTypeDef]
 
 
-# ListDeadLetterSourceQueuesRequestRequestTypeDef
+# ListDeadLetterSourceQueuesRequestTypeDef
 
 ### QueueUrl
 - **Type**: <class 'str'>
@@ -354,7 +360,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListMessageMoveTasksRequestRequestTypeDef
+# ListMessageMoveTasksRequestTypeDef
 
 ### SourceArn
 - **Type**: <class 'str'>
@@ -405,7 +411,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListQueueTagsRequestRequestTypeDef
+# ListQueueTagsRequestTypeDef
 
 ### QueueUrl
 - **Type**: <class 'str'>
@@ -423,7 +429,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListQueuesRequestListQueuesPaginateTypeDef
+# ListQueuesRequestPaginateTypeDef
 
 ### QueueNamePrefix
 - **Type**: typing.Optional[str]
@@ -432,7 +438,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sqs_classes.PaginatorConfigTypeDef]
 
 
-# ListQueuesRequestRequestTypeDef
+# ListQueuesRequestTypeDef
 
 ### QueueNamePrefix
 - **Type**: typing.Optional[str]
@@ -456,25 +462,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### NextToken
 - **Type**: typing.Optional[str]
-
-
-# MessageAttributeValueExtraOutputTypeDef
-
-### DataType
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### StringValue
-- **Type**: typing.Optional[str]
-
-### BinaryValue
-- **Type**: typing.Optional[bytes]
-
-### StringListValues
-- **Type**: typing.Optional[typing.List[str]]
-
-### BinaryListValues
-- **Type**: typing.Optional[typing.List[bytes]]
 
 
 # MessageAttributeValueOutputTypeDef
@@ -506,14 +493,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### BinaryValue
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sqs_classes.BlobTypeDef]
 
 ### StringListValues
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### BinaryListValues
-- **Type**: typing.Optional[typing.Sequence[typing.Union[str, bytes, typing.IO[typing.Any]]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sqs_classes.BlobTypeDef]]
 
+
+# MessageAttributeValueUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MessageSystemAttributeValueTypeDef
 
@@ -525,13 +518,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### BinaryValue
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sqs_classes.BlobTypeDef]
 
 ### StringListValues
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### BinaryListValues
-- **Type**: typing.Optional[typing.Sequence[typing.Union[str, bytes, typing.IO[typing.Any]]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sqs_classes.BlobTypeDef]]
 
 
 # MessageTypeDef
@@ -570,7 +563,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PurgeQueueRequestRequestTypeDef
+# PurgeQueueRequestTypeDef
 
 ### QueueUrl
 - **Type**: <class 'str'>
@@ -601,7 +594,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ReceiveMessageRequestRequestTypeDef
+# ReceiveMessageRequestTypeDef
 
 ### QueueUrl
 - **Type**: <class 'str'>
@@ -647,7 +640,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemovePermissionRequestRequestTypeDef
+# RemovePermissionRequestTypeDef
 
 ### QueueUrl
 - **Type**: <class 'str'>
@@ -694,7 +687,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### MessageAttributes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sqs_classes.MessageAttributeValueTypeDef]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sqs_classes.MessageAttributeValueUnionTypeDef]]
 
 ### MessageSystemAttributes
 - **Type**: typing.Optional[typing.Mapping[typing.Literal['AWSTraceHeader'], aws_resource_validator.pydantic_models.sqs_classes.MessageSystemAttributeValueTypeDef]]
@@ -713,7 +706,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SendMessageBatchRequestRequestTypeDef
+# SendMessageBatchRequestTypeDef
 
 ### QueueUrl
 - **Type**: <class 'str'>
@@ -773,7 +766,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### MessageAttributes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sqs_classes.MessageAttributeValueTypeDef]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sqs_classes.MessageAttributeValueUnionTypeDef]]
 
 ### MessageSystemAttributes
 - **Type**: typing.Optional[typing.Mapping[typing.Literal['AWSTraceHeader'], aws_resource_validator.pydantic_models.sqs_classes.MessageSystemAttributeValueTypeDef]]
@@ -785,7 +778,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SendMessageRequestRequestTypeDef
+# SendMessageRequestTypeDef
 
 ### QueueUrl
 - **Type**: <class 'str'>
@@ -799,7 +792,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### MessageAttributes
-- **Type**: typing.Optional[typing.Mapping[str, typing.Union[aws_resource_validator.pydantic_models.sqs_classes.MessageAttributeValueTypeDef, aws_resource_validator.pydantic_models.sqs_classes.MessageAttributeValueExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sqs_classes.MessageAttributeValueUnionTypeDef]]
 
 ### MessageSystemAttributes
 - **Type**: typing.Optional[typing.Mapping[typing.Literal['AWSTraceHeader'], aws_resource_validator.pydantic_models.sqs_classes.MessageSystemAttributeValueTypeDef]]
@@ -845,7 +838,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetQueueAttributesRequestRequestTypeDef
+# SetQueueAttributesRequestTypeDef
 
 ### QueueUrl
 - **Type**: <class 'str'>
@@ -856,7 +849,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartMessageMoveTaskRequestRequestTypeDef
+# StartMessageMoveTaskRequestTypeDef
 
 ### SourceArn
 - **Type**: <class 'str'>
@@ -880,7 +873,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagQueueRequestRequestTypeDef
+# TagQueueRequestTypeDef
 
 ### QueueUrl
 - **Type**: <class 'str'>
@@ -891,7 +884,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagQueueRequestRequestTypeDef
+# UntagQueueRequestTypeDef
 
 ### QueueUrl
 - **Type**: <class 'str'>

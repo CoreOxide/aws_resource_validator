@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateDeploymentInputRequestTypeDef
+# CreateDeploymentInputTypeDef
 
 ### deploymentPatternName
 - **Type**: <class 'str'>
@@ -42,7 +42,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDeploymentInputRequestTypeDef
+# DeleteDeploymentInputTypeDef
 
 ### deploymentId
 - **Type**: <class 'str'>
@@ -78,60 +78,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DeploymentDataSummaryTypeDef
 
-### createdAt
-- **Type**: typing.Optional[datetime.datetime]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### id
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### patternName
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[typing.Literal['COMPLETED', 'CREATING', 'DELETED', 'DELETE_FAILED', 'DELETE_INITIATING', 'DELETE_IN_PROGRESS', 'FAILED', 'IN_PROGRESS', 'VALIDATING']]
-
-### workloadName
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DeploymentDataTypeDef
 
-### createdAt
-- **Type**: typing.Optional[datetime.datetime]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### deletedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### deploymentArn
-- **Type**: typing.Optional[str]
-
-### id
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### patternName
-- **Type**: typing.Optional[str]
-
-### resourceGroup
-- **Type**: typing.Optional[str]
-
-### specifications
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### status
-- **Type**: typing.Optional[typing.Literal['COMPLETED', 'CREATING', 'DELETED', 'DELETE_FAILED', 'DELETE_INITIATING', 'DELETE_IN_PROGRESS', 'FAILED', 'IN_PROGRESS', 'VALIDATING']]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### workloadName
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DeploymentEventDataSummaryTypeDef
 
@@ -178,7 +133,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetDeploymentInputRequestTypeDef
+# GetDeploymentInputTypeDef
 
 ### deploymentId
 - **Type**: <class 'str'>
@@ -196,7 +151,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetWorkloadDeploymentPatternInputRequestTypeDef
+# GetWorkloadDeploymentPatternInputTypeDef
 
 ### deploymentPatternName
 - **Type**: <class 'str'>
@@ -218,7 +173,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetWorkloadInputRequestTypeDef
+# GetWorkloadInputTypeDef
 
 ### workloadName
 - **Type**: <class 'str'>
@@ -236,7 +191,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListDeploymentEventsInputListDeploymentEventsPaginateTypeDef
+# ListDeploymentEventsInputPaginateTypeDef
 
 ### deploymentId
 - **Type**: <class 'str'>
@@ -246,7 +201,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.launch_wizard_classes.PaginatorConfigTypeDef]
 
 
-# ListDeploymentEventsInputRequestTypeDef
+# ListDeploymentEventsInputTypeDef
 
 ### deploymentId
 - **Type**: <class 'str'>
@@ -265,16 +220,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.launch_wizard_classes.DeploymentEventDataSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.launch_wizard_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListDeploymentsInputListDeploymentsPaginateTypeDef
+
+# ListDeploymentsInputPaginateTypeDef
 
 ### filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.launch_wizard_classes.DeploymentFilterTypeDef]]
@@ -283,7 +237,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.launch_wizard_classes.PaginatorConfigTypeDef]
 
 
-# ListDeploymentsInputRequestTypeDef
+# ListDeploymentsInputTypeDef
 
 ### filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.launch_wizard_classes.DeploymentFilterTypeDef]]
@@ -301,16 +255,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.launch_wizard_classes.DeploymentDataSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.launch_wizard_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceInputRequestTypeDef
+
+# ListTagsForResourceInputTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -328,7 +281,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListWorkloadDeploymentPatternsInputListWorkloadDeploymentPatternsPaginateTypeDef
+# ListWorkloadDeploymentPatternsInputPaginateTypeDef
 
 ### workloadName
 - **Type**: <class 'str'>
@@ -338,7 +291,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.launch_wizard_classes.PaginatorConfigTypeDef]
 
 
-# ListWorkloadDeploymentPatternsInputRequestTypeDef
+# ListWorkloadDeploymentPatternsInputTypeDef
 
 ### workloadName
 - **Type**: <class 'str'>
@@ -353,10 +306,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListWorkloadDeploymentPatternsOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### workloadDeploymentPatterns
 - **Type**: typing.List[aws_resource_validator.pydantic_models.launch_wizard_classes.WorkloadDeploymentPatternDataSummaryTypeDef]
 - **Required**: Yes
@@ -365,14 +314,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.launch_wizard_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListWorkloadsInputListWorkloadsPaginateTypeDef
+
+# ListWorkloadsInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.launch_wizard_classes.PaginatorConfigTypeDef]
 
 
-# ListWorkloadsInputRequestTypeDef
+# ListWorkloadsInputTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -383,10 +335,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListWorkloadsOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### workloads
 - **Type**: typing.List[aws_resource_validator.pydantic_models.launch_wizard_classes.WorkloadDataSummaryTypeDef]
 - **Required**: Yes
@@ -394,6 +342,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.launch_wizard_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # PaginatorConfigTypeDef
@@ -430,7 +381,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceInputRequestTypeDef
+# TagResourceInputTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -441,7 +392,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceInputRequestTypeDef
+# UntagResourceInputTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>

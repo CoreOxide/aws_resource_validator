@@ -1,6 +1,6 @@
 # Sts Classes
 
-# AssumeRoleRequestRequestTypeDef
+# AssumeRoleRequestTypeDef
 
 ### RoleArn
 - **Type**: <class 'str'>
@@ -64,7 +64,7 @@
 - **Required**: Yes
 
 
-# AssumeRoleWithSAMLRequestRequestTypeDef
+# AssumeRoleWithSAMLRequestTypeDef
 
 ### RoleArn
 - **Type**: <class 'str'>
@@ -131,7 +131,7 @@
 - **Required**: Yes
 
 
-# AssumeRoleWithWebIdentityRequestRequestTypeDef
+# AssumeRoleWithWebIdentityRequestTypeDef
 
 ### RoleArn
 - **Type**: <class 'str'>
@@ -193,6 +193,35 @@
 - **Required**: Yes
 
 
+# AssumeRootRequestTypeDef
+
+### TargetPrincipal
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TaskPolicyArn
+- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.PolicyDescriptorTypeTypeDef'>
+- **Required**: Yes
+
+### DurationSeconds
+- **Type**: typing.Optional[int]
+
+
+# AssumeRootResponseTypeDef
+
+### Credentials
+- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.CredentialsTypeDef'>
+- **Required**: Yes
+
+### SourceIdentity
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
 # AssumedRoleUserTypeDef
 
 ### AssumedRoleId
@@ -229,7 +258,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DecodeAuthorizationMessageRequestRequestTypeDef
+# DecodeAuthorizationMessageRequestTypeDef
 
 ### EncodedMessage
 - **Type**: <class 'str'>
@@ -258,7 +287,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAccessKeyInfoRequestRequestTypeDef
+# GetAccessKeyInfoRequestTypeDef
 
 ### AccessKeyId
 - **Type**: <class 'str'>
@@ -295,7 +324,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetFederationTokenRequestRequestTypeDef
+# GetFederationTokenRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -333,7 +362,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSessionTokenRequestRequestTypeDef
+# GetSessionTokenRequestTypeDef
 
 ### DurationSeconds
 - **Type**: typing.Optional[int]
@@ -377,10 +406,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -392,6 +417,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # TagTypeDef

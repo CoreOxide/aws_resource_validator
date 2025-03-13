@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateMonitorInputRequestTypeDef
+# CreateMonitorInputTypeDef
 
 ### monitorName
 - **Type**: <class 'str'>
@@ -76,7 +76,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateProbeInputRequestTypeDef
+# CreateProbeInputTypeDef
 
 ### monitorName
 - **Type**: <class 'str'>
@@ -152,14 +152,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteMonitorInputRequestTypeDef
+# DeleteMonitorInputTypeDef
 
 ### monitorName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteProbeInputRequestTypeDef
+# DeleteProbeInputTypeDef
 
 ### monitorName
 - **Type**: <class 'str'>
@@ -170,7 +170,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMonitorInputRequestTypeDef
+# GetMonitorInputTypeDef
 
 ### monitorName
 - **Type**: <class 'str'>
@@ -216,7 +216,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetProbeInputRequestTypeDef
+# GetProbeInputTypeDef
 
 ### monitorName
 - **Type**: <class 'str'>
@@ -286,7 +286,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListMonitorsInputListMonitorsPaginateTypeDef
+# ListMonitorsInputPaginateTypeDef
 
 ### state
 - **Type**: typing.Optional[str]
@@ -295,7 +295,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmonitor_classes.PaginatorConfigTypeDef]
 
 
-# ListMonitorsInputRequestTypeDef
+# ListMonitorsInputTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -313,16 +313,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.networkmonitor_classes.MonitorSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceInputRequestTypeDef
+
+# ListTagsForResourceInputTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -464,7 +463,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceInputRequestTypeDef
+# TagResourceInputTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -475,7 +474,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceInputRequestTypeDef
+# UntagResourceInputTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -486,7 +485,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateMonitorInputRequestTypeDef
+# UpdateMonitorInputTypeDef
 
 ### monitorName
 - **Type**: <class 'str'>
@@ -524,7 +523,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateProbeInputRequestTypeDef
+# UpdateProbeInputTypeDef
 
 ### monitorName
 - **Type**: <class 'str'>

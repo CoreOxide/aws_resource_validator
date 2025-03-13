@@ -11,7 +11,7 @@
 - **Required**: Yes
 
 
-# ApplicationPolicyStatementTypeDef
+# ApplicationPolicyStatementOutputTypeDef
 
 ### Actions
 - **Type**: typing.List[str]
@@ -27,6 +27,29 @@
 ### StatementId
 - **Type**: typing.Optional[str]
 
+
+# ApplicationPolicyStatementTypeDef
+
+### Actions
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### Principals
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### PrincipalOrgIDs
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### StatementId
+- **Type**: typing.Optional[str]
+
+
+# ApplicationPolicyStatementUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ApplicationSummaryTypeDef
 
@@ -65,7 +88,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateApplicationRequestRequestTypeDef
+# CreateApplicationRequestTypeDef
 
 ### Author
 - **Type**: <class 'str'>
@@ -175,7 +198,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateApplicationVersionRequestRequestTypeDef
+# CreateApplicationVersionRequestTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -241,7 +264,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCloudFormationChangeSetRequestRequestTypeDef
+# CreateCloudFormationChangeSetRequestTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -308,7 +331,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCloudFormationTemplateRequestRequestTypeDef
+# CreateCloudFormationTemplateRequestTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -353,7 +376,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteApplicationRequestRequestTypeDef
+# DeleteApplicationRequestTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -367,7 +390,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetApplicationPolicyRequestRequestTypeDef
+# GetApplicationPolicyRequestTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -377,7 +400,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetApplicationPolicyResponseTypeDef
 
 ### Statements
-- **Type**: typing.List[aws_resource_validator.pydantic_models.serverlessrepo_classes.ApplicationPolicyStatementTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.serverlessrepo_classes.ApplicationPolicyStatementOutputTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -385,7 +408,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetApplicationRequestRequestTypeDef
+# GetApplicationRequestTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -454,7 +477,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCloudFormationTemplateRequestRequestTypeDef
+# GetCloudFormationTemplateRequestTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -500,7 +523,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListApplicationDependenciesRequestListApplicationDependenciesPaginateTypeDef
+# ListApplicationDependenciesRequestPaginateTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -513,7 +536,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.serverlessrepo_classes.PaginatorConfigTypeDef]
 
 
-# ListApplicationDependenciesRequestRequestTypeDef
+# ListApplicationDependenciesRequestTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -535,16 +558,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.serverlessrepo_classes.ApplicationDependencySummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListApplicationVersionsRequestListApplicationVersionsPaginateTypeDef
+
+# ListApplicationVersionsRequestPaginateTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -554,7 +576,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.serverlessrepo_classes.PaginatorConfigTypeDef]
 
 
-# ListApplicationVersionsRequestRequestTypeDef
+# ListApplicationVersionsRequestTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -569,10 +591,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListApplicationVersionsResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### Versions
 - **Type**: typing.List[aws_resource_validator.pydantic_models.serverlessrepo_classes.VersionSummaryTypeDef]
 - **Required**: Yes
@@ -581,14 +599,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListApplicationsRequestListApplicationsPaginateTypeDef
+
+# ListApplicationsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.serverlessrepo_classes.PaginatorConfigTypeDef]
 
 
-# ListApplicationsRequestRequestTypeDef
+# ListApplicationsRequestTypeDef
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -603,13 +624,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.serverlessrepo_classes.ApplicationSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # PaginatorConfigTypeDef
@@ -626,47 +646,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ParameterDefinitionTypeDef
 
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### ReferencedByResources
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### AllowedPattern
-- **Type**: typing.Optional[str]
-
-### AllowedValues
-- **Type**: typing.Optional[typing.List[str]]
-
-### ConstraintDescription
-- **Type**: typing.Optional[str]
-
-### DefaultValue
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### MaxLength
-- **Type**: typing.Optional[int]
-
-### MaxValue
-- **Type**: typing.Optional[int]
-
-### MinLength
-- **Type**: typing.Optional[int]
-
-### MinValue
-- **Type**: typing.Optional[int]
-
-### NoEcho
-- **Type**: typing.Optional[bool]
-
-### Type
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ParameterValueTypeDef
 
@@ -679,21 +661,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutApplicationPolicyRequestRequestTypeDef
+# PutApplicationPolicyRequestTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Statements
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.serverlessrepo_classes.ApplicationPolicyStatementTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.serverlessrepo_classes.ApplicationPolicyStatementUnionTypeDef]
 - **Required**: Yes
 
 
 # PutApplicationPolicyResponseTypeDef
 
 ### Statements
-- **Type**: typing.List[aws_resource_validator.pydantic_models.serverlessrepo_classes.ApplicationPolicyStatementTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.serverlessrepo_classes.ApplicationPolicyStatementOutputTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -704,10 +686,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ResponseMetadataTypeDef
 
 ### RequestId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### HostId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -723,6 +701,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
+
 
 # RollbackConfigurationTypeDef
 
@@ -735,14 +716,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # RollbackTriggerTypeDef
 
-### Arn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: <class 'str'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TagTypeDef
 
@@ -755,7 +731,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UnshareApplicationRequestRequestTypeDef
+# UnshareApplicationRequestTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -766,7 +742,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateApplicationRequestRequestTypeDef
+# UpdateApplicationRequestTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>

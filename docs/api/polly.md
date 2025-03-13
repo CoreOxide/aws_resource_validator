@@ -10,7 +10,8 @@
 
 ### OutputS3KeyPrefix
 - **Type**: string
-- **Pattern**: `^[0-9a-zA-Z\/\!\-_\.\*\\'\(\):;\$@=+\,\?&]{0,800}$`
+- **Pattern**: `^[.!*\'()_\-\/a-zA-Z0-9]+$`
+- **Max Length**: 800
 
 ### SnsTopicArn
 - **Type**: string

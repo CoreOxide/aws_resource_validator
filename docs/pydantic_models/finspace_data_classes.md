@@ -1,6 +1,6 @@
 # Finspace Data Classes
 
-# AssociateUserToPermissionGroupRequestRequestTypeDef
+# AssociateUserToPermissionGroupRequestTypeDef
 
 ### permissionGroupId
 - **Type**: <class 'str'>
@@ -109,7 +109,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateChangesetRequestRequestTypeDef
+# CreateChangesetRequestTypeDef
 
 ### datasetId
 - **Type**: <class 'str'>
@@ -146,14 +146,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDataViewRequestRequestTypeDef
+# CreateDataViewRequestTypeDef
 
 ### datasetId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### destinationTypeParams
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_data_classes.DataViewDestinationTypeParamsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_data_classes.DataViewDestinationTypeParamsUnionTypeDef'>
 - **Required**: Yes
 
 ### clientToken
@@ -187,7 +187,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDatasetRequestRequestTypeDef
+# CreateDatasetRequestTypeDef
 
 ### datasetTitle
 - **Type**: <class 'str'>
@@ -214,7 +214,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### schemaDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_data_classes.SchemaUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_data_classes.SchemaUnionUnionTypeDef]
 
 
 # CreateDatasetResponseTypeDef
@@ -228,7 +228,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePermissionGroupRequestRequestTypeDef
+# CreatePermissionGroupRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -256,32 +256,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateUserRequestRequestTypeDef
-
-### emailAddress
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['APP_USER', 'SUPER_USER']
-- **Required**: Yes
-
-### firstName
-- **Type**: typing.Optional[str]
-
-### lastName
-- **Type**: typing.Optional[str]
-
-### apiAccess
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### apiAccessPrincipalArn
-- **Type**: typing.Optional[str]
-
-### clientToken
-- **Type**: typing.Optional[str]
-
-
 # CreateUserResponseTypeDef
 
 ### userId
@@ -305,7 +279,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DataViewDestinationTypeParamsPaginatorTypeDef
+# DataViewDestinationTypeParamsOutputTypeDef
 
 ### destinationType
 - **Type**: <class 'str'>
@@ -331,6 +305,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
+# DataViewDestinationTypeParamsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # DataViewErrorInfoTypeDef
 
 ### errorMessage
@@ -338,45 +318,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### errorCategory
 - **Type**: typing.Optional[typing.Literal['ACCESS_DENIED', 'CANCELLED', 'INTERNAL_SERVICE_EXCEPTION', 'RESOURCE_NOT_FOUND', 'SERVICE_QUOTA_EXCEEDED', 'THROTTLING', 'USER_RECOVERABLE', 'VALIDATION']]
-
-
-# DataViewSummaryPaginatorTypeDef
-
-### dataViewId
-- **Type**: typing.Optional[str]
-
-### dataViewArn
-- **Type**: typing.Optional[str]
-
-### datasetId
-- **Type**: typing.Optional[str]
-
-### asOfTimestamp
-- **Type**: typing.Optional[int]
-
-### partitionColumns
-- **Type**: typing.Optional[typing.List[str]]
-
-### sortColumns
-- **Type**: typing.Optional[typing.List[str]]
-
-### status
-- **Type**: typing.Optional[typing.Literal['CANCELLED', 'FAILED', 'FAILED_CLEANUP_FAILED', 'PENDING', 'RUNNING', 'STARTING', 'SUCCESS', 'TIMEOUT']]
-
-### errorInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_data_classes.DataViewErrorInfoTypeDef]
-
-### destinationTypeProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_data_classes.DataViewDestinationTypeParamsPaginatorTypeDef]
-
-### autoUpdate
-- **Type**: typing.Optional[bool]
-
-### createTime
-- **Type**: typing.Optional[int]
-
-### lastModifiedTime
-- **Type**: typing.Optional[int]
 
 
 # DataViewSummaryTypeDef
@@ -406,7 +347,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_data_classes.DataViewErrorInfoTypeDef]
 
 ### destinationTypeProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_data_classes.DataViewDestinationTypeParamsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_data_classes.DataViewDestinationTypeParamsOutputTypeDef]
 
 ### autoUpdate
 - **Type**: typing.Optional[bool]
@@ -427,39 +368,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### email
-- **Type**: typing.Optional[str]
-
-
-# DatasetPaginatorTypeDef
-
-### datasetId
-- **Type**: typing.Optional[str]
-
-### datasetArn
-- **Type**: typing.Optional[str]
-
-### datasetTitle
-- **Type**: typing.Optional[str]
-
-### kind
-- **Type**: typing.Optional[typing.Literal['NON_TABULAR', 'TABULAR']]
-
-### datasetDescription
-- **Type**: typing.Optional[str]
-
-### ownerInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_data_classes.DatasetOwnerInfoTypeDef]
-
-### createTime
-- **Type**: typing.Optional[int]
-
-### lastModifiedTime
-- **Type**: typing.Optional[int]
-
-### schemaDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_data_classes.SchemaUnionPaginatorTypeDef]
-
-### alias
 - **Type**: typing.Optional[str]
 
 
@@ -490,13 +398,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### schemaDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_data_classes.SchemaUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_data_classes.SchemaUnionOutputTypeDef]
 
 ### alias
 - **Type**: typing.Optional[str]
 
 
-# DeleteDatasetRequestRequestTypeDef
+# DeleteDatasetRequestTypeDef
 
 ### datasetId
 - **Type**: <class 'str'>
@@ -517,7 +425,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeletePermissionGroupRequestRequestTypeDef
+# DeletePermissionGroupRequestTypeDef
 
 ### permissionGroupId
 - **Type**: <class 'str'>
@@ -538,7 +446,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisableUserRequestRequestTypeDef
+# DisableUserRequestTypeDef
 
 ### userId
 - **Type**: <class 'str'>
@@ -559,7 +467,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateUserFromPermissionGroupRequestRequestTypeDef
+# DisassociateUserFromPermissionGroupRequestTypeDef
 
 ### permissionGroupId
 - **Type**: <class 'str'>
@@ -584,7 +492,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EnableUserRequestRequestTypeDef
+# EnableUserRequestTypeDef
 
 ### userId
 - **Type**: <class 'str'>
@@ -605,7 +513,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetChangesetRequestRequestTypeDef
+# GetChangesetRequestTypeDef
 
 ### datasetId
 - **Type**: <class 'str'>
@@ -675,7 +583,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDataViewRequestRequestTypeDef
+# GetDataViewRequestTypeDef
 
 ### dataViewId
 - **Type**: <class 'str'>
@@ -729,7 +637,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### destinationTypeParams
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_data_classes.DataViewDestinationTypeParamsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_data_classes.DataViewDestinationTypeParamsOutputTypeDef'>
 - **Required**: Yes
 
 ### status
@@ -741,7 +649,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDatasetRequestRequestTypeDef
+# GetDatasetRequestTypeDef
 
 ### datasetId
 - **Type**: <class 'str'>
@@ -779,7 +687,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### schemaDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_data_classes.SchemaUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_data_classes.SchemaUnionOutputTypeDef'>
 - **Required**: Yes
 
 ### alias
@@ -795,7 +703,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetExternalDataViewAccessDetailsRequestRequestTypeDef
+# GetExternalDataViewAccessDetailsRequestTypeDef
 
 ### dataViewId
 - **Type**: <class 'str'>
@@ -821,7 +729,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPermissionGroupRequestRequestTypeDef
+# GetPermissionGroupRequestTypeDef
 
 ### permissionGroupId
 - **Type**: <class 'str'>
@@ -839,7 +747,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetProgrammaticAccessCredentialsRequestRequestTypeDef
+# GetProgrammaticAccessCredentialsRequestTypeDef
 
 ### environmentId
 - **Type**: <class 'str'>
@@ -864,73 +772,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetUserRequestRequestTypeDef
+# GetUserRequestTypeDef
 
 ### userId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetUserResponseTypeDef
-
-### userId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['CREATING', 'DISABLED', 'ENABLED']
-- **Required**: Yes
-
-### firstName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### lastName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### emailAddress
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['APP_USER', 'SUPER_USER']
-- **Required**: Yes
-
-### apiAccess
-- **Type**: typing.Literal['DISABLED', 'ENABLED']
-- **Required**: Yes
-
-### apiAccessPrincipalArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createTime
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### lastEnabledTime
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### lastDisabledTime
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### lastModifiedTime
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### lastLoginTime
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_data_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetWorkingLocationRequestRequestTypeDef
+# GetWorkingLocationRequestTypeDef
 
 ### locationType
 - **Type**: typing.Optional[typing.Literal['INGESTION', 'SAGEMAKER']]
@@ -955,7 +804,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListChangesetsRequestListChangesetsPaginateTypeDef
+# ListChangesetsRequestPaginateTypeDef
 
 ### datasetId
 - **Type**: <class 'str'>
@@ -965,7 +814,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_data_classes.PaginatorConfigTypeDef]
 
 
-# ListChangesetsRequestRequestTypeDef
+# ListChangesetsRequestTypeDef
 
 ### datasetId
 - **Type**: <class 'str'>
@@ -984,16 +833,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_data_classes.ChangesetSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.finspace_data_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListDataViewsRequestListDataViewsPaginateTypeDef
+
+# ListDataViewsRequestPaginateTypeDef
 
 ### datasetId
 - **Type**: <class 'str'>
@@ -1003,7 +851,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_data_classes.PaginatorConfigTypeDef]
 
 
-# ListDataViewsRequestRequestTypeDef
+# ListDataViewsRequestTypeDef
 
 ### datasetId
 - **Type**: <class 'str'>
@@ -1016,26 +864,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDataViewsResponsePaginatorTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### dataViews
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_data_classes.DataViewSummaryPaginatorTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_data_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
 # ListDataViewsResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### dataViews
 - **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_data_classes.DataViewSummaryTypeDef]
@@ -1045,14 +874,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.finspace_data_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListDatasetsRequestListDatasetsPaginateTypeDef
+
+# ListDatasetsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_data_classes.PaginatorConfigTypeDef]
 
 
-# ListDatasetsRequestRequestTypeDef
+# ListDatasetsRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1061,37 +893,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDatasetsResponsePaginatorTypeDef
-
-### datasets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_data_classes.DatasetPaginatorTypeDef]
-- **Required**: Yes
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_data_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
 # ListDatasetsResponseTypeDef
 
 ### datasets
 - **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_data_classes.DatasetTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.finspace_data_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListPermissionGroupsByUserRequestRequestTypeDef
+
+# ListPermissionGroupsByUserRequestTypeDef
 
 ### userId
 - **Type**: <class 'str'>
@@ -1111,22 +927,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_data_classes.PermissionGroupByUserTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.finspace_data_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListPermissionGroupsRequestListPermissionGroupsPaginateTypeDef
+
+# ListPermissionGroupsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_data_classes.PaginatorConfigTypeDef]
 
 
-# ListPermissionGroupsRequestRequestTypeDef
+# ListPermissionGroupsRequestTypeDef
 
 ### maxResults
 - **Type**: <class 'int'>
@@ -1142,16 +957,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_data_classes.PermissionGroupTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.finspace_data_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListUsersByPermissionGroupRequestRequestTypeDef
+
+# ListUsersByPermissionGroupRequestTypeDef
 
 ### permissionGroupId
 - **Type**: <class 'str'>
@@ -1171,22 +985,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_data_classes.UserByPermissionGroupTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.finspace_data_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListUsersRequestListUsersPaginateTypeDef
+
+# ListUsersRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_data_classes.PaginatorConfigTypeDef]
 
 
-# ListUsersRequestRequestTypeDef
+# ListUsersRequestTypeDef
 
 ### maxResults
 - **Type**: <class 'int'>
@@ -1202,13 +1015,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_data_classes.UserTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.finspace_data_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # PaginatorConfigTypeDef
@@ -1268,7 +1080,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ADDITION_IN_PROGRESS', 'ADDITION_SUCCESS', 'REMOVAL_IN_PROGRESS']]
 
 
-# ResetUserPasswordRequestRequestTypeDef
+# ResetUserPasswordRequestTypeDef
 
 ### userId
 - **Type**: <class 'str'>
@@ -1305,10 +1117,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -1320,6 +1128,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # S3LocationTypeDef
@@ -1333,7 +1144,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SchemaDefinitionPaginatorTypeDef
+# SchemaDefinitionOutputTypeDef
 
 ### columns
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.finspace_data_classes.ColumnDefinitionTypeDef]]
@@ -1351,10 +1162,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# SchemaUnionPaginatorTypeDef
+# SchemaUnionOutputTypeDef
 
 ### tabularSchemaConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_data_classes.SchemaDefinitionPaginatorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_data_classes.SchemaDefinitionOutputTypeDef]
 
 
 # SchemaUnionTypeDef
@@ -1363,7 +1174,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_data_classes.SchemaDefinitionTypeDef]
 
 
-# UpdateChangesetRequestRequestTypeDef
+# SchemaUnionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UpdateChangesetRequestTypeDef
 
 ### datasetId
 - **Type**: <class 'str'>
@@ -1400,7 +1217,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDatasetRequestRequestTypeDef
+# UpdateDatasetRequestTypeDef
 
 ### datasetId
 - **Type**: <class 'str'>
@@ -1424,7 +1241,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### schemaDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_data_classes.SchemaUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_data_classes.SchemaUnionUnionTypeDef]
 
 
 # UpdateDatasetResponseTypeDef
@@ -1438,7 +1255,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePermissionGroupRequestRequestTypeDef
+# UpdatePermissionGroupRequestTypeDef
 
 ### permissionGroupId
 - **Type**: <class 'str'>
@@ -1468,31 +1285,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateUserRequestRequestTypeDef
-
-### userId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Optional[typing.Literal['APP_USER', 'SUPER_USER']]
-
-### firstName
-- **Type**: typing.Optional[str]
-
-### lastName
-- **Type**: typing.Optional[str]
-
-### apiAccess
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### apiAccessPrincipalArn
-- **Type**: typing.Optional[str]
-
-### clientToken
-- **Type**: typing.Optional[str]
-
-
 # UpdateUserResponseTypeDef
 
 ### userId
@@ -1506,73 +1298,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # UserByPermissionGroupTypeDef
 
-### userId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### status
-- **Type**: typing.Optional[typing.Literal['CREATING', 'DISABLED', 'ENABLED']]
-
-### firstName
-- **Type**: typing.Optional[str]
-
-### lastName
-- **Type**: typing.Optional[str]
-
-### emailAddress
-- **Type**: typing.Optional[str]
-
-### type
-- **Type**: typing.Optional[typing.Literal['APP_USER', 'SUPER_USER']]
-
-### apiAccess
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### apiAccessPrincipalArn
-- **Type**: typing.Optional[str]
-
-### membershipStatus
-- **Type**: typing.Optional[typing.Literal['ADDITION_IN_PROGRESS', 'ADDITION_SUCCESS', 'REMOVAL_IN_PROGRESS']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UserTypeDef
 
-### userId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### status
-- **Type**: typing.Optional[typing.Literal['CREATING', 'DISABLED', 'ENABLED']]
-
-### firstName
-- **Type**: typing.Optional[str]
-
-### lastName
-- **Type**: typing.Optional[str]
-
-### emailAddress
-- **Type**: typing.Optional[str]
-
-### type
-- **Type**: typing.Optional[typing.Literal['APP_USER', 'SUPER_USER']]
-
-### apiAccess
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### apiAccessPrincipalArn
-- **Type**: typing.Optional[str]
-
-### createTime
-- **Type**: typing.Optional[int]
-
-### lastEnabledTime
-- **Type**: typing.Optional[int]
-
-### lastDisabledTime
-- **Type**: typing.Optional[int]
-
-### lastModifiedTime
-- **Type**: typing.Optional[int]
-
-### lastLoginTime
-- **Type**: typing.Optional[int]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

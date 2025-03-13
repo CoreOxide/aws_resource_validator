@@ -1,6 +1,6 @@
 # Events Classes
 
-# ActivateEventSourceRequestRequestTypeDef
+# ActivateEventSourceRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -70,19 +70,6 @@
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# AwsVpcConfigurationExtraOutputTypeDef
-
-### Subnets
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### SecurityGroups
-- **Type**: typing.Optional[typing.List[str]]
-
-### AssignPublicIp
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-
 # AwsVpcConfigurationOutputTypeDef
 
 ### Subnets
@@ -108,6 +95,12 @@
 ### AssignPublicIp
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
+
+# AwsVpcConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BaseValidatorModel
 
@@ -144,7 +137,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CancelReplayRequestRequestTypeDef
+# CancelReplayRequestTypeDef
 
 ### ReplayName
 - **Type**: <class 'str'>
@@ -185,18 +178,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ConditionTypeDef
 
-### Type
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Key
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Value
-- **Type**: <class 'str'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ConnectionApiKeyAuthResponseParametersTypeDef
 
@@ -217,6 +201,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### InvocationHttpParameters
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.ConnectionHttpParametersOutputTypeDef]
+
+### ConnectivityParameters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.DescribeConnectionConnectivityParametersTypeDef]
 
 
 # ConnectionBasicAuthResponseParametersTypeDef
@@ -273,6 +260,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.events_classes.ConnectionBodyParameterTypeDef]]
 
 
+# ConnectionHttpParametersUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ConnectionOAuthClientResponseParametersTypeDef
 
 ### ClientID
@@ -315,7 +308,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ConnectionState
-- **Type**: typing.Optional[typing.Literal['AUTHORIZED', 'AUTHORIZING', 'CREATING', 'DEAUTHORIZED', 'DEAUTHORIZING', 'DELETING', 'UPDATING']]
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'AUTHORIZED', 'AUTHORIZING', 'CREATING', 'DEAUTHORIZED', 'DEAUTHORIZING', 'DELETING', 'FAILED_CONNECTIVITY', 'UPDATING']]
 
 ### StateReason
 - **Type**: typing.Optional[str]
@@ -333,7 +326,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# CreateApiDestinationRequestRequestTypeDef
+# ConnectivityResourceConfigurationArnTypeDef
+
+### ResourceConfigurationArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# ConnectivityResourceParametersTypeDef
+
+### ResourceParameters
+- **Type**: <class 'aws_resource_validator.pydantic_models.events_classes.ConnectivityResourceConfigurationArnTypeDef'>
+- **Required**: Yes
+
+
+# CreateApiDestinationRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -381,7 +388,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateArchiveRequestRequestTypeDef
+# CreateArchiveRequestTypeDef
 
 ### ArchiveName
 - **Type**: <class 'str'>
@@ -447,7 +454,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.CreateConnectionApiKeyAuthRequestParametersTypeDef]
 
 ### InvocationHttpParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.ConnectionHttpParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.ConnectionHttpParametersUnionTypeDef]
+
+### ConnectivityParameters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.ConnectivityResourceParametersTypeDef]
 
 
 # CreateConnectionBasicAuthRequestParametersTypeDef
@@ -487,10 +497,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OAuthHttpParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.ConnectionHttpParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.ConnectionHttpParametersUnionTypeDef]
 
 
-# CreateConnectionRequestRequestTypeDef
+# CreateConnectionRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -507,6 +517,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Description
 - **Type**: typing.Optional[str]
 
+### InvocationConnectivityParameters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.ConnectivityResourceParametersTypeDef]
+
 
 # CreateConnectionResponseTypeDef
 
@@ -515,7 +528,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ConnectionState
-- **Type**: typing.Literal['AUTHORIZED', 'AUTHORIZING', 'CREATING', 'DEAUTHORIZED', 'DEAUTHORIZING', 'DELETING', 'UPDATING']
+- **Type**: typing.Literal['ACTIVE', 'AUTHORIZED', 'AUTHORIZING', 'CREATING', 'DEAUTHORIZED', 'DEAUTHORIZING', 'DELETING', 'FAILED_CONNECTIVITY', 'UPDATING']
 - **Required**: Yes
 
 ### CreationTime
@@ -531,7 +544,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateEndpointRequestRequestTypeDef
+# CreateEndpointRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -590,7 +603,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateEventBusRequestRequestTypeDef
+# CreateEventBusRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -635,7 +648,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePartnerEventSourceRequestRequestTypeDef
+# CreatePartnerEventSourceRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -657,7 +670,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeactivateEventSourceRequestRequestTypeDef
+# DeactivateEventSourceRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -670,7 +683,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeauthorizeConnectionRequestRequestTypeDef
+# DeauthorizeConnectionRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -684,7 +697,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ConnectionState
-- **Type**: typing.Literal['AUTHORIZED', 'AUTHORIZING', 'CREATING', 'DEAUTHORIZED', 'DEAUTHORIZING', 'DELETING', 'UPDATING']
+- **Type**: typing.Literal['ACTIVE', 'AUTHORIZED', 'AUTHORIZING', 'CREATING', 'DEAUTHORIZED', 'DEAUTHORIZING', 'DELETING', 'FAILED_CONNECTIVITY', 'UPDATING']
 - **Required**: Yes
 
 ### CreationTime
@@ -704,21 +717,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteApiDestinationRequestRequestTypeDef
+# DeleteApiDestinationRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteArchiveRequestRequestTypeDef
+# DeleteArchiveRequestTypeDef
 
 ### ArchiveName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteConnectionRequestRequestTypeDef
+# DeleteConnectionRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -732,7 +745,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ConnectionState
-- **Type**: typing.Literal['AUTHORIZED', 'AUTHORIZING', 'CREATING', 'DEAUTHORIZED', 'DEAUTHORIZING', 'DELETING', 'UPDATING']
+- **Type**: typing.Literal['ACTIVE', 'AUTHORIZED', 'AUTHORIZING', 'CREATING', 'DEAUTHORIZED', 'DEAUTHORIZING', 'DELETING', 'FAILED_CONNECTIVITY', 'UPDATING']
 - **Required**: Yes
 
 ### CreationTime
@@ -752,21 +765,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteEndpointRequestRequestTypeDef
+# DeleteEndpointRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteEventBusRequestRequestTypeDef
+# DeleteEventBusRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePartnerEventSourceRequestRequestTypeDef
+# DeletePartnerEventSourceRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -777,7 +790,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteRuleRequestRequestTypeDef
+# DeleteRuleRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -790,7 +803,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DescribeApiDestinationRequestRequestTypeDef
+# DescribeApiDestinationRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -844,7 +857,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeArchiveRequestRequestTypeDef
+# DescribeArchiveRequestTypeDef
 
 ### ArchiveName
 - **Type**: <class 'str'>
@@ -902,9 +915,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeConnectionRequestRequestTypeDef
+# DescribeConnectionConnectivityParametersTypeDef
+
+### ResourceParameters
+- **Type**: <class 'aws_resource_validator.pydantic_models.events_classes.DescribeConnectionResourceParametersTypeDef'>
+- **Required**: Yes
+
+
+# DescribeConnectionRequestTypeDef
 
 ### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeConnectionResourceParametersTypeDef
+
+### ResourceConfigurationArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResourceAssociationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -923,8 +954,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### InvocationConnectivityParameters
+- **Type**: <class 'aws_resource_validator.pydantic_models.events_classes.DescribeConnectionConnectivityParametersTypeDef'>
+- **Required**: Yes
+
 ### ConnectionState
-- **Type**: typing.Literal['AUTHORIZED', 'AUTHORIZING', 'CREATING', 'DEAUTHORIZED', 'DEAUTHORIZING', 'DELETING', 'UPDATING']
+- **Type**: typing.Literal['ACTIVE', 'AUTHORIZED', 'AUTHORIZING', 'CREATING', 'DEAUTHORIZED', 'DEAUTHORIZING', 'DELETING', 'FAILED_CONNECTIVITY', 'UPDATING']
 - **Required**: Yes
 
 ### StateReason
@@ -960,7 +995,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEndpointRequestRequestTypeDef
+# DescribeEndpointRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -1029,7 +1064,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEventBusRequestRequestTypeDef
+# DescribeEventBusRequestTypeDef
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -1074,7 +1109,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEventSourceRequestRequestTypeDef
+# DescribeEventSourceRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -1112,7 +1147,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribePartnerEventSourceRequestRequestTypeDef
+# DescribePartnerEventSourceRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -1134,7 +1169,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeReplayRequestRequestTypeDef
+# DescribeReplayRequestTypeDef
 
 ### ReplayName
 - **Type**: <class 'str'>
@@ -1196,7 +1231,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeRuleRequestRequestTypeDef
+# DescribeRuleRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -1253,7 +1288,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisableRuleRequestRequestTypeDef
+# DisableRuleRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -1261,52 +1296,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### EventBusName
 - **Type**: typing.Optional[str]
-
-
-# EcsParametersExtraOutputTypeDef
-
-### TaskDefinitionArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### TaskCount
-- **Type**: typing.Optional[int]
-
-### LaunchType
-- **Type**: typing.Optional[typing.Literal['EC2', 'EXTERNAL', 'FARGATE']]
-
-### NetworkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.NetworkConfigurationExtraOutputTypeDef]
-
-### PlatformVersion
-- **Type**: typing.Optional[str]
-
-### Group
-- **Type**: typing.Optional[str]
-
-### CapacityProviderStrategy
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.events_classes.CapacityProviderStrategyItemTypeDef]]
-
-### EnableECSManagedTags
-- **Type**: typing.Optional[bool]
-
-### EnableExecuteCommand
-- **Type**: typing.Optional[bool]
-
-### PlacementConstraints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.events_classes.PlacementConstraintTypeDef]]
-
-### PlacementStrategy
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.events_classes.PlacementStrategyTypeDef]]
-
-### PropagateTags
-- **Type**: typing.Optional[typing.Literal['TASK_DEFINITION']]
-
-### ReferenceId
-- **Type**: typing.Optional[str]
-
-### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.events_classes.TagTypeDef]]
 
 
 # EcsParametersOutputTypeDef
@@ -1368,7 +1357,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EC2', 'EXTERNAL', 'FARGATE']]
 
 ### NetworkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.NetworkConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.NetworkConfigurationUnionTypeDef]
 
 ### PlatformVersion
 - **Type**: typing.Optional[str]
@@ -1401,6 +1390,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.events_classes.TagTypeDef]]
 
 
+# EcsParametersUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # EmptyResponseMetadataTypeDef
 
 ### ResponseMetadata
@@ -1408,7 +1403,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EnableRuleRequestRequestTypeDef
+# EnableRuleRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -1520,18 +1515,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# HttpParametersExtraOutputTypeDef
-
-### PathParameterValues
-- **Type**: typing.Optional[typing.List[str]]
-
-### HeaderParameters
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### QueryStringParameters
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
 # HttpParametersOutputTypeDef
 
 ### PathParameterValues
@@ -1556,15 +1539,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# InputTransformerExtraOutputTypeDef
+# HttpParametersUnionTypeDef
 
-### InputTemplate
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### InputPathsMap
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # InputTransformerOutputTypeDef
 
@@ -1586,6 +1565,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
+# InputTransformerUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # KinesisParametersTypeDef
 
 ### PartitionKeyPath
@@ -1593,7 +1578,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListApiDestinationsRequestRequestTypeDef
+# ListApiDestinationsRequestTypeDef
 
 ### NamePrefix
 - **Type**: typing.Optional[str]
@@ -1622,7 +1607,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListArchivesRequestRequestTypeDef
+# ListArchivesRequestTypeDef
 
 ### NamePrefix
 - **Type**: typing.Optional[str]
@@ -1654,13 +1639,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListConnectionsRequestRequestTypeDef
+# ListConnectionsRequestTypeDef
 
 ### NamePrefix
 - **Type**: typing.Optional[str]
 
 ### ConnectionState
-- **Type**: typing.Optional[typing.Literal['AUTHORIZED', 'AUTHORIZING', 'CREATING', 'DEAUTHORIZED', 'DEAUTHORIZING', 'DELETING', 'UPDATING']]
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'AUTHORIZED', 'AUTHORIZING', 'CREATING', 'DEAUTHORIZED', 'DEAUTHORIZING', 'DELETING', 'FAILED_CONNECTIVITY', 'UPDATING']]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1683,7 +1668,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListEndpointsRequestRequestTypeDef
+# ListEndpointsRequestTypeDef
 
 ### NamePrefix
 - **Type**: typing.Optional[str]
@@ -1712,7 +1697,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListEventBusesRequestRequestTypeDef
+# ListEventBusesRequestTypeDef
 
 ### NamePrefix
 - **Type**: typing.Optional[str]
@@ -1738,7 +1723,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListEventSourcesRequestRequestTypeDef
+# ListEventSourcesRequestTypeDef
 
 ### NamePrefix
 - **Type**: typing.Optional[str]
@@ -1764,7 +1749,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPartnerEventSourceAccountsRequestRequestTypeDef
+# ListPartnerEventSourceAccountsRequestTypeDef
 
 ### EventSourceName
 - **Type**: <class 'str'>
@@ -1791,7 +1776,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPartnerEventSourcesRequestRequestTypeDef
+# ListPartnerEventSourcesRequestTypeDef
 
 ### NamePrefix
 - **Type**: <class 'str'>
@@ -1818,7 +1803,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListReplaysRequestRequestTypeDef
+# ListReplaysRequestTypeDef
 
 ### NamePrefix
 - **Type**: typing.Optional[str]
@@ -1850,7 +1835,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListRuleNamesByTargetRequestListRuleNamesByTargetPaginateTypeDef
+# ListRuleNamesByTargetRequestPaginateTypeDef
 
 ### TargetArn
 - **Type**: <class 'str'>
@@ -1863,7 +1848,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.PaginatorConfigTypeDef]
 
 
-# ListRuleNamesByTargetRequestRequestTypeDef
+# ListRuleNamesByTargetRequestTypeDef
 
 ### TargetArn
 - **Type**: <class 'str'>
@@ -1893,7 +1878,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListRulesRequestListRulesPaginateTypeDef
+# ListRulesRequestPaginateTypeDef
 
 ### NamePrefix
 - **Type**: typing.Optional[str]
@@ -1905,7 +1890,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.PaginatorConfigTypeDef]
 
 
-# ListRulesRequestRequestTypeDef
+# ListRulesRequestTypeDef
 
 ### NamePrefix
 - **Type**: typing.Optional[str]
@@ -1934,7 +1919,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -1952,7 +1937,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTargetsByRuleRequestListTargetsByRulePaginateTypeDef
+# ListTargetsByRuleRequestPaginateTypeDef
 
 ### Rule
 - **Type**: <class 'str'>
@@ -1965,7 +1950,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.PaginatorConfigTypeDef]
 
 
-# ListTargetsByRuleRequestRequestTypeDef
+# ListTargetsByRuleRequestTypeDef
 
 ### Rule
 - **Type**: <class 'str'>
@@ -1995,12 +1980,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# NetworkConfigurationExtraOutputTypeDef
-
-### awsvpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.AwsVpcConfigurationExtraOutputTypeDef]
-
-
 # NetworkConfigurationOutputTypeDef
 
 ### awsvpcConfiguration
@@ -2010,8 +1989,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # NetworkConfigurationTypeDef
 
 ### awsvpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.AwsVpcConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.AwsVpcConfigurationUnionTypeDef]
 
+
+# NetworkConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PaginatorConfigTypeDef
 
@@ -2051,21 +2036,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PlacementConstraintTypeDef
 
-### type
-- **Type**: typing.Optional[typing.Literal['distinctInstance', 'memberOf']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### expression
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PlacementStrategyTypeDef
 
-### type
-- **Type**: typing.Optional[typing.Literal['binpack', 'random', 'spread']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### field
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PrimaryTypeDef
 
@@ -2077,7 +2056,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutEventsRequestEntryTypeDef
 
 ### Time
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.TimestampTypeDef]
 
 ### Source
 - **Type**: typing.Optional[str]
@@ -2098,7 +2077,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutEventsRequestRequestTypeDef
+# PutEventsRequestTypeDef
 
 ### Entries
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.events_classes.PutEventsRequestEntryTypeDef]
@@ -2138,7 +2117,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutPartnerEventsRequestEntryTypeDef
 
 ### Time
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.TimestampTypeDef]
 
 ### Source
 - **Type**: typing.Optional[str]
@@ -2153,7 +2132,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutPartnerEventsRequestRequestTypeDef
+# PutPartnerEventsRequestTypeDef
 
 ### Entries
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.events_classes.PutPartnerEventsRequestEntryTypeDef]
@@ -2187,7 +2166,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutPermissionRequestRequestTypeDef
+# PutPermissionRequestTypeDef
 
 ### EventBusName
 - **Type**: typing.Optional[str]
@@ -2208,7 +2187,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutRuleRequestRequestTypeDef
+# PutRuleRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -2247,14 +2226,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutTargetsRequestRequestTypeDef
+# PutTargetsRequestTypeDef
 
 ### Rule
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Targets
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.events_classes.TargetTypeDef, aws_resource_validator.pydantic_models.events_classes.TargetExtraOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.events_classes.TargetUnionTypeDef]
 - **Required**: Yes
 
 ### EventBusName
@@ -2286,31 +2265,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ErrorMessage
 - **Type**: typing.Optional[str]
-
-
-# RedshiftDataParametersExtraOutputTypeDef
-
-### Database
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SecretManagerArn
-- **Type**: typing.Optional[str]
-
-### DbUser
-- **Type**: typing.Optional[str]
-
-### Sql
-- **Type**: typing.Optional[str]
-
-### StatementName
-- **Type**: typing.Optional[str]
-
-### WithEvent
-- **Type**: typing.Optional[bool]
-
-### Sqls
-- **Type**: typing.Optional[typing.List[str]]
 
 
 # RedshiftDataParametersOutputTypeDef
@@ -2363,7 +2317,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# RemovePermissionRequestRequestTypeDef
+# RedshiftDataParametersUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# RemovePermissionRequestTypeDef
 
 ### StatementId
 - **Type**: typing.Optional[str]
@@ -2375,7 +2335,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RemoveTargetsRequestRequestTypeDef
+# RemoveTargetsRequestTypeDef
 
 ### Rule
 - **Type**: <class 'str'>
@@ -2438,6 +2398,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### FilterArns
 - **Type**: typing.Optional[typing.Sequence[str]]
 
+
+# ReplayDestinationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ReplayTypeDef
 
@@ -2543,13 +2509,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RunCommandParametersExtraOutputTypeDef
-
-### RunCommandTargets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.events_classes.RunCommandTargetExtraOutputTypeDef]
-- **Required**: Yes
-
-
 # RunCommandParametersOutputTypeDef
 
 ### RunCommandTargets
@@ -2560,20 +2519,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RunCommandParametersTypeDef
 
 ### RunCommandTargets
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.events_classes.RunCommandTargetTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.events_classes.RunCommandTargetUnionTypeDef]
 - **Required**: Yes
 
 
-# RunCommandTargetExtraOutputTypeDef
+# RunCommandParametersUnionTypeDef
 
-### Key
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Values
-- **Type**: typing.List[str]
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RunCommandTargetOutputTypeDef
 
@@ -2597,6 +2551,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# RunCommandTargetUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # SageMakerPipelineParameterTypeDef
 
 ### Name
@@ -2606,12 +2566,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Value
 - **Type**: <class 'str'>
 - **Required**: Yes
-
-
-# SageMakerPipelineParametersExtraOutputTypeDef
-
-### PipelineParameterList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.events_classes.SageMakerPipelineParameterTypeDef]]
 
 
 # SageMakerPipelineParametersOutputTypeDef
@@ -2626,6 +2580,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.events_classes.SageMakerPipelineParameterTypeDef]]
 
 
+# SageMakerPipelineParametersUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # SecondaryTypeDef
 
 ### Route
@@ -2639,7 +2599,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartReplayRequestRequestTypeDef
+# StartReplayRequestTypeDef
 
 ### ReplayName
 - **Type**: <class 'str'>
@@ -2650,15 +2610,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventStartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.events_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EventEndTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.events_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### Destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.events_classes.ReplayDestinationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.events_classes.ReplayDestinationUnionTypeDef'>
 - **Required**: Yes
 
 ### Description
@@ -2688,7 +2648,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -2708,62 +2668,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Value
 - **Type**: <class 'str'>
 - **Required**: Yes
-
-
-# TargetExtraOutputTypeDef
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### RoleArn
-- **Type**: typing.Optional[str]
-
-### Input
-- **Type**: typing.Optional[str]
-
-### InputPath
-- **Type**: typing.Optional[str]
-
-### InputTransformer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.InputTransformerExtraOutputTypeDef]
-
-### KinesisParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.KinesisParametersTypeDef]
-
-### RunCommandParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.RunCommandParametersExtraOutputTypeDef]
-
-### EcsParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.EcsParametersExtraOutputTypeDef]
-
-### BatchParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.BatchParametersTypeDef]
-
-### SqsParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.SqsParametersTypeDef]
-
-### HttpParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.HttpParametersExtraOutputTypeDef]
-
-### RedshiftDataParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.RedshiftDataParametersExtraOutputTypeDef]
-
-### SageMakerPipelineParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.SageMakerPipelineParametersExtraOutputTypeDef]
-
-### DeadLetterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.DeadLetterConfigTypeDef]
-
-### RetryPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.RetryPolicyTypeDef]
-
-### AppSyncParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.AppSyncParametersTypeDef]
 
 
 # TargetOutputTypeDef
@@ -2842,16 +2746,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InputTransformer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.InputTransformerTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.InputTransformerUnionTypeDef]
 
 ### KinesisParameters
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.KinesisParametersTypeDef]
 
 ### RunCommandParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.RunCommandParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.RunCommandParametersUnionTypeDef]
 
 ### EcsParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.EcsParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.EcsParametersUnionTypeDef]
 
 ### BatchParameters
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.BatchParametersTypeDef]
@@ -2860,13 +2764,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.SqsParametersTypeDef]
 
 ### HttpParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.HttpParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.HttpParametersUnionTypeDef]
 
 ### RedshiftDataParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.RedshiftDataParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.RedshiftDataParametersUnionTypeDef]
 
 ### SageMakerPipelineParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.SageMakerPipelineParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.SageMakerPipelineParametersUnionTypeDef]
 
 ### DeadLetterConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.DeadLetterConfigTypeDef]
@@ -2878,7 +2782,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.AppSyncParametersTypeDef]
 
 
-# TestEventPatternRequestRequestTypeDef
+# TargetUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TestEventPatternRequestTypeDef
 
 ### EventPattern
 - **Type**: <class 'str'>
@@ -2900,7 +2810,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -2911,7 +2827,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateApiDestinationRequestRequestTypeDef
+# UpdateApiDestinationRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -2956,7 +2872,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateArchiveRequestRequestTypeDef
+# UpdateArchiveRequestTypeDef
 
 ### ArchiveName
 - **Type**: <class 'str'>
@@ -3016,7 +2932,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.UpdateConnectionApiKeyAuthRequestParametersTypeDef]
 
 ### InvocationHttpParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.ConnectionHttpParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.ConnectionHttpParametersUnionTypeDef]
+
+### ConnectivityParameters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.ConnectivityResourceParametersTypeDef]
 
 
 # UpdateConnectionBasicAuthRequestParametersTypeDef
@@ -3049,10 +2968,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['GET', 'POST', 'PUT']]
 
 ### OAuthHttpParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.ConnectionHttpParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.ConnectionHttpParametersUnionTypeDef]
 
 
-# UpdateConnectionRequestRequestTypeDef
+# UpdateConnectionRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -3067,6 +2986,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### AuthParameters
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.UpdateConnectionAuthRequestParametersTypeDef]
 
+### InvocationConnectivityParameters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.events_classes.ConnectivityResourceParametersTypeDef]
+
 
 # UpdateConnectionResponseTypeDef
 
@@ -3075,7 +2997,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ConnectionState
-- **Type**: typing.Literal['AUTHORIZED', 'AUTHORIZING', 'CREATING', 'DEAUTHORIZED', 'DEAUTHORIZING', 'DELETING', 'UPDATING']
+- **Type**: typing.Literal['ACTIVE', 'AUTHORIZED', 'AUTHORIZING', 'CREATING', 'DEAUTHORIZED', 'DEAUTHORIZING', 'DELETING', 'FAILED_CONNECTIVITY', 'UPDATING']
 - **Required**: Yes
 
 ### CreationTime
@@ -3095,7 +3017,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateEndpointRequestRequestTypeDef
+# UpdateEndpointRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -3160,7 +3082,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateEventBusRequestRequestTypeDef
+# UpdateEventBusRequestTypeDef
 
 ### Name
 - **Type**: typing.Optional[str]

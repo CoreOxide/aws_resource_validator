@@ -90,6 +90,11 @@
 - **Pattern**: `^(arn:aws[-a-z]*:elasticfilesystem:[0-9a-z-:]+:(access-point/fsap|file-system/fs)-[0-9a-f]{8,40}|fs(ap)?-[0-9a-f]{8,40})$`
 - **Max Length**: 128
 
+### RoleArn
+- **Type**: string
+- **Pattern**: `arn:(aws[a-zA-Z-]*)?:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+`
+- **Max Length**: 2048
+
 ### SecurityGroup
 - **Type**: string
 - **Pattern**: `^sg-[0-9a-f]{8,40}`

@@ -24,6 +24,36 @@
 - **Min Length**: 1
 - **Max Length**: 256
 
+### PredictiveScalingMetricDimensionName
+- **Type**: string
+- **Pattern**: `[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*`
+- **Min Length**: 1
+- **Max Length**: 255
+
+### PredictiveScalingMetricDimensionValue
+- **Type**: string
+- **Pattern**: `[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*`
+- **Min Length**: 1
+- **Max Length**: 1024
+
+### PredictiveScalingMetricName
+- **Type**: string
+- **Pattern**: `[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*`
+- **Min Length**: 1
+- **Max Length**: 255
+
+### PredictiveScalingMetricNamespace
+- **Type**: string
+- **Pattern**: `[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*`
+- **Min Length**: 1
+- **Max Length**: 255
+
+### PredictiveScalingMetricUnit
+- **Type**: string
+- **Pattern**: `[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*`
+- **Min Length**: 1
+- **Max Length**: 1023
+
 ### ResourceId
 - **Type**: string
 - **Pattern**: `[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*`

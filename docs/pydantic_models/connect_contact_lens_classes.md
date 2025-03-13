@@ -42,7 +42,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListRealtimeContactAnalysisSegmentsRequestRequestTypeDef
+# ListRealtimeContactAnalysisSegmentsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -65,13 +65,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.connect_contact_lens_classes.RealtimeContactAnalysisSegmentTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.connect_contact_lens_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # PointOfInterestTypeDef
@@ -85,6 +84,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# PostContactSummaryTypeDef
+
+### Status
+- **Type**: typing.Literal['COMPLETED', 'FAILED']
+- **Required**: Yes
+
+### Content
+- **Type**: typing.Optional[str]
+
+### FailureCode
+- **Type**: typing.Optional[typing.Literal['FAILED_SAFETY_GUIDELINES', 'INSUFFICIENT_CONVERSATION_CONTENT', 'INTERNAL_ERROR', 'INVALID_ANALYSIS_CONFIGURATION', 'QUOTA_EXCEEDED']]
+
+
 # RealtimeContactAnalysisSegmentTypeDef
 
 ### Transcript
@@ -93,14 +105,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Categories
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_contact_lens_classes.CategoriesTypeDef]
 
+### PostContactSummary
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_contact_lens_classes.PostContactSummaryTypeDef]
+
 
 # ResponseMetadataTypeDef
 
 ### RequestId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### HostId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -115,6 +126,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # TranscriptTypeDef

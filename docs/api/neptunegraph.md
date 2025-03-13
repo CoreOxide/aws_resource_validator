@@ -6,6 +6,20 @@
 - **Min Length**: 1
 - **Max Length**: 1011
 
+### ExportFilterOutputDataType
+- **Type**: string
+- **Pattern**: `(Any|Byte|Short|Int|Long|Float|Double|String|Bool|Boolean|Float\[\]|Double\[\])`
+
+### ExportFilterOutputPropertyName
+- **Type**: string
+- **Pattern**: `[a-zA-Z0-9_]+`
+- **Min Length**: 1
+- **Max Length**: 128
+
+### ExportTaskId
+- **Type**: string
+- **Pattern**: `t-[a-z0-9]{10}`
+
 ### GraphId
 - **Type**: string
 - **Pattern**: `g-[a-z0-9]{10}`

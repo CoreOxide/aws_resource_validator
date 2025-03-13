@@ -1,5 +1,11 @@
 # Appmesh Classes
 
+# AccessLogOutputTypeDef
+
+### file
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.FileAccessLogOutputTypeDef]
+
+
 # AccessLogTypeDef
 
 ### file
@@ -15,6 +21,23 @@
 ### value
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+
+# AwsCloudMapServiceDiscoveryOutputTypeDef
+
+### namespaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### serviceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### attributes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh_classes.AwsCloudMapInstanceAttributeTypeDef]]
+
+### ipPreference
+- **Type**: typing.Optional[typing.Literal['IPv4_ONLY', 'IPv4_PREFERRED', 'IPv6_ONLY', 'IPv6_PREFERRED']]
 
 
 # AwsCloudMapServiceDiscoveryTypeDef
@@ -34,10 +57,22 @@
 - **Type**: typing.Optional[typing.Literal['IPv4_ONLY', 'IPv4_PREFERRED', 'IPv6_ONLY', 'IPv6_PREFERRED']]
 
 
+# BackendDefaultsOutputTypeDef
+
+### clientPolicy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ClientPolicyOutputTypeDef]
+
+
 # BackendDefaultsTypeDef
 
 ### clientPolicy
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ClientPolicyTypeDef]
+
+
+# BackendOutputTypeDef
+
+### virtualService
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualServiceBackendOutputTypeDef]
 
 
 # BackendTypeDef
@@ -51,6 +86,28 @@
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ClientPolicyOutputTypeDef
+
+### tls
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ClientPolicyTlsOutputTypeDef]
+
+
+# ClientPolicyTlsOutputTypeDef
+
+### validation
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.TlsValidationContextOutputTypeDef'>
+- **Required**: Yes
+
+### certificate
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ClientTlsCertificateTypeDef]
+
+### enforce
+- **Type**: typing.Optional[bool]
+
+### ports
+- **Type**: typing.Optional[typing.List[int]]
+
 
 # ClientPolicyTlsTypeDef
 
@@ -83,7 +140,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ListenerTlsSdsCertificateTypeDef]
 
 
-# CreateGatewayRouteInputRequestTypeDef
+# CreateGatewayRouteInputTypeDef
 
 ### gatewayRouteName
 - **Type**: <class 'str'>
@@ -94,7 +151,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteSpecTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteSpecUnionTypeDef'>
 - **Required**: Yes
 
 ### virtualGatewayName
@@ -122,7 +179,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateMeshInputRequestTypeDef
+# CreateMeshInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -149,7 +206,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateRouteInputRequestTypeDef
+# CreateRouteInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -160,7 +217,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.RouteSpecTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.RouteSpecUnionTypeDef'>
 - **Required**: Yes
 
 ### virtualRouterName
@@ -188,14 +245,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateVirtualGatewayInputRequestTypeDef
+# CreateVirtualGatewayInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewaySpecTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewaySpecUnionTypeDef'>
 - **Required**: Yes
 
 ### virtualGatewayName
@@ -223,14 +280,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateVirtualNodeInputRequestTypeDef
+# CreateVirtualNodeInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualNodeSpecTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualNodeSpecUnionTypeDef'>
 - **Required**: Yes
 
 ### virtualNodeName
@@ -258,14 +315,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateVirtualRouterInputRequestTypeDef
+# CreateVirtualRouterInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualRouterSpecTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualRouterSpecUnionTypeDef'>
 - **Required**: Yes
 
 ### virtualRouterName
@@ -293,7 +350,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateVirtualServiceInputRequestTypeDef
+# CreateVirtualServiceInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -328,7 +385,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteGatewayRouteInputRequestTypeDef
+# DeleteGatewayRouteInputTypeDef
 
 ### gatewayRouteName
 - **Type**: <class 'str'>
@@ -357,7 +414,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteMeshInputRequestTypeDef
+# DeleteMeshInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -375,7 +432,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteRouteInputRequestTypeDef
+# DeleteRouteInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -404,7 +461,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteVirtualGatewayInputRequestTypeDef
+# DeleteVirtualGatewayInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -429,7 +486,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteVirtualNodeInputRequestTypeDef
+# DeleteVirtualNodeInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -454,7 +511,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteVirtualRouterInputRequestTypeDef
+# DeleteVirtualRouterInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -479,7 +536,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteVirtualServiceInputRequestTypeDef
+# DeleteVirtualServiceInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -504,7 +561,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeGatewayRouteInputRequestTypeDef
+# DescribeGatewayRouteInputTypeDef
 
 ### gatewayRouteName
 - **Type**: <class 'str'>
@@ -533,7 +590,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeMeshInputRequestTypeDef
+# DescribeMeshInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -554,7 +611,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeRouteInputRequestTypeDef
+# DescribeRouteInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -583,7 +640,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeVirtualGatewayInputRequestTypeDef
+# DescribeVirtualGatewayInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -608,7 +665,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeVirtualNodeInputRequestTypeDef
+# DescribeVirtualNodeInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -633,7 +690,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeVirtualRouterInputRequestTypeDef
+# DescribeVirtualRouterInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -658,7 +715,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeVirtualServiceInputRequestTypeDef
+# DescribeVirtualServiceInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -707,20 +764,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EgressFilterTypeDef
 
-### type
-- **Type**: typing.Literal['ALLOW_ALL', 'DROP_ALL']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# FileAccessLogOutputTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FileAccessLogTypeDef
 
-### path
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### format
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.LoggingFormatTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # GatewayRouteDataTypeDef
 
@@ -737,7 +795,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteSpecTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteSpecOutputTypeDef'>
 - **Required**: Yes
 
 ### status
@@ -803,6 +861,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# GatewayRouteSpecOutputTypeDef
+
+### grpcRoute
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GrpcGatewayRouteOutputTypeDef]
+
+### http2Route
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpGatewayRouteOutputTypeDef]
+
+### httpRoute
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpGatewayRouteOutputTypeDef]
+
+### priority
+- **Type**: typing.Optional[int]
+
+
 # GatewayRouteSpecTypeDef
 
 ### grpcRoute
@@ -817,6 +890,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### priority
 - **Type**: typing.Optional[int]
 
+
+# GatewayRouteSpecUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # GatewayRouteStatusTypeDef
 
@@ -852,6 +931,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GrpcGatewayRouteRewriteTypeDef]
 
 
+# GrpcGatewayRouteMatchOutputTypeDef
+
+### hostname
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteHostnameMatchTypeDef]
+
+### metadata
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh_classes.GrpcGatewayRouteMetadataTypeDef]]
+
+### port
+- **Type**: typing.Optional[int]
+
+### serviceName
+- **Type**: typing.Optional[str]
+
+
 # GrpcGatewayRouteMatchTypeDef
 
 ### hostname
@@ -880,6 +974,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GrpcMetadataMatchMethodTypeDef]
 
 
+# GrpcGatewayRouteOutputTypeDef
+
+### action
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GrpcGatewayRouteActionTypeDef'>
+- **Required**: Yes
+
+### match
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GrpcGatewayRouteMatchOutputTypeDef'>
+- **Required**: Yes
+
+
 # GrpcGatewayRouteRewriteTypeDef
 
 ### hostname
@@ -899,20 +1004,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # GrpcMetadataMatchMethodTypeDef
 
-### exact
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### prefix
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### range
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.MatchRangeTypeDef]
+# GrpcRetryPolicyOutputTypeDef
 
-### regex
-- **Type**: typing.Optional[str]
+### maxRetries
+- **Type**: <class 'int'>
+- **Required**: Yes
 
-### suffix
-- **Type**: typing.Optional[str]
+### perRetryTimeout
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.DurationTypeDef'>
+- **Required**: Yes
+
+### grpcRetryEvents
+- **Type**: typing.Optional[typing.List[typing.Literal['cancelled', 'deadline-exceeded', 'internal', 'resource-exhausted', 'unavailable']]]
+
+### httpRetryEvents
+- **Type**: typing.Optional[typing.List[str]]
+
+### tcpRetryEvents
+- **Type**: typing.Optional[typing.List[typing.Literal['connection-error']]]
 
 
 # GrpcRetryPolicyTypeDef
@@ -935,11 +1048,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['connection-error']]]
 
 
+# GrpcRouteActionOutputTypeDef
+
+### weightedTargets
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh_classes.WeightedTargetTypeDef]
+- **Required**: Yes
+
+
 # GrpcRouteActionTypeDef
 
 ### weightedTargets
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.WeightedTargetTypeDef]
 - **Required**: Yes
+
+
+# GrpcRouteMatchOutputTypeDef
+
+### metadata
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh_classes.GrpcRouteMetadataTypeDef]]
+
+### methodName
+- **Type**: typing.Optional[str]
+
+### port
+- **Type**: typing.Optional[int]
+
+### serviceName
+- **Type**: typing.Optional[str]
 
 
 # GrpcRouteMatchTypeDef
@@ -959,21 +1094,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # GrpcRouteMetadataMatchMethodTypeDef
 
-### exact
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### prefix
-- **Type**: typing.Optional[str]
-
-### range
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.MatchRangeTypeDef]
-
-### regex
-- **Type**: typing.Optional[str]
-
-### suffix
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # GrpcRouteMetadataTypeDef
 
@@ -986,6 +1109,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### match
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GrpcRouteMetadataMatchMethodTypeDef]
+
+
+# GrpcRouteOutputTypeDef
+
+### action
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GrpcRouteActionOutputTypeDef'>
+- **Required**: Yes
+
+### match
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GrpcRouteMatchOutputTypeDef'>
+- **Required**: Yes
+
+### retryPolicy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GrpcRetryPolicyOutputTypeDef]
+
+### timeout
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GrpcTimeoutTypeDef]
 
 
 # GrpcRouteTypeDef
@@ -1016,21 +1156,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # HeaderMatchMethodTypeDef
 
-### exact
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### prefix
-- **Type**: typing.Optional[str]
-
-### range
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.MatchRangeTypeDef]
-
-### regex
-- **Type**: typing.Optional[str]
-
-### suffix
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HealthCheckPolicyTypeDef
 
@@ -1084,6 +1212,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HeaderMatchMethodTypeDef]
 
 
+# HttpGatewayRouteMatchOutputTypeDef
+
+### headers
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh_classes.HttpGatewayRouteHeaderTypeDef]]
+
+### hostname
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteHostnameMatchTypeDef]
+
+### method
+- **Type**: typing.Optional[typing.Literal['CONNECT', 'DELETE', 'GET', 'HEAD', 'OPTIONS', 'PATCH', 'POST', 'PUT', 'TRACE']]
+
+### path
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpPathMatchTypeDef]
+
+### port
+- **Type**: typing.Optional[int]
+
+### prefix
+- **Type**: typing.Optional[str]
+
+### queryParameters
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh_classes.HttpQueryParameterTypeDef]]
+
+
 # HttpGatewayRouteMatchTypeDef
 
 ### headers
@@ -1106,6 +1258,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### queryParameters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.HttpQueryParameterTypeDef]]
+
+
+# HttpGatewayRouteOutputTypeDef
+
+### action
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.HttpGatewayRouteActionTypeDef'>
+- **Required**: Yes
+
+### match
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.HttpGatewayRouteMatchOutputTypeDef'>
+- **Required**: Yes
 
 
 # HttpGatewayRoutePathRewriteTypeDef
@@ -1165,6 +1328,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.QueryParameterMatchTypeDef]
 
 
+# HttpRetryPolicyOutputTypeDef
+
+### maxRetries
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### perRetryTimeout
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.DurationTypeDef'>
+- **Required**: Yes
+
+### httpRetryEvents
+- **Type**: typing.Optional[typing.List[str]]
+
+### tcpRetryEvents
+- **Type**: typing.Optional[typing.List[typing.Literal['connection-error']]]
+
+
 # HttpRetryPolicyTypeDef
 
 ### maxRetries
@@ -1180,6 +1360,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### tcpRetryEvents
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['connection-error']]]
+
+
+# HttpRouteActionOutputTypeDef
+
+### weightedTargets
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh_classes.WeightedTargetTypeDef]
+- **Required**: Yes
 
 
 # HttpRouteActionTypeDef
@@ -1200,6 +1387,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### match
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HeaderMatchMethodTypeDef]
+
+
+# HttpRouteMatchOutputTypeDef
+
+### headers
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh_classes.HttpRouteHeaderTypeDef]]
+
+### method
+- **Type**: typing.Optional[typing.Literal['CONNECT', 'DELETE', 'GET', 'HEAD', 'OPTIONS', 'PATCH', 'POST', 'PUT', 'TRACE']]
+
+### path
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpPathMatchTypeDef]
+
+### port
+- **Type**: typing.Optional[int]
+
+### prefix
+- **Type**: typing.Optional[str]
+
+### queryParameters
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh_classes.HttpQueryParameterTypeDef]]
+
+### scheme
+- **Type**: typing.Optional[typing.Literal['http', 'https']]
 
 
 # HttpRouteMatchTypeDef
@@ -1224,6 +1435,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### scheme
 - **Type**: typing.Optional[typing.Literal['http', 'https']]
+
+
+# HttpRouteOutputTypeDef
+
+### action
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.HttpRouteActionOutputTypeDef'>
+- **Required**: Yes
+
+### match
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.HttpRouteMatchOutputTypeDef'>
+- **Required**: Yes
+
+### retryPolicy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpRetryPolicyOutputTypeDef]
+
+### timeout
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpTimeoutTypeDef]
 
 
 # HttpRouteTypeDef
@@ -1263,7 +1491,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListGatewayRoutesInputListGatewayRoutesPaginateTypeDef
+# ListGatewayRoutesInputPaginateTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -1280,7 +1508,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.PaginatorConfigTypeDef]
 
 
-# ListGatewayRoutesInputRequestTypeDef
+# ListGatewayRoutesInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -1306,22 +1534,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteRefTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListMeshesInputListMeshesPaginateTypeDef
+
+# ListMeshesInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.PaginatorConfigTypeDef]
 
 
-# ListMeshesInputRequestTypeDef
+# ListMeshesInputTypeDef
 
 ### limit
 - **Type**: typing.Optional[int]
@@ -1336,16 +1563,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh_classes.MeshRefTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListRoutesInputListRoutesPaginateTypeDef
+
+# ListRoutesInputPaginateTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -1362,7 +1588,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.PaginatorConfigTypeDef]
 
 
-# ListRoutesInputRequestTypeDef
+# ListRoutesInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -1384,10 +1610,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListRoutesOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### routes
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh_classes.RouteRefTypeDef]
 - **Required**: Yes
@@ -1396,8 +1618,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceInputListTagsForResourcePaginateTypeDef
+
+# ListTagsForResourceInputPaginateTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1407,7 +1632,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.PaginatorConfigTypeDef]
 
 
-# ListTagsForResourceInputRequestTypeDef
+# ListTagsForResourceInputTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1422,10 +1647,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListTagsForResourceOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### tags
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh_classes.TagRefTypeDef]
 - **Required**: Yes
@@ -1434,8 +1655,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListVirtualGatewaysInputListVirtualGatewaysPaginateTypeDef
+
+# ListVirtualGatewaysInputPaginateTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -1448,7 +1672,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.PaginatorConfigTypeDef]
 
 
-# ListVirtualGatewaysInputRequestTypeDef
+# ListVirtualGatewaysInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -1466,10 +1690,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListVirtualGatewaysOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### virtualGateways
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayRefTypeDef]
 - **Required**: Yes
@@ -1478,8 +1698,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListVirtualNodesInputListVirtualNodesPaginateTypeDef
+
+# ListVirtualNodesInputPaginateTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -1492,7 +1715,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.PaginatorConfigTypeDef]
 
 
-# ListVirtualNodesInputRequestTypeDef
+# ListVirtualNodesInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -1510,10 +1733,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListVirtualNodesOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### virtualNodes
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh_classes.VirtualNodeRefTypeDef]
 - **Required**: Yes
@@ -1522,8 +1741,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListVirtualRoutersInputListVirtualRoutersPaginateTypeDef
+
+# ListVirtualRoutersInputPaginateTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -1536,7 +1758,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.PaginatorConfigTypeDef]
 
 
-# ListVirtualRoutersInputRequestTypeDef
+# ListVirtualRoutersInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -1554,10 +1776,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListVirtualRoutersOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### virtualRouters
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh_classes.VirtualRouterRefTypeDef]
 - **Required**: Yes
@@ -1566,8 +1784,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListVirtualServicesInputListVirtualServicesPaginateTypeDef
+
+# ListVirtualServicesInputPaginateTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -1580,7 +1801,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.PaginatorConfigTypeDef]
 
 
-# ListVirtualServicesInputRequestTypeDef
+# ListVirtualServicesInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -1598,10 +1819,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListVirtualServicesOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### virtualServices
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh_classes.VirtualServiceRefTypeDef]
 - **Required**: Yes
@@ -1609,6 +1826,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListenerOutputTypeDef
+
+### portMapping
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.PortMappingTypeDef'>
+- **Required**: Yes
+
+### connectionPool
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualNodeConnectionPoolTypeDef]
+
+### healthCheck
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HealthCheckPolicyTypeDef]
+
+### outlierDetection
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.OutlierDetectionTypeDef]
+
+### timeout
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ListenerTimeoutTypeDef]
+
+### tls
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ListenerTlsOutputTypeDef]
 
 
 # ListenerTimeoutTypeDef
@@ -1656,6 +1898,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# ListenerTlsOutputTypeDef
+
+### certificate
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ListenerTlsCertificateTypeDef'>
+- **Required**: Yes
+
+### mode
+- **Type**: typing.Literal['DISABLED', 'PERMISSIVE', 'STRICT']
+- **Required**: Yes
+
+### validation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ListenerTlsValidationContextOutputTypeDef]
+
+
 # ListenerTlsSdsCertificateTypeDef
 
 ### secretName
@@ -1675,6 +1931,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### validation
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ListenerTlsValidationContextTypeDef]
+
+
+# ListenerTlsValidationContextOutputTypeDef
+
+### trust
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ListenerTlsValidationContextTrustTypeDef'>
+- **Required**: Yes
+
+### subjectAlternativeNames
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.SubjectAlternativeNamesOutputTypeDef]
 
 
 # ListenerTlsValidationContextTrustTypeDef
@@ -1718,6 +1984,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ListenerTlsTypeDef]
 
 
+# LoggingFormatOutputTypeDef
+
+### json
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh_classes.JsonFormatRefTypeDef]]
+
+### text
+- **Type**: typing.Optional[str]
+
+
 # LoggingFormatTypeDef
 
 ### json
@@ -1725,6 +2000,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### text
 - **Type**: typing.Optional[str]
+
+
+# LoggingOutputTypeDef
+
+### accessLog
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.AccessLogOutputTypeDef]
 
 
 # LoggingTypeDef
@@ -1900,10 +2181,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -1915,6 +2192,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # RouteDataTypeDef
@@ -1932,7 +2212,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.RouteSpecTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.RouteSpecOutputTypeDef'>
 - **Required**: Yes
 
 ### status
@@ -1983,6 +2263,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# RouteSpecOutputTypeDef
+
+### grpcRoute
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GrpcRouteOutputTypeDef]
+
+### http2Route
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpRouteOutputTypeDef]
+
+### httpRoute
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpRouteOutputTypeDef]
+
+### priority
+- **Type**: typing.Optional[int]
+
+### tcpRoute
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.TcpRouteOutputTypeDef]
+
+
 # RouteSpecTypeDef
 
 ### grpcRoute
@@ -2001,11 +2299,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.TcpRouteTypeDef]
 
 
+# RouteSpecUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # RouteStatusTypeDef
 
 ### status
 - **Type**: typing.Literal['ACTIVE', 'DELETED', 'INACTIVE']
 - **Required**: Yes
+
+
+# ServiceDiscoveryOutputTypeDef
+
+### awsCloudMap
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.AwsCloudMapServiceDiscoveryOutputTypeDef]
+
+### dns
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.DnsServiceDiscoveryTypeDef]
 
 
 # ServiceDiscoveryTypeDef
@@ -2017,10 +2330,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.DnsServiceDiscoveryTypeDef]
 
 
+# SubjectAlternativeNameMatchersOutputTypeDef
+
+### exact
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
 # SubjectAlternativeNameMatchersTypeDef
 
 ### exact
 - **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+
+# SubjectAlternativeNamesOutputTypeDef
+
+### match
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.SubjectAlternativeNameMatchersOutputTypeDef'>
 - **Required**: Yes
 
 
@@ -2042,7 +2369,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceInputRequestTypeDef
+# TagResourceInputTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2050,6 +2377,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### tags
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.TagRefTypeDef]
+- **Required**: Yes
+
+
+# TcpRouteActionOutputTypeDef
+
+### weightedTargets
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh_classes.WeightedTargetTypeDef]
 - **Required**: Yes
 
 
@@ -2064,6 +2398,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### port
 - **Type**: typing.Optional[int]
+
+
+# TcpRouteOutputTypeDef
+
+### action
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.TcpRouteActionOutputTypeDef'>
+- **Required**: Yes
+
+### match
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.TcpRouteMatchTypeDef]
+
+### timeout
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.TcpTimeoutTypeDef]
 
 
 # TcpRouteTypeDef
@@ -2085,6 +2432,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.DurationTypeDef]
 
 
+# TlsValidationContextAcmTrustOutputTypeDef
+
+### certificateAuthorityArns
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
 # TlsValidationContextAcmTrustTypeDef
 
 ### certificateAuthorityArns
@@ -2099,11 +2453,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# TlsValidationContextOutputTypeDef
+
+### trust
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.TlsValidationContextTrustOutputTypeDef'>
+- **Required**: Yes
+
+### subjectAlternativeNames
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.SubjectAlternativeNamesOutputTypeDef]
+
+
 # TlsValidationContextSdsTrustTypeDef
 
 ### secretName
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+
+# TlsValidationContextTrustOutputTypeDef
+
+### acm
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.TlsValidationContextAcmTrustOutputTypeDef]
+
+### file
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.TlsValidationContextFileTrustTypeDef]
+
+### sds
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.TlsValidationContextSdsTrustTypeDef]
 
 
 # TlsValidationContextTrustTypeDef
@@ -2128,7 +2504,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.SubjectAlternativeNamesTypeDef]
 
 
-# UntagResourceInputRequestTypeDef
+# UntagResourceInputTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2139,7 +2515,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateGatewayRouteInputRequestTypeDef
+# UpdateGatewayRouteInputTypeDef
 
 ### gatewayRouteName
 - **Type**: <class 'str'>
@@ -2150,7 +2526,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteSpecTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteSpecUnionTypeDef'>
 - **Required**: Yes
 
 ### virtualGatewayName
@@ -2175,7 +2551,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateMeshInputRequestTypeDef
+# UpdateMeshInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -2199,7 +2575,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRouteInputRequestTypeDef
+# UpdateRouteInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -2210,7 +2586,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.RouteSpecTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.RouteSpecUnionTypeDef'>
 - **Required**: Yes
 
 ### virtualRouterName
@@ -2235,14 +2611,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateVirtualGatewayInputRequestTypeDef
+# UpdateVirtualGatewayInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewaySpecTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewaySpecUnionTypeDef'>
 - **Required**: Yes
 
 ### virtualGatewayName
@@ -2267,14 +2643,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateVirtualNodeInputRequestTypeDef
+# UpdateVirtualNodeInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualNodeSpecTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualNodeSpecUnionTypeDef'>
 - **Required**: Yes
 
 ### virtualNodeName
@@ -2299,14 +2675,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateVirtualRouterInputRequestTypeDef
+# UpdateVirtualRouterInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualRouterSpecTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualRouterSpecUnionTypeDef'>
 - **Required**: Yes
 
 ### virtualRouterName
@@ -2331,7 +2707,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateVirtualServiceInputRequestTypeDef
+# UpdateVirtualServiceInputTypeDef
 
 ### meshName
 - **Type**: <class 'str'>
@@ -2363,16 +2739,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# VirtualGatewayAccessLogOutputTypeDef
+
+### file
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayFileAccessLogOutputTypeDef]
+
+
 # VirtualGatewayAccessLogTypeDef
 
 ### file
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayFileAccessLogTypeDef]
 
 
+# VirtualGatewayBackendDefaultsOutputTypeDef
+
+### clientPolicy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayClientPolicyOutputTypeDef]
+
+
 # VirtualGatewayBackendDefaultsTypeDef
 
 ### clientPolicy
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayClientPolicyTypeDef]
+
+
+# VirtualGatewayClientPolicyOutputTypeDef
+
+### tls
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayClientPolicyTlsOutputTypeDef]
+
+
+# VirtualGatewayClientPolicyTlsOutputTypeDef
+
+### validation
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayTlsValidationContextOutputTypeDef'>
+- **Required**: Yes
+
+### certificate
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayClientTlsCertificateTypeDef]
+
+### enforce
+- **Type**: typing.Optional[bool]
+
+### ports
+- **Type**: typing.Optional[typing.List[int]]
 
 
 # VirtualGatewayClientPolicyTlsTypeDef
@@ -2429,7 +2839,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewaySpecTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewaySpecOutputTypeDef'>
 - **Required**: Yes
 
 ### status
@@ -2441,15 +2851,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# VirtualGatewayFileAccessLogOutputTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # VirtualGatewayFileAccessLogTypeDef
 
-### path
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### format
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.LoggingFormatTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # VirtualGatewayGrpcConnectionPoolTypeDef
 
@@ -2504,6 +2916,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
+# VirtualGatewayListenerOutputTypeDef
+
+### portMapping
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayPortMappingTypeDef'>
+- **Required**: Yes
+
+### connectionPool
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayConnectionPoolTypeDef]
+
+### healthCheck
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayHealthCheckPolicyTypeDef]
+
+### tls
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayListenerTlsOutputTypeDef]
+
+
 # VirtualGatewayListenerTlsAcmCertificateTypeDef
 
 ### certificateArn
@@ -2534,6 +2962,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# VirtualGatewayListenerTlsOutputTypeDef
+
+### certificate
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayListenerTlsCertificateTypeDef'>
+- **Required**: Yes
+
+### mode
+- **Type**: typing.Literal['DISABLED', 'PERMISSIVE', 'STRICT']
+- **Required**: Yes
+
+### validation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayListenerTlsValidationContextOutputTypeDef]
+
+
 # VirtualGatewayListenerTlsSdsCertificateTypeDef
 
 ### secretName
@@ -2553,6 +2995,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### validation
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayListenerTlsValidationContextTypeDef]
+
+
+# VirtualGatewayListenerTlsValidationContextOutputTypeDef
+
+### trust
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayListenerTlsValidationContextTrustTypeDef'>
+- **Required**: Yes
+
+### subjectAlternativeNames
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.SubjectAlternativeNamesOutputTypeDef]
 
 
 # VirtualGatewayListenerTlsValidationContextTrustTypeDef
@@ -2588,6 +3040,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### tls
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayListenerTlsTypeDef]
+
+
+# VirtualGatewayLoggingOutputTypeDef
+
+### accessLog
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayAccessLogOutputTypeDef]
 
 
 # VirtualGatewayLoggingTypeDef
@@ -2642,6 +3100,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# VirtualGatewaySpecOutputTypeDef
+
+### listeners
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayListenerOutputTypeDef]
+- **Required**: Yes
+
+### backendDefaults
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayBackendDefaultsOutputTypeDef]
+
+### logging
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayLoggingOutputTypeDef]
+
+
 # VirtualGatewaySpecTypeDef
 
 ### listeners
@@ -2655,10 +3126,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayLoggingTypeDef]
 
 
+# VirtualGatewaySpecUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # VirtualGatewayStatusTypeDef
 
 ### status
 - **Type**: typing.Literal['ACTIVE', 'DELETED', 'INACTIVE']
+- **Required**: Yes
+
+
+# VirtualGatewayTlsValidationContextAcmTrustOutputTypeDef
+
+### certificateAuthorityArns
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2676,11 +3160,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# VirtualGatewayTlsValidationContextOutputTypeDef
+
+### trust
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayTlsValidationContextTrustOutputTypeDef'>
+- **Required**: Yes
+
+### subjectAlternativeNames
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.SubjectAlternativeNamesOutputTypeDef]
+
+
 # VirtualGatewayTlsValidationContextSdsTrustTypeDef
 
 ### secretName
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+
+# VirtualGatewayTlsValidationContextTrustOutputTypeDef
+
+### acm
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayTlsValidationContextAcmTrustOutputTypeDef]
+
+### file
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayTlsValidationContextFileTrustTypeDef]
+
+### sds
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayTlsValidationContextSdsTrustTypeDef]
 
 
 # VirtualGatewayTlsValidationContextTrustTypeDef
@@ -2731,7 +3237,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualNodeSpecTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualNodeSpecOutputTypeDef'>
 - **Required**: Yes
 
 ### status
@@ -2809,6 +3315,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# VirtualNodeSpecOutputTypeDef
+
+### backendDefaults
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.BackendDefaultsOutputTypeDef]
+
+### backends
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh_classes.BackendOutputTypeDef]]
+
+### listeners
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh_classes.ListenerOutputTypeDef]]
+
+### logging
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.LoggingOutputTypeDef]
+
+### serviceDiscovery
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ServiceDiscoveryOutputTypeDef]
+
+
 # VirtualNodeSpecTypeDef
 
 ### backendDefaults
@@ -2826,6 +3350,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### serviceDiscovery
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ServiceDiscoveryTypeDef]
 
+
+# VirtualNodeSpecUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # VirtualNodeStatusTypeDef
 
@@ -2852,7 +3382,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualRouterSpecTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualRouterSpecOutputTypeDef'>
 - **Required**: Yes
 
 ### status
@@ -2913,17 +3443,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# VirtualRouterSpecOutputTypeDef
+
+### listeners
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh_classes.VirtualRouterListenerTypeDef]]
+
+
 # VirtualRouterSpecTypeDef
 
 ### listeners
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.VirtualRouterListenerTypeDef]]
 
 
+# VirtualRouterSpecUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # VirtualRouterStatusTypeDef
 
 ### status
 - **Type**: typing.Literal['ACTIVE', 'DELETED', 'INACTIVE']
 - **Required**: Yes
+
+
+# VirtualServiceBackendOutputTypeDef
+
+### virtualServiceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### clientPolicy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ClientPolicyOutputTypeDef]
 
 
 # VirtualServiceBackendTypeDef

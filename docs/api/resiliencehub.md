@@ -16,7 +16,7 @@
 
 ### ClientToken
 - **Type**: string
-- **Pattern**: `^[A-za-z0-9_.-]{0,63}$`
+- **Pattern**: `^[A-Za-z0-9_.-]{0,63}$`
 - **Min Length**: 1
 - **Max Length**: 63
 
@@ -37,6 +37,10 @@
 ### EntityName
 - **Type**: string
 - **Pattern**: `^[A-Za-z0-9][A-Za-z0-9_\-]{1,59}$`
+
+### EntityName255
+- **Type**: string
+- **Pattern**: `^[A-Za-z0-9][A-Za-z0-9_\-]{0,254}$`
 
 ### EntityVersion
 - **Type**: string

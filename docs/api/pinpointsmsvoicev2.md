@@ -68,7 +68,7 @@
 
 ### FilterValue
 - **Type**: string
-- **Pattern**: `[/\.:A-Za-z0-9_-]+`
+- **Pattern**: `[/\.:A-Za-z0-9+_-]+`
 - **Min Length**: 1
 - **Max Length**: 128
 
@@ -119,6 +119,12 @@
 - **Pattern**: `s3://([a-z0-9\.-]{3,63})/(.+)`
 - **Min Length**: 1
 - **Max Length**: 2048
+
+### MessageId
+- **Type**: string
+- **Pattern**: `[A-Za-z0-9_:/-]+`
+- **Min Length**: 1
+- **Max Length**: 64
 
 ### NextToken
 - **Type**: string

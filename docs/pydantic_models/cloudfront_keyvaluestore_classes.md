@@ -13,7 +13,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteKeyRequestRequestTypeDef
+# DeleteKeyRequestTypeDef
 
 ### KvsARN
 - **Type**: <class 'str'>
@@ -47,7 +47,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeKeyValueStoreRequestRequestTypeDef
+# DescribeKeyValueStoreRequestTypeDef
 
 ### KvsARN
 - **Type**: <class 'str'>
@@ -93,7 +93,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetKeyRequestRequestTypeDef
+# GetKeyRequestTypeDef
 
 ### KvsARN
 - **Type**: <class 'str'>
@@ -127,7 +127,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListKeysRequestListKeysPaginateTypeDef
+# ListKeysRequestPaginateTypeDef
 
 ### KvsARN
 - **Type**: <class 'str'>
@@ -137,7 +137,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.PaginatorConfigTypeDef]
 
 
-# ListKeysRequestRequestTypeDef
+# ListKeysRequestTypeDef
 
 ### KvsARN
 - **Type**: <class 'str'>
@@ -163,10 +163,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListKeysResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### Items
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.ListKeysResponseListItemTypeDef]
 - **Required**: Yes
@@ -174,6 +170,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # PaginatorConfigTypeDef
@@ -199,7 +198,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutKeyRequestRequestTypeDef
+# PutKeyRequestTypeDef
 
 ### Key
 - **Type**: <class 'str'>
@@ -243,10 +242,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -259,8 +254,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# UpdateKeysRequestRequestTypeDef
+
+# UpdateKeysRequestTypeDef
 
 ### KvsARN
 - **Type**: <class 'str'>

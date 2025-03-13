@@ -1,6 +1,6 @@
 # Ram Classes
 
-# AcceptResourceShareInvitationRequestRequestTypeDef
+# AcceptResourceShareInvitationRequestTypeDef
 
 ### resourceShareInvitationArn
 - **Type**: <class 'str'>
@@ -25,7 +25,7 @@
 - **Required**: Yes
 
 
-# AssociateResourceSharePermissionRequestRequestTypeDef
+# AssociateResourceSharePermissionRequestTypeDef
 
 ### resourceShareArn
 - **Type**: <class 'str'>
@@ -60,7 +60,7 @@
 - **Required**: Yes
 
 
-# AssociateResourceShareRequestRequestTypeDef
+# AssociateResourceShareRequestTypeDef
 
 ### resourceShareArn
 - **Type**: <class 'str'>
@@ -127,7 +127,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreatePermissionRequestRequestTypeDef
+# CreatePermissionRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -163,7 +163,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePermissionVersionRequestRequestTypeDef
+# CreatePermissionVersionRequestTypeDef
 
 ### permissionArn
 - **Type**: <class 'str'>
@@ -192,7 +192,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateResourceShareRequestRequestTypeDef
+# CreateResourceShareRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -235,7 +235,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeletePermissionRequestRequestTypeDef
+# DeletePermissionRequestTypeDef
 
 ### permissionArn
 - **Type**: <class 'str'>
@@ -264,7 +264,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeletePermissionVersionRequestRequestTypeDef
+# DeletePermissionVersionRequestTypeDef
 
 ### permissionArn
 - **Type**: <class 'str'>
@@ -297,7 +297,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteResourceShareRequestRequestTypeDef
+# DeleteResourceShareRequestTypeDef
 
 ### resourceShareArn
 - **Type**: <class 'str'>
@@ -322,7 +322,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateResourceSharePermissionRequestRequestTypeDef
+# DisassociateResourceSharePermissionRequestTypeDef
 
 ### resourceShareArn
 - **Type**: <class 'str'>
@@ -351,7 +351,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateResourceShareRequestRequestTypeDef
+# DisassociateResourceShareRequestTypeDef
 
 ### resourceShareArn
 - **Type**: <class 'str'>
@@ -396,7 +396,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPermissionRequestRequestTypeDef
+# GetPermissionRequestTypeDef
 
 ### permissionArn
 - **Type**: <class 'str'>
@@ -417,7 +417,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResourcePoliciesRequestGetResourcePoliciesPaginateTypeDef
+# GetResourcePoliciesRequestPaginateTypeDef
 
 ### resourceArns
 - **Type**: typing.Sequence[str]
@@ -430,7 +430,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ram_classes.PaginatorConfigTypeDef]
 
 
-# GetResourcePoliciesRequestRequestTypeDef
+# GetResourcePoliciesRequestTypeDef
 
 ### resourceArns
 - **Type**: typing.Sequence[str]
@@ -452,16 +452,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ram_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetResourceShareAssociationsRequestGetResourceShareAssociationsPaginateTypeDef
+
+# GetResourceShareAssociationsRequestPaginateTypeDef
 
 ### associationType
 - **Type**: typing.Literal['PRINCIPAL', 'RESOURCE']
@@ -483,7 +482,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ram_classes.PaginatorConfigTypeDef]
 
 
-# GetResourceShareAssociationsRequestRequestTypeDef
+# GetResourceShareAssociationsRequestTypeDef
 
 ### associationType
 - **Type**: typing.Literal['PRINCIPAL', 'RESOURCE']
@@ -514,16 +513,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ram_classes.ResourceShareAssociationTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ram_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetResourceShareInvitationsRequestGetResourceShareInvitationsPaginateTypeDef
+
+# GetResourceShareInvitationsRequestPaginateTypeDef
 
 ### resourceShareInvitationArns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -535,7 +533,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ram_classes.PaginatorConfigTypeDef]
 
 
-# GetResourceShareInvitationsRequestRequestTypeDef
+# GetResourceShareInvitationsRequestTypeDef
 
 ### resourceShareInvitationArns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -556,16 +554,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ram_classes.ResourceShareInvitationTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ram_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetResourceSharesRequestGetResourceSharesPaginateTypeDef
+
+# GetResourceSharesRequestPaginateTypeDef
 
 ### resourceOwner
 - **Type**: typing.Literal['OTHER-ACCOUNTS', 'SELF']
@@ -593,7 +590,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ram_classes.PaginatorConfigTypeDef]
 
 
-# GetResourceSharesRequestRequestTypeDef
+# GetResourceSharesRequestTypeDef
 
 ### resourceOwner
 - **Type**: typing.Literal['OTHER-ACCOUNTS', 'SELF']
@@ -630,16 +627,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ram_classes.ResourceShareTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ram_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListPendingInvitationResourcesRequestRequestTypeDef
+
+# ListPendingInvitationResourcesRequestTypeDef
 
 ### resourceShareInvitationArn
 - **Type**: <class 'str'>
@@ -661,16 +657,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ram_classes.ResourceTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ram_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListPermissionAssociationsRequestRequestTypeDef
+
+# ListPermissionAssociationsRequestTypeDef
 
 ### permissionArn
 - **Type**: typing.Optional[str]
@@ -703,16 +698,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ram_classes.AssociatedPermissionTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ram_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListPermissionVersionsRequestRequestTypeDef
+
+# ListPermissionVersionsRequestTypeDef
 
 ### permissionArn
 - **Type**: <class 'str'>
@@ -731,16 +725,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ram_classes.ResourceSharePermissionSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ram_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListPermissionsRequestRequestTypeDef
+
+# ListPermissionsRequestTypeDef
 
 ### resourceType
 - **Type**: typing.Optional[str]
@@ -761,16 +754,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ram_classes.ResourceSharePermissionSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ram_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListPrincipalsRequestListPrincipalsPaginateTypeDef
+
+# ListPrincipalsRequestPaginateTypeDef
 
 ### resourceOwner
 - **Type**: typing.Literal['OTHER-ACCOUNTS', 'SELF']
@@ -792,7 +784,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ram_classes.PaginatorConfigTypeDef]
 
 
-# ListPrincipalsRequestRequestTypeDef
+# ListPrincipalsRequestTypeDef
 
 ### resourceOwner
 - **Type**: typing.Literal['OTHER-ACCOUNTS', 'SELF']
@@ -823,16 +815,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ram_classes.PrincipalTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ram_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListReplacePermissionAssociationsWorkRequestRequestTypeDef
+
+# ListReplacePermissionAssociationsWorkRequestTypeDef
 
 ### workIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -853,16 +844,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ram_classes.ReplacePermissionAssociationsWorkTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ram_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListResourceSharePermissionsRequestRequestTypeDef
+
+# ListResourceSharePermissionsRequestTypeDef
 
 ### resourceShareArn
 - **Type**: <class 'str'>
@@ -881,16 +871,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ram_classes.ResourceSharePermissionSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ram_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListResourceTypesRequestRequestTypeDef
+
+# ListResourceTypesRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -908,16 +897,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ram_classes.ServiceNameAndResourceTypeTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ram_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListResourcesRequestListResourcesPaginateTypeDef
+
+# ListResourcesRequestPaginateTypeDef
 
 ### resourceOwner
 - **Type**: typing.Literal['OTHER-ACCOUNTS', 'SELF']
@@ -942,7 +930,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ram_classes.PaginatorConfigTypeDef]
 
 
-# ListResourcesRequestRequestTypeDef
+# ListResourcesRequestTypeDef
 
 ### resourceOwner
 - **Type**: typing.Literal['OTHER-ACCOUNTS', 'SELF']
@@ -976,13 +964,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ram_classes.ResourceTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ram_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # PaginatorConfigTypeDef
@@ -999,23 +986,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PrincipalTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### resourceShareArn
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### creationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### lastUpdatedTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### external
-- **Type**: typing.Optional[bool]
-
-
-# PromotePermissionCreatedFromPolicyRequestRequestTypeDef
+# PromotePermissionCreatedFromPolicyRequestTypeDef
 
 ### permissionArn
 - **Type**: <class 'str'>
@@ -1044,7 +1019,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PromoteResourceShareCreatedFromPolicyRequestRequestTypeDef
+# PromoteResourceShareCreatedFromPolicyRequestTypeDef
 
 ### resourceShareArn
 - **Type**: <class 'str'>
@@ -1062,7 +1037,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RejectResourceShareInvitationRequestRequestTypeDef
+# RejectResourceShareInvitationRequestTypeDef
 
 ### resourceShareInvitationArn
 - **Type**: <class 'str'>
@@ -1087,7 +1062,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ReplacePermissionAssociationsRequestRequestTypeDef
+# ReplacePermissionAssociationsRequestTypeDef
 
 ### fromPermissionArn
 - **Type**: <class 'str'>
@@ -1121,33 +1096,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ReplacePermissionAssociationsWorkTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### fromPermissionArn
-- **Type**: typing.Optional[str]
-
-### fromPermissionVersion
-- **Type**: typing.Optional[str]
-
-### toPermissionArn
-- **Type**: typing.Optional[str]
-
-### toPermissionVersion
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS']]
-
-### statusMessage
-- **Type**: typing.Optional[str]
-
-### creationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### lastUpdatedTime
-- **Type**: typing.Optional[datetime.datetime]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResourceShareAssociationTypeDef
 
@@ -1325,41 +1276,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ResourceTypeDef
 
-### arn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: typing.Optional[str]
-
-### resourceShareArn
-- **Type**: typing.Optional[str]
-
-### resourceGroupArn
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'LIMIT_EXCEEDED', 'PENDING', 'UNAVAILABLE', 'ZONAL_RESOURCE_INACCESSIBLE']]
-
-### statusMessage
-- **Type**: typing.Optional[str]
-
-### creationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### lastUpdatedTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### resourceRegionScope
-- **Type**: typing.Optional[typing.Literal['GLOBAL', 'REGIONAL']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResponseMetadataTypeDef
 
 ### RequestId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### HostId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -1375,6 +1298,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
+
 
 # ServiceNameAndResourceTypeTypeDef
 
@@ -1388,7 +1314,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['GLOBAL', 'REGIONAL']]
 
 
-# SetDefaultPermissionVersionRequestRequestTypeDef
+# SetDefaultPermissionVersionRequestTypeDef
 
 ### permissionArn
 - **Type**: <class 'str'>
@@ -1426,7 +1352,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### tags
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ram_classes.TagTypeDef]
@@ -1448,7 +1374,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### tagKeys
 - **Type**: typing.Sequence[str]
@@ -1461,7 +1387,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateResourceShareRequestRequestTypeDef
+# UpdateResourceShareRequestTypeDef
 
 ### resourceShareArn
 - **Type**: <class 'str'>

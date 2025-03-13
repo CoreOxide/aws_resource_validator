@@ -1,5 +1,34 @@
 # Docdb Elastic Classes
 
+# ApplyPendingMaintenanceActionInputTypeDef
+
+### applyAction
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### optInType
+- **Type**: typing.Literal['APPLY_ON', 'IMMEDIATE', 'NEXT_MAINTENANCE', 'UNDO_OPT_IN']
+- **Required**: Yes
+
+### resourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### applyOn
+- **Type**: typing.Optional[str]
+
+
+# ApplyPendingMaintenanceActionOutputTypeDef
+
+### resourcePendingMaintenanceAction
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResourcePendingMaintenanceActionTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
 # BaseValidatorModel
 
 Oops! This Pydantic model is currently empty. Stay tuned!
@@ -17,7 +46,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### status
-- **Type**: typing.Literal['ACTIVE', 'COPYING', 'CREATING', 'DELETING', 'INACCESSIBLE_ENCRYPTION_CREDS', 'INACCESSIBLE_SECRET_ARN', 'INACCESSIBLE_VPC_ENDPOINT', 'INCOMPATIBLE_NETWORK', 'INVALID_SECURITY_GROUP_ID', 'INVALID_SUBNET_ID', 'IP_ADDRESS_LIMIT_EXCEEDED', 'MERGING', 'MODIFYING', 'SPLITTING', 'STARTING', 'STOPPED', 'STOPPING', 'UPDATING', 'VPC_ENDPOINT_LIMIT_EXCEEDED']
+- **Type**: typing.Literal['ACTIVE', 'COPYING', 'CREATING', 'DELETING', 'INACCESSIBLE_ENCRYPTION_CREDENTIALS_RECOVERABLE', 'INACCESSIBLE_ENCRYPTION_CREDS', 'INACCESSIBLE_SECRET_ARN', 'INACCESSIBLE_VPC_ENDPOINT', 'INCOMPATIBLE_NETWORK', 'INVALID_SECURITY_GROUP_ID', 'INVALID_SUBNET_ID', 'IP_ADDRESS_LIMIT_EXCEEDED', 'MAINTENANCE', 'MERGING', 'MODIFYING', 'SPLITTING', 'STARTING', 'STOPPED', 'STOPPING', 'UPDATING', 'VPC_ENDPOINT_LIMIT_EXCEEDED']
 - **Required**: Yes
 
 
@@ -40,7 +69,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### status
-- **Type**: typing.Literal['ACTIVE', 'COPYING', 'CREATING', 'DELETING', 'INACCESSIBLE_ENCRYPTION_CREDS', 'INACCESSIBLE_SECRET_ARN', 'INACCESSIBLE_VPC_ENDPOINT', 'INCOMPATIBLE_NETWORK', 'INVALID_SECURITY_GROUP_ID', 'INVALID_SUBNET_ID', 'IP_ADDRESS_LIMIT_EXCEEDED', 'MERGING', 'MODIFYING', 'SPLITTING', 'STARTING', 'STOPPED', 'STOPPING', 'UPDATING', 'VPC_ENDPOINT_LIMIT_EXCEEDED']
+- **Type**: typing.Literal['ACTIVE', 'COPYING', 'CREATING', 'DELETING', 'INACCESSIBLE_ENCRYPTION_CREDENTIALS_RECOVERABLE', 'INACCESSIBLE_ENCRYPTION_CREDS', 'INACCESSIBLE_SECRET_ARN', 'INACCESSIBLE_VPC_ENDPOINT', 'INCOMPATIBLE_NETWORK', 'INVALID_SECURITY_GROUP_ID', 'INVALID_SUBNET_ID', 'IP_ADDRESS_LIMIT_EXCEEDED', 'MAINTENANCE', 'MERGING', 'MODIFYING', 'SPLITTING', 'STARTING', 'STOPPED', 'STOPPING', 'UPDATING', 'VPC_ENDPOINT_LIMIT_EXCEEDED']
 - **Required**: Yes
 
 
@@ -75,7 +104,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### status
-- **Type**: typing.Literal['ACTIVE', 'COPYING', 'CREATING', 'DELETING', 'INACCESSIBLE_ENCRYPTION_CREDS', 'INACCESSIBLE_SECRET_ARN', 'INACCESSIBLE_VPC_ENDPOINT', 'INCOMPATIBLE_NETWORK', 'INVALID_SECURITY_GROUP_ID', 'INVALID_SUBNET_ID', 'IP_ADDRESS_LIMIT_EXCEEDED', 'MERGING', 'MODIFYING', 'SPLITTING', 'STARTING', 'STOPPED', 'STOPPING', 'UPDATING', 'VPC_ENDPOINT_LIMIT_EXCEEDED']
+- **Type**: typing.Literal['ACTIVE', 'COPYING', 'CREATING', 'DELETING', 'INACCESSIBLE_ENCRYPTION_CREDENTIALS_RECOVERABLE', 'INACCESSIBLE_ENCRYPTION_CREDS', 'INACCESSIBLE_SECRET_ARN', 'INACCESSIBLE_VPC_ENDPOINT', 'INCOMPATIBLE_NETWORK', 'INVALID_SECURITY_GROUP_ID', 'INVALID_SUBNET_ID', 'IP_ADDRESS_LIMIT_EXCEEDED', 'MAINTENANCE', 'MERGING', 'MODIFYING', 'SPLITTING', 'STARTING', 'STOPPED', 'STOPPING', 'UPDATING', 'VPC_ENDPOINT_LIMIT_EXCEEDED']
 - **Required**: Yes
 
 ### subnetIds
@@ -133,7 +162,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### status
-- **Type**: typing.Literal['ACTIVE', 'COPYING', 'CREATING', 'DELETING', 'INACCESSIBLE_ENCRYPTION_CREDS', 'INACCESSIBLE_SECRET_ARN', 'INACCESSIBLE_VPC_ENDPOINT', 'INCOMPATIBLE_NETWORK', 'INVALID_SECURITY_GROUP_ID', 'INVALID_SUBNET_ID', 'IP_ADDRESS_LIMIT_EXCEEDED', 'MERGING', 'MODIFYING', 'SPLITTING', 'STARTING', 'STOPPED', 'STOPPING', 'UPDATING', 'VPC_ENDPOINT_LIMIT_EXCEEDED']
+- **Type**: typing.Literal['ACTIVE', 'COPYING', 'CREATING', 'DELETING', 'INACCESSIBLE_ENCRYPTION_CREDENTIALS_RECOVERABLE', 'INACCESSIBLE_ENCRYPTION_CREDS', 'INACCESSIBLE_SECRET_ARN', 'INACCESSIBLE_VPC_ENDPOINT', 'INCOMPATIBLE_NETWORK', 'INVALID_SECURITY_GROUP_ID', 'INVALID_SUBNET_ID', 'IP_ADDRESS_LIMIT_EXCEEDED', 'MAINTENANCE', 'MERGING', 'MODIFYING', 'SPLITTING', 'STARTING', 'STOPPED', 'STOPPING', 'UPDATING', 'VPC_ENDPOINT_LIMIT_EXCEEDED']
 - **Required**: Yes
 
 ### subnetIds
@@ -157,7 +186,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.docdb_elastic_classes.ShardTypeDef]]
 
 
-# CopyClusterSnapshotInputRequestTypeDef
+# CopyClusterSnapshotInputTypeDef
 
 ### snapshotArn
 - **Type**: <class 'str'>
@@ -188,7 +217,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateClusterInputRequestTypeDef
+# CreateClusterInputTypeDef
 
 ### adminUserName
 - **Type**: <class 'str'>
@@ -253,7 +282,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateClusterSnapshotInputRequestTypeDef
+# CreateClusterSnapshotInputTypeDef
 
 ### clusterArn
 - **Type**: <class 'str'>
@@ -278,7 +307,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteClusterInputRequestTypeDef
+# DeleteClusterInputTypeDef
 
 ### clusterArn
 - **Type**: <class 'str'>
@@ -296,7 +325,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteClusterSnapshotInputRequestTypeDef
+# DeleteClusterSnapshotInputTypeDef
 
 ### snapshotArn
 - **Type**: <class 'str'>
@@ -314,7 +343,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetClusterInputRequestTypeDef
+# GetClusterInputTypeDef
 
 ### clusterArn
 - **Type**: <class 'str'>
@@ -332,7 +361,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetClusterSnapshotInputRequestTypeDef
+# GetClusterSnapshotInputTypeDef
 
 ### snapshotArn
 - **Type**: <class 'str'>
@@ -350,7 +379,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListClusterSnapshotsInputListClusterSnapshotsPaginateTypeDef
+# GetPendingMaintenanceActionInputTypeDef
+
+### resourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetPendingMaintenanceActionOutputTypeDef
+
+### resourcePendingMaintenanceAction
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResourcePendingMaintenanceActionTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# ListClusterSnapshotsInputPaginateTypeDef
 
 ### clusterArn
 - **Type**: typing.Optional[str]
@@ -362,7 +409,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.docdb_elastic_classes.PaginatorConfigTypeDef]
 
 
-# ListClusterSnapshotsInputRequestTypeDef
+# ListClusterSnapshotsInputTypeDef
 
 ### clusterArn
 - **Type**: typing.Optional[str]
@@ -379,10 +426,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListClusterSnapshotsOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### snapshots
 - **Type**: typing.List[aws_resource_validator.pydantic_models.docdb_elastic_classes.ClusterSnapshotInListTypeDef]
 - **Required**: Yes
@@ -391,14 +434,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListClustersInputListClustersPaginateTypeDef
+
+# ListClustersInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.docdb_elastic_classes.PaginatorConfigTypeDef]
 
 
-# ListClustersInputRequestTypeDef
+# ListClustersInputTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -413,16 +459,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.docdb_elastic_classes.ClusterInListTypeDef]
 - **Required**: Yes
 
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
 ### nextToken
-- **Type**: <class 'str'>
+- **Type**: typing.Optional[str]
+
+
+# ListPendingMaintenanceActionsInputPaginateTypeDef
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.docdb_elastic_classes.PaginatorConfigTypeDef]
+
+
+# ListPendingMaintenanceActionsInputTypeDef
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListPendingMaintenanceActionsOutputTypeDef
+
+### resourcePendingMaintenanceActions
+- **Type**: typing.List[aws_resource_validator.pydantic_models.docdb_elastic_classes.ResourcePendingMaintenanceActionTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -452,6 +526,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# PendingMaintenanceActionDetailsTypeDef
+
+### action
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### autoAppliedAfterDate
+- **Type**: typing.Optional[str]
+
+### currentApplyDate
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### forcedApplyDate
+- **Type**: typing.Optional[str]
+
+### optInStatus
+- **Type**: typing.Optional[str]
+
+
+# ResourcePendingMaintenanceActionTypeDef
+
+### pendingMaintenanceActionDetails
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.docdb_elastic_classes.PendingMaintenanceActionDetailsTypeDef]]
+
+### resourceArn
+- **Type**: typing.Optional[str]
+
+
 # ResponseMetadataTypeDef
 
 ### RequestId
@@ -474,7 +579,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RestoreClusterFromSnapshotInputRequestTypeDef
+# RestoreClusterFromSnapshotInputTypeDef
 
 ### clusterName
 - **Type**: <class 'str'>
@@ -525,11 +630,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### status
-- **Type**: typing.Literal['ACTIVE', 'COPYING', 'CREATING', 'DELETING', 'INACCESSIBLE_ENCRYPTION_CREDS', 'INACCESSIBLE_SECRET_ARN', 'INACCESSIBLE_VPC_ENDPOINT', 'INCOMPATIBLE_NETWORK', 'INVALID_SECURITY_GROUP_ID', 'INVALID_SUBNET_ID', 'IP_ADDRESS_LIMIT_EXCEEDED', 'MERGING', 'MODIFYING', 'SPLITTING', 'STARTING', 'STOPPED', 'STOPPING', 'UPDATING', 'VPC_ENDPOINT_LIMIT_EXCEEDED']
+- **Type**: typing.Literal['ACTIVE', 'COPYING', 'CREATING', 'DELETING', 'INACCESSIBLE_ENCRYPTION_CREDENTIALS_RECOVERABLE', 'INACCESSIBLE_ENCRYPTION_CREDS', 'INACCESSIBLE_SECRET_ARN', 'INACCESSIBLE_VPC_ENDPOINT', 'INCOMPATIBLE_NETWORK', 'INVALID_SECURITY_GROUP_ID', 'INVALID_SUBNET_ID', 'IP_ADDRESS_LIMIT_EXCEEDED', 'MAINTENANCE', 'MERGING', 'MODIFYING', 'SPLITTING', 'STARTING', 'STOPPED', 'STOPPING', 'UPDATING', 'VPC_ENDPOINT_LIMIT_EXCEEDED']
 - **Required**: Yes
 
 
-# StartClusterInputRequestTypeDef
+# StartClusterInputTypeDef
 
 ### clusterArn
 - **Type**: <class 'str'>
@@ -547,7 +652,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopClusterInputRequestTypeDef
+# StopClusterInputTypeDef
 
 ### clusterArn
 - **Type**: <class 'str'>
@@ -565,7 +670,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -576,7 +681,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -587,7 +692,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateClusterInputRequestTypeDef
+# UpdateClusterInputTypeDef
 
 ### clusterArn
 - **Type**: <class 'str'>

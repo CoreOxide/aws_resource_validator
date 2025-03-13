@@ -8,24 +8,9 @@
 
 # ApplicationSummaryTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-### creationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### lastUpdateTime
-- **Type**: typing.Optional[datetime.datetime]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ApplicationTagResultTypeDef
 
@@ -44,32 +29,11 @@
 
 # ApplicationTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### name
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-### creationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### lastUpdateTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### applicationTag
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# AssociateAttributeGroupRequestRequestTypeDef
+# AssociateAttributeGroupRequestTypeDef
 
 ### application
 - **Type**: <class 'str'>
@@ -95,7 +59,7 @@
 - **Required**: Yes
 
 
-# AssociateResourceRequestRequestTypeDef
+# AssociateResourceRequestTypeDef
 
 ### application
 - **Type**: <class 'str'>
@@ -134,66 +98,21 @@
 
 # AttributeGroupDetailsTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### createdBy
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AttributeGroupSummaryTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-### creationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### lastUpdateTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### createdBy
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AttributeGroupTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-### creationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### lastUpdateTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BaseValidatorModel
 
@@ -201,7 +120,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateApplicationRequestRequestTypeDef
+# CreateApplicationRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -229,7 +148,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAttributeGroupRequestRequestTypeDef
+# CreateAttributeGroupRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -261,7 +180,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteApplicationRequestRequestTypeDef
+# DeleteApplicationRequestTypeDef
 
 ### application
 - **Type**: <class 'str'>
@@ -279,7 +198,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAttributeGroupRequestRequestTypeDef
+# DeleteAttributeGroupRequestTypeDef
 
 ### attributeGroup
 - **Type**: <class 'str'>
@@ -297,7 +216,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateAttributeGroupRequestRequestTypeDef
+# DisassociateAttributeGroupRequestTypeDef
 
 ### application
 - **Type**: <class 'str'>
@@ -323,7 +242,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateResourceRequestRequestTypeDef
+# DisassociateResourceRequestTypeDef
 
 ### application
 - **Type**: <class 'str'>
@@ -360,61 +279,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetApplicationRequestRequestTypeDef
+# GetApplicationRequestTypeDef
 
 ### application
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetApplicationResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### lastUpdateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### associatedResourceCount
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### integrations
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.IntegrationsTypeDef'>
-- **Required**: Yes
-
-### applicationTag
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetAssociatedResourceRequestRequestTypeDef
+# GetAssociatedResourceRequestTypeDef
 
 ### application
 - **Type**: <class 'str'>
@@ -457,53 +329,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAttributeGroupRequestRequestTypeDef
+# GetAttributeGroupRequestTypeDef
 
 ### attributeGroup
 - **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# GetAttributeGroupResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### attributes
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### lastUpdateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### createdBy
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
 
@@ -527,13 +356,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResourceGroupTypeDef]
 
 
-# ListApplicationsRequestListApplicationsPaginateTypeDef
+# ListApplicationsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.PaginatorConfigTypeDef]
 
 
-# ListApplicationsRequestRequestTypeDef
+# ListApplicationsRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -548,16 +377,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ApplicationSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListAssociatedAttributeGroupsRequestListAssociatedAttributeGroupsPaginateTypeDef
+
+# ListAssociatedAttributeGroupsRequestPaginateTypeDef
 
 ### application
 - **Type**: <class 'str'>
@@ -567,7 +395,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.PaginatorConfigTypeDef]
 
 
-# ListAssociatedAttributeGroupsRequestRequestTypeDef
+# ListAssociatedAttributeGroupsRequestTypeDef
 
 ### application
 - **Type**: <class 'str'>
@@ -586,16 +414,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListAssociatedResourcesRequestListAssociatedResourcesPaginateTypeDef
+
+# ListAssociatedResourcesRequestPaginateTypeDef
 
 ### application
 - **Type**: <class 'str'>
@@ -605,7 +432,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.PaginatorConfigTypeDef]
 
 
-# ListAssociatedResourcesRequestRequestTypeDef
+# ListAssociatedResourcesRequestTypeDef
 
 ### application
 - **Type**: <class 'str'>
@@ -624,16 +451,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResourceInfoTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListAttributeGroupsForApplicationRequestRequestTypeDef
+
+# ListAttributeGroupsForApplicationRequestPaginateTypeDef
+
+### application
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.PaginatorConfigTypeDef]
+
+
+# ListAttributeGroupsForApplicationRequestTypeDef
 
 ### application
 - **Type**: <class 'str'>
@@ -652,22 +488,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.AttributeGroupDetailsTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListAttributeGroupsRequestListAttributeGroupsPaginateTypeDef
+
+# ListAttributeGroupsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.PaginatorConfigTypeDef]
 
 
-# ListAttributeGroupsRequestRequestTypeDef
+# ListAttributeGroupsRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -682,16 +517,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.AttributeGroupSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -721,7 +555,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutConfigurationRequestRequestTypeDef
+# PutConfigurationRequestTypeDef
 
 ### configuration
 - **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.AppRegistryConfigurationTypeDef'>
@@ -806,10 +640,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -822,8 +652,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# SyncResourceRequestRequestTypeDef
+
+# SyncResourceRequestTypeDef
 
 ### resourceType
 - **Type**: typing.Literal['CFN_STACK', 'RESOURCE_TAG_VALUE']
@@ -859,7 +692,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -870,7 +703,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -881,7 +714,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateApplicationRequestRequestTypeDef
+# UpdateApplicationRequestTypeDef
 
 ### application
 - **Type**: <class 'str'>
@@ -905,7 +738,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAttributeGroupRequestRequestTypeDef
+# UpdateAttributeGroupRequestTypeDef
 
 ### attributeGroup
 - **Type**: <class 'str'>

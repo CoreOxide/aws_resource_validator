@@ -12,6 +12,12 @@
 - **Min Length**: 1
 - **Max Length**: 255
 
+### AnalysisReportId
+- **Type**: string
+- **Pattern**: `\S+`
+- **Min Length**: 1
+- **Max Length**: 128
+
 ### AzSubnet
 - **Type**: string
 - **Pattern**: `^subnet-[0-9a-f]+$`

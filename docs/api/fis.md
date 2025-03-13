@@ -77,10 +77,33 @@
 - **Pattern**: `[\S]+`
 - **Max Length**: 64
 
+### ExperimentErrorCode
+- **Type**: string
+- **Pattern**: `[\S]+`
+- **Max Length**: 128
+
 ### ExperimentId
 - **Type**: string
 - **Pattern**: `[\S]+`
 - **Max Length**: 64
+
+### ExperimentReportErrorCode
+- **Type**: string
+- **Pattern**: `[\s\S]+`
+- **Max Length**: 128
+
+### ExperimentReportReason
+- **Type**: string
+- **Pattern**: `[\s\S]+`
+- **Max Length**: 512
+
+### ExperimentReportS3ReportArn
+- **Type**: string
+- **Pattern**: `[\s\S]+`
+
+### ExperimentReportS3ReportType
+- **Type**: string
+- **Pattern**: `[\s\S]+`
 
 ### ExperimentStatusReason
 - **Type**: string
@@ -189,6 +212,21 @@
 - **Min Length**: 1
 - **Max Length**: 1024
 
+### ReportConfigurationCloudWatchDashboardIdentifier
+- **Type**: string
+- **Pattern**: `[\S]+`
+- **Max Length**: 512
+
+### ReportConfigurationDuration
+- **Type**: string
+- **Pattern**: `[\S]+`
+- **Max Length**: 32
+
+### ReportConfigurationS3OutputPrefix
+- **Type**: string
+- **Pattern**: `[\S]+`
+- **Max Length**: 256
+
 ### ResourceArn
 - **Type**: string
 - **Pattern**: `[\S]+`
@@ -211,7 +249,12 @@
 - **Type**: string
 - **Pattern**: `[\s\S]+`
 - **Min Length**: 1
-- **Max Length**: 1024
+- **Max Length**: 700
+
+### SafetyLeverId
+- **Type**: string
+- **Pattern**: `[\S]+`
+- **Max Length**: 64
 
 ### StopConditionSource
 - **Type**: string

@@ -1,5 +1,16 @@
 # Dlm Classes
 
+# ActionOutputTypeDef
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CrossRegionCopy
+- **Type**: typing.List[aws_resource_validator.pydantic_models.dlm_classes.CrossRegionCopyActionTypeDef]
+- **Required**: Yes
+
+
 # ActionTypeDef
 
 ### Name
@@ -31,7 +42,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateLifecyclePolicyRequestRequestTypeDef
+# CreateLifecyclePolicyRequestTypeDef
 
 ### ExecutionRoleArn
 - **Type**: <class 'str'>
@@ -46,7 +57,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PolicyDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dlm_classes.PolicyDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dlm_classes.PolicyDetailsUnionTypeDef]
 
 ### Tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -70,7 +81,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.dlm_classes.CrossRegionCopyTargetTypeDef]]
 
 ### Exclusions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dlm_classes.ExclusionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dlm_classes.ExclusionsUnionTypeDef]
 
 
 # CreateLifecyclePolicyResponseTypeDef
@@ -84,10 +95,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# CreateRuleOutputTypeDef
+
+### Location
+- **Type**: typing.Optional[typing.Literal['CLOUD', 'LOCAL_ZONE', 'OUTPOST_LOCAL']]
+
+### Interval
+- **Type**: typing.Optional[int]
+
+### IntervalUnit
+- **Type**: typing.Optional[typing.Literal['HOURS']]
+
+### Times
+- **Type**: typing.Optional[typing.List[str]]
+
+### CronExpression
+- **Type**: typing.Optional[str]
+
+### Scripts
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dlm_classes.ScriptOutputTypeDef]]
+
+
 # CreateRuleTypeDef
 
 ### Location
-- **Type**: typing.Optional[typing.Literal['CLOUD', 'OUTPOST_LOCAL']]
+- **Type**: typing.Optional[typing.Literal['CLOUD', 'LOCAL_ZONE', 'OUTPOST_LOCAL']]
 
 ### Interval
 - **Type**: typing.Optional[int]
@@ -168,7 +200,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteLifecyclePolicyRequestRequestTypeDef
+# DeleteLifecyclePolicyRequestTypeDef
 
 ### PolicyId
 - **Type**: <class 'str'>
@@ -197,6 +229,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# EventParametersOutputTypeDef
+
+### EventType
+- **Type**: typing.Literal['shareSnapshot']
+- **Required**: Yes
+
+### SnapshotOwner
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### DescriptionRegex
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
 # EventParametersTypeDef
 
 ### EventType
@@ -212,14 +259,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# EventSourceOutputTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # EventSourceTypeDef
 
-### Type
-- **Type**: typing.Literal['MANAGED_CWE']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Parameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dlm_classes.EventParametersTypeDef]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ExclusionsOutputTypeDef
+
+### ExcludeBootVolumes
+- **Type**: typing.Optional[bool]
+
+### ExcludeVolumeTypes
+- **Type**: typing.Optional[typing.List[str]]
+
+### ExcludeTags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dlm_classes.TagTypeDef]]
 
 
 # ExclusionsTypeDef
@@ -232,6 +293,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ExcludeTags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.dlm_classes.TagTypeDef]]
+
+
+# ExclusionsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# FastRestoreRuleOutputTypeDef
+
+### AvailabilityZones
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### Count
+- **Type**: typing.Optional[int]
+
+### Interval
+- **Type**: typing.Optional[int]
+
+### IntervalUnit
+- **Type**: typing.Optional[typing.Literal['DAYS', 'MONTHS', 'WEEKS', 'YEARS']]
 
 
 # FastRestoreRuleTypeDef
@@ -250,7 +333,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DAYS', 'MONTHS', 'WEEKS', 'YEARS']]
 
 
-# GetLifecyclePoliciesRequestRequestTypeDef
+# GetLifecyclePoliciesRequestTypeDef
 
 ### PolicyIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -282,7 +365,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetLifecyclePolicyRequestRequestTypeDef
+# GetLifecyclePolicyRequestTypeDef
 
 ### PolicyId
 - **Type**: <class 'str'>
@@ -345,7 +428,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### PolicyDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dlm_classes.PolicyDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dlm_classes.PolicyDetailsOutputTypeDef]
 
 ### Tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -357,7 +440,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -375,6 +458,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# ParametersOutputTypeDef
+
+### ExcludeBootVolume
+- **Type**: typing.Optional[bool]
+
+### NoReboot
+- **Type**: typing.Optional[bool]
+
+### ExcludeDataVolumeTags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dlm_classes.TagTypeDef]]
+
+
 # ParametersTypeDef
 
 ### ExcludeBootVolume
@@ -387,6 +482,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.dlm_classes.TagTypeDef]]
 
 
+# PolicyDetailsOutputTypeDef
+
+### PolicyType
+- **Type**: typing.Optional[typing.Literal['EBS_SNAPSHOT_MANAGEMENT', 'EVENT_BASED_POLICY', 'IMAGE_MANAGEMENT']]
+
+### ResourceTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['INSTANCE', 'VOLUME']]]
+
+### ResourceLocations
+- **Type**: typing.Optional[typing.List[typing.Literal['CLOUD', 'LOCAL_ZONE', 'OUTPOST']]]
+
+### TargetTags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dlm_classes.TagTypeDef]]
+
+### Schedules
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dlm_classes.ScheduleOutputTypeDef]]
+
+### Parameters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dlm_classes.ParametersOutputTypeDef]
+
+### EventSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dlm_classes.EventSourceOutputTypeDef]
+
+### Actions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dlm_classes.ActionOutputTypeDef]]
+
+### PolicyLanguage
+- **Type**: typing.Optional[typing.Literal['SIMPLIFIED', 'STANDARD']]
+
+### ResourceType
+- **Type**: typing.Optional[typing.Literal['INSTANCE', 'VOLUME']]
+
+### CreateInterval
+- **Type**: typing.Optional[int]
+
+### RetainInterval
+- **Type**: typing.Optional[int]
+
+### CopyTags
+- **Type**: typing.Optional[bool]
+
+### CrossRegionCopyTargets
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dlm_classes.CrossRegionCopyTargetTypeDef]]
+
+### ExtendDeletion
+- **Type**: typing.Optional[bool]
+
+### Exclusions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dlm_classes.ExclusionsOutputTypeDef]
+
+
 # PolicyDetailsTypeDef
 
 ### PolicyType
@@ -396,7 +542,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['INSTANCE', 'VOLUME']]]
 
 ### ResourceLocations
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CLOUD', 'OUTPOST']]]
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['CLOUD', 'LOCAL_ZONE', 'OUTPOST']]]
 
 ### TargetTags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.dlm_classes.TagTypeDef]]
@@ -438,13 +584,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.dlm_classes.ExclusionsTypeDef]
 
 
+# PolicyDetailsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ResponseMetadataTypeDef
 
 ### RequestId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### HostId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -459,6 +607,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # RetainRuleTypeDef
@@ -483,6 +634,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### IntervalUnit
 - **Type**: typing.Optional[typing.Literal['DAYS', 'MONTHS', 'WEEKS', 'YEARS']]
+
+
+# ScheduleOutputTypeDef
+
+### Name
+- **Type**: typing.Optional[str]
+
+### CopyTags
+- **Type**: typing.Optional[bool]
+
+### TagsToAdd
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dlm_classes.TagTypeDef]]
+
+### VariableTags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dlm_classes.TagTypeDef]]
+
+### CreateRule
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dlm_classes.CreateRuleOutputTypeDef]
+
+### RetainRule
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dlm_classes.RetainRuleTypeDef]
+
+### FastRestoreRule
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dlm_classes.FastRestoreRuleOutputTypeDef]
+
+### CrossRegionCopyRules
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dlm_classes.CrossRegionCopyRuleTypeDef]]
+
+### ShareRules
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dlm_classes.ShareRuleOutputTypeDef]]
+
+### DeprecateRule
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dlm_classes.DeprecateRuleTypeDef]
+
+### ArchiveRule
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dlm_classes.ArchiveRuleTypeDef]
 
 
 # ScheduleTypeDef
@@ -521,6 +708,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.dlm_classes.ArchiveRuleTypeDef]
 
 
+# ScriptOutputTypeDef
+
+### ExecutionHandler
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Stages
+- **Type**: typing.Optional[typing.List[typing.Literal['POST', 'PRE']]]
+
+### ExecutionHandlerService
+- **Type**: typing.Optional[typing.Literal['AWS_SYSTEMS_MANAGER']]
+
+### ExecuteOperationOnScriptFailure
+- **Type**: typing.Optional[bool]
+
+### ExecutionTimeout
+- **Type**: typing.Optional[int]
+
+### MaximumRetryCount
+- **Type**: typing.Optional[int]
+
+
 # ScriptTypeDef
 
 ### ExecutionHandler
@@ -543,6 +752,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
+# ShareRuleOutputTypeDef
+
+### TargetAccounts
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### UnshareInterval
+- **Type**: typing.Optional[int]
+
+### UnshareIntervalUnit
+- **Type**: typing.Optional[typing.Literal['DAYS', 'MONTHS', 'WEEKS', 'YEARS']]
+
+
 # ShareRuleTypeDef
 
 ### TargetAccounts
@@ -556,7 +778,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DAYS', 'MONTHS', 'WEEKS', 'YEARS']]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -578,7 +800,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -589,7 +811,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateLifecyclePolicyRequestRequestTypeDef
+# UpdateLifecyclePolicyRequestTypeDef
 
 ### PolicyId
 - **Type**: <class 'str'>
@@ -605,7 +827,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PolicyDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dlm_classes.PolicyDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dlm_classes.PolicyDetailsUnionTypeDef]
 
 ### CreateInterval
 - **Type**: typing.Optional[int]
@@ -623,6 +845,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.dlm_classes.CrossRegionCopyTargetTypeDef]]
 
 ### Exclusions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dlm_classes.ExclusionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dlm_classes.ExclusionsUnionTypeDef]
 
 

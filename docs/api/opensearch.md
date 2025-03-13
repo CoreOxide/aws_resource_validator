@@ -10,6 +10,12 @@
 - **Type**: string
 - **Pattern**: `^[0-9]+$`
 
+### ApplicationName
+- **Type**: string
+- **Pattern**: `[a-z][a-z0-9\-]+`
+- **Min Length**: 3
+- **Max Length**: 30
+
 ### CloudWatchLogsLogGroupArn
 - **Type**: string
 - **Pattern**: `.*`
@@ -43,6 +49,23 @@
 - **Type**: string
 - **Pattern**: `^[0-9a-zA-Z\*\.\_\\\/\?-]+$`
 
+### DirectQueryDataSourceDescription
+- **Type**: string
+- **Pattern**: `^([a-zA-Z0-9_])*[\\a-zA-Z0-9_@#%*+=:?./!\s-]*$`
+- **Max Length**: 1000
+
+### DirectQueryDataSourceName
+- **Type**: string
+- **Pattern**: `[a-z][a-z0-9_]+`
+- **Min Length**: 3
+- **Max Length**: 80
+
+### DirectQueryDataSourceRoleArn
+- **Type**: string
+- **Pattern**: `^arn:aws[a-zA-Z-]*:iam::\d{12}:role(\/service-role)?\/[A-Za-z0-9+=,.@\-_]{1,64}$`
+- **Min Length**: 32
+- **Max Length**: 200
+
 ### DomainArn
 - **Type**: string
 - **Pattern**: `arn:aws[a-z\-]*:[a-z]+:[a-z0-9\-]+:[0-9]+:domain\/[a-z0-9\-]+`
@@ -75,11 +98,33 @@
 - **Min Length**: 36
 - **Max Length**: 36
 
+### Id
+- **Type**: string
+- **Pattern**: `[a-z0-9]{3,30}`
+
+### IdentityCenterApplicationARN
+- **Type**: string
+- **Pattern**: `^arn:aws[a-z\\-]*:[a-z]+:[a-z0-9\\-]*:[0-9]*:[a-z0-9\\-]+\/[a-z0-9\\-]+\/[a-z0-9\\-]+`
+- **Min Length**: 20
+- **Max Length**: 2048
+
+### IdentityCenterInstanceARN
+- **Type**: string
+- **Pattern**: `^arn:aws[a-z\\-]*:[a-z]+:[a-z0-9\\-]*:[0-9]*:[a-z0-9\\-]+\/[a-z0-9\\-]+`
+- **Min Length**: 20
+- **Max Length**: 2048
+
 ### IdentityPoolId
 - **Type**: string
 - **Pattern**: `[\w-]+:[0-9a-f-]+`
 - **Min Length**: 1
 - **Max Length**: 55
+
+### IdentityStoreId
+- **Type**: string
+- **Pattern**: `^d-[0-9a-f]{10}$|^[0-9a-f]{8}\\b-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-\\b[0-9a-f]{12}$`
+- **Min Length**: 1
+- **Max Length**: 64
 
 ### InstanceTypeString
 - **Type**: string
@@ -92,6 +137,11 @@
 - **Pattern**: `.*`
 - **Min Length**: 1
 - **Max Length**: 500
+
+### LicenseFilepath
+- **Type**: string
+- **Pattern**: `^(?!.*\/\.{2,})(?!.*\.\.)[a-zA-Z0-9_.-]+(?:\/[a-zA-Z0-9_.-]+)*$`
+- **Max Length**: 256
 
 ### MaintenanceStatusMessage
 - **Type**: string
@@ -125,13 +175,19 @@
 
 ### PackageID
 - **Type**: string
-- **Pattern**: `^([FG][0-9]+)$`
+- **Pattern**: `^([FG][0-9]+)$|^(pkg-[a-f0-9]+)$`
 
 ### PackageName
 - **Type**: string
 - **Pattern**: `[a-z][a-z0-9\-]+`
 - **Min Length**: 3
 - **Max Length**: 256
+
+### PackageUser
+- **Type**: string
+- **Pattern**: `^[0-9]{12}$|^GLOBAL$`
+- **Min Length**: 6
+- **Max Length**: 12
 
 ### Password
 - **Type**: string

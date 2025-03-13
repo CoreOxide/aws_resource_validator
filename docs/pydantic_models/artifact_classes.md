@@ -12,6 +12,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
+# CustomerAgreementSummaryTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # GetAccountSettingsResponseTypeDef
 
 ### accountSettings
@@ -23,7 +29,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetReportMetadataRequestRequestTypeDef
+# GetReportMetadataRequestTypeDef
 
 ### reportId
 - **Type**: <class 'str'>
@@ -44,7 +50,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetReportRequestRequestTypeDef
+# GetReportRequestTypeDef
 
 ### reportId
 - **Type**: <class 'str'>
@@ -69,7 +75,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTermForReportRequestRequestTypeDef
+# GetTermForReportRequestTypeDef
 
 ### reportId
 - **Type**: <class 'str'>
@@ -94,13 +100,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListReportsRequestListReportsPaginateTypeDef
+# ListCustomerAgreementsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.artifact_classes.PaginatorConfigTypeDef]
 
 
-# ListReportsRequestRequestTypeDef
+# ListCustomerAgreementsRequestTypeDef
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListCustomerAgreementsResponseTypeDef
+
+### customerAgreements
+- **Type**: typing.List[aws_resource_validator.pydantic_models.artifact_classes.CustomerAgreementSummaryTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.artifact_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListReportsRequestPaginateTypeDef
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.artifact_classes.PaginatorConfigTypeDef]
+
+
+# ListReportsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -115,13 +150,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.artifact_classes.ReportSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.artifact_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # PaginatorConfigTypeDef
@@ -136,7 +170,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutAccountSettingsRequestRequestTypeDef
+# PutAccountSettingsRequestTypeDef
 
 ### notificationSubscriptionStatus
 - **Type**: typing.Optional[typing.Literal['NOT_SUBSCRIBED', 'SUBSCRIBED']]
@@ -155,114 +189,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ReportDetailTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### name
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-### periodStart
-- **Type**: typing.Optional[datetime.datetime]
-
-### periodEnd
-- **Type**: typing.Optional[datetime.datetime]
-
-### createdAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### lastModifiedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### deletedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### state
-- **Type**: typing.Optional[typing.Literal['PUBLISHED', 'UNPUBLISHED']]
-
-### arn
-- **Type**: typing.Optional[str]
-
-### series
-- **Type**: typing.Optional[str]
-
-### category
-- **Type**: typing.Optional[str]
-
-### companyName
-- **Type**: typing.Optional[str]
-
-### productName
-- **Type**: typing.Optional[str]
-
-### termArn
-- **Type**: typing.Optional[str]
-
-### version
-- **Type**: typing.Optional[int]
-
-### acceptanceType
-- **Type**: typing.Optional[typing.Literal['EXPLICIT', 'PASSTHROUGH']]
-
-### sequenceNumber
-- **Type**: typing.Optional[int]
-
-### uploadState
-- **Type**: typing.Optional[typing.Literal['COMPLETE', 'FAILED', 'FAULT', 'PROCESSING']]
-
-### statusMessage
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ReportSummaryTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### name
-- **Type**: typing.Optional[str]
-
-### state
-- **Type**: typing.Optional[typing.Literal['PUBLISHED', 'UNPUBLISHED']]
-
-### arn
-- **Type**: typing.Optional[str]
-
-### version
-- **Type**: typing.Optional[int]
-
-### uploadState
-- **Type**: typing.Optional[typing.Literal['COMPLETE', 'FAILED', 'FAULT', 'PROCESSING']]
-
-### description
-- **Type**: typing.Optional[str]
-
-### periodStart
-- **Type**: typing.Optional[datetime.datetime]
-
-### periodEnd
-- **Type**: typing.Optional[datetime.datetime]
-
-### series
-- **Type**: typing.Optional[str]
-
-### category
-- **Type**: typing.Optional[str]
-
-### companyName
-- **Type**: typing.Optional[str]
-
-### productName
-- **Type**: typing.Optional[str]
-
-### statusMessage
-- **Type**: typing.Optional[str]
-
-### acceptanceType
-- **Type**: typing.Optional[typing.Literal['EXPLICIT', 'PASSTHROUGH']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResponseMetadataTypeDef
 

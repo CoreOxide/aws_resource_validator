@@ -16,6 +16,10 @@
 - **Min Length**: 1
 - **Max Length**: 254
 
+### Otp
+- **Type**: string
+- **Pattern**: `^[a-zA-Z0-9]{6}$`
+
 ### PhoneNumber
 - **Type**: string
 - **Pattern**: `^[\s0-9()+-]+$`

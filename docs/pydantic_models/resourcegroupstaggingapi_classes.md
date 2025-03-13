@@ -49,7 +49,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetComplianceSummaryInputGetComplianceSummaryPaginateTypeDef
+# GetComplianceSummaryInputPaginateTypeDef
 
 ### TargetIdFilters
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -70,7 +70,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.resourcegroupstaggingapi_classes.PaginatorConfigTypeDef]
 
 
-# GetComplianceSummaryInputRequestTypeDef
+# GetComplianceSummaryInputTypeDef
 
 ### TargetIdFilters
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -109,7 +109,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResourcesInputGetResourcesPaginateTypeDef
+# GetResourcesInputPaginateTypeDef
 
 ### TagFilters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resourcegroupstaggingapi_classes.TagFilterTypeDef]]
@@ -133,7 +133,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.resourcegroupstaggingapi_classes.PaginatorConfigTypeDef]
 
 
-# GetResourcesInputRequestTypeDef
+# GetResourcesInputTypeDef
 
 ### PaginationToken
 - **Type**: typing.Optional[str]
@@ -175,13 +175,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTagKeysInputGetTagKeysPaginateTypeDef
+# GetTagKeysInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.resourcegroupstaggingapi_classes.PaginatorConfigTypeDef]
 
 
-# GetTagKeysInputRequestTypeDef
+# GetTagKeysInputTypeDef
 
 ### PaginationToken
 - **Type**: typing.Optional[str]
@@ -202,7 +202,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTagValuesInputGetTagValuesPaginateTypeDef
+# GetTagValuesInputPaginateTypeDef
 
 ### Key
 - **Type**: <class 'str'>
@@ -212,7 +212,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.resourcegroupstaggingapi_classes.PaginatorConfigTypeDef]
 
 
-# GetTagValuesInputRequestTypeDef
+# GetTagValuesInputTypeDef
 
 ### Key
 - **Type**: <class 'str'>
@@ -267,10 +267,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -283,8 +279,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# StartReportCreationInputRequestTypeDef
+
+# StartReportCreationInputTypeDef
 
 ### S3Bucket
 - **Type**: <class 'str'>
@@ -321,7 +320,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# TagResourcesInputRequestTypeDef
+# TagResourcesInputTypeDef
 
 ### ResourceARNList
 - **Type**: typing.Sequence[str]
@@ -354,7 +353,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourcesInputRequestTypeDef
+# UntagResourcesInputTypeDef
 
 ### ResourceARNList
 - **Type**: typing.Sequence[str]

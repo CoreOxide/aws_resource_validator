@@ -24,6 +24,12 @@
 - **Min Length**: 1
 - **Max Length**: 1011
 
+### ApplicationArn
+- **Type**: string
+- **Pattern**: `^arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso::\d{12}:application/(sso)?ins-[a-zA-Z0-9-.]{16}/apl-[a-zA-Z0-9]{16}$`
+- **Min Length**: 10
+- **Max Length**: 1224
+
 ### Description
 - **Type**: string
 - **Pattern**: `[\S\s]*`
@@ -107,6 +113,36 @@
 - **Min Length**: 1
 - **Max Length**: 128
 
+### IdentityCenterApplicationName
+- **Type**: string
+- **Pattern**: `^[\w+=,.@-]+$`
+- **Min Length**: 0
+- **Max Length**: 255
+
+### IdentityProviderIdentityStoreId
+- **Type**: string
+- **Pattern**: `^d-[0-9a-f]{10}$|^[0-9a-f]{8}\\b-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-\\b[0-9a-f]{12}$`
+- **Min Length**: 1
+- **Max Length**: 36
+
+### IdentityProviderUserId
+- **Type**: string
+- **Pattern**: `^([0-9a-f]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$`
+- **Min Length**: 1
+- **Max Length**: 47
+
+### IdentityProviderUserIdForUpdate
+- **Type**: string
+- **Pattern**: `^$|^([0-9a-f]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$`
+- **Min Length**: 0
+- **Max Length**: 47
+
+### IdentityProviderUserIdPrefix
+- **Type**: string
+- **Pattern**: `^[A-Fa-f0-9-]+$`
+- **Min Length**: 1
+- **Max Length**: 47
+
 ### ImpersonationRoleDescription
 - **Type**: string
 - **Pattern**: `[^\x00-\x09\x0B\x0C\x0E-\x1F\x7F\x3C\x3E\x5C]+`
@@ -148,6 +184,12 @@
 - **Pattern**: `[\x21-\x7e]+`
 - **Min Length**: 1
 - **Max Length**: 256
+
+### InstanceArn
+- **Type**: string
+- **Pattern**: `^arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}$`
+- **Min Length**: 10
+- **Max Length**: 1124
 
 ### IpAddress
 - **Type**: string
@@ -230,6 +272,24 @@
 ### Password
 - **Type**: string
 - **Pattern**: `[\u0020-\u00FF]+`
+- **Max Length**: 256
+
+### PersonalAccessTokenId
+- **Type**: string
+- **Pattern**: `[a-zA-Z0-9_-]+`
+- **Min Length**: 1
+- **Max Length**: 64
+
+### PersonalAccessTokenName
+- **Type**: string
+- **Pattern**: `[^\x00-\x1F\x7F\x3C\x3E\x5C]+`
+- **Min Length**: 1
+- **Max Length**: 64
+
+### PersonalAccessTokenScope
+- **Type**: string
+- **Pattern**: `[^\x00-\x1F\x7F\x3C\x3E\x5C]+`
+- **Min Length**: 1
 - **Max Length**: 256
 
 ### PolicyDescription

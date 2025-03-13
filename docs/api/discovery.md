@@ -21,6 +21,12 @@
 - **Pattern**: `[\s\S]*\S[\s\S]*`
 - **Max Length**: 127
 
+### ApplicationWave
+- **Type**: string
+- **Pattern**: `^($|[^\s\x00]( *[^\s\x00])*$)`
+- **Min Length**: 0
+- **Max Length**: 256
+
 ### Condition
 - **Type**: string
 - **Pattern**: `\S+`

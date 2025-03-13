@@ -2,7 +2,7 @@
 
 ### AmazonResourceName
 - **Type**: string
-- **Pattern**: `^arn:aws:securitylake:[A-za-z0-9_/.\-]{0,63}:[A-za-z0-9_/.\-]{0,63}:[A-Za-z0-9][A-za-z0-9_/.\-]{0,127}$`
+- **Pattern**: `^arn:(aws|aws-us-gov|aws-cn):securitylake:[A-Za-z0-9_/.\-]{0,63}:[A-Za-z0-9_/.\-]{0,63}:[A-Za-z0-9][A-Za-z0-9_/.\-]{0,127}$`
 - **Min Length**: 1
 - **Max Length**: 1011
 
@@ -22,7 +22,7 @@
 
 ### CustomLogSourceName
 - **Type**: string
-- **Pattern**: `^[\\\w\-_:/.]*$`
+- **Pattern**: `^[\w\-\_\:\.]*$`
 - **Min Length**: 1
 - **Max Length**: 64
 
@@ -52,7 +52,7 @@
 
 ### Region
 - **Type**: string
-- **Pattern**: `^(af|ap|ca|eu|me|sa|us)-(central|north|(north(?:east|west))|south|south(?:east|west)|east|west)-\d+$`
+- **Pattern**: `^(us(-gov)?|af|ap|ca|eu|me|sa)-(central|north|(north(?:east|west))|south|south(?:east|west)|east|west)-\d+$`
 
 ### ResourceShareName
 - **Type**: string

@@ -21,19 +21,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ExpressionTypeDef
+# ExpressionPaginatorTypeDef
 
 ### And
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 ### Dimensions
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.freetier_classes.DimensionValuesTypeDef]
 
 ### Not
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
 
 ### Or
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+
+# ExpressionTypeDef
+
+### And
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### Dimensions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.freetier_classes.DimensionValuesTypeDef]
+
+### Not
+- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+
+### Or
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 
 # FreeTierUsageTypeDef
@@ -69,40 +84,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetFreeTierUsageRequestGetFreeTierUsagePaginateTypeDef
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.freetier_classes.ExpressionTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.freetier_classes.PaginatorConfigTypeDef]
-
-
-# GetFreeTierUsageRequestRequestTypeDef
-
-### filter
-- **Type**: typing.Optional[ForwardRef('ExpressionTypeDef')]
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
 # GetFreeTierUsageResponseTypeDef
 
 ### freeTierUsages
 - **Type**: typing.List[aws_resource_validator.pydantic_models.freetier_classes.FreeTierUsageTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.freetier_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # PaginatorConfigTypeDef
@@ -123,10 +116,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -138,5 +127,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 

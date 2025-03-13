@@ -49,7 +49,7 @@
 - **Required**: Yes
 
 ### VpcConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.VpcConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.VpcConfigOutputTypeDef'>
 - **Required**: Yes
 
 ### State
@@ -191,7 +191,7 @@
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.S3LocationTypeDef]
 
 ### Platforms
-- **Type**: typing.Optional[typing.List[typing.Literal['AMAZON_LINUX2', 'WINDOWS', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['AMAZON_LINUX2', 'RHEL8', 'ROCKY_LINUX8', 'WINDOWS', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]]
 
 ### InstanceFamilies
 - **Type**: typing.Optional[typing.List[str]]
@@ -200,7 +200,7 @@
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# AssociateAppBlockBuilderAppBlockRequestRequestTypeDef
+# AssociateAppBlockBuilderAppBlockRequestTypeDef
 
 ### AppBlockArn
 - **Type**: <class 'str'>
@@ -222,7 +222,7 @@
 - **Required**: Yes
 
 
-# AssociateApplicationFleetRequestRequestTypeDef
+# AssociateApplicationFleetRequestTypeDef
 
 ### FleetName
 - **Type**: <class 'str'>
@@ -244,7 +244,7 @@
 - **Required**: Yes
 
 
-# AssociateApplicationToEntitlementRequestRequestTypeDef
+# AssociateApplicationToEntitlementRequestTypeDef
 
 ### StackName
 - **Type**: <class 'str'>
@@ -259,7 +259,7 @@
 - **Required**: Yes
 
 
-# AssociateFleetRequestRequestTypeDef
+# AssociateFleetRequestTypeDef
 
 ### FleetName
 - **Type**: <class 'str'>
@@ -276,7 +276,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchAssociateUserStackRequestRequestTypeDef
+# BatchAssociateUserStackRequestTypeDef
 
 ### UserStackAssociations
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appstream_classes.UserStackAssociationTypeDef]
@@ -294,7 +294,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchDisassociateUserStackRequestRequestTypeDef
+# BatchDisassociateUserStackRequestTypeDef
 
 ### UserStackAssociations
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appstream_classes.UserStackAssociationTypeDef]
@@ -358,7 +358,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CopyImageRequestRequestTypeDef
+# CopyImageRequestTypeDef
 
 ### SourceImageName
 - **Type**: <class 'str'>
@@ -387,7 +387,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAppBlockBuilderRequestRequestTypeDef
+# CreateAppBlockBuilderRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -402,7 +402,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VpcConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.VpcConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.VpcConfigUnionTypeDef'>
 - **Required**: Yes
 
 ### Description
@@ -435,7 +435,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAppBlockBuilderStreamingURLRequestRequestTypeDef
+# CreateAppBlockBuilderStreamingURLRequestTypeDef
 
 ### AppBlockBuilderName
 - **Type**: <class 'str'>
@@ -460,7 +460,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAppBlockRequestRequestTypeDef
+# CreateAppBlockRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -500,7 +500,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateApplicationRequestRequestTypeDef
+# CreateApplicationRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -515,7 +515,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Platforms
-- **Type**: typing.Sequence[typing.Literal['AMAZON_LINUX2', 'WINDOWS', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]
+- **Type**: typing.Sequence[typing.Literal['AMAZON_LINUX2', 'RHEL8', 'ROCKY_LINUX8', 'WINDOWS', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]
 - **Required**: Yes
 
 ### InstanceFamilies
@@ -553,7 +553,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDirectoryConfigRequestRequestTypeDef
+# CreateDirectoryConfigRequestTypeDef
 
 ### DirectoryName
 - **Type**: <class 'str'>
@@ -581,7 +581,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateEntitlementRequestRequestTypeDef
+# CreateEntitlementRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -614,7 +614,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateFleetRequestRequestTypeDef
+# CreateFleetRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -637,7 +637,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.ComputeCapacityTypeDef]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.VpcConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.VpcConfigUnionTypeDef]
 
 ### MaxUserDurationInSeconds
 - **Type**: typing.Optional[int]
@@ -670,7 +670,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['APP', 'DESKTOP']]
 
 ### Platform
-- **Type**: typing.Optional[typing.Literal['AMAZON_LINUX2', 'WINDOWS', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]
+- **Type**: typing.Optional[typing.Literal['AMAZON_LINUX2', 'RHEL8', 'ROCKY_LINUX8', 'WINDOWS', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]
 
 ### MaxConcurrentSessions
 - **Type**: typing.Optional[int]
@@ -696,7 +696,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateImageBuilderRequestRequestTypeDef
+# CreateImageBuilderRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -719,7 +719,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.VpcConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.VpcConfigUnionTypeDef]
 
 ### IamRoleArn
 - **Type**: typing.Optional[str]
@@ -751,7 +751,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateImageBuilderStreamingURLRequestRequestTypeDef
+# CreateImageBuilderStreamingURLRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -776,7 +776,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateStackRequestRequestTypeDef
+# CreateStackRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -789,7 +789,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StorageConnectors
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appstream_classes.StorageConnectorTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appstream_classes.StorageConnectorUnionTypeDef]]
 
 ### RedirectURL
 - **Type**: typing.Optional[str]
@@ -827,7 +827,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateStreamingURLRequestRequestTypeDef
+# CreateStreamingURLRequestTypeDef
 
 ### StackName
 - **Type**: <class 'str'>
@@ -866,7 +866,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateUpdatedImageRequestRequestTypeDef
+# CreateThemeForStackRequestTypeDef
+
+### StackName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TitleText
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ThemeStyling
+- **Type**: typing.Literal['BLUE', 'LIGHT_BLUE', 'PINK', 'RED']
+- **Required**: Yes
+
+### OrganizationLogoS3Location
+- **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.S3LocationTypeDef'>
+- **Required**: Yes
+
+### FaviconS3Location
+- **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.S3LocationTypeDef'>
+- **Required**: Yes
+
+### FooterLinks
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appstream_classes.ThemeFooterLinkTypeDef]]
+
+
+# CreateThemeForStackResultTypeDef
+
+### Theme
+- **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ThemeTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateUpdatedImageRequestTypeDef
 
 ### existingImageName
 - **Type**: <class 'str'>
@@ -919,7 +956,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateUserRequestRequestTypeDef
+# CreateUserRequestTypeDef
 
 ### UserName
 - **Type**: <class 'str'>
@@ -939,35 +976,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteAppBlockBuilderRequestRequestTypeDef
+# DeleteAppBlockBuilderRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteAppBlockRequestRequestTypeDef
+# DeleteAppBlockRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteApplicationRequestRequestTypeDef
+# DeleteApplicationRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDirectoryConfigRequestRequestTypeDef
+# DeleteDirectoryConfigRequestTypeDef
 
 ### DirectoryName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteEntitlementRequestRequestTypeDef
+# DeleteEntitlementRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -978,14 +1015,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteFleetRequestRequestTypeDef
+# DeleteFleetRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteImageBuilderRequestRequestTypeDef
+# DeleteImageBuilderRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -1003,7 +1040,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteImagePermissionsRequestRequestTypeDef
+# DeleteImagePermissionsRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -1014,7 +1051,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteImageRequestRequestTypeDef
+# DeleteImageRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -1032,14 +1069,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteStackRequestRequestTypeDef
+# DeleteStackRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteUserRequestRequestTypeDef
+# DeleteThemeForStackRequestTypeDef
+
+### StackName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteUserRequestTypeDef
 
 ### UserName
 - **Type**: <class 'str'>
@@ -1050,7 +1094,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAppBlockBuilderAppBlockAssociationsRequestRequestTypeDef
+# DescribeAppBlockBuilderAppBlockAssociationsRequestTypeDef
 
 ### AppBlockArn
 - **Type**: typing.Optional[str]
@@ -1071,16 +1115,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appstream_classes.AppBlockBuilderAppBlockAssociationTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# DescribeAppBlockBuildersRequestRequestTypeDef
+
+# DescribeAppBlockBuildersRequestTypeDef
 
 ### Names
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1098,16 +1141,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appstream_classes.AppBlockBuilderTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# DescribeAppBlocksRequestRequestTypeDef
+
+# DescribeAppBlocksRequestTypeDef
 
 ### Arns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1125,16 +1167,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appstream_classes.AppBlockTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# DescribeApplicationFleetAssociationsRequestRequestTypeDef
+
+# DescribeApplicationFleetAssociationsRequestTypeDef
 
 ### FleetName
 - **Type**: typing.Optional[str]
@@ -1155,16 +1196,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appstream_classes.ApplicationFleetAssociationTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# DescribeApplicationsRequestRequestTypeDef
+
+# DescribeApplicationsRequestTypeDef
 
 ### Arns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1182,16 +1222,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appstream_classes.ApplicationTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# DescribeDirectoryConfigsRequestDescribeDirectoryConfigsPaginateTypeDef
+
+# DescribeDirectoryConfigsRequestPaginateTypeDef
 
 ### DirectoryNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1200,7 +1239,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDirectoryConfigsRequestRequestTypeDef
+# DescribeDirectoryConfigsRequestTypeDef
 
 ### DirectoryNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1218,16 +1257,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appstream_classes.DirectoryConfigTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# DescribeEntitlementsRequestRequestTypeDef
+
+# DescribeEntitlementsRequestTypeDef
 
 ### StackName
 - **Type**: <class 'str'>
@@ -1249,16 +1287,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appstream_classes.EntitlementTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# DescribeFleetsRequestDescribeFleetsPaginateTypeDef
+
+# DescribeFleetsRequestPaginateTypeDef
 
 ### Names
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1267,7 +1304,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.PaginatorConfigTypeDef]
 
 
-# DescribeFleetsRequestFleetStartedWaitTypeDef
+# DescribeFleetsRequestTypeDef
+
+### Names
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# DescribeFleetsRequestWaitExtraTypeDef
 
 ### Names
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1279,7 +1325,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.WaiterConfigTypeDef]
 
 
-# DescribeFleetsRequestFleetStoppedWaitTypeDef
+# DescribeFleetsRequestWaitTypeDef
 
 ### Names
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1289,30 +1335,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### WaiterConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.WaiterConfigTypeDef]
-
-
-# DescribeFleetsRequestRequestTypeDef
-
-### Names
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# DescribeFleetsResultPaginatorTypeDef
-
-### Fleets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appstream_classes.FleetPaginatorTypeDef]
-- **Required**: Yes
-
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
 
 
 # DescribeFleetsResultTypeDef
@@ -1321,16 +1343,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appstream_classes.FleetTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# DescribeImageBuildersRequestDescribeImageBuildersPaginateTypeDef
+
+# DescribeImageBuildersRequestPaginateTypeDef
 
 ### Names
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1339,7 +1360,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.PaginatorConfigTypeDef]
 
 
-# DescribeImageBuildersRequestRequestTypeDef
+# DescribeImageBuildersRequestTypeDef
 
 ### Names
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1351,37 +1372,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeImageBuildersResultPaginatorTypeDef
-
-### ImageBuilders
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appstream_classes.ImageBuilderPaginatorTypeDef]
-- **Required**: Yes
-
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
 # DescribeImageBuildersResultTypeDef
 
 ### ImageBuilders
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appstream_classes.ImageBuilderTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# DescribeImagePermissionsRequestRequestTypeDef
+
+# DescribeImagePermissionsRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -1407,46 +1412,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appstream_classes.SharedImagePermissionsTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# DescribeImagesRequestDescribeImagesPaginateTypeDef
-
-### Names
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### Arns
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['PRIVATE', 'PUBLIC', 'SHARED']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.PaginatorConfigTypeDef]
-
-
-# DescribeImagesRequestRequestTypeDef
-
-### Names
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### Arns
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['PRIVATE', 'PUBLIC', 'SHARED']]
-
 ### NextToken
 - **Type**: typing.Optional[str]
-
-### MaxResults
-- **Type**: typing.Optional[int]
 
 
 # DescribeImagesResultTypeDef
@@ -1455,16 +1426,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appstream_classes.ImageTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# DescribeSessionsRequestDescribeSessionsPaginateTypeDef
+
+# DescribeSessionsRequestPaginateTypeDef
 
 ### StackName
 - **Type**: <class 'str'>
@@ -1487,7 +1457,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.PaginatorConfigTypeDef]
 
 
-# DescribeSessionsRequestRequestTypeDef
+# DescribeSessionsRequestTypeDef
 
 ### StackName
 - **Type**: <class 'str'>
@@ -1519,16 +1489,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appstream_classes.SessionTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# DescribeStacksRequestDescribeStacksPaginateTypeDef
+
+# DescribeStacksRequestPaginateTypeDef
 
 ### Names
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1537,7 +1506,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.PaginatorConfigTypeDef]
 
 
-# DescribeStacksRequestRequestTypeDef
+# DescribeStacksRequestTypeDef
 
 ### Names
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1546,29 +1515,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeStacksResultPaginatorTypeDef
-
-### Stacks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appstream_classes.StackPaginatorTypeDef]
-- **Required**: Yes
-
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
 # DescribeStacksResultTypeDef
 
 ### Stacks
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appstream_classes.StackTypeDef]
 - **Required**: Yes
 
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
 ### NextToken
+- **Type**: typing.Optional[str]
+
+
+# DescribeThemeForStackRequestTypeDef
+
+### StackName
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeThemeForStackResultTypeDef
+
+### Theme
+- **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ThemeTypeDef'>
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -1576,7 +1547,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeUsageReportSubscriptionsRequestRequestTypeDef
+# DescribeUsageReportSubscriptionsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1591,16 +1562,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appstream_classes.UsageReportSubscriptionTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# DescribeUserStackAssociationsRequestDescribeUserStackAssociationsPaginateTypeDef
+
+# DescribeUserStackAssociationsRequestPaginateTypeDef
 
 ### StackName
 - **Type**: typing.Optional[str]
@@ -1615,7 +1585,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.PaginatorConfigTypeDef]
 
 
-# DescribeUserStackAssociationsRequestRequestTypeDef
+# DescribeUserStackAssociationsRequestTypeDef
 
 ### StackName
 - **Type**: typing.Optional[str]
@@ -1639,16 +1609,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appstream_classes.UserStackAssociationTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# DescribeUsersRequestDescribeUsersPaginateTypeDef
+
+# DescribeUsersRequestPaginateTypeDef
 
 ### AuthenticationType
 - **Type**: typing.Literal['API', 'AWS_AD', 'SAML', 'USERPOOL']
@@ -1658,7 +1627,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.PaginatorConfigTypeDef]
 
 
-# DescribeUsersRequestRequestTypeDef
+# DescribeUsersRequestTypeDef
 
 ### AuthenticationType
 - **Type**: typing.Literal['API', 'AWS_AD', 'SAML', 'USERPOOL']
@@ -1677,13 +1646,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appstream_classes.UserTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # DirectoryConfigTypeDef
@@ -1705,7 +1673,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.CertificateBasedAuthPropertiesTypeDef]
 
 
-# DisableUserRequestRequestTypeDef
+# DisableUserRequestTypeDef
 
 ### UserName
 - **Type**: <class 'str'>
@@ -1716,7 +1684,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateAppBlockBuilderAppBlockRequestRequestTypeDef
+# DisassociateAppBlockBuilderAppBlockRequestTypeDef
 
 ### AppBlockArn
 - **Type**: <class 'str'>
@@ -1727,7 +1695,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateApplicationFleetRequestRequestTypeDef
+# DisassociateApplicationFleetRequestTypeDef
 
 ### FleetName
 - **Type**: <class 'str'>
@@ -1738,7 +1706,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateApplicationFromEntitlementRequestRequestTypeDef
+# DisassociateApplicationFromEntitlementRequestTypeDef
 
 ### StackName
 - **Type**: <class 'str'>
@@ -1753,7 +1721,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateFleetRequestRequestTypeDef
+# DisassociateFleetRequestTypeDef
 
 ### FleetName
 - **Type**: <class 'str'>
@@ -1773,7 +1741,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EnableUserRequestRequestTypeDef
+# EnableUserRequestTypeDef
 
 ### UserName
 - **Type**: <class 'str'>
@@ -1839,7 +1807,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExpireSessionRequestRequestTypeDef
+# ExpireSessionRequestTypeDef
 
 ### SessionId
 - **Type**: <class 'str'>
@@ -1853,89 +1821,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ErrorMessage
 - **Type**: typing.Optional[str]
-
-
-# FleetPaginatorTypeDef
-
-### Arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### InstanceType
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ComputeCapacityStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ComputeCapacityStatusTypeDef'>
-- **Required**: Yes
-
-### State
-- **Type**: typing.Literal['RUNNING', 'STARTING', 'STOPPED', 'STOPPING']
-- **Required**: Yes
-
-### DisplayName
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### ImageName
-- **Type**: typing.Optional[str]
-
-### ImageArn
-- **Type**: typing.Optional[str]
-
-### FleetType
-- **Type**: typing.Optional[typing.Literal['ALWAYS_ON', 'ELASTIC', 'ON_DEMAND']]
-
-### MaxUserDurationInSeconds
-- **Type**: typing.Optional[int]
-
-### DisconnectTimeoutInSeconds
-- **Type**: typing.Optional[int]
-
-### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.VpcConfigPaginatorTypeDef]
-
-### CreatedTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### FleetErrors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appstream_classes.FleetErrorTypeDef]]
-
-### EnableDefaultInternetAccess
-- **Type**: typing.Optional[bool]
-
-### DomainJoinInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.DomainJoinInfoTypeDef]
-
-### IdleDisconnectTimeoutInSeconds
-- **Type**: typing.Optional[int]
-
-### IamRoleArn
-- **Type**: typing.Optional[str]
-
-### StreamView
-- **Type**: typing.Optional[typing.Literal['APP', 'DESKTOP']]
-
-### Platform
-- **Type**: typing.Optional[typing.Literal['AMAZON_LINUX2', 'WINDOWS', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]
-
-### MaxConcurrentSessions
-- **Type**: typing.Optional[int]
-
-### UsbDeviceFilterStrings
-- **Type**: typing.Optional[typing.List[str]]
-
-### SessionScriptS3Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.S3LocationTypeDef]
-
-### MaxSessionsPerInstance
-- **Type**: typing.Optional[int]
 
 
 # FleetTypeDef
@@ -1982,7 +1867,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.VpcConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.VpcConfigOutputTypeDef]
 
 ### CreatedTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -2006,7 +1891,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['APP', 'DESKTOP']]
 
 ### Platform
-- **Type**: typing.Optional[typing.Literal['AMAZON_LINUX2', 'WINDOWS', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]
+- **Type**: typing.Optional[typing.Literal['AMAZON_LINUX2', 'RHEL8', 'ROCKY_LINUX8', 'WINDOWS', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]
 
 ### MaxConcurrentSessions
 - **Type**: typing.Optional[int]
@@ -2019,64 +1904,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### MaxSessionsPerInstance
 - **Type**: typing.Optional[int]
-
-
-# ImageBuilderPaginatorTypeDef
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Arn
-- **Type**: typing.Optional[str]
-
-### ImageArn
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### DisplayName
-- **Type**: typing.Optional[str]
-
-### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.VpcConfigPaginatorTypeDef]
-
-### InstanceType
-- **Type**: typing.Optional[str]
-
-### Platform
-- **Type**: typing.Optional[typing.Literal['AMAZON_LINUX2', 'WINDOWS', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]
-
-### IamRoleArn
-- **Type**: typing.Optional[str]
-
-### State
-- **Type**: typing.Optional[typing.Literal['DELETING', 'FAILED', 'PENDING', 'PENDING_QUALIFICATION', 'REBOOTING', 'RUNNING', 'SNAPSHOTTING', 'STOPPED', 'STOPPING', 'UPDATING', 'UPDATING_AGENT']]
-
-### StateChangeReason
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.ImageBuilderStateChangeReasonTypeDef]
-
-### CreatedTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### EnableDefaultInternetAccess
-- **Type**: typing.Optional[bool]
-
-### DomainJoinInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.DomainJoinInfoTypeDef]
-
-### NetworkAccessConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.NetworkAccessConfigurationTypeDef]
-
-### ImageBuilderErrors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appstream_classes.ResourceErrorTypeDef]]
-
-### AppstreamAgentVersion
-- **Type**: typing.Optional[str]
-
-### AccessEndpoints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appstream_classes.AccessEndpointTypeDef]]
 
 
 # ImageBuilderStateChangeReasonTypeDef
@@ -2107,13 +1934,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.VpcConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.VpcConfigOutputTypeDef]
 
 ### InstanceType
 - **Type**: typing.Optional[str]
 
 ### Platform
-- **Type**: typing.Optional[typing.Literal['AMAZON_LINUX2', 'WINDOWS', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]
+- **Type**: typing.Optional[typing.Literal['AMAZON_LINUX2', 'RHEL8', 'ROCKY_LINUX8', 'WINDOWS', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]
 
 ### IamRoleArn
 - **Type**: typing.Optional[str]
@@ -2144,6 +1971,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### AccessEndpoints
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appstream_classes.AccessEndpointTypeDef]]
+
+### LatestAppstreamAgentVersion
+- **Type**: typing.Optional[typing.Literal['FALSE', 'TRUE']]
 
 
 # ImagePermissionsTypeDef
@@ -2192,7 +2022,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Platform
-- **Type**: typing.Optional[typing.Literal['AMAZON_LINUX2', 'WINDOWS', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]
+- **Type**: typing.Optional[typing.Literal['AMAZON_LINUX2', 'RHEL8', 'ROCKY_LINUX8', 'WINDOWS', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -2218,6 +2048,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ImageErrors
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appstream_classes.ResourceErrorTypeDef]]
 
+### LatestAppstreamAgentVersion
+- **Type**: typing.Optional[typing.Literal['FALSE', 'TRUE']]
+
+### SupportedInstanceFamilies
+- **Type**: typing.Optional[typing.List[str]]
+
+### DynamicAppProvidersEnabled
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### ImageSharedWithOthers
+- **Type**: typing.Optional[typing.Literal['FALSE', 'TRUE']]
+
 
 # LastReportGenerationExecutionErrorTypeDef
 
@@ -2228,7 +2070,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAssociatedFleetsRequestListAssociatedFleetsPaginateTypeDef
+# ListAssociatedFleetsRequestPaginateTypeDef
 
 ### StackName
 - **Type**: <class 'str'>
@@ -2238,7 +2080,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.PaginatorConfigTypeDef]
 
 
-# ListAssociatedFleetsRequestRequestTypeDef
+# ListAssociatedFleetsRequestTypeDef
 
 ### StackName
 - **Type**: <class 'str'>
@@ -2254,16 +2096,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListAssociatedStacksRequestListAssociatedStacksPaginateTypeDef
+
+# ListAssociatedStacksRequestPaginateTypeDef
 
 ### FleetName
 - **Type**: <class 'str'>
@@ -2273,7 +2114,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.PaginatorConfigTypeDef]
 
 
-# ListAssociatedStacksRequestRequestTypeDef
+# ListAssociatedStacksRequestTypeDef
 
 ### FleetName
 - **Type**: <class 'str'>
@@ -2289,16 +2130,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListEntitledApplicationsRequestRequestTypeDef
+
+# ListEntitledApplicationsRequestTypeDef
 
 ### StackName
 - **Type**: <class 'str'>
@@ -2321,16 +2161,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appstream_classes.EntitledApplicationTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2387,10 +2226,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -2402,6 +2237,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # S3LocationTypeDef
@@ -2504,52 +2342,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StackPaginatorTypeDef
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Arn
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### DisplayName
-- **Type**: typing.Optional[str]
-
-### CreatedTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### StorageConnectors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appstream_classes.StorageConnectorPaginatorTypeDef]]
-
-### RedirectURL
-- **Type**: typing.Optional[str]
-
-### FeedbackURL
-- **Type**: typing.Optional[str]
-
-### StackErrors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appstream_classes.StackErrorTypeDef]]
-
-### UserSettings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appstream_classes.UserSettingTypeDef]]
-
-### ApplicationSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.ApplicationSettingsResponseTypeDef]
-
-### AccessEndpoints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appstream_classes.AccessEndpointTypeDef]]
-
-### EmbedHostDomains
-- **Type**: typing.Optional[typing.List[str]]
-
-### StreamingExperienceSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.StreamingExperienceSettingsTypeDef]
-
-
 # StackTypeDef
 
 ### Name
@@ -2569,7 +2361,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### StorageConnectors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appstream_classes.StorageConnectorTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appstream_classes.StorageConnectorOutputTypeDef]]
 
 ### RedirectURL
 - **Type**: typing.Optional[str]
@@ -2596,7 +2388,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.StreamingExperienceSettingsTypeDef]
 
 
-# StartAppBlockBuilderRequestRequestTypeDef
+# StartAppBlockBuilderRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -2614,14 +2406,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartFleetRequestRequestTypeDef
+# StartFleetRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StartImageBuilderRequestRequestTypeDef
+# StartImageBuilderRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -2642,7 +2434,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopAppBlockBuilderRequestRequestTypeDef
+# StopAppBlockBuilderRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -2660,14 +2452,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopFleetRequestRequestTypeDef
+# StopFleetRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopImageBuilderRequestRequestTypeDef
+# StopImageBuilderRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -2685,7 +2477,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StorageConnectorPaginatorTypeDef
+# StorageConnectorOutputTypeDef
 
 ### ConnectorType
 - **Type**: typing.Literal['GOOGLE_DRIVE', 'HOMEFOLDERS', 'ONE_DRIVE']
@@ -2695,6 +2487,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Domains
+- **Type**: typing.Optional[typing.List[str]]
+
+### DomainsRequireAdminConsent
 - **Type**: typing.Optional[typing.List[str]]
 
 
@@ -2710,6 +2505,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Domains
 - **Type**: typing.Optional[typing.Sequence[str]]
 
+### DomainsRequireAdminConsent
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# StorageConnectorUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StreamingExperienceSettingsTypeDef
 
@@ -2717,7 +2521,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['TCP', 'UDP']]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2728,7 +2532,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# ThemeFooterLinkTypeDef
+
+### DisplayName
+- **Type**: typing.Optional[str]
+
+### FooterLinkURL
+- **Type**: typing.Optional[str]
+
+
+# ThemeTypeDef
+
+### StackName
+- **Type**: typing.Optional[str]
+
+### State
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### ThemeTitleText
+- **Type**: typing.Optional[str]
+
+### ThemeStyling
+- **Type**: typing.Optional[typing.Literal['BLUE', 'LIGHT_BLUE', 'PINK', 'RED']]
+
+### ThemeFooterLinks
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appstream_classes.ThemeFooterLinkTypeDef]]
+
+### ThemeOrganizationLogoURL
+- **Type**: typing.Optional[str]
+
+### ThemeFaviconURL
+- **Type**: typing.Optional[str]
+
+### CreatedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2739,7 +2579,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAppBlockBuilderRequestRequestTypeDef
+# UpdateAppBlockBuilderRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -2752,13 +2592,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Platform
-- **Type**: typing.Optional[typing.Literal['AMAZON_LINUX2', 'WINDOWS', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]
+- **Type**: typing.Optional[typing.Literal['AMAZON_LINUX2', 'RHEL8', 'ROCKY_LINUX8', 'WINDOWS', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]
 
 ### InstanceType
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.VpcConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.VpcConfigUnionTypeDef]
 
 ### EnableDefaultInternetAccess
 - **Type**: typing.Optional[bool]
@@ -2784,7 +2624,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateApplicationRequestRequestTypeDef
+# UpdateApplicationRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -2826,7 +2666,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDirectoryConfigRequestRequestTypeDef
+# UpdateDirectoryConfigRequestTypeDef
 
 ### DirectoryName
 - **Type**: <class 'str'>
@@ -2853,7 +2693,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateEntitlementRequestRequestTypeDef
+# UpdateEntitlementRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -2884,7 +2724,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateFleetRequestRequestTypeDef
+# UpdateFleetRequestTypeDef
 
 ### ImageName
 - **Type**: typing.Optional[str]
@@ -2902,7 +2742,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.ComputeCapacityTypeDef]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.VpcConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.VpcConfigUnionTypeDef]
 
 ### MaxUserDurationInSeconds
 - **Type**: typing.Optional[int]
@@ -2938,7 +2778,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['APP', 'DESKTOP']]
 
 ### Platform
-- **Type**: typing.Optional[typing.Literal['AMAZON_LINUX2', 'WINDOWS', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]
+- **Type**: typing.Optional[typing.Literal['AMAZON_LINUX2', 'RHEL8', 'ROCKY_LINUX8', 'WINDOWS', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]
 
 ### MaxConcurrentSessions
 - **Type**: typing.Optional[int]
@@ -2964,7 +2804,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateImagePermissionsRequestRequestTypeDef
+# UpdateImagePermissionsRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -2979,7 +2819,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateStackRequestRequestTypeDef
+# UpdateStackRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -2992,7 +2832,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StorageConnectors
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appstream_classes.StorageConnectorTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appstream_classes.StorageConnectorUnionTypeDef]]
 
 ### DeleteStorageConnectors
 - **Type**: typing.Optional[bool]
@@ -3033,6 +2873,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# UpdateThemeForStackRequestTypeDef
+
+### StackName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### FooterLinks
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appstream_classes.ThemeFooterLinkTypeDef]]
+
+### TitleText
+- **Type**: typing.Optional[str]
+
+### ThemeStyling
+- **Type**: typing.Optional[typing.Literal['BLUE', 'LIGHT_BLUE', 'PINK', 'RED']]
+
+### OrganizationLogoS3Location
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.S3LocationTypeDef]
+
+### FaviconS3Location
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appstream_classes.S3LocationTypeDef]
+
+### State
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### AttributesToDelete
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['FOOTER_LINKS']]]
+
+
+# UpdateThemeForStackResultTypeDef
+
+### Theme
+- **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ThemeTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.appstream_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
 # UsageReportSubscriptionTypeDef
 
 ### S3BucketName
@@ -3051,7 +2930,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UserSettingTypeDef
 
 ### Action
-- **Type**: typing.Literal['CLIPBOARD_COPY_FROM_LOCAL_DEVICE', 'CLIPBOARD_COPY_TO_LOCAL_DEVICE', 'DOMAIN_PASSWORD_SIGNIN', 'DOMAIN_SMART_CARD_SIGNIN', 'FILE_DOWNLOAD', 'FILE_UPLOAD', 'PRINTING_TO_LOCAL_DEVICE']
+- **Type**: typing.Literal['AUTO_TIME_ZONE_REDIRECTION', 'CLIPBOARD_COPY_FROM_LOCAL_DEVICE', 'CLIPBOARD_COPY_TO_LOCAL_DEVICE', 'DOMAIN_PASSWORD_SIGNIN', 'DOMAIN_SMART_CARD_SIGNIN', 'FILE_DOWNLOAD', 'FILE_UPLOAD', 'PRINTING_TO_LOCAL_DEVICE']
 - **Required**: Yes
 
 ### Permission
@@ -3120,7 +2999,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# VpcConfigPaginatorTypeDef
+# VpcConfigOutputTypeDef
 
 ### SubnetIds
 - **Type**: typing.Optional[typing.List[str]]
@@ -3137,6 +3016,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### SecurityGroupIds
 - **Type**: typing.Optional[typing.Sequence[str]]
 
+
+# VpcConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # WaiterConfigTypeDef
 

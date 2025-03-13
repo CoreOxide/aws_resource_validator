@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelGremlinQueryInputRequestTypeDef
+# CancelGremlinQueryInputTypeDef
 
 ### queryId
 - **Type**: <class 'str'>
@@ -24,7 +24,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CancelLoaderJobInputRequestTypeDef
+# CancelLoaderJobInputTypeDef
 
 ### loadId
 - **Type**: <class 'str'>
@@ -42,19 +42,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CancelMLDataProcessingJobInputRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### neptuneIamRoleArn
-- **Type**: typing.Optional[str]
-
-### clean
-- **Type**: typing.Optional[bool]
-
-
 # CancelMLDataProcessingJobOutputTypeDef
 
 ### status
@@ -64,19 +51,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
-
-
-# CancelMLModelTrainingJobInputRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### neptuneIamRoleArn
-- **Type**: typing.Optional[str]
-
-### clean
-- **Type**: typing.Optional[bool]
 
 
 # CancelMLModelTrainingJobOutputTypeDef
@@ -90,19 +64,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CancelMLModelTransformJobInputRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### neptuneIamRoleArn
-- **Type**: typing.Optional[str]
-
-### clean
-- **Type**: typing.Optional[bool]
-
-
 # CancelMLModelTransformJobOutputTypeDef
 
 ### status
@@ -114,7 +75,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CancelOpenCypherQueryInputRequestTypeDef
+# CancelOpenCypherQueryInputTypeDef
 
 ### queryId
 - **Type**: <class 'str'>
@@ -132,55 +93,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### payload
 - **Type**: <class 'bool'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# CreateMLEndpointInputRequestTypeDef
-
-### id
-- **Type**: typing.Optional[str]
-
-### mlModelTrainingJobId
-- **Type**: typing.Optional[str]
-
-### mlModelTransformJobId
-- **Type**: typing.Optional[str]
-
-### update
-- **Type**: typing.Optional[bool]
-
-### neptuneIamRoleArn
-- **Type**: typing.Optional[str]
-
-### modelName
-- **Type**: typing.Optional[str]
-
-### instanceType
-- **Type**: typing.Optional[str]
-
-### instanceCount
-- **Type**: typing.Optional[int]
-
-### volumeEncryptionKMSKey
-- **Type**: typing.Optional[str]
-
-
-# CreateMLEndpointOutputTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationTimeInMillis
-- **Type**: <class 'int'>
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -209,19 +121,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### transformEntryPointScript
 - **Type**: typing.Optional[str]
-
-
-# DeleteMLEndpointInputRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### neptuneIamRoleArn
-- **Type**: typing.Optional[str]
-
-### clean
-- **Type**: typing.Optional[bool]
 
 
 # DeleteMLEndpointOutputTypeDef
@@ -291,7 +190,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# ExecuteFastResetInputRequestTypeDef
+# ExecuteFastResetInputTypeDef
 
 ### action
 - **Type**: typing.Literal['initiateDatabaseReset', 'performDatabaseReset']
@@ -316,7 +215,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ExecuteGremlinExplainQueryInputRequestTypeDef
+# ExecuteGremlinExplainQueryInputTypeDef
 
 ### gremlinQuery
 - **Type**: <class 'str'>
@@ -334,7 +233,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ExecuteGremlinProfileQueryInputRequestTypeDef
+# ExecuteGremlinProfileQueryInputTypeDef
 
 ### gremlinQuery
 - **Type**: <class 'str'>
@@ -364,7 +263,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ExecuteGremlinQueryInputRequestTypeDef
+# ExecuteGremlinQueryInputTypeDef
 
 ### gremlinQuery
 - **Type**: <class 'str'>
@@ -397,7 +296,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ExecuteOpenCypherExplainQueryInputRequestTypeDef
+# ExecuteOpenCypherExplainQueryInputTypeDef
 
 ### openCypherQuery
 - **Type**: <class 'str'>
@@ -422,7 +321,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ExecuteOpenCypherQueryInputRequestTypeDef
+# ExecuteOpenCypherQueryInputTypeDef
 
 ### openCypherQuery
 - **Type**: <class 'str'>
@@ -508,7 +407,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetGremlinQueryStatusInputRequestTypeDef
+# GetGremlinQueryStatusInputTypeDef
 
 ### queryId
 - **Type**: <class 'str'>
@@ -534,7 +433,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetLoaderJobStatusInputRequestTypeDef
+# GetLoaderJobStatusInputTypeDef
 
 ### loadId
 - **Type**: <class 'str'>
@@ -568,147 +467,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMLDataProcessingJobInputRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### neptuneIamRoleArn
-- **Type**: typing.Optional[str]
-
-
-# GetMLDataProcessingJobOutputTypeDef
-
-### status
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### processingJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.MlResourceDefinitionTypeDef'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetMLEndpointInputRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### neptuneIamRoleArn
-- **Type**: typing.Optional[str]
-
-
-# GetMLEndpointOutputTypeDef
-
-### status
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### endpoint
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.MlResourceDefinitionTypeDef'>
-- **Required**: Yes
-
-### endpointConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.MlConfigDefinitionTypeDef'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetMLModelTrainingJobInputRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### neptuneIamRoleArn
-- **Type**: typing.Optional[str]
-
-
-# GetMLModelTrainingJobOutputTypeDef
-
-### status
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### processingJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.MlResourceDefinitionTypeDef'>
-- **Required**: Yes
-
-### hpoJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.MlResourceDefinitionTypeDef'>
-- **Required**: Yes
-
-### modelTransformJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.MlResourceDefinitionTypeDef'>
-- **Required**: Yes
-
-### mlModels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.neptunedata_classes.MlConfigDefinitionTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetMLModelTransformJobInputRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### neptuneIamRoleArn
-- **Type**: typing.Optional[str]
-
-
-# GetMLModelTransformJobOutputTypeDef
-
-### status
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### baseProcessingJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.MlResourceDefinitionTypeDef'>
-- **Required**: Yes
-
-### remoteModelTransformJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.MlResourceDefinitionTypeDef'>
-- **Required**: Yes
-
-### models
-- **Type**: typing.List[aws_resource_validator.pydantic_models.neptunedata_classes.MlConfigDefinitionTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetOpenCypherQueryStatusInputRequestTypeDef
+# GetOpenCypherQueryStatusInputTypeDef
 
 ### queryId
 - **Type**: <class 'str'>
@@ -749,7 +508,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPropertygraphStreamInputRequestTypeDef
+# GetPropertygraphStreamInputTypeDef
 
 ### limit
 - **Type**: typing.Optional[int]
@@ -767,34 +526,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['gzip']]
 
 
-# GetPropertygraphStreamOutputTypeDef
-
-### lastEventId
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### lastTrxTimestampInMillis
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### format
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### records
-- **Type**: typing.List[aws_resource_validator.pydantic_models.neptunedata_classes.PropertygraphRecordTypeDef]
-- **Required**: Yes
-
-### totalRecords
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetPropertygraphSummaryInputRequestTypeDef
+# GetPropertygraphSummaryInputTypeDef
 
 ### mode
 - **Type**: typing.Optional[typing.Literal['basic', 'detailed']]
@@ -815,7 +547,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRDFGraphSummaryInputRequestTypeDef
+# GetRDFGraphSummaryInputTypeDef
 
 ### mode
 - **Type**: typing.Optional[typing.Literal['basic', 'detailed']]
@@ -851,7 +583,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSparqlStreamInputRequestTypeDef
+# GetSparqlStreamInputTypeDef
 
 ### limit
 - **Type**: typing.Optional[int]
@@ -867,33 +599,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### encoding
 - **Type**: typing.Optional[typing.Literal['gzip']]
-
-
-# GetSparqlStreamOutputTypeDef
-
-### lastEventId
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### lastTrxTimestampInMillis
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### format
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### records
-- **Type**: typing.List[aws_resource_validator.pydantic_models.neptunedata_classes.SparqlRecordTypeDef]
-- **Required**: Yes
-
-### totalRecords
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
 
 
 # GremlinQueryStatusAttributesTypeDef
@@ -920,7 +625,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptunedata_classes.QueryEvalStatsTypeDef]
 
 
-# ListGremlinQueriesInputRequestTypeDef
+# ListGremlinQueriesInputTypeDef
 
 ### includeWaiting
 - **Type**: typing.Optional[bool]
@@ -945,7 +650,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListLoaderJobsInputRequestTypeDef
+# ListLoaderJobsInputTypeDef
 
 ### limit
 - **Type**: typing.Optional[int]
@@ -969,7 +674,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListMLDataProcessingJobsInputRequestTypeDef
+# ListMLDataProcessingJobsInputTypeDef
 
 ### maxItems
 - **Type**: typing.Optional[int]
@@ -989,7 +694,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListMLEndpointsInputRequestTypeDef
+# ListMLEndpointsInputTypeDef
 
 ### maxItems
 - **Type**: typing.Optional[int]
@@ -1009,7 +714,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListMLModelTrainingJobsInputRequestTypeDef
+# ListMLModelTrainingJobsInputTypeDef
 
 ### maxItems
 - **Type**: typing.Optional[int]
@@ -1029,7 +734,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListMLModelTransformJobsInputRequestTypeDef
+# ListMLModelTransformJobsInputTypeDef
 
 ### maxItems
 - **Type**: typing.Optional[int]
@@ -1049,7 +754,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListOpenCypherQueriesInputRequestTypeDef
+# ListOpenCypherQueriesInputTypeDef
 
 ### includeWaiting
 - **Type**: typing.Optional[bool]
@@ -1080,7 +785,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# ManagePropertygraphStatisticsInputRequestTypeDef
+# ManagePropertygraphStatisticsInputTypeDef
 
 ### mode
 - **Type**: typing.Optional[typing.Literal['disableAutoCompute', 'enableAutoCompute', 'refresh']]
@@ -1101,7 +806,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ManageSparqlStatisticsInputRequestTypeDef
+# ManageSparqlStatisticsInputTypeDef
 
 ### mode
 - **Type**: typing.Optional[typing.Literal['disableAutoCompute', 'enableAutoCompute', 'refresh']]
@@ -1166,25 +871,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PropertygraphDataTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### key
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### value
-- **Type**: typing.Dict[str, typing.Any]
-- **Required**: Yes
-
-### to
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PropertygraphRecordTypeDef
 
@@ -1335,10 +1024,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -1350,6 +1035,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # SparqlDataTypeDef
@@ -1381,49 +1069,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# StartLoaderJobInputRequestTypeDef
-
-### source
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### format
-- **Type**: typing.Literal['csv', 'nquads', 'ntriples', 'opencypher', 'rdfxml', 'turtle']
-- **Required**: Yes
-
-### s3BucketRegion
-- **Type**: typing.Literal['af-south-1', 'ap-east-1', 'ap-northeast-1', 'ap-northeast-2', 'ap-south-1', 'ap-southeast-1', 'ap-southeast-2', 'ca-central-1', 'cn-north-1', 'cn-northwest-1', 'eu-central-1', 'eu-north-1', 'eu-west-1', 'eu-west-2', 'eu-west-3', 'me-south-1', 'sa-east-1', 'us-east-1', 'us-east-2', 'us-gov-east-1', 'us-gov-west-1', 'us-west-1', 'us-west-2']
-- **Required**: Yes
-
-### iamRoleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### mode
-- **Type**: typing.Optional[typing.Literal['AUTO', 'NEW', 'RESUME']]
-
-### failOnError
-- **Type**: typing.Optional[bool]
-
-### parallelism
-- **Type**: typing.Optional[typing.Literal['HIGH', 'LOW', 'MEDIUM', 'OVERSUBSCRIBE']]
-
-### parserConfiguration
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### updateSingleCardinalityProperties
-- **Type**: typing.Optional[bool]
-
-### queueRequest
-- **Type**: typing.Optional[bool]
-
-### dependencies
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### userProvidedEdgeIds
-- **Type**: typing.Optional[bool]
-
-
 # StartLoaderJobOutputTypeDef
 
 ### status
@@ -1432,218 +1077,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### payload
 - **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# StartMLDataProcessingJobInputRequestTypeDef
-
-### inputDataS3Location
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### processedDataS3Location
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: typing.Optional[str]
-
-### previousDataProcessingJobId
-- **Type**: typing.Optional[str]
-
-### sagemakerIamRoleArn
-- **Type**: typing.Optional[str]
-
-### neptuneIamRoleArn
-- **Type**: typing.Optional[str]
-
-### processingInstanceType
-- **Type**: typing.Optional[str]
-
-### processingInstanceVolumeSizeInGB
-- **Type**: typing.Optional[int]
-
-### processingTimeOutInSeconds
-- **Type**: typing.Optional[int]
-
-### modelType
-- **Type**: typing.Optional[str]
-
-### configFileName
-- **Type**: typing.Optional[str]
-
-### subnets
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### securityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### volumeEncryptionKMSKey
-- **Type**: typing.Optional[str]
-
-### s3OutputEncryptionKMSKey
-- **Type**: typing.Optional[str]
-
-
-# StartMLDataProcessingJobOutputTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationTimeInMillis
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# StartMLModelTrainingJobInputRequestTypeDef
-
-### dataProcessingJobId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### trainModelS3Location
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: typing.Optional[str]
-
-### previousModelTrainingJobId
-- **Type**: typing.Optional[str]
-
-### sagemakerIamRoleArn
-- **Type**: typing.Optional[str]
-
-### neptuneIamRoleArn
-- **Type**: typing.Optional[str]
-
-### baseProcessingInstanceType
-- **Type**: typing.Optional[str]
-
-### trainingInstanceType
-- **Type**: typing.Optional[str]
-
-### trainingInstanceVolumeSizeInGB
-- **Type**: typing.Optional[int]
-
-### trainingTimeOutInSeconds
-- **Type**: typing.Optional[int]
-
-### maxHPONumberOfTrainingJobs
-- **Type**: typing.Optional[int]
-
-### maxHPOParallelTrainingJobs
-- **Type**: typing.Optional[int]
-
-### subnets
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### securityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### volumeEncryptionKMSKey
-- **Type**: typing.Optional[str]
-
-### s3OutputEncryptionKMSKey
-- **Type**: typing.Optional[str]
-
-### enableManagedSpotTraining
-- **Type**: typing.Optional[bool]
-
-### customModelTrainingParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptunedata_classes.CustomModelTrainingParametersTypeDef]
-
-
-# StartMLModelTrainingJobOutputTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationTimeInMillis
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptunedata_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# StartMLModelTransformJobInputRequestTypeDef
-
-### modelTransformOutputS3Location
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: typing.Optional[str]
-
-### dataProcessingJobId
-- **Type**: typing.Optional[str]
-
-### mlModelTrainingJobId
-- **Type**: typing.Optional[str]
-
-### trainingJobName
-- **Type**: typing.Optional[str]
-
-### sagemakerIamRoleArn
-- **Type**: typing.Optional[str]
-
-### neptuneIamRoleArn
-- **Type**: typing.Optional[str]
-
-### customModelTransformParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptunedata_classes.CustomModelTransformParametersTypeDef]
-
-### baseProcessingInstanceType
-- **Type**: typing.Optional[str]
-
-### baseProcessingInstanceVolumeSizeInGB
-- **Type**: typing.Optional[int]
-
-### subnets
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### securityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### volumeEncryptionKMSKey
-- **Type**: typing.Optional[str]
-
-### s3OutputEncryptionKMSKey
-- **Type**: typing.Optional[str]
-
-
-# StartMLModelTransformJobOutputTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationTimeInMillis
-- **Type**: <class 'int'>
 - **Required**: Yes
 
 ### ResponseMetadata

@@ -21,7 +21,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CompleteAttachmentUploadRequestRequestTypeDef
+# CancelParticipantAuthenticationRequestTypeDef
+
+### SessionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ConnectionToken
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# CompleteAttachmentUploadRequestTypeDef
 
 ### AttachmentIds
 - **Type**: typing.Sequence[str]
@@ -45,19 +56,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateParticipantConnectionRequestRequestTypeDef
-
-### ParticipantToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CONNECTION_CREDENTIALS', 'WEBSOCKET']]]
-
-### ConnectParticipant
-- **Type**: typing.Optional[bool]
-
-
 # CreateParticipantConnectionResponseTypeDef
 
 ### Websocket
@@ -73,7 +71,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeViewRequestRequestTypeDef
+# DescribeViewRequestTypeDef
 
 ### ViewToken
 - **Type**: <class 'str'>
@@ -95,7 +93,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisconnectParticipantRequestRequestTypeDef
+# DisconnectParticipantRequestTypeDef
 
 ### ConnectionToken
 - **Type**: <class 'str'>
@@ -105,7 +103,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetAttachmentRequestRequestTypeDef
+# GetAttachmentRequestTypeDef
 
 ### AttachmentId
 - **Type**: <class 'str'>
@@ -114,6 +112,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ConnectionToken
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+### UrlExpiryInSeconds
+- **Type**: typing.Optional[int]
 
 
 # GetAttachmentResponseTypeDef
@@ -126,12 +127,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### AttachmentSizeInBytes
+- **Type**: <class 'int'>
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
 
-# GetTranscriptRequestRequestTypeDef
+# GetAuthenticationUrlRequestTypeDef
+
+### SessionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### RedirectUri
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ConnectionToken
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetAuthenticationUrlResponseTypeDef
+
+### AuthenticationUrl
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetTranscriptRequestTypeDef
 
 ### ConnectionToken
 - **Type**: <class 'str'>
@@ -166,53 +197,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.connectparticipant_classes.ItemTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.connectparticipant_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
+
 
 # ItemTypeDef
 
-### AbsoluteTime
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Content
-- **Type**: typing.Optional[str]
-
-### ContentType
-- **Type**: typing.Optional[str]
-
-### Id
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['ATTACHMENT', 'CHAT_ENDED', 'CONNECTION_ACK', 'EVENT', 'MESSAGE', 'MESSAGE_DELIVERED', 'MESSAGE_READ', 'PARTICIPANT_JOINED', 'PARTICIPANT_LEFT', 'TRANSFER_FAILED', 'TRANSFER_SUCCEEDED', 'TYPING']]
-
-### ParticipantId
-- **Type**: typing.Optional[str]
-
-### DisplayName
-- **Type**: typing.Optional[str]
-
-### ParticipantRole
-- **Type**: typing.Optional[typing.Literal['AGENT', 'CUSTOMER', 'CUSTOM_BOT', 'SUPERVISOR', 'SYSTEM']]
-
-### Attachments
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.connectparticipant_classes.AttachmentItemTypeDef]]
-
-### MessageMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectparticipant_classes.MessageMetadataTypeDef]
-
-### RelatedContactId
-- **Type**: typing.Optional[str]
-
-### ContactId
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MessageMetadataTypeDef
 
@@ -241,10 +238,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -257,8 +250,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# SendEventRequestRequestTypeDef
+
+# SendEventRequestTypeDef
 
 ### ContentType
 - **Type**: <class 'str'>
@@ -290,7 +286,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SendMessageRequestRequestTypeDef
+# SendMessageRequestTypeDef
 
 ### ContentType
 - **Type**: <class 'str'>
@@ -323,7 +319,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartAttachmentUploadRequestRequestTypeDef
+# StartAttachmentUploadRequestTypeDef
 
 ### ContentType
 - **Type**: <class 'str'>

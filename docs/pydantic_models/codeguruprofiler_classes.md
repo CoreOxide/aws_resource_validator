@@ -1,9 +1,9 @@
 # Codeguruprofiler Classes
 
-# AddNotificationChannelsRequestRequestTypeDef
+# AddNotificationChannelsRequestTypeDef
 
 ### channels
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.codeguruprofiler_classes.ChannelTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.codeguruprofiler_classes.ChannelUnionTypeDef]
 - **Required**: Yes
 
 ### profilingGroupName
@@ -54,20 +54,9 @@
 
 # AnomalyInstanceTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### startTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### endTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### userFeedback
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguruprofiler_classes.UserFeedbackTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AnomalyTypeDef
 
@@ -90,23 +79,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchGetFrameMetricDataRequestRequestTypeDef
+# BatchGetFrameMetricDataRequestTypeDef
 
 ### profilingGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### endTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampTypeDef]
 
 ### frameMetrics
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codeguruprofiler_classes.FrameMetricTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codeguruprofiler_classes.FrameMetricUnionTypeDef]]
 
 ### period
 - **Type**: typing.Optional[str]
 
 ### startTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampTypeDef]
 
 ### targetResolution
 - **Type**: typing.Optional[typing.Literal['P1D', 'PT1H', 'PT5M']]
@@ -143,21 +132,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ChannelTypeDef
+# BlobTypeDef
 
-### eventPublishers
-- **Type**: typing.Sequence[typing.Literal['AnomalyDetection']]
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### uri
-- **Type**: <class 'str'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### id
-- **Type**: typing.Optional[str]
+# ChannelOutputTypeDef
 
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-# ConfigureAgentRequestRequestTypeDef
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ChannelUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ConfigureAgentRequestTypeDef
 
 ### profilingGroupName
 - **Type**: <class 'str'>
@@ -181,7 +174,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateProfilingGroupRequestRequestTypeDef
+# CreateProfilingGroupRequestTypeDef
 
 ### clientToken
 - **Type**: <class 'str'>
@@ -212,14 +205,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteProfilingGroupRequestRequestTypeDef
+# DeleteProfilingGroupRequestTypeDef
 
 ### profilingGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeProfilingGroupRequestRequestTypeDef
+# DescribeProfilingGroupRequestTypeDef
 
 ### profilingGroupName
 - **Type**: <class 'str'>
@@ -239,26 +232,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # FindingsReportSummaryTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### profileEndTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### profileStartTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### profilingGroupName
-- **Type**: typing.Optional[str]
-
-### totalNumberOfFindings
-- **Type**: typing.Optional[int]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FrameMetricDatumTypeDef
 
 ### frameMetric
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.FrameMetricTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.FrameMetricOutputTypeDef'>
 - **Required**: Yes
 
 ### values
@@ -266,22 +247,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# FrameMetricTypeDef
+# FrameMetricOutputTypeDef
 
-### frameName
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### threadStates
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### type
-- **Type**: typing.Literal['AggregatedRelativeTotalTime']
-- **Required**: Yes
+# FrameMetricUnionTypeDef
 
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-# GetFindingsReportAccountSummaryRequestRequestTypeDef
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# GetFindingsReportAccountSummaryRequestTypeDef
 
 ### dailyReportsOnly
 - **Type**: typing.Optional[bool]
@@ -295,10 +273,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # GetFindingsReportAccountSummaryResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### reportSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.FindingsReportSummaryTypeDef]
 - **Required**: Yes
@@ -307,8 +281,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetNotificationConfigurationRequestRequestTypeDef
+
+# GetNotificationConfigurationRequestTypeDef
 
 ### profilingGroupName
 - **Type**: <class 'str'>
@@ -326,7 +303,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPolicyRequestRequestTypeDef
+# GetPolicyRequestTypeDef
 
 ### profilingGroupName
 - **Type**: <class 'str'>
@@ -348,7 +325,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetProfileRequestRequestTypeDef
+# GetProfileRequestTypeDef
 
 ### profilingGroupName
 - **Type**: <class 'str'>
@@ -358,7 +335,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### endTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampTypeDef]
 
 ### maxDepth
 - **Type**: typing.Optional[int]
@@ -367,7 +344,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### startTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampTypeDef]
 
 
 # GetProfileResponseTypeDef
@@ -389,10 +366,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRecommendationsRequestRequestTypeDef
+# GetRecommendationsRequestTypeDef
 
 ### endTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### profilingGroupName
@@ -400,7 +377,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### locale
@@ -434,10 +411,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListFindingsReportsRequestRequestTypeDef
+# ListFindingsReportsRequestTypeDef
 
 ### endTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### profilingGroupName
@@ -445,7 +422,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### dailyReportsOnly
@@ -464,19 +441,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.FindingsReportSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListProfileTimesRequestListProfileTimesPaginateTypeDef
+
+# ListProfileTimesRequestPaginateTypeDef
 
 ### endTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### period
@@ -488,7 +464,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### orderBy
@@ -498,10 +474,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguruprofiler_classes.PaginatorConfigTypeDef]
 
 
-# ListProfileTimesRequestRequestTypeDef
+# ListProfileTimesRequestTypeDef
 
 ### endTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### period
@@ -513,7 +489,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### maxResults
@@ -528,10 +504,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListProfileTimesResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### profileTimes
 - **Type**: typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.ProfileTimeTypeDef]
 - **Required**: Yes
@@ -540,8 +512,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListProfilingGroupsRequestRequestTypeDef
+
+# ListProfilingGroupsRequestTypeDef
 
 ### includeDescription
 - **Type**: typing.Optional[bool]
@@ -555,10 +530,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListProfilingGroupsResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### profilingGroupNames
 - **Type**: typing.List[str]
 - **Required**: Yes
@@ -571,8 +542,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -604,23 +578,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # MetricTypeDef
 
-### frameName
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### threadStates
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['AggregatedRelativeTotalTime']
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # NotificationConfigurationTypeDef
 
 ### channels
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.ChannelTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeguruprofiler_classes.ChannelOutputTypeDef]]
 
 
 # PaginatorConfigTypeDef
@@ -637,32 +602,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PatternTypeDef
 
-### countersToAggregate
-- **Type**: typing.Optional[typing.List[str]]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### description
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### id
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### resolutionSteps
-- **Type**: typing.Optional[str]
-
-### targetFrames
-- **Type**: typing.Optional[typing.List[typing.List[str]]]
-
-### thresholdPercent
-- **Type**: typing.Optional[float]
-
-
-# PostAgentProfileRequestRequestTypeDef
+# PostAgentProfileRequestTypeDef
 
 ### agentProfile
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### contentType
@@ -722,7 +669,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguruprofiler_classes.AggregatedProfileTimeTypeDef]
 
 
-# PutPermissionRequestRequestTypeDef
+# PutPermissionRequestTypeDef
 
 ### actionGroup
 - **Type**: typing.Literal['agentPermissions']
@@ -782,7 +729,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveNotificationChannelRequestRequestTypeDef
+# RemoveNotificationChannelRequestTypeDef
 
 ### channelId
 - **Type**: <class 'str'>
@@ -804,7 +751,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemovePermissionRequestRequestTypeDef
+# RemovePermissionRequestTypeDef
 
 ### actionGroup
 - **Type**: typing.Literal['agentPermissions']
@@ -840,10 +787,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -856,26 +799,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
-
-# SubmitFeedbackRequestRequestTypeDef
-
-### anomalyInstanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### profilingGroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['Negative', 'Positive']
-- **Required**: Yes
-
-### comment
+### HostId
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -893,7 +821,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -904,7 +838,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateProfilingGroupRequestRequestTypeDef
+# UpdateProfilingGroupRequestTypeDef
 
 ### agentOrchestrationConfig
 - **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.AgentOrchestrationConfigTypeDef'>
@@ -923,13 +857,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codeguruprofiler_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# UserFeedbackTypeDef
-
-### type
-- **Type**: typing.Literal['Negative', 'Positive']
 - **Required**: Yes
 
 

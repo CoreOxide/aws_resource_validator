@@ -23,7 +23,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchDeleteAttributesRequestRequestTypeDef
+# BatchDeleteAttributesRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -34,7 +34,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchPutAttributesRequestRequestTypeDef
+# BatchPutAttributesRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -45,7 +45,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDomainRequestRequestTypeDef
+# CreateDomainRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -62,7 +62,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sdb_classes.AttributeTypeDef]]
 
 
-# DeleteAttributesRequestRequestTypeDef
+# DeleteAttributesRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -79,14 +79,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sdb_classes.UpdateConditionTypeDef]
 
 
-# DeleteDomainRequestRequestTypeDef
+# DeleteDomainRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DomainMetadataRequestRequestTypeDef
+# DomainMetadataRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -135,7 +135,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAttributesRequestRequestTypeDef
+# GetAttributesRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -177,13 +177,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDomainsRequestListDomainsPaginateTypeDef
+# ListDomainsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sdb_classes.PaginatorConfigTypeDef]
 
 
-# ListDomainsRequestRequestTypeDef
+# ListDomainsRequestTypeDef
 
 ### MaxNumberOfDomains
 - **Type**: typing.Optional[int]
@@ -198,13 +198,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sdb_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # PaginatorConfigTypeDef
@@ -219,7 +218,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutAttributesRequestRequestTypeDef
+# PutAttributesRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -268,10 +267,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -284,21 +279,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
-
-# SelectRequestRequestTypeDef
-
-### SelectExpression
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### NextToken
+### HostId
 - **Type**: typing.Optional[str]
 
-### ConsistentRead
-- **Type**: typing.Optional[bool]
 
-
-# SelectRequestSelectPaginateTypeDef
+# SelectRequestPaginateTypeDef
 
 ### SelectExpression
 - **Type**: <class 'str'>
@@ -311,19 +296,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sdb_classes.PaginatorConfigTypeDef]
 
 
+# SelectRequestTypeDef
+
+### SelectExpression
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### ConsistentRead
+- **Type**: typing.Optional[bool]
+
+
 # SelectResultTypeDef
 
 ### Items
 - **Type**: typing.List[aws_resource_validator.pydantic_models.sdb_classes.ItemTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sdb_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # UpdateConditionTypeDef

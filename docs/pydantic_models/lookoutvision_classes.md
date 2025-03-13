@@ -15,7 +15,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateDatasetRequestRequestTypeDef
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CreateDatasetRequestTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
@@ -43,7 +49,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateModelRequestRequestTypeDef
+# CreateModelRequestTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
@@ -77,7 +83,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateProjectRequestRequestTypeDef
+# CreateProjectRequestTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
@@ -164,7 +170,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.DatasetGroundTruthManifestTypeDef]
 
 
-# DeleteDatasetRequestRequestTypeDef
+# DeleteDatasetRequestTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
@@ -178,7 +184,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteModelRequestRequestTypeDef
+# DeleteModelRequestTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
@@ -203,7 +209,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteProjectRequestRequestTypeDef
+# DeleteProjectRequestTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
@@ -224,7 +230,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDatasetRequestRequestTypeDef
+# DescribeDatasetRequestTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
@@ -246,7 +252,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeModelPackagingJobRequestRequestTypeDef
+# DescribeModelPackagingJobRequestTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
@@ -268,7 +274,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeModelRequestRequestTypeDef
+# DescribeModelRequestTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
@@ -290,7 +296,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeProjectRequestRequestTypeDef
+# DescribeProjectRequestTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
@@ -308,7 +314,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DetectAnomaliesRequestRequestTypeDef
+# DetectAnomaliesRequestTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
@@ -319,7 +325,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Body
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### ContentType
@@ -356,7 +362,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bytes]
 
 
-# GreengrassConfigurationTypeDef
+# GreengrassConfigurationOutputTypeDef
 
 ### S3OutputLocation
 - **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.S3LocationTypeDef'>
@@ -385,6 +391,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lookoutvision_classes.TagTypeDef]]
 
 
+# GreengrassConfigurationTypeDef
+
+### S3OutputLocation
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.S3LocationTypeDef'>
+- **Required**: Yes
+
+### ComponentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CompilerOptions
+- **Type**: typing.Optional[str]
+
+### TargetDevice
+- **Type**: typing.Optional[typing.Literal['jetson_xavier']]
+
+### TargetPlatform
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.TargetPlatformTypeDef]
+
+### ComponentVersion
+- **Type**: typing.Optional[str]
+
+### ComponentDescription
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lookoutvision_classes.TagTypeDef]]
+
+
 # GreengrassOutputDetailsTypeDef
 
 ### ComponentVersionArn
@@ -399,9 +434,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ImageSourceTypeDef
 
-### Type
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # InputS3ObjectTypeDef
 
@@ -417,7 +452,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDatasetEntriesRequestListDatasetEntriesPaginateTypeDef
+# ListDatasetEntriesRequestPaginateTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
@@ -434,10 +469,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### BeforeCreationDate
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.TimestampTypeDef]
 
 ### AfterCreationDate
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.TimestampTypeDef]
 
 ### SourceRefContains
 - **Type**: typing.Optional[str]
@@ -446,7 +481,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.PaginatorConfigTypeDef]
 
 
-# ListDatasetEntriesRequestRequestTypeDef
+# ListDatasetEntriesRequestTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
@@ -463,10 +498,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### BeforeCreationDate
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.TimestampTypeDef]
 
 ### AfterCreationDate
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.TimestampTypeDef]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -484,16 +519,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListModelPackagingJobsRequestListModelPackagingJobsPaginateTypeDef
+
+# ListModelPackagingJobsRequestPaginateTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
@@ -503,7 +537,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.PaginatorConfigTypeDef]
 
 
-# ListModelPackagingJobsRequestRequestTypeDef
+# ListModelPackagingJobsRequestTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
@@ -522,16 +556,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutvision_classes.ModelPackagingJobMetadataTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListModelsRequestListModelsPaginateTypeDef
+
+# ListModelsRequestPaginateTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
@@ -541,7 +574,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.PaginatorConfigTypeDef]
 
 
-# ListModelsRequestRequestTypeDef
+# ListModelsRequestTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
@@ -560,22 +593,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutvision_classes.ModelMetadataTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListProjectsRequestListProjectsPaginateTypeDef
+
+# ListProjectsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.PaginatorConfigTypeDef]
 
 
-# ListProjectsRequestRequestTypeDef
+# ListProjectsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -590,16 +622,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutvision_classes.ProjectMetadataTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -686,12 +717,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.ModelPerformanceTypeDef]
 
 
+# ModelPackagingConfigurationOutputTypeDef
+
+### Greengrass
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.GreengrassConfigurationOutputTypeDef'>
+- **Required**: Yes
+
+
 # ModelPackagingConfigurationTypeDef
 
 ### Greengrass
 - **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.GreengrassConfigurationTypeDef'>
 - **Required**: Yes
 
+
+# ModelPackagingConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ModelPackagingDescriptionTypeDef
 
@@ -705,7 +749,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ModelPackagingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.ModelPackagingConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.ModelPackagingConfigurationOutputTypeDef]
 
 ### ModelPackagingJobDescription
 - **Type**: typing.Optional[str]
@@ -849,10 +893,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -865,6 +905,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
+
 
 # S3LocationTypeDef
 
@@ -876,7 +919,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartModelPackagingJobRequestRequestTypeDef
+# StartModelPackagingJobRequestTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
@@ -887,7 +930,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ModelPackagingConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ModelPackagingConfigurationUnionTypeDef'>
 - **Required**: Yes
 
 ### JobName
@@ -911,7 +954,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartModelRequestRequestTypeDef
+# StartModelRequestTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
@@ -943,7 +986,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopModelRequestRequestTypeDef
+# StopModelRequestTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
@@ -968,7 +1011,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1004,7 +1047,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NVIDIA']]
 
 
-# UntagResourceRequestRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1015,7 +1064,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDatasetEntriesRequestRequestTypeDef
+# UpdateDatasetEntriesRequestTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
@@ -1026,7 +1075,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Changes
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### ClientToken

@@ -6,20 +6,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DeleteLexiconInputRequestTypeDef
+# DeleteLexiconInputTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeVoicesInputDescribeVoicesPaginateTypeDef
+# DescribeVoicesInputPaginateTypeDef
 
 ### Engine
 - **Type**: typing.Optional[typing.Literal['generative', 'long-form', 'neural', 'standard']]
 
 ### LanguageCode
-- **Type**: typing.Optional[typing.Literal['ar-AE', 'arb', 'ca-ES', 'cmn-CN', 'cy-GB', 'da-DK', 'de-AT', 'de-DE', 'en-AU', 'en-GB', 'en-GB-WLS', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-ZA', 'es-ES', 'es-MX', 'es-US', 'fi-FI', 'fr-BE', 'fr-CA', 'fr-FR', 'hi-IN', 'is-IS', 'it-IT', 'ja-JP', 'ko-KR', 'nb-NO', 'nl-BE', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'sv-SE', 'tr-TR', 'yue-CN']]
+- **Type**: typing.Optional[typing.Literal['ar-AE', 'arb', 'ca-ES', 'cmn-CN', 'cs-CZ', 'cy-GB', 'da-DK', 'de-AT', 'de-CH', 'de-DE', 'en-AU', 'en-GB', 'en-GB-WLS', 'en-IE', 'en-IN', 'en-NZ', 'en-SG', 'en-US', 'en-ZA', 'es-ES', 'es-MX', 'es-US', 'fi-FI', 'fr-BE', 'fr-CA', 'fr-FR', 'hi-IN', 'is-IS', 'it-IT', 'ja-JP', 'ko-KR', 'nb-NO', 'nl-BE', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'sv-SE', 'tr-TR', 'yue-CN']]
 
 ### IncludeAdditionalLanguageCodes
 - **Type**: typing.Optional[bool]
@@ -28,13 +28,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.polly_classes.PaginatorConfigTypeDef]
 
 
-# DescribeVoicesInputRequestTypeDef
+# DescribeVoicesInputTypeDef
 
 ### Engine
 - **Type**: typing.Optional[typing.Literal['generative', 'long-form', 'neural', 'standard']]
 
 ### LanguageCode
-- **Type**: typing.Optional[typing.Literal['ar-AE', 'arb', 'ca-ES', 'cmn-CN', 'cy-GB', 'da-DK', 'de-AT', 'de-DE', 'en-AU', 'en-GB', 'en-GB-WLS', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-ZA', 'es-ES', 'es-MX', 'es-US', 'fi-FI', 'fr-BE', 'fr-CA', 'fr-FR', 'hi-IN', 'is-IS', 'it-IT', 'ja-JP', 'ko-KR', 'nb-NO', 'nl-BE', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'sv-SE', 'tr-TR', 'yue-CN']]
+- **Type**: typing.Optional[typing.Literal['ar-AE', 'arb', 'ca-ES', 'cmn-CN', 'cs-CZ', 'cy-GB', 'da-DK', 'de-AT', 'de-CH', 'de-DE', 'en-AU', 'en-GB', 'en-GB-WLS', 'en-IE', 'en-IN', 'en-NZ', 'en-SG', 'en-US', 'en-ZA', 'es-ES', 'es-MX', 'es-US', 'fi-FI', 'fr-BE', 'fr-CA', 'fr-FR', 'hi-IN', 'is-IS', 'it-IT', 'ja-JP', 'ko-KR', 'nb-NO', 'nl-BE', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'sv-SE', 'tr-TR', 'yue-CN']]
 
 ### IncludeAdditionalLanguageCodes
 - **Type**: typing.Optional[bool]
@@ -57,7 +57,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetLexiconInputRequestTypeDef
+# GetLexiconInputTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -79,7 +79,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSpeechSynthesisTaskInputRequestTypeDef
+# GetSpeechSynthesisTaskInputTypeDef
 
 ### TaskId
 - **Type**: <class 'str'>
@@ -103,7 +103,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LanguageCode
-- **Type**: typing.Optional[typing.Literal['ar-AE', 'arb', 'ca-ES', 'cmn-CN', 'cy-GB', 'da-DK', 'de-AT', 'de-DE', 'en-AU', 'en-GB', 'en-GB-WLS', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-ZA', 'es-ES', 'es-MX', 'es-US', 'fi-FI', 'fr-BE', 'fr-CA', 'fr-FR', 'hi-IN', 'is-IS', 'it-IT', 'ja-JP', 'ko-KR', 'nb-NO', 'nl-BE', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'sv-SE', 'tr-TR', 'yue-CN']]
+- **Type**: typing.Optional[typing.Literal['ar-AE', 'arb', 'ca-ES', 'cmn-CN', 'cs-CZ', 'cy-GB', 'da-DK', 'de-AT', 'de-CH', 'de-DE', 'en-AU', 'en-GB', 'en-GB-WLS', 'en-IE', 'en-IN', 'en-NZ', 'en-SG', 'en-US', 'en-ZA', 'es-ES', 'es-MX', 'es-US', 'fi-FI', 'fr-BE', 'fr-CA', 'fr-FR', 'hi-IN', 'is-IS', 'it-IT', 'ja-JP', 'ko-KR', 'nb-NO', 'nl-BE', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'sv-SE', 'tr-TR', 'yue-CN']]
 
 ### LastModified
 - **Type**: typing.Optional[datetime.datetime]
@@ -136,13 +136,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListLexiconsInputListLexiconsPaginateTypeDef
+# ListLexiconsInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.polly_classes.PaginatorConfigTypeDef]
 
 
-# ListLexiconsInputRequestTypeDef
+# ListLexiconsInputTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -162,7 +162,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSpeechSynthesisTasksInputListSpeechSynthesisTasksPaginateTypeDef
+# ListSpeechSynthesisTasksInputPaginateTypeDef
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['completed', 'failed', 'inProgress', 'scheduled']]
@@ -171,7 +171,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.polly_classes.PaginatorConfigTypeDef]
 
 
-# ListSpeechSynthesisTasksInputRequestTypeDef
+# ListSpeechSynthesisTasksInputTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -209,7 +209,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutLexiconInputRequestTypeDef
+# PutLexiconInputTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -240,49 +240,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### HostId
 - **Type**: typing.Optional[str]
-
-
-# StartSpeechSynthesisTaskInputRequestTypeDef
-
-### OutputFormat
-- **Type**: typing.Literal['json', 'mp3', 'ogg_vorbis', 'pcm']
-- **Required**: Yes
-
-### OutputS3BucketName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Text
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### VoiceId
-- **Type**: typing.Literal['Aditi', 'Adriano', 'Amy', 'Andres', 'Aria', 'Arlet', 'Arthur', 'Astrid', 'Ayanda', 'Bianca', 'Brian', 'Burcu', 'Camila', 'Carla', 'Carmen', 'Celine', 'Chantal', 'Conchita', 'Cristiano', 'Daniel', 'Danielle', 'Dora', 'Elin', 'Emma', 'Enrique', 'Ewa', 'Filiz', 'Gabrielle', 'Geraint', 'Giorgio', 'Gregory', 'Gwyneth', 'Hala', 'Hannah', 'Hans', 'Hiujin', 'Ida', 'Ines', 'Isabelle', 'Ivy', 'Jacek', 'Jan', 'Joanna', 'Joey', 'Justin', 'Kajal', 'Karl', 'Kazuha', 'Kendra', 'Kevin', 'Kimberly', 'Laura', 'Lea', 'Liam', 'Lisa', 'Liv', 'Lotte', 'Lucia', 'Lupe', 'Mads', 'Maja', 'Marlene', 'Mathieu', 'Matthew', 'Maxim', 'Mia', 'Miguel', 'Mizuki', 'Naja', 'Niamh', 'Nicole', 'Ola', 'Olivia', 'Pedro', 'Penelope', 'Raveena', 'Remi', 'Ricardo', 'Ruben', 'Russell', 'Ruth', 'Salli', 'Seoyeon', 'Sergio', 'Sofie', 'Stephen', 'Suvi', 'Takumi', 'Tatyana', 'Thiago', 'Tomoko', 'Vicki', 'Vitoria', 'Zayd', 'Zeina', 'Zhiyu']
-- **Required**: Yes
-
-### Engine
-- **Type**: typing.Optional[typing.Literal['generative', 'long-form', 'neural', 'standard']]
-
-### LanguageCode
-- **Type**: typing.Optional[typing.Literal['ar-AE', 'arb', 'ca-ES', 'cmn-CN', 'cy-GB', 'da-DK', 'de-AT', 'de-DE', 'en-AU', 'en-GB', 'en-GB-WLS', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-ZA', 'es-ES', 'es-MX', 'es-US', 'fi-FI', 'fr-BE', 'fr-CA', 'fr-FR', 'hi-IN', 'is-IS', 'it-IT', 'ja-JP', 'ko-KR', 'nb-NO', 'nl-BE', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'sv-SE', 'tr-TR', 'yue-CN']]
-
-### LexiconNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### OutputS3KeyPrefix
-- **Type**: typing.Optional[str]
-
-### SampleRate
-- **Type**: typing.Optional[str]
-
-### SnsTopicArn
-- **Type**: typing.Optional[str]
-
-### SpeechMarkTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['sentence', 'ssml', 'viseme', 'word']]]
-
-### TextType
-- **Type**: typing.Optional[typing.Literal['ssml', 'text']]
 
 
 # StartSpeechSynthesisTaskOutputTypeDef
@@ -338,43 +295,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ssml', 'text']]
 
 ### VoiceId
-- **Type**: typing.Optional[typing.Literal['Aditi', 'Adriano', 'Amy', 'Andres', 'Aria', 'Arlet', 'Arthur', 'Astrid', 'Ayanda', 'Bianca', 'Brian', 'Burcu', 'Camila', 'Carla', 'Carmen', 'Celine', 'Chantal', 'Conchita', 'Cristiano', 'Daniel', 'Danielle', 'Dora', 'Elin', 'Emma', 'Enrique', 'Ewa', 'Filiz', 'Gabrielle', 'Geraint', 'Giorgio', 'Gregory', 'Gwyneth', 'Hala', 'Hannah', 'Hans', 'Hiujin', 'Ida', 'Ines', 'Isabelle', 'Ivy', 'Jacek', 'Jan', 'Joanna', 'Joey', 'Justin', 'Kajal', 'Karl', 'Kazuha', 'Kendra', 'Kevin', 'Kimberly', 'Laura', 'Lea', 'Liam', 'Lisa', 'Liv', 'Lotte', 'Lucia', 'Lupe', 'Mads', 'Maja', 'Marlene', 'Mathieu', 'Matthew', 'Maxim', 'Mia', 'Miguel', 'Mizuki', 'Naja', 'Niamh', 'Nicole', 'Ola', 'Olivia', 'Pedro', 'Penelope', 'Raveena', 'Remi', 'Ricardo', 'Ruben', 'Russell', 'Ruth', 'Salli', 'Seoyeon', 'Sergio', 'Sofie', 'Stephen', 'Suvi', 'Takumi', 'Tatyana', 'Thiago', 'Tomoko', 'Vicki', 'Vitoria', 'Zayd', 'Zeina', 'Zhiyu']]
+- **Type**: typing.Optional[typing.Literal['Aditi', 'Adriano', 'Amy', 'Andres', 'Aria', 'Arlet', 'Arthur', 'Astrid', 'Ayanda', 'Bianca', 'Brian', 'Burcu', 'Camila', 'Carla', 'Carmen', 'Celine', 'Chantal', 'Conchita', 'Cristiano', 'Daniel', 'Danielle', 'Dora', 'Elin', 'Emma', 'Enrique', 'Ewa', 'Filiz', 'Gabrielle', 'Geraint', 'Giorgio', 'Gregory', 'Gwyneth', 'Hala', 'Hannah', 'Hans', 'Hiujin', 'Ida', 'Ines', 'Isabelle', 'Ivy', 'Jacek', 'Jan', 'Jasmine', 'Jitka', 'Joanna', 'Joey', 'Justin', 'Kajal', 'Karl', 'Kazuha', 'Kendra', 'Kevin', 'Kimberly', 'Laura', 'Lea', 'Liam', 'Lisa', 'Liv', 'Lotte', 'Lucia', 'Lupe', 'Mads', 'Maja', 'Marlene', 'Mathieu', 'Matthew', 'Maxim', 'Mia', 'Miguel', 'Mizuki', 'Naja', 'Niamh', 'Nicole', 'Ola', 'Olivia', 'Pedro', 'Penelope', 'Raveena', 'Remi', 'Ricardo', 'Ruben', 'Russell', 'Ruth', 'Sabrina', 'Salli', 'Seoyeon', 'Sergio', 'Sofie', 'Stephen', 'Suvi', 'Takumi', 'Tatyana', 'Thiago', 'Tomoko', 'Vicki', 'Vitoria', 'Zayd', 'Zeina', 'Zhiyu']]
 
 ### LanguageCode
-- **Type**: typing.Optional[typing.Literal['ar-AE', 'arb', 'ca-ES', 'cmn-CN', 'cy-GB', 'da-DK', 'de-AT', 'de-DE', 'en-AU', 'en-GB', 'en-GB-WLS', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-ZA', 'es-ES', 'es-MX', 'es-US', 'fi-FI', 'fr-BE', 'fr-CA', 'fr-FR', 'hi-IN', 'is-IS', 'it-IT', 'ja-JP', 'ko-KR', 'nb-NO', 'nl-BE', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'sv-SE', 'tr-TR', 'yue-CN']]
-
-
-# SynthesizeSpeechInputRequestTypeDef
-
-### OutputFormat
-- **Type**: typing.Literal['json', 'mp3', 'ogg_vorbis', 'pcm']
-- **Required**: Yes
-
-### Text
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### VoiceId
-- **Type**: typing.Literal['Aditi', 'Adriano', 'Amy', 'Andres', 'Aria', 'Arlet', 'Arthur', 'Astrid', 'Ayanda', 'Bianca', 'Brian', 'Burcu', 'Camila', 'Carla', 'Carmen', 'Celine', 'Chantal', 'Conchita', 'Cristiano', 'Daniel', 'Danielle', 'Dora', 'Elin', 'Emma', 'Enrique', 'Ewa', 'Filiz', 'Gabrielle', 'Geraint', 'Giorgio', 'Gregory', 'Gwyneth', 'Hala', 'Hannah', 'Hans', 'Hiujin', 'Ida', 'Ines', 'Isabelle', 'Ivy', 'Jacek', 'Jan', 'Joanna', 'Joey', 'Justin', 'Kajal', 'Karl', 'Kazuha', 'Kendra', 'Kevin', 'Kimberly', 'Laura', 'Lea', 'Liam', 'Lisa', 'Liv', 'Lotte', 'Lucia', 'Lupe', 'Mads', 'Maja', 'Marlene', 'Mathieu', 'Matthew', 'Maxim', 'Mia', 'Miguel', 'Mizuki', 'Naja', 'Niamh', 'Nicole', 'Ola', 'Olivia', 'Pedro', 'Penelope', 'Raveena', 'Remi', 'Ricardo', 'Ruben', 'Russell', 'Ruth', 'Salli', 'Seoyeon', 'Sergio', 'Sofie', 'Stephen', 'Suvi', 'Takumi', 'Tatyana', 'Thiago', 'Tomoko', 'Vicki', 'Vitoria', 'Zayd', 'Zeina', 'Zhiyu']
-- **Required**: Yes
-
-### Engine
-- **Type**: typing.Optional[typing.Literal['generative', 'long-form', 'neural', 'standard']]
-
-### LanguageCode
-- **Type**: typing.Optional[typing.Literal['ar-AE', 'arb', 'ca-ES', 'cmn-CN', 'cy-GB', 'da-DK', 'de-AT', 'de-DE', 'en-AU', 'en-GB', 'en-GB-WLS', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-ZA', 'es-ES', 'es-MX', 'es-US', 'fi-FI', 'fr-BE', 'fr-CA', 'fr-FR', 'hi-IN', 'is-IS', 'it-IT', 'ja-JP', 'ko-KR', 'nb-NO', 'nl-BE', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'sv-SE', 'tr-TR', 'yue-CN']]
-
-### LexiconNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### SampleRate
-- **Type**: typing.Optional[str]
-
-### SpeechMarkTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['sentence', 'ssml', 'viseme', 'word']]]
-
-### TextType
-- **Type**: typing.Optional[typing.Literal['ssml', 'text']]
+- **Type**: typing.Optional[typing.Literal['ar-AE', 'arb', 'ca-ES', 'cmn-CN', 'cs-CZ', 'cy-GB', 'da-DK', 'de-AT', 'de-CH', 'de-DE', 'en-AU', 'en-GB', 'en-GB-WLS', 'en-IE', 'en-IN', 'en-NZ', 'en-SG', 'en-US', 'en-ZA', 'es-ES', 'es-MX', 'es-US', 'fi-FI', 'fr-BE', 'fr-CA', 'fr-FR', 'hi-IN', 'is-IS', 'it-IT', 'ja-JP', 'ko-KR', 'nb-NO', 'nl-BE', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'sv-SE', 'tr-TR', 'yue-CN']]
 
 
 # SynthesizeSpeechOutputTypeDef
@@ -402,10 +326,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Female', 'Male']]
 
 ### Id
-- **Type**: typing.Optional[typing.Literal['Aditi', 'Adriano', 'Amy', 'Andres', 'Aria', 'Arlet', 'Arthur', 'Astrid', 'Ayanda', 'Bianca', 'Brian', 'Burcu', 'Camila', 'Carla', 'Carmen', 'Celine', 'Chantal', 'Conchita', 'Cristiano', 'Daniel', 'Danielle', 'Dora', 'Elin', 'Emma', 'Enrique', 'Ewa', 'Filiz', 'Gabrielle', 'Geraint', 'Giorgio', 'Gregory', 'Gwyneth', 'Hala', 'Hannah', 'Hans', 'Hiujin', 'Ida', 'Ines', 'Isabelle', 'Ivy', 'Jacek', 'Jan', 'Joanna', 'Joey', 'Justin', 'Kajal', 'Karl', 'Kazuha', 'Kendra', 'Kevin', 'Kimberly', 'Laura', 'Lea', 'Liam', 'Lisa', 'Liv', 'Lotte', 'Lucia', 'Lupe', 'Mads', 'Maja', 'Marlene', 'Mathieu', 'Matthew', 'Maxim', 'Mia', 'Miguel', 'Mizuki', 'Naja', 'Niamh', 'Nicole', 'Ola', 'Olivia', 'Pedro', 'Penelope', 'Raveena', 'Remi', 'Ricardo', 'Ruben', 'Russell', 'Ruth', 'Salli', 'Seoyeon', 'Sergio', 'Sofie', 'Stephen', 'Suvi', 'Takumi', 'Tatyana', 'Thiago', 'Tomoko', 'Vicki', 'Vitoria', 'Zayd', 'Zeina', 'Zhiyu']]
+- **Type**: typing.Optional[typing.Literal['Aditi', 'Adriano', 'Amy', 'Andres', 'Aria', 'Arlet', 'Arthur', 'Astrid', 'Ayanda', 'Bianca', 'Brian', 'Burcu', 'Camila', 'Carla', 'Carmen', 'Celine', 'Chantal', 'Conchita', 'Cristiano', 'Daniel', 'Danielle', 'Dora', 'Elin', 'Emma', 'Enrique', 'Ewa', 'Filiz', 'Gabrielle', 'Geraint', 'Giorgio', 'Gregory', 'Gwyneth', 'Hala', 'Hannah', 'Hans', 'Hiujin', 'Ida', 'Ines', 'Isabelle', 'Ivy', 'Jacek', 'Jan', 'Jasmine', 'Jitka', 'Joanna', 'Joey', 'Justin', 'Kajal', 'Karl', 'Kazuha', 'Kendra', 'Kevin', 'Kimberly', 'Laura', 'Lea', 'Liam', 'Lisa', 'Liv', 'Lotte', 'Lucia', 'Lupe', 'Mads', 'Maja', 'Marlene', 'Mathieu', 'Matthew', 'Maxim', 'Mia', 'Miguel', 'Mizuki', 'Naja', 'Niamh', 'Nicole', 'Ola', 'Olivia', 'Pedro', 'Penelope', 'Raveena', 'Remi', 'Ricardo', 'Ruben', 'Russell', 'Ruth', 'Sabrina', 'Salli', 'Seoyeon', 'Sergio', 'Sofie', 'Stephen', 'Suvi', 'Takumi', 'Tatyana', 'Thiago', 'Tomoko', 'Vicki', 'Vitoria', 'Zayd', 'Zeina', 'Zhiyu']]
 
 ### LanguageCode
-- **Type**: typing.Optional[typing.Literal['ar-AE', 'arb', 'ca-ES', 'cmn-CN', 'cy-GB', 'da-DK', 'de-AT', 'de-DE', 'en-AU', 'en-GB', 'en-GB-WLS', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-ZA', 'es-ES', 'es-MX', 'es-US', 'fi-FI', 'fr-BE', 'fr-CA', 'fr-FR', 'hi-IN', 'is-IS', 'it-IT', 'ja-JP', 'ko-KR', 'nb-NO', 'nl-BE', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'sv-SE', 'tr-TR', 'yue-CN']]
+- **Type**: typing.Optional[typing.Literal['ar-AE', 'arb', 'ca-ES', 'cmn-CN', 'cs-CZ', 'cy-GB', 'da-DK', 'de-AT', 'de-CH', 'de-DE', 'en-AU', 'en-GB', 'en-GB-WLS', 'en-IE', 'en-IN', 'en-NZ', 'en-SG', 'en-US', 'en-ZA', 'es-ES', 'es-MX', 'es-US', 'fi-FI', 'fr-BE', 'fr-CA', 'fr-FR', 'hi-IN', 'is-IS', 'it-IT', 'ja-JP', 'ko-KR', 'nb-NO', 'nl-BE', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'sv-SE', 'tr-TR', 'yue-CN']]
 
 ### LanguageName
 - **Type**: typing.Optional[str]
@@ -414,7 +338,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AdditionalLanguageCodes
-- **Type**: typing.Optional[typing.List[typing.Literal['ar-AE', 'arb', 'ca-ES', 'cmn-CN', 'cy-GB', 'da-DK', 'de-AT', 'de-DE', 'en-AU', 'en-GB', 'en-GB-WLS', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-ZA', 'es-ES', 'es-MX', 'es-US', 'fi-FI', 'fr-BE', 'fr-CA', 'fr-FR', 'hi-IN', 'is-IS', 'it-IT', 'ja-JP', 'ko-KR', 'nb-NO', 'nl-BE', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'sv-SE', 'tr-TR', 'yue-CN']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ar-AE', 'arb', 'ca-ES', 'cmn-CN', 'cs-CZ', 'cy-GB', 'da-DK', 'de-AT', 'de-CH', 'de-DE', 'en-AU', 'en-GB', 'en-GB-WLS', 'en-IE', 'en-IN', 'en-NZ', 'en-SG', 'en-US', 'en-ZA', 'es-ES', 'es-MX', 'es-US', 'fi-FI', 'fr-BE', 'fr-CA', 'fr-FR', 'hi-IN', 'is-IS', 'it-IT', 'ja-JP', 'ko-KR', 'nb-NO', 'nl-BE', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'sv-SE', 'tr-TR', 'yue-CN']]]
 
 ### SupportedEngines
 - **Type**: typing.Optional[typing.List[typing.Literal['generative', 'long-form', 'neural', 'standard']]]

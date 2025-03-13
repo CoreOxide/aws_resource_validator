@@ -12,7 +12,7 @@
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# AssociateCreatedArtifactRequestRequestTypeDef
+# AssociateCreatedArtifactRequestTypeDef
 
 ### ProgressUpdateStream
 - **Type**: <class 'str'>
@@ -30,7 +30,7 @@
 - **Type**: typing.Optional[bool]
 
 
-# AssociateDiscoveredResourceRequestRequestTypeDef
+# AssociateDiscoveredResourceRequestTypeDef
 
 ### ProgressUpdateStream
 - **Type**: <class 'str'>
@@ -48,13 +48,31 @@
 - **Type**: typing.Optional[bool]
 
 
+# AssociateSourceResourceRequestTypeDef
+
+### ProgressUpdateStream
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### MigrationTaskName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SourceResource
+- **Type**: <class 'aws_resource_validator.pydantic_models.mgh_classes.SourceResourceTypeDef'>
+- **Required**: Yes
+
+### DryRun
+- **Type**: typing.Optional[bool]
+
+
 # BaseValidatorModel
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateProgressUpdateStreamRequestRequestTypeDef
+# CreateProgressUpdateStreamRequestTypeDef
 
 ### ProgressUpdateStreamName
 - **Type**: <class 'str'>
@@ -74,7 +92,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteProgressUpdateStreamRequestRequestTypeDef
+# DeleteProgressUpdateStreamRequestTypeDef
 
 ### ProgressUpdateStreamName
 - **Type**: <class 'str'>
@@ -84,7 +102,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DescribeApplicationStateRequestRequestTypeDef
+# DescribeApplicationStateRequestTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -106,7 +124,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeMigrationTaskRequestRequestTypeDef
+# DescribeMigrationTaskRequestTypeDef
 
 ### ProgressUpdateStream
 - **Type**: <class 'str'>
@@ -128,7 +146,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateCreatedArtifactRequestRequestTypeDef
+# DisassociateCreatedArtifactRequestTypeDef
 
 ### ProgressUpdateStream
 - **Type**: <class 'str'>
@@ -146,7 +164,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DisassociateDiscoveredResourceRequestRequestTypeDef
+# DisassociateDiscoveredResourceRequestTypeDef
 
 ### ProgressUpdateStream
 - **Type**: <class 'str'>
@@ -157,6 +175,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ConfigurationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DryRun
+- **Type**: typing.Optional[bool]
+
+
+# DisassociateSourceResourceRequestTypeDef
+
+### ProgressUpdateStream
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### MigrationTaskName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SourceResourceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -174,7 +210,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ImportMigrationTaskRequestRequestTypeDef
+# ImportMigrationTaskRequestTypeDef
 
 ### ProgressUpdateStream
 - **Type**: <class 'str'>
@@ -188,7 +224,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ListApplicationStatesRequestListApplicationStatesPaginateTypeDef
+# ListApplicationStatesRequestPaginateTypeDef
 
 ### ApplicationIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -197,7 +233,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mgh_classes.PaginatorConfigTypeDef]
 
 
-# ListApplicationStatesRequestRequestTypeDef
+# ListApplicationStatesRequestTypeDef
 
 ### ApplicationIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -215,16 +251,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.mgh_classes.ApplicationStateTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.mgh_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListCreatedArtifactsRequestListCreatedArtifactsPaginateTypeDef
+
+# ListCreatedArtifactsRequestPaginateTypeDef
 
 ### ProgressUpdateStream
 - **Type**: <class 'str'>
@@ -238,7 +273,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mgh_classes.PaginatorConfigTypeDef]
 
 
-# ListCreatedArtifactsRequestRequestTypeDef
+# ListCreatedArtifactsRequestTypeDef
 
 ### ProgressUpdateStream
 - **Type**: <class 'str'>
@@ -257,10 +292,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListCreatedArtifactsResultTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### CreatedArtifactList
 - **Type**: typing.List[aws_resource_validator.pydantic_models.mgh_classes.CreatedArtifactTypeDef]
 - **Required**: Yes
@@ -269,8 +300,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.mgh_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListDiscoveredResourcesRequestListDiscoveredResourcesPaginateTypeDef
+
+# ListDiscoveredResourcesRequestPaginateTypeDef
 
 ### ProgressUpdateStream
 - **Type**: <class 'str'>
@@ -284,7 +318,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mgh_classes.PaginatorConfigTypeDef]
 
 
-# ListDiscoveredResourcesRequestRequestTypeDef
+# ListDiscoveredResourcesRequestTypeDef
 
 ### ProgressUpdateStream
 - **Type**: <class 'str'>
@@ -303,10 +337,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListDiscoveredResourcesResultTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### DiscoveredResourceList
 - **Type**: typing.List[aws_resource_validator.pydantic_models.mgh_classes.DiscoveredResourceTypeDef]
 - **Required**: Yes
@@ -315,8 +345,56 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.mgh_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListMigrationTasksRequestListMigrationTasksPaginateTypeDef
+
+# ListMigrationTaskUpdatesRequestPaginateTypeDef
+
+### ProgressUpdateStream
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### MigrationTaskName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mgh_classes.PaginatorConfigTypeDef]
+
+
+# ListMigrationTaskUpdatesRequestTypeDef
+
+### ProgressUpdateStream
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### MigrationTaskName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+
+# ListMigrationTaskUpdatesResultTypeDef
+
+### MigrationTaskUpdateList
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mgh_classes.MigrationTaskUpdateTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.mgh_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListMigrationTasksRequestPaginateTypeDef
 
 ### ResourceName
 - **Type**: typing.Optional[str]
@@ -325,7 +403,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mgh_classes.PaginatorConfigTypeDef]
 
 
-# ListMigrationTasksRequestRequestTypeDef
+# ListMigrationTasksRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -339,10 +417,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListMigrationTasksResultTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### MigrationTaskSummaryList
 - **Type**: typing.List[aws_resource_validator.pydantic_models.mgh_classes.MigrationTaskSummaryTypeDef]
 - **Required**: Yes
@@ -351,14 +425,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.mgh_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListProgressUpdateStreamsRequestListProgressUpdateStreamsPaginateTypeDef
+
+# ListProgressUpdateStreamsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mgh_classes.PaginatorConfigTypeDef]
 
 
-# ListProgressUpdateStreamsRequestRequestTypeDef
+# ListProgressUpdateStreamsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -373,13 +450,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.mgh_classes.ProgressUpdateStreamSummaryTypeDef]
 - **Required**: Yes
 
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.mgh_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
 ### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListSourceResourcesRequestPaginateTypeDef
+
+### ProgressUpdateStream
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+### MigrationTaskName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mgh_classes.PaginatorConfigTypeDef]
+
+
+# ListSourceResourcesRequestTypeDef
+
+### ProgressUpdateStream
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### MigrationTaskName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+
+# ListSourceResourcesResultTypeDef
+
+### SourceResourceList
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mgh_classes.SourceResourceTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.mgh_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # MigrationTaskSummaryTypeDef
@@ -421,7 +542,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mgh_classes.ResourceAttributeTypeDef]]
 
 
-# NotifyApplicationStateRequestRequestTypeDef
+# MigrationTaskUpdateTypeDef
+
+### UpdateDateTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### UpdateType
+- **Type**: typing.Optional[typing.Literal['MIGRATION_TASK_STATE_UPDATED']]
+
+### MigrationTaskState
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mgh_classes.TaskTypeDef]
+
+
+# NotifyApplicationStateRequestTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -432,13 +565,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UpdateDateTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mgh_classes.TimestampTypeDef]
 
 ### DryRun
 - **Type**: typing.Optional[bool]
 
 
-# NotifyMigrationTaskStateRequestRequestTypeDef
+# NotifyMigrationTaskStateRequestTypeDef
 
 ### ProgressUpdateStream
 - **Type**: <class 'str'>
@@ -453,7 +586,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UpdateDateTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.mgh_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### NextUpdateSeconds
@@ -482,7 +615,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutResourceAttributesRequestRequestTypeDef
+# PutResourceAttributesRequestTypeDef
 
 ### ProgressUpdateStream
 - **Type**: <class 'str'>
@@ -502,22 +635,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ResourceAttributeTypeDef
 
-### Type
-- **Type**: typing.Literal['BIOS_ID', 'FQDN', 'IPV4_ADDRESS', 'IPV6_ADDRESS', 'MAC_ADDRESS', 'MOTHERBOARD_SERIAL_NUMBER', 'VM_MANAGED_OBJECT_REFERENCE', 'VM_MANAGER_ID', 'VM_NAME', 'VM_PATH']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Value
-- **Type**: <class 'str'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResponseMetadataTypeDef
 
 ### RequestId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### HostId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -533,6 +657,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
+
+
+# SourceResourceTypeDef
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Description
+- **Type**: typing.Optional[str]
+
+### StatusDetail
+- **Type**: typing.Optional[str]
+
 
 # TaskTypeDef
 
@@ -546,4 +686,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ProgressPercent
 - **Type**: typing.Optional[int]
 
+
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

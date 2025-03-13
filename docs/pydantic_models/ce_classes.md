@@ -1,5 +1,35 @@
 # Ce Classes
 
+# AnalysisDetailsTypeDef
+
+### SavingsPlansPurchaseAnalysisDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.SavingsPlansPurchaseAnalysisDetailsTypeDef]
+
+
+# AnalysisSummaryTypeDef
+
+### EstimatedCompletionTime
+- **Type**: typing.Optional[str]
+
+### AnalysisCompletionTime
+- **Type**: typing.Optional[str]
+
+### AnalysisStartedTime
+- **Type**: typing.Optional[str]
+
+### AnalysisStatus
+- **Type**: typing.Optional[typing.Literal['FAILED', 'PROCESSING', 'SUCCEEDED']]
+
+### ErrorCode
+- **Type**: typing.Optional[typing.Literal['INTERNAL_FAILURE', 'INVALID_ACCOUNT_ID', 'INVALID_SAVINGS_PLANS_TO_ADD', 'INVALID_SAVINGS_PLANS_TO_EXCLUDE', 'NO_USAGE_FOUND']]
+
+### AnalysisId
+- **Type**: typing.Optional[str]
+
+### CommitmentPurchaseAnalysisConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.CommitmentPurchaseAnalysisConfigurationOutputTypeDef]
+
+
 # AnomalyDateIntervalTypeDef
 
 ### StartDate
@@ -8,6 +38,38 @@
 
 ### EndDate
 - **Type**: typing.Optional[str]
+
+
+# AnomalyMonitorOutputTypeDef
+
+### MonitorName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### MonitorType
+- **Type**: typing.Literal['CUSTOM', 'DIMENSIONAL']
+- **Required**: Yes
+
+### MonitorArn
+- **Type**: typing.Optional[str]
+
+### CreationDate
+- **Type**: typing.Optional[str]
+
+### LastUpdatedDate
+- **Type**: typing.Optional[str]
+
+### LastEvaluatedDate
+- **Type**: typing.Optional[str]
+
+### MonitorDimension
+- **Type**: typing.Optional[typing.Literal['SERVICE']]
+
+### MonitorSpecification
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionOutputTypeDef]
+
+### DimensionalValueCount
+- **Type**: typing.Optional[int]
 
 
 # AnomalyMonitorTypeDef
@@ -36,11 +98,17 @@
 - **Type**: typing.Optional[typing.Literal['SERVICE']]
 
 ### MonitorSpecification
-- **Type**: typing.Optional[ForwardRef('ExpressionTypeDef')]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionTypeDef]
 
 ### DimensionalValueCount
 - **Type**: typing.Optional[int]
 
+
+# AnomalyMonitorUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AnomalyScoreTypeDef
 
@@ -51,6 +119,37 @@
 ### CurrentScore
 - **Type**: <class 'float'>
 - **Required**: Yes
+
+
+# AnomalySubscriptionOutputTypeDef
+
+### MonitorArnList
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### Subscribers
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ce_classes.SubscriberTypeDef]
+- **Required**: Yes
+
+### Frequency
+- **Type**: typing.Literal['DAILY', 'IMMEDIATE', 'WEEKLY']
+- **Required**: Yes
+
+### SubscriptionName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SubscriptionArn
+- **Type**: typing.Optional[str]
+
+### AccountId
+- **Type**: typing.Optional[str]
+
+### Threshold
+- **Type**: typing.Optional[float]
+
+### ThresholdExpression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionOutputTypeDef]
 
 
 # AnomalySubscriptionTypeDef
@@ -83,6 +182,12 @@
 ### ThresholdExpression
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionTypeDef]
 
+
+# AnomalySubscriptionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AnomalyTypeDef
 
@@ -124,6 +229,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
+# CommitmentPurchaseAnalysisConfigurationOutputTypeDef
+
+### SavingsPlansPurchaseAnalysisConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.SavingsPlansPurchaseAnalysisConfigurationOutputTypeDef]
+
+
+# CommitmentPurchaseAnalysisConfigurationTypeDef
+
+### SavingsPlansPurchaseAnalysisConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.SavingsPlansPurchaseAnalysisConfigurationTypeDef]
+
+
+# CommitmentPurchaseAnalysisConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # CostAllocationTagBackfillRequestTypeDef
 
 ### BackfillFrom
@@ -155,24 +278,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # CostAllocationTagTypeDef
 
-### TagKey
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Literal['AWSGenerated', 'UserDefined']
-- **Required**: Yes
-
-### Status
-- **Type**: typing.Literal['Active', 'Inactive']
-- **Required**: Yes
-
-### LastUpdatedDate
-- **Type**: typing.Optional[str]
-
-### LastUsedDate
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CostCategoryInheritedValueDimensionTypeDef
 
@@ -219,31 +327,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CostCategoryRuleTypeDef
+# CostCategoryRuleOutputTypeDef
 
-### Value
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Rule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionTypeDef]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### InheritedValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.CostCategoryInheritedValueDimensionTypeDef]
+# CostCategoryRuleUnionTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['INHERITED_VALUE', 'REGULAR']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CostCategorySplitChargeRuleParameterTypeDef
+# CostCategorySplitChargeRuleOutputTypeDef
 
-### Type
-- **Type**: typing.Literal['ALLOCATION_PERCENTAGES']
+### Source
+- **Type**: <class 'str'>
 - **Required**: Yes
 
-### Values
-- **Type**: typing.Sequence[str]
+### Targets
+- **Type**: typing.List[str]
 - **Required**: Yes
 
+### Method
+- **Type**: typing.Literal['EVEN', 'FIXED', 'PROPORTIONAL']
+- **Required**: Yes
+
+### Parameters
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ce_classes.CostCategorySplitChargeRuleParameterOutputTypeDef]]
+
+
+# CostCategorySplitChargeRuleParameterOutputTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CostCategorySplitChargeRuleParameterUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CostCategorySplitChargeRuleTypeDef
 
@@ -260,8 +384,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ce_classes.CostCategorySplitChargeRuleParameterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ce_classes.CostCategorySplitChargeRuleParameterUnionTypeDef]]
 
+
+# CostCategorySplitChargeRuleUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CostCategoryTypeDef
 
@@ -282,20 +412,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Rules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ce_classes.CostCategoryRuleTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ce_classes.CostCategoryRuleOutputTypeDef]
 - **Required**: Yes
 
 ### EffectiveEnd
 - **Type**: typing.Optional[str]
 
 ### SplitChargeRules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ce_classes.CostCategorySplitChargeRuleTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ce_classes.CostCategorySplitChargeRuleOutputTypeDef]]
 
 ### ProcessingStatus
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ce_classes.CostCategoryProcessingStatusTypeDef]]
 
 ### DefaultValue
 - **Type**: typing.Optional[str]
+
+
+# CostCategoryValuesOutputTypeDef
+
+### Key
+- **Type**: typing.Optional[str]
+
+### Values
+- **Type**: typing.Optional[typing.List[str]]
+
+### MatchOptions
+- **Type**: typing.Optional[typing.List[typing.Literal['ABSENT', 'CASE_INSENSITIVE', 'CASE_SENSITIVE', 'CONTAINS', 'ENDS_WITH', 'EQUALS', 'GREATER_THAN_OR_EQUAL', 'STARTS_WITH']]]
 
 
 # CostCategoryValuesTypeDef
@@ -309,6 +451,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### MatchOptions
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['ABSENT', 'CASE_INSENSITIVE', 'CASE_SENSITIVE', 'CONTAINS', 'ENDS_WITH', 'EQUALS', 'GREATER_THAN_OR_EQUAL', 'STARTS_WITH']]]
 
+
+# CostCategoryValuesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CoverageByTimeTypeDef
 
@@ -370,10 +518,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.CoverageCostTypeDef]
 
 
-# CreateAnomalyMonitorRequestRequestTypeDef
+# CreateAnomalyMonitorRequestTypeDef
 
 ### AnomalyMonitor
-- **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.AnomalyMonitorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.AnomalyMonitorUnionTypeDef'>
 - **Required**: Yes
 
 ### ResourceTags
@@ -391,10 +539,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAnomalySubscriptionRequestRequestTypeDef
+# CreateAnomalySubscriptionRequestTypeDef
 
 ### AnomalySubscription
-- **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.AnomalySubscriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.AnomalySubscriptionUnionTypeDef'>
 - **Required**: Yes
 
 ### ResourceTags
@@ -412,7 +560,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCostCategoryDefinitionRequestRequestTypeDef
+# CreateCostCategoryDefinitionRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -423,7 +571,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Rules
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ce_classes.CostCategoryRuleTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ce_classes.CostCategoryRuleUnionTypeDef]
 - **Required**: Yes
 
 ### EffectiveStart
@@ -433,7 +581,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SplitChargeRules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ce_classes.CostCategorySplitChargeRuleTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ce_classes.CostCategorySplitChargeRuleUnionTypeDef]]
 
 ### ResourceTags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ce_classes.ResourceTagTypeDef]]
@@ -463,7 +611,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ce_classes.TagValuesTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ce_classes.TagValuesOutputTypeDef]]
 
 ### ResourceDetails
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ResourceDetailsTypeDef]
@@ -501,21 +649,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAnomalyMonitorRequestRequestTypeDef
+# DeleteAnomalyMonitorRequestTypeDef
 
 ### MonitorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteAnomalySubscriptionRequestRequestTypeDef
+# DeleteAnomalySubscriptionRequestTypeDef
 
 ### SubscriptionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteCostCategoryDefinitionRequestRequestTypeDef
+# DeleteCostCategoryDefinitionRequestTypeDef
 
 ### CostCategoryArn
 - **Type**: <class 'str'>
@@ -537,7 +685,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeCostCategoryDefinitionRequestRequestTypeDef
+# DescribeCostCategoryDefinitionRequestTypeDef
 
 ### CostCategoryArn
 - **Type**: <class 'str'>
@@ -558,6 +706,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# DimensionValuesOutputTypeDef
+
+### Key
+- **Type**: typing.Optional[typing.Literal['AGREEMENT_END_DATE_TIME_AFTER', 'AGREEMENT_END_DATE_TIME_BEFORE', 'ANOMALY_TOTAL_IMPACT_ABSOLUTE', 'ANOMALY_TOTAL_IMPACT_PERCENTAGE', 'AZ', 'BILLING_ENTITY', 'CACHE_ENGINE', 'DATABASE_ENGINE', 'DEPLOYMENT_OPTION', 'INSTANCE_TYPE', 'INSTANCE_TYPE_FAMILY', 'INVOICING_ENTITY', 'LEGAL_ENTITY_NAME', 'LINKED_ACCOUNT', 'LINKED_ACCOUNT_NAME', 'OPERATING_SYSTEM', 'OPERATION', 'PAYMENT_OPTION', 'PLATFORM', 'PURCHASE_TYPE', 'RECORD_TYPE', 'REGION', 'RESERVATION_ID', 'RESOURCE_ID', 'RIGHTSIZING_TYPE', 'SAVINGS_PLANS_TYPE', 'SAVINGS_PLAN_ARN', 'SCOPE', 'SERVICE', 'SERVICE_CODE', 'SUBSCRIPTION_ID', 'TENANCY', 'USAGE_TYPE', 'USAGE_TYPE_GROUP']]
+
+### Values
+- **Type**: typing.Optional[typing.List[str]]
+
+### MatchOptions
+- **Type**: typing.Optional[typing.List[typing.Literal['ABSENT', 'CASE_INSENSITIVE', 'CASE_SENSITIVE', 'CONTAINS', 'ENDS_WITH', 'EQUALS', 'GREATER_THAN_OR_EQUAL', 'STARTS_WITH']]]
+
+
 # DimensionValuesTypeDef
 
 ### Key
@@ -569,6 +729,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### MatchOptions
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['ABSENT', 'CASE_INSENSITIVE', 'CASE_SENSITIVE', 'CONTAINS', 'ENDS_WITH', 'EQUALS', 'GREATER_THAN_OR_EQUAL', 'STARTS_WITH']]]
 
+
+# DimensionValuesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DimensionValuesWithAttributesTypeDef
 
@@ -591,6 +757,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DiskWriteBytesPerSecond
+- **Type**: typing.Optional[str]
+
+
+# DynamoDBCapacityDetailsTypeDef
+
+### CapacityUnits
+- **Type**: typing.Optional[str]
+
+### Region
 - **Type**: typing.Optional[str]
 
 
@@ -732,26 +907,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ExpressionTypeDef
+# ExpressionOutputTypeDef
 
 ### Or
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 ### And
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 ### Not
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### Dimensions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.DimensionValuesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.DimensionValuesOutputTypeDef]
 
 ### Tags
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.TagValuesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.TagValuesOutputTypeDef]
 
 ### CostCategories
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.CostCategoryValuesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.CostCategoryValuesOutputTypeDef]
 
+
+# ExpressionTypeDef
+
+### Or
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### And
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### Not
+- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+
+### Dimensions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.DimensionValuesUnionTypeDef]
+
+### Tags
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.TagValuesUnionTypeDef]
+
+### CostCategories
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.CostCategoryValuesUnionTypeDef]
+
+
+# ExpressionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ForecastResultTypeDef
 
@@ -786,7 +988,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetAnomaliesRequestRequestTypeDef
+# GetAnomaliesRequestTypeDef
 
 ### DateInterval
 - **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.AnomalyDateIntervalTypeDef'>
@@ -823,7 +1025,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAnomalyMonitorsRequestRequestTypeDef
+# GetAnomalyMonitorsRequestTypeDef
 
 ### MonitorArnList
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -838,7 +1040,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAnomalyMonitorsResponseTypeDef
 
 ### AnomalyMonitors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ce_classes.AnomalyMonitorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ce_classes.AnomalyMonitorOutputTypeDef]
 - **Required**: Yes
 
 ### NextPageToken
@@ -850,7 +1052,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAnomalySubscriptionsRequestRequestTypeDef
+# GetAnomalySubscriptionsRequestTypeDef
 
 ### SubscriptionArnList
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -868,7 +1070,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAnomalySubscriptionsResponseTypeDef
 
 ### AnomalySubscriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ce_classes.AnomalySubscriptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ce_classes.AnomalySubscriptionOutputTypeDef]
 - **Required**: Yes
 
 ### NextPageToken
@@ -880,7 +1082,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetApproximateUsageRecordsRequestRequestTypeDef
+# GetApproximateUsageRecordsRequestTypeDef
 
 ### Granularity
 - **Type**: typing.Literal['DAILY', 'HOURLY', 'MONTHLY']
@@ -913,7 +1115,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCostAndUsageRequestRequestTypeDef
+# GetCommitmentPurchaseAnalysisRequestTypeDef
+
+### AnalysisId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetCommitmentPurchaseAnalysisResponseTypeDef
+
+### EstimatedCompletionTime
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AnalysisCompletionTime
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AnalysisStartedTime
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AnalysisId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AnalysisStatus
+- **Type**: typing.Literal['FAILED', 'PROCESSING', 'SUCCEEDED']
+- **Required**: Yes
+
+### ErrorCode
+- **Type**: typing.Literal['INTERNAL_FAILURE', 'INVALID_ACCOUNT_ID', 'INVALID_SAVINGS_PLANS_TO_ADD', 'INVALID_SAVINGS_PLANS_TO_EXCLUDE', 'NO_USAGE_FOUND']
+- **Required**: Yes
+
+### AnalysisDetails
+- **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.AnalysisDetailsTypeDef'>
+- **Required**: Yes
+
+### CommitmentPurchaseAnalysisConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.CommitmentPurchaseAnalysisConfigurationOutputTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetCostAndUsageRequestTypeDef
 
 ### TimePeriod
 - **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.DateIntervalTypeDef'>
@@ -928,10 +1176,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionUnionTypeDef]
 
 ### GroupBy
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ce_classes.GroupDefinitionTypeDef]]
+
+### BillingViewArn
+- **Type**: typing.Optional[str]
 
 ### NextPageToken
 - **Type**: typing.Optional[str]
@@ -960,7 +1211,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCostAndUsageWithResourcesRequestRequestTypeDef
+# GetCostAndUsageWithResourcesRequestTypeDef
 
 ### TimePeriod
 - **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.DateIntervalTypeDef'>
@@ -971,7 +1222,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filter
-- **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.ExpressionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.ExpressionUnionTypeDef'>
 - **Required**: Yes
 
 ### Metrics
@@ -979,6 +1230,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### GroupBy
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ce_classes.GroupDefinitionTypeDef]]
+
+### BillingViewArn
+- **Type**: typing.Optional[str]
 
 ### NextPageToken
 - **Type**: typing.Optional[str]
@@ -1007,7 +1261,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCostCategoriesRequestRequestTypeDef
+# GetCostCategoriesRequestTypeDef
 
 ### TimePeriod
 - **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.DateIntervalTypeDef'>
@@ -1020,10 +1274,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionUnionTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ce_classes.SortDefinitionTypeDef]]
+
+### BillingViewArn
+- **Type**: typing.Optional[str]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1059,7 +1316,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCostForecastRequestRequestTypeDef
+# GetCostForecastRequestTypeDef
 
 ### TimePeriod
 - **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.DateIntervalTypeDef'>
@@ -1074,7 +1331,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filter
-- **Type**: typing.Optional[ForwardRef('ExpressionTypeDef')]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionUnionTypeDef]
+
+### BillingViewArn
+- **Type**: typing.Optional[str]
 
 ### PredictionIntervalLevel
 - **Type**: typing.Optional[int]
@@ -1095,7 +1355,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDimensionValuesRequestRequestTypeDef
+# GetDimensionValuesRequestTypeDef
 
 ### TimePeriod
 - **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.DateIntervalTypeDef'>
@@ -1112,10 +1372,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COST_AND_USAGE', 'RESERVATIONS', 'SAVINGS_PLANS']]
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionUnionTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ce_classes.SortDefinitionTypeDef]]
+
+### BillingViewArn
+- **Type**: typing.Optional[str]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1147,7 +1410,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetReservationCoverageRequestRequestTypeDef
+# GetReservationCoverageRequestTypeDef
 
 ### TimePeriod
 - **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.DateIntervalTypeDef'>
@@ -1160,7 +1423,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DAILY', 'HOURLY', 'MONTHLY']]
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionUnionTypeDef]
 
 ### Metrics
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1194,7 +1457,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetReservationPurchaseRecommendationRequestRequestTypeDef
+# GetReservationPurchaseRecommendationRequestTypeDef
 
 ### Service
 - **Type**: <class 'str'>
@@ -1204,7 +1467,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionUnionTypeDef]
 
 ### AccountScope
 - **Type**: typing.Optional[typing.Literal['LINKED', 'PAYER']]
@@ -1247,7 +1510,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetReservationUtilizationRequestRequestTypeDef
+# GetReservationUtilizationRequestTypeDef
 
 ### TimePeriod
 - **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.DateIntervalTypeDef'>
@@ -1260,7 +1523,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DAILY', 'HOURLY', 'MONTHLY']]
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionUnionTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.SortDefinitionTypeDef]
@@ -1291,14 +1554,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRightsizingRecommendationRequestRequestTypeDef
+# GetRightsizingRecommendationRequestTypeDef
 
 ### Service
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionUnionTypeDef]
 
 ### Configuration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.RightsizingRecommendationConfigurationTypeDef]
@@ -1337,7 +1600,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSavingsPlanPurchaseRecommendationDetailsRequestRequestTypeDef
+# GetSavingsPlanPurchaseRecommendationDetailsRequestTypeDef
 
 ### RecommendationDetailId
 - **Type**: <class 'str'>
@@ -1359,7 +1622,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSavingsPlansCoverageRequestRequestTypeDef
+# GetSavingsPlansCoverageRequestTypeDef
 
 ### TimePeriod
 - **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.DateIntervalTypeDef'>
@@ -1372,7 +1635,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DAILY', 'HOURLY', 'MONTHLY']]
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionUnionTypeDef]
 
 ### Metrics
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1393,16 +1656,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ce_classes.SavingsPlansCoverageTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# GetSavingsPlansPurchaseRecommendationRequestRequestTypeDef
+
+# GetSavingsPlansPurchaseRecommendationRequestTypeDef
 
 ### SavingsPlansType
 - **Type**: typing.Literal['COMPUTE_SP', 'EC2_INSTANCE_SP', 'SAGEMAKER_SP']
@@ -1430,7 +1692,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Filter
-- **Type**: typing.Optional[ForwardRef('ExpressionTypeDef')]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionUnionTypeDef]
 
 
 # GetSavingsPlansPurchaseRecommendationResponseTypeDef
@@ -1452,14 +1714,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSavingsPlansUtilizationDetailsRequestRequestTypeDef
+# GetSavingsPlansUtilizationDetailsRequestTypeDef
 
 ### TimePeriod
 - **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.DateIntervalTypeDef'>
 - **Required**: Yes
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionUnionTypeDef]
 
 ### DataType
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['AMORTIZED_COMMITMENT', 'ATTRIBUTES', 'SAVINGS', 'UTILIZATION']]]
@@ -1488,16 +1750,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.DateIntervalTypeDef'>
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# GetSavingsPlansUtilizationRequestRequestTypeDef
+
+# GetSavingsPlansUtilizationRequestTypeDef
 
 ### TimePeriod
 - **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.DateIntervalTypeDef'>
@@ -1507,7 +1768,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DAILY', 'HOURLY', 'MONTHLY']]
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionUnionTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.SortDefinitionTypeDef]
@@ -1528,7 +1789,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTagsRequestRequestTypeDef
+# GetTagsRequestTypeDef
 
 ### TimePeriod
 - **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.DateIntervalTypeDef'>
@@ -1541,10 +1802,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionUnionTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ce_classes.SortDefinitionTypeDef]]
+
+### BillingViewArn
+- **Type**: typing.Optional[str]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1576,7 +1840,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetUsageForecastRequestRequestTypeDef
+# GetUsageForecastRequestTypeDef
 
 ### TimePeriod
 - **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.DateIntervalTypeDef'>
@@ -1591,7 +1855,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filter
-- **Type**: typing.Optional[ForwardRef('ExpressionTypeDef')]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionUnionTypeDef]
+
+### BillingViewArn
+- **Type**: typing.Optional[str]
 
 ### PredictionIntervalLevel
 - **Type**: typing.Optional[int]
@@ -1614,12 +1881,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # GroupDefinitionTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['COST_CATEGORY', 'DIMENSION', 'TAG']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Key
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # GroupTypeDef
 
@@ -1670,7 +1934,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.MemoryDBInstanceDetailsTypeDef]
 
 
-# ListCostAllocationTagBackfillHistoryRequestRequestTypeDef
+# ListCommitmentPurchaseAnalysesRequestTypeDef
+
+### AnalysisStatus
+- **Type**: typing.Optional[typing.Literal['FAILED', 'PROCESSING', 'SUCCEEDED']]
+
+### NextPageToken
+- **Type**: typing.Optional[str]
+
+### PageSize
+- **Type**: typing.Optional[int]
+
+### AnalysisIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# ListCommitmentPurchaseAnalysesResponseTypeDef
+
+### AnalysisSummaryList
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ce_classes.AnalysisSummaryTypeDef]
+- **Required**: Yes
+
+### NextPageToken
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# ListCostAllocationTagBackfillHistoryRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1685,31 +1979,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ce_classes.CostAllocationTagBackfillRequestTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# ListCostAllocationTagsRequestRequestTypeDef
-
-### Status
-- **Type**: typing.Optional[typing.Literal['Active', 'Inactive']]
-
-### TagKeys
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['AWSGenerated', 'UserDefined']]
-
 ### NextToken
 - **Type**: typing.Optional[str]
-
-### MaxResults
-- **Type**: typing.Optional[int]
 
 
 # ListCostAllocationTagsResponseTypeDef
@@ -1718,16 +1993,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ce_classes.CostAllocationTagTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListCostCategoryDefinitionsRequestRequestTypeDef
+
+# ListCostCategoryDefinitionsRequestTypeDef
 
 ### EffectiveOn
 - **Type**: typing.Optional[str]
@@ -1745,16 +2019,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ce_classes.CostCategoryReferenceTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListSavingsPlansPurchaseRecommendationGenerationRequestRequestTypeDef
+
+# ListSavingsPlansPurchaseRecommendationGenerationRequestTypeDef
 
 ### GenerationStatus
 - **Type**: typing.Optional[typing.Literal['FAILED', 'PROCESSING', 'SUCCEEDED']]
@@ -1784,7 +2057,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1850,7 +2123,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProvideAnomalyFeedbackRequestRequestTypeDef
+# ProvideAnomalyFeedbackRequestTypeDef
 
 ### AnomalyId
 - **Type**: <class 'str'>
@@ -2150,6 +2423,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RecurringStandardMonthlyCost
 - **Type**: typing.Optional[str]
 
+### ReservedCapacityDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ReservedCapacityDetailsTypeDef]
+
+### RecommendedNumberOfCapacityUnitsToPurchase
+- **Type**: typing.Optional[str]
+
+### MinimumNumberOfCapacityUnitsUsedPerHour
+- **Type**: typing.Optional[str]
+
+### MaximumNumberOfCapacityUnitsUsedPerHour
+- **Type**: typing.Optional[str]
+
+### AverageNumberOfCapacityUnitsUsedPerHour
+- **Type**: typing.Optional[str]
+
 
 # ReservationPurchaseRecommendationMetadataTypeDef
 
@@ -2212,6 +2500,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Utilization
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ReservationAggregatesTypeDef]
+
+
+# ReservedCapacityDetailsTypeDef
+
+### DynamoDBCapacityDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.DynamoDBCapacityDetailsTypeDef]
 
 
 # ResourceDetailsTypeDef
@@ -2336,6 +2630,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['CPU_OVER_PROVISIONED', 'CPU_UNDER_PROVISIONED', 'DISK_IOPS_OVER_PROVISIONED', 'DISK_IOPS_UNDER_PROVISIONED', 'DISK_THROUGHPUT_OVER_PROVISIONED', 'DISK_THROUGHPUT_UNDER_PROVISIONED', 'EBS_IOPS_OVER_PROVISIONED', 'EBS_IOPS_UNDER_PROVISIONED', 'EBS_THROUGHPUT_OVER_PROVISIONED', 'EBS_THROUGHPUT_UNDER_PROVISIONED', 'MEMORY_OVER_PROVISIONED', 'MEMORY_UNDER_PROVISIONED', 'NETWORK_BANDWIDTH_OVER_PROVISIONED', 'NETWORK_BANDWIDTH_UNDER_PROVISIONED', 'NETWORK_PPS_OVER_PROVISIONED', 'NETWORK_PPS_UNDER_PROVISIONED']]]
 
 
+# RootCauseImpactTypeDef
+
+### Contribution
+- **Type**: <class 'float'>
+- **Required**: Yes
+
+
 # RootCauseTypeDef
 
 ### Service
@@ -2347,11 +2648,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### LinkedAccount
 - **Type**: typing.Optional[str]
 
+### LinkedAccountName
+- **Type**: typing.Optional[str]
+
 ### UsageType
 - **Type**: typing.Optional[str]
 
-### LinkedAccountName
-- **Type**: typing.Optional[str]
+### Impact
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.RootCauseImpactTypeDef]
 
 
 # SavingsPlansAmortizedCommitmentTypeDef
@@ -2403,6 +2707,123 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### OfferingId
 - **Type**: typing.Optional[str]
+
+
+# SavingsPlansPurchaseAnalysisConfigurationOutputTypeDef
+
+### AnalysisType
+- **Type**: typing.Literal['CUSTOM_COMMITMENT', 'MAX_SAVINGS']
+- **Required**: Yes
+
+### SavingsPlansToAdd
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ce_classes.SavingsPlansTypeDef]
+- **Required**: Yes
+
+### LookBackTimePeriod
+- **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.DateIntervalTypeDef'>
+- **Required**: Yes
+
+### AccountScope
+- **Type**: typing.Optional[typing.Literal['LINKED', 'PAYER']]
+
+### AccountId
+- **Type**: typing.Optional[str]
+
+### SavingsPlansToExclude
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# SavingsPlansPurchaseAnalysisConfigurationTypeDef
+
+### AnalysisType
+- **Type**: typing.Literal['CUSTOM_COMMITMENT', 'MAX_SAVINGS']
+- **Required**: Yes
+
+### SavingsPlansToAdd
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ce_classes.SavingsPlansTypeDef]
+- **Required**: Yes
+
+### LookBackTimePeriod
+- **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.DateIntervalTypeDef'>
+- **Required**: Yes
+
+### AccountScope
+- **Type**: typing.Optional[typing.Literal['LINKED', 'PAYER']]
+
+### AccountId
+- **Type**: typing.Optional[str]
+
+### SavingsPlansToExclude
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# SavingsPlansPurchaseAnalysisDetailsTypeDef
+
+### CurrencyCode
+- **Type**: typing.Optional[str]
+
+### LookbackPeriodInHours
+- **Type**: typing.Optional[str]
+
+### CurrentAverageCoverage
+- **Type**: typing.Optional[str]
+
+### CurrentAverageHourlyOnDemandSpend
+- **Type**: typing.Optional[str]
+
+### CurrentMaximumHourlyOnDemandSpend
+- **Type**: typing.Optional[str]
+
+### CurrentMinimumHourlyOnDemandSpend
+- **Type**: typing.Optional[str]
+
+### CurrentOnDemandSpend
+- **Type**: typing.Optional[str]
+
+### ExistingHourlyCommitment
+- **Type**: typing.Optional[str]
+
+### HourlyCommitmentToPurchase
+- **Type**: typing.Optional[str]
+
+### EstimatedAverageCoverage
+- **Type**: typing.Optional[str]
+
+### EstimatedAverageUtilization
+- **Type**: typing.Optional[str]
+
+### EstimatedMonthlySavingsAmount
+- **Type**: typing.Optional[str]
+
+### EstimatedOnDemandCost
+- **Type**: typing.Optional[str]
+
+### EstimatedOnDemandCostWithCurrentCommitment
+- **Type**: typing.Optional[str]
+
+### EstimatedROI
+- **Type**: typing.Optional[str]
+
+### EstimatedSavingsAmount
+- **Type**: typing.Optional[str]
+
+### EstimatedSavingsPercentage
+- **Type**: typing.Optional[str]
+
+### EstimatedCommitmentCost
+- **Type**: typing.Optional[str]
+
+### LatestUsageTimestamp
+- **Type**: typing.Optional[str]
+
+### UpfrontCost
+- **Type**: typing.Optional[str]
+
+### AdditionalMetadata
+- **Type**: typing.Optional[str]
+
+### MetricsOverLookbackPeriod
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ce_classes.RecommendationDetailHourlyMetricsTypeDef]]
 
 
 # SavingsPlansPurchaseRecommendationDetailTypeDef
@@ -2540,6 +2961,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# SavingsPlansTypeDef
+
+### PaymentOption
+- **Type**: typing.Optional[typing.Literal['ALL_UPFRONT', 'HEAVY_UTILIZATION', 'LIGHT_UTILIZATION', 'MEDIUM_UTILIZATION', 'NO_UPFRONT', 'PARTIAL_UPFRONT']]
+
+### SavingsPlansType
+- **Type**: typing.Optional[typing.Literal['COMPUTE_SP', 'EC2_INSTANCE_SP', 'SAGEMAKER_SP']]
+
+### Region
+- **Type**: typing.Optional[str]
+
+### InstanceFamily
+- **Type**: typing.Optional[str]
+
+### TermInYears
+- **Type**: typing.Optional[typing.Literal['ONE_YEAR', 'THREE_YEARS']]
+
+### SavingsPlansCommitment
+- **Type**: typing.Optional[float]
+
+### OfferingId
+- **Type**: typing.Optional[str]
+
+
 # SavingsPlansUtilizationAggregatesTypeDef
 
 ### Utilization
@@ -2619,7 +3064,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 
-# StartCostAllocationTagBackfillRequestRequestTypeDef
+# StartCommitmentPurchaseAnalysisRequestTypeDef
+
+### CommitmentPurchaseAnalysisConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.CommitmentPurchaseAnalysisConfigurationUnionTypeDef'>
+- **Required**: Yes
+
+
+# StartCommitmentPurchaseAnalysisResponseTypeDef
+
+### AnalysisId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AnalysisStartedTime
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EstimatedCompletionTime
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.ce_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# StartCostAllocationTagBackfillRequestTypeDef
 
 ### BackfillFrom
 - **Type**: <class 'str'>
@@ -2658,17 +3129,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SubscriberTypeDef
 
-### Address
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[typing.Literal['EMAIL', 'SNS']]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Status
-- **Type**: typing.Optional[typing.Literal['CONFIRMED', 'DECLINED']]
-
-
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2677,6 +3142,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResourceTags
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ce_classes.ResourceTagTypeDef]
 - **Required**: Yes
+
+
+# TagValuesOutputTypeDef
+
+### Key
+- **Type**: typing.Optional[str]
+
+### Values
+- **Type**: typing.Optional[typing.List[str]]
+
+### MatchOptions
+- **Type**: typing.Optional[typing.List[typing.Literal['ABSENT', 'CASE_INSENSITIVE', 'CASE_SENSITIVE', 'CONTAINS', 'ENDS_WITH', 'EQUALS', 'GREATER_THAN_OR_EQUAL', 'STARTS_WITH']]]
 
 
 # TagValuesTypeDef
@@ -2690,6 +3167,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### MatchOptions
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['ABSENT', 'CASE_INSENSITIVE', 'CASE_SENSITIVE', 'CONTAINS', 'ENDS_WITH', 'EQUALS', 'GREATER_THAN_OR_EQUAL', 'STARTS_WITH']]]
 
+
+# TagValuesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TargetInstanceTypeDef
 
@@ -2738,7 +3221,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2749,7 +3232,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAnomalyMonitorRequestRequestTypeDef
+# UpdateAnomalyMonitorRequestTypeDef
 
 ### MonitorArn
 - **Type**: <class 'str'>
@@ -2770,7 +3253,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAnomalySubscriptionRequestRequestTypeDef
+# UpdateAnomalySubscriptionRequestTypeDef
 
 ### SubscriptionArn
 - **Type**: <class 'str'>
@@ -2792,7 +3275,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ThresholdExpression
-- **Type**: typing.Optional[ForwardRef('ExpressionTypeDef')]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ce_classes.ExpressionUnionTypeDef]
 
 
 # UpdateAnomalySubscriptionResponseTypeDef
@@ -2818,7 +3301,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateCostAllocationTagsStatusRequestRequestTypeDef
+# UpdateCostAllocationTagsStatusRequestTypeDef
 
 ### CostAllocationTagsStatus
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ce_classes.CostAllocationTagStatusEntryTypeDef]
@@ -2836,7 +3319,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateCostCategoryDefinitionRequestRequestTypeDef
+# UpdateCostCategoryDefinitionRequestTypeDef
 
 ### CostCategoryArn
 - **Type**: <class 'str'>
@@ -2847,7 +3330,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Rules
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ce_classes.CostCategoryRuleTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ce_classes.CostCategoryRuleUnionTypeDef]
 - **Required**: Yes
 
 ### EffectiveStart
@@ -2857,7 +3340,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SplitChargeRules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ce_classes.CostCategorySplitChargeRuleTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ce_classes.CostCategorySplitChargeRuleUnionTypeDef]]
 
 
 # UpdateCostCategoryDefinitionResponseTypeDef

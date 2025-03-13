@@ -14,9 +14,9 @@
 
 ### ProjectName
 - **Type**: string
-- **Pattern**: `[A-Za-z0-9][A-Za-z0-9\-_]{1,254}`
+- **Pattern**: `[A-Za-z0-9][A-Za-z0-9\-_]{1,149}`
 - **Min Length**: 2
-- **Max Length**: 255
+- **Max Length**: 150
 
 ### ValueInput
 - **Type**: string

@@ -79,7 +79,7 @@
 
 ### NotebookName
 - **Type**: string
-- **Pattern**: `[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\t]+`
+- **Pattern**: `(?!.*[/:\\])[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\t]+`
 - **Min Length**: 1
 - **Max Length**: 255
 

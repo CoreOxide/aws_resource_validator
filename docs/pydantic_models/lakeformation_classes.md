@@ -1,13 +1,13 @@
 # Lakeformation Classes
 
-# AddLFTagsToResourceRequestRequestTypeDef
+# AddLFTagsToResourceRequestTypeDef
 
 ### Resource
-- **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.ResourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.ResourceUnionTypeDef'>
 - **Required**: Yes
 
 ### LFTags
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagPairTypeDef, aws_resource_validator.pydantic_models.lakeformation_classes.LFTagPairExtraOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagPairUnionTypeDef]
 - **Required**: Yes
 
 ### CatalogId
@@ -43,7 +43,7 @@
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# AssumeDecoratedRoleWithSAMLRequestRequestTypeDef
+# AssumeDecoratedRoleWithSAMLRequestTypeDef
 
 ### SAMLAssertion
 - **Type**: <class 'str'>
@@ -96,10 +96,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchGrantPermissionsRequestRequestTypeDef
+# BatchGrantPermissionsRequestTypeDef
 
 ### Entries
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.lakeformation_classes.BatchPermissionsRequestEntryTypeDef, aws_resource_validator.pydantic_models.lakeformation_classes.BatchPermissionsRequestEntryOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lakeformation_classes.BatchPermissionsRequestEntryUnionTypeDef]
 - **Required**: Yes
 
 ### CatalogId
@@ -139,10 +139,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.ResourceOutputTypeDef]
 
 ### Permissions
-- **Type**: typing.Optional[typing.List[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_CATALOG', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_LF_TAG_EXPRESSION', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT', 'SUPER_USER']]]
 
 ### PermissionsWithGrantOption
-- **Type**: typing.Optional[typing.List[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_CATALOG', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_LF_TAG_EXPRESSION', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT', 'SUPER_USER']]]
 
 
 # BatchPermissionsRequestEntryTypeDef
@@ -155,19 +155,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.DataLakePrincipalTypeDef]
 
 ### Resource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.ResourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.ResourceUnionTypeDef]
 
 ### Permissions
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT']]]
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_CATALOG', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_LF_TAG_EXPRESSION', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT', 'SUPER_USER']]]
 
 ### PermissionsWithGrantOption
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT']]]
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_CATALOG', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_LF_TAG_EXPRESSION', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT', 'SUPER_USER']]]
 
 
-# BatchRevokePermissionsRequestRequestTypeDef
+# BatchPermissionsRequestEntryUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# BatchRevokePermissionsRequestTypeDef
 
 ### Entries
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.lakeformation_classes.BatchPermissionsRequestEntryTypeDef, aws_resource_validator.pydantic_models.lakeformation_classes.BatchPermissionsRequestEntryOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lakeformation_classes.BatchPermissionsRequestEntryUnionTypeDef]
 - **Required**: Yes
 
 ### CatalogId
@@ -185,11 +191,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CancelTransactionRequestRequestTypeDef
+# CancelTransactionRequestTypeDef
 
 ### TransactionId
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+
+# CatalogResourceTypeDef
+
+### Id
+- **Type**: typing.Optional[str]
 
 
 # ColumnLFTagTypeDef
@@ -199,12 +211,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### LFTags
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagPairOutputTypeDef]]
-
-
-# ColumnWildcardExtraOutputTypeDef
-
-### ExcludedColumnNames
-- **Type**: typing.Optional[typing.List[str]]
 
 
 # ColumnWildcardOutputTypeDef
@@ -219,7 +225,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# CommitTransactionRequestRequestTypeDef
+# ColumnWildcardUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CommitTransactionRequestTypeDef
 
 ### TransactionId
 - **Type**: <class 'str'>
@@ -237,14 +249,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDataCellsFilterRequestRequestTypeDef
+# ConditionTypeDef
+
+### Expression
+- **Type**: typing.Optional[str]
+
+
+# CreateDataCellsFilterRequestTypeDef
 
 ### TableData
-- **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.DataCellsFilterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.DataCellsFilterUnionTypeDef'>
 - **Required**: Yes
 
 
-# CreateLFTagRequestRequestTypeDef
+# CreateLFTagExpressionRequestTypeDef
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Expression
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagUnionTypeDef]
+- **Required**: Yes
+
+### Description
+- **Type**: typing.Optional[str]
+
+### CatalogId
+- **Type**: typing.Optional[str]
+
+
+# CreateLFTagRequestTypeDef
 
 ### TagKey
 - **Type**: <class 'str'>
@@ -258,7 +293,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateLakeFormationIdentityCenterConfigurationRequestRequestTypeDef
+# CreateLakeFormationIdentityCenterConfigurationRequestTypeDef
 
 ### CatalogId
 - **Type**: typing.Optional[str]
@@ -267,7 +302,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ExternalFiltering
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.ExternalFilteringConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.ExternalFilteringConfigurationUnionTypeDef]
 
 ### ShareRecipients
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lakeformation_classes.DataLakePrincipalTypeDef]]
@@ -284,46 +319,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLakeFormationOptInRequestRequestTypeDef
+# CreateLakeFormationOptInRequestTypeDef
 
 ### Principal
 - **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.DataLakePrincipalTypeDef'>
 - **Required**: Yes
 
 ### Resource
-- **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.ResourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.ResourceUnionTypeDef'>
 - **Required**: Yes
-
-
-# DataCellsFilterExtraOutputTypeDef
-
-### TableCatalogId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DatabaseName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### TableName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### RowFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.RowFilterExtraOutputTypeDef]
-
-### ColumnNames
-- **Type**: typing.Optional[typing.List[str]]
-
-### ColumnWildcard
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.ColumnWildcardExtraOutputTypeDef]
-
-### VersionId
-- **Type**: typing.Optional[str]
 
 
 # DataCellsFilterOutputTypeDef
@@ -403,6 +407,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# DataCellsFilterUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # DataLakePrincipalTypeDef
 
 ### DataLakePrincipalIdentifier
@@ -475,6 +485,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
+# DataLakeSettingsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # DataLocationResourceTypeDef
 
 ### ResourceArn
@@ -495,7 +511,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteDataCellsFilterRequestRequestTypeDef
+# DeleteDataCellsFilterRequestTypeDef
 
 ### TableCatalogId
 - **Type**: typing.Optional[str]
@@ -510,7 +526,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteLFTagRequestRequestTypeDef
+# DeleteLFTagExpressionRequestTypeDef
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CatalogId
+- **Type**: typing.Optional[str]
+
+
+# DeleteLFTagRequestTypeDef
 
 ### TagKey
 - **Type**: <class 'str'>
@@ -520,20 +546,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteLakeFormationIdentityCenterConfigurationRequestRequestTypeDef
+# DeleteLakeFormationIdentityCenterConfigurationRequestTypeDef
 
 ### CatalogId
 - **Type**: typing.Optional[str]
 
 
-# DeleteLakeFormationOptInRequestRequestTypeDef
+# DeleteLakeFormationOptInRequestTypeDef
 
 ### Principal
 - **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.DataLakePrincipalTypeDef'>
 - **Required**: Yes
 
 ### Resource
-- **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.ResourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.ResourceUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -550,7 +576,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DeleteObjectsOnCancelRequestRequestTypeDef
+# DeleteObjectsOnCancelRequestTypeDef
 
 ### DatabaseName
 - **Type**: <class 'str'>
@@ -572,14 +598,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeregisterResourceRequestRequestTypeDef
+# DeregisterResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeLakeFormationIdentityCenterConfigurationRequestRequestTypeDef
+# DescribeLakeFormationIdentityCenterConfigurationRequestTypeDef
 
 ### CatalogId
 - **Type**: typing.Optional[str]
@@ -616,7 +642,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeResourceRequestRequestTypeDef
+# DescribeResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -634,7 +660,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeTransactionRequestRequestTypeDef
+# DescribeTransactionRequestTypeDef
 
 ### TransactionId
 - **Type**: <class 'str'>
@@ -679,7 +705,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ExtendTransactionRequestRequestTypeDef
+# ExtendTransactionRequestTypeDef
 
 ### TransactionId
 - **Type**: typing.Optional[str]
@@ -707,6 +733,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# ExternalFilteringConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # FilterConditionTypeDef
 
 ### Field
@@ -719,7 +751,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# GetDataCellsFilterRequestRequestTypeDef
+# GetDataCellsFilterRequestTypeDef
 
 ### TableCatalogId
 - **Type**: <class 'str'>
@@ -760,7 +792,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDataLakeSettingsRequestRequestTypeDef
+# GetDataLakeSettingsRequestTypeDef
 
 ### CatalogId
 - **Type**: typing.Optional[str]
@@ -777,7 +809,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetEffectivePermissionsForPathRequestRequestTypeDef
+# GetEffectivePermissionsForPathRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -807,7 +839,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetLFTagRequestRequestTypeDef
+# GetLFTagExpressionRequestTypeDef
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CatalogId
+- **Type**: typing.Optional[str]
+
+
+# GetLFTagExpressionResponseTypeDef
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CatalogId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Expression
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagOutputTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetLFTagRequestTypeDef
 
 ### TagKey
 - **Type**: <class 'str'>
@@ -836,7 +901,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetQueryStateRequestRequestTypeDef
+# GetQueryStateRequestTypeDef
 
 ### QueryId
 - **Type**: <class 'str'>
@@ -858,7 +923,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetQueryStatisticsRequestRequestTypeDef
+# GetQueryStatisticsRequestTypeDef
 
 ### QueryId
 - **Type**: <class 'str'>
@@ -884,10 +949,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResourceLFTagsRequestRequestTypeDef
+# GetResourceLFTagsRequestTypeDef
 
 ### Resource
-- **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.ResourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.ResourceUnionTypeDef'>
 - **Required**: Yes
 
 ### CatalogId
@@ -916,7 +981,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTableObjectsRequestRequestTypeDef
+# GetTableObjectsRequestTypeDef
 
 ### DatabaseName
 - **Type**: <class 'str'>
@@ -933,7 +998,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### QueryAsOfTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.TimestampTypeDef]
 
 ### PartitionPredicate
 - **Type**: typing.Optional[str]
@@ -959,7 +1024,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetTemporaryGluePartitionCredentialsRequestRequestTypeDef
+# GetTemporaryGluePartitionCredentialsRequestTypeDef
 
 ### TableArn
 - **Type**: <class 'str'>
@@ -970,7 +1035,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Permissions
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT']]]
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_CATALOG', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_LF_TAG_EXPRESSION', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT', 'SUPER_USER']]]
 
 ### DurationSeconds
 - **Type**: typing.Optional[int]
@@ -1005,14 +1070,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTemporaryGlueTableCredentialsRequestRequestTypeDef
+# GetTemporaryGlueTableCredentialsRequestTypeDef
 
 ### TableArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Permissions
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT']]]
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_CATALOG', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_LF_TAG_EXPRESSION', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT', 'SUPER_USER']]]
 
 ### DurationSeconds
 - **Type**: typing.Optional[int]
@@ -1057,7 +1122,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetWorkUnitResultsRequestRequestTypeDef
+# GetWorkUnitResultsRequestTypeDef
 
 ### QueryId
 - **Type**: <class 'str'>
@@ -1083,7 +1148,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetWorkUnitsRequestGetWorkUnitsPaginateTypeDef
+# GetWorkUnitsRequestPaginateTypeDef
 
 ### QueryId
 - **Type**: <class 'str'>
@@ -1093,7 +1158,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.PaginatorConfigTypeDef]
 
 
-# GetWorkUnitsRequestRequestTypeDef
+# GetWorkUnitsRequestTypeDef
 
 ### QueryId
 - **Type**: <class 'str'>
@@ -1124,25 +1189,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GrantPermissionsRequestRequestTypeDef
+# GrantPermissionsRequestTypeDef
 
 ### Principal
 - **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.DataLakePrincipalTypeDef'>
 - **Required**: Yes
 
 ### Resource
-- **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.ResourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.ResourceUnionTypeDef'>
 - **Required**: Yes
 
 ### Permissions
-- **Type**: typing.Sequence[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT']]
+- **Type**: typing.Sequence[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_CATALOG', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_LF_TAG_EXPRESSION', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT', 'SUPER_USER']]
 - **Required**: Yes
 
 ### CatalogId
 - **Type**: typing.Optional[str]
 
 ### PermissionsWithGrantOption
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT']]]
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_CATALOG', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_LF_TAG_EXPRESSION', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT', 'SUPER_USER']]]
 
 
 # LFTagErrorTypeDef
@@ -1152,6 +1217,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Error
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.ErrorDetailTypeDef]
+
+
+# LFTagExpressionResourceTypeDef
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CatalogId
+- **Type**: typing.Optional[str]
+
+
+# LFTagExpressionTypeDef
+
+### Name
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### CatalogId
+- **Type**: typing.Optional[str]
+
+### Expression
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagOutputTypeDef]]
 
 
 # LFTagKeyResourceOutputTypeDef
@@ -1182,6 +1272,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# LFTagKeyResourceUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # LFTagOutputTypeDef
 
 ### TagKey
@@ -1191,20 +1287,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### TagValues
 - **Type**: typing.List[str]
 - **Required**: Yes
-
-
-# LFTagPairExtraOutputTypeDef
-
-### TagKey
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### TagValues
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### CatalogId
-- **Type**: typing.Optional[str]
 
 
 # LFTagPairOutputTypeDef
@@ -1235,17 +1317,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# LFTagPairUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # LFTagPolicyResourceOutputTypeDef
 
 ### ResourceType
 - **Type**: typing.Literal['DATABASE', 'TABLE']
 - **Required**: Yes
 
-### Expression
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagOutputTypeDef]
-- **Required**: Yes
-
 ### CatalogId
+- **Type**: typing.Optional[str]
+
+### Expression
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagOutputTypeDef]]
+
+### ExpressionName
 - **Type**: typing.Optional[str]
 
 
@@ -1255,13 +1345,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Literal['DATABASE', 'TABLE']
 - **Required**: Yes
 
-### Expression
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagTypeDef]
-- **Required**: Yes
-
 ### CatalogId
 - **Type**: typing.Optional[str]
 
+### Expression
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagUnionTypeDef]]
+
+### ExpressionName
+- **Type**: typing.Optional[str]
+
+
+# LFTagPolicyResourceUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LFTagTypeDef
 
@@ -1274,6 +1372,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# LFTagUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # LakeFormationOptInsInfoTypeDef
 
 ### Resource
@@ -1282,6 +1386,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Principal
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.DataLakePrincipalTypeDef]
 
+### Condition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.ConditionTypeDef]
+
 ### LastModified
 - **Type**: typing.Optional[datetime.datetime]
 
@@ -1289,19 +1396,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDataCellsFilterRequestListDataCellsFilterPaginateTypeDef
+# ListDataCellsFilterRequestPaginateTypeDef
 
 ### Table
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.TableResourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.TableResourceUnionTypeDef]
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.PaginatorConfigTypeDef]
 
 
-# ListDataCellsFilterRequestRequestTypeDef
+# ListDataCellsFilterRequestTypeDef
 
 ### Table
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.TableResourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.TableResourceUnionTypeDef]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1324,7 +1431,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListLFTagsRequestListLFTagsPaginateTypeDef
+# ListLFTagExpressionsRequestPaginateTypeDef
+
+### CatalogId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.PaginatorConfigTypeDef]
+
+
+# ListLFTagExpressionsRequestTypeDef
+
+### CatalogId
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListLFTagExpressionsResponseTypeDef
+
+### LFTagExpressions
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagExpressionTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListLFTagsRequestPaginateTypeDef
 
 ### CatalogId
 - **Type**: typing.Optional[str]
@@ -1336,7 +1478,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.PaginatorConfigTypeDef]
 
 
-# ListLFTagsRequestRequestTypeDef
+# ListLFTagsRequestTypeDef
 
 ### CatalogId
 - **Type**: typing.Optional[str]
@@ -1365,13 +1507,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListLakeFormationOptInsRequestRequestTypeDef
+# ListLakeFormationOptInsRequestTypeDef
 
 ### Principal
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.DataLakePrincipalTypeDef]
 
 ### Resource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.ResourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.ResourceUnionTypeDef]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1394,7 +1536,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPermissionsRequestRequestTypeDef
+# ListPermissionsRequestTypeDef
 
 ### CatalogId
 - **Type**: typing.Optional[str]
@@ -1403,10 +1545,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.DataLakePrincipalTypeDef]
 
 ### ResourceType
-- **Type**: typing.Optional[typing.Literal['CATALOG', 'DATABASE', 'DATA_LOCATION', 'LF_TAG', 'LF_TAG_POLICY', 'LF_TAG_POLICY_DATABASE', 'LF_TAG_POLICY_TABLE', 'TABLE']]
+- **Type**: typing.Optional[typing.Literal['CATALOG', 'DATABASE', 'DATA_LOCATION', 'LF_NAMED_TAG_EXPRESSION', 'LF_TAG', 'LF_TAG_POLICY', 'LF_TAG_POLICY_DATABASE', 'LF_TAG_POLICY_TABLE', 'TABLE']]
 
 ### Resource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.ResourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.ResourceUnionTypeDef]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1432,7 +1574,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResourcesRequestRequestTypeDef
+# ListResourcesRequestTypeDef
 
 ### FilterConditionList
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lakeformation_classes.FilterConditionTypeDef]]
@@ -1458,7 +1600,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTableStorageOptimizersRequestRequestTypeDef
+# ListTableStorageOptimizersRequestTypeDef
 
 ### DatabaseName
 - **Type**: <class 'str'>
@@ -1495,7 +1637,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTransactionsRequestRequestTypeDef
+# ListTransactionsRequestTypeDef
 
 ### CatalogId
 - **Type**: typing.Optional[str]
@@ -1573,7 +1715,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.DataLakePrincipalTypeDef]
 
 ### Permissions
-- **Type**: typing.Optional[typing.List[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_CATALOG', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_LF_TAG_EXPRESSION', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT', 'SUPER_USER']]]
 
 
 # PrincipalPermissionsTypeDef
@@ -1582,7 +1724,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.DataLakePrincipalTypeDef]
 
 ### Permissions
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT']]]
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_CATALOG', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_LF_TAG_EXPRESSION', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT', 'SUPER_USER']]]
 
 
 # PrincipalResourcePermissionsTypeDef
@@ -1593,11 +1735,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Resource
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.ResourceOutputTypeDef]
 
+### Condition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.ConditionTypeDef]
+
 ### Permissions
-- **Type**: typing.Optional[typing.List[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_CATALOG', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_LF_TAG_EXPRESSION', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT', 'SUPER_USER']]]
 
 ### PermissionsWithGrantOption
-- **Type**: typing.Optional[typing.List[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_CATALOG', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_LF_TAG_EXPRESSION', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT', 'SUPER_USER']]]
 
 ### AdditionalDetails
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.DetailsMapTypeDef]
@@ -1609,10 +1754,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutDataLakeSettingsRequestRequestTypeDef
+# PutDataLakeSettingsRequestTypeDef
 
 ### DataLakeSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.DataLakeSettingsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.DataLakeSettingsUnionTypeDef'>
 - **Required**: Yes
 
 ### CatalogId
@@ -1629,7 +1774,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### QueryAsOfTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.TimestampTypeDef]
 
 ### QueryParameters
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -1644,7 +1789,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### QueryStartTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.TimestampTypeDef]
 
 ### ClusterId
 - **Type**: typing.Optional[str]
@@ -1656,7 +1801,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# RegisterResourceRequestRequestTypeDef
+# RegisterResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1675,14 +1820,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# RemoveLFTagsFromResourceRequestRequestTypeDef
+# RemoveLFTagsFromResourceRequestTypeDef
 
 ### Resource
-- **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.ResourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.ResourceUnionTypeDef'>
 - **Required**: Yes
 
 ### LFTags
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagPairTypeDef, aws_resource_validator.pydantic_models.lakeformation_classes.LFTagPairExtraOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagPairUnionTypeDef]
 - **Required**: Yes
 
 ### CatalogId
@@ -1721,7 +1866,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ResourceOutputTypeDef
 
 ### Catalog
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.CatalogResourceTypeDef]
 
 ### Database
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.DatabaseResourceTypeDef]
@@ -1744,20 +1889,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### LFTagPolicy
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagPolicyResourceOutputTypeDef]
 
+### LFTagExpression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagExpressionResourceTypeDef]
+
 
 # ResourceTypeDef
 
 ### Catalog
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.CatalogResourceTypeDef]
 
 ### Database
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.DatabaseResourceTypeDef]
 
 ### Table
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.TableResourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.TableResourceUnionTypeDef]
 
 ### TableWithColumns
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.TableWithColumnsResourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.TableWithColumnsResourceUnionTypeDef]
 
 ### DataLocation
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.DataLocationResourceTypeDef]
@@ -1766,11 +1914,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.DataCellsFilterResourceTypeDef]
 
 ### LFTag
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagKeyResourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagKeyResourceUnionTypeDef]
 
 ### LFTagPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagPolicyResourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagPolicyResourceUnionTypeDef]
 
+### LFTagExpression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagExpressionResourceTypeDef]
+
+
+# ResourceUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResponseMetadataTypeDef
 
@@ -1794,34 +1951,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RevokePermissionsRequestRequestTypeDef
+# RevokePermissionsRequestTypeDef
 
 ### Principal
 - **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.DataLakePrincipalTypeDef'>
 - **Required**: Yes
 
 ### Resource
-- **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.ResourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.ResourceUnionTypeDef'>
 - **Required**: Yes
 
 ### Permissions
-- **Type**: typing.Sequence[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT']]
+- **Type**: typing.Sequence[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_CATALOG', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_LF_TAG_EXPRESSION', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT', 'SUPER_USER']]
 - **Required**: Yes
 
 ### CatalogId
 - **Type**: typing.Optional[str]
 
 ### PermissionsWithGrantOption
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT']]]
-
-
-# RowFilterExtraOutputTypeDef
-
-### FilterExpression
-- **Type**: typing.Optional[str]
-
-### AllRowsWildcard
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['ALL', 'ALTER', 'ASSOCIATE', 'CREATE_CATALOG', 'CREATE_DATABASE', 'CREATE_LF_TAG', 'CREATE_LF_TAG_EXPRESSION', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DESCRIBE', 'DROP', 'GRANT_WITH_LF_TAG_EXPRESSION', 'INSERT', 'SELECT', 'SUPER_USER']]]
 
 
 # RowFilterOutputTypeDef
@@ -1842,10 +1990,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
 
 
-# SearchDatabasesByLFTagsRequestRequestTypeDef
+# SearchDatabasesByLFTagsRequestPaginateTypeDef
 
 ### Expression
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagTypeDef, aws_resource_validator.pydantic_models.lakeformation_classes.LFTagOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagUnionTypeDef]
+- **Required**: Yes
+
+### CatalogId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.PaginatorConfigTypeDef]
+
+
+# SearchDatabasesByLFTagsRequestTypeDef
+
+### Expression
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagUnionTypeDef]
 - **Required**: Yes
 
 ### NextToken
@@ -1856,19 +2017,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### CatalogId
 - **Type**: typing.Optional[str]
-
-
-# SearchDatabasesByLFTagsRequestSearchDatabasesByLFTagsPaginateTypeDef
-
-### Expression
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagTypeDef, aws_resource_validator.pydantic_models.lakeformation_classes.LFTagOutputTypeDef]]
-- **Required**: Yes
-
-### CatalogId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.PaginatorConfigTypeDef]
 
 
 # SearchDatabasesByLFTagsResponseTypeDef
@@ -1885,10 +2033,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchTablesByLFTagsRequestRequestTypeDef
+# SearchTablesByLFTagsRequestPaginateTypeDef
 
 ### Expression
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagTypeDef, aws_resource_validator.pydantic_models.lakeformation_classes.LFTagOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagUnionTypeDef]
+- **Required**: Yes
+
+### CatalogId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.PaginatorConfigTypeDef]
+
+
+# SearchTablesByLFTagsRequestTypeDef
+
+### Expression
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagUnionTypeDef]
 - **Required**: Yes
 
 ### NextToken
@@ -1899,19 +2060,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### CatalogId
 - **Type**: typing.Optional[str]
-
-
-# SearchTablesByLFTagsRequestSearchTablesByLFTagsPaginateTypeDef
-
-### Expression
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagTypeDef, aws_resource_validator.pydantic_models.lakeformation_classes.LFTagOutputTypeDef]]
-- **Required**: Yes
-
-### CatalogId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.PaginatorConfigTypeDef]
 
 
 # SearchTablesByLFTagsResponseTypeDef
@@ -1928,7 +2076,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartQueryPlanningRequestRequestTypeDef
+# StartQueryPlanningRequestTypeDef
 
 ### QueryPlanningContext
 - **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.QueryPlanningContextTypeDef'>
@@ -1950,7 +2098,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartTransactionRequestRequestTypeDef
+# StartTransactionRequestTypeDef
 
 ### TransactionType
 - **Type**: typing.Optional[typing.Literal['READ_AND_WRITE', 'READ_ONLY']]
@@ -1997,22 +2145,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# TableResourceExtraOutputTypeDef
-
-### DatabaseName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CatalogId
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### TableWildcard
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
-
-
 # TableResourceOutputTypeDef
 
 ### DatabaseName
@@ -2044,6 +2176,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### TableWildcard
 - **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
 
+
+# TableResourceUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TableWithColumnsResourceOutputTypeDef
 
@@ -2082,8 +2220,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### ColumnWildcard
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.ColumnWildcardTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.ColumnWildcardUnionTypeDef]
 
+
+# TableWithColumnsResourceUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TaggedDatabaseTypeDef
 
@@ -2109,6 +2253,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lakeformation_classes.ColumnLFTagTypeDef]]
 
 
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # TransactionDescriptionTypeDef
 
 ### TransactionId
@@ -2124,14 +2274,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# UpdateDataCellsFilterRequestRequestTypeDef
+# UpdateDataCellsFilterRequestTypeDef
 
 ### TableData
-- **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.DataCellsFilterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lakeformation_classes.DataCellsFilterUnionTypeDef'>
 - **Required**: Yes
 
 
-# UpdateLFTagRequestRequestTypeDef
+# UpdateLFTagExpressionRequestTypeDef
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Expression
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lakeformation_classes.LFTagUnionTypeDef]
+- **Required**: Yes
+
+### Description
+- **Type**: typing.Optional[str]
+
+### CatalogId
+- **Type**: typing.Optional[str]
+
+
+# UpdateLFTagRequestTypeDef
 
 ### TagKey
 - **Type**: <class 'str'>
@@ -2147,7 +2314,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# UpdateLakeFormationIdentityCenterConfigurationRequestRequestTypeDef
+# UpdateLakeFormationIdentityCenterConfigurationRequestTypeDef
 
 ### CatalogId
 - **Type**: typing.Optional[str]
@@ -2159,10 +2326,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### ExternalFiltering
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.ExternalFilteringConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lakeformation_classes.ExternalFilteringConfigurationUnionTypeDef]
 
 
-# UpdateResourceRequestRequestTypeDef
+# UpdateResourceRequestTypeDef
 
 ### RoleArn
 - **Type**: <class 'str'>
@@ -2179,7 +2346,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpdateTableObjectsRequestRequestTypeDef
+# UpdateTableObjectsRequestTypeDef
 
 ### DatabaseName
 - **Type**: <class 'str'>
@@ -2200,7 +2367,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateTableStorageOptimizerRequestRequestTypeDef
+# UpdateTableStorageOptimizerRequestTypeDef
 
 ### DatabaseName
 - **Type**: <class 'str'>

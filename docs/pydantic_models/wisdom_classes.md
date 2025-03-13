@@ -1,6 +1,6 @@
 # Wisdom Classes
 
-# AppIntegrationsConfigurationPaginatorTypeDef
+# AppIntegrationsConfigurationOutputTypeDef
 
 ### appIntegrationArn
 - **Type**: <class 'str'>
@@ -94,38 +94,9 @@
 
 # AssistantDataTypeDef
 
-### assistantArn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### assistantId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'DELETED', 'DELETE_FAILED', 'DELETE_IN_PROGRESS']
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['AGENT']
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
-
-### integrationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.AssistantIntegrationConfigurationTypeDef]
-
-### serverSideEncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.ServerSideEncryptionConfigurationTypeDef]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AssistantIntegrationConfigurationTypeDef
 
@@ -135,38 +106,9 @@
 
 # AssistantSummaryTypeDef
 
-### assistantArn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### assistantId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'DELETED', 'DELETE_FAILED', 'DELETE_IN_PROGRESS']
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['AGENT']
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
-
-### integrationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.AssistantIntegrationConfigurationTypeDef]
-
-### serverSideEncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.ServerSideEncryptionConfigurationTypeDef]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BaseValidatorModel
 
@@ -304,7 +246,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# CreateAssistantAssociationRequestRequestTypeDef
+# CreateAssistantAssociationRequestTypeDef
 
 ### assistantId
 - **Type**: <class 'str'>
@@ -336,29 +278,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAssistantRequestRequestTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['AGENT']
-- **Required**: Yes
-
-### clientToken
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-### serverSideEncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.ServerSideEncryptionConfigurationTypeDef]
-
-### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-
 # CreateAssistantResponseTypeDef
 
 ### assistant
@@ -370,7 +289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateContentRequestRequestTypeDef
+# CreateContentRequestTypeDef
 
 ### knowledgeBaseId
 - **Type**: <class 'str'>
@@ -411,7 +330,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateKnowledgeBaseRequestRequestTypeDef
+# CreateKnowledgeBaseRequestTypeDef
 
 ### knowledgeBaseType
 - **Type**: typing.Literal['CUSTOM', 'EXTERNAL', 'QUICK_RESPONSES']
@@ -434,7 +353,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.ServerSideEncryptionConfigurationTypeDef]
 
 ### sourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.SourceConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.SourceConfigurationUnionTypeDef]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -451,7 +370,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateQuickResponseRequestRequestTypeDef
+# CreateQuickResponseRequestTypeDef
 
 ### content
 - **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.QuickResponseDataProviderTypeDef'>
@@ -478,7 +397,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### groupingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.GroupingConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.GroupingConfigurationUnionTypeDef]
 
 ### isActive
 - **Type**: typing.Optional[bool]
@@ -504,7 +423,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateSessionRequestRequestTypeDef
+# CreateSessionRequestTypeDef
 
 ### assistantId
 - **Type**: <class 'str'>
@@ -535,7 +454,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAssistantAssociationRequestRequestTypeDef
+# DeleteAssistantAssociationRequestTypeDef
 
 ### assistantAssociationId
 - **Type**: <class 'str'>
@@ -546,14 +465,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAssistantRequestRequestTypeDef
+# DeleteAssistantRequestTypeDef
 
 ### assistantId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteContentRequestRequestTypeDef
+# DeleteContentRequestTypeDef
 
 ### contentId
 - **Type**: <class 'str'>
@@ -564,7 +483,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteImportJobRequestRequestTypeDef
+# DeleteImportJobRequestTypeDef
 
 ### importJobId
 - **Type**: <class 'str'>
@@ -575,14 +494,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteKnowledgeBaseRequestRequestTypeDef
+# DeleteKnowledgeBaseRequestTypeDef
 
 ### knowledgeBaseId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteQuickResponseRequestRequestTypeDef
+# DeleteQuickResponseRequestTypeDef
 
 ### knowledgeBaseId
 - **Type**: <class 'str'>
@@ -628,20 +547,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # FilterTypeDef
 
-### field
-- **Type**: typing.Literal['NAME']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### operator
-- **Type**: typing.Literal['EQUALS']
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### value
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# GetAssistantAssociationRequestRequestTypeDef
+# GetAssistantAssociationRequestTypeDef
 
 ### assistantAssociationId
 - **Type**: <class 'str'>
@@ -663,7 +573,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAssistantRequestRequestTypeDef
+# GetAssistantRequestTypeDef
 
 ### assistantId
 - **Type**: <class 'str'>
@@ -681,7 +591,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetContentRequestRequestTypeDef
+# GetContentRequestTypeDef
 
 ### contentId
 - **Type**: <class 'str'>
@@ -703,7 +613,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetContentSummaryRequestRequestTypeDef
+# GetContentSummaryRequestTypeDef
 
 ### contentId
 - **Type**: <class 'str'>
@@ -725,7 +635,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetImportJobRequestRequestTypeDef
+# GetImportJobRequestTypeDef
 
 ### importJobId
 - **Type**: <class 'str'>
@@ -747,7 +657,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetKnowledgeBaseRequestRequestTypeDef
+# GetKnowledgeBaseRequestTypeDef
 
 ### knowledgeBaseId
 - **Type**: <class 'str'>
@@ -765,7 +675,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetQuickResponseRequestRequestTypeDef
+# GetQuickResponseRequestTypeDef
 
 ### knowledgeBaseId
 - **Type**: <class 'str'>
@@ -787,7 +697,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRecommendationsRequestRequestTypeDef
+# GetRecommendationsRequestTypeDef
 
 ### assistantId
 - **Type**: <class 'str'>
@@ -819,7 +729,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSessionRequestRequestTypeDef
+# GetSessionRequestTypeDef
 
 ### assistantId
 - **Type**: <class 'str'>
@@ -841,7 +751,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GroupingConfigurationPaginatorTypeDef
+# GroupingConfigurationOutputTypeDef
 
 ### criteria
 - **Type**: typing.Optional[str]
@@ -858,6 +768,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### values
 - **Type**: typing.Optional[typing.Sequence[str]]
 
+
+# GroupingConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HighlightTypeDef
 
@@ -1005,45 +921,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.ServerSideEncryptionConfigurationTypeDef]
 
 ### sourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.SourceConfigurationTypeDef]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# KnowledgeBaseSummaryPaginatorTypeDef
-
-### knowledgeBaseArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### knowledgeBaseId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### knowledgeBaseType
-- **Type**: typing.Literal['CUSTOM', 'EXTERNAL', 'QUICK_RESPONSES']
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'DELETED', 'DELETE_FAILED', 'DELETE_IN_PROGRESS']
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
-
-### renderingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.RenderingConfigurationTypeDef]
-
-### serverSideEncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.ServerSideEncryptionConfigurationTypeDef]
-
-### sourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.SourceConfigurationPaginatorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.SourceConfigurationOutputTypeDef]
 
 ### tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -1081,13 +959,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.ServerSideEncryptionConfigurationTypeDef]
 
 ### sourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.SourceConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.SourceConfigurationOutputTypeDef]
 
 ### tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# ListAssistantAssociationsRequestListAssistantAssociationsPaginateTypeDef
+# ListAssistantAssociationsRequestPaginateTypeDef
 
 ### assistantId
 - **Type**: <class 'str'>
@@ -1097,7 +975,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.PaginatorConfigTypeDef]
 
 
-# ListAssistantAssociationsRequestRequestTypeDef
+# ListAssistantAssociationsRequestTypeDef
 
 ### assistantId
 - **Type**: <class 'str'>
@@ -1116,22 +994,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom_classes.AssistantAssociationSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListAssistantsRequestListAssistantsPaginateTypeDef
+
+# ListAssistantsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.PaginatorConfigTypeDef]
 
 
-# ListAssistantsRequestRequestTypeDef
+# ListAssistantsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1146,16 +1023,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom_classes.AssistantSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListContentsRequestListContentsPaginateTypeDef
+
+# ListContentsRequestPaginateTypeDef
 
 ### knowledgeBaseId
 - **Type**: <class 'str'>
@@ -1165,7 +1041,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.PaginatorConfigTypeDef]
 
 
-# ListContentsRequestRequestTypeDef
+# ListContentsRequestTypeDef
 
 ### knowledgeBaseId
 - **Type**: <class 'str'>
@@ -1184,16 +1060,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom_classes.ContentSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListImportJobsRequestListImportJobsPaginateTypeDef
+
+# ListImportJobsRequestPaginateTypeDef
 
 ### knowledgeBaseId
 - **Type**: <class 'str'>
@@ -1203,7 +1078,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.PaginatorConfigTypeDef]
 
 
-# ListImportJobsRequestRequestTypeDef
+# ListImportJobsRequestTypeDef
 
 ### knowledgeBaseId
 - **Type**: <class 'str'>
@@ -1222,22 +1097,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom_classes.ImportJobSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListKnowledgeBasesRequestListKnowledgeBasesPaginateTypeDef
+
+# ListKnowledgeBasesRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.PaginatorConfigTypeDef]
 
 
-# ListKnowledgeBasesRequestRequestTypeDef
+# ListKnowledgeBasesRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1246,37 +1120,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListKnowledgeBasesResponsePaginatorTypeDef
-
-### knowledgeBaseSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom_classes.KnowledgeBaseSummaryPaginatorTypeDef]
-- **Required**: Yes
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
 # ListKnowledgeBasesResponseTypeDef
 
 ### knowledgeBaseSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom_classes.KnowledgeBaseSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListQuickResponsesRequestListQuickResponsesPaginateTypeDef
+
+# ListQuickResponsesRequestPaginateTypeDef
 
 ### knowledgeBaseId
 - **Type**: <class 'str'>
@@ -1286,7 +1144,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.PaginatorConfigTypeDef]
 
 
-# ListQuickResponsesRequestRequestTypeDef
+# ListQuickResponsesRequestTypeDef
 
 ### knowledgeBaseId
 - **Type**: <class 'str'>
@@ -1301,10 +1159,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListQuickResponsesResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### quickResponseSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom_classes.QuickResponseSummaryTypeDef]
 - **Required**: Yes
@@ -1313,8 +1167,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1341,7 +1198,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# NotifyRecommendationsReceivedRequestRequestTypeDef
+# NotifyRecommendationsReceivedRequestTypeDef
 
 ### assistantId
 - **Type**: <class 'str'>
@@ -1383,7 +1240,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# QueryAssistantRequestQueryAssistantPaginateTypeDef
+# QueryAssistantRequestPaginateTypeDef
 
 ### assistantId
 - **Type**: <class 'str'>
@@ -1397,7 +1254,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.PaginatorConfigTypeDef]
 
 
-# QueryAssistantRequestRequestTypeDef
+# QueryAssistantRequestTypeDef
 
 ### assistantId
 - **Type**: <class 'str'>
@@ -1416,10 +1273,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # QueryAssistantResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### results
 - **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom_classes.ResultDataTypeDef]
 - **Required**: Yes
@@ -1427,6 +1280,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # QueryRecommendationTriggerDataTypeDef
@@ -1504,7 +1360,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### groupingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.GroupingConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.GroupingConfigurationOutputTypeDef]
 
 ### isActive
 - **Type**: typing.Optional[bool]
@@ -1524,20 +1380,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # QuickResponseFilterFieldTypeDef
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### operator
-- **Type**: typing.Literal['EQUALS', 'PREFIX']
-- **Required**: Yes
-
-### includeNoExistence
-- **Type**: typing.Optional[bool]
-
-### values
-- **Type**: typing.Optional[typing.Sequence[str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # QuickResponseOrderFieldTypeDef
 
@@ -1551,24 +1396,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # QuickResponseQueryFieldTypeDef
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### operator
-- **Type**: typing.Literal['CONTAINS', 'CONTAINS_AND_PREFIX']
-- **Required**: Yes
-
-### values
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-### allowFuzziness
-- **Type**: typing.Optional[bool]
-
-### priority
-- **Type**: typing.Optional[typing.Literal['HIGH', 'LOW', 'MEDIUM']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # QuickResponseSearchExpressionTypeDef
 
@@ -1580,80 +1410,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### queries
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.wisdom_classes.QuickResponseQueryFieldTypeDef]]
-
-
-# QuickResponseSearchResultDataPaginatorTypeDef
-
-### contentType
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### contents
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.QuickResponseContentsTypeDef'>
-- **Required**: Yes
-
-### createdTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### isActive
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### knowledgeBaseArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### knowledgeBaseId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### lastModifiedTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### quickResponseArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### quickResponseId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['CREATED', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'DELETED', 'DELETE_FAILED', 'DELETE_IN_PROGRESS', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS']
-- **Required**: Yes
-
-### attributesInterpolated
-- **Type**: typing.Optional[typing.List[str]]
-
-### attributesNotInterpolated
-- **Type**: typing.Optional[typing.List[str]]
-
-### channels
-- **Type**: typing.Optional[typing.List[str]]
-
-### description
-- **Type**: typing.Optional[str]
-
-### groupingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.GroupingConfigurationPaginatorTypeDef]
-
-### language
-- **Type**: typing.Optional[str]
-
-### lastModifiedBy
-- **Type**: typing.Optional[str]
-
-### shortcutKey
-- **Type**: typing.Optional[str]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # QuickResponseSearchResultDataTypeDef
@@ -1715,7 +1471,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### groupingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.GroupingConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.GroupingConfigurationOutputTypeDef]
 
 ### language
 - **Type**: typing.Optional[str]
@@ -1786,23 +1542,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # RecommendationDataTypeDef
 
-### document
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.DocumentTypeDef'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### recommendationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### relevanceLevel
-- **Type**: typing.Optional[typing.Literal['HIGH', 'LOW', 'MEDIUM']]
-
-### relevanceScore
-- **Type**: typing.Optional[float]
-
-### type
-- **Type**: typing.Optional[typing.Literal['KNOWLEDGE_CONTENT']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RecommendationTriggerDataTypeDef
 
@@ -1812,28 +1554,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # RecommendationTriggerTypeDef
 
-### data
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.RecommendationTriggerDataTypeDef'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### recommendationIds
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### source
-- **Type**: typing.Literal['ISSUE_DETECTION', 'OTHER', 'RULE_EVALUATION']
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['QUERY']
-- **Required**: Yes
-
-
-# RemoveKnowledgeBaseTemplateUriRequestRequestTypeDef
+# RemoveKnowledgeBaseTemplateUriRequestTypeDef
 
 ### knowledgeBaseId
 - **Type**: <class 'str'>
@@ -1852,10 +1577,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -1867,6 +1588,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # ResultDataTypeDef
@@ -1883,7 +1607,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# SearchContentRequestRequestTypeDef
+# SearchContentRequestPaginateTypeDef
+
+### knowledgeBaseId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### searchExpression
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.SearchExpressionTypeDef'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.PaginatorConfigTypeDef]
+
+
+# SearchContentRequestTypeDef
 
 ### knowledgeBaseId
 - **Type**: <class 'str'>
@@ -1900,33 +1638,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchContentRequestSearchContentPaginateTypeDef
-
-### knowledgeBaseId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### searchExpression
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.SearchExpressionTypeDef'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.PaginatorConfigTypeDef]
-
-
 # SearchContentResponseTypeDef
 
 ### contentSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom_classes.ContentSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # SearchExpressionTypeDef
@@ -1936,7 +1659,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SearchQuickResponsesRequestRequestTypeDef
+# SearchQuickResponsesRequestPaginateTypeDef
+
+### knowledgeBaseId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### searchExpression
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.QuickResponseSearchExpressionTypeDef'>
+- **Required**: Yes
+
+### attributes
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.PaginatorConfigTypeDef]
+
+
+# SearchQuickResponsesRequestTypeDef
 
 ### knowledgeBaseId
 - **Type**: <class 'str'>
@@ -1956,43 +1696,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchQuickResponsesRequestSearchQuickResponsesPaginateTypeDef
-
-### knowledgeBaseId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### searchExpression
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.QuickResponseSearchExpressionTypeDef'>
-- **Required**: Yes
-
-### attributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.PaginatorConfigTypeDef]
-
-
-# SearchQuickResponsesResponsePaginatorTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### results
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom_classes.QuickResponseSearchResultDataPaginatorTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
 # SearchQuickResponsesResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### results
 - **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom_classes.QuickResponseSearchResultDataTypeDef]
@@ -2002,8 +1706,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# SearchSessionsRequestRequestTypeDef
+
+# SearchSessionsRequestPaginateTypeDef
+
+### assistantId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### searchExpression
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.SearchExpressionTypeDef'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.PaginatorConfigTypeDef]
+
+
+# SearchSessionsRequestTypeDef
 
 ### assistantId
 - **Type**: <class 'str'>
@@ -2020,25 +1741,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchSessionsRequestSearchSessionsPaginateTypeDef
-
-### assistantId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### searchExpression
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.SearchExpressionTypeDef'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.PaginatorConfigTypeDef]
-
-
 # SearchSessionsResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### sessionSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom_classes.SessionSummaryTypeDef]
@@ -2047,6 +1750,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # ServerSideEncryptionConfigurationTypeDef
@@ -2104,10 +1810,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SourceConfigurationPaginatorTypeDef
+# SourceConfigurationOutputTypeDef
 
 ### appIntegrations
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.AppIntegrationsConfigurationPaginatorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.AppIntegrationsConfigurationOutputTypeDef]
 
 
 # SourceConfigurationTypeDef
@@ -2116,7 +1822,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.AppIntegrationsConfigurationTypeDef]
 
 
-# StartContentUploadRequestRequestTypeDef
+# SourceConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# StartContentUploadRequestTypeDef
 
 ### contentType
 - **Type**: <class 'str'>
@@ -2153,7 +1865,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartImportJobRequestRequestTypeDef
+# StartImportJobRequestTypeDef
 
 ### importJobType
 - **Type**: typing.Literal['QUICK_RESPONSES']
@@ -2188,7 +1900,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2199,7 +1911,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2210,7 +1922,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateContentRequestRequestTypeDef
+# UpdateContentRequestTypeDef
 
 ### contentId
 - **Type**: <class 'str'>
@@ -2250,7 +1962,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateKnowledgeBaseTemplateUriRequestRequestTypeDef
+# UpdateKnowledgeBaseTemplateUriRequestTypeDef
 
 ### knowledgeBaseId
 - **Type**: <class 'str'>
@@ -2272,7 +1984,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateQuickResponseRequestRequestTypeDef
+# UpdateQuickResponseRequestTypeDef
 
 ### knowledgeBaseId
 - **Type**: <class 'str'>
@@ -2295,7 +2007,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### groupingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.GroupingConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.GroupingConfigurationUnionTypeDef]
 
 ### isActive
 - **Type**: typing.Optional[bool]

@@ -15,7 +15,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateParallelDataRequestRequestTypeDef
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CreateParallelDataRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -54,7 +60,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteParallelDataRequestRequestTypeDef
+# DeleteParallelDataRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -76,14 +82,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteTerminologyRequestRequestTypeDef
+# DeleteTerminologyRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeTextTranslationJobRequestRequestTypeDef
+# DescribeTextTranslationJobRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
@@ -104,7 +110,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DocumentTypeDef
 
 ### Content
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### ContentType
@@ -121,16 +127,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EncryptionKeyTypeDef
 
-### Type
-- **Type**: typing.Literal['KMS']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-
-# GetParallelDataRequestRequestTypeDef
+# GetParallelDataRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -160,7 +161,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTerminologyRequestRequestTypeDef
+# GetTerminologyRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -189,7 +190,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ImportTerminologyRequestRequestTypeDef
+# ImportTerminologyRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -262,7 +263,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListLanguagesRequestRequestTypeDef
+# ListLanguagesRequestTypeDef
 
 ### DisplayLanguageCode
 - **Type**: typing.Optional[typing.Literal['de', 'en', 'es', 'fr', 'it', 'ja', 'ko', 'pt', 'zh', 'zh-TW']]
@@ -284,16 +285,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Literal['de', 'en', 'es', 'fr', 'it', 'ja', 'ko', 'pt', 'zh', 'zh-TW']
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListParallelDataRequestRequestTypeDef
+
+# ListParallelDataRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -308,16 +308,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.translate_classes.ParallelDataPropertiesTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -335,13 +334,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTerminologiesRequestListTerminologiesPaginateTypeDef
+# ListTerminologiesRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.translate_classes.PaginatorConfigTypeDef]
 
 
-# ListTerminologiesRequestRequestTypeDef
+# ListTerminologiesRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -356,16 +355,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.translate_classes.TerminologyPropertiesTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTextTranslationJobsRequestRequestTypeDef
+
+# ListTextTranslationJobsRequestTypeDef
 
 ### Filter
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.translate_classes.TextTranslationJobFilterTypeDef]
@@ -383,13 +381,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.translate_classes.TextTranslationJobPropertiesTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # OutputDataConfigTypeDef
@@ -494,10 +491,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -510,8 +503,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# StartTextTranslationJobRequestRequestTypeDef
+
+# StartTextTranslationJobRequestTypeDef
 
 ### InputDataConfig
 - **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.InputDataConfigTypeDef'>
@@ -565,7 +561,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopTextTranslationJobRequestRequestTypeDef
+# StopTextTranslationJobRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
@@ -587,7 +583,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -632,7 +628,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TerminologyDataTypeDef
 
 ### File
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### Format
@@ -697,10 +693,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'COMPLETED_WITH_ERROR', 'FAILED', 'IN_PROGRESS', 'STOPPED', 'STOP_REQUESTED', 'SUBMITTED']]
 
 ### SubmittedBeforeTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.translate_classes.TimestampTypeDef]
 
 ### SubmittedAfterTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.translate_classes.TimestampTypeDef]
 
 
 # TextTranslationJobPropertiesTypeDef
@@ -751,7 +747,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.translate_classes.TranslationSettingsTypeDef]
 
 
-# TranslateDocumentRequestRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TranslateDocumentRequestTypeDef
 
 ### Document
 - **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.DocumentTypeDef'>
@@ -797,27 +799,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
-
-
-# TranslateTextRequestRequestTypeDef
-
-### Text
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SourceLanguageCode
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### TargetLanguageCode
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### TerminologyNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### Settings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.translate_classes.TranslationSettingsTypeDef]
 
 
 # TranslateTextResponseTypeDef
@@ -866,7 +847,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ON']]
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -877,7 +858,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateParallelDataRequestRequestTypeDef
+# UpdateParallelDataRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>

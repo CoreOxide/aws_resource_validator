@@ -22,10 +22,9 @@
 
 # AmplitudeSourcePropertiesTypeDef
 
-### object
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ApiKeyCredentialsTypeDef
 
@@ -96,7 +95,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CancelFlowExecutionsRequestRequestTypeDef
+# CancelFlowExecutionsRequestTypeDef
 
 ### flowName
 - **Type**: <class 'str'>
@@ -428,7 +427,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ConnectorProfileConfigTypeDef
 
 ### connectorProfileProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.ConnectorProfilePropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.ConnectorProfilePropertiesUnionTypeDef'>
 - **Required**: Yes
 
 ### connectorProfileCredentials
@@ -495,6 +494,66 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.PardotConnectorProfileCredentialsTypeDef]
 
 
+# ConnectorProfilePropertiesOutputTypeDef
+
+### Amplitude
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### Datadog
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.DatadogConnectorProfilePropertiesTypeDef]
+
+### Dynatrace
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.DynatraceConnectorProfilePropertiesTypeDef]
+
+### GoogleAnalytics
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### Honeycode
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### InforNexus
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.InforNexusConnectorProfilePropertiesTypeDef]
+
+### Marketo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.MarketoConnectorProfilePropertiesTypeDef]
+
+### Redshift
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.RedshiftConnectorProfilePropertiesTypeDef]
+
+### Salesforce
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.SalesforceConnectorProfilePropertiesTypeDef]
+
+### ServiceNow
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.ServiceNowConnectorProfilePropertiesTypeDef]
+
+### Singular
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### Slack
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.SlackConnectorProfilePropertiesTypeDef]
+
+### Snowflake
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.SnowflakeConnectorProfilePropertiesTypeDef]
+
+### Trendmicro
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### Veeva
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.VeevaConnectorProfilePropertiesTypeDef]
+
+### Zendesk
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.ZendeskConnectorProfilePropertiesTypeDef]
+
+### SAPOData
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.SAPODataConnectorProfilePropertiesOutputTypeDef]
+
+### CustomConnector
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.CustomConnectorProfilePropertiesOutputTypeDef]
+
+### Pardot
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.PardotConnectorProfilePropertiesTypeDef]
+
+
 # ConnectorProfilePropertiesTypeDef
 
 ### Amplitude
@@ -546,14 +605,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.ZendeskConnectorProfilePropertiesTypeDef]
 
 ### SAPOData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.SAPODataConnectorProfilePropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.SAPODataConnectorProfilePropertiesUnionTypeDef]
 
 ### CustomConnector
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.CustomConnectorProfilePropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.CustomConnectorProfilePropertiesUnionTypeDef]
 
 ### Pardot
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.PardotConnectorProfilePropertiesTypeDef]
 
+
+# ConnectorProfilePropertiesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ConnectorProfileTypeDef
 
@@ -576,7 +641,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### connectorProfileProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.ConnectorProfilePropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.ConnectorProfilePropertiesOutputTypeDef]
 
 ### createdAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -618,7 +683,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# CreateConnectorProfileRequestRequestTypeDef
+# CreateConnectorProfileRequestTypeDef
 
 ### connectorProfileName
 - **Type**: <class 'str'>
@@ -657,26 +722,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateFlowRequestRequestTypeDef
+# CreateFlowRequestTypeDef
 
 ### flowName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### triggerConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.TriggerConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.TriggerConfigUnionTypeDef'>
 - **Required**: Yes
 
 ### sourceFlowConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.SourceFlowConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.SourceFlowConfigUnionTypeDef'>
 - **Required**: Yes
 
 ### destinationFlowConfigList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appflow_classes.DestinationFlowConfigTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appflow_classes.DestinationFlowConfigUnionTypeDef]
 - **Required**: Yes
 
 ### tasks
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appflow_classes.TaskTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appflow_classes.TaskUnionTypeDef]
 - **Required**: Yes
 
 ### description
@@ -729,6 +794,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
+# CustomConnectorDestinationPropertiesOutputTypeDef
+
+### entityName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### errorHandlingConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.ErrorHandlingConfigTypeDef]
+
+### writeOperationType
+- **Type**: typing.Optional[typing.Literal['DELETE', 'INSERT', 'UPDATE', 'UPSERT']]
+
+### idFieldNames
+- **Type**: typing.Optional[typing.List[str]]
+
+### customProperties
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
 # CustomConnectorDestinationPropertiesTypeDef
 
 ### entityName
@@ -747,6 +831,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### customProperties
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
+
+# CustomConnectorDestinationPropertiesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CustomConnectorProfileCredentialsTypeDef
 
@@ -767,13 +857,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.CustomAuthCredentialsTypeDef]
 
 
+# CustomConnectorProfilePropertiesOutputTypeDef
+
+### profileProperties
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### oAuth2Properties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.OAuth2PropertiesOutputTypeDef]
+
+
 # CustomConnectorProfilePropertiesTypeDef
 
 ### profileProperties
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### oAuth2Properties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.OAuth2PropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.OAuth2PropertiesUnionTypeDef]
+
+
+# CustomConnectorProfilePropertiesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CustomConnectorSourcePropertiesOutputTypeDef
+
+### entityName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### customProperties
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### dataTransferApi
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.DataTransferApiTypeDef]
 
 
 # CustomConnectorSourcePropertiesTypeDef
@@ -801,12 +919,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DataTransferApiTypeDef
 
-### Name
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[typing.Literal['ASYNC', 'AUTOMATIC', 'SYNC']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DatadogConnectorProfileCredentialsTypeDef
 
@@ -828,12 +943,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DatadogSourcePropertiesTypeDef
 
-### object
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DeleteConnectorProfileRequestRequestTypeDef
+# DeleteConnectorProfileRequestTypeDef
 
 ### connectorProfileName
 - **Type**: <class 'str'>
@@ -843,7 +957,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteFlowRequestRequestTypeDef
+# DeleteFlowRequestTypeDef
 
 ### flowName
 - **Type**: <class 'str'>
@@ -853,7 +967,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DescribeConnectorEntityRequestRequestTypeDef
+# DescribeConnectorEntityRequestTypeDef
 
 ### connectorEntityName
 - **Type**: <class 'str'>
@@ -880,7 +994,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeConnectorProfilesRequestRequestTypeDef
+# DescribeConnectorProfilesRequestTypeDef
 
 ### connectorProfileNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -904,16 +1018,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appflow_classes.ConnectorProfileTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeConnectorRequestRequestTypeDef
+
+# DescribeConnectorRequestTypeDef
 
 ### connectorType
 - **Type**: typing.Literal['Amplitude', 'CustomConnector', 'CustomerProfiles', 'Datadog', 'Dynatrace', 'EventBridge', 'Googleanalytics', 'Honeycode', 'Infornexus', 'LookoutMetrics', 'Marketo', 'Pardot', 'Redshift', 'S3', 'SAPOData', 'Salesforce', 'Servicenow', 'Singular', 'Slack', 'Snowflake', 'Trendmicro', 'Upsolver', 'Veeva', 'Zendesk']
@@ -934,7 +1047,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeConnectorsRequestRequestTypeDef
+# DescribeConnectorsRequestTypeDef
 
 ### connectorTypes
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['Amplitude', 'CustomConnector', 'CustomerProfiles', 'Datadog', 'Dynatrace', 'EventBridge', 'Googleanalytics', 'Honeycode', 'Infornexus', 'LookoutMetrics', 'Marketo', 'Pardot', 'Redshift', 'S3', 'SAPOData', 'Salesforce', 'Servicenow', 'Singular', 'Slack', 'Snowflake', 'Trendmicro', 'Upsolver', 'Veeva', 'Zendesk']]]
@@ -956,16 +1069,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appflow_classes.ConnectorDetailTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeFlowExecutionRecordsRequestRequestTypeDef
+
+# DescribeFlowExecutionRecordsRequestTypeDef
 
 ### flowName
 - **Type**: <class 'str'>
@@ -984,16 +1096,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appflow_classes.ExecutionRecordTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeFlowRequestRequestTypeDef
+
+# DescribeFlowRequestTypeDef
 
 ### flowName
 - **Type**: <class 'str'>
@@ -1027,11 +1138,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sourceFlowConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.SourceFlowConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.SourceFlowConfigOutputTypeDef'>
 - **Required**: Yes
 
 ### destinationFlowConfigList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appflow_classes.DestinationFlowConfigTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appflow_classes.DestinationFlowConfigOutputTypeDef]
 - **Required**: Yes
 
 ### lastRunExecutionDetails
@@ -1039,11 +1150,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### triggerConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.TriggerConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.TriggerConfigOutputTypeDef'>
 - **Required**: Yes
 
 ### tasks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appflow_classes.TaskTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appflow_classes.TaskOutputTypeDef]
 - **Required**: Yes
 
 ### createdAt
@@ -1083,16 +1194,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# DestinationConnectorPropertiesOutputTypeDef
+
+### Redshift
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.RedshiftDestinationPropertiesTypeDef]
+
+### S3
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.S3DestinationPropertiesOutputTypeDef]
+
+### Salesforce
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.SalesforceDestinationPropertiesOutputTypeDef]
+
+### Snowflake
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.SnowflakeDestinationPropertiesTypeDef]
+
+### EventBridge
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.EventBridgeDestinationPropertiesTypeDef]
+
+### LookoutMetrics
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### Upsolver
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.UpsolverDestinationPropertiesOutputTypeDef]
+
+### Honeycode
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.HoneycodeDestinationPropertiesTypeDef]
+
+### CustomerProfiles
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.CustomerProfilesDestinationPropertiesTypeDef]
+
+### Zendesk
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.ZendeskDestinationPropertiesOutputTypeDef]
+
+### Marketo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.MarketoDestinationPropertiesTypeDef]
+
+### CustomConnector
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.CustomConnectorDestinationPropertiesOutputTypeDef]
+
+### SAPOData
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.SAPODataDestinationPropertiesOutputTypeDef]
+
+
 # DestinationConnectorPropertiesTypeDef
 
 ### Redshift
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.RedshiftDestinationPropertiesTypeDef]
 
 ### S3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.S3DestinationPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.S3DestinationPropertiesUnionTypeDef]
 
 ### Salesforce
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.SalesforceDestinationPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.SalesforceDestinationPropertiesUnionTypeDef]
 
 ### Snowflake
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.SnowflakeDestinationPropertiesTypeDef]
@@ -1104,7 +1257,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
 
 ### Upsolver
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.UpsolverDestinationPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.UpsolverDestinationPropertiesUnionTypeDef]
 
 ### Honeycode
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.HoneycodeDestinationPropertiesTypeDef]
@@ -1113,17 +1266,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.CustomerProfilesDestinationPropertiesTypeDef]
 
 ### Zendesk
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.ZendeskDestinationPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.ZendeskDestinationPropertiesUnionTypeDef]
 
 ### Marketo
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.MarketoDestinationPropertiesTypeDef]
 
 ### CustomConnector
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.CustomConnectorDestinationPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.CustomConnectorDestinationPropertiesUnionTypeDef]
 
 ### SAPOData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.SAPODataDestinationPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.SAPODataDestinationPropertiesUnionTypeDef]
 
+
+# DestinationConnectorPropertiesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DestinationFieldPropertiesTypeDef
 
@@ -1146,14 +1305,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['DELETE', 'INSERT', 'UPDATE', 'UPSERT']]]
 
 
-# DestinationFlowConfigTypeDef
+# DestinationFlowConfigOutputTypeDef
 
 ### connectorType
 - **Type**: typing.Literal['Amplitude', 'CustomConnector', 'CustomerProfiles', 'Datadog', 'Dynatrace', 'EventBridge', 'Googleanalytics', 'Honeycode', 'Infornexus', 'LookoutMetrics', 'Marketo', 'Pardot', 'Redshift', 'S3', 'SAPOData', 'Salesforce', 'Servicenow', 'Singular', 'Slack', 'Snowflake', 'Trendmicro', 'Upsolver', 'Veeva', 'Zendesk']
 - **Required**: Yes
 
 ### destinationConnectorProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.DestinationConnectorPropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.DestinationConnectorPropertiesOutputTypeDef'>
 - **Required**: Yes
 
 ### apiVersion
@@ -1162,6 +1321,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### connectorProfileName
 - **Type**: typing.Optional[str]
 
+
+# DestinationFlowConfigTypeDef
+
+### connectorType
+- **Type**: typing.Literal['Amplitude', 'CustomConnector', 'CustomerProfiles', 'Datadog', 'Dynatrace', 'EventBridge', 'Googleanalytics', 'Honeycode', 'Infornexus', 'LookoutMetrics', 'Marketo', 'Pardot', 'Redshift', 'S3', 'SAPOData', 'Salesforce', 'Servicenow', 'Singular', 'Slack', 'Snowflake', 'Trendmicro', 'Upsolver', 'Veeva', 'Zendesk']
+- **Required**: Yes
+
+### destinationConnectorProperties
+- **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.DestinationConnectorPropertiesUnionTypeDef'>
+- **Required**: Yes
+
+### apiVersion
+- **Type**: typing.Optional[str]
+
+### connectorProfileName
+- **Type**: typing.Optional[str]
+
+
+# DestinationFlowConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DynatraceConnectorProfileCredentialsTypeDef
 
@@ -1179,10 +1361,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DynatraceSourcePropertiesTypeDef
 
-### object
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ErrorHandlingConfigTypeDef
 
@@ -1207,13 +1388,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EventBridgeDestinationPropertiesTypeDef
 
-### object
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### errorHandlingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.ErrorHandlingConfigTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ExecutionDetailsTypeDef
 
@@ -1392,10 +1569,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # GoogleAnalyticsSourcePropertiesTypeDef
 
-### object
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HoneycodeConnectorProfileCredentialsTypeDef
 
@@ -1411,13 +1587,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # HoneycodeDestinationPropertiesTypeDef
 
-### object
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### errorHandlingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.ErrorHandlingConfigTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HoneycodeMetadataTypeDef
 
@@ -1459,10 +1631,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # InforNexusSourcePropertiesTypeDef
 
-### object
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LambdaConnectorProvisioningConfigTypeDef
 
@@ -1471,7 +1642,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListConnectorEntitiesRequestRequestTypeDef
+# ListConnectorEntitiesRequestTypeDef
 
 ### connectorProfileName
 - **Type**: typing.Optional[str]
@@ -1498,16 +1669,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.appflow_classes.ConnectorEntityTypeDef]]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListConnectorsRequestRequestTypeDef
+
+# ListConnectorsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1522,16 +1692,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appflow_classes.ConnectorDetailTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListFlowsRequestRequestTypeDef
+
+# ListFlowsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1546,16 +1715,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.appflow_classes.FlowDefinitionTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1599,20 +1767,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # MarketoDestinationPropertiesTypeDef
 
-### object
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### errorHandlingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.ErrorHandlingConfigTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MarketoSourcePropertiesTypeDef
 
-### object
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MetadataCatalogConfigTypeDef
 
@@ -1655,27 +1818,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # OAuth2CustomParameterTypeDef
 
-### key
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### isRequired
-- **Type**: typing.Optional[bool]
-
-### label
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-### isSensitiveField
-- **Type**: typing.Optional[bool]
-
-### connectorSuppliedValues
-- **Type**: typing.Optional[typing.List[str]]
-
-### type
-- **Type**: typing.Optional[typing.Literal['AUTH_URL', 'TOKEN_URL']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # OAuth2DefaultsTypeDef
 
@@ -1695,6 +1840,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appflow_classes.OAuth2CustomParameterTypeDef]]
 
 
+# OAuth2PropertiesOutputTypeDef
+
+### tokenUrl
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### oAuth2GrantType
+- **Type**: typing.Literal['AUTHORIZATION_CODE', 'CLIENT_CREDENTIALS', 'JWT_BEARER']
+- **Required**: Yes
+
+### tokenUrlCustomProperties
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
 # OAuth2PropertiesTypeDef
 
 ### tokenUrl
@@ -1708,6 +1867,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### tokenUrlCustomProperties
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
+
+# OAuth2PropertiesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # OAuthCredentialsTypeDef
 
@@ -1729,6 +1894,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.ConnectorOAuthRequestTypeDef]
 
 
+# OAuthPropertiesOutputTypeDef
+
+### tokenUrl
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### authCodeUrl
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### oAuthScopes
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
 # OAuthPropertiesTypeDef
 
 ### tokenUrl
@@ -1743,6 +1923,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
+
+# OAuthPropertiesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PardotConnectorProfileCredentialsTypeDef
 
@@ -1773,9 +1959,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PardotSourcePropertiesTypeDef
 
-### object
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# PrefixConfigOutputTypeDef
+
+### prefixType
+- **Type**: typing.Optional[typing.Literal['FILENAME', 'PATH', 'PATH_AND_FILENAME']]
+
+### prefixFormat
+- **Type**: typing.Optional[typing.Literal['DAY', 'HOUR', 'MINUTE', 'MONTH', 'YEAR']]
+
+### pathPrefixHierarchy
+- **Type**: typing.Optional[typing.List[typing.Literal['EXECUTION_ID', 'SCHEMA_VERSION']]]
 
 
 # PrefixConfigTypeDef
@@ -1789,6 +1986,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### pathPrefixHierarchy
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['EXECUTION_ID', 'SCHEMA_VERSION']]]
 
+
+# PrefixConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PrivateConnectionProvisioningStateTypeDef
 
@@ -1854,22 +2057,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # RedshiftDestinationPropertiesTypeDef
 
-### object
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### intermediateBucketName
-- **Type**: <class 'str'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### bucketPrefix
-- **Type**: typing.Optional[str]
-
-### errorHandlingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.ErrorHandlingConfigTypeDef]
-
-
-# RegisterConnectorRequestRequestTypeDef
+# RegisterConnectorRequestTypeDef
 
 ### connectorLabel
 - **Type**: typing.Optional[str]
@@ -1910,7 +2102,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CancelStarted', 'Canceled', 'Error', 'InProgress', 'Successful']]
 
 
-# ResetConnectorMetadataCacheRequestRequestTypeDef
+# ResetConnectorMetadataCacheRequestTypeDef
 
 ### connectorProfileName
 - **Type**: typing.Optional[str]
@@ -1934,10 +2126,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -1950,6 +2138,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
+
+
+# S3DestinationPropertiesOutputTypeDef
+
+### bucketName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### bucketPrefix
+- **Type**: typing.Optional[str]
+
+### s3OutputFormatConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.S3OutputFormatConfigOutputTypeDef]
+
 
 # S3DestinationPropertiesTypeDef
 
@@ -1961,13 +2165,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### s3OutputFormatConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.S3OutputFormatConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.S3OutputFormatConfigUnionTypeDef]
 
+
+# S3DestinationPropertiesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # S3InputFormatConfigTypeDef
 
 ### s3InputFileType
 - **Type**: typing.Optional[typing.Literal['CSV', 'JSON']]
+
+
+# S3OutputFormatConfigOutputTypeDef
+
+### fileType
+- **Type**: typing.Optional[typing.Literal['CSV', 'JSON', 'PARQUET']]
+
+### prefixConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.PrefixConfigOutputTypeDef]
+
+### aggregationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.AggregationConfigTypeDef]
+
+### preserveSourceDataTyping
+- **Type**: typing.Optional[bool]
 
 
 # S3OutputFormatConfigTypeDef
@@ -1976,7 +2201,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CSV', 'JSON', 'PARQUET']]
 
 ### prefixConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.PrefixConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.PrefixConfigUnionTypeDef]
 
 ### aggregationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.AggregationConfigTypeDef]
@@ -1984,6 +2209,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### preserveSourceDataTyping
 - **Type**: typing.Optional[bool]
 
+
+# S3OutputFormatConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # S3SourcePropertiesTypeDef
 
@@ -2005,6 +2236,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### oAuthCredentials
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.OAuthCredentialsTypeDef]
+
+
+# SAPODataConnectorProfilePropertiesOutputTypeDef
+
+### applicationHostUrl
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### applicationServicePath
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### portNumber
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### clientNumber
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### logonLanguage
+- **Type**: typing.Optional[str]
+
+### privateLinkServiceName
+- **Type**: typing.Optional[str]
+
+### oAuthProperties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.OAuthPropertiesOutputTypeDef]
+
+### disableSSO
+- **Type**: typing.Optional[bool]
 
 
 # SAPODataConnectorProfilePropertiesTypeDef
@@ -2032,10 +2294,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### oAuthProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.OAuthPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.OAuthPropertiesUnionTypeDef]
 
 ### disableSSO
 - **Type**: typing.Optional[bool]
+
+
+# SAPODataConnectorProfilePropertiesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# SAPODataDestinationPropertiesOutputTypeDef
+
+### objectPath
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### successResponseHandlingConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.SuccessResponseHandlingConfigTypeDef]
+
+### idFieldNames
+- **Type**: typing.Optional[typing.List[str]]
+
+### errorHandlingConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.ErrorHandlingConfigTypeDef]
+
+### writeOperationType
+- **Type**: typing.Optional[typing.Literal['DELETE', 'INSERT', 'UPDATE', 'UPSERT']]
 
 
 # SAPODataDestinationPropertiesTypeDef
@@ -2056,6 +2343,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### writeOperationType
 - **Type**: typing.Optional[typing.Literal['DELETE', 'INSERT', 'UPDATE', 'UPSERT']]
 
+
+# SAPODataDestinationPropertiesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SAPODataPaginationConfigTypeDef
 
@@ -2116,24 +2409,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# SalesforceDestinationPropertiesTypeDef
+# SalesforceDestinationPropertiesOutputTypeDef
 
-### object
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### idFieldNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### errorHandlingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.ErrorHandlingConfigTypeDef]
+# SalesforceDestinationPropertiesUnionTypeDef
 
-### writeOperationType
-- **Type**: typing.Optional[typing.Literal['DELETE', 'INSERT', 'UPDATE', 'UPSERT']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### dataTransferApi
-- **Type**: typing.Optional[typing.Literal['AUTOMATIC', 'BULKV2', 'REST_SYNC']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SalesforceMetadataTypeDef
 
@@ -2149,18 +2435,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SalesforceSourcePropertiesTypeDef
 
-### object
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ScheduledTriggerPropertiesOutputTypeDef
+
+### scheduleExpression
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### enableDynamicFieldUpdate
-- **Type**: typing.Optional[bool]
+### dataPullMode
+- **Type**: typing.Optional[typing.Literal['Complete', 'Incremental']]
 
-### includeDeletedRecords
-- **Type**: typing.Optional[bool]
+### scheduleStartTime
+- **Type**: typing.Optional[datetime.datetime]
 
-### dataTransferApi
-- **Type**: typing.Optional[typing.Literal['AUTOMATIC', 'BULKV2', 'REST_SYNC']]
+### scheduleEndTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### timezone
+- **Type**: typing.Optional[str]
+
+### scheduleOffset
+- **Type**: typing.Optional[int]
+
+### firstExecutionFrom
+- **Type**: typing.Optional[datetime.datetime]
+
+### flowErrorDeactivationThreshold
+- **Type**: typing.Optional[int]
 
 
 # ScheduledTriggerPropertiesTypeDef
@@ -2173,10 +2477,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Complete', 'Incremental']]
 
 ### scheduleStartTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.TimestampTypeDef]
 
 ### scheduleEndTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.TimestampTypeDef]
 
 ### timezone
 - **Type**: typing.Optional[str]
@@ -2185,7 +2489,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### firstExecutionFrom
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.TimestampTypeDef]
 
 ### flowErrorDeactivationThreshold
 - **Type**: typing.Optional[int]
@@ -2212,10 +2516,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ServiceNowSourcePropertiesTypeDef
 
-### object
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SingularConnectorProfileCredentialsTypeDef
 
@@ -2226,10 +2529,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SingularSourcePropertiesTypeDef
 
-### object
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SlackConnectorProfileCredentialsTypeDef
 
@@ -2263,10 +2565,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SlackSourcePropertiesTypeDef
 
-### object
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SnowflakeConnectorProfileCredentialsTypeDef
 
@@ -2308,25 +2609,68 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SnowflakeDestinationPropertiesTypeDef
 
-### object
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### intermediateBucketName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### bucketPrefix
-- **Type**: typing.Optional[str]
-
-### errorHandlingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.ErrorHandlingConfigTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SnowflakeMetadataTypeDef
 
 ### supportedRegions
 - **Type**: typing.Optional[typing.List[str]]
+
+
+# SourceConnectorPropertiesOutputTypeDef
+
+### Amplitude
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.AmplitudeSourcePropertiesTypeDef]
+
+### Datadog
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.DatadogSourcePropertiesTypeDef]
+
+### Dynatrace
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.DynatraceSourcePropertiesTypeDef]
+
+### GoogleAnalytics
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.GoogleAnalyticsSourcePropertiesTypeDef]
+
+### InforNexus
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.InforNexusSourcePropertiesTypeDef]
+
+### Marketo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.MarketoSourcePropertiesTypeDef]
+
+### S3
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.S3SourcePropertiesTypeDef]
+
+### Salesforce
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.SalesforceSourcePropertiesTypeDef]
+
+### ServiceNow
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.ServiceNowSourcePropertiesTypeDef]
+
+### Singular
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.SingularSourcePropertiesTypeDef]
+
+### Slack
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.SlackSourcePropertiesTypeDef]
+
+### Trendmicro
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.TrendmicroSourcePropertiesTypeDef]
+
+### Veeva
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.VeevaSourcePropertiesTypeDef]
+
+### Zendesk
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.ZendeskSourcePropertiesTypeDef]
+
+### SAPOData
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.SAPODataSourcePropertiesTypeDef]
+
+### CustomConnector
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.CustomConnectorSourcePropertiesOutputTypeDef]
+
+### Pardot
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.PardotSourcePropertiesTypeDef]
 
 
 # SourceConnectorPropertiesTypeDef
@@ -2395,6 +2739,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
+# SourceFlowConfigOutputTypeDef
+
+### connectorType
+- **Type**: typing.Literal['Amplitude', 'CustomConnector', 'CustomerProfiles', 'Datadog', 'Dynatrace', 'EventBridge', 'Googleanalytics', 'Honeycode', 'Infornexus', 'LookoutMetrics', 'Marketo', 'Pardot', 'Redshift', 'S3', 'SAPOData', 'Salesforce', 'Servicenow', 'Singular', 'Slack', 'Snowflake', 'Trendmicro', 'Upsolver', 'Veeva', 'Zendesk']
+- **Required**: Yes
+
+### sourceConnectorProperties
+- **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.SourceConnectorPropertiesOutputTypeDef'>
+- **Required**: Yes
+
+### apiVersion
+- **Type**: typing.Optional[str]
+
+### connectorProfileName
+- **Type**: typing.Optional[str]
+
+### incrementalPullConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.IncrementalPullConfigTypeDef]
+
+
 # SourceFlowConfigTypeDef
 
 ### connectorType
@@ -2415,7 +2779,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.IncrementalPullConfigTypeDef]
 
 
-# StartFlowRequestRequestTypeDef
+# SourceFlowConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# StartFlowRequestTypeDef
 
 ### flowName
 - **Type**: <class 'str'>
@@ -2444,7 +2814,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopFlowRequestRequestTypeDef
+# StopFlowRequestTypeDef
 
 ### flowName
 - **Type**: <class 'str'>
@@ -2482,7 +2852,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2491,6 +2861,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### tags
 - **Type**: typing.Mapping[str, str]
 - **Required**: Yes
+
+
+# TaskOutputTypeDef
+
+### sourceFields
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### taskType
+- **Type**: typing.Literal['Arithmetic', 'Filter', 'Map', 'Map_all', 'Mask', 'Merge', 'Partition', 'Passthrough', 'Truncate', 'Validate']
+- **Required**: Yes
+
+### connectorOperator
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.ConnectorOperatorTypeDef]
+
+### destinationField
+- **Type**: typing.Optional[str]
+
+### taskProperties
+- **Type**: typing.Optional[typing.Dict[typing.Literal['CONCAT_FORMAT', 'DATA_TYPE', 'DESTINATION_DATA_TYPE', 'EXCLUDE_SOURCE_FIELDS_LIST', 'INCLUDE_NEW_FIELDS', 'LOWER_BOUND', 'MASK_LENGTH', 'MASK_VALUE', 'MATH_OPERATION_FIELDS_ORDER', 'ORDERED_PARTITION_KEYS_LIST', 'SOURCE_DATA_TYPE', 'SUBFIELD_CATEGORY_MAP', 'TRUNCATE_LENGTH', 'UPPER_BOUND', 'VALIDATION_ACTION', 'VALUE', 'VALUES'], str]]
 
 
 # TaskTypeDef
@@ -2513,6 +2903,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[typing.Literal['CONCAT_FORMAT', 'DATA_TYPE', 'DESTINATION_DATA_TYPE', 'EXCLUDE_SOURCE_FIELDS_LIST', 'INCLUDE_NEW_FIELDS', 'LOWER_BOUND', 'MASK_LENGTH', 'MASK_VALUE', 'MATH_OPERATION_FIELDS_ORDER', 'ORDERED_PARTITION_KEYS_LIST', 'SOURCE_DATA_TYPE', 'SUBFIELD_CATEGORY_MAP', 'TRUNCATE_LENGTH', 'UPPER_BOUND', 'VALIDATION_ACTION', 'VALUE', 'VALUES'], str]]
 
 
+# TaskUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # TrendmicroConnectorProfileCredentialsTypeDef
 
 ### apiSecretKey
@@ -2522,9 +2924,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # TrendmicroSourcePropertiesTypeDef
 
-### object
-- **Type**: <class 'str'>
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TriggerConfigOutputTypeDef
+
+### triggerType
+- **Type**: typing.Literal['Event', 'OnDemand', 'Scheduled']
 - **Required**: Yes
+
+### triggerProperties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.TriggerPropertiesOutputTypeDef]
 
 
 # TriggerConfigTypeDef
@@ -2537,13 +2948,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.TriggerPropertiesTypeDef]
 
 
+# TriggerConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TriggerPropertiesOutputTypeDef
+
+### Scheduled
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.ScheduledTriggerPropertiesOutputTypeDef]
+
+
 # TriggerPropertiesTypeDef
 
 ### Scheduled
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.ScheduledTriggerPropertiesTypeDef]
 
 
-# UnregisterConnectorRequestRequestTypeDef
+# UnregisterConnectorRequestTypeDef
 
 ### connectorLabel
 - **Type**: <class 'str'>
@@ -2553,7 +2976,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2564,7 +2987,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateConnectorProfileRequestRequestTypeDef
+# UpdateConnectorProfileRequestTypeDef
 
 ### connectorProfileName
 - **Type**: <class 'str'>
@@ -2593,7 +3016,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateConnectorRegistrationRequestRequestTypeDef
+# UpdateConnectorRegistrationRequestTypeDef
 
 ### connectorLabel
 - **Type**: <class 'str'>
@@ -2620,26 +3043,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateFlowRequestRequestTypeDef
+# UpdateFlowRequestTypeDef
 
 ### flowName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### triggerConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.TriggerConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.TriggerConfigUnionTypeDef'>
 - **Required**: Yes
 
 ### sourceFlowConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.SourceFlowConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.SourceFlowConfigUnionTypeDef'>
 - **Required**: Yes
 
 ### destinationFlowConfigList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appflow_classes.DestinationFlowConfigTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appflow_classes.DestinationFlowConfigUnionTypeDef]
 - **Required**: Yes
 
 ### tasks
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appflow_classes.TaskTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appflow_classes.TaskUnionTypeDef]
 - **Required**: Yes
 
 ### description
@@ -2663,6 +3086,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# UpsolverDestinationPropertiesOutputTypeDef
+
+### bucketName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### s3OutputFormatConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.UpsolverS3OutputFormatConfigOutputTypeDef'>
+- **Required**: Yes
+
+### bucketPrefix
+- **Type**: typing.Optional[str]
+
+
 # UpsolverDestinationPropertiesTypeDef
 
 ### bucketName
@@ -2670,17 +3107,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### s3OutputFormatConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.UpsolverS3OutputFormatConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.UpsolverS3OutputFormatConfigUnionTypeDef'>
 - **Required**: Yes
 
 ### bucketPrefix
 - **Type**: typing.Optional[str]
 
 
-# UpsolverS3OutputFormatConfigTypeDef
+# UpsolverDestinationPropertiesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UpsolverS3OutputFormatConfigOutputTypeDef
 
 ### prefixConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.PrefixConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.PrefixConfigOutputTypeDef'>
 - **Required**: Yes
 
 ### fileType
@@ -2689,6 +3132,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### aggregationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.AggregationConfigTypeDef]
 
+
+# UpsolverS3OutputFormatConfigTypeDef
+
+### prefixConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.appflow_classes.PrefixConfigUnionTypeDef'>
+- **Required**: Yes
+
+### fileType
+- **Type**: typing.Optional[typing.Literal['CSV', 'JSON', 'PARQUET']]
+
+### aggregationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.AggregationConfigTypeDef]
+
+
+# UpsolverS3OutputFormatConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # VeevaConnectorProfileCredentialsTypeDef
 
@@ -2710,22 +3172,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # VeevaSourcePropertiesTypeDef
 
-### object
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### documentType
-- **Type**: typing.Optional[str]
-
-### includeSourceFiles
-- **Type**: typing.Optional[bool]
-
-### includeRenditions
-- **Type**: typing.Optional[bool]
-
-### includeAllVersions
-- **Type**: typing.Optional[bool]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ZendeskConnectorProfileCredentialsTypeDef
 
@@ -2751,21 +3200,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ZendeskDestinationPropertiesTypeDef
+# ZendeskDestinationPropertiesOutputTypeDef
 
-### object
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### idFieldNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### errorHandlingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appflow_classes.ErrorHandlingConfigTypeDef]
+# ZendeskDestinationPropertiesUnionTypeDef
 
-### writeOperationType
-- **Type**: typing.Optional[typing.Literal['DELETE', 'INSERT', 'UPDATE', 'UPSERT']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ZendeskMetadataTypeDef
 
@@ -2775,8 +3220,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ZendeskSourcePropertiesTypeDef
 
-### object
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

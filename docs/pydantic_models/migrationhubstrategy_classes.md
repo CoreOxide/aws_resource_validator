@@ -68,75 +68,9 @@
 
 # ApplicationComponentDetailTypeDef
 
-### analysisStatus
-- **Type**: typing.Optional[typing.Literal['ANALYSIS_FAILED', 'ANALYSIS_PARTIAL_SUCCESS', 'ANALYSIS_STARTED', 'ANALYSIS_SUCCESS', 'ANALYSIS_TO_BE_SCHEDULED', 'CONFIGURED', 'UNCONFIGURED']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### antipatternReportS3Object
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.S3ObjectTypeDef]
-
-### antipatternReportStatus
-- **Type**: typing.Optional[typing.Literal['FAILED', 'IN_PROGRESS', 'SUCCESS']]
-
-### antipatternReportStatusMessage
-- **Type**: typing.Optional[str]
-
-### appType
-- **Type**: typing.Optional[typing.Literal['Cassandra', 'DB2', 'DotNetFramework', 'Dotnet', 'DotnetCore', 'IBM WebSphere', 'IIS', 'JBoss', 'Java', 'Maria DB', 'Mongo DB', 'MySQL', 'Oracle', 'Oracle WebLogic', 'Other', 'PostgreSQLServer', 'SQLServer', 'Spring', 'Sybase', 'Tomcat', 'Unknown', 'Visual Basic']]
-
-### appUnitError
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.AppUnitErrorTypeDef]
-
-### associatedServerId
-- **Type**: typing.Optional[str]
-
-### databaseConfigDetail
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.DatabaseConfigDetailTypeDef]
-
-### id
-- **Type**: typing.Optional[str]
-
-### inclusionStatus
-- **Type**: typing.Optional[typing.Literal['excludeFromAssessment', 'includeInAssessment']]
-
-### lastAnalyzedTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-### listAntipatternSeveritySummary
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.AntipatternSeveritySummaryTypeDef]]
-
-### moreServerAssociationExists
-- **Type**: typing.Optional[bool]
-
-### name
-- **Type**: typing.Optional[str]
-
-### osDriver
-- **Type**: typing.Optional[str]
-
-### osVersion
-- **Type**: typing.Optional[str]
-
-### recommendationSet
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.RecommendationSetTypeDef]
-
-### resourceSubType
-- **Type**: typing.Optional[typing.Literal['Database', 'DatabaseProcess', 'Process']]
-
-### resultList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.ResultTypeDef]]
-
-### runtimeStatus
-- **Type**: typing.Optional[typing.Literal['ANALYSIS_FAILED', 'ANALYSIS_STARTED', 'ANALYSIS_SUCCESS', 'ANALYSIS_TO_BE_SCHEDULED']]
-
-### runtimeStatusMessage
-- **Type**: typing.Optional[str]
-
-### sourceCodeRepositories
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.SourceCodeRepositoryTypeDef]]
-
-### statusMessage
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ApplicationComponentStatusSummaryTypeDef
 
@@ -168,11 +102,23 @@
 - **Type**: typing.Optional[int]
 
 
+# ApplicationPreferencesOutputTypeDef
+
+### managementPreference
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.ManagementPreferenceOutputTypeDef]
+
+
 # ApplicationPreferencesTypeDef
 
 ### managementPreference
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.ManagementPreferenceTypeDef]
 
+
+# ApplicationPreferencesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AssessmentSummaryTypeDef
 
@@ -210,7 +156,7 @@
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.ServerSummaryTypeDef]]
 
 
-# AssessmentTargetTypeDef
+# AssessmentTargetOutputTypeDef
 
 ### condition
 - **Type**: typing.Literal['CONTAINS', 'EQUALS', 'NOT_CONTAINS', 'NOT_EQUALS']
@@ -225,19 +171,44 @@
 - **Required**: Yes
 
 
-# AssociatedApplicationTypeDef
+# AssessmentTargetTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+### condition
+- **Type**: typing.Literal['CONTAINS', 'EQUALS', 'NOT_CONTAINS', 'NOT_EQUALS']
+- **Required**: Yes
 
 ### name
-- **Type**: typing.Optional[str]
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### values
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+
+# AssessmentTargetUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AssociatedApplicationTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AwsManagedResourcesOutputTypeDef
+
+### targetDestination
+- **Type**: typing.List[typing.Literal['AWS Elastic BeanStalk', 'AWS Fargate', 'None specified']]
+- **Required**: Yes
 
 
 # AwsManagedResourcesTypeDef
 
 ### targetDestination
-- **Type**: typing.List[typing.Literal['AWS Elastic BeanStalk', 'AWS Fargate', 'None specified']]
+- **Type**: typing.Sequence[typing.Literal['AWS Elastic BeanStalk', 'AWS Fargate', 'None specified']]
 - **Required**: Yes
 
 
@@ -340,6 +311,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# DatabaseMigrationPreferenceOutputTypeDef
+
+### heterogeneous
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.HeterogeneousOutputTypeDef]
+
+### homogeneous
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.HomogeneousOutputTypeDef]
+
+### noPreference
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.NoDatabaseMigrationPreferenceOutputTypeDef]
+
+
 # DatabaseMigrationPreferenceTypeDef
 
 ### heterogeneous
@@ -352,6 +335,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.NoDatabaseMigrationPreferenceTypeDef]
 
 
+# DatabasePreferencesOutputTypeDef
+
+### databaseManagementPreference
+- **Type**: typing.Optional[typing.Literal['AWS-managed', 'No preference', 'Self-manage']]
+
+### databaseMigrationPreference
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.DatabaseMigrationPreferenceOutputTypeDef]
+
+
 # DatabasePreferencesTypeDef
 
 ### databaseManagementPreference
@@ -361,7 +353,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.DatabaseMigrationPreferenceTypeDef]
 
 
-# GetApplicationComponentDetailsRequestRequestTypeDef
+# DatabasePreferencesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# GetApplicationComponentDetailsRequestTypeDef
 
 ### applicationComponentId
 - **Type**: <class 'str'>
@@ -391,7 +389,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetApplicationComponentStrategiesRequestRequestTypeDef
+# GetApplicationComponentStrategiesRequestTypeDef
 
 ### applicationComponentId
 - **Type**: <class 'str'>
@@ -409,101 +407,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAssessmentRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# GetAssessmentResponseTypeDef
-
-### assessmentTargets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.AssessmentTargetTypeDef]
-- **Required**: Yes
-
-### dataCollectionDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhubstrategy_classes.DataCollectionDetailsTypeDef'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhubstrategy_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetImportFileTaskRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# GetImportFileTaskResponseTypeDef
-
-### completionTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### importName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### inputS3Bucket
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### inputS3Key
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### numberOfRecordsFailed
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### numberOfRecordsSuccess
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### startTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['DeleteFailed', 'DeleteInProgress', 'DeletePartialSuccess', 'DeleteSuccess', 'ImportFailed', 'ImportInProgress', 'ImportPartialSuccess', 'ImportSuccess']
-- **Required**: Yes
-
-### statusReportS3Bucket
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### statusReportS3Key
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhubstrategy_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetLatestAssessmentIdResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhubstrategy_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
 # GetPortfolioPreferencesResponseTypeDef
 
 ### applicationMode
@@ -511,11 +414,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### applicationPreferences
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhubstrategy_classes.ApplicationPreferencesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhubstrategy_classes.ApplicationPreferencesOutputTypeDef'>
 - **Required**: Yes
 
 ### databasePreferences
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhubstrategy_classes.DatabasePreferencesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhubstrategy_classes.DatabasePreferencesOutputTypeDef'>
 - **Required**: Yes
 
 ### prioritizeBusinessGoals
@@ -538,29 +441,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRecommendationReportDetailsRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# GetRecommendationReportDetailsResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### recommendationReportDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhubstrategy_classes.RecommendationReportDetailsTypeDef'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhubstrategy_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetServerDetailsRequestGetServerDetailsPaginateTypeDef
+# GetServerDetailsRequestPaginateTypeDef
 
 ### serverId
 - **Type**: <class 'str'>
@@ -570,7 +451,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.PaginatorConfigTypeDef]
 
 
-# GetServerDetailsRequestRequestTypeDef
+# GetServerDetailsRequestTypeDef
 
 ### serverId
 - **Type**: <class 'str'>
@@ -589,10 +470,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.AssociatedApplicationTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### serverDetail
 - **Type**: <class 'aws_resource_validator.pydantic_models.migrationhubstrategy_classes.ServerDetailTypeDef'>
 - **Required**: Yes
@@ -601,8 +478,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.migrationhubstrategy_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetServerStrategiesRequestRequestTypeDef
+
+# GetServerStrategiesRequestTypeDef
 
 ### serverId
 - **Type**: <class 'str'>
@@ -629,17 +509,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# HeterogeneousTypeDef
+# HeterogeneousOutputTypeDef
 
 ### targetDatabaseEngine
 - **Type**: typing.List[typing.Literal['AWS PostgreSQL', 'Amazon Aurora', 'Db2 LUW', 'MariaDB', 'Microsoft SQL Server', 'MongoDB', 'MySQL', 'None specified', 'Oracle Database', 'SAP']]
 - **Required**: Yes
 
 
-# HomogeneousTypeDef
+# HeterogeneousTypeDef
+
+### targetDatabaseEngine
+- **Type**: typing.Sequence[typing.Literal['AWS PostgreSQL', 'Amazon Aurora', 'Db2 LUW', 'MariaDB', 'Microsoft SQL Server', 'MongoDB', 'MySQL', 'None specified', 'Oracle Database', 'SAP']]
+- **Required**: Yes
+
+
+# HomogeneousOutputTypeDef
 
 ### targetDatabaseEngine
 - **Type**: typing.Optional[typing.List[typing.Literal['None specified']]]
+
+
+# HomogeneousTypeDef
+
+### targetDatabaseEngine
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['None specified']]]
 
 
 # IPAddressBasedRemoteInfoTypeDef
@@ -656,41 +549,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ImportFileTaskInformationTypeDef
 
-### completionTime
-- **Type**: typing.Optional[datetime.datetime]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### id
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### importName
-- **Type**: typing.Optional[str]
-
-### inputS3Bucket
-- **Type**: typing.Optional[str]
-
-### inputS3Key
-- **Type**: typing.Optional[str]
-
-### numberOfRecordsFailed
-- **Type**: typing.Optional[int]
-
-### numberOfRecordsSuccess
-- **Type**: typing.Optional[int]
-
-### startTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### status
-- **Type**: typing.Optional[typing.Literal['DeleteFailed', 'DeleteInProgress', 'DeletePartialSuccess', 'DeleteSuccess', 'ImportFailed', 'ImportInProgress', 'ImportPartialSuccess', 'ImportSuccess']]
-
-### statusReportS3Bucket
-- **Type**: typing.Optional[str]
-
-### statusReportS3Key
-- **Type**: typing.Optional[str]
-
-
-# ListAnalyzableServersRequestListAnalyzableServersPaginateTypeDef
+# ListAnalyzableServersRequestPaginateTypeDef
 
 ### sort
 - **Type**: typing.Optional[typing.Literal['ASC', 'DESC']]
@@ -699,7 +562,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.PaginatorConfigTypeDef]
 
 
-# ListAnalyzableServersRequestRequestTypeDef
+# ListAnalyzableServersRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -717,16 +580,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.AnalyzableServerSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.migrationhubstrategy_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListApplicationComponentsRequestListApplicationComponentsPaginateTypeDef
+
+# ListApplicationComponentsRequestPaginateTypeDef
 
 ### applicationComponentCriteria
 - **Type**: typing.Optional[typing.Literal['ANALYSIS_STATUS', 'APP_NAME', 'APP_TYPE', 'DESTINATION', 'ERROR_CATEGORY', 'NOT_DEFINED', 'SERVER_ID', 'STRATEGY']]
@@ -744,7 +606,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.PaginatorConfigTypeDef]
 
 
-# ListApplicationComponentsRequestRequestTypeDef
+# ListApplicationComponentsRequestTypeDef
 
 ### applicationComponentCriteria
 - **Type**: typing.Optional[typing.Literal['ANALYSIS_STATUS', 'APP_NAME', 'APP_TYPE', 'DESTINATION', 'ERROR_CATEGORY', 'NOT_DEFINED', 'SERVER_ID', 'STRATEGY']]
@@ -771,22 +633,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.ApplicationComponentDetailTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.migrationhubstrategy_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListCollectorsRequestListCollectorsPaginateTypeDef
+
+# ListCollectorsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.PaginatorConfigTypeDef]
 
 
-# ListCollectorsRequestRequestTypeDef
+# ListCollectorsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -801,22 +662,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.CollectorTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.migrationhubstrategy_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListImportFileTaskRequestListImportFileTaskPaginateTypeDef
+
+# ListImportFileTaskRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.PaginatorConfigTypeDef]
 
 
-# ListImportFileTaskRequestRequestTypeDef
+# ListImportFileTaskRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -827,10 +687,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListImportFileTaskResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### taskInfos
 - **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.ImportFileTaskInformationTypeDef]
 - **Required**: Yes
@@ -839,8 +695,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.migrationhubstrategy_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListServersRequestListServersPaginateTypeDef
+
+# ListServersRequestPaginateTypeDef
 
 ### filterValue
 - **Type**: typing.Optional[str]
@@ -858,7 +717,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.PaginatorConfigTypeDef]
 
 
-# ListServersRequestRequestTypeDef
+# ListServersRequestTypeDef
 
 ### filterValue
 - **Type**: typing.Optional[str]
@@ -881,10 +740,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListServersResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### serverInfos
 - **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.ServerDetailTypeDef]
 - **Required**: Yes
@@ -892,6 +747,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.migrationhubstrategy_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ManagementPreferenceOutputTypeDef
+
+### awsManagedResources
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.AwsManagedResourcesOutputTypeDef]
+
+### noPreference
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.NoManagementPreferenceOutputTypeDef]
+
+### selfManageResources
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.SelfManageResourcesOutputTypeDef]
 
 
 # ManagementPreferenceTypeDef
@@ -925,28 +795,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# NoDatabaseMigrationPreferenceTypeDef
+# NoDatabaseMigrationPreferenceOutputTypeDef
 
 ### targetDatabaseEngine
 - **Type**: typing.List[typing.Literal['AWS PostgreSQL', 'Amazon Aurora', 'Db2 LUW', 'MariaDB', 'Microsoft SQL Server', 'MongoDB', 'MySQL', 'None specified', 'Oracle Database', 'SAP']]
 - **Required**: Yes
 
 
-# NoManagementPreferenceTypeDef
+# NoDatabaseMigrationPreferenceTypeDef
+
+### targetDatabaseEngine
+- **Type**: typing.Sequence[typing.Literal['AWS PostgreSQL', 'Amazon Aurora', 'Db2 LUW', 'MariaDB', 'Microsoft SQL Server', 'MongoDB', 'MySQL', 'None specified', 'Oracle Database', 'SAP']]
+- **Required**: Yes
+
+
+# NoManagementPreferenceOutputTypeDef
 
 ### targetDestination
 - **Type**: typing.List[typing.Literal['AWS Elastic BeanStalk', 'AWS Fargate', 'Amazon Elastic Cloud Compute (EC2)', 'Amazon Elastic Container Service (ECS)', 'Amazon Elastic Kubernetes Service (EKS)', 'None specified']]
 - **Required**: Yes
 
 
+# NoManagementPreferenceTypeDef
+
+### targetDestination
+- **Type**: typing.Sequence[typing.Literal['AWS Elastic BeanStalk', 'AWS Fargate', 'Amazon Elastic Cloud Compute (EC2)', 'Amazon Elastic Container Service (ECS)', 'Amazon Elastic Kubernetes Service (EKS)', 'None specified']]
+- **Required**: Yes
+
+
 # OSInfoTypeDef
 
-### type
-- **Type**: typing.Optional[typing.Literal['LINUX', 'WINDOWS']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### version
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PaginatorConfigTypeDef
 
@@ -975,16 +856,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.BusinessGoalsTypeDef]
 
 
-# PutPortfolioPreferencesRequestRequestTypeDef
+# PutPortfolioPreferencesRequestTypeDef
 
 ### applicationMode
 - **Type**: typing.Optional[typing.Literal['ALL', 'KNOWN', 'UNKNOWN']]
 
 ### applicationPreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.ApplicationPreferencesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.ApplicationPreferencesUnionTypeDef]
 
 ### databasePreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.DatabasePreferencesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.DatabasePreferencesUnionTypeDef]
 
 ### prioritizeBusinessGoals
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.PrioritizeBusinessGoalsTypeDef]
@@ -1035,10 +916,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -1050,6 +927,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # ResultTypeDef
@@ -1076,57 +956,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SelfManageResourcesTypeDef
+# SelfManageResourcesOutputTypeDef
 
 ### targetDestination
 - **Type**: typing.List[typing.Literal['Amazon Elastic Cloud Compute (EC2)', 'Amazon Elastic Container Service (ECS)', 'Amazon Elastic Kubernetes Service (EKS)', 'None specified']]
 - **Required**: Yes
 
 
+# SelfManageResourcesTypeDef
+
+### targetDestination
+- **Type**: typing.Sequence[typing.Literal['Amazon Elastic Cloud Compute (EC2)', 'Amazon Elastic Container Service (ECS)', 'Amazon Elastic Kubernetes Service (EKS)', 'None specified']]
+- **Required**: Yes
+
+
 # ServerDetailTypeDef
 
-### antipatternReportS3Object
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.S3ObjectTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### antipatternReportStatus
-- **Type**: typing.Optional[typing.Literal['FAILED', 'IN_PROGRESS', 'SUCCESS']]
-
-### antipatternReportStatusMessage
-- **Type**: typing.Optional[str]
-
-### applicationComponentStrategySummary
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.StrategySummaryTypeDef]]
-
-### dataCollectionStatus
-- **Type**: typing.Optional[typing.Literal['dataCollectionTaskFailed', 'dataCollectionTaskPartialSuccess', 'dataCollectionTaskScheduled', 'dataCollectionTaskStarted', 'dataCollectionTaskStopped', 'dataCollectionTaskSuccess', 'dataCollectionTaskToBeScheduled']]
-
-### id
-- **Type**: typing.Optional[str]
-
-### lastAnalyzedTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-### listAntipatternSeveritySummary
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.AntipatternSeveritySummaryTypeDef]]
-
-### name
-- **Type**: typing.Optional[str]
-
-### recommendationSet
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.RecommendationSetTypeDef]
-
-### serverError
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.ServerErrorTypeDef]
-
-### serverType
-- **Type**: typing.Optional[str]
-
-### statusMessage
-- **Type**: typing.Optional[str]
-
-### systemInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.SystemInfoTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ServerErrorTypeDef
 
@@ -1197,13 +1045,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AZURE_DEVOPS_GIT', 'GITHUB', 'GITHUB_ENTERPRISE']]
 
 
-# StartAssessmentRequestRequestTypeDef
+# StartAssessmentRequestTypeDef
 
 ### assessmentDataSourceType
 - **Type**: typing.Optional[typing.Literal['ApplicationDiscoveryService', 'ManualImport', 'StrategyRecommendationsApplicationDataCollector']]
 
 ### assessmentTargets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.AssessmentTargetTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.AssessmentTargetUnionTypeDef]]
 
 ### s3bucketForAnalysisData
 - **Type**: typing.Optional[str]
@@ -1223,7 +1071,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartImportFileTaskRequestRequestTypeDef
+# StartImportFileTaskRequestTypeDef
 
 ### S3Bucket
 - **Type**: <class 'str'>
@@ -1247,18 +1095,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartImportFileTaskResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhubstrategy_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# StartRecommendationReportGenerationRequestRequestTypeDef
+# StartRecommendationReportGenerationRequestTypeDef
 
 ### groupIdFilter
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.GroupTypeDef]]
@@ -1267,18 +1104,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Excel', 'Json']]
 
 
-# StartRecommendationReportGenerationResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhubstrategy_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# StopAssessmentRequestRequestTypeDef
+# StopAssessmentRequestTypeDef
 
 ### assessmentId
 - **Type**: <class 'str'>
@@ -1336,7 +1162,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateApplicationComponentConfigRequestRequestTypeDef
+# UpdateApplicationComponentConfigRequestTypeDef
 
 ### applicationComponentId
 - **Type**: <class 'str'>
@@ -1361,7 +1187,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhubstrategy_classes.StrategyOptionTypeDef]
 
 
-# UpdateServerConfigRequestRequestTypeDef
+# UpdateServerConfigRequestTypeDef
 
 ### serverId
 - **Type**: <class 'str'>

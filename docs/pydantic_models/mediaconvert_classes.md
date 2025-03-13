@@ -91,18 +91,6 @@
 - **Type**: typing.Optional[int]
 
 
-# AllowedRenditionSizeTypeDef
-
-### Height
-- **Type**: typing.Optional[int]
-
-### Required
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### Width
-- **Type**: typing.Optional[int]
-
-
 # AncillarySourceSettingsTypeDef
 
 ### Convert608To708
@@ -115,20 +103,11 @@
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'END_OF_INPUT']]
 
 
-# AssociateCertificateRequestRequestTypeDef
+# AssociateCertificateRequestTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
-
-
-# AudioChannelTaggingSettingsExtraOutputTypeDef
-
-### ChannelTag
-- **Type**: typing.Optional[typing.Literal['C', 'CS', 'HI', 'L', 'LC', 'LFE', 'LFE2', 'LS', 'LSD', 'LT', 'LW', 'M', 'NAR', 'R', 'RC', 'RS', 'RSD', 'RSL', 'RSR', 'RT', 'RW', 'TBC', 'TBL', 'TBR', 'TCS', 'VHC', 'VHL', 'VHR']]
-
-### ChannelTags
-- **Type**: typing.Optional[typing.List[typing.Literal['C', 'CS', 'HI', 'L', 'LC', 'LFE', 'LFE2', 'LS', 'LSD', 'LT', 'LW', 'M', 'NAR', 'R', 'RC', 'RS', 'RSD', 'RSL', 'RSR', 'RT', 'RW', 'TBC', 'TBL', 'TBR', 'TCS', 'VHC', 'VHL', 'VHR']]]
 
 
 # AudioChannelTaggingSettingsOutputTypeDef
@@ -186,42 +165,6 @@
 
 ### WavSettings
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.WavSettingsTypeDef]
-
-
-# AudioDescriptionExtraOutputTypeDef
-
-### AudioChannelTaggingSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.AudioChannelTaggingSettingsExtraOutputTypeDef]
-
-### AudioNormalizationSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.AudioNormalizationSettingsTypeDef]
-
-### AudioSourceName
-- **Type**: typing.Optional[str]
-
-### AudioType
-- **Type**: typing.Optional[int]
-
-### AudioTypeControl
-- **Type**: typing.Optional[typing.Literal['FOLLOW_INPUT', 'USE_CONFIGURED']]
-
-### CodecSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.AudioCodecSettingsTypeDef]
-
-### CustomLanguageCode
-- **Type**: typing.Optional[str]
-
-### LanguageCode
-- **Type**: typing.Optional[typing.Literal['AAR', 'ABK', 'AFR', 'AKA', 'AMH', 'ARA', 'ARG', 'ASM', 'AVA', 'AVE', 'AYM', 'AZE', 'BAK', 'BAM', 'BEL', 'BEN', 'BIH', 'BIS', 'BOD', 'BOS', 'BRE', 'BUL', 'CAT', 'CES', 'CHA', 'CHE', 'CHU', 'CHV', 'COR', 'COS', 'CRE', 'CYM', 'DAN', 'DEU', 'DIV', 'DZO', 'ELL', 'ENG', 'ENM', 'EPO', 'EST', 'EUS', 'EWE', 'FAO', 'FAS', 'FIJ', 'FIN', 'FRA', 'FRM', 'FRY', 'FUL', 'GER', 'GLA', 'GLE', 'GLG', 'GLV', 'GRN', 'GUJ', 'HAT', 'HAU', 'HEB', 'HER', 'HIN', 'HMO', 'HRV', 'HUN', 'HYE', 'IBO', 'IDO', 'III', 'IKU', 'ILE', 'INA', 'IND', 'IPK', 'ISL', 'ITA', 'JAV', 'JPN', 'KAL', 'KAN', 'KAS', 'KAT', 'KAU', 'KAZ', 'KHM', 'KIK', 'KIN', 'KIR', 'KOM', 'KON', 'KOR', 'KUA', 'KUR', 'LAO', 'LAT', 'LAV', 'LIM', 'LIN', 'LIT', 'LTZ', 'LUB', 'LUG', 'MAH', 'MAL', 'MAR', 'MKD', 'MLG', 'MLT', 'MON', 'MRI', 'MSA', 'MYA', 'NAU', 'NAV', 'NBL', 'NDE', 'NDO', 'NEP', 'NLD', 'NNO', 'NOB', 'NOR', 'NYA', 'OCI', 'OJI', 'ORI', 'ORJ', 'ORM', 'OSS', 'PAN', 'PLI', 'POL', 'POR', 'PUS', 'QAA', 'QPC', 'QUE', 'ROH', 'RON', 'RUN', 'RUS', 'SAG', 'SAN', 'SIN', 'SLK', 'SLV', 'SME', 'SMO', 'SNA', 'SND', 'SOM', 'SOT', 'SPA', 'SQI', 'SRB', 'SRD', 'SRP', 'SSW', 'SUN', 'SWA', 'SWE', 'TAH', 'TAM', 'TAT', 'TEL', 'TGK', 'TGL', 'THA', 'TIR', 'TNG', 'TON', 'TSN', 'TSO', 'TUK', 'TUR', 'TWI', 'UIG', 'UKR', 'URD', 'UZB', 'VEN', 'VIE', 'VOL', 'WLN', 'WOL', 'XHO', 'YID', 'YOR', 'ZHA', 'ZHO', 'ZUL']]
-
-### LanguageCodeControl
-- **Type**: typing.Optional[typing.Literal['FOLLOW_INPUT', 'USE_CONFIGURED']]
-
-### RemixSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.RemixSettingsExtraOutputTypeDef]
-
-### StreamName
-- **Type**: typing.Optional[str]
 
 
 # AudioDescriptionOutputTypeDef
@@ -320,49 +263,25 @@
 - **Type**: typing.Optional[float]
 
 
-# AudioSelectorExtraOutputTypeDef
+# AudioPropertiesTypeDef
 
-### AudioDurationCorrection
-- **Type**: typing.Optional[typing.Literal['AUTO', 'DISABLED', 'FRAME', 'TRACK']]
+### BitDepth
+- **Type**: typing.Optional[int]
 
-### CustomLanguageCode
-- **Type**: typing.Optional[str]
+### BitRate
+- **Type**: typing.Optional[int]
 
-### DefaultSelection
-- **Type**: typing.Optional[typing.Literal['DEFAULT', 'NOT_DEFAULT']]
+### Channels
+- **Type**: typing.Optional[int]
 
-### ExternalAudioFileInput
-- **Type**: typing.Optional[str]
-
-### HlsRenditionGroupSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.HlsRenditionGroupSettingsTypeDef]
+### FrameRate
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.FrameRateTypeDef]
 
 ### LanguageCode
-- **Type**: typing.Optional[typing.Literal['AAR', 'ABK', 'AFR', 'AKA', 'AMH', 'ARA', 'ARG', 'ASM', 'AVA', 'AVE', 'AYM', 'AZE', 'BAK', 'BAM', 'BEL', 'BEN', 'BIH', 'BIS', 'BOD', 'BOS', 'BRE', 'BUL', 'CAT', 'CES', 'CHA', 'CHE', 'CHU', 'CHV', 'COR', 'COS', 'CRE', 'CYM', 'DAN', 'DEU', 'DIV', 'DZO', 'ELL', 'ENG', 'ENM', 'EPO', 'EST', 'EUS', 'EWE', 'FAO', 'FAS', 'FIJ', 'FIN', 'FRA', 'FRM', 'FRY', 'FUL', 'GER', 'GLA', 'GLE', 'GLG', 'GLV', 'GRN', 'GUJ', 'HAT', 'HAU', 'HEB', 'HER', 'HIN', 'HMO', 'HRV', 'HUN', 'HYE', 'IBO', 'IDO', 'III', 'IKU', 'ILE', 'INA', 'IND', 'IPK', 'ISL', 'ITA', 'JAV', 'JPN', 'KAL', 'KAN', 'KAS', 'KAT', 'KAU', 'KAZ', 'KHM', 'KIK', 'KIN', 'KIR', 'KOM', 'KON', 'KOR', 'KUA', 'KUR', 'LAO', 'LAT', 'LAV', 'LIM', 'LIN', 'LIT', 'LTZ', 'LUB', 'LUG', 'MAH', 'MAL', 'MAR', 'MKD', 'MLG', 'MLT', 'MON', 'MRI', 'MSA', 'MYA', 'NAU', 'NAV', 'NBL', 'NDE', 'NDO', 'NEP', 'NLD', 'NNO', 'NOB', 'NOR', 'NYA', 'OCI', 'OJI', 'ORI', 'ORJ', 'ORM', 'OSS', 'PAN', 'PLI', 'POL', 'POR', 'PUS', 'QAA', 'QPC', 'QUE', 'ROH', 'RON', 'RUN', 'RUS', 'SAG', 'SAN', 'SIN', 'SLK', 'SLV', 'SME', 'SMO', 'SNA', 'SND', 'SOM', 'SOT', 'SPA', 'SQI', 'SRB', 'SRD', 'SRP', 'SSW', 'SUN', 'SWA', 'SWE', 'TAH', 'TAM', 'TAT', 'TEL', 'TGK', 'TGL', 'THA', 'TIR', 'TNG', 'TON', 'TSN', 'TSO', 'TUK', 'TUR', 'TWI', 'UIG', 'UKR', 'URD', 'UZB', 'VEN', 'VIE', 'VOL', 'WLN', 'WOL', 'XHO', 'YID', 'YOR', 'ZHA', 'ZHO', 'ZUL']]
+- **Type**: typing.Optional[str]
 
-### Offset
+### SampleRate
 - **Type**: typing.Optional[int]
-
-### Pids
-- **Type**: typing.Optional[typing.List[int]]
-
-### ProgramSelection
-- **Type**: typing.Optional[int]
-
-### RemixSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.RemixSettingsExtraOutputTypeDef]
-
-### SelectorType
-- **Type**: typing.Optional[typing.Literal['HLS_RENDITION_GROUP', 'LANGUAGE_CODE', 'PID', 'TRACK']]
-
-### Tracks
-- **Type**: typing.Optional[typing.List[int]]
-
-
-# AudioSelectorGroupExtraOutputTypeDef
-
-### AudioSelectorNames
-- **Type**: typing.Optional[typing.List[str]]
 
 
 # AudioSelectorGroupOutputTypeDef
@@ -380,7 +299,7 @@
 # AudioSelectorOutputTypeDef
 
 ### AudioDurationCorrection
-- **Type**: typing.Optional[typing.Literal['AUTO', 'DISABLED', 'FRAME', 'TRACK']]
+- **Type**: typing.Optional[typing.Literal['AUTO', 'DISABLED', 'FORCE', 'FRAME', 'TRACK']]
 
 ### CustomLanguageCode
 - **Type**: typing.Optional[str]
@@ -419,7 +338,7 @@
 # AudioSelectorTypeDef
 
 ### AudioDurationCorrection
-- **Type**: typing.Optional[typing.Literal['AUTO', 'DISABLED', 'FRAME', 'TRACK']]
+- **Type**: typing.Optional[typing.Literal['AUTO', 'DISABLED', 'FORCE', 'FRAME', 'TRACK']]
 
 ### CustomLanguageCode
 - **Type**: typing.Optional[str]
@@ -455,74 +374,17 @@
 - **Type**: typing.Optional[typing.Sequence[int]]
 
 
-# AutomatedAbrRuleExtraOutputTypeDef
-
-### AllowedRenditions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.AllowedRenditionSizeTypeDef]]
-
-### ForceIncludeRenditions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.ForceIncludeRenditionSizeTypeDef]]
-
-### MinBottomRenditionSize
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.MinBottomRenditionSizeTypeDef]
-
-### MinTopRenditionSize
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.MinTopRenditionSizeTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['ALLOWED_RENDITIONS', 'FORCE_INCLUDE_RENDITIONS', 'MIN_BOTTOM_RENDITION_SIZE', 'MIN_TOP_RENDITION_SIZE']]
-
-
 # AutomatedAbrRuleOutputTypeDef
 
-### AllowedRenditions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.AllowedRenditionSizeTypeDef]]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### ForceIncludeRenditions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.ForceIncludeRenditionSizeTypeDef]]
-
-### MinBottomRenditionSize
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.MinBottomRenditionSizeTypeDef]
-
-### MinTopRenditionSize
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.MinTopRenditionSizeTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['ALLOWED_RENDITIONS', 'FORCE_INCLUDE_RENDITIONS', 'MIN_BOTTOM_RENDITION_SIZE', 'MIN_TOP_RENDITION_SIZE']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AutomatedAbrRuleTypeDef
 
-### AllowedRenditions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediaconvert_classes.AllowedRenditionSizeTypeDef]]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### ForceIncludeRenditions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediaconvert_classes.ForceIncludeRenditionSizeTypeDef]]
-
-### MinBottomRenditionSize
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.MinBottomRenditionSizeTypeDef]
-
-### MinTopRenditionSize
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.MinTopRenditionSizeTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['ALLOWED_RENDITIONS', 'FORCE_INCLUDE_RENDITIONS', 'MIN_BOTTOM_RENDITION_SIZE', 'MIN_TOP_RENDITION_SIZE']]
-
-
-# AutomatedAbrSettingsExtraOutputTypeDef
-
-### MaxAbrBitrate
-- **Type**: typing.Optional[int]
-
-### MaxRenditions
-- **Type**: typing.Optional[int]
-
-### MinAbrBitrate
-- **Type**: typing.Optional[int]
-
-### Rules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.AutomatedAbrRuleExtraOutputTypeDef]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AutomatedAbrSettingsOutputTypeDef
 
@@ -552,12 +414,6 @@
 
 ### Rules
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediaconvert_classes.AutomatedAbrRuleTypeDef]]
-
-
-# AutomatedEncodingSettingsExtraOutputTypeDef
-
-### AbrSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.AutomatedAbrSettingsExtraOutputTypeDef]
 
 
 # AutomatedEncodingSettingsOutputTypeDef
@@ -596,7 +452,7 @@
 - **Type**: typing.Optional[typing.Literal['INITIALIZE_FROM_SOURCE', 'SPECIFIED']]
 
 ### FramerateConversionAlgorithm
-- **Type**: typing.Optional[typing.Literal['DUPLICATE_DROP', 'FRAMEFORMER', 'INTERPOLATE']]
+- **Type**: typing.Optional[typing.Literal['DUPLICATE_DROP', 'FRAMEFORMER', 'INTERPOLATE', 'MAINTAIN_FRAME_COUNT']]
 
 ### FramerateDenominator
 - **Type**: typing.Optional[int]
@@ -644,7 +500,7 @@
 - **Type**: typing.Optional[typing.Literal['INITIALIZE_FROM_SOURCE', 'SPECIFIED']]
 
 ### FramerateConversionAlgorithm
-- **Type**: typing.Optional[typing.Literal['DUPLICATE_DROP', 'FRAMEFORMER', 'INTERPOLATE']]
+- **Type**: typing.Optional[typing.Literal['DUPLICATE_DROP', 'FRAMEFORMER', 'INTERPOLATE', 'MAINTAIN_FRAME_COUNT']]
 
 ### FramerateDenominator
 - **Type**: typing.Optional[int]
@@ -739,6 +595,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### OutlineSize
 - **Type**: typing.Optional[int]
 
+### RemoveRubyReserveAttributes
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
 ### ShadowColor
 - **Type**: typing.Optional[typing.Literal['AUTO', 'BLACK', 'NONE', 'WHITE']]
 
@@ -764,20 +623,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CancelJobRequestRequestTypeDef
+# CancelJobRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CaptionDescriptionPresetExtraOutputTypeDef
+# CaptionDescriptionOutputTypeDef
+
+### CaptionSelectorName
+- **Type**: typing.Optional[str]
 
 ### CustomLanguageCode
 - **Type**: typing.Optional[str]
 
 ### DestinationSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.CaptionDestinationSettingsExtraOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.CaptionDestinationSettingsOutputTypeDef]
 
 ### LanguageCode
 - **Type**: typing.Optional[typing.Literal['AAR', 'ABK', 'AFR', 'AKA', 'AMH', 'ARA', 'ARG', 'ASM', 'AVA', 'AVE', 'AYM', 'AZE', 'BAK', 'BAM', 'BEL', 'BEN', 'BIH', 'BIS', 'BOD', 'BOS', 'BRE', 'BUL', 'CAT', 'CES', 'CHA', 'CHE', 'CHU', 'CHV', 'COR', 'COS', 'CRE', 'CYM', 'DAN', 'DEU', 'DIV', 'DZO', 'ELL', 'ENG', 'ENM', 'EPO', 'EST', 'EUS', 'EWE', 'FAO', 'FAS', 'FIJ', 'FIN', 'FRA', 'FRM', 'FRY', 'FUL', 'GER', 'GLA', 'GLE', 'GLG', 'GLV', 'GRN', 'GUJ', 'HAT', 'HAU', 'HEB', 'HER', 'HIN', 'HMO', 'HRV', 'HUN', 'HYE', 'IBO', 'IDO', 'III', 'IKU', 'ILE', 'INA', 'IND', 'IPK', 'ISL', 'ITA', 'JAV', 'JPN', 'KAL', 'KAN', 'KAS', 'KAT', 'KAU', 'KAZ', 'KHM', 'KIK', 'KIN', 'KIR', 'KOM', 'KON', 'KOR', 'KUA', 'KUR', 'LAO', 'LAT', 'LAV', 'LIM', 'LIN', 'LIT', 'LTZ', 'LUB', 'LUG', 'MAH', 'MAL', 'MAR', 'MKD', 'MLG', 'MLT', 'MON', 'MRI', 'MSA', 'MYA', 'NAU', 'NAV', 'NBL', 'NDE', 'NDO', 'NEP', 'NLD', 'NNO', 'NOB', 'NOR', 'NYA', 'OCI', 'OJI', 'ORI', 'ORJ', 'ORM', 'OSS', 'PAN', 'PLI', 'POL', 'POR', 'PUS', 'QAA', 'QPC', 'QUE', 'ROH', 'RON', 'RUN', 'RUS', 'SAG', 'SAN', 'SIN', 'SLK', 'SLV', 'SME', 'SMO', 'SNA', 'SND', 'SOM', 'SOT', 'SPA', 'SQI', 'SRB', 'SRD', 'SRP', 'SSW', 'SUN', 'SWA', 'SWE', 'TAH', 'TAM', 'TAT', 'TEL', 'TGK', 'TGL', 'THA', 'TIR', 'TNG', 'TON', 'TSN', 'TSO', 'TUK', 'TUR', 'TWI', 'UIG', 'UKR', 'URD', 'UZB', 'VEN', 'VIE', 'VOL', 'WLN', 'WOL', 'XHO', 'YID', 'YOR', 'ZHA', 'ZHO', 'ZUL']]
@@ -832,39 +694,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### LanguageDescription
 - **Type**: typing.Optional[str]
-
-
-# CaptionDestinationSettingsExtraOutputTypeDef
-
-### BurninDestinationSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.BurninDestinationSettingsTypeDef]
-
-### DestinationType
-- **Type**: typing.Optional[typing.Literal['BURN_IN', 'DVB_SUB', 'EMBEDDED', 'EMBEDDED_PLUS_SCTE20', 'IMSC', 'SCC', 'SCTE20_PLUS_EMBEDDED', 'SMI', 'SRT', 'TELETEXT', 'TTML', 'WEBVTT']]
-
-### DvbSubDestinationSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.DvbSubDestinationSettingsTypeDef]
-
-### EmbeddedDestinationSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.EmbeddedDestinationSettingsTypeDef]
-
-### ImscDestinationSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.ImscDestinationSettingsTypeDef]
-
-### SccDestinationSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.SccDestinationSettingsTypeDef]
-
-### SrtDestinationSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.SrtDestinationSettingsTypeDef]
-
-### TeletextDestinationSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.TeletextDestinationSettingsExtraOutputTypeDef]
-
-### TtmlDestinationSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.TtmlDestinationSettingsTypeDef]
-
-### WebvttDestinationSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.WebvttDestinationSettingsTypeDef]
 
 
 # CaptionDestinationSettingsOutputTypeDef
@@ -981,12 +810,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.WebvttHlsSourceSettingsTypeDef]
 
 
-# ChannelMappingExtraOutputTypeDef
-
-### OutputChannels
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.OutputChannelMappingExtraOutputTypeDef]]
-
-
 # ChannelMappingOutputTypeDef
 
 ### OutputChannels
@@ -1014,15 +837,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CmafAdditionalManifestExtraOutputTypeDef
-
-### ManifestNameModifier
-- **Type**: typing.Optional[str]
-
-### SelectedOutputs
-- **Type**: typing.Optional[typing.List[str]]
-
-
 # CmafAdditionalManifestOutputTypeDef
 
 ### ManifestNameModifier
@@ -1041,155 +855,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# CmafEncryptionSettingsExtraOutputTypeDef
-
-### ConstantInitializationVector
-- **Type**: typing.Optional[str]
-
-### EncryptionMethod
-- **Type**: typing.Optional[typing.Literal['AES_CTR', 'SAMPLE_AES']]
-
-### InitializationVectorInManifest
-- **Type**: typing.Optional[typing.Literal['EXCLUDE', 'INCLUDE']]
-
-### SpekeKeyProvider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.SpekeKeyProviderCmafExtraOutputTypeDef]
-
-### StaticKeyProvider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.StaticKeyProviderTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['SPEKE', 'STATIC_KEY']]
-
-
 # CmafEncryptionSettingsOutputTypeDef
 
-### ConstantInitializationVector
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### EncryptionMethod
-- **Type**: typing.Optional[typing.Literal['AES_CTR', 'SAMPLE_AES']]
-
-### InitializationVectorInManifest
-- **Type**: typing.Optional[typing.Literal['EXCLUDE', 'INCLUDE']]
-
-### SpekeKeyProvider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.SpekeKeyProviderCmafOutputTypeDef]
-
-### StaticKeyProvider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.StaticKeyProviderTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['SPEKE', 'STATIC_KEY']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CmafEncryptionSettingsTypeDef
 
-### ConstantInitializationVector
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### EncryptionMethod
-- **Type**: typing.Optional[typing.Literal['AES_CTR', 'SAMPLE_AES']]
-
-### InitializationVectorInManifest
-- **Type**: typing.Optional[typing.Literal['EXCLUDE', 'INCLUDE']]
-
-### SpekeKeyProvider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.SpekeKeyProviderCmafTypeDef]
-
-### StaticKeyProvider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.StaticKeyProviderTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['SPEKE', 'STATIC_KEY']]
-
-
-# CmafGroupSettingsExtraOutputTypeDef
-
-### AdditionalManifests
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.CmafAdditionalManifestExtraOutputTypeDef]]
-
-### BaseUrl
-- **Type**: typing.Optional[str]
-
-### ClientCache
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### CodecSpecification
-- **Type**: typing.Optional[typing.Literal['RFC_4281', 'RFC_6381']]
-
-### DashIFrameTrickPlayNameModifier
-- **Type**: typing.Optional[str]
-
-### DashManifestStyle
-- **Type**: typing.Optional[typing.Literal['BASIC', 'COMPACT', 'DISTINCT']]
-
-### Destination
-- **Type**: typing.Optional[str]
-
-### DestinationSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.DestinationSettingsTypeDef]
-
-### Encryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.CmafEncryptionSettingsExtraOutputTypeDef]
-
-### FragmentLength
-- **Type**: typing.Optional[int]
-
-### ImageBasedTrickPlay
-- **Type**: typing.Optional[typing.Literal['ADVANCED', 'NONE', 'THUMBNAIL', 'THUMBNAIL_AND_FULLFRAME']]
-
-### ImageBasedTrickPlaySettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.CmafImageBasedTrickPlaySettingsTypeDef]
-
-### ManifestCompression
-- **Type**: typing.Optional[typing.Literal['GZIP', 'NONE']]
-
-### ManifestDurationFormat
-- **Type**: typing.Optional[typing.Literal['FLOATING_POINT', 'INTEGER']]
-
-### MinBufferTime
-- **Type**: typing.Optional[int]
-
-### MinFinalSegmentLength
-- **Type**: typing.Optional[float]
-
-### MpdManifestBandwidthType
-- **Type**: typing.Optional[typing.Literal['AVERAGE', 'MAX']]
-
-### MpdProfile
-- **Type**: typing.Optional[typing.Literal['MAIN_PROFILE', 'ON_DEMAND_PROFILE']]
-
-### PtsOffsetHandlingForBFrames
-- **Type**: typing.Optional[typing.Literal['MATCH_INITIAL_PTS', 'ZERO_BASED']]
-
-### SegmentControl
-- **Type**: typing.Optional[typing.Literal['SEGMENTED_FILES', 'SINGLE_FILE']]
-
-### SegmentLength
-- **Type**: typing.Optional[int]
-
-### SegmentLengthControl
-- **Type**: typing.Optional[typing.Literal['EXACT', 'GOP_MULTIPLE']]
-
-### StreamInfResolution
-- **Type**: typing.Optional[typing.Literal['EXCLUDE', 'INCLUDE']]
-
-### TargetDurationCompatibilityMode
-- **Type**: typing.Optional[typing.Literal['LEGACY', 'SPEC_COMPLIANT']]
-
-### VideoCompositionOffsets
-- **Type**: typing.Optional[typing.Literal['SIGNED', 'UNSIGNED']]
-
-### WriteDashManifest
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### WriteHlsManifest
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### WriteSegmentTimelineInRepresentation
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CmafGroupSettingsOutputTypeDef
 
@@ -1485,104 +1161,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ContainerSettingsExtraOutputTypeDef
-
-### CmfcSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.CmfcSettingsTypeDef]
-
-### Container
-- **Type**: typing.Optional[typing.Literal['CMFC', 'F4V', 'ISMV', 'M2TS', 'M3U8', 'MOV', 'MP4', 'MPD', 'MXF', 'RAW', 'WEBM', 'Y4M']]
-
-### F4vSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.F4vSettingsTypeDef]
-
-### M2tsSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.M2tsSettingsExtraOutputTypeDef]
-
-### M3u8Settings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.M3u8SettingsExtraOutputTypeDef]
-
-### MovSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.MovSettingsTypeDef]
-
-### Mp4Settings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.Mp4SettingsTypeDef]
-
-### MpdSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.MpdSettingsTypeDef]
-
-### MxfSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.MxfSettingsTypeDef]
-
-
 # ContainerSettingsOutputTypeDef
 
-### CmfcSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.CmfcSettingsTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Container
-- **Type**: typing.Optional[typing.Literal['CMFC', 'F4V', 'ISMV', 'M2TS', 'M3U8', 'MOV', 'MP4', 'MPD', 'MXF', 'RAW', 'WEBM', 'Y4M']]
-
-### F4vSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.F4vSettingsTypeDef]
-
-### M2tsSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.M2tsSettingsOutputTypeDef]
-
-### M3u8Settings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.M3u8SettingsOutputTypeDef]
-
-### MovSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.MovSettingsTypeDef]
-
-### Mp4Settings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.Mp4SettingsTypeDef]
-
-### MpdSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.MpdSettingsTypeDef]
-
-### MxfSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.MxfSettingsTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ContainerSettingsTypeDef
 
-### CmfcSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.CmfcSettingsTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Container
-- **Type**: typing.Optional[typing.Literal['CMFC', 'F4V', 'ISMV', 'M2TS', 'M3U8', 'MOV', 'MP4', 'MPD', 'MXF', 'RAW', 'WEBM', 'Y4M']]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### F4vSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.F4vSettingsTypeDef]
+# ContainerTypeDef
 
-### M2tsSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.M2tsSettingsTypeDef]
+### Duration
+- **Type**: typing.Optional[float]
 
-### M3u8Settings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.M3u8SettingsTypeDef]
+### Format
+- **Type**: typing.Optional[typing.Literal['matroska', 'mp4', 'quicktime', 'webm']]
 
-### MovSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.MovSettingsTypeDef]
-
-### Mp4Settings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.Mp4SettingsTypeDef]
-
-### MpdSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.MpdSettingsTypeDef]
-
-### MxfSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.MxfSettingsTypeDef]
+### Tracks
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.TrackTypeDef]]
 
 
-# CreateJobRequestRequestTypeDef
+# CreateJobRequestTypeDef
 
 ### Role
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Settings
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediaconvert_classes.JobSettingsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediaconvert_classes.JobSettingsUnionTypeDef'>
 - **Required**: Yes
 
 ### AccelerationSettings
@@ -1596,6 +1206,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### HopDestinations
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediaconvert_classes.HopDestinationTypeDef]]
+
+### JobEngineVersion
+- **Type**: typing.Optional[str]
 
 ### JobTemplate
 - **Type**: typing.Optional[str]
@@ -1630,14 +1243,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateJobTemplateRequestRequestTypeDef
+# CreateJobTemplateRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Settings
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediaconvert_classes.JobTemplateSettingsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediaconvert_classes.JobTemplateSettingsUnionTypeDef'>
 - **Required**: Yes
 
 ### AccelerationSettings
@@ -1676,14 +1289,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePresetRequestRequestTypeDef
+# CreatePresetRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Settings
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediaconvert_classes.PresetSettingsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediaconvert_classes.PresetSettingsUnionTypeDef'>
 - **Required**: Yes
 
 ### Category
@@ -1707,11 +1320,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateQueueRequestRequestTypeDef
+# CreateQueueRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+### ConcurrentJobs
+- **Type**: typing.Optional[int]
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -1740,15 +1356,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DashAdditionalManifestExtraOutputTypeDef
-
-### ManifestNameModifier
-- **Type**: typing.Optional[str]
-
-### SelectedOutputs
-- **Type**: typing.Optional[typing.List[str]]
-
-
 # DashAdditionalManifestOutputTypeDef
 
 ### ManifestNameModifier
@@ -1767,15 +1374,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DashIsoEncryptionSettingsExtraOutputTypeDef
-
-### PlaybackDeviceCompatibility
-- **Type**: typing.Optional[typing.Literal['CENC_V1', 'UNENCRYPTED_SEI']]
-
-### SpekeKeyProvider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.SpekeKeyProviderExtraOutputTypeDef]
-
-
 # DashIsoEncryptionSettingsOutputTypeDef
 
 ### PlaybackDeviceCompatibility
@@ -1792,75 +1390,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SpekeKeyProvider
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.SpekeKeyProviderTypeDef]
-
-
-# DashIsoGroupSettingsExtraOutputTypeDef
-
-### AdditionalManifests
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.DashAdditionalManifestExtraOutputTypeDef]]
-
-### AudioChannelConfigSchemeIdUri
-- **Type**: typing.Optional[typing.Literal['DOLBY_CHANNEL_CONFIGURATION', 'MPEG_CHANNEL_CONFIGURATION']]
-
-### BaseUrl
-- **Type**: typing.Optional[str]
-
-### DashIFrameTrickPlayNameModifier
-- **Type**: typing.Optional[str]
-
-### DashManifestStyle
-- **Type**: typing.Optional[typing.Literal['BASIC', 'COMPACT', 'DISTINCT']]
-
-### Destination
-- **Type**: typing.Optional[str]
-
-### DestinationSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.DestinationSettingsTypeDef]
-
-### Encryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.DashIsoEncryptionSettingsExtraOutputTypeDef]
-
-### FragmentLength
-- **Type**: typing.Optional[int]
-
-### HbbtvCompliance
-- **Type**: typing.Optional[typing.Literal['HBBTV_1_5', 'NONE']]
-
-### ImageBasedTrickPlay
-- **Type**: typing.Optional[typing.Literal['ADVANCED', 'NONE', 'THUMBNAIL', 'THUMBNAIL_AND_FULLFRAME']]
-
-### ImageBasedTrickPlaySettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.DashIsoImageBasedTrickPlaySettingsTypeDef]
-
-### MinBufferTime
-- **Type**: typing.Optional[int]
-
-### MinFinalSegmentLength
-- **Type**: typing.Optional[float]
-
-### MpdManifestBandwidthType
-- **Type**: typing.Optional[typing.Literal['AVERAGE', 'MAX']]
-
-### MpdProfile
-- **Type**: typing.Optional[typing.Literal['MAIN_PROFILE', 'ON_DEMAND_PROFILE']]
-
-### PtsOffsetHandlingForBFrames
-- **Type**: typing.Optional[typing.Literal['MATCH_INITIAL_PTS', 'ZERO_BASED']]
-
-### SegmentControl
-- **Type**: typing.Optional[typing.Literal['SEGMENTED_FILES', 'SINGLE_FILE']]
-
-### SegmentLength
-- **Type**: typing.Optional[int]
-
-### SegmentLengthControl
-- **Type**: typing.Optional[typing.Literal['EXACT', 'GOP_MULTIPLE']]
-
-### VideoCompositionOffsets
-- **Type**: typing.Optional[typing.Literal['SIGNED', 'UNSIGNED']]
-
-### WriteSegmentTimelineInRepresentation
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
 # DashIsoGroupSettingsOutputTypeDef
@@ -2022,6 +1551,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
+# DataPropertiesTypeDef
+
+### LanguageCode
+- **Type**: typing.Optional[str]
+
+
 # DeinterlacerTypeDef
 
 ### Algorithm
@@ -2034,28 +1569,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ADAPTIVE', 'DEINTERLACE', 'INVERSE_TELECINE']]
 
 
-# DeleteJobTemplateRequestRequestTypeDef
+# DeleteJobTemplateRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePresetRequestRequestTypeDef
+# DeletePresetRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteQueueRequestRequestTypeDef
+# DeleteQueueRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeEndpointsRequestDescribeEndpointsPaginateTypeDef
+# DescribeEndpointsRequestPaginateTypeDef
 
 ### Mode
 - **Type**: typing.Optional[typing.Literal['DEFAULT', 'GET_ONLY']]
@@ -2064,7 +1599,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.PaginatorConfigTypeDef]
 
 
-# DescribeEndpointsRequestRequestTypeDef
+# DescribeEndpointsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -2096,7 +1631,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.S3DestinationSettingsTypeDef]
 
 
-# DisassociateCertificateRequestRequestTypeDef
+# DisassociateCertificateRequestTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
@@ -2114,18 +1649,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DolbyVisionTypeDef
 
-### L6Metadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.DolbyVisionLevel6MetadataTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### L6Mode
-- **Type**: typing.Optional[typing.Literal['PASSTHROUGH', 'RECALCULATE', 'SPECIFY']]
-
-### Mapping
-- **Type**: typing.Optional[typing.Literal['HDR10_1000', 'HDR10_NOMAP']]
-
-### Profile
-- **Type**: typing.Optional[typing.Literal['PROFILE_5', 'PROFILE_8_1']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DvbNitSettingsTypeDef
 
@@ -2141,18 +1667,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DvbSdtSettingsTypeDef
 
-### OutputSdt
-- **Type**: typing.Optional[typing.Literal['SDT_FOLLOW', 'SDT_FOLLOW_IF_PRESENT', 'SDT_MANUAL', 'SDT_NONE']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### SdtInterval
-- **Type**: typing.Optional[int]
-
-### ServiceName
-- **Type**: typing.Optional[str]
-
-### ServiceProviderName
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DvbSubDestinationSettingsTypeDef
 
@@ -2260,6 +1777,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### TdtInterval
 - **Type**: typing.Optional[int]
+
+
+# DynamicAudioSelectorTypeDef
+
+### AudioDurationCorrection
+- **Type**: typing.Optional[typing.Literal['AUTO', 'DISABLED', 'FORCE', 'FRAME', 'TRACK']]
+
+### ExternalAudioFileInput
+- **Type**: typing.Optional[str]
+
+### LanguageCode
+- **Type**: typing.Optional[typing.Literal['AAR', 'ABK', 'AFR', 'AKA', 'AMH', 'ARA', 'ARG', 'ASM', 'AVA', 'AVE', 'AYM', 'AZE', 'BAK', 'BAM', 'BEL', 'BEN', 'BIH', 'BIS', 'BOD', 'BOS', 'BRE', 'BUL', 'CAT', 'CES', 'CHA', 'CHE', 'CHU', 'CHV', 'COR', 'COS', 'CRE', 'CYM', 'DAN', 'DEU', 'DIV', 'DZO', 'ELL', 'ENG', 'ENM', 'EPO', 'EST', 'EUS', 'EWE', 'FAO', 'FAS', 'FIJ', 'FIN', 'FRA', 'FRM', 'FRY', 'FUL', 'GER', 'GLA', 'GLE', 'GLG', 'GLV', 'GRN', 'GUJ', 'HAT', 'HAU', 'HEB', 'HER', 'HIN', 'HMO', 'HRV', 'HUN', 'HYE', 'IBO', 'IDO', 'III', 'IKU', 'ILE', 'INA', 'IND', 'IPK', 'ISL', 'ITA', 'JAV', 'JPN', 'KAL', 'KAN', 'KAS', 'KAT', 'KAU', 'KAZ', 'KHM', 'KIK', 'KIN', 'KIR', 'KOM', 'KON', 'KOR', 'KUA', 'KUR', 'LAO', 'LAT', 'LAV', 'LIM', 'LIN', 'LIT', 'LTZ', 'LUB', 'LUG', 'MAH', 'MAL', 'MAR', 'MKD', 'MLG', 'MLT', 'MON', 'MRI', 'MSA', 'MYA', 'NAU', 'NAV', 'NBL', 'NDE', 'NDO', 'NEP', 'NLD', 'NNO', 'NOB', 'NOR', 'NYA', 'OCI', 'OJI', 'ORI', 'ORJ', 'ORM', 'OSS', 'PAN', 'PLI', 'POL', 'POR', 'PUS', 'QAA', 'QPC', 'QUE', 'ROH', 'RON', 'RUN', 'RUS', 'SAG', 'SAN', 'SIN', 'SLK', 'SLV', 'SME', 'SMO', 'SNA', 'SND', 'SOM', 'SOT', 'SPA', 'SQI', 'SRB', 'SRD', 'SRP', 'SSW', 'SUN', 'SWA', 'SWE', 'TAH', 'TAM', 'TAT', 'TEL', 'TGK', 'TGL', 'THA', 'TIR', 'TNG', 'TON', 'TSN', 'TSO', 'TUK', 'TUR', 'TWI', 'UIG', 'UKR', 'URD', 'UZB', 'VEN', 'VIE', 'VOL', 'WLN', 'WOL', 'XHO', 'YID', 'YOR', 'ZHA', 'ZHO', 'ZUL']]
+
+### Offset
+- **Type**: typing.Optional[int]
+
+### SelectorType
+- **Type**: typing.Optional[typing.Literal['ALL_TRACKS', 'LANGUAGE_CODE']]
 
 
 # Eac3AtmosSettingsTypeDef
@@ -2406,6 +1941,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'END_OF_INPUT']]
 
 
+# EncryptionContractConfigurationTypeDef
+
+### SpekeAudioPreset
+- **Type**: typing.Optional[typing.Literal['PRESET_AUDIO_1', 'PRESET_AUDIO_2', 'PRESET_AUDIO_3', 'SHARED', 'UNENCRYPTED']]
+
+### SpekeVideoPreset
+- **Type**: typing.Optional[typing.Literal['PRESET_VIDEO_1', 'PRESET_VIDEO_2', 'PRESET_VIDEO_3', 'PRESET_VIDEO_4', 'PRESET_VIDEO_5', 'PRESET_VIDEO_6', 'PRESET_VIDEO_7', 'PRESET_VIDEO_8', 'SHARED', 'UNENCRYPTED']]
+
+
 # EndpointTypeDef
 
 ### Url
@@ -2445,6 +1989,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['PASSTHROUGH', 'STRIP']]
 
 
+# ExtraTypeDef
+
+### AudioDescriptions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.AudioDescriptionOutputTypeDef]]
+
+### CaptionDescriptions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.CaptionDescriptionOutputTypeDef]]
+
+### ContainerSettings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.ContainerSettingsOutputTypeDef]
+
+### Extension
+- **Type**: typing.Optional[str]
+
+### NameModifier
+- **Type**: typing.Optional[str]
+
+### OutputSettings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.OutputSettingsTypeDef]
+
+### Preset
+- **Type**: typing.Optional[str]
+
+### VideoDescription
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.VideoDescriptionOutputTypeDef]
+
+
 # F4vSettingsTypeDef
 
 ### MoovPlacement
@@ -2461,6 +2032,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 
 # FileSourceSettingsTypeDef
+
+### ByteRateLimit
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### Convert608To708
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'UPCONVERT']]
@@ -2517,7 +2091,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetJobRequestRequestTypeDef
+# FrameRateTypeDef
+
+### Denominator
+- **Type**: typing.Optional[int]
+
+### Numerator
+- **Type**: typing.Optional[int]
+
+
+# GetJobRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -2535,7 +2118,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetJobTemplateRequestRequestTypeDef
+# GetJobTemplateRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -2564,7 +2147,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPresetRequestRequestTypeDef
+# GetPresetRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -2582,7 +2165,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetQueueRequestRequestTypeDef
+# GetQueueRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -2598,6 +2181,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.mediaconvert_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+
+# GifSettingsTypeDef
+
+### FramerateControl
+- **Type**: typing.Optional[typing.Literal['INITIALIZE_FROM_SOURCE', 'SPECIFIED']]
+
+### FramerateConversionAlgorithm
+- **Type**: typing.Optional[typing.Literal['DUPLICATE_DROP', 'INTERPOLATE']]
+
+### FramerateDenominator
+- **Type**: typing.Optional[int]
+
+### FramerateNumerator
+- **Type**: typing.Optional[int]
 
 
 # H264QvbrSettingsTypeDef
@@ -2648,7 +2246,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['INITIALIZE_FROM_SOURCE', 'SPECIFIED']]
 
 ### FramerateConversionAlgorithm
-- **Type**: typing.Optional[typing.Literal['DUPLICATE_DROP', 'FRAMEFORMER', 'INTERPOLATE']]
+- **Type**: typing.Optional[typing.Literal['DUPLICATE_DROP', 'FRAMEFORMER', 'INTERPOLATE', 'MAINTAIN_FRAME_COUNT']]
 
 ### FramerateDenominator
 - **Type**: typing.Optional[int]
@@ -2713,6 +2311,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RepeatPps
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
+### SaliencyAwareEncoding
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'PREFERRED']]
+
 ### ScanTypeConversionMode
 - **Type**: typing.Optional[typing.Literal['INTERLACED', 'INTERLACED_OPTIMIZE']]
 
@@ -2742,6 +2343,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### UnregisteredSeiTimecode
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### WriteMp4PackagingType
+- **Type**: typing.Optional[typing.Literal['AVC1', 'AVC3']]
 
 
 # H265QvbrSettingsTypeDef
@@ -2776,6 +2380,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### CodecProfile
 - **Type**: typing.Optional[typing.Literal['MAIN10_HIGH', 'MAIN10_MAIN', 'MAIN_422_10BIT_HIGH', 'MAIN_422_10BIT_MAIN', 'MAIN_422_8BIT_HIGH', 'MAIN_422_8BIT_MAIN', 'MAIN_HIGH', 'MAIN_MAIN']]
 
+### Deblocking
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
 ### DynamicSubGop
 - **Type**: typing.Optional[typing.Literal['ADAPTIVE', 'STATIC']]
 
@@ -2789,7 +2396,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['INITIALIZE_FROM_SOURCE', 'SPECIFIED']]
 
 ### FramerateConversionAlgorithm
-- **Type**: typing.Optional[typing.Literal['DUPLICATE_DROP', 'FRAMEFORMER', 'INTERPOLATE']]
+- **Type**: typing.Optional[typing.Literal['DUPLICATE_DROP', 'FRAMEFORMER', 'INTERPOLATE', 'MAINTAIN_FRAME_COUNT']]
 
 ### FramerateDenominator
 - **Type**: typing.Optional[int]
@@ -2936,15 +2543,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# HlsAdditionalManifestExtraOutputTypeDef
-
-### ManifestNameModifier
-- **Type**: typing.Optional[str]
-
-### SelectedOutputs
-- **Type**: typing.Optional[typing.List[str]]
-
-
 # HlsAdditionalManifestOutputTypeDef
 
 ### ManifestNameModifier
@@ -2978,176 +2576,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# HlsEncryptionSettingsExtraOutputTypeDef
-
-### ConstantInitializationVector
-- **Type**: typing.Optional[str]
-
-### EncryptionMethod
-- **Type**: typing.Optional[typing.Literal['AES128', 'SAMPLE_AES']]
-
-### InitializationVectorInManifest
-- **Type**: typing.Optional[typing.Literal['EXCLUDE', 'INCLUDE']]
-
-### OfflineEncrypted
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### SpekeKeyProvider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.SpekeKeyProviderExtraOutputTypeDef]
-
-### StaticKeyProvider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.StaticKeyProviderTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['SPEKE', 'STATIC_KEY']]
-
-
 # HlsEncryptionSettingsOutputTypeDef
 
-### ConstantInitializationVector
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### EncryptionMethod
-- **Type**: typing.Optional[typing.Literal['AES128', 'SAMPLE_AES']]
-
-### InitializationVectorInManifest
-- **Type**: typing.Optional[typing.Literal['EXCLUDE', 'INCLUDE']]
-
-### OfflineEncrypted
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### SpekeKeyProvider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.SpekeKeyProviderOutputTypeDef]
-
-### StaticKeyProvider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.StaticKeyProviderTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['SPEKE', 'STATIC_KEY']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HlsEncryptionSettingsTypeDef
 
-### ConstantInitializationVector
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### EncryptionMethod
-- **Type**: typing.Optional[typing.Literal['AES128', 'SAMPLE_AES']]
-
-### InitializationVectorInManifest
-- **Type**: typing.Optional[typing.Literal['EXCLUDE', 'INCLUDE']]
-
-### OfflineEncrypted
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### SpekeKeyProvider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.SpekeKeyProviderTypeDef]
-
-### StaticKeyProvider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.StaticKeyProviderTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['SPEKE', 'STATIC_KEY']]
-
-
-# HlsGroupSettingsExtraOutputTypeDef
-
-### AdMarkers
-- **Type**: typing.Optional[typing.List[typing.Literal['ELEMENTAL', 'ELEMENTAL_SCTE35']]]
-
-### AdditionalManifests
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.HlsAdditionalManifestExtraOutputTypeDef]]
-
-### AudioOnlyHeader
-- **Type**: typing.Optional[typing.Literal['EXCLUDE', 'INCLUDE']]
-
-### BaseUrl
-- **Type**: typing.Optional[str]
-
-### CaptionLanguageMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.HlsCaptionLanguageMappingTypeDef]]
-
-### CaptionLanguageSetting
-- **Type**: typing.Optional[typing.Literal['INSERT', 'NONE', 'OMIT']]
-
-### CaptionSegmentLengthControl
-- **Type**: typing.Optional[typing.Literal['LARGE_SEGMENTS', 'MATCH_VIDEO']]
-
-### ClientCache
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### CodecSpecification
-- **Type**: typing.Optional[typing.Literal['RFC_4281', 'RFC_6381']]
-
-### Destination
-- **Type**: typing.Optional[str]
-
-### DestinationSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.DestinationSettingsTypeDef]
-
-### DirectoryStructure
-- **Type**: typing.Optional[typing.Literal['SINGLE_DIRECTORY', 'SUBDIRECTORY_PER_STREAM']]
-
-### Encryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.HlsEncryptionSettingsExtraOutputTypeDef]
-
-### ImageBasedTrickPlay
-- **Type**: typing.Optional[typing.Literal['ADVANCED', 'NONE', 'THUMBNAIL', 'THUMBNAIL_AND_FULLFRAME']]
-
-### ImageBasedTrickPlaySettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.HlsImageBasedTrickPlaySettingsTypeDef]
-
-### ManifestCompression
-- **Type**: typing.Optional[typing.Literal['GZIP', 'NONE']]
-
-### ManifestDurationFormat
-- **Type**: typing.Optional[typing.Literal['FLOATING_POINT', 'INTEGER']]
-
-### MinFinalSegmentLength
-- **Type**: typing.Optional[float]
-
-### MinSegmentLength
-- **Type**: typing.Optional[int]
-
-### OutputSelection
-- **Type**: typing.Optional[typing.Literal['MANIFESTS_AND_SEGMENTS', 'SEGMENTS_ONLY']]
-
-### ProgramDateTime
-- **Type**: typing.Optional[typing.Literal['EXCLUDE', 'INCLUDE']]
-
-### ProgramDateTimePeriod
-- **Type**: typing.Optional[int]
-
-### ProgressiveWriteHlsManifest
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### SegmentControl
-- **Type**: typing.Optional[typing.Literal['SEGMENTED_FILES', 'SINGLE_FILE']]
-
-### SegmentLength
-- **Type**: typing.Optional[int]
-
-### SegmentLengthControl
-- **Type**: typing.Optional[typing.Literal['EXACT', 'GOP_MULTIPLE']]
-
-### SegmentsPerSubdirectory
-- **Type**: typing.Optional[int]
-
-### StreamInfResolution
-- **Type**: typing.Optional[typing.Literal['EXCLUDE', 'INCLUDE']]
-
-### TargetDurationCompatibilityMode
-- **Type**: typing.Optional[typing.Literal['LEGACY', 'SPEC_COMPLIANT']]
-
-### TimedMetadataId3Frame
-- **Type**: typing.Optional[typing.Literal['NONE', 'PRIV', 'TDRL']]
-
-### TimedMetadataId3Period
-- **Type**: typing.Optional[int]
-
-### TimestampDeltaMilliseconds
-- **Type**: typing.Optional[int]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HlsGroupSettingsOutputTypeDef
 
@@ -3425,15 +2864,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ImageInserterExtraOutputTypeDef
-
-### InsertableImages
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.InsertableImageTypeDef]]
-
-### SdrReferenceWhiteLevel
-- **Type**: typing.Optional[int]
-
-
 # ImageInserterOutputTypeDef
 
 ### InsertableImages
@@ -3485,84 +2915,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# InputExtraOutputTypeDef
-
-### AdvancedInputFilter
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### AdvancedInputFilterSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.AdvancedInputFilterSettingsTypeDef]
-
-### AudioSelectorGroups
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.mediaconvert_classes.AudioSelectorGroupExtraOutputTypeDef]]
-
-### AudioSelectors
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.mediaconvert_classes.AudioSelectorExtraOutputTypeDef]]
-
-### CaptionSelectors
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.mediaconvert_classes.CaptionSelectorTypeDef]]
-
-### Crop
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.RectangleTypeDef]
-
-### DeblockFilter
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### DecryptionSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.InputDecryptionSettingsTypeDef]
-
-### DenoiseFilter
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### DolbyVisionMetadataXml
-- **Type**: typing.Optional[str]
-
-### FileInput
-- **Type**: typing.Optional[str]
-
-### FilterEnable
-- **Type**: typing.Optional[typing.Literal['AUTO', 'DISABLE', 'FORCE']]
-
-### FilterStrength
-- **Type**: typing.Optional[int]
-
-### ImageInserter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.ImageInserterExtraOutputTypeDef]
-
-### InputClippings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.InputClippingTypeDef]]
-
-### InputScanType
-- **Type**: typing.Optional[typing.Literal['AUTO', 'PSF']]
-
-### Position
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.RectangleTypeDef]
-
-### ProgramNumber
-- **Type**: typing.Optional[int]
-
-### PsiControl
-- **Type**: typing.Optional[typing.Literal['IGNORE_PSI', 'USE_PSI']]
-
-### SupplementalImps
-- **Type**: typing.Optional[typing.List[str]]
-
-### TimecodeSource
-- **Type**: typing.Optional[typing.Literal['EMBEDDED', 'SPECIFIEDSTART', 'ZEROBASED']]
-
-### TimecodeStart
-- **Type**: typing.Optional[str]
-
-### VideoGenerator
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.InputVideoGeneratorTypeDef]
-
-### VideoOverlays
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.VideoOverlayExtraOutputTypeDef]]
-
-### VideoSelector
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.VideoSelectorTypeDef]
-
-
 # InputOutputTypeDef
 
 ### AdvancedInputFilter
@@ -3594,6 +2946,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### DolbyVisionMetadataXml
 - **Type**: typing.Optional[str]
+
+### DynamicAudioSelectors
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.mediaconvert_classes.DynamicAudioSelectorTypeDef]]
 
 ### FileInput
 - **Type**: typing.Optional[str]
@@ -3641,72 +2996,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.VideoSelectorTypeDef]
 
 
-# InputTemplateExtraOutputTypeDef
-
-### AdvancedInputFilter
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### AdvancedInputFilterSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.AdvancedInputFilterSettingsTypeDef]
-
-### AudioSelectorGroups
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.mediaconvert_classes.AudioSelectorGroupExtraOutputTypeDef]]
-
-### AudioSelectors
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.mediaconvert_classes.AudioSelectorExtraOutputTypeDef]]
-
-### CaptionSelectors
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.mediaconvert_classes.CaptionSelectorTypeDef]]
-
-### Crop
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.RectangleTypeDef]
-
-### DeblockFilter
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### DenoiseFilter
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### DolbyVisionMetadataXml
-- **Type**: typing.Optional[str]
-
-### FilterEnable
-- **Type**: typing.Optional[typing.Literal['AUTO', 'DISABLE', 'FORCE']]
-
-### FilterStrength
-- **Type**: typing.Optional[int]
-
-### ImageInserter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.ImageInserterExtraOutputTypeDef]
-
-### InputClippings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.InputClippingTypeDef]]
-
-### InputScanType
-- **Type**: typing.Optional[typing.Literal['AUTO', 'PSF']]
-
-### Position
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.RectangleTypeDef]
-
-### ProgramNumber
-- **Type**: typing.Optional[int]
-
-### PsiControl
-- **Type**: typing.Optional[typing.Literal['IGNORE_PSI', 'USE_PSI']]
-
-### TimecodeSource
-- **Type**: typing.Optional[typing.Literal['EMBEDDED', 'SPECIFIEDSTART', 'ZEROBASED']]
-
-### TimecodeStart
-- **Type**: typing.Optional[str]
-
-### VideoOverlays
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.VideoOverlayExtraOutputTypeDef]]
-
-### VideoSelector
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.VideoSelectorTypeDef]
-
-
 # InputTemplateOutputTypeDef
 
 ### AdvancedInputFilter
@@ -3735,6 +3024,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### DolbyVisionMetadataXml
 - **Type**: typing.Optional[str]
+
+### DynamicAudioSelectors
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.mediaconvert_classes.DynamicAudioSelectorTypeDef]]
 
 ### FilterEnable
 - **Type**: typing.Optional[typing.Literal['AUTO', 'DISABLE', 'FORCE']]
@@ -3801,6 +3093,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### DolbyVisionMetadataXml
 - **Type**: typing.Optional[str]
+
+### DynamicAudioSelectors
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.mediaconvert_classes.DynamicAudioSelectorTypeDef]]
 
 ### FilterEnable
 - **Type**: typing.Optional[typing.Literal['AUTO', 'DISABLE', 'FORCE']]
@@ -3870,6 +3165,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### DolbyVisionMetadataXml
 - **Type**: typing.Optional[str]
+
+### DynamicAudioSelectors
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.mediaconvert_classes.DynamicAudioSelectorTypeDef]]
 
 ### FileInput
 - **Type**: typing.Optional[str]
@@ -3971,59 +3269,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
+# JobEngineVersionTypeDef
+
+### ExpirationDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### Version
+- **Type**: typing.Optional[str]
+
+
 # JobMessagesTypeDef
 
-### Info
-- **Type**: typing.Optional[typing.List[str]]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Warning
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# JobSettingsExtraOutputTypeDef
-
-### AdAvailOffset
-- **Type**: typing.Optional[int]
-
-### AvailBlanking
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.AvailBlankingTypeDef]
-
-### ColorConversion3DLUTSettings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.ColorConversion3DLUTSettingTypeDef]]
-
-### Esam
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.EsamSettingsTypeDef]
-
-### ExtendedDataServices
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.ExtendedDataServicesTypeDef]
-
-### FollowSource
-- **Type**: typing.Optional[int]
-
-### Inputs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.InputExtraOutputTypeDef]]
-
-### KantarWatermark
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.KantarWatermarkSettingsTypeDef]
-
-### MotionImageInserter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.MotionImageInserterTypeDef]
-
-### NielsenConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.NielsenConfigurationTypeDef]
-
-### NielsenNonLinearWatermark
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.NielsenNonLinearWatermarkSettingsTypeDef]
-
-### OutputGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.OutputGroupExtraOutputTypeDef]]
-
-### TimecodeConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.TimecodeConfigTypeDef]
-
-### TimedMetadataInsertion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.TimedMetadataInsertionExtraOutputTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # JobSettingsOutputTypeDef
 
@@ -4115,50 +3374,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.TimedMetadataInsertionTypeDef]
 
 
-# JobTemplateSettingsExtraOutputTypeDef
+# JobSettingsUnionTypeDef
 
-### AdAvailOffset
-- **Type**: typing.Optional[int]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### AvailBlanking
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.AvailBlankingTypeDef]
-
-### ColorConversion3DLUTSettings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.ColorConversion3DLUTSettingTypeDef]]
-
-### Esam
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.EsamSettingsTypeDef]
-
-### ExtendedDataServices
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.ExtendedDataServicesTypeDef]
-
-### FollowSource
-- **Type**: typing.Optional[int]
-
-### Inputs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.InputTemplateExtraOutputTypeDef]]
-
-### KantarWatermark
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.KantarWatermarkSettingsTypeDef]
-
-### MotionImageInserter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.MotionImageInserterTypeDef]
-
-### NielsenConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.NielsenConfigurationTypeDef]
-
-### NielsenNonLinearWatermark
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.NielsenNonLinearWatermarkSettingsTypeDef]
-
-### OutputGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.OutputGroupExtraOutputTypeDef]]
-
-### TimecodeConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.TimecodeConfigTypeDef]
-
-### TimedMetadataInsertion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.TimedMetadataInsertionExtraOutputTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # JobTemplateSettingsOutputTypeDef
 
@@ -4250,49 +3470,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.TimedMetadataInsertionTypeDef]
 
 
+# JobTemplateSettingsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # JobTemplateTypeDef
 
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Settings
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediaconvert_classes.JobTemplateSettingsOutputTypeDef'>
-- **Required**: Yes
-
-### AccelerationSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.AccelerationSettingsTypeDef]
-
-### Arn
-- **Type**: typing.Optional[str]
-
-### Category
-- **Type**: typing.Optional[str]
-
-### CreatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### HopDestinations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.HopDestinationTypeDef]]
-
-### LastUpdated
-- **Type**: typing.Optional[datetime.datetime]
-
-### Priority
-- **Type**: typing.Optional[int]
-
-### Queue
-- **Type**: typing.Optional[str]
-
-### StatusUpdateInterval
-- **Type**: typing.Optional[typing.Literal['SECONDS_10', 'SECONDS_12', 'SECONDS_120', 'SECONDS_15', 'SECONDS_180', 'SECONDS_20', 'SECONDS_240', 'SECONDS_30', 'SECONDS_300', 'SECONDS_360', 'SECONDS_420', 'SECONDS_480', 'SECONDS_540', 'SECONDS_60', 'SECONDS_600']]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['CUSTOM', 'SYSTEM']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # JobTypeDef
 
@@ -4335,6 +3523,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.HopDestinationTypeDef]]
 
 ### Id
+- **Type**: typing.Optional[str]
+
+### JobEngineVersionRequested
+- **Type**: typing.Optional[str]
+
+### JobEngineVersionUsed
 - **Type**: typing.Optional[str]
 
 ### JobPercentComplete
@@ -4422,7 +3616,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListJobTemplatesRequestListJobTemplatesPaginateTypeDef
+# ListJobTemplatesRequestPaginateTypeDef
 
 ### Category
 - **Type**: typing.Optional[str]
@@ -4437,7 +3631,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.PaginatorConfigTypeDef]
 
 
-# ListJobTemplatesRequestRequestTypeDef
+# ListJobTemplatesRequestTypeDef
 
 ### Category
 - **Type**: typing.Optional[str]
@@ -4469,7 +3663,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListJobsRequestListJobsPaginateTypeDef
+# ListJobsRequestPaginateTypeDef
 
 ### Order
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
@@ -4484,7 +3678,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.PaginatorConfigTypeDef]
 
 
-# ListJobsRequestRequestTypeDef
+# ListJobsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -4516,7 +3710,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPresetsRequestListPresetsPaginateTypeDef
+# ListPresetsRequestPaginateTypeDef
 
 ### Category
 - **Type**: typing.Optional[str]
@@ -4531,7 +3725,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.PaginatorConfigTypeDef]
 
 
-# ListPresetsRequestRequestTypeDef
+# ListPresetsRequestTypeDef
 
 ### Category
 - **Type**: typing.Optional[str]
@@ -4563,7 +3757,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListQueuesRequestListQueuesPaginateTypeDef
+# ListQueuesRequestPaginateTypeDef
 
 ### ListBy
 - **Type**: typing.Optional[typing.Literal['CREATION_DATE', 'NAME']]
@@ -4575,7 +3769,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.PaginatorConfigTypeDef]
 
 
-# ListQueuesRequestRequestTypeDef
+# ListQueuesRequestTypeDef
 
 ### ListBy
 - **Type**: typing.Optional[typing.Literal['CREATION_DATE', 'NAME']]
@@ -4596,6 +3790,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.QueueTypeDef]
 - **Required**: Yes
 
+### TotalConcurrentJobs
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### UnallocatedConcurrentJobs
+- **Type**: <class 'int'>
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.mediaconvert_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
@@ -4604,7 +3806,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
@@ -4622,138 +3824,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# ListVersionsRequestPaginateTypeDef
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.PaginatorConfigTypeDef]
+
+
+# ListVersionsRequestTypeDef
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListVersionsResponseTypeDef
+
+### Versions
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.JobEngineVersionTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediaconvert_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
 # M2tsScte35EsamTypeDef
 
 ### Scte35EsamPid
-- **Type**: typing.Optional[int]
-
-
-# M2tsSettingsExtraOutputTypeDef
-
-### AudioBufferModel
-- **Type**: typing.Optional[typing.Literal['ATSC', 'DVB']]
-
-### AudioDuration
-- **Type**: typing.Optional[typing.Literal['DEFAULT_CODEC_DURATION', 'MATCH_VIDEO_DURATION']]
-
-### AudioFramesPerPes
-- **Type**: typing.Optional[int]
-
-### AudioPids
-- **Type**: typing.Optional[typing.List[int]]
-
-### Bitrate
-- **Type**: typing.Optional[int]
-
-### BufferModel
-- **Type**: typing.Optional[typing.Literal['MULTIPLEX', 'NONE']]
-
-### DataPTSControl
-- **Type**: typing.Optional[typing.Literal['ALIGN_TO_VIDEO', 'AUTO']]
-
-### DvbNitSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.DvbNitSettingsTypeDef]
-
-### DvbSdtSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.DvbSdtSettingsTypeDef]
-
-### DvbSubPids
-- **Type**: typing.Optional[typing.List[int]]
-
-### DvbTdtSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.DvbTdtSettingsTypeDef]
-
-### DvbTeletextPid
-- **Type**: typing.Optional[int]
-
-### EbpAudioInterval
-- **Type**: typing.Optional[typing.Literal['VIDEO_AND_FIXED_INTERVALS', 'VIDEO_INTERVAL']]
-
-### EbpPlacement
-- **Type**: typing.Optional[typing.Literal['VIDEO_AND_AUDIO_PIDS', 'VIDEO_PID']]
-
-### EsRateInPes
-- **Type**: typing.Optional[typing.Literal['EXCLUDE', 'INCLUDE']]
-
-### ForceTsVideoEbpOrder
-- **Type**: typing.Optional[typing.Literal['DEFAULT', 'FORCE']]
-
-### FragmentTime
-- **Type**: typing.Optional[float]
-
-### KlvMetadata
-- **Type**: typing.Optional[typing.Literal['NONE', 'PASSTHROUGH']]
-
-### MaxPcrInterval
-- **Type**: typing.Optional[int]
-
-### MinEbpInterval
-- **Type**: typing.Optional[int]
-
-### NielsenId3
-- **Type**: typing.Optional[typing.Literal['INSERT', 'NONE']]
-
-### NullPacketBitrate
-- **Type**: typing.Optional[float]
-
-### PatInterval
-- **Type**: typing.Optional[int]
-
-### PcrControl
-- **Type**: typing.Optional[typing.Literal['CONFIGURED_PCR_PERIOD', 'PCR_EVERY_PES_PACKET']]
-
-### PcrPid
-- **Type**: typing.Optional[int]
-
-### PmtInterval
-- **Type**: typing.Optional[int]
-
-### PmtPid
-- **Type**: typing.Optional[int]
-
-### PreventBufferUnderflow
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### PrivateMetadataPid
-- **Type**: typing.Optional[int]
-
-### ProgramNumber
-- **Type**: typing.Optional[int]
-
-### PtsOffset
-- **Type**: typing.Optional[int]
-
-### PtsOffsetMode
-- **Type**: typing.Optional[typing.Literal['AUTO', 'SECONDS']]
-
-### RateMode
-- **Type**: typing.Optional[typing.Literal['CBR', 'VBR']]
-
-### Scte35Esam
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.M2tsScte35EsamTypeDef]
-
-### Scte35Pid
-- **Type**: typing.Optional[int]
-
-### Scte35Source
-- **Type**: typing.Optional[typing.Literal['NONE', 'PASSTHROUGH']]
-
-### SegmentationMarkers
-- **Type**: typing.Optional[typing.Literal['EBP', 'EBP_LEGACY', 'NONE', 'PSI_SEGSTART', 'RAI_ADAPT', 'RAI_SEGSTART']]
-
-### SegmentationStyle
-- **Type**: typing.Optional[typing.Literal['MAINTAIN_CADENCE', 'RESET_CADENCE']]
-
-### SegmentationTime
-- **Type**: typing.Optional[float]
-
-### TimedMetadataPid
-- **Type**: typing.Optional[int]
-
-### TransportStreamId
-- **Type**: typing.Optional[int]
-
-### VideoPid
 - **Type**: typing.Optional[int]
 
 
@@ -5015,72 +4117,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# M3u8SettingsExtraOutputTypeDef
-
-### AudioDuration
-- **Type**: typing.Optional[typing.Literal['DEFAULT_CODEC_DURATION', 'MATCH_VIDEO_DURATION']]
-
-### AudioFramesPerPes
-- **Type**: typing.Optional[int]
-
-### AudioPids
-- **Type**: typing.Optional[typing.List[int]]
-
-### DataPTSControl
-- **Type**: typing.Optional[typing.Literal['ALIGN_TO_VIDEO', 'AUTO']]
-
-### MaxPcrInterval
-- **Type**: typing.Optional[int]
-
-### NielsenId3
-- **Type**: typing.Optional[typing.Literal['INSERT', 'NONE']]
-
-### PatInterval
-- **Type**: typing.Optional[int]
-
-### PcrControl
-- **Type**: typing.Optional[typing.Literal['CONFIGURED_PCR_PERIOD', 'PCR_EVERY_PES_PACKET']]
-
-### PcrPid
-- **Type**: typing.Optional[int]
-
-### PmtInterval
-- **Type**: typing.Optional[int]
-
-### PmtPid
-- **Type**: typing.Optional[int]
-
-### PrivateMetadataPid
-- **Type**: typing.Optional[int]
-
-### ProgramNumber
-- **Type**: typing.Optional[int]
-
-### PtsOffset
-- **Type**: typing.Optional[int]
-
-### PtsOffsetMode
-- **Type**: typing.Optional[typing.Literal['AUTO', 'SECONDS']]
-
-### Scte35Pid
-- **Type**: typing.Optional[int]
-
-### Scte35Source
-- **Type**: typing.Optional[typing.Literal['NONE', 'PASSTHROUGH']]
-
-### TimedMetadata
-- **Type**: typing.Optional[typing.Literal['NONE', 'PASSTHROUGH']]
-
-### TimedMetadataPid
-- **Type**: typing.Optional[int]
-
-### TransportStreamId
-- **Type**: typing.Optional[int]
-
-### VideoPid
-- **Type**: typing.Optional[int]
-
-
 # M3u8SettingsOutputTypeDef
 
 ### AudioDuration
@@ -5211,6 +4247,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### VideoPid
 - **Type**: typing.Optional[int]
+
+
+# MetadataTypeDef
+
+### ETag
+- **Type**: typing.Optional[str]
+
+### FileSize
+- **Type**: typing.Optional[int]
+
+### LastModified
+- **Type**: typing.Optional[datetime.datetime]
+
+### MimeType
+- **Type**: typing.Optional[str]
 
 
 # MinBottomRenditionSizeTypeDef
@@ -5396,7 +4447,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['INITIALIZE_FROM_SOURCE', 'SPECIFIED']]
 
 ### FramerateConversionAlgorithm
-- **Type**: typing.Optional[typing.Literal['DUPLICATE_DROP', 'FRAMEFORMER', 'INTERPOLATE']]
+- **Type**: typing.Optional[typing.Literal['DUPLICATE_DROP', 'FRAMEFORMER', 'INTERPOLATE', 'MAINTAIN_FRAME_COUNT']]
 
 ### FramerateDenominator
 - **Type**: typing.Optional[int]
@@ -5477,15 +4528,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
-# MsSmoothAdditionalManifestExtraOutputTypeDef
-
-### ManifestNameModifier
-- **Type**: typing.Optional[str]
-
-### SelectedOutputs
-- **Type**: typing.Optional[typing.List[str]]
-
-
 # MsSmoothAdditionalManifestOutputTypeDef
 
 ### ManifestNameModifier
@@ -5504,12 +4546,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# MsSmoothEncryptionSettingsExtraOutputTypeDef
-
-### SpekeKeyProvider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.SpekeKeyProviderExtraOutputTypeDef]
-
-
 # MsSmoothEncryptionSettingsOutputTypeDef
 
 ### SpekeKeyProvider
@@ -5520,33 +4556,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SpekeKeyProvider
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.SpekeKeyProviderTypeDef]
-
-
-# MsSmoothGroupSettingsExtraOutputTypeDef
-
-### AdditionalManifests
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.MsSmoothAdditionalManifestExtraOutputTypeDef]]
-
-### AudioDeduplication
-- **Type**: typing.Optional[typing.Literal['COMBINE_DUPLICATE_STREAMS', 'NONE']]
-
-### Destination
-- **Type**: typing.Optional[str]
-
-### DestinationSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.DestinationSettingsTypeDef]
-
-### Encryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.MsSmoothEncryptionSettingsExtraOutputTypeDef]
-
-### FragmentLength
-- **Type**: typing.Optional[int]
-
-### FragmentLengthControl
-- **Type**: typing.Optional[typing.Literal['EXACT', 'GOP_MULTIPLE']]
-
-### ManifestEncoding
-- **Type**: typing.Optional[typing.Literal['UTF16', 'UTF8']]
 
 
 # MsSmoothGroupSettingsOutputTypeDef
@@ -5747,15 +4756,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# OutputChannelMappingExtraOutputTypeDef
-
-### InputChannels
-- **Type**: typing.Optional[typing.List[int]]
-
-### InputChannelsFineTune
-- **Type**: typing.Optional[typing.List[float]]
-
-
 # OutputChannelMappingOutputTypeDef
 
 ### InputChannels
@@ -5789,24 +4789,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.OutputDetailTypeDef]]
 
 
-# OutputGroupExtraOutputTypeDef
-
-### AutomatedEncodingSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.AutomatedEncodingSettingsExtraOutputTypeDef]
-
-### CustomName
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### OutputGroupSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.OutputGroupSettingsExtraOutputTypeDef]
-
-### Outputs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.OutputTypeDef]]
-
-
 # OutputGroupOutputTypeDef
 
 ### AutomatedEncodingSettings
@@ -5822,71 +4804,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.OutputGroupSettingsOutputTypeDef]
 
 ### Outputs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.OutputTypeDef]]
-
-
-# OutputGroupSettingsExtraOutputTypeDef
-
-### CmafGroupSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.CmafGroupSettingsExtraOutputTypeDef]
-
-### DashIsoGroupSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.DashIsoGroupSettingsExtraOutputTypeDef]
-
-### FileGroupSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.FileGroupSettingsTypeDef]
-
-### HlsGroupSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.HlsGroupSettingsExtraOutputTypeDef]
-
-### MsSmoothGroupSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.MsSmoothGroupSettingsExtraOutputTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['CMAF_GROUP_SETTINGS', 'DASH_ISO_GROUP_SETTINGS', 'FILE_GROUP_SETTINGS', 'HLS_GROUP_SETTINGS', 'MS_SMOOTH_GROUP_SETTINGS']]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.ExtraTypeDef]]
 
 
 # OutputGroupSettingsOutputTypeDef
 
-### CmafGroupSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.CmafGroupSettingsOutputTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### DashIsoGroupSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.DashIsoGroupSettingsOutputTypeDef]
-
-### FileGroupSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.FileGroupSettingsTypeDef]
-
-### HlsGroupSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.HlsGroupSettingsOutputTypeDef]
-
-### MsSmoothGroupSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.MsSmoothGroupSettingsOutputTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['CMAF_GROUP_SETTINGS', 'DASH_ISO_GROUP_SETTINGS', 'FILE_GROUP_SETTINGS', 'HLS_GROUP_SETTINGS', 'MS_SMOOTH_GROUP_SETTINGS']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # OutputGroupSettingsTypeDef
 
-### CmafGroupSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.CmafGroupSettingsTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### DashIsoGroupSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.DashIsoGroupSettingsTypeDef]
-
-### FileGroupSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.FileGroupSettingsTypeDef]
-
-### HlsGroupSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.HlsGroupSettingsTypeDef]
-
-### MsSmoothGroupSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.MsSmoothGroupSettingsTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['CMAF_GROUP_SETTINGS', 'DASH_ISO_GROUP_SETTINGS', 'FILE_GROUP_SETTINGS', 'HLS_GROUP_SETTINGS', 'MS_SMOOTH_GROUP_SETTINGS']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # OutputGroupTypeDef
 
@@ -5969,21 +4900,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ALLOWED', 'DISALLOWED']]
 
 
-# PresetSettingsExtraOutputTypeDef
-
-### AudioDescriptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.AudioDescriptionExtraOutputTypeDef]]
-
-### CaptionDescriptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.CaptionDescriptionPresetExtraOutputTypeDef]]
-
-### ContainerSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.ContainerSettingsExtraOutputTypeDef]
-
-### VideoDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.VideoDescriptionExtraOutputTypeDef]
-
-
 # PresetSettingsOutputTypeDef
 
 ### AudioDescriptions
@@ -6014,34 +4930,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.VideoDescriptionTypeDef]
 
 
+# PresetSettingsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # PresetTypeDef
 
-### Name
-- **Type**: <class 'str'>
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ProbeInputFileTypeDef
+
+### FileUrl
+- **Type**: typing.Optional[str]
+
+
+# ProbeRequestTypeDef
+
+### InputFiles
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediaconvert_classes.ProbeInputFileTypeDef]]
+
+
+# ProbeResponseTypeDef
+
+### ProbeResults
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.ProbeResultTypeDef]
 - **Required**: Yes
 
-### Settings
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediaconvert_classes.PresetSettingsOutputTypeDef'>
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediaconvert_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-### Arn
-- **Type**: typing.Optional[str]
 
-### Category
-- **Type**: typing.Optional[str]
+# ProbeResultTypeDef
 
-### CreatedAt
-- **Type**: typing.Optional[datetime.datetime]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Description
-- **Type**: typing.Optional[str]
-
-### LastUpdated
-- **Type**: typing.Optional[datetime.datetime]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['CUSTOM', 'SYSTEM']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProresSettingsTypeDef
 
@@ -6055,7 +4983,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['INITIALIZE_FROM_SOURCE', 'SPECIFIED']]
 
 ### FramerateConversionAlgorithm
-- **Type**: typing.Optional[typing.Literal['DUPLICATE_DROP', 'FRAMEFORMER', 'INTERPOLATE']]
+- **Type**: typing.Optional[typing.Literal['DUPLICATE_DROP', 'FRAMEFORMER', 'INTERPOLATE', 'MAINTAIN_FRAME_COUNT']]
 
 ### FramerateDenominator
 - **Type**: typing.Optional[int]
@@ -6085,7 +5013,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['HARD', 'NONE']]
 
 
-# PutPolicyRequestRequestTypeDef
+# PutPolicyRequestTypeDef
 
 ### Policy
 - **Type**: <class 'aws_resource_validator.pydantic_models.mediaconvert_classes.PolicyTypeDef'>
@@ -6117,40 +5045,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # QueueTypeDef
 
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Arn
-- **Type**: typing.Optional[str]
-
-### CreatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### LastUpdated
-- **Type**: typing.Optional[datetime.datetime]
-
-### PricingPlan
-- **Type**: typing.Optional[typing.Literal['ON_DEMAND', 'RESERVED']]
-
-### ProgressingJobsCount
-- **Type**: typing.Optional[int]
-
-### ReservationPlan
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.ReservationPlanTypeDef]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'PAUSED']]
-
-### SubmittedJobsCount
-- **Type**: typing.Optional[int]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['CUSTOM', 'SYSTEM']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RectangleTypeDef
 
@@ -6164,24 +5061,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Y
-- **Type**: typing.Optional[int]
-
-
-# RemixSettingsExtraOutputTypeDef
-
-### AudioDescriptionAudioChannel
-- **Type**: typing.Optional[int]
-
-### AudioDescriptionDataChannel
-- **Type**: typing.Optional[int]
-
-### ChannelMapping
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.ChannelMappingExtraOutputTypeDef]
-
-### ChannelsIn
-- **Type**: typing.Optional[int]
-
-### ChannelsOut
 - **Type**: typing.Optional[int]
 
 
@@ -6324,7 +5203,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FRAMERATE_23_97', 'FRAMERATE_24', 'FRAMERATE_25', 'FRAMERATE_29_97_DROPFRAME', 'FRAMERATE_29_97_NON_DROPFRAME']]
 
 
-# SearchJobsRequestRequestTypeDef
+# SearchJobsRequestPaginateTypeDef
+
+### InputFile
+- **Type**: typing.Optional[str]
+
+### Order
+- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
+
+### Queue
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['CANCELED', 'COMPLETE', 'ERROR', 'PROGRESSING', 'SUBMITTED']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.PaginatorConfigTypeDef]
+
+
+# SearchJobsRequestTypeDef
 
 ### InputFile
 - **Type**: typing.Optional[str]
@@ -6345,24 +5242,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CANCELED', 'COMPLETE', 'ERROR', 'PROGRESSING', 'SUBMITTED']]
 
 
-# SearchJobsRequestSearchJobsPaginateTypeDef
-
-### InputFile
-- **Type**: typing.Optional[str]
-
-### Order
-- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
-
-### Queue
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['CANCELED', 'COMPLETE', 'ERROR', 'PROGRESSING', 'SUBMITTED']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.PaginatorConfigTypeDef]
-
-
 # SearchJobsResponseTypeDef
 
 ### Jobs
@@ -6377,21 +5256,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SpekeKeyProviderCmafExtraOutputTypeDef
+# ServiceOverrideTypeDef
 
-### CertificateArn
+### Message
 - **Type**: typing.Optional[str]
 
-### DashSignaledSystemIds
-- **Type**: typing.Optional[typing.List[str]]
-
-### HlsSignaledSystemIds
-- **Type**: typing.Optional[typing.List[str]]
-
-### ResourceId
+### Name
 - **Type**: typing.Optional[str]
 
-### Url
+### OverrideValue
+- **Type**: typing.Optional[str]
+
+### Value
 - **Type**: typing.Optional[str]
 
 
@@ -6402,6 +5278,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### DashSignaledSystemIds
 - **Type**: typing.Optional[typing.List[str]]
+
+### EncryptionContractConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.EncryptionContractConfigurationTypeDef]
 
 ### HlsSignaledSystemIds
 - **Type**: typing.Optional[typing.List[str]]
@@ -6421,6 +5300,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### DashSignaledSystemIds
 - **Type**: typing.Optional[typing.Sequence[str]]
 
+### EncryptionContractConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.EncryptionContractConfigurationTypeDef]
+
 ### HlsSignaledSystemIds
 - **Type**: typing.Optional[typing.Sequence[str]]
 
@@ -6431,25 +5313,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SpekeKeyProviderExtraOutputTypeDef
-
-### CertificateArn
-- **Type**: typing.Optional[str]
-
-### ResourceId
-- **Type**: typing.Optional[str]
-
-### SystemIds
-- **Type**: typing.Optional[typing.List[str]]
-
-### Url
-- **Type**: typing.Optional[str]
-
-
 # SpekeKeyProviderOutputTypeDef
 
 ### CertificateArn
 - **Type**: typing.Optional[str]
+
+### EncryptionContractConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.EncryptionContractConfigurationTypeDef]
 
 ### ResourceId
 - **Type**: typing.Optional[str]
@@ -6465,6 +5335,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### CertificateArn
 - **Type**: typing.Optional[str]
+
+### EncryptionContractConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.EncryptionContractConfigurationTypeDef]
 
 ### ResourceId
 - **Type**: typing.Optional[str]
@@ -6497,7 +5370,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
@@ -6506,15 +5379,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Tags
 - **Type**: typing.Mapping[str, str]
 - **Required**: Yes
-
-
-# TeletextDestinationSettingsExtraOutputTypeDef
-
-### PageNumber
-- **Type**: typing.Optional[str]
-
-### PageTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['PAGE_TYPE_ADDL_INFO', 'PAGE_TYPE_HEARING_IMPAIRED_SUBTITLE', 'PAGE_TYPE_INITIAL', 'PAGE_TYPE_PROGRAM_SCHEDULE', 'PAGE_TYPE_SUBTITLE']]]
 
 
 # TeletextDestinationSettingsOutputTypeDef
@@ -6568,12 +5432,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TimedMetadataInsertionExtraOutputTypeDef
-
-### Id3Insertions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.Id3InsertionTypeDef]]
-
-
 # TimedMetadataInsertionOutputTypeDef
 
 ### Id3Insertions
@@ -6598,10 +5456,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
+# TrackMappingTypeDef
+
+### AudioTrackIndexes
+- **Type**: typing.Optional[typing.List[int]]
+
+### DataTrackIndexes
+- **Type**: typing.Optional[typing.List[int]]
+
+### VideoTrackIndexes
+- **Type**: typing.Optional[typing.List[int]]
+
+
 # TrackSourceSettingsTypeDef
 
 ### TrackNumber
 - **Type**: typing.Optional[int]
+
+
+# TrackTypeDef
+
+### AudioProperties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.AudioPropertiesTypeDef]
+
+### Codec
+- **Type**: typing.Optional[typing.Literal['AAC', 'AC3', 'AV1', 'AVC', 'C608', 'C708', 'EAC3', 'FLAC', 'HEVC', 'MJPEG', 'MP3', 'MP4V', 'MPEG2', 'OPUS', 'PCM', 'PRORES', 'THEORA', 'UNKNOWN', 'VORBIS', 'VP8', 'VP9', 'WEBVTT']]
+
+### DataProperties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.DataPropertiesTypeDef]
+
+### Duration
+- **Type**: typing.Optional[float]
+
+### Index
+- **Type**: typing.Optional[int]
+
+### TrackType
+- **Type**: typing.Optional[typing.Literal['audio', 'data', 'video']]
+
+### VideoProperties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.VideoPropertiesTypeDef]
 
 
 # TtmlDestinationSettingsTypeDef
@@ -6619,7 +5513,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['INITIALIZE_FROM_SOURCE', 'SPECIFIED']]
 
 ### FramerateConversionAlgorithm
-- **Type**: typing.Optional[typing.Literal['DUPLICATE_DROP', 'FRAMEFORMER', 'INTERPOLATE']]
+- **Type**: typing.Optional[typing.Literal['DUPLICATE_DROP', 'FRAMEFORMER', 'INTERPOLATE', 'MAINTAIN_FRAME_COUNT']]
 
 ### FramerateDenominator
 - **Type**: typing.Optional[int]
@@ -6640,7 +5534,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['HARD', 'NONE']]
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
@@ -6650,7 +5544,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# UpdateJobTemplateRequestRequestTypeDef
+# UpdateJobTemplateRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -6675,7 +5569,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Settings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.JobTemplateSettingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.JobTemplateSettingsUnionTypeDef]
 
 ### StatusUpdateInterval
 - **Type**: typing.Optional[typing.Literal['SECONDS_10', 'SECONDS_12', 'SECONDS_120', 'SECONDS_15', 'SECONDS_180', 'SECONDS_20', 'SECONDS_240', 'SECONDS_30', 'SECONDS_300', 'SECONDS_360', 'SECONDS_420', 'SECONDS_480', 'SECONDS_540', 'SECONDS_60', 'SECONDS_600']]
@@ -6692,7 +5586,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePresetRequestRequestTypeDef
+# UpdatePresetRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -6705,7 +5599,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Settings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.PresetSettingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.PresetSettingsUnionTypeDef]
 
 
 # UpdatePresetResponseTypeDef
@@ -6719,11 +5613,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateQueueRequestRequestTypeDef
+# UpdateQueueRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+### ConcurrentJobs
+- **Type**: typing.Optional[int]
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -6752,7 +5649,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['INITIALIZE_FROM_SOURCE', 'SPECIFIED']]
 
 ### FramerateConversionAlgorithm
-- **Type**: typing.Optional[typing.Literal['DUPLICATE_DROP', 'FRAMEFORMER', 'INTERPOLATE']]
+- **Type**: typing.Optional[typing.Literal['DUPLICATE_DROP', 'FRAMEFORMER', 'INTERPOLATE', 'MAINTAIN_FRAME_COUNT']]
 
 ### FramerateDenominator
 - **Type**: typing.Optional[int]
@@ -6785,10 +5682,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.AvcIntraSettingsTypeDef]
 
 ### Codec
-- **Type**: typing.Optional[typing.Literal['AV1', 'AVC_INTRA', 'FRAME_CAPTURE', 'H_264', 'H_265', 'MPEG2', 'PASSTHROUGH', 'PRORES', 'UNCOMPRESSED', 'VC3', 'VP8', 'VP9', 'XAVC']]
+- **Type**: typing.Optional[typing.Literal['AV1', 'AVC_INTRA', 'FRAME_CAPTURE', 'GIF', 'H_264', 'H_265', 'MPEG2', 'PASSTHROUGH', 'PRORES', 'UNCOMPRESSED', 'VC3', 'VP8', 'VP9', 'XAVC']]
 
 ### FrameCaptureSettings
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.FrameCaptureSettingsTypeDef]
+
+### GifSettings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.GifSettingsTypeDef]
 
 ### H264Settings
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.H264SettingsTypeDef]
@@ -6818,54 +5718,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.XavcSettingsTypeDef]
 
 
-# VideoDescriptionExtraOutputTypeDef
-
-### AfdSignaling
-- **Type**: typing.Optional[typing.Literal['AUTO', 'FIXED', 'NONE']]
-
-### AntiAlias
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### CodecSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.VideoCodecSettingsTypeDef]
-
-### ColorMetadata
-- **Type**: typing.Optional[typing.Literal['IGNORE', 'INSERT']]
-
-### Crop
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.RectangleTypeDef]
-
-### DropFrameTimecode
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### FixedAfd
-- **Type**: typing.Optional[int]
-
-### Height
-- **Type**: typing.Optional[int]
-
-### Position
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.RectangleTypeDef]
-
-### RespondToAfd
-- **Type**: typing.Optional[typing.Literal['NONE', 'PASSTHROUGH', 'RESPOND']]
-
-### ScalingBehavior
-- **Type**: typing.Optional[typing.Literal['DEFAULT', 'FILL', 'FIT', 'FIT_NO_UPSCALE', 'STRETCH_TO_OUTPUT']]
-
-### Sharpness
-- **Type**: typing.Optional[int]
-
-### TimecodeInsertion
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'PIC_TIMING_SEI']]
-
-### VideoPreprocessors
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.VideoPreprocessorExtraOutputTypeDef]
-
-### Width
-- **Type**: typing.Optional[int]
-
-
 # VideoDescriptionOutputTypeDef
 
 ### AfdSignaling
@@ -6874,6 +5726,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### AntiAlias
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
+### ChromaPositionMode
+- **Type**: typing.Optional[typing.Literal['AUTO', 'FORCE_CENTER', 'FORCE_TOP_LEFT']]
+
 ### CodecSettings
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.VideoCodecSettingsTypeDef]
 
@@ -6906,6 +5761,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### TimecodeInsertion
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'PIC_TIMING_SEI']]
+
+### TimecodeTrack
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### VideoPreprocessors
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.VideoPreprocessorOutputTypeDef]
@@ -6922,6 +5780,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### AntiAlias
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
+### ChromaPositionMode
+- **Type**: typing.Optional[typing.Literal['AUTO', 'FORCE_CENTER', 'FORCE_TOP_LEFT']]
+
 ### CodecSettings
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.VideoCodecSettingsTypeDef]
 
@@ -6954,6 +5815,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### TimecodeInsertion
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'PIC_TIMING_SEI']]
+
+### TimecodeTrack
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### VideoPreprocessors
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.VideoPreprocessorTypeDef]
@@ -6971,39 +5835,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# VideoOverlayExtraOutputTypeDef
-
-### EndTimecode
-- **Type**: typing.Optional[str]
-
-### Input
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.VideoOverlayInputExtraOutputTypeDef]
-
-### StartTimecode
-- **Type**: typing.Optional[str]
-
-
 # VideoOverlayInputClippingTypeDef
 
 ### EndTimecode
 - **Type**: typing.Optional[str]
 
 ### StartTimecode
-- **Type**: typing.Optional[str]
-
-
-# VideoOverlayInputExtraOutputTypeDef
-
-### FileInput
-- **Type**: typing.Optional[str]
-
-### InputClippings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.VideoOverlayInputClippingTypeDef]]
-
-### TimecodeSource
-- **Type**: typing.Optional[typing.Literal['EMBEDDED', 'SPECIFIEDSTART', 'ZEROBASED']]
-
-### TimecodeStart
 - **Type**: typing.Optional[str]
 
 
@@ -7042,8 +5879,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### EndTimecode
 - **Type**: typing.Optional[str]
 
+### InitialPosition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.VideoOverlayPositionTypeDef]
+
 ### Input
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.VideoOverlayInputOutputTypeDef]
+
+### Playback
+- **Type**: typing.Optional[typing.Literal['ONCE', 'REPEAT']]
+
+### StartTimecode
+- **Type**: typing.Optional[str]
+
+### Transitions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconvert_classes.VideoOverlayTransitionTypeDef]]
+
+
+# VideoOverlayPositionTypeDef
+
+### Height
+- **Type**: typing.Optional[int]
+
+### Unit
+- **Type**: typing.Optional[typing.Literal['PERCENTAGE', 'PIXELS']]
+
+### Width
+- **Type**: typing.Optional[int]
+
+### XPosition
+- **Type**: typing.Optional[int]
+
+### YPosition
+- **Type**: typing.Optional[int]
+
+
+# VideoOverlayTransitionTypeDef
+
+### EndPosition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.VideoOverlayPositionTypeDef]
+
+### EndTimecode
+- **Type**: typing.Optional[str]
 
 ### StartTimecode
 - **Type**: typing.Optional[str]
@@ -7054,38 +5930,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### EndTimecode
 - **Type**: typing.Optional[str]
 
+### InitialPosition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.VideoOverlayPositionTypeDef]
+
 ### Input
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.VideoOverlayInputTypeDef]
+
+### Playback
+- **Type**: typing.Optional[typing.Literal['ONCE', 'REPEAT']]
 
 ### StartTimecode
 - **Type**: typing.Optional[str]
 
-
-# VideoPreprocessorExtraOutputTypeDef
-
-### ColorCorrector
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.ColorCorrectorTypeDef]
-
-### Deinterlacer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.DeinterlacerTypeDef]
-
-### DolbyVision
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.DolbyVisionTypeDef]
-
-### Hdr10Plus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.Hdr10PlusTypeDef]
-
-### ImageInserter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.ImageInserterExtraOutputTypeDef]
-
-### NoiseReducer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.NoiseReducerTypeDef]
-
-### PartnerWatermarking
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.PartnerWatermarkingTypeDef]
-
-### TimecodeBurnin
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.TimecodeBurninTypeDef]
+### Transitions
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediaconvert_classes.VideoOverlayTransitionTypeDef]]
 
 
 # VideoPreprocessorOutputTypeDef
@@ -7140,6 +5998,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### TimecodeBurnin
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.TimecodeBurninTypeDef]
+
+
+# VideoPropertiesTypeDef
+
+### BitDepth
+- **Type**: typing.Optional[int]
+
+### BitRate
+- **Type**: typing.Optional[int]
+
+### ColorPrimaries
+- **Type**: typing.Optional[typing.Literal['EBU_3213_E', 'GENERIC_FILM', 'IPT', 'ITU_2020', 'ITU_470BG', 'ITU_470M', 'ITU_709', 'LAST', 'RESERVED', 'SMPTE_170M', 'SMPTE_2067XYZ', 'SMPTE_240M', 'SMPTE_428_1', 'SMPTE_431_2', 'SMPTE_EG_432_1', 'UNSPECIFIED']]
+
+### FrameRate
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconvert_classes.FrameRateTypeDef]
+
+### Height
+- **Type**: typing.Optional[int]
+
+### MatrixCoefficients
+- **Type**: typing.Optional[typing.Literal['CD_CL', 'CD_NCL', 'EBU3213', 'FCC', 'IPT', 'ITU_2020_CL', 'ITU_2020_NCL', 'ITU_2100ICtCp', 'ITU_470BG', 'ITU_709', 'LAST', 'RESERVED', 'RGB', 'SMPTE_170M', 'SMPTE_2085', 'SMPTE_240M', 'UNSPECIFIED', 'YCgCo']]
+
+### TransferCharacteristics
+- **Type**: typing.Optional[typing.Literal['ARIB_B67', 'IEC_61966_2_1', 'IEC_61966_2_4', 'ITU_1361', 'ITU_2020_10bit', 'ITU_2020_12bit', 'ITU_470BG', 'ITU_470M', 'ITU_709', 'LAST', 'LINEAR', 'LOC10_2_5', 'LOG10_2', 'RESERVED', 'SMPTE_170M', 'SMPTE_2084', 'SMPTE_240M', 'SMPTE_428_1', 'UNSPECIFIED']]
+
+### Width
+- **Type**: typing.Optional[int]
 
 
 # VideoSelectorTypeDef
@@ -7199,7 +6084,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['INITIALIZE_FROM_SOURCE', 'SPECIFIED']]
 
 ### FramerateConversionAlgorithm
-- **Type**: typing.Optional[typing.Literal['DUPLICATE_DROP', 'FRAMEFORMER', 'INTERPOLATE']]
+- **Type**: typing.Optional[typing.Literal['DUPLICATE_DROP', 'FRAMEFORMER', 'INTERPOLATE', 'MAINTAIN_FRAME_COUNT']]
 
 ### FramerateDenominator
 - **Type**: typing.Optional[int]
@@ -7241,7 +6126,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['INITIALIZE_FROM_SOURCE', 'SPECIFIED']]
 
 ### FramerateConversionAlgorithm
-- **Type**: typing.Optional[typing.Literal['DUPLICATE_DROP', 'FRAMEFORMER', 'INTERPOLATE']]
+- **Type**: typing.Optional[typing.Literal['DUPLICATE_DROP', 'FRAMEFORMER', 'INTERPOLATE', 'MAINTAIN_FRAME_COUNT']]
 
 ### FramerateDenominator
 - **Type**: typing.Optional[int]
@@ -7294,7 +6179,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Format
-- **Type**: typing.Optional[typing.Literal['RF64', 'RIFF']]
+- **Type**: typing.Optional[typing.Literal['EXTENSIBLE', 'RF64', 'RIFF']]
 
 ### SampleRate
 - **Type**: typing.Optional[int]
@@ -7306,7 +6191,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### StylePassthrough
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED', 'STRICT']]
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED', 'MERGE', 'STRICT']]
 
 
 # WebvttHlsSourceSettingsTypeDef
@@ -7408,7 +6293,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['INITIALIZE_FROM_SOURCE', 'SPECIFIED']]
 
 ### FramerateConversionAlgorithm
-- **Type**: typing.Optional[typing.Literal['DUPLICATE_DROP', 'FRAMEFORMER', 'INTERPOLATE']]
+- **Type**: typing.Optional[typing.Literal['DUPLICATE_DROP', 'FRAMEFORMER', 'INTERPOLATE', 'MAINTAIN_FRAME_COUNT']]
 
 ### FramerateDenominator
 - **Type**: typing.Optional[int]

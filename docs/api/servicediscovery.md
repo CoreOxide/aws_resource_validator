@@ -15,6 +15,11 @@
 - **Pattern**: `^[0-9a-zA-Z_/:.@-]+$`
 - **Max Length**: 64
 
+### NamespaceName
+- **Type**: string
+- **Pattern**: `^[!-~]{1,1024}$`
+- **Max Length**: 1024
+
 ### NamespaceNameHttp
 - **Type**: string
 - **Pattern**: `^[!-~]{1,1024}$`

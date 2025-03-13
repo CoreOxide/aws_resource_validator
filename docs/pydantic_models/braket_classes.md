@@ -11,14 +11,9 @@
 
 # AssociationTypeDef
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: typing.Literal['RESERVATION_TIME_WINDOW_ARN']
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BaseValidatorModel
 
@@ -26,7 +21,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelJobRequestRequestTypeDef
+# CancelJobRequestTypeDef
 
 ### jobArn
 - **Type**: <class 'str'>
@@ -48,7 +43,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CancelQuantumTaskRequestRequestTypeDef
+# CancelQuantumTaskRequestTypeDef
 
 ### clientToken
 - **Type**: <class 'str'>
@@ -81,7 +76,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateJobRequestRequestTypeDef
+# CreateJobRequestTypeDef
 
 ### algorithmSpecification
 - **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.AlgorithmSpecificationTypeDef'>
@@ -141,7 +136,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateQuantumTaskRequestRequestTypeDef
+# CreateQuantumTaskRequestTypeDef
 
 ### action
 - **Type**: <class 'str'>
@@ -242,7 +237,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDeviceRequestRequestTypeDef
+# GetDeviceRequestTypeDef
 
 ### deviceArn
 - **Type**: <class 'str'>
@@ -284,7 +279,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetJobRequestRequestTypeDef
+# GetJobRequestTypeDef
 
 ### jobArn
 - **Type**: <class 'str'>
@@ -385,7 +380,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetQuantumTaskRequestRequestTypeDef
+# GetQuantumTaskRequestTypeDef
 
 ### quantumTaskArn
 - **Type**: <class 'str'>
@@ -570,7 +565,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -660,10 +655,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -675,6 +666,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # S3DataSourceTypeDef
@@ -709,7 +703,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SearchDevicesRequestRequestTypeDef
+# SearchDevicesRequestPaginateTypeDef
+
+### filters
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.braket_classes.SearchDevicesFilterTypeDef]
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.braket_classes.PaginatorConfigTypeDef]
+
+
+# SearchDevicesRequestTypeDef
 
 ### filters
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.braket_classes.SearchDevicesFilterTypeDef]
@@ -720,16 +724,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### nextToken
 - **Type**: typing.Optional[str]
-
-
-# SearchDevicesRequestSearchDevicesPaginateTypeDef
-
-### filters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.braket_classes.SearchDevicesFilterTypeDef]
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.braket_classes.PaginatorConfigTypeDef]
 
 
 # SearchDevicesResponseTypeDef
@@ -738,31 +732,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.braket_classes.DeviceSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
+
 
 # SearchJobsFilterTypeDef
 
-### name
-- **Type**: <class 'str'>
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# SearchJobsRequestPaginateTypeDef
+
+### filters
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.braket_classes.SearchJobsFilterTypeDef]
 - **Required**: Yes
 
-### operator
-- **Type**: typing.Literal['BETWEEN', 'CONTAINS', 'EQUAL', 'GT', 'GTE', 'LT', 'LTE']
-- **Required**: Yes
-
-### values
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.braket_classes.PaginatorConfigTypeDef]
 
 
-# SearchJobsRequestRequestTypeDef
+# SearchJobsRequestTypeDef
 
 ### filters
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.braket_classes.SearchJobsFilterTypeDef]
@@ -773,16 +767,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### nextToken
 - **Type**: typing.Optional[str]
-
-
-# SearchJobsRequestSearchJobsPaginateTypeDef
-
-### filters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.braket_classes.SearchJobsFilterTypeDef]
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.braket_classes.PaginatorConfigTypeDef]
 
 
 # SearchJobsResponseTypeDef
@@ -791,31 +775,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.braket_classes.JobSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
+
 
 # SearchQuantumTasksFilterTypeDef
 
-### name
-- **Type**: <class 'str'>
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# SearchQuantumTasksRequestPaginateTypeDef
+
+### filters
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.braket_classes.SearchQuantumTasksFilterTypeDef]
 - **Required**: Yes
 
-### operator
-- **Type**: typing.Literal['BETWEEN', 'EQUAL', 'GT', 'GTE', 'LT', 'LTE']
-- **Required**: Yes
-
-### values
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.braket_classes.PaginatorConfigTypeDef]
 
 
-# SearchQuantumTasksRequestRequestTypeDef
+# SearchQuantumTasksRequestTypeDef
 
 ### filters
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.braket_classes.SearchQuantumTasksFilterTypeDef]
@@ -828,21 +812,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchQuantumTasksRequestSearchQuantumTasksPaginateTypeDef
-
-### filters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.braket_classes.SearchQuantumTasksFilterTypeDef]
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.braket_classes.PaginatorConfigTypeDef]
-
-
 # SearchQuantumTasksResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### quantumTasks
 - **Type**: typing.List[aws_resource_validator.pydantic_models.braket_classes.QuantumTaskSummaryTypeDef]
@@ -852,8 +822,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# TagResourceRequestRequestTypeDef
+
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -864,7 +837,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>

@@ -6,7 +6,82 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateSpaceInputRequestTypeDef
+# BatchAddRoleInputTypeDef
+
+### accessorIds
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### role
+- **Type**: typing.Literal['ADMINISTRATOR', 'EXPERT', 'MODERATOR', 'SUPPORTREQUESTOR']
+- **Required**: Yes
+
+### spaceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# BatchAddRoleOutputTypeDef
+
+### addedAccessorIds
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### errors
+- **Type**: typing.List[aws_resource_validator.pydantic_models.repostspace_classes.BatchErrorTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.repostspace_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# BatchErrorTypeDef
+
+### accessorId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### error
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### message
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# BatchRemoveRoleInputTypeDef
+
+### accessorIds
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### role
+- **Type**: typing.Literal['ADMINISTRATOR', 'EXPERT', 'MODERATOR', 'SUPPORTREQUESTOR']
+- **Required**: Yes
+
+### spaceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# BatchRemoveRoleOutputTypeDef
+
+### errors
+- **Type**: typing.List[aws_resource_validator.pydantic_models.repostspace_classes.BatchErrorTypeDef]
+- **Required**: Yes
+
+### removedAccessorIds
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.repostspace_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateSpaceInputTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -44,14 +119,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteSpaceInputRequestTypeDef
+# DeleteSpaceInputTypeDef
 
 ### spaceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeregisterAdminInputRequestTypeDef
+# DeregisterAdminInputTypeDef
 
 ### adminId
 - **Type**: <class 'str'>
@@ -69,7 +144,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSpaceInputRequestTypeDef
+# GetSpaceInputTypeDef
 
 ### spaceId
 - **Type**: <class 'str'>
@@ -122,6 +197,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### roles
+- **Type**: typing.Dict[str, typing.List[typing.Literal['ADMINISTRATOR', 'EXPERT', 'MODERATOR', 'SUPPORTREQUESTOR']]]
+- **Required**: Yes
+
 ### spaceId
 - **Type**: <class 'str'>
 - **Required**: Yes
@@ -163,13 +242,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListSpacesInputListSpacesPaginateTypeDef
+# ListSpacesInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.repostspace_classes.PaginatorConfigTypeDef]
 
 
-# ListSpacesInputRequestTypeDef
+# ListSpacesInputTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -180,10 +259,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListSpacesOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### spaces
 - **Type**: typing.List[aws_resource_validator.pydantic_models.repostspace_classes.SpaceDataTypeDef]
 - **Required**: Yes
@@ -192,8 +267,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.repostspace_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -223,7 +301,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RegisterAdminInputRequestTypeDef
+# RegisterAdminInputTypeDef
 
 ### adminId
 - **Type**: <class 'str'>
@@ -240,10 +318,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -256,8 +330,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# SendInvitesInputRequestTypeDef
+
+# SendInvitesInputTypeDef
 
 ### accessorIds
 - **Type**: typing.Sequence[str]
@@ -338,7 +415,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -349,7 +426,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -360,7 +437,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateSpaceInputRequestTypeDef
+# UpdateSpaceInputTypeDef
 
 ### spaceId
 - **Type**: <class 'str'>

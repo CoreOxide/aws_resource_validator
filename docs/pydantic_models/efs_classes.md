@@ -104,7 +104,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateAccessPointRequestRequestTypeDef
+# CreateAccessPointRequestTypeDef
 
 ### ClientToken
 - **Type**: <class 'str'>
@@ -118,13 +118,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.efs_classes.TagTypeDef]]
 
 ### PosixUser
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.efs_classes.PosixUserTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.efs_classes.PosixUserUnionTypeDef]
 
 ### RootDirectory
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.efs_classes.RootDirectoryTypeDef]
 
 
-# CreateFileSystemRequestRequestTypeDef
+# CreateFileSystemRequestTypeDef
 
 ### CreationToken
 - **Type**: <class 'str'>
@@ -155,7 +155,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.efs_classes.TagTypeDef]]
 
 
-# CreateMountTargetRequestRequestTypeDef
+# CreateMountTargetRequestTypeDef
 
 ### FileSystemId
 - **Type**: <class 'str'>
@@ -172,7 +172,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# CreateReplicationConfigurationRequestRequestTypeDef
+# CreateReplicationConfigurationRequestTypeDef
 
 ### SourceFileSystemId
 - **Type**: <class 'str'>
@@ -183,7 +183,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTagsRequestRequestTypeDef
+# CreateTagsRequestTypeDef
 
 ### FileSystemId
 - **Type**: <class 'str'>
@@ -209,42 +209,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAccessPointRequestRequestTypeDef
+# DeleteAccessPointRequestTypeDef
 
 ### AccessPointId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteFileSystemPolicyRequestRequestTypeDef
+# DeleteFileSystemPolicyRequestTypeDef
 
 ### FileSystemId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteFileSystemRequestRequestTypeDef
+# DeleteFileSystemRequestTypeDef
 
 ### FileSystemId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteMountTargetRequestRequestTypeDef
+# DeleteMountTargetRequestTypeDef
 
 ### MountTargetId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteReplicationConfigurationRequestRequestTypeDef
+# DeleteReplicationConfigurationRequestTypeDef
 
 ### SourceFileSystemId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### DeletionMode
+- **Type**: typing.Optional[typing.Literal['ALL_CONFIGURATIONS', 'LOCAL_CONFIGURATION_ONLY']]
 
-# DeleteTagsRequestRequestTypeDef
+
+# DeleteTagsRequestTypeDef
 
 ### FileSystemId
 - **Type**: <class 'str'>
@@ -255,7 +258,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAccessPointsRequestDescribeAccessPointsPaginateTypeDef
+# DescribeAccessPointsRequestPaginateTypeDef
 
 ### AccessPointId
 - **Type**: typing.Optional[str]
@@ -267,7 +270,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.efs_classes.PaginatorConfigTypeDef]
 
 
-# DescribeAccessPointsRequestRequestTypeDef
+# DescribeAccessPointsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -296,7 +299,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeAccountPreferencesRequestRequestTypeDef
+# DescribeAccountPreferencesRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -319,21 +322,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeBackupPolicyRequestRequestTypeDef
+# DescribeBackupPolicyRequestTypeDef
 
 ### FileSystemId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeFileSystemPolicyRequestRequestTypeDef
+# DescribeFileSystemPolicyRequestTypeDef
 
 ### FileSystemId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeFileSystemsRequestDescribeFileSystemsPaginateTypeDef
+# DescribeFileSystemsRequestPaginateTypeDef
 
 ### CreationToken
 - **Type**: typing.Optional[str]
@@ -345,7 +348,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.efs_classes.PaginatorConfigTypeDef]
 
 
-# DescribeFileSystemsRequestRequestTypeDef
+# DescribeFileSystemsRequestTypeDef
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -379,14 +382,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeLifecycleConfigurationRequestRequestTypeDef
+# DescribeLifecycleConfigurationRequestTypeDef
 
 ### FileSystemId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeMountTargetSecurityGroupsRequestRequestTypeDef
+# DescribeMountTargetSecurityGroupsRequestTypeDef
 
 ### MountTargetId
 - **Type**: <class 'str'>
@@ -404,7 +407,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeMountTargetsRequestDescribeMountTargetsPaginateTypeDef
+# DescribeMountTargetsRequestPaginateTypeDef
 
 ### FileSystemId
 - **Type**: typing.Optional[str]
@@ -419,7 +422,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.efs_classes.PaginatorConfigTypeDef]
 
 
-# DescribeMountTargetsRequestRequestTypeDef
+# DescribeMountTargetsRequestTypeDef
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -456,7 +459,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeReplicationConfigurationsRequestRequestTypeDef
+# DescribeReplicationConfigurationsRequestPaginateTypeDef
+
+### FileSystemId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.efs_classes.PaginatorConfigTypeDef]
+
+
+# DescribeReplicationConfigurationsRequestTypeDef
 
 ### FileSystemId
 - **Type**: typing.Optional[str]
@@ -482,7 +494,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeTagsRequestDescribeTagsPaginateTypeDef
+# DescribeTagsRequestPaginateTypeDef
 
 ### FileSystemId
 - **Type**: <class 'str'>
@@ -492,7 +504,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.efs_classes.PaginatorConfigTypeDef]
 
 
-# DescribeTagsRequestRequestTypeDef
+# DescribeTagsRequestTypeDef
 
 ### FileSystemId
 - **Type**: <class 'str'>
@@ -538,6 +550,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### FileSystemId
 - **Type**: typing.Optional[str]
 
+### RoleArn
+- **Type**: typing.Optional[str]
+
 
 # DestinationTypeDef
 
@@ -555,6 +570,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### LastReplicatedTimestamp
 - **Type**: typing.Optional[datetime.datetime]
+
+### OwnerId
+- **Type**: typing.Optional[str]
+
+### StatusMessage
+- **Type**: typing.Optional[str]
+
+### RoleArn
+- **Type**: typing.Optional[str]
 
 
 # EmptyResponseMetadataTypeDef
@@ -783,7 +807,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AFTER_14_DAYS', 'AFTER_180_DAYS', 'AFTER_1_DAY', 'AFTER_270_DAYS', 'AFTER_30_DAYS', 'AFTER_365_DAYS', 'AFTER_60_DAYS', 'AFTER_7_DAYS', 'AFTER_90_DAYS']]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -810,7 +834,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ModifyMountTargetSecurityGroupsRequestRequestTypeDef
+# ModifyMountTargetSecurityGroupsRequestTypeDef
 
 ### MountTargetId
 - **Type**: <class 'str'>
@@ -916,20 +940,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PosixUserExtraOutputTypeDef
-
-### Uid
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Gid
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### SecondaryGids
-- **Type**: typing.Optional[typing.List[int]]
-
-
 # PosixUserOutputTypeDef
 
 ### Uid
@@ -958,7 +968,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[int]]
 
 
-# PutAccountPreferencesRequestRequestTypeDef
+# PosixUserUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# PutAccountPreferencesRequestTypeDef
 
 ### ResourceIdType
 - **Type**: typing.Literal['LONG_ID', 'SHORT_ID']
@@ -976,7 +992,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutBackupPolicyRequestRequestTypeDef
+# PutBackupPolicyRequestTypeDef
 
 ### FileSystemId
 - **Type**: <class 'str'>
@@ -987,7 +1003,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutFileSystemPolicyRequestRequestTypeDef
+# PutFileSystemPolicyRequestTypeDef
 
 ### FileSystemId
 - **Type**: <class 'str'>
@@ -1001,7 +1017,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# PutLifecycleConfigurationRequestRequestTypeDef
+# PutLifecycleConfigurationRequestTypeDef
 
 ### FileSystemId
 - **Type**: <class 'str'>
@@ -1038,6 +1054,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.efs_classes.DestinationTypeDef]
 - **Required**: Yes
 
+### SourceFileSystemOwnerId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
@@ -1068,6 +1088,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Destinations
 - **Type**: typing.List[aws_resource_validator.pydantic_models.efs_classes.DestinationTypeDef]
 - **Required**: Yes
+
+### SourceFileSystemOwnerId
+- **Type**: typing.Optional[str]
 
 
 # ResourceIdPreferenceTypeDef
@@ -1110,7 +1133,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.efs_classes.CreationInfoTypeDef]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -1132,7 +1155,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -1143,7 +1166,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateFileSystemProtectionRequestRequestTypeDef
+# UpdateFileSystemProtectionRequestTypeDef
 
 ### FileSystemId
 - **Type**: <class 'str'>
@@ -1153,7 +1176,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED', 'REPLICATING']]
 
 
-# UpdateFileSystemRequestRequestTypeDef
+# UpdateFileSystemRequestTypeDef
 
 ### FileSystemId
 - **Type**: <class 'str'>

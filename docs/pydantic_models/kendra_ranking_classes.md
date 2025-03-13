@@ -13,7 +13,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateRescoreExecutionPlanRequestRequestTypeDef
+# CreateRescoreExecutionPlanRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -47,14 +47,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteRescoreExecutionPlanRequestRequestTypeDef
+# DeleteRescoreExecutionPlanRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeRescoreExecutionPlanRequestRequestTypeDef
+# DescribeRescoreExecutionPlanRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -137,7 +137,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListRescoreExecutionPlansRequestRequestTypeDef
+# ListRescoreExecutionPlansRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -152,16 +152,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_ranking_classes.RescoreExecutionPlanSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -197,7 +196,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']]
 
 
-# RescoreRequestRequestTypeDef
+# RescoreRequestTypeDef
 
 ### RescoreExecutionPlanId
 - **Type**: <class 'str'>
@@ -242,10 +241,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -258,8 +253,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# TagResourceRequestRequestTypeDef
+
+# TagResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -281,7 +279,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -292,7 +290,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRescoreExecutionPlanRequestRequestTypeDef
+# UpdateRescoreExecutionPlanRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>

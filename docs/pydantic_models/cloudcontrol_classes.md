@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelResourceRequestInputRequestTypeDef
+# CancelResourceRequestInputTypeDef
 
 ### RequestToken
 - **Type**: <class 'str'>
@@ -24,7 +24,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateResourceInputRequestTypeDef
+# CreateResourceInputTypeDef
 
 ### TypeName
 - **Type**: <class 'str'>
@@ -55,7 +55,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteResourceInputRequestTypeDef
+# DeleteResourceInputTypeDef
 
 ### TypeName
 - **Type**: <class 'str'>
@@ -86,7 +86,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResourceInputRequestTypeDef
+# GetResourceInputTypeDef
 
 ### TypeName
 - **Type**: <class 'str'>
@@ -118,14 +118,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResourceRequestStatusInputRequestTypeDef
+# GetResourceRequestStatusInputTypeDef
 
 ### RequestToken
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetResourceRequestStatusInputResourceRequestSuccessWaitTypeDef
+# GetResourceRequestStatusInputWaitTypeDef
 
 ### RequestToken
 - **Type**: <class 'str'>
@@ -141,12 +141,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ProgressEventTypeDef'>
 - **Required**: Yes
 
+### HooksProgressEvent
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudcontrol_classes.HookProgressEventTypeDef]
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
 
-# ListResourceRequestsInputListResourceRequestsPaginateTypeDef
+# HookProgressEventTypeDef
+
+### HookTypeName
+- **Type**: typing.Optional[str]
+
+### HookTypeVersionId
+- **Type**: typing.Optional[str]
+
+### HookTypeArn
+- **Type**: typing.Optional[str]
+
+### InvocationPoint
+- **Type**: typing.Optional[str]
+
+### HookStatus
+- **Type**: typing.Optional[str]
+
+### HookEventTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### HookStatusMessage
+- **Type**: typing.Optional[str]
+
+### FailureMode
+- **Type**: typing.Optional[str]
+
+
+# ListResourceRequestsInputPaginateTypeDef
 
 ### ResourceRequestStatusFilter
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudcontrol_classes.ResourceRequestStatusFilterTypeDef]
@@ -155,7 +186,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudcontrol_classes.PaginatorConfigTypeDef]
 
 
-# ListResourceRequestsInputRequestTypeDef
+# ListResourceRequestsInputTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -173,16 +204,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cloudcontrol_classes.ProgressEventTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListResourcesInputListResourcesPaginateTypeDef
+
+# ListResourcesInputPaginateTypeDef
 
 ### TypeName
 - **Type**: <class 'str'>
@@ -201,7 +231,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudcontrol_classes.PaginatorConfigTypeDef]
 
 
-# ListResourcesInputRequestTypeDef
+# ListResourcesInputTypeDef
 
 ### TypeName
 - **Type**: <class 'str'>
@@ -233,13 +263,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cloudcontrol_classes.ResourceDescriptionTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.cloudcontrol_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # PaginatorConfigTypeDef
@@ -265,6 +294,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RequestToken
 - **Type**: typing.Optional[str]
 
+### HooksRequestToken
+- **Type**: typing.Optional[str]
+
 ### Operation
 - **Type**: typing.Optional[typing.Literal['CREATE', 'DELETE', 'UPDATE']]
 
@@ -281,7 +313,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ErrorCode
-- **Type**: typing.Optional[typing.Literal['AccessDenied', 'AlreadyExists', 'GeneralServiceException', 'InternalFailure', 'InvalidCredentials', 'InvalidRequest', 'NetworkFailure', 'NotFound', 'NotStabilized', 'NotUpdatable', 'ResourceConflict', 'ServiceInternalError', 'ServiceLimitExceeded', 'ServiceTimeout', 'Throttling']]
+- **Type**: typing.Optional[typing.Literal['AccessDenied', 'AlreadyExists', 'GeneralServiceException', 'InternalFailure', 'InvalidCredentials', 'InvalidRequest', 'NetworkFailure', 'NotFound', 'NotStabilized', 'NotUpdatable', 'ResourceConflict', 'ServiceInternalError', 'ServiceLimitExceeded', 'ServiceTimeout', 'Throttling', 'UnauthorizedTaggingOperation']]
 
 ### RetryAfter
 - **Type**: typing.Optional[datetime.datetime]
@@ -311,10 +343,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -327,8 +355,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# UpdateResourceInputRequestTypeDef
+
+# UpdateResourceInputTypeDef
 
 ### TypeName
 - **Type**: <class 'str'>

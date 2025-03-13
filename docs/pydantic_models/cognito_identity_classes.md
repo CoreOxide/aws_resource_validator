@@ -18,7 +18,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CreateIdentityPoolInputRequestTypeDef
+# CreateIdentityPoolInputTypeDef
 
 ### IdentityPoolName
 - **Type**: <class 'str'>
@@ -65,7 +65,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# DeleteIdentitiesInputRequestTypeDef
+# DeleteIdentitiesInputTypeDef
 
 ### IdentityIdsToDelete
 - **Type**: typing.Sequence[str]
@@ -83,21 +83,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteIdentityPoolInputRequestTypeDef
+# DeleteIdentityPoolInputTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeIdentityInputRequestTypeDef
+# DescribeIdentityInputTypeDef
 
 ### IdentityId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeIdentityPoolInputRequestTypeDef
+# DescribeIdentityPoolInputTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>
@@ -111,7 +111,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCredentialsForIdentityInputRequestTypeDef
+# GetCredentialsForIdentityInputTypeDef
 
 ### IdentityId
 - **Type**: <class 'str'>
@@ -139,7 +139,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetIdInputRequestTypeDef
+# GetIdInputTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>
@@ -163,7 +163,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetIdentityPoolRolesInputRequestTypeDef
+# GetIdentityPoolRolesInputTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>
@@ -189,7 +189,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetOpenIdTokenForDeveloperIdentityInputRequestTypeDef
+# GetOpenIdTokenForDeveloperIdentityInputTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>
@@ -224,7 +224,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetOpenIdTokenInputRequestTypeDef
+# GetOpenIdTokenInputTypeDef
 
 ### IdentityId
 - **Type**: <class 'str'>
@@ -249,7 +249,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPrincipalTagAttributeMapInputRequestTypeDef
+# GetPrincipalTagAttributeMapInputTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>
@@ -413,7 +413,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListIdentitiesInputRequestTypeDef
+# ListIdentitiesInputTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>
@@ -448,13 +448,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListIdentityPoolsInputListIdentityPoolsPaginateTypeDef
+# ListIdentityPoolsInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_identity_classes.PaginatorConfigTypeDef]
 
 
-# ListIdentityPoolsInputRequestTypeDef
+# ListIdentityPoolsInputTypeDef
 
 ### MaxResults
 - **Type**: <class 'int'>
@@ -478,7 +478,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceInputRequestTypeDef
+# ListTagsForResourceInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -496,7 +496,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# LookupDeveloperIdentityInputRequestTypeDef
+# LookupDeveloperIdentityInputTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>
@@ -552,7 +552,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# MergeDeveloperIdentitiesInputRequestTypeDef
+# MergeDeveloperIdentitiesInputTypeDef
 
 ### SourceUserIdentifier
 - **Type**: <class 'str'>
@@ -618,29 +618,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # RoleMappingOutputTypeDef
 
-### Type
-- **Type**: typing.Literal['Rules', 'Token']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### AmbiguousRoleResolution
-- **Type**: typing.Optional[typing.Literal['AuthenticatedRole', 'Deny']]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### RulesConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_identity_classes.RulesConfigurationTypeOutputTypeDef]
+# RoleMappingUnionTypeDef
 
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-# RoleMappingTypeDef
-
-### Type
-- **Type**: typing.Literal['Rules', 'Token']
-- **Required**: Yes
-
-### AmbiguousRoleResolution
-- **Type**: typing.Optional[typing.Literal['AuthenticatedRole', 'Deny']]
-
-### RulesConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_identity_classes.RulesConfigurationTypeTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RulesConfigurationTypeOutputTypeDef
 
@@ -656,7 +642,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetIdentityPoolRolesInputRequestTypeDef
+# SetIdentityPoolRolesInputTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>
@@ -667,10 +653,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RoleMappings
-- **Type**: typing.Optional[typing.Mapping[str, typing.Union[aws_resource_validator.pydantic_models.cognito_identity_classes.RoleMappingTypeDef, aws_resource_validator.pydantic_models.cognito_identity_classes.RoleMappingOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.cognito_identity_classes.RoleMappingUnionTypeDef]]
 
 
-# SetPrincipalTagAttributeMapInputRequestTypeDef
+# SetPrincipalTagAttributeMapInputTypeDef
 
 ### IdentityPoolId
 - **Type**: <class 'str'>
@@ -710,7 +696,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceInputRequestTypeDef
+# TagResourceInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -721,7 +707,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UnlinkDeveloperIdentityInputRequestTypeDef
+# UnlinkDeveloperIdentityInputTypeDef
 
 ### IdentityId
 - **Type**: <class 'str'>
@@ -740,7 +726,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UnlinkIdentityInputRequestTypeDef
+# UnlinkIdentityInputTypeDef
 
 ### IdentityId
 - **Type**: <class 'str'>
@@ -764,7 +750,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AccessDenied', 'InternalServerError']]
 
 
-# UntagResourceInputRequestTypeDef
+# UntagResourceInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>

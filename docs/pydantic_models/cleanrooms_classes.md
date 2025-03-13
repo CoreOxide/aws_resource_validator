@@ -1,6 +1,6 @@
 # Cleanrooms Classes
 
-# AggregateColumnTypeDef
+# AggregateColumnOutputTypeDef
 
 ### columnNames
 - **Type**: typing.List[str]
@@ -11,39 +11,27 @@
 - **Required**: Yes
 
 
+# AggregateColumnTypeDef
+
+### columnNames
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### function
+- **Type**: typing.Literal['AVG', 'COUNT', 'COUNT_DISTINCT', 'SUM', 'SUM_DISTINCT']
+- **Required**: Yes
+
+
 # AggregationConstraintTypeDef
 
-### columnName
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### minimum
-- **Type**: <class 'int'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### type
-- **Type**: typing.Literal['COUNT_DISTINCT']
-- **Required**: Yes
-
-
-# AnalysisParameterTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['BIGINT', 'BOOLEAN', 'CHAR', 'DATE', 'DECIMAL', 'DOUBLE_PRECISION', 'INTEGER', 'REAL', 'SMALLINT', 'TIME', 'TIMESTAMP', 'TIMESTAMPTZ', 'TIMETZ', 'VARBYTE', 'VARCHAR']
-- **Required**: Yes
-
-### defaultValue
-- **Type**: typing.Optional[str]
-
-
-# AnalysisRuleAggregationTypeDef
+# AnalysisRuleAggregationOutputTypeDef
 
 ### aggregateColumns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.AggregateColumnTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.AggregateColumnOutputTypeDef]
 - **Required**: Yes
 
 ### joinColumns
@@ -68,8 +56,43 @@
 ### allowedJoinOperators
 - **Type**: typing.Optional[typing.List[typing.Literal['AND', 'OR']]]
 
+### additionalAnalyses
+- **Type**: typing.Optional[typing.Literal['ALLOWED', 'NOT_ALLOWED', 'REQUIRED']]
 
-# AnalysisRuleCustomTypeDef
+
+# AnalysisRuleAggregationTypeDef
+
+### aggregateColumns
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cleanrooms_classes.AggregateColumnTypeDef]
+- **Required**: Yes
+
+### joinColumns
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### dimensionColumns
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### scalarFunctions
+- **Type**: typing.Sequence[typing.Literal['ABS', 'CAST', 'CEILING', 'COALESCE', 'CONVERT', 'CURRENT_DATE', 'DATEADD', 'EXTRACT', 'FLOOR', 'GETDATE', 'LN', 'LOG', 'LOWER', 'ROUND', 'RTRIM', 'SQRT', 'SUBSTRING', 'TO_CHAR', 'TO_DATE', 'TO_NUMBER', 'TO_TIMESTAMP', 'TRIM', 'TRUNC', 'UPPER']]
+- **Required**: Yes
+
+### outputConstraints
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cleanrooms_classes.AggregationConstraintTypeDef]
+- **Required**: Yes
+
+### joinRequired
+- **Type**: typing.Optional[typing.Literal['QUERY_RUNNER']]
+
+### allowedJoinOperators
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['AND', 'OR']]]
+
+### additionalAnalyses
+- **Type**: typing.Optional[typing.Literal['ALLOWED', 'NOT_ALLOWED', 'REQUIRED']]
+
+
+# AnalysisRuleCustomOutputTypeDef
 
 ### allowedAnalyses
 - **Type**: typing.List[str]
@@ -78,11 +101,50 @@
 ### allowedAnalysisProviders
 - **Type**: typing.Optional[typing.List[str]]
 
+### additionalAnalyses
+- **Type**: typing.Optional[typing.Literal['ALLOWED', 'NOT_ALLOWED', 'REQUIRED']]
+
+### disallowedOutputColumns
+- **Type**: typing.Optional[typing.List[str]]
+
+### differentialPrivacy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.DifferentialPrivacyConfigurationOutputTypeDef]
+
+
+# AnalysisRuleCustomTypeDef
+
+### allowedAnalyses
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### allowedAnalysisProviders
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### additionalAnalyses
+- **Type**: typing.Optional[typing.Literal['ALLOWED', 'NOT_ALLOWED', 'REQUIRED']]
+
+### disallowedOutputColumns
+- **Type**: typing.Optional[typing.Sequence[str]]
+
 ### differentialPrivacy
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.DifferentialPrivacyConfigurationTypeDef]
 
 
-# AnalysisRuleListTypeDef
+# AnalysisRuleIdMappingTableTypeDef
+
+### joinColumns
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### queryConstraints
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.QueryConstraintTypeDef]
+- **Required**: Yes
+
+### dimensionColumns
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# AnalysisRuleListOutputTypeDef
 
 ### joinColumns
 - **Type**: typing.List[str]
@@ -95,6 +157,26 @@
 ### allowedJoinOperators
 - **Type**: typing.Optional[typing.List[typing.Literal['AND', 'OR']]]
 
+### additionalAnalyses
+- **Type**: typing.Optional[typing.Literal['ALLOWED', 'NOT_ALLOWED', 'REQUIRED']]
+
+
+# AnalysisRuleListTypeDef
+
+### joinColumns
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### listColumns
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### allowedJoinOperators
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['AND', 'OR']]]
+
+### additionalAnalyses
+- **Type**: typing.Optional[typing.Literal['ALLOWED', 'NOT_ALLOWED', 'REQUIRED']]
+
 
 # AnalysisRulePolicyTypeDef
 
@@ -104,42 +186,15 @@
 
 # AnalysisRulePolicyV1TypeDef
 
-### list
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.AnalysisRuleListTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### aggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.AnalysisRuleAggregationTypeDef]
-
-### custom
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.AnalysisRuleCustomTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AnalysisRuleTypeDef
 
-### collaborationId
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: typing.Literal['AGGREGATION', 'CUSTOM', 'LIST']
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### policy
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.AnalysisRulePolicyTypeDef'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AnalysisSchemaTypeDef
 
@@ -155,125 +210,39 @@
 
 # AnalysisTemplateSummaryTypeDef
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### membershipArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### membershipId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AnalysisTemplateTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### membershipId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### membershipArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### schema
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.AnalysisSchemaTypeDef'>
-- **Default**: <bound method BaseModel.schema of <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.AnalysisTemplateTypeDef'>>
-
-### format
-- **Type**: typing.Literal['SQL']
-- **Required**: Yes
-
-### source
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.AnalysisSourceTypeDef'>
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
-
-### analysisParameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.AnalysisParameterTypeDef]]
-
-### validations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.AnalysisTemplateValidationStatusDetailTypeDef]]
-
-
-# AnalysisTemplateValidationStatusDetailTypeDef
-
-### type
-- **Type**: typing.Literal['DIFFERENTIAL_PRIVACY']
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['INVALID', 'UNABLE_TO_VALIDATE', 'VALID']
-- **Required**: Yes
-
-### reasons
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.AnalysisTemplateValidationStatusReasonTypeDef]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AnalysisTemplateValidationStatusReasonTypeDef
 
 ### message
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+
+# AthenaTableReferenceTypeDef
+
+### workGroup
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### databaseName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### tableName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### outputLocation
+- **Type**: typing.Optional[str]
 
 
 # BaseValidatorModel
@@ -297,7 +266,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchGetCollaborationAnalysisTemplateInputRequestTypeDef
+# BatchGetCollaborationAnalysisTemplateInputTypeDef
 
 ### collaborationIdentifier
 - **Type**: <class 'str'>
@@ -325,24 +294,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # BatchGetSchemaAnalysisRuleErrorTypeDef
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: typing.Literal['AGGREGATION', 'CUSTOM', 'LIST']
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### code
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### message
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# BatchGetSchemaAnalysisRuleInputRequestTypeDef
+# BatchGetSchemaAnalysisRuleInputTypeDef
 
 ### collaborationIdentifier
 - **Type**: <class 'str'>
@@ -383,7 +339,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchGetSchemaInputRequestTypeDef
+# BatchGetSchemaInputTypeDef
 
 ### collaborationIdentifier
 - **Type**: <class 'str'>
@@ -409,498 +365,107 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# BilledResourceUtilizationTypeDef
+
+### units
+- **Type**: <class 'float'>
+- **Required**: Yes
+
+
 # CollaborationAnalysisTemplateSummaryTypeDef
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### collaborationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creatorAccountId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CollaborationAnalysisTemplateTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creatorAccountId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### schema
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.AnalysisSchemaTypeDef'>
-- **Default**: <bound method BaseModel.schema of <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.CollaborationAnalysisTemplateTypeDef'>>
-
-### format
-- **Type**: typing.Literal['SQL']
-- **Required**: Yes
-
-### source
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.AnalysisSourceTypeDef'>
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
-
-### analysisParameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.AnalysisParameterTypeDef]]
-
-### validations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.AnalysisTemplateValidationStatusDetailTypeDef]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CollaborationConfiguredAudienceModelAssociationSummaryTypeDef
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### collaborationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creatorAccountId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CollaborationConfiguredAudienceModelAssociationTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### collaborationId
-- **Type**: <class 'str'>
-- **Required**: Yes
+# CollaborationIdNamespaceAssociationSummaryTypeDef
 
-### collaborationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### configuredAudienceModelArn
-- **Type**: <class 'str'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+# CollaborationIdNamespaceAssociationTypeDef
 
-### creatorAccountId
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CollaborationPrivacyBudgetSummaryTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### privacyBudgetTemplateId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### privacyBudgetTemplateArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creatorAccountId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['DIFFERENTIAL_PRIVACY']
-- **Required**: Yes
-
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### budget
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.PrivacyBudgetTypeDef'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CollaborationPrivacyBudgetTemplateSummaryTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creatorAccountId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### privacyBudgetType
-- **Type**: typing.Literal['DIFFERENTIAL_PRIVACY']
-- **Required**: Yes
-
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CollaborationPrivacyBudgetTemplateTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creatorAccountId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### privacyBudgetType
-- **Type**: typing.Literal['DIFFERENTIAL_PRIVACY']
-- **Required**: Yes
-
-### autoRefresh
-- **Type**: typing.Literal['CALENDAR_MONTH', 'NONE']
-- **Required**: Yes
-
-### parameters
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.PrivacyBudgetTemplateParametersOutputTypeDef'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CollaborationSummaryTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creatorAccountId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creatorDisplayName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### memberStatus
-- **Type**: typing.Literal['ACTIVE', 'INVITED', 'LEFT', 'REMOVED']
-- **Required**: Yes
-
-### membershipId
-- **Type**: typing.Optional[str]
-
-### membershipArn
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CollaborationTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+# ComputeConfigurationTypeDef
 
-### creatorAccountId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creatorDisplayName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### memberStatus
-- **Type**: typing.Literal['ACTIVE', 'INVITED', 'LEFT', 'REMOVED']
-- **Required**: Yes
-
-### queryLogStatus
-- **Type**: typing.Literal['DISABLED', 'ENABLED']
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
-
-### membershipId
-- **Type**: typing.Optional[str]
-
-### membershipArn
-- **Type**: typing.Optional[str]
-
-### dataEncryptionMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.DataEncryptionMetadataTypeDef]
+### worker
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.WorkerComputeConfigurationTypeDef]
 
 
-# ColumnTypeDef
+# ConfigurationDetailsTypeDef
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: <class 'str'>
-- **Required**: Yes
+### directAnalysisConfigurationDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.DirectAnalysisConfigurationDetailsTypeDef]
 
 
 # ConfiguredAudienceModelAssociationSummaryTypeDef
 
-### membershipId
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### membershipArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### configuredAudienceModelArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ConfiguredAudienceModelAssociationTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### configuredAudienceModelArn
-- **Type**: <class 'str'>
-- **Required**: Yes
+# ConfiguredTableAnalysisRulePolicyOutputTypeDef
 
-### membershipId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### membershipArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### manageResourcePolicies
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
+### v1
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.ConfiguredTableAnalysisRulePolicyV1OutputTypeDef]
 
 
 # ConfiguredTableAnalysisRulePolicyTypeDef
@@ -909,226 +474,143 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.ConfiguredTableAnalysisRulePolicyV1TypeDef]
 
 
+# ConfiguredTableAnalysisRulePolicyUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ConfiguredTableAnalysisRulePolicyV1OutputTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ConfiguredTableAnalysisRulePolicyV1TypeDef
 
-### list
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.AnalysisRuleListTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### aggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.AnalysisRuleAggregationTypeDef]
-
-### custom
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.AnalysisRuleCustomTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ConfiguredTableAnalysisRuleTypeDef
 
-### configuredTableId
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### configuredTableArn
-- **Type**: <class 'str'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### policy
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ConfiguredTableAnalysisRulePolicyTypeDef'>
-- **Required**: Yes
+# ConfiguredTableAssociationAnalysisRuleAggregationOutputTypeDef
 
-### type
-- **Type**: typing.Literal['AGGREGATION', 'CUSTOM', 'LIST']
-- **Required**: Yes
+### allowedResultReceivers
+- **Type**: typing.Optional[typing.List[str]]
 
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
+### allowedAdditionalAnalyses
+- **Type**: typing.Optional[typing.List[str]]
 
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
 
+# ConfiguredTableAssociationAnalysisRuleAggregationTypeDef
+
+### allowedResultReceivers
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### allowedAdditionalAnalyses
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# ConfiguredTableAssociationAnalysisRuleCustomOutputTypeDef
+
+### allowedResultReceivers
+- **Type**: typing.Optional[typing.List[str]]
+
+### allowedAdditionalAnalyses
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# ConfiguredTableAssociationAnalysisRuleCustomTypeDef
+
+### allowedResultReceivers
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### allowedAdditionalAnalyses
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# ConfiguredTableAssociationAnalysisRuleListOutputTypeDef
+
+### allowedResultReceivers
+- **Type**: typing.Optional[typing.List[str]]
+
+### allowedAdditionalAnalyses
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# ConfiguredTableAssociationAnalysisRuleListTypeDef
+
+### allowedResultReceivers
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### allowedAdditionalAnalyses
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# ConfiguredTableAssociationAnalysisRulePolicyOutputTypeDef
+
+### v1
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.ConfiguredTableAssociationAnalysisRulePolicyV1OutputTypeDef]
+
+
+# ConfiguredTableAssociationAnalysisRulePolicyTypeDef
+
+### v1
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.ConfiguredTableAssociationAnalysisRulePolicyV1TypeDef]
+
+
+# ConfiguredTableAssociationAnalysisRulePolicyUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ConfiguredTableAssociationAnalysisRulePolicyV1OutputTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ConfiguredTableAssociationAnalysisRulePolicyV1TypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ConfiguredTableAssociationAnalysisRuleTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ConfiguredTableAssociationSummaryTypeDef
 
-### configuredTableId
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### membershipId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### membershipArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ConfiguredTableAssociationTypeDef
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### configuredTableId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### configuredTableArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### membershipId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### membershipArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### roleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ConfiguredTableSummaryTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### analysisRuleTypes
-- **Type**: typing.List[typing.Literal['AGGREGATION', 'CUSTOM', 'LIST']]
-- **Required**: Yes
-
-### analysisMethod
-- **Type**: typing.Literal['DIRECT_QUERY']
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ConfiguredTableTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### tableReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.TableReferenceTypeDef'>
-- **Required**: Yes
-
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### analysisRuleTypes
-- **Type**: typing.List[typing.Literal['AGGREGATION', 'CUSTOM', 'LIST']]
-- **Required**: Yes
-
-### analysisMethod
-- **Type**: typing.Literal['DIRECT_QUERY']
-- **Required**: Yes
-
-### allowedColumns
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
-
-
-# CreateAnalysisTemplateInputRequestTypeDef
-
-### membershipIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### format
-- **Type**: typing.Literal['SQL']
-- **Required**: Yes
-
-### source
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.AnalysisSourceTypeDef'>
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
-
-### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### analysisParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cleanrooms_classes.AnalysisParameterTypeDef]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CreateAnalysisTemplateOutputTypeDef
 
@@ -1141,7 +623,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCollaborationInputRequestTypeDef
+# CreateCollaborationInputTypeDef
 
 ### members
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cleanrooms_classes.MemberSpecificationTypeDef]
@@ -1167,6 +649,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Literal['DISABLED', 'ENABLED']
 - **Required**: Yes
 
+### creatorMLMemberAbilities
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.MLMemberAbilitiesUnionTypeDef]
+
 ### dataEncryptionMetadata
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.DataEncryptionMetadataTypeDef]
 
@@ -1175,6 +660,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### creatorPaymentConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.PaymentConfigurationTypeDef]
+
+### analyticsEngine
+- **Type**: typing.Optional[typing.Literal['CLEAN_ROOMS_SQL', 'SPARK']]
 
 
 # CreateCollaborationOutputTypeDef
@@ -1188,7 +676,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateConfiguredAudienceModelAssociationInputRequestTypeDef
+# CreateConfiguredAudienceModelAssociationInputTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
@@ -1224,7 +712,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateConfiguredTableAnalysisRuleInputRequestTypeDef
+# CreateConfiguredTableAnalysisRuleInputTypeDef
 
 ### configuredTableIdentifier
 - **Type**: <class 'str'>
@@ -1235,7 +723,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### analysisRulePolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ConfiguredTableAnalysisRulePolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ConfiguredTableAnalysisRulePolicyUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -1250,7 +738,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateConfiguredTableAssociationInputRequestTypeDef
+# CreateConfiguredTableAssociationAnalysisRuleInputTypeDef
+
+### membershipIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### configuredTableAssociationIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### analysisRuleType
+- **Type**: typing.Literal['AGGREGATION', 'CUSTOM', 'LIST']
+- **Required**: Yes
+
+### analysisRulePolicy
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ConfiguredTableAssociationAnalysisRulePolicyUnionTypeDef'>
+- **Required**: Yes
+
+
+# CreateConfiguredTableAssociationAnalysisRuleOutputTypeDef
+
+### analysisRule
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ConfiguredTableAssociationAnalysisRuleTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateConfiguredTableAssociationInputTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -1286,14 +804,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateConfiguredTableInputRequestTypeDef
+# CreateConfiguredTableInputTypeDef
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### tableReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.TableReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.TableReferenceUnionTypeDef'>
 - **Required**: Yes
 
 ### allowedColumns
@@ -1322,7 +840,77 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateMembershipInputRequestTypeDef
+# CreateIdMappingTableInputTypeDef
+
+### membershipIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### inputReferenceConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.IdMappingTableInputReferenceConfigTypeDef'>
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### tags
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### kmsKeyArn
+- **Type**: typing.Optional[str]
+
+
+# CreateIdMappingTableOutputTypeDef
+
+### idMappingTable
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.IdMappingTableTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateIdNamespaceAssociationInputTypeDef
+
+### membershipIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### inputReferenceConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.IdNamespaceAssociationInputReferenceConfigTypeDef'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### tags
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### description
+- **Type**: typing.Optional[str]
+
+### idMappingConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.IdMappingConfigTypeDef]
+
+
+# CreateIdNamespaceAssociationOutputTypeDef
+
+### idNamespaceAssociation
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.IdNamespaceAssociationTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateMembershipInputTypeDef
 
 ### collaborationIdentifier
 - **Type**: <class 'str'>
@@ -1353,7 +941,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePrivacyBudgetTemplateInputRequestTypeDef
+# CreatePrivacyBudgetTemplateInputTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
@@ -1405,7 +993,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAnalysisTemplateInputRequestTypeDef
+# DeleteAnalysisTemplateInputTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
@@ -1416,14 +1004,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteCollaborationInputRequestTypeDef
+# DeleteCollaborationInputTypeDef
 
 ### collaborationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteConfiguredAudienceModelAssociationInputRequestTypeDef
+# DeleteConfiguredAudienceModelAssociationInputTypeDef
 
 ### configuredAudienceModelAssociationIdentifier
 - **Type**: <class 'str'>
@@ -1434,7 +1022,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteConfiguredTableAnalysisRuleInputRequestTypeDef
+# DeleteConfiguredTableAnalysisRuleInputTypeDef
 
 ### configuredTableIdentifier
 - **Type**: <class 'str'>
@@ -1445,7 +1033,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteConfiguredTableAssociationInputRequestTypeDef
+# DeleteConfiguredTableAssociationAnalysisRuleInputTypeDef
+
+### membershipIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### configuredTableAssociationIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### analysisRuleType
+- **Type**: typing.Literal['AGGREGATION', 'CUSTOM', 'LIST']
+- **Required**: Yes
+
+
+# DeleteConfiguredTableAssociationInputTypeDef
 
 ### configuredTableAssociationIdentifier
 - **Type**: <class 'str'>
@@ -1456,14 +1059,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteConfiguredTableInputRequestTypeDef
+# DeleteConfiguredTableInputTypeDef
 
 ### configuredTableIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteMemberInputRequestTypeDef
+# DeleteIdMappingTableInputTypeDef
+
+### idMappingTableIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### membershipIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteIdNamespaceAssociationInputTypeDef
+
+### idNamespaceAssociationIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### membershipIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteMemberInputTypeDef
 
 ### collaborationIdentifier
 - **Type**: <class 'str'>
@@ -1474,14 +1099,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteMembershipInputRequestTypeDef
+# DeleteMembershipInputTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePrivacyBudgetTemplateInputRequestTypeDef
+# DeletePrivacyBudgetTemplateInputTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
@@ -1499,10 +1124,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DifferentialPrivacyConfigurationTypeDef
+# DifferentialPrivacyConfigurationOutputTypeDef
 
 ### columns
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.DifferentialPrivacyColumnTypeDef]
+- **Required**: Yes
+
+
+# DifferentialPrivacyConfigurationTypeDef
+
+### columns
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cleanrooms_classes.DifferentialPrivacyColumnTypeDef]
 - **Required**: Yes
 
 
@@ -1515,14 +1147,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DifferentialPrivacyPreviewAggregationTypeDef
 
-### type
-- **Type**: typing.Literal['AVG', 'COUNT', 'COUNT_DISTINCT', 'STDDEV', 'SUM']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### maxCount
-- **Type**: <class 'int'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DifferentialPrivacyPreviewParametersInputTypeDef
 
@@ -1537,18 +1164,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DifferentialPrivacyPrivacyBudgetAggregationTypeDef
 
-### type
-- **Type**: typing.Literal['AVG', 'COUNT', 'COUNT_DISTINCT', 'STDDEV', 'SUM']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### maxCount
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### remainingCount
-- **Type**: <class 'int'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DifferentialPrivacyPrivacyBudgetTypeDef
 
@@ -1620,7 +1238,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetAnalysisTemplateInputRequestTypeDef
+# DirectAnalysisConfigurationDetailsTypeDef
+
+### receiverAccountIds
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# GetAnalysisTemplateInputTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
@@ -1642,7 +1266,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCollaborationAnalysisTemplateInputRequestTypeDef
+# GetCollaborationAnalysisTemplateInputTypeDef
 
 ### collaborationIdentifier
 - **Type**: <class 'str'>
@@ -1664,7 +1288,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCollaborationConfiguredAudienceModelAssociationInputRequestTypeDef
+# GetCollaborationConfiguredAudienceModelAssociationInputTypeDef
 
 ### collaborationIdentifier
 - **Type**: <class 'str'>
@@ -1686,7 +1310,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCollaborationInputRequestTypeDef
+# GetCollaborationIdNamespaceAssociationInputTypeDef
+
+### collaborationIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### idNamespaceAssociationIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetCollaborationIdNamespaceAssociationOutputTypeDef
+
+### collaborationIdNamespaceAssociation
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.CollaborationIdNamespaceAssociationTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetCollaborationInputTypeDef
 
 ### collaborationIdentifier
 - **Type**: <class 'str'>
@@ -1704,7 +1350,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCollaborationPrivacyBudgetTemplateInputRequestTypeDef
+# GetCollaborationPrivacyBudgetTemplateInputTypeDef
 
 ### collaborationIdentifier
 - **Type**: <class 'str'>
@@ -1726,7 +1372,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetConfiguredAudienceModelAssociationInputRequestTypeDef
+# GetConfiguredAudienceModelAssociationInputTypeDef
 
 ### configuredAudienceModelAssociationIdentifier
 - **Type**: <class 'str'>
@@ -1748,7 +1394,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetConfiguredTableAnalysisRuleInputRequestTypeDef
+# GetConfiguredTableAnalysisRuleInputTypeDef
 
 ### configuredTableIdentifier
 - **Type**: <class 'str'>
@@ -1770,7 +1416,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetConfiguredTableAssociationInputRequestTypeDef
+# GetConfiguredTableAssociationAnalysisRuleInputTypeDef
+
+### membershipIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### configuredTableAssociationIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### analysisRuleType
+- **Type**: typing.Literal['AGGREGATION', 'CUSTOM', 'LIST']
+- **Required**: Yes
+
+
+# GetConfiguredTableAssociationAnalysisRuleOutputTypeDef
+
+### analysisRule
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ConfiguredTableAssociationAnalysisRuleTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetConfiguredTableAssociationInputTypeDef
 
 ### configuredTableAssociationIdentifier
 - **Type**: <class 'str'>
@@ -1792,7 +1464,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetConfiguredTableInputRequestTypeDef
+# GetConfiguredTableInputTypeDef
 
 ### configuredTableIdentifier
 - **Type**: <class 'str'>
@@ -1810,7 +1482,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMembershipInputRequestTypeDef
+# GetIdMappingTableInputTypeDef
+
+### idMappingTableIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### membershipIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetIdMappingTableOutputTypeDef
+
+### idMappingTable
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.IdMappingTableTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetIdNamespaceAssociationInputTypeDef
+
+### idNamespaceAssociationIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### membershipIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetIdNamespaceAssociationOutputTypeDef
+
+### idNamespaceAssociation
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.IdNamespaceAssociationTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetMembershipInputTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
@@ -1828,7 +1544,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPrivacyBudgetTemplateInputRequestTypeDef
+# GetPrivacyBudgetTemplateInputTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
@@ -1850,7 +1566,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetProtectedQueryInputRequestTypeDef
+# GetProtectedQueryInputTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
@@ -1872,21 +1588,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSchemaAnalysisRuleInputRequestTypeDef
-
-### collaborationIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['AGGREGATION', 'CUSTOM', 'LIST']
-- **Required**: Yes
-
-
 # GetSchemaAnalysisRuleOutputTypeDef
 
 ### analysisRule
@@ -1898,7 +1599,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSchemaInputRequestTypeDef
+# GetSchemaInputTypeDef
 
 ### collaborationIdentifier
 - **Type**: <class 'str'>
@@ -1931,7 +1632,98 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListAnalysisTemplatesInputListAnalysisTemplatesPaginateTypeDef
+# IdMappingConfigTypeDef
+
+### allowUseAsDimensionColumn
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+
+# IdMappingTableInputReferenceConfigTypeDef
+
+### inputReferenceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### manageResourcePolicies
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+
+# IdMappingTableInputReferencePropertiesTypeDef
+
+### idMappingTableInputSource
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.IdMappingTableInputSourceTypeDef]
+- **Required**: Yes
+
+
+# IdMappingTableInputSourceTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# IdMappingTableSchemaTypePropertiesTypeDef
+
+### idMappingTableInputSource
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.IdMappingTableInputSourceTypeDef]
+- **Required**: Yes
+
+
+# IdMappingTableSummaryTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# IdMappingTableTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# IdNamespaceAssociationInputReferenceConfigTypeDef
+
+### inputReferenceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### manageResourcePolicies
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+
+# IdNamespaceAssociationInputReferencePropertiesSummaryTypeDef
+
+### idNamespaceType
+- **Type**: typing.Literal['SOURCE', 'TARGET']
+- **Required**: Yes
+
+
+# IdNamespaceAssociationInputReferencePropertiesTypeDef
+
+### idNamespaceType
+- **Type**: typing.Literal['SOURCE', 'TARGET']
+- **Required**: Yes
+
+### idMappingWorkflowsSupported
+- **Type**: typing.List[typing.Dict[str, typing.Any]]
+- **Required**: Yes
+
+
+# IdNamespaceAssociationSummaryTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# IdNamespaceAssociationTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ListAnalysisTemplatesInputPaginateTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
@@ -1941,7 +1733,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.PaginatorConfigTypeDef]
 
 
-# ListAnalysisTemplatesInputRequestTypeDef
+# ListAnalysisTemplatesInputTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
@@ -1956,10 +1748,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListAnalysisTemplatesOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### analysisTemplateSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.AnalysisTemplateSummaryTypeDef]
 - **Required**: Yes
@@ -1968,8 +1756,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListCollaborationAnalysisTemplatesInputRequestTypeDef
+
+# ListCollaborationAnalysisTemplatesInputPaginateTypeDef
+
+### collaborationIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.PaginatorConfigTypeDef]
+
+
+# ListCollaborationAnalysisTemplatesInputTypeDef
 
 ### collaborationIdentifier
 - **Type**: <class 'str'>
@@ -1984,10 +1785,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListCollaborationAnalysisTemplatesOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### collaborationAnalysisTemplateSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.CollaborationAnalysisTemplateSummaryTypeDef]
 - **Required**: Yes
@@ -1996,8 +1793,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListCollaborationConfiguredAudienceModelAssociationsInputListCollaborationConfiguredAudienceModelAssociationsPaginateTypeDef
+
+# ListCollaborationConfiguredAudienceModelAssociationsInputPaginateTypeDef
 
 ### collaborationIdentifier
 - **Type**: <class 'str'>
@@ -2007,7 +1807,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.PaginatorConfigTypeDef]
 
 
-# ListCollaborationConfiguredAudienceModelAssociationsInputRequestTypeDef
+# ListCollaborationConfiguredAudienceModelAssociationsInputTypeDef
 
 ### collaborationIdentifier
 - **Type**: <class 'str'>
@@ -2026,16 +1826,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.CollaborationConfiguredAudienceModelAssociationSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListCollaborationPrivacyBudgetTemplatesInputListCollaborationPrivacyBudgetTemplatesPaginateTypeDef
+
+# ListCollaborationIdNamespaceAssociationsInputPaginateTypeDef
 
 ### collaborationIdentifier
 - **Type**: <class 'str'>
@@ -2045,7 +1844,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.PaginatorConfigTypeDef]
 
 
-# ListCollaborationPrivacyBudgetTemplatesInputRequestTypeDef
+# ListCollaborationIdNamespaceAssociationsInputTypeDef
+
+### collaborationIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+
+# ListCollaborationIdNamespaceAssociationsOutputTypeDef
+
+### collaborationIdNamespaceAssociationSummaries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.CollaborationIdNamespaceAssociationSummaryTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListCollaborationPrivacyBudgetTemplatesInputPaginateTypeDef
+
+### collaborationIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.PaginatorConfigTypeDef]
+
+
+# ListCollaborationPrivacyBudgetTemplatesInputTypeDef
 
 ### collaborationIdentifier
 - **Type**: <class 'str'>
@@ -2060,10 +1896,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListCollaborationPrivacyBudgetTemplatesOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### collaborationPrivacyBudgetTemplateSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.CollaborationPrivacyBudgetTemplateSummaryTypeDef]
 - **Required**: Yes
@@ -2072,8 +1904,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListCollaborationPrivacyBudgetsInputListCollaborationPrivacyBudgetsPaginateTypeDef
+
+# ListCollaborationPrivacyBudgetsInputPaginateTypeDef
 
 ### collaborationIdentifier
 - **Type**: <class 'str'>
@@ -2087,7 +1922,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.PaginatorConfigTypeDef]
 
 
-# ListCollaborationPrivacyBudgetsInputRequestTypeDef
+# ListCollaborationPrivacyBudgetsInputTypeDef
 
 ### collaborationIdentifier
 - **Type**: <class 'str'>
@@ -2110,16 +1945,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.CollaborationPrivacyBudgetSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListCollaborationsInputListCollaborationsPaginateTypeDef
+
+# ListCollaborationsInputPaginateTypeDef
 
 ### memberStatus
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'INVITED']]
@@ -2128,7 +1962,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.PaginatorConfigTypeDef]
 
 
-# ListCollaborationsInputRequestTypeDef
+# ListCollaborationsInputTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -2142,10 +1976,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListCollaborationsOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### collaborationList
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.CollaborationSummaryTypeDef]
 - **Required**: Yes
@@ -2154,8 +1984,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListConfiguredAudienceModelAssociationsInputListConfiguredAudienceModelAssociationsPaginateTypeDef
+
+# ListConfiguredAudienceModelAssociationsInputPaginateTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
@@ -2165,7 +1998,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.PaginatorConfigTypeDef]
 
 
-# ListConfiguredAudienceModelAssociationsInputRequestTypeDef
+# ListConfiguredAudienceModelAssociationsInputTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
@@ -2184,16 +2017,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.ConfiguredAudienceModelAssociationSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListConfiguredTableAssociationsInputListConfiguredTableAssociationsPaginateTypeDef
+
+# ListConfiguredTableAssociationsInputPaginateTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
@@ -2203,7 +2035,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.PaginatorConfigTypeDef]
 
 
-# ListConfiguredTableAssociationsInputRequestTypeDef
+# ListConfiguredTableAssociationsInputTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
@@ -2222,22 +2054,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.ConfiguredTableAssociationSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListConfiguredTablesInputListConfiguredTablesPaginateTypeDef
+
+# ListConfiguredTablesInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.PaginatorConfigTypeDef]
 
 
-# ListConfiguredTablesInputRequestTypeDef
+# ListConfiguredTablesInputTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -2252,16 +2083,89 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.ConfiguredTableSummaryTypeDef]
 - **Required**: Yes
 
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
 ### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListIdMappingTablesInputPaginateTypeDef
+
+### membershipIdentifier
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.PaginatorConfigTypeDef]
+
+
+# ListIdMappingTablesInputTypeDef
+
+### membershipIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+
+# ListIdMappingTablesOutputTypeDef
+
+### idMappingTableSummaries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.IdMappingTableSummaryTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListMembersInputListMembersPaginateTypeDef
+
+# ListIdNamespaceAssociationsInputPaginateTypeDef
+
+### membershipIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.PaginatorConfigTypeDef]
+
+
+# ListIdNamespaceAssociationsInputTypeDef
+
+### membershipIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+
+# ListIdNamespaceAssociationsOutputTypeDef
+
+### idNamespaceAssociationSummaries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.IdNamespaceAssociationSummaryTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListMembersInputPaginateTypeDef
 
 ### collaborationIdentifier
 - **Type**: <class 'str'>
@@ -2271,7 +2175,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.PaginatorConfigTypeDef]
 
 
-# ListMembersInputRequestTypeDef
+# ListMembersInputTypeDef
 
 ### collaborationIdentifier
 - **Type**: <class 'str'>
@@ -2286,10 +2190,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListMembersOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### memberSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.MemberSummaryTypeDef]
 - **Required**: Yes
@@ -2298,8 +2198,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListMembershipsInputListMembershipsPaginateTypeDef
+
+# ListMembershipsInputPaginateTypeDef
 
 ### status
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'COLLABORATION_DELETED', 'REMOVED']]
@@ -2308,7 +2211,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.PaginatorConfigTypeDef]
 
 
-# ListMembershipsInputRequestTypeDef
+# ListMembershipsInputTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -2322,10 +2225,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListMembershipsOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### membershipSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.MembershipSummaryTypeDef]
 - **Required**: Yes
@@ -2334,8 +2233,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListPrivacyBudgetTemplatesInputListPrivacyBudgetTemplatesPaginateTypeDef
+
+# ListPrivacyBudgetTemplatesInputPaginateTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
@@ -2345,7 +2247,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.PaginatorConfigTypeDef]
 
 
-# ListPrivacyBudgetTemplatesInputRequestTypeDef
+# ListPrivacyBudgetTemplatesInputTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
@@ -2360,10 +2262,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListPrivacyBudgetTemplatesOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### privacyBudgetTemplateSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.PrivacyBudgetTemplateSummaryTypeDef]
 - **Required**: Yes
@@ -2372,8 +2270,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListPrivacyBudgetsInputListPrivacyBudgetsPaginateTypeDef
+
+# ListPrivacyBudgetsInputPaginateTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
@@ -2387,7 +2288,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.PaginatorConfigTypeDef]
 
 
-# ListPrivacyBudgetsInputRequestTypeDef
+# ListPrivacyBudgetsInputTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
@@ -2410,16 +2311,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.PrivacyBudgetSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListProtectedQueriesInputListProtectedQueriesPaginateTypeDef
+
+# ListProtectedQueriesInputPaginateTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
@@ -2432,7 +2332,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.PaginatorConfigTypeDef]
 
 
-# ListProtectedQueriesInputRequestTypeDef
+# ListProtectedQueriesInputTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
@@ -2450,10 +2350,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListProtectedQueriesOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### protectedQueries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.ProtectedQuerySummaryTypeDef]
 - **Required**: Yes
@@ -2462,28 +2358,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListSchemasInputListSchemasPaginateTypeDef
+
+# ListSchemasInputPaginateTypeDef
 
 ### collaborationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### schemaType
-- **Type**: typing.Optional[typing.Literal['TABLE']]
+- **Type**: typing.Optional[typing.Literal['ID_MAPPING_TABLE', 'TABLE']]
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.PaginatorConfigTypeDef]
 
 
-# ListSchemasInputRequestTypeDef
+# ListSchemasInputTypeDef
 
 ### collaborationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### schemaType
-- **Type**: typing.Optional[typing.Literal['TABLE']]
+- **Type**: typing.Optional[typing.Literal['ID_MAPPING_TABLE', 'TABLE']]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -2498,16 +2397,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.SchemaSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceInputRequestTypeDef
+
+# ListTagsForResourceInputTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2525,6 +2423,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# MLMemberAbilitiesOutputTypeDef
+
+### customMLMemberAbilities
+- **Type**: typing.List[typing.Literal['CAN_RECEIVE_INFERENCE_OUTPUT', 'CAN_RECEIVE_MODEL_OUTPUT']]
+- **Required**: Yes
+
+
+# MLMemberAbilitiesTypeDef
+
+### customMLMemberAbilities
+- **Type**: typing.Sequence[typing.Literal['CAN_RECEIVE_INFERENCE_OUTPUT', 'CAN_RECEIVE_MODEL_OUTPUT']]
+- **Required**: Yes
+
+
+# MLMemberAbilitiesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# MLPaymentConfigTypeDef
+
+### modelTraining
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.ModelTrainingPaymentConfigTypeDef]
+
+### modelInference
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.ModelInferencePaymentConfigTypeDef]
+
+
 # MemberSpecificationTypeDef
 
 ### accountId
@@ -2538,6 +2465,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### displayName
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+### mlMemberAbilities
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.MLMemberAbilitiesUnionTypeDef]
 
 ### paymentConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.PaymentConfigurationTypeDef]
@@ -2573,6 +2503,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.PaymentConfigurationTypeDef'>
 - **Required**: Yes
 
+### mlAbilities
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.MLMemberAbilitiesOutputTypeDef]
+
 ### membershipId
 - **Type**: typing.Optional[str]
 
@@ -2580,11 +2513,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# MembershipMLPaymentConfigTypeDef
+
+### modelTraining
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.MembershipModelTrainingPaymentConfigTypeDef]
+
+### modelInference
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.MembershipModelInferencePaymentConfigTypeDef]
+
+
+# MembershipModelInferencePaymentConfigTypeDef
+
+### isResponsible
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+
+# MembershipModelTrainingPaymentConfigTypeDef
+
+### isResponsible
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+
 # MembershipPaymentConfigurationTypeDef
 
 ### queryCompute
 - **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.MembershipQueryComputePaymentConfigTypeDef'>
 - **Required**: Yes
+
+### machineLearning
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.MembershipMLPaymentConfigTypeDef]
 
 
 # MembershipProtectedQueryOutputConfigurationTypeDef
@@ -2612,111 +2571,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # MembershipSummaryTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationCreatorAccountId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationCreatorDisplayName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVE', 'COLLABORATION_DELETED', 'REMOVED']
-- **Required**: Yes
-
-### memberAbilities
-- **Type**: typing.List[typing.Literal['CAN_QUERY', 'CAN_RECEIVE_RESULTS']]
-- **Required**: Yes
-
-### paymentConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.MembershipPaymentConfigurationTypeDef'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MembershipTypeDef
 
-### id
-- **Type**: <class 'str'>
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ModelInferencePaymentConfigTypeDef
+
+### isResponsible
+- **Type**: <class 'bool'>
 - **Required**: Yes
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
 
-### collaborationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
+# ModelTrainingPaymentConfigTypeDef
 
-### collaborationId
-- **Type**: <class 'str'>
+### isResponsible
+- **Type**: <class 'bool'>
 - **Required**: Yes
-
-### collaborationCreatorAccountId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationCreatorDisplayName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVE', 'COLLABORATION_DELETED', 'REMOVED']
-- **Required**: Yes
-
-### memberAbilities
-- **Type**: typing.List[typing.Literal['CAN_QUERY', 'CAN_RECEIVE_RESULTS']]
-- **Required**: Yes
-
-### queryLogStatus
-- **Type**: typing.Literal['DISABLED', 'ENABLED']
-- **Required**: Yes
-
-### paymentConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.MembershipPaymentConfigurationTypeDef'>
-- **Required**: Yes
-
-### defaultResultConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.MembershipProtectedQueryResultConfigurationTypeDef]
 
 
 # PaginatorConfigTypeDef
@@ -2737,8 +2613,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.QueryComputePaymentConfigTypeDef'>
 - **Required**: Yes
 
+### machineLearning
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.MLPaymentConfigTypeDef]
 
-# PreviewPrivacyImpactInputRequestTypeDef
+
+# PopulateIdMappingTableInputTypeDef
+
+### idMappingTableIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### membershipIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# PopulateIdMappingTableOutputTypeDef
+
+### idMappingJobId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# PreviewPrivacyImpactInputTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
@@ -2768,50 +2669,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PrivacyBudgetSummaryTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### privacyBudgetTemplateId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### privacyBudgetTemplateArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### membershipId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### membershipArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['DIFFERENTIAL_PRIVACY']
-- **Required**: Yes
-
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### budget
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.PrivacyBudgetTypeDef'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PrivacyBudgetTemplateParametersInputTypeDef
 
@@ -2827,89 +2687,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PrivacyBudgetTemplateSummaryTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### membershipId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### membershipArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### privacyBudgetType
-- **Type**: typing.Literal['DIFFERENTIAL_PRIVACY']
-- **Required**: Yes
-
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PrivacyBudgetTemplateTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### membershipId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### membershipArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### privacyBudgetType
-- **Type**: typing.Literal['DIFFERENTIAL_PRIVACY']
-- **Required**: Yes
-
-### autoRefresh
-- **Type**: typing.Literal['CALENDAR_MONTH', 'NONE']
-- **Required**: Yes
-
-### parameters
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.PrivacyBudgetTemplateParametersOutputTypeDef'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PrivacyBudgetTemplateUpdateParametersTypeDef
 
@@ -2940,10 +2726,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# ProtectedQueryMemberOutputConfigurationTypeDef
+
+### accountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
 # ProtectedQueryOutputConfigurationTypeDef
 
 ### s3
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.ProtectedQueryS3OutputConfigurationTypeDef]
+
+### member
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.ProtectedQueryMemberOutputConfigurationTypeDef]
 
 
 # ProtectedQueryOutputTypeDef
@@ -2982,12 +2778,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### keyPrefix
 - **Type**: typing.Optional[str]
 
+### singleFileOutput
+- **Type**: typing.Optional[bool]
+
 
 # ProtectedQueryS3OutputTypeDef
 
 ### location
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+
+# ProtectedQuerySQLParametersOutputTypeDef
+
+### queryString
+- **Type**: typing.Optional[str]
+
+### analysisTemplateArn
+- **Type**: typing.Optional[str]
+
+### parameters
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ProtectedQuerySQLParametersTypeDef
@@ -2999,7 +2810,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### parameters
-- **Type**: typing.Optional[typing.Dict[str, str]]
+- **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
 # ProtectedQuerySingleMemberOutputTypeDef
@@ -3014,76 +2825,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### totalDurationInMillis
 - **Type**: typing.Optional[int]
 
+### billedResourceUtilization
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.BilledResourceUtilizationTypeDef]
+
 
 # ProtectedQuerySummaryTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### membershipId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### membershipArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'FAILED', 'STARTED', 'SUBMITTED', 'SUCCESS', 'TIMED_OUT']
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProtectedQueryTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### membershipId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### membershipArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'FAILED', 'STARTED', 'SUBMITTED', 'SUCCESS', 'TIMED_OUT']
-- **Required**: Yes
-
-### sqlParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.ProtectedQuerySQLParametersTypeDef]
-
-### resultConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.ProtectedQueryResultConfigurationTypeDef]
-
-### statistics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.ProtectedQueryStatisticsTypeDef]
-
-### result
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.ProtectedQueryResultTypeDef]
-
-### error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.ProtectedQueryErrorTypeDef]
-
-### differentialPrivacy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.DifferentialPrivacyParametersTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # QueryComputePaymentConfigTypeDef
 
 ### isResponsible
 - **Type**: <class 'bool'>
 - **Required**: Yes
+
+
+# QueryConstraintRequireOverlapTypeDef
+
+### columns
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# QueryConstraintTypeDef
+
+### requireOverlap
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.QueryConstraintRequireOverlapTypeDef]
+
+
+# ReceiverConfigurationTypeDef
+
+### analysisType
+- **Type**: typing.Literal['ADDITIONAL_ANALYSIS', 'DIRECT_ANALYSIS']
+- **Required**: Yes
+
+### configurationDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.ConfigurationDetailsTypeDef]
 
 
 # ResponseMetadataTypeDef
@@ -3110,14 +2894,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SchemaAnalysisRuleRequestTypeDef
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: typing.Literal['AGGREGATION', 'CUSTOM', 'LIST']
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SchemaStatusDetailTypeDef
 
@@ -3125,11 +2904,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Literal['NOT_READY', 'READY']
 - **Required**: Yes
 
+### analysisType
+- **Type**: typing.Literal['ADDITIONAL_ANALYSIS', 'DIRECT_ANALYSIS']
+- **Required**: Yes
+
 ### reasons
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.SchemaStatusReasonTypeDef]]
 
 ### analysisRuleType
-- **Type**: typing.Optional[typing.Literal['AGGREGATION', 'CUSTOM', 'LIST']]
+- **Type**: typing.Optional[typing.Literal['AGGREGATION', 'CUSTOM', 'ID_MAPPING_TABLE', 'LIST']]
 
 ### configurations
 - **Type**: typing.Optional[typing.List[typing.Literal['DIFFERENTIAL_PRIVACY']]]
@@ -3138,7 +2921,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SchemaStatusReasonTypeDef
 
 ### code
-- **Type**: typing.Literal['ANALYSIS_PROVIDERS_NOT_CONFIGURED', 'ANALYSIS_RULE_MISSING', 'ANALYSIS_TEMPLATES_NOT_CONFIGURED', 'DIFFERENTIAL_PRIVACY_POLICY_NOT_CONFIGURED']
+- **Type**: typing.Literal['ADDITIONAL_ANALYSES_NOT_ALLOWED', 'ADDITIONAL_ANALYSES_NOT_CONFIGURED', 'ANALYSIS_PROVIDERS_NOT_CONFIGURED', 'ANALYSIS_RULE_MISSING', 'ANALYSIS_RULE_TYPES_NOT_COMPATIBLE', 'ANALYSIS_TEMPLATES_NOT_CONFIGURED', 'COLLABORATION_ANALYSIS_RULE_NOT_CONFIGURED', 'DIFFERENTIAL_PRIVACY_POLICY_NOT_CONFIGURED', 'ID_MAPPING_TABLE_NOT_POPULATED', 'RESULT_RECEIVERS_NOT_ALLOWED', 'RESULT_RECEIVERS_NOT_CONFIGURED']
 - **Required**: Yes
 
 ### message
@@ -3148,112 +2931,97 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SchemaSummaryTypeDef
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: typing.Literal['TABLE']
-- **Required**: Yes
-
-### creatorAccountId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### collaborationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### collaborationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### analysisRuleTypes
-- **Type**: typing.List[typing.Literal['AGGREGATION', 'CUSTOM', 'LIST']]
-- **Required**: Yes
-
-### analysisMethod
-- **Type**: typing.Optional[typing.Literal['DIRECT_QUERY']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SchemaTypeDef
 
-### columns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.ColumnTypeDef]
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### partitionKeys
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.ColumnTypeDef]
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### analysisRuleTypes
-- **Type**: typing.List[typing.Literal['AGGREGATION', 'CUSTOM', 'LIST']]
-- **Required**: Yes
+# SchemaTypePropertiesTypeDef
 
-### creatorAccountId
+### idMappingTable
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.IdMappingTableSchemaTypePropertiesTypeDef]
+
+
+# SnowflakeTableReferenceOutputTypeDef
+
+### secretArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### name
+### accountIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### collaborationId
+### databaseName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### collaborationArn
+### tableName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### description
+### schemaName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### createTime
-- **Type**: <class 'datetime.datetime'>
+### tableSchema
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.SnowflakeTableSchemaOutputTypeDef'>
 - **Required**: Yes
 
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
 
-### type
-- **Type**: typing.Literal['TABLE']
-- **Required**: Yes
+# SnowflakeTableReferenceTypeDef
 
-### schemaStatusDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.SchemaStatusDetailTypeDef]
-- **Required**: Yes
-
-### analysisMethod
-- **Type**: typing.Optional[typing.Literal['DIRECT_QUERY']]
-
-
-# StartProtectedQueryInputRequestTypeDef
-
-### type
-- **Type**: typing.Literal['SQL']
-- **Required**: Yes
-
-### membershipIdentifier
+### secretArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### sqlParameters
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ProtectedQuerySQLParametersTypeDef'>
+### accountIdentifier
+- **Type**: <class 'str'>
 - **Required**: Yes
 
-### resultConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.ProtectedQueryResultConfigurationTypeDef]
+### databaseName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### tableName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### schemaName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### tableSchema
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.SnowflakeTableSchemaTypeDef'>
+- **Required**: Yes
+
+
+# SnowflakeTableSchemaOutputTypeDef
+
+### v1
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cleanrooms_classes.SnowflakeTableSchemaV1TypeDef]]
+
+
+# SnowflakeTableSchemaTypeDef
+
+### v1
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cleanrooms_classes.SnowflakeTableSchemaV1TypeDef]]
+
+
+# SnowflakeTableSchemaV1TypeDef
+
+### columnName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### columnType
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 
 # StartProtectedQueryOutputTypeDef
@@ -3267,13 +3035,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# TableReferenceOutputTypeDef
+
+### glue
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.GlueTableReferenceTypeDef]
+
+### snowflake
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.SnowflakeTableReferenceOutputTypeDef]
+
+### athena
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.AthenaTableReferenceTypeDef]
+
+
 # TableReferenceTypeDef
 
 ### glue
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.GlueTableReferenceTypeDef]
 
+### snowflake
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.SnowflakeTableReferenceTypeDef]
 
-# TagResourceInputRequestTypeDef
+### athena
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.AthenaTableReferenceTypeDef]
+
+
+# TableReferenceUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TagResourceInputTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -3284,7 +3076,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceInputRequestTypeDef
+# UntagResourceInputTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -3295,7 +3087,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAnalysisTemplateInputRequestTypeDef
+# UpdateAnalysisTemplateInputTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
@@ -3320,7 +3112,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateCollaborationInputRequestTypeDef
+# UpdateCollaborationInputTypeDef
 
 ### collaborationIdentifier
 - **Type**: <class 'str'>
@@ -3344,7 +3136,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateConfiguredAudienceModelAssociationInputRequestTypeDef
+# UpdateConfiguredAudienceModelAssociationInputTypeDef
 
 ### configuredAudienceModelAssociationIdentifier
 - **Type**: <class 'str'>
@@ -3372,7 +3164,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateConfiguredTableAnalysisRuleInputRequestTypeDef
+# UpdateConfiguredTableAnalysisRuleInputTypeDef
 
 ### configuredTableIdentifier
 - **Type**: <class 'str'>
@@ -3383,7 +3175,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### analysisRulePolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ConfiguredTableAnalysisRulePolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ConfiguredTableAnalysisRulePolicyUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -3398,7 +3190,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateConfiguredTableAssociationInputRequestTypeDef
+# UpdateConfiguredTableAssociationAnalysisRuleInputTypeDef
+
+### membershipIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### configuredTableAssociationIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### analysisRuleType
+- **Type**: typing.Literal['AGGREGATION', 'CUSTOM', 'LIST']
+- **Required**: Yes
+
+### analysisRulePolicy
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ConfiguredTableAssociationAnalysisRulePolicyUnionTypeDef'>
+- **Required**: Yes
+
+
+# UpdateConfiguredTableAssociationAnalysisRuleOutputTypeDef
+
+### analysisRule
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ConfiguredTableAssociationAnalysisRuleTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateConfiguredTableAssociationInputTypeDef
 
 ### configuredTableAssociationIdentifier
 - **Type**: <class 'str'>
@@ -3426,7 +3248,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateConfiguredTableInputRequestTypeDef
+# UpdateConfiguredTableInputTypeDef
 
 ### configuredTableIdentifier
 - **Type**: <class 'str'>
@@ -3450,7 +3272,66 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateMembershipInputRequestTypeDef
+# UpdateIdMappingTableInputTypeDef
+
+### idMappingTableIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### membershipIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### kmsKeyArn
+- **Type**: typing.Optional[str]
+
+
+# UpdateIdMappingTableOutputTypeDef
+
+### idMappingTable
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.IdMappingTableTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateIdNamespaceAssociationInputTypeDef
+
+### idNamespaceAssociationIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### membershipIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### idMappingConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanrooms_classes.IdMappingConfigTypeDef]
+
+
+# UpdateIdNamespaceAssociationOutputTypeDef
+
+### idNamespaceAssociation
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.IdNamespaceAssociationTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateMembershipInputTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
@@ -3474,7 +3355,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePrivacyBudgetTemplateInputRequestTypeDef
+# UpdatePrivacyBudgetTemplateInputTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
@@ -3503,7 +3384,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateProtectedQueryInputRequestTypeDef
+# UpdateProtectedQueryInputTypeDef
 
 ### membershipIdentifier
 - **Type**: <class 'str'>
@@ -3528,4 +3409,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.cleanrooms_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+
+# WorkerComputeConfigurationTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

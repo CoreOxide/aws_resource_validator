@@ -2,7 +2,7 @@
 
 ### ARN
 - **Type**: string
-- **Pattern**: `^arn:aws:[A-Za-z0-9][A-za-z0-9_/.-]{0,62}:[A-za-z0-9_/.-]{0,63}:[A-za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-za-z0-9_/.-]{0,127}$`
+- **Pattern**: `^arn:aws[a-z-]{0,7}:[A-Za-z0-9][A-za-z0-9_/.-]{0,62}:[A-za-z0-9_/.-]{0,63}:[A-za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.\\-]{0,1023}$`
 
 ### AddInName
 - **Type**: string
@@ -86,11 +86,25 @@
 - **Type**: string
 - **Pattern**: `(^([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.0\.0)(\/(16$))$`
 
+### DescribeWorkspaceDirectoriesFilterValue
+- **Type**: string
+- **Pattern**: `^[0-9a-zA-Z\*\.\\/\?-_]{0,64}$`
+
+### DescribeWorkspacesPoolsFilterValue
+- **Type**: string
+- **Pattern**: `^[A-Za-z0-9][A-Za-z0-9_.-]+$`
+- **Min Length**: 1
+- **Max Length**: 128
+
 ### DirectoryId
 - **Type**: string
-- **Pattern**: `^d-[0-9a-f]{8,63}$`
+- **Pattern**: `^(d-[0-9a-f]{8,63}$)|(wsd-[0-9a-z]{8,63}$)`
 - **Min Length**: 10
 - **Max Length**: 65
+
+### DomainName
+- **Type**: string
+- **Pattern**: `^([a-zA-Z0-9]+[.-])+([a-zA-Z0-9])+$`
 
 ### Ec2ImageId
 - **Type**: string
@@ -108,11 +122,21 @@
 - **Type**: string
 - **Pattern**: `^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/(3[0-2]|[1-2][0-9]|[0-9]))$`
 
+### MicrosoftEntraConfigTenantId
+- **Type**: string
+- **Pattern**: `^[a-zA-Z0-9-]{1,100}$`
+
 ### Region
 - **Type**: string
 - **Pattern**: `^[-0-9a-z]{1,31}$`
 - **Min Length**: 1
 - **Max Length**: 31
+
+### S3BucketName
+- **Type**: string
+- **Pattern**: `^[a-z0-9][\.\-a-z0-9]{1,61}[a-z0-9]$`
+- **Min Length**: 3
+- **Max Length**: 63
 
 ### SamlUserAccessUrl
 - **Type**: string
@@ -120,11 +144,24 @@
 - **Min Length**: 8
 - **Max Length**: 200
 
+### SecretsManagerArn
+- **Type**: string
+- **Pattern**: `^arn:aws[a-z-]{0,7}:secretsmanager:[A-za-z0-9_/.-]{0,63}:[A-za-z0-9_/.-]{0,63}:secret:[A-Za-z0-9][A-za-z0-9_/.-]{8,519}$`
+
 ### SecurityGroupId
 - **Type**: string
 - **Pattern**: `^(sg-([0-9a-f]{8}|[0-9a-f]{17}))$`
 - **Min Length**: 11
 - **Max Length**: 20
+
+### SessionInstanceId
+- **Type**: string
+- **Pattern**: `^i-[a-f0-9]{8}(?:[a-f0-9]{9})?$`
+
+### SettingsGroup
+- **Type**: string
+- **Pattern**: `^[A-Za-z0-9_./()!*\'-]+$`
+- **Max Length**: 100
 
 ### SubnetId
 - **Type**: string
@@ -158,6 +195,14 @@
 - **Min Length**: 1
 - **Max Length**: 64
 
+### WorkspaceDirectoryDescription
+- **Type**: string
+- **Pattern**: `^([a-zA-Z0-9_])[\\a-zA-Z0-9_@#%*+=:?./!\s-]{1,255}$`
+
+### WorkspaceDirectoryName
+- **Type**: string
+- **Pattern**: `^[a-zA-Z0-9][a-zA-Z0-9_.\s-]{1,64}$`
+
 ### WorkspaceId
 - **Type**: string
 - **Pattern**: `^ws-[0-9a-z]{8,63}$`
@@ -181,4 +226,12 @@
 ### WorkspaceName
 - **Type**: string
 - **Pattern**: `^[a-zA-Z0-9_()][a-zA-Z0-9_.()-]{1,63}$`
+
+### WorkspacesPoolId
+- **Type**: string
+- **Pattern**: `^wspool-[0-9a-z]{9}$`
+
+### WorkspacesPoolName
+- **Type**: string
+- **Pattern**: `^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$`
 

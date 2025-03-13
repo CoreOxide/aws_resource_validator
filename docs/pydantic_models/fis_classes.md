@@ -11,21 +11,9 @@
 
 # ActionSummaryTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-### targets
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.fis_classes.ActionTargetTypeDef]]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ActionTargetTypeDef
 
@@ -35,24 +23,9 @@
 
 # ActionTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-### parameters
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.fis_classes.ActionParameterTypeDef]]
-
-### targets
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.fis_classes.ActionTargetTypeDef]]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BaseValidatorModel
 
@@ -101,7 +74,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.ExperimentTemplateS3LogConfigurationInputTypeDef]
 
 
-# CreateExperimentTemplateRequestRequestTypeDef
+# CreateExperimentTemplateReportConfigurationInputTypeDef
+
+### outputs
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.ExperimentTemplateReportConfigurationOutputsInputTypeDef]
+
+### dataSources
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.ExperimentTemplateReportConfigurationDataSourcesInputTypeDef]
+
+### preExperimentDuration
+- **Type**: typing.Optional[str]
+
+### postExperimentDuration
+- **Type**: typing.Optional[str]
+
+
+# CreateExperimentTemplateRequestTypeDef
 
 ### clientToken
 - **Type**: <class 'str'>
@@ -134,6 +122,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### experimentOptions
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.CreateExperimentTemplateExperimentOptionsInputTypeDef]
+
+### experimentReportConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.CreateExperimentTemplateReportConfigurationInputTypeDef]
 
 
 # CreateExperimentTemplateResponseTypeDef
@@ -180,7 +171,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateTargetAccountConfigurationRequestRequestTypeDef
+# CreateTargetAccountConfigurationRequestTypeDef
 
 ### experimentTemplateId
 - **Type**: <class 'str'>
@@ -212,13 +203,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteExperimentTemplateRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
 # DeleteExperimentTemplateResponseTypeDef
 
 ### experimentTemplate
@@ -230,7 +214,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteTargetAccountConfigurationRequestRequestTypeDef
+# DeleteTargetAccountConfigurationRequestTypeDef
 
 ### experimentTemplateId
 - **Type**: <class 'str'>
@@ -294,6 +278,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# ExperimentErrorTypeDef
+
+### accountId
+- **Type**: typing.Optional[str]
+
+### code
+- **Type**: typing.Optional[str]
+
+### location
+- **Type**: typing.Optional[str]
+
+
 # ExperimentLogConfigurationTypeDef
 
 ### cloudWatchLogsConfiguration
@@ -318,6 +314,84 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['run-all', 'skip-all']]
 
 
+# ExperimentReportConfigurationCloudWatchDashboardTypeDef
+
+### dashboardIdentifier
+- **Type**: typing.Optional[str]
+
+
+# ExperimentReportConfigurationDataSourcesTypeDef
+
+### cloudWatchDashboards
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fis_classes.ExperimentReportConfigurationCloudWatchDashboardTypeDef]]
+
+
+# ExperimentReportConfigurationOutputsS3ConfigurationTypeDef
+
+### bucketName
+- **Type**: typing.Optional[str]
+
+### prefix
+- **Type**: typing.Optional[str]
+
+
+# ExperimentReportConfigurationOutputsTypeDef
+
+### s3Configuration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.ExperimentReportConfigurationOutputsS3ConfigurationTypeDef]
+
+
+# ExperimentReportConfigurationTypeDef
+
+### outputs
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.ExperimentReportConfigurationOutputsTypeDef]
+
+### dataSources
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.ExperimentReportConfigurationDataSourcesTypeDef]
+
+### preExperimentDuration
+- **Type**: typing.Optional[str]
+
+### postExperimentDuration
+- **Type**: typing.Optional[str]
+
+
+# ExperimentReportErrorTypeDef
+
+### code
+- **Type**: typing.Optional[str]
+
+
+# ExperimentReportS3ReportTypeDef
+
+### arn
+- **Type**: typing.Optional[str]
+
+### reportType
+- **Type**: typing.Optional[str]
+
+
+# ExperimentReportStateTypeDef
+
+### status
+- **Type**: typing.Optional[typing.Literal['cancelled', 'completed', 'failed', 'pending', 'running']]
+
+### reason
+- **Type**: typing.Optional[str]
+
+### error
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.ExperimentReportErrorTypeDef]
+
+
+# ExperimentReportTypeDef
+
+### state
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.ExperimentReportStateTypeDef]
+
+### s3Reports
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fis_classes.ExperimentReportS3ReportTypeDef]]
+
+
 # ExperimentS3LogConfigurationTypeDef
 
 ### bucketName
@@ -330,10 +404,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ExperimentStateTypeDef
 
 ### status
-- **Type**: typing.Optional[typing.Literal['completed', 'failed', 'initiating', 'pending', 'running', 'stopped', 'stopping']]
+- **Type**: typing.Optional[typing.Literal['cancelled', 'completed', 'failed', 'initiating', 'pending', 'running', 'stopped', 'stopping']]
 
 ### reason
 - **Type**: typing.Optional[str]
+
+### error
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.ExperimentErrorTypeDef]
 
 
 # ExperimentStopConditionTypeDef
@@ -347,27 +424,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ExperimentSummaryTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: typing.Optional[str]
-
-### experimentTemplateId
-- **Type**: typing.Optional[str]
-
-### state
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.ExperimentStateTypeDef]
-
-### creationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### experimentOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.ExperimentOptionsTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ExperimentTargetAccountConfigurationSummaryTypeDef
 
@@ -475,6 +534,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
+# ExperimentTemplateReportConfigurationCloudWatchDashboardTypeDef
+
+### dashboardIdentifier
+- **Type**: typing.Optional[str]
+
+
+# ExperimentTemplateReportConfigurationDataSourcesInputTypeDef
+
+### cloudWatchDashboards
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fis_classes.ReportConfigurationCloudWatchDashboardInputTypeDef]]
+
+
+# ExperimentTemplateReportConfigurationDataSourcesTypeDef
+
+### cloudWatchDashboards
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fis_classes.ExperimentTemplateReportConfigurationCloudWatchDashboardTypeDef]]
+
+
+# ExperimentTemplateReportConfigurationOutputsInputTypeDef
+
+### s3Configuration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.ReportConfigurationS3OutputInputTypeDef]
+
+
+# ExperimentTemplateReportConfigurationOutputsTypeDef
+
+### s3Configuration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.ReportConfigurationS3OutputTypeDef]
+
+
+# ExperimentTemplateReportConfigurationTypeDef
+
+### outputs
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.ExperimentTemplateReportConfigurationOutputsTypeDef]
+
+### dataSources
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.ExperimentTemplateReportConfigurationDataSourcesTypeDef]
+
+### preExperimentDuration
+- **Type**: typing.Optional[str]
+
+### postExperimentDuration
+- **Type**: typing.Optional[str]
+
+
 # ExperimentTemplateS3LogConfigurationInputTypeDef
 
 ### bucketName
@@ -505,24 +609,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ExperimentTemplateSummaryTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-### creationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### lastUpdateTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ExperimentTemplateTargetFilterTypeDef
 
@@ -567,100 +656,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ExperimentTemplateTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-### targets
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.fis_classes.ExperimentTemplateTargetTypeDef]]
-
-### actions
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.fis_classes.ExperimentTemplateActionTypeDef]]
-
-### stopConditions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fis_classes.ExperimentTemplateStopConditionTypeDef]]
-
-### creationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### lastUpdateTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### roleArn
-- **Type**: typing.Optional[str]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### logConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.ExperimentTemplateLogConfigurationTypeDef]
-
-### experimentOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.ExperimentTemplateExperimentOptionsTypeDef]
-
-### targetAccountConfigurationsCount
-- **Type**: typing.Optional[int]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ExperimentTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: typing.Optional[str]
-
-### experimentTemplateId
-- **Type**: typing.Optional[str]
-
-### roleArn
-- **Type**: typing.Optional[str]
-
-### state
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.ExperimentStateTypeDef]
-
-### targets
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.fis_classes.ExperimentTargetTypeDef]]
-
-### actions
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.fis_classes.ExperimentActionTypeDef]]
-
-### stopConditions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fis_classes.ExperimentStopConditionTypeDef]]
-
-### creationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### startTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### endTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### logConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.ExperimentLogConfigurationTypeDef]
-
-### experimentOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.ExperimentOptionsTypeDef]
-
-### targetAccountConfigurationsCount
-- **Type**: typing.Optional[int]
-
-
-# GetActionRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # GetActionResponseTypeDef
 
@@ -670,13 +674,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.fis_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetExperimentRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
 - **Required**: Yes
 
 
@@ -691,7 +688,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetExperimentTargetAccountConfigurationRequestRequestTypeDef
+# GetExperimentTargetAccountConfigurationRequestTypeDef
 
 ### experimentId
 - **Type**: <class 'str'>
@@ -713,13 +710,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetExperimentTemplateRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
 # GetExperimentTemplateResponseTypeDef
 
 ### experimentTemplate
@@ -731,7 +721,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTargetAccountConfigurationRequestRequestTypeDef
+# GetSafetyLeverResponseTypeDef
+
+### safetyLever
+- **Type**: <class 'aws_resource_validator.pydantic_models.fis_classes.SafetyLeverTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.fis_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetTargetAccountConfigurationRequestTypeDef
 
 ### experimentTemplateId
 - **Type**: <class 'str'>
@@ -753,7 +754,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTargetResourceTypeRequestRequestTypeDef
+# GetTargetResourceTypeRequestTypeDef
 
 ### resourceType
 - **Type**: <class 'str'>
@@ -771,7 +772,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListActionsRequestRequestTypeDef
+# ListActionsRequestPaginateTypeDef
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.PaginatorConfigTypeDef]
+
+
+# ListActionsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -786,16 +793,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.fis_classes.ActionSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.fis_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListExperimentResolvedTargetsRequestRequestTypeDef
+
+# ListExperimentResolvedTargetsRequestPaginateTypeDef
+
+### experimentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### targetName
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.PaginatorConfigTypeDef]
+
+
+# ListExperimentResolvedTargetsRequestTypeDef
 
 ### experimentId
 - **Type**: <class 'str'>
@@ -817,16 +836,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.fis_classes.ResolvedTargetTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.fis_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListExperimentTargetAccountConfigurationsRequestRequestTypeDef
+
+# ListExperimentTargetAccountConfigurationsRequestTypeDef
 
 ### experimentId
 - **Type**: <class 'str'>
@@ -842,16 +860,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.fis_classes.ExperimentTargetAccountConfigurationSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.fis_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListExperimentTemplatesRequestRequestTypeDef
+
+# ListExperimentTemplatesRequestPaginateTypeDef
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.PaginatorConfigTypeDef]
+
+
+# ListExperimentTemplatesRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -866,16 +889,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.fis_classes.ExperimentTemplateSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.fis_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListExperimentsRequestRequestTypeDef
+
+# ListExperimentsRequestPaginateTypeDef
+
+### experimentTemplateId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.PaginatorConfigTypeDef]
+
+
+# ListExperimentsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -893,16 +924,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.fis_classes.ExperimentSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.fis_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -920,7 +950,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTargetAccountConfigurationsRequestRequestTypeDef
+# ListTargetAccountConfigurationsRequestPaginateTypeDef
+
+### experimentTemplateId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.PaginatorConfigTypeDef]
+
+
+# ListTargetAccountConfigurationsRequestTypeDef
 
 ### experimentTemplateId
 - **Type**: <class 'str'>
@@ -939,16 +979,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.fis_classes.TargetAccountConfigurationSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.fis_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTargetResourceTypesRequestRequestTypeDef
+
+# ListTargetResourceTypesRequestPaginateTypeDef
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.PaginatorConfigTypeDef]
+
+
+# ListTargetResourceTypesRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -963,13 +1008,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.fis_classes.TargetResourceTypeSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.fis_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# PaginatorConfigTypeDef
+
+### MaxItems
+- **Type**: typing.Optional[int]
+
+### PageSize
+- **Type**: typing.Optional[int]
+
+### StartingToken
+- **Type**: typing.Optional[str]
+
+
+# ReportConfigurationCloudWatchDashboardInputTypeDef
+
+### dashboardIdentifier
+- **Type**: typing.Optional[str]
+
+
+# ReportConfigurationS3OutputInputTypeDef
+
+### bucketName
+- **Type**: typing.Optional[str]
+
+### prefix
+- **Type**: typing.Optional[str]
+
+
+# ReportConfigurationS3OutputTypeDef
+
+### bucketName
+- **Type**: typing.Optional[str]
+
+### prefix
+- **Type**: typing.Optional[str]
 
 
 # ResolvedTargetTypeDef
@@ -1006,13 +1086,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# SafetyLeverStateTypeDef
+
+### status
+- **Type**: typing.Optional[typing.Literal['disengaged', 'engaged', 'engaging']]
+
+### reason
+- **Type**: typing.Optional[str]
+
+
+# SafetyLeverTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # StartExperimentExperimentOptionsInputTypeDef
 
 ### actionsMode
 - **Type**: typing.Optional[typing.Literal['run-all', 'skip-all']]
 
 
-# StartExperimentRequestRequestTypeDef
+# StartExperimentRequestTypeDef
 
 ### clientToken
 - **Type**: <class 'str'>
@@ -1040,13 +1135,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopExperimentRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
 # StopExperimentResponseTypeDef
 
 ### experiment
@@ -1058,7 +1146,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1123,7 +1211,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.fis_classes.TargetResourceTypeParameterTypeDef]]
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1169,32 +1257,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# UpdateExperimentTemplateRequestRequestTypeDef
+# UpdateExperimentTemplateReportConfigurationInputTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+### outputs
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.ExperimentTemplateReportConfigurationOutputsInputTypeDef]
 
-### description
+### dataSources
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.ExperimentTemplateReportConfigurationDataSourcesInputTypeDef]
+
+### preExperimentDuration
 - **Type**: typing.Optional[str]
 
-### stopConditions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fis_classes.UpdateExperimentTemplateStopConditionInputTypeDef]]
-
-### targets
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.fis_classes.UpdateExperimentTemplateTargetInputTypeDef]]
-
-### actions
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.fis_classes.UpdateExperimentTemplateActionInputItemTypeDef]]
-
-### roleArn
+### postExperimentDuration
 - **Type**: typing.Optional[str]
-
-### logConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.UpdateExperimentTemplateLogConfigurationInputTypeDef]
-
-### experimentOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fis_classes.UpdateExperimentTemplateExperimentOptionsInputTypeDef]
 
 
 # UpdateExperimentTemplateResponseTypeDef
@@ -1241,7 +1316,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# UpdateTargetAccountConfigurationRequestRequestTypeDef
+# UpdateSafetyLeverStateInputTypeDef
+
+### status
+- **Type**: typing.Literal['disengaged', 'engaged']
+- **Required**: Yes
+
+### reason
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# UpdateSafetyLeverStateResponseTypeDef
+
+### safetyLever
+- **Type**: <class 'aws_resource_validator.pydantic_models.fis_classes.SafetyLeverTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.fis_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateTargetAccountConfigurationRequestTypeDef
 
 ### experimentTemplateId
 - **Type**: <class 'str'>

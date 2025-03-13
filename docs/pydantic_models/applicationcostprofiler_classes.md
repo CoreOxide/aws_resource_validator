@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DeleteReportDefinitionRequestRequestTypeDef
+# DeleteReportDefinitionRequestTypeDef
 
 ### reportId
 - **Type**: <class 'str'>
@@ -24,49 +24,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetReportDefinitionRequestRequestTypeDef
+# GetReportDefinitionRequestTypeDef
 
 ### reportId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetReportDefinitionResultTypeDef
-
-### reportId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### reportDescription
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### reportFrequency
-- **Type**: typing.Literal['ALL', 'DAILY', 'MONTHLY']
-- **Required**: Yes
-
-### format
-- **Type**: typing.Literal['CSV', 'PARQUET']
-- **Required**: Yes
-
-### destinationS3Location
-- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler_classes.S3LocationTypeDef'>
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### lastUpdated
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# ImportApplicationUsageRequestRequestTypeDef
+# ImportApplicationUsageRequestTypeDef
 
 ### sourceS3Location
 - **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler_classes.SourceS3LocationTypeDef'>
@@ -84,13 +49,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListReportDefinitionsRequestListReportDefinitionsPaginateTypeDef
+# ListReportDefinitionsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.applicationcostprofiler_classes.PaginatorConfigTypeDef]
 
 
-# ListReportDefinitionsRequestRequestTypeDef
+# ListReportDefinitionsRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -105,13 +70,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.applicationcostprofiler_classes.ReportDefinitionTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # PaginatorConfigTypeDef
@@ -124,29 +88,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### StartingToken
 - **Type**: typing.Optional[str]
-
-
-# PutReportDefinitionRequestRequestTypeDef
-
-### reportId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### reportDescription
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### reportFrequency
-- **Type**: typing.Literal['ALL', 'DAILY', 'MONTHLY']
-- **Required**: Yes
-
-### format
-- **Type**: typing.Literal['CSV', 'PARQUET']
-- **Required**: Yes
-
-### destinationS3Location
-- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler_classes.S3LocationTypeDef'>
-- **Required**: Yes
 
 
 # PutReportDefinitionResultTypeDef
@@ -162,35 +103,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ReportDefinitionTypeDef
 
-### reportId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### reportDescription
-- **Type**: typing.Optional[str]
-
-### reportFrequency
-- **Type**: typing.Optional[typing.Literal['ALL', 'DAILY', 'MONTHLY']]
-
-### format
-- **Type**: typing.Optional[typing.Literal['CSV', 'PARQUET']]
-
-### destinationS3Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.applicationcostprofiler_classes.S3LocationTypeDef]
-
-### createdAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### lastUpdatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResponseMetadataTypeDef
 
 ### RequestId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### HostId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -205,6 +124,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # S3LocationTypeDef
@@ -230,29 +152,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### region
 - **Type**: typing.Optional[typing.Literal['af-south-1', 'ap-east-1', 'eu-south-1', 'me-south-1']]
-
-
-# UpdateReportDefinitionRequestRequestTypeDef
-
-### reportId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### reportDescription
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### reportFrequency
-- **Type**: typing.Literal['ALL', 'DAILY', 'MONTHLY']
-- **Required**: Yes
-
-### format
-- **Type**: typing.Literal['CSV', 'PARQUET']
-- **Required**: Yes
-
-### destinationS3Location
-- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler_classes.S3LocationTypeDef'>
-- **Required**: Yes
 
 
 # UpdateReportDefinitionResultTypeDef

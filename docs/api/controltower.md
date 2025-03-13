@@ -28,6 +28,10 @@
 - **Min Length**: 3
 - **Max Length**: 10
 
+### ListControlOperationsNextToken
+- **Type**: string
+- **Pattern**: `\S+`
+
 ### ListEnabledBaselinesNextToken
 - **Type**: string
 - **Pattern**: `\S+`

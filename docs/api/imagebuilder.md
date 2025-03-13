@@ -12,7 +12,7 @@
 
 ### ComponentBuildVersionArn
 - **Type**: string
-- **Pattern**: `^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$`
+- **Pattern**: `^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws(?:-[a-z-]+)?):component/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$`
 
 ### ComponentParameterDescription
 - **Type**: string
@@ -39,11 +39,11 @@
 
 ### ComponentVersionArn
 - **Type**: string
-- **Pattern**: `^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+$`
+- **Pattern**: `^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws(?:-[a-z-]+)?):component/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+$`
 
 ### ComponentVersionArnOrBuildVersionArn
 - **Type**: string
-- **Pattern**: `^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/(?:(?:([0-9]+|x)\.([0-9]+|x)\.([0-9]+|x))|(?:[0-9]+\.[0-9]+\.[0-9]+/[0-9]+))$`
+- **Pattern**: `^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws(?:-[a-z-]+)?):component/[a-z0-9-_]+/(?:(?:([0-9]+|x)\.([0-9]+|x)\.([0-9]+|x))|(?:[0-9]+\.[0-9]+\.[0-9]+/[0-9]+))$`
 
 ### ContainerRecipeArn
 - **Type**: string
@@ -59,7 +59,7 @@
 
 ### FilterValue
 - **Type**: string
-- **Pattern**: `^[0-9a-zA-Z./_ :-]{1,1024}$`
+- **Pattern**: `^[0-9a-zA-Z./_ :,{}"-]{1,1024}$`
 
 ### HttpTokens
 - **Type**: string
@@ -67,11 +67,11 @@
 
 ### ImageBuildVersionArn
 - **Type**: string
-- **Pattern**: `^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$`
+- **Pattern**: `^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws(?:-[a-z-]+)?):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$`
 
 ### ImageBuilderArn
 - **Type**: string
-- **Pattern**: `^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|lifecycle-policy|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$`
+- **Pattern**: `^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws(?:-[a-z-]+)?):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|lifecycle-policy|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$`
 
 ### ImagePipelineArn
 - **Type**: string
@@ -83,11 +83,11 @@
 
 ### ImageVersionArn
 - **Type**: string
-- **Pattern**: `^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+$`
+- **Pattern**: `^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws(?:-[a-z-]+)?):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+$`
 
 ### ImageVersionArnOrBuildVersionArn
 - **Type**: string
-- **Pattern**: `^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/(?:(?:([0-9]+|x)\.([0-9]+|x)\.([0-9]+|x))|(?:[0-9]+\.[0-9]+\.[0-9]+/[0-9]+))$`
+- **Pattern**: `^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws(?:-[a-z-]+)?):image/[a-z0-9-_]+/(?:(?:([0-9]+|x)\.([0-9]+|x)\.([0-9]+|x))|(?:[0-9]+\.[0-9]+\.[0-9]+/[0-9]+))$`
 
 ### InfrastructureConfigurationArn
 - **Type**: string
@@ -134,6 +134,11 @@
 - **Pattern**: `^arn:aws(?:-[a-z]+)*:imagebuilder:[a-z]{2,}(?:-[a-z]+)+-[0-9]+:(?:[0-9]{12}|aws):lifecycle-policy/[a-z0-9-_]+$`
 - **Max Length**: 1024
 
+### MarketplaceResourceLocation
+- **Type**: string
+- **Pattern**: `^s3://[^/]+/.+[^/]$`
+- **Max Length**: 1024
+
 ### OrganizationArn
 - **Type**: string
 - **Pattern**: `^arn:aws[^:]*:organizations::[0-9]{12}:organization/o-[a-z0-9]{10,32}$`
@@ -147,6 +152,10 @@
 - **Pattern**: `^[A-Za-z0-9][A-Za-z0-9-_+#]{0,99}$`
 - **Min Length**: 1
 - **Max Length**: 100
+
+### ProductCodeId
+- **Type**: string
+- **Pattern**: `^[A-Za-z0-9]{1,25}$`
 
 ### ResourceName
 - **Type**: string
@@ -186,7 +195,7 @@
 
 ### WorkflowBuildVersionArn
 - **Type**: string
-- **Pattern**: `^arn:aws(?:-[a-z]+)*:imagebuilder:[a-z]{2,}(?:-[a-z]+)+-[0-9]+:(?:[0-9]{12}|aws):workflow/(build|test|distribution)/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$`
+- **Pattern**: `^arn:aws(?:-[a-z]+)*:imagebuilder:[a-z]{2,}(?:-[a-z]+)+-[0-9]+:(?:[0-9]{12}|aws(?:-[a-z-]+)?):workflow/(build|test|distribution)/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$`
 - **Max Length**: 1024
 
 ### WorkflowExecutionId
@@ -195,7 +204,7 @@
 
 ### WorkflowNameArn
 - **Type**: string
-- **Pattern**: `^arn:aws(?:-[a-z]+)*:imagebuilder:[a-z]{2,}(?:-[a-z]+)+-[0-9]+:(?:[0-9]{12}|aws):workflow/(build|test|distribution)/[a-z0-9-_]+/x\.x\.x$`
+- **Pattern**: `^arn:aws(?:-[a-z]+)*:imagebuilder:[a-z]{2,}(?:-[a-z]+)+-[0-9]+:(?:[0-9]{12}|aws(?:-[a-z-]+)?):workflow/(build|test|distribution)/[a-z0-9-_]+/x\.x\.x$`
 
 ### WorkflowParameterDescription
 - **Type**: string
@@ -234,13 +243,13 @@
 
 ### WorkflowVersionArn
 - **Type**: string
-- **Pattern**: `^arn:aws(?:-[a-z]+)*:imagebuilder:[a-z]{2,}(?:-[a-z]+)+-[0-9]+:(?:[0-9]{12}|aws):workflow/(build|test|distribution)/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+$`
+- **Pattern**: `^arn:aws(?:-[a-z]+)*:imagebuilder:[a-z]{2,}(?:-[a-z]+)+-[0-9]+:(?:[0-9]{12}|aws(?:-[a-z-]+)?):workflow/(build|test|distribution)/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+$`
 
 ### WorkflowVersionArnOrBuildVersionArn
 - **Type**: string
-- **Pattern**: `^arn:aws(?:-[a-z]+)*:imagebuilder:[a-z]{2,}(?:-[a-z]+)+-[0-9]+:(?:[0-9]{12}|aws):workflow/(build|test|distribution)/[a-z0-9-_]+/(?:(?:([0-9]+|x)\.([0-9]+|x)\.([0-9]+|x))|(?:[0-9]+\.[0-9]+\.[0-9]+/[0-9]+))$`
+- **Pattern**: `^arn:aws(?:-[a-z]+)*:imagebuilder:[a-z]{2,}(?:-[a-z]+)+-[0-9]+:(?:[0-9]{12}|aws(?:-[a-z-]+)?):workflow/(build|test|distribution)/[a-z0-9-_]+/(?:(?:([0-9]+|x)\.([0-9]+|x)\.([0-9]+|x))|(?:[0-9]+\.[0-9]+\.[0-9]+/[0-9]+))$`
 
 ### WorkflowWildcardVersionArn
 - **Type**: string
-- **Pattern**: `^arn:aws(?:-[a-z]+)*:imagebuilder:[a-z]{2,}(?:-[a-z]+)+-[0-9]+:(?:[0-9]{12}|aws):workflow/(build|test|distribution)/[a-z0-9-_]+/(?:[0-9]+|x)\.(?:[0-9]+|x)\.(?:[0-9]+|x)$`
+- **Pattern**: `^arn:aws(?:-[a-z]+)*:imagebuilder:[a-z]{2,}(?:-[a-z]+)+-[0-9]+:(?:[0-9]{12}|aws(?:-[a-z-]+)?):workflow/(build|test|distribution)/[a-z0-9-_]+/(?:[0-9]+|x)\.(?:[0-9]+|x)\.(?:[0-9]+|x)$`
 

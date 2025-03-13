@@ -37,7 +37,7 @@
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# AddAssociationRequestRequestTypeDef
+# AddAssociationRequestTypeDef
 
 ### SourceArn
 - **Type**: <class 'str'>
@@ -66,7 +66,7 @@
 - **Required**: Yes
 
 
-# AddTagsInputRequestTypeDef
+# AddTagsInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -88,32 +88,6 @@
 - **Required**: Yes
 
 
-# AdditionalInferenceSpecificationDefinitionExtraOutputTypeDef
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Containers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageContainerDefinitionExtraOutputTypeDef]
-- **Required**: Yes
-
-### Description
-- **Type**: typing.Optional[str]
-
-### SupportedTransformInstanceTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge']]]
-
-### SupportedRealtimeInferenceInstanceTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']]]
-
-### SupportedContentTypes
-- **Type**: typing.Optional[typing.List[str]]
-
-### SupportedResponseMIMETypes
-- **Type**: typing.Optional[typing.List[str]]
-
-
 # AdditionalInferenceSpecificationDefinitionOutputTypeDef
 
 ### Name
@@ -128,10 +102,10 @@
 - **Type**: typing.Optional[str]
 
 ### SupportedTransformInstanceTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge']]]
 
 ### SupportedRealtimeInferenceInstanceTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.r8g.12xlarge', 'ml.r8g.16xlarge', 'ml.r8g.24xlarge', 'ml.r8g.2xlarge', 'ml.r8g.48xlarge', 'ml.r8g.4xlarge', 'ml.r8g.8xlarge', 'ml.r8g.large', 'ml.r8g.medium', 'ml.r8g.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]]
 
 ### SupportedContentTypes
 - **Type**: typing.Optional[typing.List[str]]
@@ -147,17 +121,17 @@
 - **Required**: Yes
 
 ### Containers
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageContainerDefinitionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageContainerDefinitionUnionTypeDef]
 - **Required**: Yes
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### SupportedTransformInstanceTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge']]]
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge']]]
 
 ### SupportedRealtimeInferenceInstanceTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']]]
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.r8g.12xlarge', 'ml.r8g.16xlarge', 'ml.r8g.24xlarge', 'ml.r8g.2xlarge', 'ml.r8g.48xlarge', 'ml.r8g.4xlarge', 'ml.r8g.8xlarge', 'ml.r8g.large', 'ml.r8g.medium', 'ml.r8g.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]]
 
 ### SupportedContentTypes
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -165,6 +139,12 @@
 ### SupportedResponseMIMETypes
 - **Type**: typing.Optional[typing.Sequence[str]]
 
+
+# AdditionalInferenceSpecificationDefinitionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AdditionalModelDataSourceTypeDef
 
@@ -190,6 +170,9 @@
 ### CompressionType
 - **Type**: typing.Optional[typing.Literal['Gzip', 'None']]
 
+### ETag
+- **Type**: typing.Optional[str]
+
 
 # AgentVersionTypeDef
 
@@ -206,34 +189,6 @@
 
 ### AlarmName
 - **Type**: typing.Optional[str]
-
-
-# AlgorithmSpecificationExtraOutputTypeDef
-
-### TrainingInputMode
-- **Type**: typing.Literal['FastFile', 'File', 'Pipe']
-- **Required**: Yes
-
-### TrainingImage
-- **Type**: typing.Optional[str]
-
-### AlgorithmName
-- **Type**: typing.Optional[str]
-
-### MetricDefinitions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.MetricDefinitionTypeDef]]
-
-### EnableSageMakerMetricsTimeSeries
-- **Type**: typing.Optional[bool]
-
-### ContainerEntrypoint
-- **Type**: typing.Optional[typing.List[str]]
-
-### ContainerArguments
-- **Type**: typing.Optional[typing.List[str]]
-
-### TrainingImageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TrainingImageConfigTypeDef]
 
 
 # AlgorithmSpecificationOutputTypeDef
@@ -291,6 +246,12 @@
 ### TrainingImageConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TrainingImageConfigTypeDef]
 
+
+# AlgorithmSpecificationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AlgorithmStatusDetailsTypeDef
 
@@ -387,6 +348,12 @@
 - **Required**: Yes
 
 
+# AlgorithmValidationSpecificationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # AmazonQSettingsTypeDef
 
 ### Status
@@ -454,17 +421,10 @@
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CodeEditorAppImageConfigOutputTypeDef]
 
 
-# AppSpecificationExtraOutputTypeDef
+# AppLifecycleManagementTypeDef
 
-### ImageUri
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ContainerEntrypoint
-- **Type**: typing.Optional[typing.List[str]]
-
-### ContainerArguments
-- **Type**: typing.Optional[typing.List[str]]
+### IdleSettings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.IdleSettingsTypeDef]
 
 
 # AppSpecificationOutputTypeDef
@@ -493,15 +453,11 @@
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ArtifactSourceExtraOutputTypeDef
+# AppSpecificationUnionTypeDef
 
-### SourceUri
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### SourceTypes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ArtifactSourceTypeTypeDef]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ArtifactSourceOutputTypeDef
 
@@ -534,6 +490,12 @@
 - **Required**: Yes
 
 
+# ArtifactSourceUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ArtifactSummaryTypeDef
 
 ### ArtifactArn
@@ -555,7 +517,7 @@
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# AssociateTrialComponentRequestRequestTypeDef
+# AssociateTrialComponentRequestTypeDef
 
 ### TrialComponentName
 - **Type**: <class 'str'>
@@ -636,6 +598,12 @@
 ### ClientConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AsyncInferenceClientConfigTypeDef]
 
+
+# AsyncInferenceConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AsyncInferenceNotificationConfigOutputTypeDef
 
@@ -837,6 +805,12 @@
 - **Type**: typing.Optional[str]
 
 
+# AutoMLComputeConfigTypeDef
+
+### EmrServerlessComputeConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.EmrServerlessComputeConfigTypeDef]
+
+
 # AutoMLContainerDefinitionTypeDef
 
 ### Image
@@ -935,6 +909,12 @@
 ### Mode
 - **Type**: typing.Optional[typing.Literal['AUTO', 'ENSEMBLING', 'HYPERPARAMETER_TUNING']]
 
+
+# AutoMLJobConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AutoMLJobObjectiveTypeDef
 
@@ -1037,6 +1017,12 @@
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TextGenerationJobConfigTypeDef]
 
 
+# AutoMLProblemTypeConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # AutoMLProblemTypeResolvedAttributesTypeDef
 
 ### TabularResolvedAttributes
@@ -1093,6 +1079,12 @@
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigTypeDef]
 
 
+# AutoMLSecurityConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # AutoParameterTypeDef
 
 ### Name
@@ -1142,6 +1134,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
+# BatchDeleteClusterNodesErrorTypeDef
+
+### Code
+- **Type**: typing.Literal['InvalidNodeStatus', 'NodeIdInUse', 'NodeIdNotFound']
+- **Required**: Yes
+
+### Message
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NodeId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# BatchDeleteClusterNodesRequestTypeDef
+
+### ClusterName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NodeIds
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+
+# BatchDeleteClusterNodesResponseTypeDef
+
+### Failed
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.BatchDeleteClusterNodesErrorTypeDef]
+- **Required**: Yes
+
+### Successful
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
 # BatchDescribeModelPackageErrorTypeDef
 
 ### ErrorCode
@@ -1153,7 +1186,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchDescribeModelPackageInputRequestTypeDef
+# BatchDescribeModelPackageInputTypeDef
 
 ### ModelPackageArnList
 - **Type**: typing.Sequence[str]
@@ -1207,131 +1240,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Approved', 'PendingManualApproval', 'Rejected']]
 
 
-# BatchTransformInputExtraOutputTypeDef
-
-### DataCapturedDestinationS3Uri
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DatasetFormat
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringDatasetFormatExtraOutputTypeDef'>
-- **Required**: Yes
-
-### LocalPath
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### S3InputMode
-- **Type**: typing.Optional[typing.Literal['File', 'Pipe']]
-
-### S3DataDistributionType
-- **Type**: typing.Optional[typing.Literal['FullyReplicated', 'ShardedByS3Key']]
-
-### FeaturesAttribute
-- **Type**: typing.Optional[str]
-
-### InferenceAttribute
-- **Type**: typing.Optional[str]
-
-### ProbabilityAttribute
-- **Type**: typing.Optional[str]
-
-### ProbabilityThresholdAttribute
-- **Type**: typing.Optional[float]
-
-### StartTimeOffset
-- **Type**: typing.Optional[str]
-
-### EndTimeOffset
-- **Type**: typing.Optional[str]
-
-### ExcludeFeaturesAttribute
-- **Type**: typing.Optional[str]
-
-
 # BatchTransformInputOutputTypeDef
 
-### DataCapturedDestinationS3Uri
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### DatasetFormat
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringDatasetFormatOutputTypeDef'>
-- **Required**: Yes
-
-### LocalPath
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### S3InputMode
-- **Type**: typing.Optional[typing.Literal['File', 'Pipe']]
-
-### S3DataDistributionType
-- **Type**: typing.Optional[typing.Literal['FullyReplicated', 'ShardedByS3Key']]
-
-### FeaturesAttribute
-- **Type**: typing.Optional[str]
-
-### InferenceAttribute
-- **Type**: typing.Optional[str]
-
-### ProbabilityAttribute
-- **Type**: typing.Optional[str]
-
-### ProbabilityThresholdAttribute
-- **Type**: typing.Optional[float]
-
-### StartTimeOffset
-- **Type**: typing.Optional[str]
-
-### EndTimeOffset
-- **Type**: typing.Optional[str]
-
-### ExcludeFeaturesAttribute
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BatchTransformInputTypeDef
 
-### DataCapturedDestinationS3Uri
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### DatasetFormat
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringDatasetFormatTypeDef'>
-- **Required**: Yes
-
-### LocalPath
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### S3InputMode
-- **Type**: typing.Optional[typing.Literal['File', 'Pipe']]
-
-### S3DataDistributionType
-- **Type**: typing.Optional[typing.Literal['FullyReplicated', 'ShardedByS3Key']]
-
-### FeaturesAttribute
-- **Type**: typing.Optional[str]
-
-### InferenceAttribute
-- **Type**: typing.Optional[str]
-
-### ProbabilityAttribute
-- **Type**: typing.Optional[str]
-
-### ProbabilityThresholdAttribute
-- **Type**: typing.Optional[float]
-
-### StartTimeOffset
-- **Type**: typing.Optional[str]
-
-### EndTimeOffset
-- **Type**: typing.Optional[str]
-
-### ExcludeFeaturesAttribute
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BestObjectiveNotImprovingTypeDef
 
@@ -1439,6 +1358,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### GenerativeAiSettings
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.GenerativeAiSettingsTypeDef]
 
+### EmrServerlessSettings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.EmrServerlessSettingsTypeDef]
+
 
 # CanvasAppSettingsTypeDef
 
@@ -1463,17 +1385,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### GenerativeAiSettings
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.GenerativeAiSettingsTypeDef]
 
+### EmrServerlessSettings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.EmrServerlessSettingsTypeDef]
+
 
 # CapacitySizeTypeDef
 
-### Type
-- **Type**: typing.Literal['CAPACITY_PERCENT', 'INSTANCE_COUNT']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Value
-- **Type**: <class 'int'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CaptureContentTypeHeaderOutputTypeDef
 
@@ -1507,17 +1427,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Value
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-
-# CategoricalParameterRangeExtraOutputTypeDef
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Values
 - **Type**: typing.List[str]
 - **Required**: Yes
 
@@ -1558,6 +1467,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# CategoricalParameterRangeUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # CategoricalParameterTypeDef
 
 ### Name
@@ -1569,57 +1484,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ChannelExtraOutputTypeDef
-
-### ChannelName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DataSourceExtraOutputTypeDef'>
-- **Required**: Yes
-
-### ContentType
-- **Type**: typing.Optional[str]
-
-### CompressionType
-- **Type**: typing.Optional[typing.Literal['Gzip', 'None']]
-
-### RecordWrapperType
-- **Type**: <class 'NoneType'>
-
-### InputMode
-- **Type**: typing.Optional[typing.Literal['FastFile', 'File', 'Pipe']]
-
-### ShuffleConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ShuffleConfigTypeDef]
-
-
 # ChannelOutputTypeDef
 
-### ChannelName
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### DataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DataSourceOutputTypeDef'>
-- **Required**: Yes
-
-### ContentType
-- **Type**: typing.Optional[str]
-
-### CompressionType
-- **Type**: typing.Optional[typing.Literal['Gzip', 'None']]
-
-### RecordWrapperType
-- **Type**: <class 'NoneType'>
-
-### InputMode
-- **Type**: typing.Optional[typing.Literal['FastFile', 'File', 'Pipe']]
-
-### ShuffleConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ShuffleConfigTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ChannelSpecificationOutputTypeDef
 
@@ -1671,29 +1540,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ChannelTypeDef
 
-### ChannelName
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### DataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DataSourceTypeDef'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### ContentType
-- **Type**: typing.Optional[str]
+# ChannelUnionTypeDef
 
-### CompressionType
-- **Type**: typing.Optional[typing.Literal['Gzip', 'None']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### RecordWrapperType
-- **Type**: <class 'NoneType'>
-
-### InputMode
-- **Type**: typing.Optional[typing.Literal['FastFile', 'File', 'Pipe']]
-
-### ShuffleConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ShuffleConfigTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CheckpointConfigTypeDef
 
@@ -1891,7 +1746,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InstanceType
-- **Type**: typing.Optional[typing.Literal['ml.c5.12xlarge', 'ml.c5.18xlarge', 'ml.c5.24xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.large', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m5.12xlarge', 'ml.m5.16xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.8xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']]
+- **Type**: typing.Optional[typing.Literal['ml.c5.12xlarge', 'ml.c5.18xlarge', 'ml.c5.24xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.large', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.gr6.4xlarge', 'ml.gr6.8xlarge', 'ml.m5.12xlarge', 'ml.m5.16xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.8xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]
 
 ### LifeCycleConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ClusterLifeCycleConfigTypeDef]
@@ -1905,6 +1760,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### InstanceStorageConfigs
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ClusterInstanceStorageConfigTypeDef]]
 
+### OnStartDeepHealthChecks
+- **Type**: typing.Optional[typing.List[typing.Literal['InstanceConnectivity', 'InstanceStress']]]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['Creating', 'Degraded', 'Deleting', 'Failed', 'InService', 'SystemUpdating', 'Updating']]
+
+### TrainingPlanArn
+- **Type**: typing.Optional[str]
+
+### TrainingPlanStatus
+- **Type**: typing.Optional[str]
+
+### OverrideVpcConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigOutputTypeDef]
+
 
 # ClusterInstanceGroupSpecificationTypeDef
 
@@ -1917,7 +1787,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InstanceType
-- **Type**: typing.Literal['ml.c5.12xlarge', 'ml.c5.18xlarge', 'ml.c5.24xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.large', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m5.12xlarge', 'ml.m5.16xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.8xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']
+- **Type**: typing.Literal['ml.c5.12xlarge', 'ml.c5.18xlarge', 'ml.c5.24xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.large', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.gr6.4xlarge', 'ml.gr6.8xlarge', 'ml.m5.12xlarge', 'ml.m5.16xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.8xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']
 - **Required**: Yes
 
 ### LifeCycleConfig
@@ -1934,6 +1804,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### InstanceStorageConfigs
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ClusterInstanceStorageConfigTypeDef]]
 
+### OnStartDeepHealthChecks
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['InstanceConnectivity', 'InstanceStress']]]
+
+### TrainingPlanArn
+- **Type**: typing.Optional[str]
+
+### OverrideVpcConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigUnionTypeDef]
+
 
 # ClusterInstancePlacementTypeDef
 
@@ -1947,7 +1826,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ClusterInstanceStatusDetailsTypeDef
 
 ### Status
-- **Type**: typing.Literal['Failure', 'Pending', 'Running', 'ShuttingDown', 'SystemUpdating']
+- **Type**: typing.Literal['DeepHealthCheckInProgress', 'Failure', 'Pending', 'Running', 'ShuttingDown', 'SystemUpdating']
 - **Required**: Yes
 
 ### Message
@@ -1983,13 +1862,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ClusterInstanceStatusDetailsTypeDef]
 
 ### InstanceType
-- **Type**: typing.Optional[typing.Literal['ml.c5.12xlarge', 'ml.c5.18xlarge', 'ml.c5.24xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.large', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m5.12xlarge', 'ml.m5.16xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.8xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']]
+- **Type**: typing.Optional[typing.Literal['ml.c5.12xlarge', 'ml.c5.18xlarge', 'ml.c5.24xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.large', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.gr6.4xlarge', 'ml.gr6.8xlarge', 'ml.m5.12xlarge', 'ml.m5.16xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.8xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]
 
 ### LaunchTime
 - **Type**: typing.Optional[datetime.datetime]
 
 ### LifeCycleConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ClusterLifeCycleConfigTypeDef]
+
+### OverrideVpcConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigOutputTypeDef]
 
 ### ThreadsPerCore
 - **Type**: typing.Optional[int]
@@ -1998,6 +1880,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ClusterInstanceStorageConfigTypeDef]]
 
 ### PrivatePrimaryIp
+- **Type**: typing.Optional[str]
+
+### PrivatePrimaryIpv6
 - **Type**: typing.Optional[str]
 
 ### PrivateDnsHostname
@@ -2018,7 +1903,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InstanceType
-- **Type**: typing.Literal['ml.c5.12xlarge', 'ml.c5.18xlarge', 'ml.c5.24xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.large', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m5.12xlarge', 'ml.m5.16xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.8xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']
+- **Type**: typing.Literal['ml.c5.12xlarge', 'ml.c5.18xlarge', 'ml.c5.24xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.large', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.gr6.4xlarge', 'ml.gr6.8xlarge', 'ml.m5.12xlarge', 'ml.m5.16xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.8xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']
 - **Required**: Yes
 
 ### LaunchTime
@@ -2028,6 +1913,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### InstanceStatus
 - **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ClusterInstanceStatusDetailsTypeDef'>
 - **Required**: Yes
+
+
+# ClusterOrchestratorEksConfigTypeDef
+
+### ClusterArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# ClusterOrchestratorTypeDef
+
+### Eks
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ClusterOrchestratorEksConfigTypeDef'>
+- **Required**: Yes
+
+
+# ClusterSchedulerConfigSummaryTypeDef
+
+### ClusterSchedulerConfigArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ClusterSchedulerConfigId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CreationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### Status
+- **Type**: typing.Literal['CreateFailed', 'CreateRollbackFailed', 'Created', 'Creating', 'DeleteFailed', 'DeleteRollbackFailed', 'Deleted', 'Deleting', 'UpdateFailed', 'UpdateRollbackFailed', 'Updated', 'Updating']
+- **Required**: Yes
+
+### ClusterSchedulerConfigVersion
+- **Type**: typing.Optional[int]
+
+### LastModifiedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### ClusterArn
+- **Type**: typing.Optional[str]
 
 
 # ClusterSummaryTypeDef
@@ -2048,14 +1979,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Literal['Creating', 'Deleting', 'Failed', 'InService', 'RollingBack', 'SystemUpdating', 'Updating']
 - **Required**: Yes
 
-
-# CodeEditorAppImageConfigExtraOutputTypeDef
-
-### FileSystemConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.FileSystemConfigTypeDef]
-
-### ContainerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ContainerConfigExtraOutputTypeDef]
+### TrainingPlanArns
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # CodeEditorAppImageConfigOutputTypeDef
@@ -2076,6 +2001,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ContainerConfigTypeDef]
 
 
+# CodeEditorAppImageConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # CodeEditorAppSettingsOutputTypeDef
 
 ### DefaultResourceSpec
@@ -2086,6 +2017,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### LifecycleConfigArns
 - **Type**: typing.Optional[typing.List[str]]
+
+### AppLifecycleManagement
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AppLifecycleManagementTypeDef]
+
+### BuiltInLifecycleConfigArn
+- **Type**: typing.Optional[str]
 
 
 # CodeEditorAppSettingsTypeDef
@@ -2098,6 +2035,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### LifecycleConfigArns
 - **Type**: typing.Optional[typing.Sequence[str]]
+
+### AppLifecycleManagement
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AppLifecycleManagementTypeDef]
+
+### BuiltInLifecycleConfigArn
+- **Type**: typing.Optional[str]
 
 
 # CodeRepositorySummaryTypeDef
@@ -2161,15 +2104,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VectorConfigTypeDef]
 
 
-# CollectionConfigurationExtraOutputTypeDef
-
-### CollectionName
-- **Type**: typing.Optional[str]
-
-### CollectionParameters
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
 # CollectionConfigurationOutputTypeDef
 
 ### CollectionName
@@ -2228,22 +2162,103 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
+# ComputeQuotaConfigOutputTypeDef
+
+### ComputeQuotaResources
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ComputeQuotaResourceConfigTypeDef]]
+
+### ResourceSharingConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceSharingConfigTypeDef]
+
+### PreemptTeamTasks
+- **Type**: typing.Optional[typing.Literal['LowerPriority', 'Never']]
+
+
+# ComputeQuotaConfigTypeDef
+
+### ComputeQuotaResources
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ComputeQuotaResourceConfigTypeDef]]
+
+### ResourceSharingConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceSharingConfigTypeDef]
+
+### PreemptTeamTasks
+- **Type**: typing.Optional[typing.Literal['LowerPriority', 'Never']]
+
+
+# ComputeQuotaConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ComputeQuotaResourceConfigTypeDef
+
+### InstanceType
+- **Type**: typing.Literal['ml.c5.12xlarge', 'ml.c5.18xlarge', 'ml.c5.24xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.large', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.gr6.4xlarge', 'ml.gr6.8xlarge', 'ml.m5.12xlarge', 'ml.m5.16xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.8xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']
+- **Required**: Yes
+
+### Count
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+
+# ComputeQuotaSummaryTypeDef
+
+### ComputeQuotaArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ComputeQuotaId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Status
+- **Type**: typing.Literal['CreateFailed', 'CreateRollbackFailed', 'Created', 'Creating', 'DeleteFailed', 'DeleteRollbackFailed', 'Deleted', 'Deleting', 'UpdateFailed', 'UpdateRollbackFailed', 'Updated', 'Updating']
+- **Required**: Yes
+
+### ComputeQuotaTarget
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ComputeQuotaTargetTypeDef'>
+- **Required**: Yes
+
+### CreationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### ComputeQuotaVersion
+- **Type**: typing.Optional[int]
+
+### ClusterArn
+- **Type**: typing.Optional[str]
+
+### ComputeQuotaConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ComputeQuotaConfigOutputTypeDef]
+
+### ActivationState
+- **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
+
+### LastModifiedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# ComputeQuotaTargetTypeDef
+
+### TeamName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### FairShareWeight
+- **Type**: typing.Optional[int]
+
+
 # ConditionStepMetadataTypeDef
 
 ### Outcome
 - **Type**: typing.Optional[typing.Literal['False', 'True']]
-
-
-# ContainerConfigExtraOutputTypeDef
-
-### ContainerArguments
-- **Type**: typing.Optional[typing.List[str]]
-
-### ContainerEntrypoint
-- **Type**: typing.Optional[typing.List[str]]
-
-### ContainerEnvironmentVariables
-- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ContainerConfigOutputTypeDef
@@ -2268,42 +2283,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ContainerEnvironmentVariables
 - **Type**: typing.Optional[typing.Mapping[str, str]]
-
-
-# ContainerDefinitionExtraOutputTypeDef
-
-### ContainerHostname
-- **Type**: typing.Optional[str]
-
-### Image
-- **Type**: typing.Optional[str]
-
-### ImageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ImageConfigTypeDef]
-
-### Mode
-- **Type**: typing.Optional[typing.Literal['MultiModel', 'SingleModel']]
-
-### ModelDataUrl
-- **Type**: typing.Optional[str]
-
-### ModelDataSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelDataSourceTypeDef]
-
-### AdditionalModelDataSources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AdditionalModelDataSourceTypeDef]]
-
-### Environment
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### ModelPackageName
-- **Type**: typing.Optional[str]
-
-### InferenceSpecificationName
-- **Type**: typing.Optional[str]
-
-### MultiModelConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MultiModelConfigTypeDef]
 
 
 # ContainerDefinitionOutputTypeDef
@@ -2378,6 +2357,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MultiModelConfigTypeDef]
 
 
+# ContainerDefinitionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ContextSourceTypeDef
 
 ### SourceUri
@@ -2447,7 +2432,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
 
 
-# CreateActionRequestRequestTypeDef
+# CreateActionRequestTypeDef
 
 ### ActionName
 - **Type**: <class 'str'>
@@ -2488,24 +2473,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAlgorithmInputRequestTypeDef
+# CreateAlgorithmInputTypeDef
 
 ### AlgorithmName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### TrainingSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TrainingSpecificationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TrainingSpecificationUnionTypeDef'>
 - **Required**: Yes
 
 ### AlgorithmDescription
 - **Type**: typing.Optional[str]
 
 ### InferenceSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceSpecificationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceSpecificationUnionTypeDef]
 
 ### ValidationSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AlgorithmValidationSpecificationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AlgorithmValidationSpecificationUnionTypeDef]
 
 ### CertifyForMarketplace
 - **Type**: typing.Optional[bool]
@@ -2525,7 +2510,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAppImageConfigRequestRequestTypeDef
+# CreateAppImageConfigRequestTypeDef
 
 ### AppImageConfigName
 - **Type**: <class 'str'>
@@ -2535,13 +2520,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
 
 ### KernelGatewayImageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.KernelGatewayImageConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.KernelGatewayImageConfigUnionTypeDef]
 
 ### JupyterLabAppImageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.JupyterLabAppImageConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.JupyterLabAppImageConfigUnionTypeDef]
 
 ### CodeEditorAppImageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CodeEditorAppImageConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CodeEditorAppImageConfigUnionTypeDef]
 
 
 # CreateAppImageConfigResponseTypeDef
@@ -2555,7 +2540,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAppRequestRequestTypeDef
+# CreateAppRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -2593,10 +2578,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateArtifactRequestRequestTypeDef
+# CreateArtifactRequestTypeDef
 
 ### Source
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ArtifactSourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ArtifactSourceUnionTypeDef'>
 - **Required**: Yes
 
 ### ArtifactType
@@ -2627,7 +2612,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAutoMLJobRequestRequestTypeDef
+# CreateAutoMLJobRequestTypeDef
 
 ### AutoMLJobName
 - **Type**: <class 'str'>
@@ -2652,7 +2637,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobObjectiveTypeDef]
 
 ### AutoMLJobConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobConfigUnionTypeDef]
 
 ### GenerateCandidateDefinitionsOnly
 - **Type**: typing.Optional[bool]
@@ -2675,7 +2660,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAutoMLJobV2RequestRequestTypeDef
+# CreateAutoMLJobV2RequestTypeDef
 
 ### AutoMLJobName
 - **Type**: <class 'str'>
@@ -2690,7 +2675,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AutoMLProblemTypeConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLProblemTypeConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLProblemTypeConfigUnionTypeDef'>
 - **Required**: Yes
 
 ### RoleArn
@@ -2701,7 +2686,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
 
 ### SecurityConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLSecurityConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLSecurityConfigUnionTypeDef]
 
 ### AutoMLJobObjective
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobObjectiveTypeDef]
@@ -2711,6 +2696,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### DataSplitConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLDataSplitConfigTypeDef]
+
+### AutoMLComputeConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLComputeConfigTypeDef]
 
 
 # CreateAutoMLJobV2ResponseTypeDef
@@ -2724,7 +2712,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateClusterRequestRequestTypeDef
+# CreateClusterRequestTypeDef
 
 ### ClusterName
 - **Type**: <class 'str'>
@@ -2735,10 +2723,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigUnionTypeDef]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
+
+### Orchestrator
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ClusterOrchestratorTypeDef]
+
+### NodeRecovery
+- **Type**: typing.Optional[typing.Literal['Automatic', 'None']]
 
 
 # CreateClusterResponseTypeDef
@@ -2752,7 +2746,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCodeRepositoryInputRequestTypeDef
+# CreateClusterSchedulerConfigRequestTypeDef
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ClusterArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SchedulerConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.SchedulerConfigUnionTypeDef'>
+- **Required**: Yes
+
+### Description
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
+
+
+# CreateClusterSchedulerConfigResponseTypeDef
+
+### ClusterSchedulerConfigArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ClusterSchedulerConfigId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateCodeRepositoryInputTypeDef
 
 ### CodeRepositoryName
 - **Type**: <class 'str'>
@@ -2777,7 +2807,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCompilationJobRequestRequestTypeDef
+# CreateCompilationJobRequestTypeDef
 
 ### CompilationJobName
 - **Type**: <class 'str'>
@@ -2802,7 +2832,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InputConfigTypeDef]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.NeoVpcConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.NeoVpcConfigUnionTypeDef]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
@@ -2819,7 +2849,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateContextRequestRequestTypeDef
+# CreateComputeQuotaRequestTypeDef
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ClusterArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ComputeQuotaConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ComputeQuotaConfigUnionTypeDef'>
+- **Required**: Yes
+
+### ComputeQuotaTarget
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ComputeQuotaTargetTypeDef'>
+- **Required**: Yes
+
+### Description
+- **Type**: typing.Optional[str]
+
+### ActivationState
+- **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
+
+### Tags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
+
+
+# CreateComputeQuotaResponseTypeDef
+
+### ComputeQuotaArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ComputeQuotaId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateContextRequestTypeDef
 
 ### ContextName
 - **Type**: <class 'str'>
@@ -2854,22 +2927,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDataQualityJobDefinitionRequestRequestTypeDef
+# CreateDataQualityJobDefinitionRequestTypeDef
 
 ### JobDefinitionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### DataQualityAppSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DataQualityAppSpecificationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DataQualityAppSpecificationUnionTypeDef'>
 - **Required**: Yes
 
 ### DataQualityJobInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DataQualityJobInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DataQualityJobInputUnionTypeDef'>
 - **Required**: Yes
 
 ### DataQualityJobOutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringOutputConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringOutputConfigUnionTypeDef'>
 - **Required**: Yes
 
 ### JobResources
@@ -2884,7 +2957,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DataQualityBaselineConfigTypeDef]
 
 ### NetworkConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringNetworkConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringNetworkConfigUnionTypeDef]
 
 ### StoppingCondition
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringStoppingConditionTypeDef]
@@ -2904,7 +2977,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDeviceFleetRequestRequestTypeDef
+# CreateDeviceFleetRequestTypeDef
 
 ### DeviceFleetName
 - **Type**: <class 'str'>
@@ -2927,7 +3000,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CreateDomainRequestRequestTypeDef
+# CreateDomainRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -2938,7 +3011,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DefaultUserSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserSettingsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserSettingsUnionTypeDef'>
 - **Required**: Yes
 
 ### SubnetIds
@@ -2950,7 +3023,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DomainSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DomainSettingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DomainSettingsUnionTypeDef]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
@@ -2967,13 +3040,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### AppSecurityGroupManagement
 - **Type**: typing.Optional[typing.Literal['Customer', 'Service']]
 
+### TagPropagation
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
 ### DefaultSpaceSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DefaultSpaceSettingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DefaultSpaceSettingsUnionTypeDef]
 
 
 # CreateDomainResponseTypeDef
 
 ### DomainArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DomainId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -2986,7 +3066,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateEdgeDeploymentPlanRequestRequestTypeDef
+# CreateEdgeDeploymentPlanRequestTypeDef
 
 ### EdgeDeploymentPlanName
 - **Type**: <class 'str'>
@@ -3018,7 +3098,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateEdgeDeploymentStageRequestRequestTypeDef
+# CreateEdgeDeploymentStageRequestTypeDef
 
 ### EdgeDeploymentPlanName
 - **Type**: <class 'str'>
@@ -3029,7 +3109,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateEdgePackagingJobRequestRequestTypeDef
+# CreateEdgePackagingJobRequestTypeDef
 
 ### EdgePackagingJobName
 - **Type**: <class 'str'>
@@ -3062,7 +3142,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
 
 
-# CreateEndpointConfigInputRequestTypeDef
+# CreateEndpointConfigInputTypeDef
 
 ### EndpointConfigName
 - **Type**: <class 'str'>
@@ -3073,7 +3153,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DataCaptureConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DataCaptureConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DataCaptureConfigUnionTypeDef]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
@@ -3082,10 +3162,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AsyncInferenceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AsyncInferenceConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AsyncInferenceConfigUnionTypeDef]
 
 ### ExplainerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ExplainerConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ExplainerConfigUnionTypeDef]
 
 ### ShadowProductionVariants
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantTypeDef]]
@@ -3094,7 +3174,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigUnionTypeDef]
 
 ### EnableNetworkIsolation
 - **Type**: typing.Optional[bool]
@@ -3111,7 +3191,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateEndpointInputRequestTypeDef
+# CreateEndpointInputTypeDef
 
 ### EndpointName
 - **Type**: <class 'str'>
@@ -3122,7 +3202,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DeploymentConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DeploymentConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DeploymentConfigUnionTypeDef]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
@@ -3139,7 +3219,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateExperimentRequestRequestTypeDef
+# CreateExperimentRequestTypeDef
 
 ### ExperimentName
 - **Type**: <class 'str'>
@@ -3166,7 +3246,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateFeatureGroupRequestRequestTypeDef
+# CreateFeatureGroupRequestTypeDef
 
 ### FeatureGroupName
 - **Type**: <class 'str'>
@@ -3214,7 +3294,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateFlowDefinitionRequestRequestTypeDef
+# CreateFlowDefinitionRequestTypeDef
 
 ### FlowDefinitionName
 - **Type**: <class 'str'>
@@ -3235,7 +3315,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HumanLoopActivationConfigTypeDef]
 
 ### HumanLoopConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HumanLoopConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HumanLoopConfigUnionTypeDef]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
@@ -3252,7 +3332,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateHubContentReferenceRequestRequestTypeDef
+# CreateHubContentReferenceRequestTypeDef
 
 ### HubName
 - **Type**: <class 'str'>
@@ -3287,7 +3367,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateHubRequestRequestTypeDef
+# CreateHubRequestTypeDef
 
 ### HubName
 - **Type**: <class 'str'>
@@ -3321,7 +3401,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateHumanTaskUiRequestRequestTypeDef
+# CreateHumanTaskUiRequestTypeDef
 
 ### HumanTaskUiName
 - **Type**: <class 'str'>
@@ -3346,24 +3426,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateHyperParameterTuningJobRequestRequestTypeDef
+# CreateHyperParameterTuningJobRequestTypeDef
 
 ### HyperParameterTuningJobName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### HyperParameterTuningJobConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobConfigUnionTypeDef'>
 - **Required**: Yes
 
 ### TrainingJobDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTrainingJobDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTrainingJobDefinitionUnionTypeDef]
 
 ### TrainingJobDefinitions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTrainingJobDefinitionTypeDef, aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTrainingJobDefinitionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTrainingJobDefinitionUnionTypeDef]]
 
 ### WarmStartConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobWarmStartConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobWarmStartConfigUnionTypeDef]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
@@ -3383,7 +3463,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateImageRequestRequestTypeDef
+# CreateImageRequestTypeDef
 
 ### ImageName
 - **Type**: <class 'str'>
@@ -3414,7 +3494,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateImageVersionRequestRequestTypeDef
+# CreateImageVersionRequestTypeDef
 
 ### BaseImage
 - **Type**: <class 'str'>
@@ -3464,7 +3544,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateInferenceComponentInputRequestTypeDef
+# CreateInferenceComponentInputTypeDef
 
 ### InferenceComponentName
 - **Type**: <class 'str'>
@@ -3474,17 +3554,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### VariantName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### Specification
 - **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentSpecificationTypeDef'>
 - **Required**: Yes
 
+### VariantName
+- **Type**: typing.Optional[str]
+
 ### RuntimeConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentRuntimeConfigTypeDef'>
-- **Required**: Yes
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentRuntimeConfigTypeDef]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
@@ -3501,48 +3579,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateInferenceExperimentRequestRequestTypeDef
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['ShadowMode']
-- **Required**: Yes
-
-### RoleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### EndpointName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ModelVariants
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ModelVariantConfigTypeDef]
-- **Required**: Yes
-
-### ShadowModeConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ShadowModeConfigTypeDef'>
-- **Required**: Yes
-
-### Schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceExperimentScheduleTypeDef]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### DataStorageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceExperimentDataStorageConfigTypeDef]
-
-### KmsKey
-- **Type**: typing.Optional[str]
-
-### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
-
-
 # CreateInferenceExperimentResponseTypeDef
 
 ### InferenceExperimentArn
@@ -3554,7 +3590,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateInferenceRecommendationsJobRequestRequestTypeDef
+# CreateInferenceRecommendationsJobRequestTypeDef
 
 ### JobName
 - **Type**: <class 'str'>
@@ -3569,14 +3605,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.RecommendationJobInputConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.RecommendationJobInputConfigUnionTypeDef'>
 - **Required**: Yes
 
 ### JobDescription
 - **Type**: typing.Optional[str]
 
 ### StoppingConditions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.RecommendationJobStoppingConditionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.RecommendationJobStoppingConditionsUnionTypeDef]
 
 ### OutputConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.RecommendationJobOutputConfigTypeDef]
@@ -3596,7 +3632,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLabelingJobRequestRequestTypeDef
+# CreateLabelingJobRequestTypeDef
 
 ### LabelingJobName
 - **Type**: <class 'str'>
@@ -3607,7 +3643,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobInputConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobInputConfigUnionTypeDef'>
 - **Required**: Yes
 
 ### OutputConfig
@@ -3619,7 +3655,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HumanTaskConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.HumanTaskConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.HumanTaskConfigUnionTypeDef'>
 - **Required**: Yes
 
 ### LabelCategoryConfigS3Uri
@@ -3629,7 +3665,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobStoppingConditionsTypeDef]
 
 ### LabelingJobAlgorithmsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobAlgorithmsConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobAlgorithmsConfigUnionTypeDef]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
@@ -3646,7 +3682,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateMlflowTrackingServerRequestRequestTypeDef
+# CreateMlflowTrackingServerRequestTypeDef
 
 ### TrackingServerName
 - **Type**: <class 'str'>
@@ -3687,22 +3723,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateModelBiasJobDefinitionRequestRequestTypeDef
+# CreateModelBiasJobDefinitionRequestTypeDef
 
 ### JobDefinitionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ModelBiasAppSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelBiasAppSpecificationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelBiasAppSpecificationUnionTypeDef'>
 - **Required**: Yes
 
 ### ModelBiasJobInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelBiasJobInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelBiasJobInputUnionTypeDef'>
 - **Required**: Yes
 
 ### ModelBiasJobOutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringOutputConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringOutputConfigUnionTypeDef'>
 - **Required**: Yes
 
 ### JobResources
@@ -3717,7 +3753,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelBiasBaselineConfigTypeDef]
 
 ### NetworkConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringNetworkConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringNetworkConfigUnionTypeDef]
 
 ### StoppingCondition
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringStoppingConditionTypeDef]
@@ -3737,7 +3773,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateModelCardExportJobRequestRequestTypeDef
+# CreateModelCardExportJobRequestTypeDef
 
 ### ModelCardName
 - **Type**: <class 'str'>
@@ -3766,7 +3802,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateModelCardRequestRequestTypeDef
+# CreateModelCardRequestTypeDef
 
 ### ModelCardName
 - **Type**: <class 'str'>
@@ -3798,22 +3834,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateModelExplainabilityJobDefinitionRequestRequestTypeDef
+# CreateModelExplainabilityJobDefinitionRequestTypeDef
 
 ### JobDefinitionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ModelExplainabilityAppSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelExplainabilityAppSpecificationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelExplainabilityAppSpecificationUnionTypeDef'>
 - **Required**: Yes
 
 ### ModelExplainabilityJobInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelExplainabilityJobInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelExplainabilityJobInputUnionTypeDef'>
 - **Required**: Yes
 
 ### ModelExplainabilityJobOutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringOutputConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringOutputConfigUnionTypeDef'>
 - **Required**: Yes
 
 ### JobResources
@@ -3828,7 +3864,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelExplainabilityBaselineConfigTypeDef]
 
 ### NetworkConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringNetworkConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringNetworkConfigUnionTypeDef]
 
 ### StoppingCondition
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringStoppingConditionTypeDef]
@@ -3848,17 +3884,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateModelInputRequestTypeDef
+# CreateModelInputTypeDef
 
 ### ModelName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PrimaryContainer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ContainerDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ContainerDefinitionUnionTypeDef]
 
 ### Containers
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.sagemaker_classes.ContainerDefinitionTypeDef, aws_resource_validator.pydantic_models.sagemaker_classes.ContainerDefinitionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ContainerDefinitionUnionTypeDef]]
 
 ### InferenceExecutionConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceExecutionConfigTypeDef]
@@ -3870,7 +3906,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigUnionTypeDef]
 
 ### EnableNetworkIsolation
 - **Type**: typing.Optional[bool]
@@ -3887,7 +3923,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateModelPackageGroupInputRequestTypeDef
+# CreateModelPackageGroupInputTypeDef
 
 ### ModelPackageGroupName
 - **Type**: <class 'str'>
@@ -3911,7 +3947,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateModelPackageInputRequestTypeDef
+# CreateModelPackageInputTypeDef
 
 ### ModelPackageName
 - **Type**: typing.Optional[str]
@@ -3923,13 +3959,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InferenceSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceSpecificationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceSpecificationUnionTypeDef]
 
 ### ValidationSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageValidationSpecificationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageValidationSpecificationUnionTypeDef]
 
 ### SourceAlgorithmSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SourceAlgorithmSpecificationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SourceAlgorithmSpecificationUnionTypeDef]
 
 ### CertifyForMarketplace
 - **Type**: typing.Optional[bool]
@@ -3965,7 +4001,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DriftCheckBaselinesTypeDef]
 
 ### AdditionalInferenceSpecifications
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.sagemaker_classes.AdditionalInferenceSpecificationDefinitionTypeDef, aws_resource_validator.pydantic_models.sagemaker_classes.AdditionalInferenceSpecificationDefinitionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.AdditionalInferenceSpecificationDefinitionUnionTypeDef]]
 
 ### SkipModelValidation
 - **Type**: typing.Optional[typing.Literal['All', 'None']]
@@ -3979,6 +4015,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ModelCard
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageModelCardTypeDef]
 
+### ModelLifeCycle
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelLifeCycleTypeDef]
+
 
 # CreateModelPackageOutputTypeDef
 
@@ -3991,22 +4030,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateModelQualityJobDefinitionRequestRequestTypeDef
+# CreateModelQualityJobDefinitionRequestTypeDef
 
 ### JobDefinitionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ModelQualityAppSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelQualityAppSpecificationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelQualityAppSpecificationUnionTypeDef'>
 - **Required**: Yes
 
 ### ModelQualityJobInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelQualityJobInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelQualityJobInputUnionTypeDef'>
 - **Required**: Yes
 
 ### ModelQualityJobOutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringOutputConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringOutputConfigUnionTypeDef'>
 - **Required**: Yes
 
 ### JobResources
@@ -4021,7 +4060,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelQualityBaselineConfigTypeDef]
 
 ### NetworkConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringNetworkConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringNetworkConfigUnionTypeDef]
 
 ### StoppingCondition
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringStoppingConditionTypeDef]
@@ -4041,14 +4080,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateMonitoringScheduleRequestRequestTypeDef
+# CreateMonitoringScheduleRequestTypeDef
 
 ### MonitoringScheduleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### MonitoringScheduleConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringScheduleConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringScheduleConfigUnionTypeDef'>
 - **Required**: Yes
 
 ### Tags
@@ -4066,14 +4105,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateNotebookInstanceInputRequestTypeDef
+# CreateNotebookInstanceInputTypeDef
 
 ### NotebookInstanceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### InstanceType
-- **Type**: typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c6id.12xlarge', 'ml.c6id.16xlarge', 'ml.c6id.24xlarge', 'ml.c6id.2xlarge', 'ml.c6id.32xlarge', 'ml.c6id.4xlarge', 'ml.c6id.8xlarge', 'ml.c6id.large', 'ml.c6id.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.16xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.8xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m6id.12xlarge', 'ml.m6id.16xlarge', 'ml.m6id.24xlarge', 'ml.m6id.2xlarge', 'ml.m6id.32xlarge', 'ml.m6id.4xlarge', 'ml.m6id.8xlarge', 'ml.m6id.large', 'ml.m6id.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r6id.12xlarge', 'ml.r6id.16xlarge', 'ml.r6id.24xlarge', 'ml.r6id.2xlarge', 'ml.r6id.32xlarge', 'ml.r6id.4xlarge', 'ml.r6id.8xlarge', 'ml.r6id.large', 'ml.r6id.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge']
+- **Type**: typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c6id.12xlarge', 'ml.c6id.16xlarge', 'ml.c6id.24xlarge', 'ml.c6id.2xlarge', 'ml.c6id.32xlarge', 'ml.c6id.4xlarge', 'ml.c6id.8xlarge', 'ml.c6id.large', 'ml.c6id.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.16xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.8xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m6id.12xlarge', 'ml.m6id.16xlarge', 'ml.m6id.24xlarge', 'ml.m6id.2xlarge', 'ml.m6id.32xlarge', 'ml.m6id.4xlarge', 'ml.m6id.8xlarge', 'ml.m6id.large', 'ml.m6id.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r6id.12xlarge', 'ml.r6id.16xlarge', 'ml.r6id.24xlarge', 'ml.r6id.2xlarge', 'ml.r6id.32xlarge', 'ml.r6id.4xlarge', 'ml.r6id.8xlarge', 'ml.r6id.large', 'ml.r6id.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']
 - **Required**: Yes
 
 ### RoleArn
@@ -4120,7 +4159,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InstanceMetadataServiceConfigurationTypeDef]
 
 
-# CreateNotebookInstanceLifecycleConfigInputRequestTypeDef
+# CreateNotebookInstanceLifecycleConfigInputTypeDef
 
 ### NotebookInstanceLifecycleConfigName
 - **Type**: <class 'str'>
@@ -4155,7 +4194,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateOptimizationJobRequestRequestTypeDef
+# CreateOptimizationJobRequestTypeDef
 
 ### OptimizationJobName
 - **Type**: <class 'str'>
@@ -4174,7 +4213,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OptimizationConfigs
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.sagemaker_classes.OptimizationConfigTypeDef, aws_resource_validator.pydantic_models.sagemaker_classes.OptimizationConfigOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.OptimizationConfigUnionTypeDef]
 - **Required**: Yes
 
 ### OutputConfig
@@ -4192,7 +4231,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.OptimizationVpcConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.OptimizationVpcConfigUnionTypeDef]
 
 
 # CreateOptimizationJobResponseTypeDef
@@ -4206,7 +4245,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePipelineRequestRequestTypeDef
+# CreatePartnerAppPresignedUrlRequestTypeDef
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ExpiresInSeconds
+- **Type**: typing.Optional[int]
+
+### SessionExpirationDurationInSeconds
+- **Type**: typing.Optional[int]
+
+
+# CreatePartnerAppPresignedUrlResponseTypeDef
+
+### Url
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreatePartnerAppResponseTypeDef
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreatePipelineRequestTypeDef
 
 ### PipelineName
 - **Type**: <class 'str'>
@@ -4250,7 +4324,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePresignedDomainUrlRequestRequestTypeDef
+# CreatePresignedDomainUrlRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -4284,7 +4358,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePresignedMlflowTrackingServerUrlRequestRequestTypeDef
+# CreatePresignedMlflowTrackingServerUrlRequestTypeDef
 
 ### TrackingServerName
 - **Type**: <class 'str'>
@@ -4308,7 +4382,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePresignedNotebookInstanceUrlInputRequestTypeDef
+# CreatePresignedNotebookInstanceUrlInputTypeDef
 
 ### NotebookInstanceName
 - **Type**: <class 'str'>
@@ -4329,7 +4403,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateProcessingJobRequestRequestTypeDef
+# CreateProcessingJobRequestTypeDef
 
 ### ProcessingJobName
 - **Type**: <class 'str'>
@@ -4340,7 +4414,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AppSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AppSpecificationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AppSpecificationUnionTypeDef'>
 - **Required**: Yes
 
 ### RoleArn
@@ -4351,7 +4425,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ProcessingInputTypeDef]]
 
 ### ProcessingOutputConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProcessingOutputConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProcessingOutputConfigUnionTypeDef]
 
 ### StoppingCondition
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProcessingStoppingConditionTypeDef]
@@ -4360,7 +4434,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### NetworkConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.NetworkConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.NetworkConfigUnionTypeDef]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
@@ -4380,14 +4454,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateProjectInputRequestTypeDef
+# CreateProjectInputTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ServiceCatalogProvisioningDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ServiceCatalogProvisioningDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ServiceCatalogProvisioningDetailsUnionTypeDef'>
 - **Required**: Yes
 
 ### ProjectDescription
@@ -4412,7 +4486,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateSpaceRequestRequestTypeDef
+# CreateSpaceRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -4426,7 +4500,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
 
 ### SpaceSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SpaceSettingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SpaceSettingsUnionTypeDef]
 
 ### OwnershipSettings
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.OwnershipSettingsTypeDef]
@@ -4449,7 +4523,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateStudioLifecycleConfigRequestRequestTypeDef
+# CreateStudioLifecycleConfigRequestTypeDef
 
 ### StudioLifecycleConfigName
 - **Type**: <class 'str'>
@@ -4478,14 +4552,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTrainingJobRequestRequestTypeDef
+# CreateTrainingJobRequestTypeDef
 
 ### TrainingJobName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### AlgorithmSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AlgorithmSpecificationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AlgorithmSpecificationUnionTypeDef'>
 - **Required**: Yes
 
 ### RoleArn
@@ -4497,7 +4571,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResourceConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResourceConfigUnionTypeDef'>
 - **Required**: Yes
 
 ### StoppingCondition
@@ -4508,10 +4582,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### InputDataConfig
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.sagemaker_classes.ChannelTypeDef, aws_resource_validator.pydantic_models.sagemaker_classes.ChannelExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ChannelUnionTypeDef]]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigUnionTypeDef]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
@@ -4529,10 +4603,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CheckpointConfigTypeDef]
 
 ### DebugHookConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DebugHookConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DebugHookConfigUnionTypeDef]
 
 ### DebugRuleConfigurations
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.sagemaker_classes.DebugRuleConfigurationTypeDef, aws_resource_validator.pydantic_models.sagemaker_classes.DebugRuleConfigurationExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.DebugRuleConfigurationUnionTypeDef]]
 
 ### TensorBoardOutputConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TensorBoardOutputConfigTypeDef]
@@ -4541,10 +4615,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ExperimentConfigTypeDef]
 
 ### ProfilerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProfilerConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProfilerConfigUnionTypeDef]
 
 ### ProfilerRuleConfigurations
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.sagemaker_classes.ProfilerRuleConfigurationTypeDef, aws_resource_validator.pydantic_models.sagemaker_classes.ProfilerRuleConfigurationOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ProfilerRuleConfigurationUnionTypeDef]]
 
 ### Environment
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -4573,7 +4647,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTransformJobRequestRequestTypeDef
+# CreateTrainingPlanRequestTypeDef
+
+### TrainingPlanName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TrainingPlanOfferingId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
+
+
+# CreateTrainingPlanResponseTypeDef
+
+### TrainingPlanArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateTransformJobRequestTypeDef
 
 ### TransformJobName
 - **Type**: <class 'str'>
@@ -4634,7 +4733,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTrialComponentRequestRequestTypeDef
+# CreateTrialComponentRequestTypeDef
 
 ### TrialComponentName
 - **Type**: <class 'str'>
@@ -4647,10 +4746,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentStatusTypeDef]
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### Parameters
 - **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentParameterValueTypeDef]]
@@ -4679,7 +4778,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTrialRequestRequestTypeDef
+# CreateTrialRequestTypeDef
 
 ### TrialName
 - **Type**: <class 'str'>
@@ -4710,7 +4809,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateUserProfileRequestRequestTypeDef
+# CreateUserProfileRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -4730,7 +4829,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
 
 ### UserSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserSettingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserSettingsUnionTypeDef]
 
 
 # CreateUserProfileResponseTypeDef
@@ -4744,7 +4843,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateWorkforceRequestRequestTypeDef
+# CreateWorkforceRequestTypeDef
 
 ### WorkforceName
 - **Type**: <class 'str'>
@@ -4757,7 +4856,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.OidcConfigTypeDef]
 
 ### SourceIpConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SourceIpConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SourceIpConfigUnionTypeDef]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
@@ -4777,14 +4876,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateWorkteamRequestRequestTypeDef
+# CreateWorkteamRequestTypeDef
 
 ### WorkteamName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### MemberDefinitions
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.sagemaker_classes.MemberDefinitionTypeDef, aws_resource_validator.pydantic_models.sagemaker_classes.MemberDefinitionExtraOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.MemberDefinitionUnionTypeDef]
 - **Required**: Yes
 
 ### Description
@@ -4820,11 +4919,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### EFSFileSystemConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.EFSFileSystemConfigTypeDef]
 
+### FSxLustreFileSystemConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.FSxLustreFileSystemConfigTypeDef]
+
 
 # CustomFileSystemTypeDef
 
 ### EFSFileSystem
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.EFSFileSystemTypeDef]
+
+### FSxLustreFileSystem
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.FSxLustreFileSystemTypeDef]
 
 
 # CustomImageTypeDef
@@ -4935,6 +5040,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CaptureContentTypeHeaderTypeDef]
 
 
+# DataCaptureConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # DataCatalogConfigTypeDef
 
 ### TableName
@@ -5006,6 +5117,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
+# DataQualityAppSpecificationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # DataQualityBaselineConfigTypeDef
 
 ### BaseliningJobName
@@ -5036,14 +5153,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.BatchTransformInputTypeDef]
 
 
-# DataSourceExtraOutputTypeDef
+# DataQualityJobInputUnionTypeDef
 
-### S3DataSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.S3DataSourceExtraOutputTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### FileSystemDataSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.FileSystemDataSourceTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DataSourceOutputTypeDef
 
@@ -5057,7 +5171,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DataSourceTypeDef
 
 ### S3DataSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.S3DataSourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.S3DataSourceUnionTypeDef]
 
 ### FileSystemDataSource
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.FileSystemDataSourceTypeDef]
@@ -5079,22 +5193,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### InputMode
 - **Type**: typing.Optional[typing.Literal['File', 'Pipe']]
-
-
-# DebugHookConfigExtraOutputTypeDef
-
-### S3OutputPath
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### LocalPath
-- **Type**: typing.Optional[str]
-
-### HookParameters
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### CollectionConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.CollectionConfigurationExtraOutputTypeDef]]
 
 
 # DebugHookConfigOutputTypeDef
@@ -5129,31 +5227,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.CollectionConfigurationTypeDef]]
 
 
-# DebugRuleConfigurationExtraOutputTypeDef
+# DebugHookConfigUnionTypeDef
 
-### RuleConfigurationName
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### RuleEvaluatorImage
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### LocalPath
-- **Type**: typing.Optional[str]
-
-### S3OutputPath
-- **Type**: typing.Optional[str]
-
-### InstanceType
-- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge']]
-
-### VolumeSizeInGB
-- **Type**: typing.Optional[int]
-
-### RuleParameters
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DebugRuleConfigurationOutputTypeDef
 
@@ -5172,7 +5250,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InstanceType
-- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge']]
+- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.16xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.8xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge']]
 
 ### VolumeSizeInGB
 - **Type**: typing.Optional[int]
@@ -5198,7 +5276,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InstanceType
-- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge']]
+- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.16xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.8xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge']]
 
 ### VolumeSizeInGB
 - **Type**: typing.Optional[int]
@@ -5206,6 +5284,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RuleParameters
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
+
+# DebugRuleConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DebugRuleEvaluationStatusTypeDef
 
@@ -5290,13 +5374,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.CustomFileSystemConfigTypeDef]]
 
 
+# DefaultSpaceSettingsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # DefaultSpaceStorageSettingsTypeDef
 
 ### DefaultEbsStorageSettings
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DefaultEbsStorageSettingsTypeDef]
 
 
-# DeleteActionRequestRequestTypeDef
+# DeleteActionRequestTypeDef
 
 ### ActionName
 - **Type**: <class 'str'>
@@ -5314,21 +5404,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAlgorithmInputRequestTypeDef
+# DeleteAlgorithmInputTypeDef
 
 ### AlgorithmName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteAppImageConfigRequestRequestTypeDef
+# DeleteAppImageConfigRequestTypeDef
 
 ### AppImageConfigName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteAppRequestRequestTypeDef
+# DeleteAppRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -5349,13 +5439,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteArtifactRequestRequestTypeDef
+# DeleteArtifactRequestTypeDef
 
 ### ArtifactArn
 - **Type**: typing.Optional[str]
 
 ### Source
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ArtifactSourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ArtifactSourceUnionTypeDef]
 
 
 # DeleteArtifactResponseTypeDef
@@ -5369,7 +5459,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAssociationRequestRequestTypeDef
+# DeleteAssociationRequestTypeDef
 
 ### SourceArn
 - **Type**: <class 'str'>
@@ -5395,7 +5485,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteClusterRequestRequestTypeDef
+# DeleteClusterRequestTypeDef
 
 ### ClusterName
 - **Type**: <class 'str'>
@@ -5413,21 +5503,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteCodeRepositoryInputRequestTypeDef
+# DeleteClusterSchedulerConfigRequestTypeDef
+
+### ClusterSchedulerConfigId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteCodeRepositoryInputTypeDef
 
 ### CodeRepositoryName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteCompilationJobRequestRequestTypeDef
+# DeleteCompilationJobRequestTypeDef
 
 ### CompilationJobName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteContextRequestRequestTypeDef
+# DeleteComputeQuotaRequestTypeDef
+
+### ComputeQuotaId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteContextRequestTypeDef
 
 ### ContextName
 - **Type**: <class 'str'>
@@ -5445,21 +5549,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDataQualityJobDefinitionRequestRequestTypeDef
+# DeleteDataQualityJobDefinitionRequestTypeDef
 
 ### JobDefinitionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDeviceFleetRequestRequestTypeDef
+# DeleteDeviceFleetRequestTypeDef
 
 ### DeviceFleetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDomainRequestRequestTypeDef
+# DeleteDomainRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -5469,14 +5573,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.RetentionPolicyTypeDef]
 
 
-# DeleteEdgeDeploymentPlanRequestRequestTypeDef
+# DeleteEdgeDeploymentPlanRequestTypeDef
 
 ### EdgeDeploymentPlanName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteEdgeDeploymentStageRequestRequestTypeDef
+# DeleteEdgeDeploymentStageRequestTypeDef
 
 ### EdgeDeploymentPlanName
 - **Type**: <class 'str'>
@@ -5487,21 +5591,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteEndpointConfigInputRequestTypeDef
+# DeleteEndpointConfigInputTypeDef
 
 ### EndpointConfigName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteEndpointInputRequestTypeDef
+# DeleteEndpointInputTypeDef
 
 ### EndpointName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteExperimentRequestRequestTypeDef
+# DeleteExperimentRequestTypeDef
 
 ### ExperimentName
 - **Type**: <class 'str'>
@@ -5519,21 +5623,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteFeatureGroupRequestRequestTypeDef
+# DeleteFeatureGroupRequestTypeDef
 
 ### FeatureGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteFlowDefinitionRequestRequestTypeDef
+# DeleteFlowDefinitionRequestTypeDef
 
 ### FlowDefinitionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteHubContentReferenceRequestRequestTypeDef
+# DeleteHubContentReferenceRequestTypeDef
 
 ### HubName
 - **Type**: <class 'str'>
@@ -5548,7 +5652,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteHubContentRequestRequestTypeDef
+# DeleteHubContentRequestTypeDef
 
 ### HubName
 - **Type**: <class 'str'>
@@ -5567,35 +5671,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteHubRequestRequestTypeDef
+# DeleteHubRequestTypeDef
 
 ### HubName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteHumanTaskUiRequestRequestTypeDef
+# DeleteHumanTaskUiRequestTypeDef
 
 ### HumanTaskUiName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteHyperParameterTuningJobRequestRequestTypeDef
+# DeleteHyperParameterTuningJobRequestTypeDef
 
 ### HyperParameterTuningJobName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteImageRequestRequestTypeDef
+# DeleteImageRequestTypeDef
 
 ### ImageName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteImageVersionRequestRequestTypeDef
+# DeleteImageVersionRequestTypeDef
 
 ### ImageName
 - **Type**: <class 'str'>
@@ -5608,14 +5712,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteInferenceComponentInputRequestTypeDef
+# DeleteInferenceComponentInputTypeDef
 
 ### InferenceComponentName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteInferenceExperimentRequestRequestTypeDef
+# DeleteInferenceExperimentRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -5633,7 +5737,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteMlflowTrackingServerRequestRequestTypeDef
+# DeleteMlflowTrackingServerRequestTypeDef
 
 ### TrackingServerName
 - **Type**: <class 'str'>
@@ -5651,91 +5755,112 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteModelBiasJobDefinitionRequestRequestTypeDef
+# DeleteModelBiasJobDefinitionRequestTypeDef
 
 ### JobDefinitionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteModelCardRequestRequestTypeDef
+# DeleteModelCardRequestTypeDef
 
 ### ModelCardName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteModelExplainabilityJobDefinitionRequestRequestTypeDef
+# DeleteModelExplainabilityJobDefinitionRequestTypeDef
 
 ### JobDefinitionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteModelInputRequestTypeDef
+# DeleteModelInputTypeDef
 
 ### ModelName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteModelPackageGroupInputRequestTypeDef
+# DeleteModelPackageGroupInputTypeDef
 
 ### ModelPackageGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteModelPackageGroupPolicyInputRequestTypeDef
+# DeleteModelPackageGroupPolicyInputTypeDef
 
 ### ModelPackageGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteModelPackageInputRequestTypeDef
+# DeleteModelPackageInputTypeDef
 
 ### ModelPackageName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteModelQualityJobDefinitionRequestRequestTypeDef
+# DeleteModelQualityJobDefinitionRequestTypeDef
 
 ### JobDefinitionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteMonitoringScheduleRequestRequestTypeDef
+# DeleteMonitoringScheduleRequestTypeDef
 
 ### MonitoringScheduleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteNotebookInstanceInputRequestTypeDef
+# DeleteNotebookInstanceInputTypeDef
 
 ### NotebookInstanceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteNotebookInstanceLifecycleConfigInputRequestTypeDef
+# DeleteNotebookInstanceLifecycleConfigInputTypeDef
 
 ### NotebookInstanceLifecycleConfigName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteOptimizationJobRequestRequestTypeDef
+# DeleteOptimizationJobRequestTypeDef
 
 ### OptimizationJobName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePipelineRequestRequestTypeDef
+# DeletePartnerAppRequestTypeDef
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ClientToken
+- **Type**: typing.Optional[str]
+
+
+# DeletePartnerAppResponseTypeDef
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DeletePipelineRequestTypeDef
 
 ### PipelineName
 - **Type**: <class 'str'>
@@ -5757,14 +5882,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteProjectInputRequestTypeDef
+# DeleteProjectInputTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSpaceRequestRequestTypeDef
+# DeleteSpaceRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -5775,14 +5900,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteStudioLifecycleConfigRequestRequestTypeDef
+# DeleteStudioLifecycleConfigRequestTypeDef
 
 ### StudioLifecycleConfigName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteTagsInputRequestTypeDef
+# DeleteTagsInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -5793,7 +5918,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteTrialComponentRequestRequestTypeDef
+# DeleteTrialComponentRequestTypeDef
 
 ### TrialComponentName
 - **Type**: <class 'str'>
@@ -5811,7 +5936,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteTrialRequestRequestTypeDef
+# DeleteTrialRequestTypeDef
 
 ### TrialName
 - **Type**: <class 'str'>
@@ -5829,7 +5954,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteUserProfileRequestRequestTypeDef
+# DeleteUserProfileRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -5840,14 +5965,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteWorkforceRequestRequestTypeDef
+# DeleteWorkforceRequestTypeDef
 
 ### WorkforceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteWorkteamRequestRequestTypeDef
+# DeleteWorkteamRequestTypeDef
 
 ### WorkteamName
 - **Type**: <class 'str'>
@@ -5901,6 +6026,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoRollbackConfigTypeDef]
 
 
+# DeploymentConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # DeploymentRecommendationTypeDef
 
 ### RecommendationStatus
@@ -5937,14 +6068,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DeviceSelectionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DeviceSelectionConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DeviceSelectionConfigUnionTypeDef'>
 - **Required**: Yes
 
 ### DeploymentConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.EdgeDeploymentConfigTypeDef]
 
 
-# DeregisterDevicesRequestRequestTypeDef
+# DeregisterDevicesRequestTypeDef
 
 ### DeviceFleetName
 - **Type**: <class 'str'>
@@ -5961,7 +6092,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeActionRequestRequestTypeDef
+# DescribeActionRequestTypeDef
 
 ### ActionName
 - **Type**: <class 'str'>
@@ -6027,7 +6158,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAlgorithmInputRequestTypeDef
+# DescribeAlgorithmInputTypeDef
 
 ### AlgorithmName
 - **Type**: <class 'str'>
@@ -6085,7 +6216,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAppImageConfigRequestRequestTypeDef
+# DescribeAppImageConfigRequestTypeDef
 
 ### AppImageConfigName
 - **Type**: <class 'str'>
@@ -6127,7 +6258,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAppRequestRequestTypeDef
+# DescribeAppRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -6198,12 +6329,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResourceSpecTypeDef'>
 - **Required**: Yes
 
+### BuiltInLifecycleConfigArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
 
-# DescribeArtifactRequestRequestTypeDef
+# DescribeArtifactRequestTypeDef
 
 ### ArtifactArn
 - **Type**: <class 'str'>
@@ -6261,7 +6396,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAutoMLJobRequestRequestTypeDef
+# DescribeAutoMLJobRequestTypeDef
 
 ### AutoMLJobName
 - **Type**: <class 'str'>
@@ -6359,7 +6494,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAutoMLJobV2RequestRequestTypeDef
+# DescribeAutoMLJobV2RequestTypeDef
 
 ### AutoMLJobName
 - **Type**: <class 'str'>
@@ -6456,12 +6591,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLSecurityConfigOutputTypeDef'>
 - **Required**: Yes
 
+### AutoMLComputeConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLComputeConfigTypeDef'>
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
 
-# DescribeClusterNodeRequestRequestTypeDef
+# DescribeClusterNodeRequestTypeDef
 
 ### ClusterName
 - **Type**: <class 'str'>
@@ -6483,7 +6622,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeClusterRequestRequestTypeDef
+# DescribeClusterRequestTypeDef
 
 ### ClusterName
 - **Type**: <class 'str'>
@@ -6520,12 +6659,89 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigOutputTypeDef'>
 - **Required**: Yes
 
+### Orchestrator
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ClusterOrchestratorTypeDef'>
+- **Required**: Yes
+
+### NodeRecovery
+- **Type**: typing.Literal['Automatic', 'None']
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
 
-# DescribeCodeRepositoryInputRequestTypeDef
+# DescribeClusterSchedulerConfigRequestTypeDef
+
+### ClusterSchedulerConfigId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ClusterSchedulerConfigVersion
+- **Type**: typing.Optional[int]
+
+
+# DescribeClusterSchedulerConfigResponseTypeDef
+
+### ClusterSchedulerConfigArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ClusterSchedulerConfigId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ClusterSchedulerConfigVersion
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Status
+- **Type**: typing.Literal['CreateFailed', 'CreateRollbackFailed', 'Created', 'Creating', 'DeleteFailed', 'DeleteRollbackFailed', 'Deleted', 'Deleting', 'UpdateFailed', 'UpdateRollbackFailed', 'Updated', 'Updating']
+- **Required**: Yes
+
+### FailureReason
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ClusterArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SchedulerConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.SchedulerConfigOutputTypeDef'>
+- **Required**: Yes
+
+### Description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CreationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### CreatedBy
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContextTypeDef'>
+- **Required**: Yes
+
+### LastModifiedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### LastModifiedBy
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContextTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DescribeCodeRepositoryInputTypeDef
 
 ### CodeRepositoryName
 - **Type**: <class 'str'>
@@ -6559,7 +6775,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeCompilationJobRequestRequestTypeDef
+# DescribeCompilationJobRequestTypeDef
 
 ### CompilationJobName
 - **Type**: <class 'str'>
@@ -6645,7 +6861,84 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeContextRequestRequestTypeDef
+# DescribeComputeQuotaRequestTypeDef
+
+### ComputeQuotaId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ComputeQuotaVersion
+- **Type**: typing.Optional[int]
+
+
+# DescribeComputeQuotaResponseTypeDef
+
+### ComputeQuotaArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ComputeQuotaId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ComputeQuotaVersion
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Status
+- **Type**: typing.Literal['CreateFailed', 'CreateRollbackFailed', 'Created', 'Creating', 'DeleteFailed', 'DeleteRollbackFailed', 'Deleted', 'Deleting', 'UpdateFailed', 'UpdateRollbackFailed', 'Updated', 'Updating']
+- **Required**: Yes
+
+### FailureReason
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ClusterArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ComputeQuotaConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ComputeQuotaConfigOutputTypeDef'>
+- **Required**: Yes
+
+### ComputeQuotaTarget
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ComputeQuotaTargetTypeDef'>
+- **Required**: Yes
+
+### ActivationState
+- **Type**: typing.Literal['Disabled', 'Enabled']
+- **Required**: Yes
+
+### CreationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### CreatedBy
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContextTypeDef'>
+- **Required**: Yes
+
+### LastModifiedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### LastModifiedBy
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContextTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DescribeContextRequestTypeDef
 
 ### ContextName
 - **Type**: <class 'str'>
@@ -6703,7 +6996,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDataQualityJobDefinitionRequestRequestTypeDef
+# DescribeDataQualityJobDefinitionRequestTypeDef
 
 ### JobDefinitionName
 - **Type**: <class 'str'>
@@ -6761,7 +7054,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDeviceFleetRequestRequestTypeDef
+# DescribeDeviceFleetRequestTypeDef
 
 ### DeviceFleetName
 - **Type**: <class 'str'>
@@ -6807,7 +7100,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDeviceRequestRequestTypeDef
+# DescribeDeviceRequestTypeDef
 
 ### DeviceName
 - **Type**: <class 'str'>
@@ -6871,7 +7164,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDomainRequestRequestTypeDef
+# DescribeDomainRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -6964,6 +7257,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Literal['Customer', 'Service']
 - **Required**: Yes
 
+### TagPropagation
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
 ### DefaultSpaceSettings
 - **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DefaultSpaceSettingsOutputTypeDef'>
 - **Required**: Yes
@@ -6973,7 +7270,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEdgeDeploymentPlanRequestRequestTypeDef
+# DescribeEdgeDeploymentPlanRequestTypeDef
 
 ### EdgeDeploymentPlanName
 - **Type**: <class 'str'>
@@ -7036,7 +7333,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeEdgePackagingJobRequestRequestTypeDef
+# DescribeEdgePackagingJobRequestTypeDef
 
 ### EdgePackagingJobName
 - **Type**: <class 'str'>
@@ -7110,7 +7407,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEndpointConfigInputRequestTypeDef
+# DescribeEndpointConfigInputTypeDef
 
 ### EndpointConfigName
 - **Type**: <class 'str'>
@@ -7172,7 +7469,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEndpointInputEndpointDeletedWaitTypeDef
+# DescribeEndpointInputTypeDef
+
+### EndpointName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeEndpointInputWaitExtraTypeDef
 
 ### EndpointName
 - **Type**: <class 'str'>
@@ -7182,7 +7486,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.WaiterConfigTypeDef]
 
 
-# DescribeEndpointInputEndpointInServiceWaitTypeDef
+# DescribeEndpointInputWaitTypeDef
 
 ### EndpointName
 - **Type**: <class 'str'>
@@ -7190,13 +7494,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### WaiterConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.WaiterConfigTypeDef]
-
-
-# DescribeEndpointInputRequestTypeDef
-
-### EndpointName
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 
 # DescribeEndpointOutputTypeDef
@@ -7262,7 +7559,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeExperimentRequestRequestTypeDef
+# DescribeExperimentRequestTypeDef
 
 ### ExperimentName
 - **Type**: <class 'str'>
@@ -7312,7 +7609,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeFeatureGroupRequestRequestTypeDef
+# DescribeFeatureGroupRequestTypeDef
 
 ### FeatureGroupName
 - **Type**: <class 'str'>
@@ -7401,7 +7698,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeFeatureMetadataRequestRequestTypeDef
+# DescribeFeatureMetadataRequestTypeDef
 
 ### FeatureGroupName
 - **Type**: <class 'str'>
@@ -7451,7 +7748,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeFlowDefinitionRequestRequestTypeDef
+# DescribeFlowDefinitionRequestTypeDef
 
 ### FlowDefinitionName
 - **Type**: <class 'str'>
@@ -7505,7 +7802,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeHubContentRequestRequestTypeDef
+# DescribeHubContentRequestTypeDef
 
 ### HubName
 - **Type**: <class 'str'>
@@ -7578,7 +7875,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SupportStatus
-- **Type**: typing.Literal['Deprecated', 'Supported']
+- **Type**: typing.Literal['Deprecated', 'Restricted', 'Supported']
 - **Required**: Yes
 
 ### HubContentSearchKeywords
@@ -7601,12 +7898,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
+### LastModifiedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
 
-# DescribeHubRequestRequestTypeDef
+# DescribeHubRequestTypeDef
 
 ### HubName
 - **Type**: <class 'str'>
@@ -7660,7 +7961,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeHumanTaskUiRequestRequestTypeDef
+# DescribeHumanTaskUiRequestTypeDef
 
 ### HumanTaskUiName
 - **Type**: <class 'str'>
@@ -7694,7 +7995,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeHyperParameterTuningJobRequestRequestTypeDef
+# DescribeHyperParameterTuningJobRequestTypeDef
 
 ### HyperParameterTuningJobName
 - **Type**: <class 'str'>
@@ -7780,7 +8081,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeImageRequestImageCreatedWaitTypeDef
+# DescribeImageRequestTypeDef
+
+### ImageName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeImageRequestWaitExtraExtraTypeDef
 
 ### ImageName
 - **Type**: <class 'str'>
@@ -7790,7 +8098,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.WaiterConfigTypeDef]
 
 
-# DescribeImageRequestImageDeletedWaitTypeDef
+# DescribeImageRequestWaitExtraTypeDef
 
 ### ImageName
 - **Type**: <class 'str'>
@@ -7800,7 +8108,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.WaiterConfigTypeDef]
 
 
-# DescribeImageRequestImageUpdatedWaitTypeDef
+# DescribeImageRequestWaitTypeDef
 
 ### ImageName
 - **Type**: <class 'str'>
@@ -7808,13 +8116,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### WaiterConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.WaiterConfigTypeDef]
-
-
-# DescribeImageRequestRequestTypeDef
-
-### ImageName
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 
 # DescribeImageResponseTypeDef
@@ -7860,7 +8161,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeImageVersionRequestImageVersionCreatedWaitTypeDef
+# DescribeImageVersionRequestTypeDef
+
+### ImageName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Version
+- **Type**: typing.Optional[int]
+
+### Alias
+- **Type**: typing.Optional[str]
+
+
+# DescribeImageVersionRequestWaitExtraTypeDef
 
 ### ImageName
 - **Type**: <class 'str'>
@@ -7876,7 +8190,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.WaiterConfigTypeDef]
 
 
-# DescribeImageVersionRequestImageVersionDeletedWaitTypeDef
+# DescribeImageVersionRequestWaitTypeDef
 
 ### ImageName
 - **Type**: <class 'str'>
@@ -7890,19 +8204,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### WaiterConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.WaiterConfigTypeDef]
-
-
-# DescribeImageVersionRequestRequestTypeDef
-
-### ImageName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Version
-- **Type**: typing.Optional[int]
-
-### Alias
-- **Type**: typing.Optional[str]
 
 
 # DescribeImageVersionResponseTypeDef
@@ -7976,7 +8277,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeInferenceComponentInputRequestTypeDef
+# DescribeInferenceComponentInputTypeDef
 
 ### InferenceComponentName
 - **Type**: <class 'str'>
@@ -8029,82 +8330,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Literal['Creating', 'Deleting', 'Failed', 'InService', 'Updating']
 - **Required**: Yes
 
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# DescribeInferenceExperimentRequestRequestTypeDef
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# DescribeInferenceExperimentResponseTypeDef
-
-### Arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['ShadowMode']
-- **Required**: Yes
-
-### Schedule
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.InferenceExperimentScheduleOutputTypeDef'>
-- **Required**: Yes
-
-### Status
-- **Type**: typing.Literal['Cancelled', 'Completed', 'Created', 'Creating', 'Running', 'Starting', 'Stopping', 'Updating']
-- **Required**: Yes
-
-### StatusReason
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CreationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### CompletionTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### LastModifiedTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### RoleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### EndpointMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.EndpointMetadataTypeDef'>
-- **Required**: Yes
-
-### ModelVariants
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ModelVariantConfigSummaryTypeDef]
-- **Required**: Yes
-
-### DataStorageConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.InferenceExperimentDataStorageConfigOutputTypeDef'>
-- **Required**: Yes
-
-### ShadowModeConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ShadowModeConfigOutputTypeDef'>
-- **Required**: Yes
-
-### KmsKey
-- **Type**: <class 'str'>
+### LastDeploymentConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentDeploymentConfigOutputTypeDef'>
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -8112,7 +8339,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeInferenceRecommendationsJobRequestRequestTypeDef
+# DescribeInferenceExperimentRequestTypeDef
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeInferenceRecommendationsJobRequestTypeDef
 
 ### JobName
 - **Type**: <class 'str'>
@@ -8182,7 +8416,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeLabelingJobRequestRequestTypeDef
+# DescribeLabelingJobRequestTypeDef
 
 ### LabelingJobName
 - **Type**: <class 'str'>
@@ -8268,7 +8502,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeLineageGroupRequestRequestTypeDef
+# DescribeLineageGroupRequestTypeDef
 
 ### LineageGroupName
 - **Type**: <class 'str'>
@@ -8314,7 +8548,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeMlflowTrackingServerRequestRequestTypeDef
+# DescribeMlflowTrackingServerRequestTypeDef
 
 ### TrackingServerName
 - **Type**: <class 'str'>
@@ -8388,7 +8622,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeModelBiasJobDefinitionRequestRequestTypeDef
+# DescribeModelBiasJobDefinitionRequestTypeDef
 
 ### JobDefinitionName
 - **Type**: <class 'str'>
@@ -8446,7 +8680,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeModelCardExportJobRequestRequestTypeDef
+# DescribeModelCardExportJobRequestTypeDef
 
 ### ModelCardExportJobArn
 - **Type**: <class 'str'>
@@ -8500,7 +8734,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeModelCardRequestRequestTypeDef
+# DescribeModelCardRequestTypeDef
 
 ### ModelCardName
 - **Type**: <class 'str'>
@@ -8561,7 +8795,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeModelExplainabilityJobDefinitionRequestRequestTypeDef
+# DescribeModelExplainabilityJobDefinitionRequestTypeDef
 
 ### JobDefinitionName
 - **Type**: <class 'str'>
@@ -8619,7 +8853,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeModelInputRequestTypeDef
+# DescribeModelInputTypeDef
 
 ### ModelName
 - **Type**: <class 'str'>
@@ -8673,7 +8907,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeModelPackageGroupInputRequestTypeDef
+# DescribeModelPackageGroupInputTypeDef
 
 ### ModelPackageGroupName
 - **Type**: <class 'str'>
@@ -8711,7 +8945,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeModelPackageInputRequestTypeDef
+# DescribeModelPackageInputTypeDef
 
 ### ModelPackageName
 - **Type**: <class 'str'>
@@ -8836,12 +9070,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageModelCardTypeDef'>
 - **Required**: Yes
 
+### ModelLifeCycle
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelLifeCycleTypeDef'>
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
 
-# DescribeModelQualityJobDefinitionRequestRequestTypeDef
+# DescribeModelQualityJobDefinitionRequestTypeDef
 
 ### JobDefinitionName
 - **Type**: <class 'str'>
@@ -8899,7 +9137,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeMonitoringScheduleRequestRequestTypeDef
+# DescribeMonitoringScheduleRequestTypeDef
 
 ### MonitoringScheduleName
 - **Type**: <class 'str'>
@@ -8953,7 +9191,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeNotebookInstanceInputNotebookInstanceDeletedWaitTypeDef
+# DescribeNotebookInstanceInputTypeDef
+
+### NotebookInstanceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeNotebookInstanceInputWaitExtraExtraTypeDef
 
 ### NotebookInstanceName
 - **Type**: <class 'str'>
@@ -8963,7 +9208,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.WaiterConfigTypeDef]
 
 
-# DescribeNotebookInstanceInputNotebookInstanceInServiceWaitTypeDef
+# DescribeNotebookInstanceInputWaitExtraTypeDef
 
 ### NotebookInstanceName
 - **Type**: <class 'str'>
@@ -8973,7 +9218,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.WaiterConfigTypeDef]
 
 
-# DescribeNotebookInstanceInputNotebookInstanceStoppedWaitTypeDef
+# DescribeNotebookInstanceInputWaitTypeDef
 
 ### NotebookInstanceName
 - **Type**: <class 'str'>
@@ -8983,14 +9228,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.WaiterConfigTypeDef]
 
 
-# DescribeNotebookInstanceInputRequestTypeDef
-
-### NotebookInstanceName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# DescribeNotebookInstanceLifecycleConfigInputRequestTypeDef
+# DescribeNotebookInstanceLifecycleConfigInputTypeDef
 
 ### NotebookInstanceLifecycleConfigName
 - **Type**: <class 'str'>
@@ -9051,7 +9289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InstanceType
-- **Type**: typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c6id.12xlarge', 'ml.c6id.16xlarge', 'ml.c6id.24xlarge', 'ml.c6id.2xlarge', 'ml.c6id.32xlarge', 'ml.c6id.4xlarge', 'ml.c6id.8xlarge', 'ml.c6id.large', 'ml.c6id.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.16xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.8xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m6id.12xlarge', 'ml.m6id.16xlarge', 'ml.m6id.24xlarge', 'ml.m6id.2xlarge', 'ml.m6id.32xlarge', 'ml.m6id.4xlarge', 'ml.m6id.8xlarge', 'ml.m6id.large', 'ml.m6id.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r6id.12xlarge', 'ml.r6id.16xlarge', 'ml.r6id.24xlarge', 'ml.r6id.2xlarge', 'ml.r6id.32xlarge', 'ml.r6id.4xlarge', 'ml.r6id.8xlarge', 'ml.r6id.large', 'ml.r6id.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge']
+- **Type**: typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c6id.12xlarge', 'ml.c6id.16xlarge', 'ml.c6id.24xlarge', 'ml.c6id.2xlarge', 'ml.c6id.32xlarge', 'ml.c6id.4xlarge', 'ml.c6id.8xlarge', 'ml.c6id.large', 'ml.c6id.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.16xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.8xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m6id.12xlarge', 'ml.m6id.16xlarge', 'ml.m6id.24xlarge', 'ml.m6id.2xlarge', 'ml.m6id.32xlarge', 'ml.m6id.4xlarge', 'ml.m6id.8xlarge', 'ml.m6id.large', 'ml.m6id.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r6id.12xlarge', 'ml.r6id.16xlarge', 'ml.r6id.24xlarge', 'ml.r6id.2xlarge', 'ml.r6id.32xlarge', 'ml.r6id.4xlarge', 'ml.r6id.8xlarge', 'ml.r6id.large', 'ml.r6id.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']
 - **Required**: Yes
 
 ### SubnetId
@@ -9123,7 +9361,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeOptimizationJobRequestRequestTypeDef
+# DescribeOptimizationJobRequestTypeDef
 
 ### OptimizationJobName
 - **Type**: <class 'str'>
@@ -9205,7 +9443,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribePipelineDefinitionForExecutionRequestRequestTypeDef
+# DescribePartnerAppRequestTypeDef
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribePipelineDefinitionForExecutionRequestTypeDef
 
 ### PipelineExecutionArn
 - **Type**: <class 'str'>
@@ -9227,7 +9472,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribePipelineExecutionRequestRequestTypeDef
+# DescribePipelineExecutionRequestTypeDef
 
 ### PipelineExecutionArn
 - **Type**: <class 'str'>
@@ -9293,7 +9538,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribePipelineRequestRequestTypeDef
+# DescribePipelineRequestTypeDef
 
 ### PipelineName
 - **Type**: <class 'str'>
@@ -9359,7 +9604,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeProcessingJobRequestProcessingJobCompletedOrStoppedWaitTypeDef
+# DescribeProcessingJobRequestTypeDef
+
+### ProcessingJobName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeProcessingJobRequestWaitTypeDef
 
 ### ProcessingJobName
 - **Type**: <class 'str'>
@@ -9367,13 +9619,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### WaiterConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.WaiterConfigTypeDef]
-
-
-# DescribeProcessingJobRequestRequestTypeDef
-
-### ProcessingJobName
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 
 # DescribeProcessingJobResponseTypeDef
@@ -9467,7 +9712,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeProjectInputRequestTypeDef
+# DescribeProjectInputTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
@@ -9525,7 +9770,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeSpaceRequestRequestTypeDef
+# DescribeSpaceRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -9595,7 +9840,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeStudioLifecycleConfigRequestRequestTypeDef
+# DescribeStudioLifecycleConfigRequestTypeDef
 
 ### StudioLifecycleConfigName
 - **Type**: <class 'str'>
@@ -9633,7 +9878,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeSubscribedWorkteamRequestRequestTypeDef
+# DescribeSubscribedWorkteamRequestTypeDef
 
 ### WorkteamArn
 - **Type**: <class 'str'>
@@ -9651,14 +9896,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeTrainingJobRequestRequestTypeDef
+# DescribeTrainingJobRequestTypeDef
 
 ### TrainingJobName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeTrainingJobRequestTrainingJobCompletedOrStoppedWaitTypeDef
+# DescribeTrainingJobRequestWaitTypeDef
 
 ### TrainingJobName
 - **Type**: <class 'str'>
@@ -9847,14 +10092,88 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeTransformJobRequestRequestTypeDef
+# DescribeTrainingPlanRequestTypeDef
+
+### TrainingPlanName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeTrainingPlanResponseTypeDef
+
+### TrainingPlanArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TrainingPlanName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Status
+- **Type**: typing.Literal['Active', 'Expired', 'Failed', 'Pending', 'Scheduled']
+- **Required**: Yes
+
+### StatusMessage
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DurationHours
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### DurationMinutes
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### StartTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### EndTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### UpfrontFee
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CurrencyCode
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TotalInstanceCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### AvailableInstanceCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### InUseInstanceCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### TargetResources
+- **Type**: typing.List[typing.Literal['hyperpod-cluster', 'training-job']]
+- **Required**: Yes
+
+### ReservedCapacitySummaries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ReservedCapacitySummaryTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DescribeTransformJobRequestTypeDef
 
 ### TransformJobName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeTransformJobRequestTransformJobCompletedOrStoppedWaitTypeDef
+# DescribeTransformJobRequestWaitTypeDef
 
 ### TransformJobName
 - **Type**: <class 'str'>
@@ -9955,7 +10274,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeTrialComponentRequestRequestTypeDef
+# DescribeTrialComponentRequestTypeDef
 
 ### TrialComponentName
 - **Type**: <class 'str'>
@@ -10041,7 +10360,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeTrialRequestRequestTypeDef
+# DescribeTrialRequestTypeDef
 
 ### TrialName
 - **Type**: <class 'str'>
@@ -10095,7 +10414,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeUserProfileRequestRequestTypeDef
+# DescribeUserProfileRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -10157,7 +10476,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeWorkforceRequestRequestTypeDef
+# DescribeWorkforceRequestTypeDef
 
 ### WorkforceName
 - **Type**: <class 'str'>
@@ -10175,7 +10494,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeWorkteamRequestRequestTypeDef
+# DescribeWorkteamRequestTypeDef
 
 ### WorkteamName
 - **Type**: <class 'str'>
@@ -10299,6 +10618,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# DeviceSelectionConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # DeviceStatsTypeDef
 
 ### ConnectedDeviceCount
@@ -10361,7 +10686,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
-# DisassociateTrialComponentRequestRequestTypeDef
+# DisassociateTrialComponentRequestTypeDef
 
 ### TrialComponentName
 - **Type**: <class 'str'>
@@ -10405,6 +10730,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
+# DockerSettingsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # DomainDetailsTypeDef
 
 ### DomainArn
@@ -10441,7 +10772,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### DockerSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DockerSettingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DockerSettingsUnionTypeDef]
 
 ### AmazonQSettings
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AmazonQSettingsTypeDef]
@@ -10482,6 +10813,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### AmazonQSettings
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AmazonQSettingsTypeDef]
 
+
+# DomainSettingsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DriftCheckBaselinesTypeDef
 
@@ -10773,19 +11110,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EdgePresetDeploymentOutputTypeDef
 
-### Type
-- **Type**: typing.Literal['GreengrassV2Component']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Artifact
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['COMPLETED', 'FAILED']]
-
-### StatusMessage
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EdgeTypeDef
 
@@ -10804,6 +11131,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+
+# EmrServerlessComputeConfigTypeDef
+
+### ExecutionRoleARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# EmrServerlessSettingsTypeDef
+
+### ExecutionRoleArn
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+
+# EmrSettingsOutputTypeDef
+
+### AssumableRoleArns
+- **Type**: typing.Optional[typing.List[str]]
+
+### ExecutionRoleArns
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# EmrSettingsTypeDef
+
+### AssumableRoleArns
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### ExecutionRoleArns
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# EndpointConfigStepMetadataTypeDef
+
+### Arn
+- **Type**: typing.Optional[str]
 
 
 # EndpointConfigSummaryTypeDef
@@ -10830,7 +11197,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EndpointInputConfigurationOutputTypeDef
 
 ### InstanceType
-- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']]
+- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.r8g.12xlarge', 'ml.r8g.16xlarge', 'ml.r8g.24xlarge', 'ml.r8g.2xlarge', 'ml.r8g.48xlarge', 'ml.r8g.4xlarge', 'ml.r8g.8xlarge', 'ml.r8g.large', 'ml.r8g.medium', 'ml.r8g.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]
 
 ### ServerlessConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantServerlessConfigTypeDef]
@@ -10845,7 +11212,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EndpointInputConfigurationTypeDef
 
 ### InstanceType
-- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']]
+- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.r8g.12xlarge', 'ml.r8g.16xlarge', 'ml.r8g.24xlarge', 'ml.r8g.2xlarge', 'ml.r8g.48xlarge', 'ml.r8g.4xlarge', 'ml.r8g.8xlarge', 'ml.r8g.large', 'ml.r8g.medium', 'ml.r8g.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]
 
 ### ServerlessConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantServerlessConfigTypeDef]
@@ -10859,41 +11226,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EndpointInputTypeDef
 
-### EndpointName
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### LocalPath
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### S3InputMode
-- **Type**: typing.Optional[typing.Literal['File', 'Pipe']]
-
-### S3DataDistributionType
-- **Type**: typing.Optional[typing.Literal['FullyReplicated', 'ShardedByS3Key']]
-
-### FeaturesAttribute
-- **Type**: typing.Optional[str]
-
-### InferenceAttribute
-- **Type**: typing.Optional[str]
-
-### ProbabilityAttribute
-- **Type**: typing.Optional[str]
-
-### ProbabilityThresholdAttribute
-- **Type**: typing.Optional[float]
-
-### StartTimeOffset
-- **Type**: typing.Optional[str]
-
-### EndTimeOffset
-- **Type**: typing.Optional[str]
-
-### ExcludeFeaturesAttribute
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EndpointMetadataTypeDef
 
@@ -10922,7 +11257,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InstanceType
-- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']]
+- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.r8g.12xlarge', 'ml.r8g.16xlarge', 'ml.r8g.24xlarge', 'ml.r8g.2xlarge', 'ml.r8g.48xlarge', 'ml.r8g.4xlarge', 'ml.r8g.8xlarge', 'ml.r8g.large', 'ml.r8g.medium', 'ml.r8g.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]
 
 ### InitialInstanceCount
 - **Type**: typing.Optional[int]
@@ -10940,6 +11275,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### EndpointInfo
 - **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.EndpointInfoTypeDef'>
 - **Required**: Yes
+
+
+# EndpointStepMetadataTypeDef
+
+### Arn
+- **Type**: typing.Optional[str]
 
 
 # EndpointSummaryTypeDef
@@ -11037,6 +11378,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# ErrorInfoTypeDef
+
+### Code
+- **Type**: typing.Optional[str]
+
+### Reason
+- **Type**: typing.Optional[str]
+
+
 # ExperimentConfigTypeDef
 
 ### ExperimentName
@@ -11132,6 +11482,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ClarifyExplainerConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ClarifyExplainerConfigTypeDef]
+
+
+# ExplainerConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# FSxLustreFileSystemConfigTypeDef
+
+### FileSystemId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### FileSystemPath
+- **Type**: typing.Optional[str]
+
+
+# FSxLustreFileSystemTypeDef
+
+### FileSystemId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 
 # FailStepMetadataTypeDef
@@ -11324,34 +11697,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # FinalAutoMLJobObjectiveMetricTypeDef
 
-### MetricName
-- **Type**: typing.Literal['AUC', 'Accuracy', 'AverageWeightedQuantileLoss', 'BalancedAccuracy', 'F1', 'F1macro', 'MAE', 'MAPE', 'MASE', 'MSE', 'Precision', 'PrecisionMacro', 'R2', 'RMSE', 'Recall', 'RecallMacro', 'WAPE']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Value
-- **Type**: <class 'float'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Optional[typing.Literal['Maximize', 'Minimize']]
-
-### StandardMetricName
-- **Type**: typing.Optional[typing.Literal['AUC', 'Accuracy', 'AverageWeightedQuantileLoss', 'BalancedAccuracy', 'F1', 'F1macro', 'MAE', 'MAPE', 'MASE', 'MSE', 'Precision', 'PrecisionMacro', 'R2', 'RMSE', 'Recall', 'RecallMacro', 'WAPE']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FinalHyperParameterTuningJobObjectiveMetricTypeDef
 
-### MetricName
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Value
-- **Type**: <class 'float'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Optional[typing.Literal['Maximize', 'Minimize']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FlowDefinitionOutputConfigTypeDef
 
@@ -11391,7 +11745,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetDeviceFleetReportRequestRequestTypeDef
+# GetDeviceFleetReportRequestTypeDef
 
 ### DeviceFleetName
 - **Type**: <class 'str'>
@@ -11437,7 +11791,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetLineageGroupPolicyRequestRequestTypeDef
+# GetLineageGroupPolicyRequestTypeDef
 
 ### LineageGroupName
 - **Type**: <class 'str'>
@@ -11459,7 +11813,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetModelPackageGroupPolicyInputRequestTypeDef
+# GetModelPackageGroupPolicyInputTypeDef
 
 ### ModelPackageGroupName
 - **Type**: <class 'str'>
@@ -11488,7 +11842,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetScalingConfigurationRecommendationRequestRequestTypeDef
+# GetScalingConfigurationRecommendationRequestTypeDef
 
 ### InferenceRecommendationsJobName
 - **Type**: <class 'str'>
@@ -11542,7 +11896,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSearchSuggestionsRequestRequestTypeDef
+# GetSearchSuggestionsRequestTypeDef
 
 ### Resource
 - **Type**: typing.Literal['Endpoint', 'Experiment', 'ExperimentTrial', 'ExperimentTrialComponent', 'FeatureGroup', 'FeatureMetadata', 'HyperParameterTuningJob', 'Image', 'ImageVersion', 'Model', 'ModelCard', 'ModelPackage', 'ModelPackageGroup', 'Pipeline', 'PipelineExecution', 'Project', 'TrainingJob']
@@ -11582,10 +11936,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# HiddenSageMakerImageOutputTypeDef
+
+### SageMakerImageName
+- **Type**: typing.Optional[typing.Literal['sagemaker_distribution']]
+
+### VersionAliases
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# HiddenSageMakerImageTypeDef
+
+### SageMakerImageName
+- **Type**: typing.Optional[typing.Literal['sagemaker_distribution']]
+
+### VersionAliases
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
 # HolidayConfigAttributesTypeDef
 
 ### CountryCode
 - **Type**: typing.Optional[str]
+
+
+# HubAccessConfigTypeDef
+
+### HubContentArn
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 
 # HubContentDependencyTypeDef
@@ -11637,7 +12016,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SupportStatus
-- **Type**: typing.Optional[typing.Literal['Deprecated', 'Supported']]
+- **Type**: typing.Optional[typing.Literal['Deprecated', 'Restricted', 'Supported']]
 
 ### HubContentSearchKeywords
 - **Type**: typing.Optional[typing.List[str]]
@@ -11768,6 +12147,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PublicWorkforceTaskPriceTypeDef]
 
 
+# HumanLoopConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # HumanLoopRequestSourceTypeDef
 
 ### AwsManagedHumanLoopRequestSource
@@ -11785,10 +12170,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UiConfigTypeDef'>
 - **Required**: Yes
 
-### PreHumanTaskLambdaArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### TaskTitle
 - **Type**: <class 'str'>
 - **Required**: Yes
@@ -11805,9 +12186,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
-### AnnotationConsolidationConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AnnotationConsolidationConfigTypeDef'>
-- **Required**: Yes
+### PreHumanTaskLambdaArn
+- **Type**: typing.Optional[str]
 
 ### TaskKeywords
 - **Type**: typing.Optional[typing.List[str]]
@@ -11817,6 +12197,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### MaxConcurrentTaskCount
 - **Type**: typing.Optional[int]
+
+### AnnotationConsolidationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AnnotationConsolidationConfigTypeDef]
 
 ### PublicWorkforceTaskPrice
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PublicWorkforceTaskPriceTypeDef]
@@ -11832,10 +12215,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UiConfigTypeDef'>
 - **Required**: Yes
 
-### PreHumanTaskLambdaArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### TaskTitle
 - **Type**: <class 'str'>
 - **Required**: Yes
@@ -11852,9 +12231,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
-### AnnotationConsolidationConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AnnotationConsolidationConfigTypeDef'>
-- **Required**: Yes
+### PreHumanTaskLambdaArn
+- **Type**: typing.Optional[str]
 
 ### TaskKeywords
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -11865,9 +12243,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### MaxConcurrentTaskCount
 - **Type**: typing.Optional[int]
 
+### AnnotationConsolidationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AnnotationConsolidationConfigTypeDef]
+
 ### PublicWorkforceTaskPrice
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PublicWorkforceTaskPriceTypeDef]
 
+
+# HumanTaskConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HumanTaskUiSummaryTypeDef
 
@@ -11882,22 +12269,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### CreationTime
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
-
-
-# HyperParameterAlgorithmSpecificationExtraOutputTypeDef
-
-### TrainingInputMode
-- **Type**: typing.Literal['FastFile', 'File', 'Pipe']
-- **Required**: Yes
-
-### TrainingImage
-- **Type**: typing.Optional[str]
-
-### AlgorithmName
-- **Type**: typing.Optional[str]
-
-### MetricDefinitions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.MetricDefinitionTypeDef]]
 
 
 # HyperParameterAlgorithmSpecificationOutputTypeDef
@@ -11932,118 +12303,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.MetricDefinitionTypeDef]]
 
 
+# HyperParameterAlgorithmSpecificationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # HyperParameterSpecificationOutputTypeDef
 
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Literal['Categorical', 'Continuous', 'FreeText', 'Integer']
-- **Required**: Yes
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Range
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ParameterRangeOutputTypeDef]
-
-### IsTunable
-- **Type**: typing.Optional[bool]
-
-### IsRequired
-- **Type**: typing.Optional[bool]
-
-### DefaultValue
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HyperParameterSpecificationTypeDef
 
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Literal['Categorical', 'Continuous', 'FreeText', 'Integer']
-- **Required**: Yes
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Range
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ParameterRangeTypeDef]
-
-### IsTunable
-- **Type**: typing.Optional[bool]
-
-### IsRequired
-- **Type**: typing.Optional[bool]
-
-### DefaultValue
-- **Type**: typing.Optional[str]
-
-
-# HyperParameterTrainingJobDefinitionExtraOutputTypeDef
-
-### AlgorithmSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterAlgorithmSpecificationExtraOutputTypeDef'>
-- **Required**: Yes
-
-### RoleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### OutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.OutputDataConfigTypeDef'>
-- **Required**: Yes
-
-### StoppingCondition
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.StoppingConditionTypeDef'>
-- **Required**: Yes
-
-### DefinitionName
-- **Type**: typing.Optional[str]
-
-### TuningObjective
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobObjectiveTypeDef]
-
-### HyperParameterRanges
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ParameterRangesExtraOutputTypeDef]
-
-### StaticHyperParameters
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### InputDataConfig
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ChannelExtraOutputTypeDef]]
-
-### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigExtraOutputTypeDef]
-
-### ResourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceConfigExtraOutputTypeDef]
-
-### HyperParameterTuningResourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningResourceConfigExtraOutputTypeDef]
-
-### EnableNetworkIsolation
-- **Type**: typing.Optional[bool]
-
-### EnableInterContainerTrafficEncryption
-- **Type**: typing.Optional[bool]
-
-### EnableManagedSpotTraining
-- **Type**: typing.Optional[bool]
-
-### CheckpointConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CheckpointConfigTypeDef]
-
-### RetryStrategy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.RetryStrategyTypeDef]
-
-### Environment
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HyperParameterTrainingJobDefinitionOutputTypeDef
 
@@ -12109,7 +12385,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # HyperParameterTrainingJobDefinitionTypeDef
 
 ### AlgorithmSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterAlgorithmSpecificationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterAlgorithmSpecificationUnionTypeDef'>
 - **Required**: Yes
 
 ### RoleArn
@@ -12131,22 +12407,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobObjectiveTypeDef]
 
 ### HyperParameterRanges
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ParameterRangesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ParameterRangesUnionTypeDef]
 
 ### StaticHyperParameters
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### InputDataConfig
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ChannelTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ChannelUnionTypeDef]]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigUnionTypeDef]
 
 ### ResourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceConfigUnionTypeDef]
 
 ### HyperParameterTuningResourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningResourceConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningResourceConfigUnionTypeDef]
 
 ### EnableNetworkIsolation
 - **Type**: typing.Optional[bool]
@@ -12166,6 +12442,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Environment
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
+
+# HyperParameterTrainingJobDefinitionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HyperParameterTrainingJobSummaryTypeDef
 
@@ -12214,7 +12496,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # HyperParameterTuningInstanceConfigTypeDef
 
 ### InstanceType
-- **Type**: typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']
+- **Type**: typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.16xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.8xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']
 - **Required**: Yes
 
 ### InstanceCount
@@ -12233,35 +12515,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ConvergenceDetectedTime
 - **Type**: typing.Optional[datetime.datetime]
-
-
-# HyperParameterTuningJobConfigExtraOutputTypeDef
-
-### Strategy
-- **Type**: typing.Literal['Bayesian', 'Grid', 'Hyperband', 'Random']
-- **Required**: Yes
-
-### ResourceLimits
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResourceLimitsTypeDef'>
-- **Required**: Yes
-
-### StrategyConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobStrategyConfigTypeDef]
-
-### HyperParameterTuningJobObjective
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobObjectiveTypeDef]
-
-### ParameterRanges
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ParameterRangesExtraOutputTypeDef]
-
-### TrainingJobEarlyStoppingType
-- **Type**: typing.Optional[typing.Literal['Auto', 'Off']]
-
-### TuningJobCompletionCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TuningJobCompletionCriteriaTypeDef]
-
-### RandomSeed
-- **Type**: typing.Optional[int]
 
 
 # HyperParameterTuningJobConfigOutputTypeDef
@@ -12322,6 +12575,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
+# HyperParameterTuningJobConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # HyperParameterTuningJobConsumedResourcesTypeDef
 
 ### RuntimeInSeconds
@@ -12330,14 +12589,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # HyperParameterTuningJobObjectiveTypeDef
 
-### Type
-- **Type**: typing.Literal['Maximize', 'Minimize']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### MetricName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HyperParameterTuningJobSearchEntityTypeDef
 
@@ -12442,17 +12696,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceLimitsTypeDef]
 
 
-# HyperParameterTuningJobWarmStartConfigExtraOutputTypeDef
-
-### ParentHyperParameterTuningJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ParentHyperParameterTuningJobTypeDef]
-- **Required**: Yes
-
-### WarmStartType
-- **Type**: typing.Literal['IdenticalDataAndAlgorithm', 'TransferLearning']
-- **Required**: Yes
-
-
 # HyperParameterTuningJobWarmStartConfigOutputTypeDef
 
 ### ParentHyperParameterTuningJobs
@@ -12475,31 +12718,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# HyperParameterTuningResourceConfigExtraOutputTypeDef
+# HyperParameterTuningJobWarmStartConfigUnionTypeDef
 
-### InstanceType
-- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### InstanceCount
-- **Type**: typing.Optional[int]
-
-### VolumeSizeInGB
-- **Type**: typing.Optional[int]
-
-### VolumeKmsKeyId
-- **Type**: typing.Optional[str]
-
-### AllocationStrategy
-- **Type**: typing.Optional[typing.Literal['Prioritized']]
-
-### InstanceConfigs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningInstanceConfigTypeDef]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HyperParameterTuningResourceConfigOutputTypeDef
 
 ### InstanceType
-- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']]
+- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.16xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.8xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]
 
 ### InstanceCount
 - **Type**: typing.Optional[int]
@@ -12520,7 +12748,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # HyperParameterTuningResourceConfigTypeDef
 
 ### InstanceType
-- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']]
+- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.16xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.8xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]
 
 ### InstanceCount
 - **Type**: typing.Optional[int]
@@ -12537,6 +12765,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### InstanceConfigs
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningInstanceConfigTypeDef]]
 
+
+# HyperParameterTuningResourceConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HyperbandStrategyConfigTypeDef
 
@@ -12578,6 +12812,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SecretArn
 - **Type**: typing.Optional[str]
+
+
+# IdleSettingsTypeDef
+
+### LifecycleManagement
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### IdleTimeoutInMinutes
+- **Type**: typing.Optional[int]
+
+### MinIdleTimeoutInMinutes
+- **Type**: typing.Optional[int]
+
+### MaxIdleTimeoutInMinutes
+- **Type**: typing.Optional[int]
 
 
 # ImageClassificationJobConfigTypeDef
@@ -12658,7 +12907,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ImportHubContentRequestRequestTypeDef
+# ImportHubContentRequestTypeDef
 
 ### HubContentName
 - **Type**: <class 'str'>
@@ -12692,6 +12941,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### HubContentMarkdown
 - **Type**: typing.Optional[str]
 
+### SupportStatus
+- **Type**: typing.Optional[typing.Literal['Deprecated', 'Restricted', 'Supported']]
+
 ### HubContentSearchKeywords
 - **Type**: typing.Optional[typing.Sequence[str]]
 
@@ -12713,6 +12965,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+
+# InferenceComponentCapacitySizeTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # InferenceComponentComputeResourceRequirementsTypeDef
 
@@ -12754,6 +13012,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
+# InferenceComponentDeploymentConfigOutputTypeDef
+
+### RollingUpdatePolicy
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentRollingUpdatePolicyTypeDef'>
+- **Required**: Yes
+
+### AutoRollbackConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoRollbackConfigOutputTypeDef]
+
+
+# InferenceComponentDeploymentConfigTypeDef
+
+### RollingUpdatePolicy
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentRollingUpdatePolicyTypeDef'>
+- **Required**: Yes
+
+### AutoRollbackConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoRollbackConfigTypeDef]
+
+
+# InferenceComponentDeploymentConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# InferenceComponentRollingUpdatePolicyTypeDef
+
+### MaximumBatchSize
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentCapacitySizeTypeDef'>
+- **Required**: Yes
+
+### WaitIntervalInSeconds
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### MaximumExecutionTimeoutInSeconds
+- **Type**: typing.Optional[int]
+
+### RollbackMaximumBatchSize
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentCapacitySizeTypeDef]
+
+
 # InferenceComponentRuntimeConfigSummaryTypeDef
 
 ### DesiredCopyCount
@@ -12772,34 +13073,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # InferenceComponentSpecificationSummaryTypeDef
 
-### ModelName
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Container
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentContainerSpecificationSummaryTypeDef]
-
-### StartupParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentStartupParametersTypeDef]
-
-### ComputeResourceRequirements
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentComputeResourceRequirementsTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # InferenceComponentSpecificationTypeDef
 
-### ComputeResourceRequirements
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentComputeResourceRequirementsTypeDef'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### ModelName
-- **Type**: typing.Optional[str]
-
-### Container
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentContainerSpecificationTypeDef]
-
-### StartupParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentStartupParametersTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # InferenceComponentStartupParametersTypeDef
 
@@ -12877,14 +13159,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CaptureContentTypeHeaderTypeDef]
 
 
-# InferenceExperimentScheduleExtraOutputTypeDef
+# InferenceExperimentDataStorageConfigUnionTypeDef
 
-### StartTime
-- **Type**: typing.Optional[datetime.datetime]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### EndTime
-- **Type**: typing.Optional[datetime.datetime]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # InferenceExperimentScheduleOutputTypeDef
 
@@ -12898,49 +13177,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # InferenceExperimentScheduleTypeDef
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
+
+# InferenceExperimentScheduleUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # InferenceExperimentSummaryTypeDef
 
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Literal['ShadowMode']
-- **Required**: Yes
-
-### Status
-- **Type**: typing.Literal['Cancelled', 'Completed', 'Created', 'Creating', 'Running', 'Starting', 'Stopping', 'Updating']
-- **Required**: Yes
-
-### CreationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### LastModifiedTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### Schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceExperimentScheduleOutputTypeDef]
-
-### StatusReason
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### CompletionTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### RoleArn
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # InferenceHubAccessConfigTypeDef
 
@@ -13051,25 +13304,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# InferenceSpecificationExtraOutputTypeDef
-
-### Containers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageContainerDefinitionExtraOutputTypeDef]
-- **Required**: Yes
-
-### SupportedTransformInstanceTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge']]]
-
-### SupportedRealtimeInferenceInstanceTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']]]
-
-### SupportedContentTypes
-- **Type**: typing.Optional[typing.List[str]]
-
-### SupportedResponseMIMETypes
-- **Type**: typing.Optional[typing.List[str]]
-
-
 # InferenceSpecificationOutputTypeDef
 
 ### Containers
@@ -13077,10 +13311,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SupportedTransformInstanceTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge']]]
 
 ### SupportedRealtimeInferenceInstanceTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.r8g.12xlarge', 'ml.r8g.16xlarge', 'ml.r8g.24xlarge', 'ml.r8g.2xlarge', 'ml.r8g.48xlarge', 'ml.r8g.4xlarge', 'ml.r8g.8xlarge', 'ml.r8g.large', 'ml.r8g.medium', 'ml.r8g.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]]
 
 ### SupportedContentTypes
 - **Type**: typing.Optional[typing.List[str]]
@@ -13096,10 +13330,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SupportedTransformInstanceTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge']]]
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge']]]
 
 ### SupportedRealtimeInferenceInstanceTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']]]
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.r8g.12xlarge', 'ml.r8g.16xlarge', 'ml.r8g.24xlarge', 'ml.r8g.2xlarge', 'ml.r8g.48xlarge', 'ml.r8g.4xlarge', 'ml.r8g.8xlarge', 'ml.r8g.large', 'ml.r8g.medium', 'ml.r8g.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]]
 
 ### SupportedContentTypes
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -13107,6 +13341,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### SupportedResponseMIMETypes
 - **Type**: typing.Optional[typing.Sequence[str]]
 
+
+# InferenceSpecificationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # InfraCheckConfigTypeDef
 
@@ -13134,7 +13374,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # InstanceGroupTypeDef
 
 ### InstanceType
-- **Type**: typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']
+- **Type**: typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.16xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.8xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']
 - **Required**: Yes
 
 ### InstanceCount
@@ -13182,15 +13422,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Auto', 'Linear', 'Logarithmic', 'ReverseLogarithmic']]
 
 
-# JupyterLabAppImageConfigExtraOutputTypeDef
-
-### FileSystemConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.FileSystemConfigTypeDef]
-
-### ContainerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ContainerConfigExtraOutputTypeDef]
-
-
 # JupyterLabAppImageConfigOutputTypeDef
 
 ### FileSystemConfig
@@ -13209,6 +13440,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ContainerConfigTypeDef]
 
 
+# JupyterLabAppImageConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # JupyterLabAppSettingsOutputTypeDef
 
 ### DefaultResourceSpec
@@ -13222,6 +13459,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### CodeRepositories
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.CodeRepositoryTypeDef]]
+
+### AppLifecycleManagement
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AppLifecycleManagementTypeDef]
+
+### EmrSettings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.EmrSettingsOutputTypeDef]
+
+### BuiltInLifecycleConfigArn
+- **Type**: typing.Optional[str]
 
 
 # JupyterLabAppSettingsTypeDef
@@ -13237,6 +13483,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### CodeRepositories
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.CodeRepositoryTypeDef]]
+
+### AppLifecycleManagement
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AppLifecycleManagementTypeDef]
+
+### EmrSettings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.EmrSettingsTypeDef]
+
+### BuiltInLifecycleConfigArn
+- **Type**: typing.Optional[str]
 
 
 # JupyterServerAppSettingsOutputTypeDef
@@ -13293,16 +13548,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# KernelGatewayImageConfigExtraOutputTypeDef
-
-### KernelSpecs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.KernelSpecTypeDef]
-- **Required**: Yes
-
-### FileSystemConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.FileSystemConfigTypeDef]
-
-
 # KernelGatewayImageConfigOutputTypeDef
 
 ### KernelSpecs
@@ -13322,6 +13567,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### FileSystemConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.FileSystemConfigTypeDef]
 
+
+# KernelGatewayImageConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # KernelSpecTypeDef
 
@@ -13389,11 +13640,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobResourceConfigTypeDef]
 
 
-# LabelingJobDataAttributesExtraOutputTypeDef
+# LabelingJobAlgorithmsConfigUnionTypeDef
 
-### ContentClassifiers
-- **Type**: typing.Optional[typing.List[typing.Literal['FreeOfAdultContent', 'FreeOfPersonallyIdentifiableInformation']]]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LabelingJobDataAttributesOutputTypeDef
 
@@ -13440,16 +13691,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# LabelingJobInputConfigExtraOutputTypeDef
-
-### DataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobDataSourceTypeDef'>
-- **Required**: Yes
-
-### DataAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobDataAttributesExtraOutputTypeDef]
-
-
 # LabelingJobInputConfigOutputTypeDef
 
 ### DataSource
@@ -13469,6 +13710,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### DataAttributes
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobDataAttributesTypeDef]
 
+
+# LabelingJobInputConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LabelingJobOutputConfigTypeDef
 
@@ -13565,8 +13812,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PreHumanTaskLambdaArn
-- **Type**: <class 'str'>
-- **Required**: Yes
+- **Type**: typing.Optional[str]
 
 ### AnnotationConsolidationLambdaArn
 - **Type**: typing.Optional[str]
@@ -13618,7 +13864,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ListActionsRequestListActionsPaginateTypeDef
+# ListActionsRequestPaginateTypeDef
 
 ### SourceUri
 - **Type**: typing.Optional[str]
@@ -13627,10 +13873,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -13642,7 +13888,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListActionsRequestRequestTypeDef
+# ListActionsRequestTypeDef
 
 ### SourceUri
 - **Type**: typing.Optional[str]
@@ -13651,10 +13897,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -13683,13 +13929,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAlgorithmsInputListAlgorithmsPaginateTypeDef
+# ListAlgorithmsInputPaginateTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -13704,13 +13950,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListAlgorithmsInputRequestTypeDef
+# ListAlgorithmsInputTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -13742,7 +13988,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAliasesRequestListAliasesPaginateTypeDef
+# ListAliasesRequestPaginateTypeDef
 
 ### ImageName
 - **Type**: <class 'str'>
@@ -13758,7 +14004,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListAliasesRequestRequestTypeDef
+# ListAliasesRequestTypeDef
 
 ### ImageName
 - **Type**: <class 'str'>
@@ -13791,22 +14037,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAppImageConfigsRequestListAppImageConfigsPaginateTypeDef
+# ListAppImageConfigsRequestPaginateTypeDef
 
 ### NameContains
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### ModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### ModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'LastModifiedTime', 'Name']]
@@ -13818,7 +14064,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListAppImageConfigsRequestRequestTypeDef
+# ListAppImageConfigsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -13830,16 +14076,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### ModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### ModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'LastModifiedTime', 'Name']]
@@ -13862,7 +14108,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAppsRequestListAppsPaginateTypeDef
+# ListAppsRequestPaginateTypeDef
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
@@ -13883,7 +14129,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListAppsRequestRequestTypeDef
+# ListAppsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -13921,7 +14167,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListArtifactsRequestListArtifactsPaginateTypeDef
+# ListArtifactsRequestPaginateTypeDef
 
 ### SourceUri
 - **Type**: typing.Optional[str]
@@ -13930,10 +14176,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime']]
@@ -13945,7 +14191,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListArtifactsRequestRequestTypeDef
+# ListArtifactsRequestTypeDef
 
 ### SourceUri
 - **Type**: typing.Optional[str]
@@ -13954,10 +14200,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime']]
@@ -13986,7 +14232,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAssociationsRequestListAssociationsPaginateTypeDef
+# ListAssociationsRequestPaginateTypeDef
 
 ### SourceArn
 - **Type**: typing.Optional[str]
@@ -14004,10 +14250,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AssociatedWith', 'ContributedTo', 'DerivedFrom', 'Produced', 'SameAs']]
 
 ### CreatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'DestinationArn', 'DestinationType', 'SourceArn', 'SourceType']]
@@ -14019,7 +14265,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListAssociationsRequestRequestTypeDef
+# ListAssociationsRequestTypeDef
 
 ### SourceArn
 - **Type**: typing.Optional[str]
@@ -14037,10 +14283,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AssociatedWith', 'ContributedTo', 'DerivedFrom', 'Produced', 'SameAs']]
 
 ### CreatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'DestinationArn', 'DestinationType', 'SourceArn', 'SourceType']]
@@ -14069,19 +14315,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAutoMLJobsRequestListAutoMLJobsPaginateTypeDef
+# ListAutoMLJobsRequestPaginateTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -14099,19 +14345,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListAutoMLJobsRequestRequestTypeDef
+# ListAutoMLJobsRequestTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -14146,7 +14392,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCandidatesForAutoMLJobRequestListCandidatesForAutoMLJobPaginateTypeDef
+# ListCandidatesForAutoMLJobRequestPaginateTypeDef
 
 ### AutoMLJobName
 - **Type**: <class 'str'>
@@ -14168,7 +14414,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListCandidatesForAutoMLJobRequestRequestTypeDef
+# ListCandidatesForAutoMLJobRequestTypeDef
 
 ### AutoMLJobName
 - **Type**: <class 'str'>
@@ -14207,17 +14453,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListClusterNodesRequestListClusterNodesPaginateTypeDef
+# ListClusterNodesRequestPaginateTypeDef
 
 ### ClusterName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### InstanceGroupNameContains
 - **Type**: typing.Optional[str]
@@ -14232,17 +14478,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListClusterNodesRequestRequestTypeDef
+# ListClusterNodesRequestTypeDef
 
 ### ClusterName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### InstanceGroupNameContains
 - **Type**: typing.Optional[str]
@@ -14275,13 +14521,84 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListClustersRequestListClustersPaginateTypeDef
+# ListClusterSchedulerConfigsRequestPaginateTypeDef
+
+### CreatedAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
+
+### CreatedBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
+
+### NameContains
+- **Type**: typing.Optional[str]
+
+### ClusterArn
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['CreateFailed', 'CreateRollbackFailed', 'Created', 'Creating', 'DeleteFailed', 'DeleteRollbackFailed', 'Deleted', 'Deleting', 'UpdateFailed', 'UpdateRollbackFailed', 'Updated', 'Updating']]
+
+### SortBy
+- **Type**: typing.Optional[typing.Literal['CreationTime', 'Name', 'Status']]
+
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
+
+
+# ListClusterSchedulerConfigsRequestTypeDef
+
+### CreatedAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
+
+### CreatedBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
+
+### NameContains
+- **Type**: typing.Optional[str]
+
+### ClusterArn
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['CreateFailed', 'CreateRollbackFailed', 'Created', 'Creating', 'DeleteFailed', 'DeleteRollbackFailed', 'Deleted', 'Deleting', 'UpdateFailed', 'UpdateRollbackFailed', 'Updated', 'Updating']]
+
+### SortBy
+- **Type**: typing.Optional[typing.Literal['CreationTime', 'Name', 'Status']]
+
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+
+# ListClusterSchedulerConfigsResponseTypeDef
+
+### ClusterSchedulerConfigSummaries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ClusterSchedulerConfigSummaryTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListClustersRequestPaginateTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -14292,17 +14609,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
+### TrainingPlanArn
+- **Type**: typing.Optional[str]
+
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListClustersRequestRequestTypeDef
+# ListClustersRequestTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -14318,6 +14638,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
+
+### TrainingPlanArn
+- **Type**: typing.Optional[str]
 
 
 # ListClustersResponseTypeDef
@@ -14335,19 +14658,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListCodeRepositoriesInputListCodeRepositoriesPaginateTypeDef
+# ListCodeRepositoriesInputPaginateTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -14362,19 +14685,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListCodeRepositoriesInputRequestTypeDef
+# ListCodeRepositoriesInputTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -14406,19 +14729,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCompilationJobsRequestListCompilationJobsPaginateTypeDef
+# ListCompilationJobsRequestPaginateTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -14436,7 +14759,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListCompilationJobsRequestRequestTypeDef
+# ListCompilationJobsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -14445,16 +14768,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -14483,7 +14806,78 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListContextsRequestListContextsPaginateTypeDef
+# ListComputeQuotasRequestPaginateTypeDef
+
+### CreatedAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
+
+### CreatedBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
+
+### NameContains
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['CreateFailed', 'CreateRollbackFailed', 'Created', 'Creating', 'DeleteFailed', 'DeleteRollbackFailed', 'Deleted', 'Deleting', 'UpdateFailed', 'UpdateRollbackFailed', 'Updated', 'Updating']]
+
+### ClusterArn
+- **Type**: typing.Optional[str]
+
+### SortBy
+- **Type**: typing.Optional[typing.Literal['ClusterArn', 'CreationTime', 'Name', 'Status']]
+
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
+
+
+# ListComputeQuotasRequestTypeDef
+
+### CreatedAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
+
+### CreatedBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
+
+### NameContains
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['CreateFailed', 'CreateRollbackFailed', 'Created', 'Creating', 'DeleteFailed', 'DeleteRollbackFailed', 'Deleted', 'Deleting', 'UpdateFailed', 'UpdateRollbackFailed', 'Updated', 'Updating']]
+
+### ClusterArn
+- **Type**: typing.Optional[str]
+
+### SortBy
+- **Type**: typing.Optional[typing.Literal['ClusterArn', 'CreationTime', 'Name', 'Status']]
+
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+
+# ListComputeQuotasResponseTypeDef
+
+### ComputeQuotaSummaries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ComputeQuotaSummaryTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListContextsRequestPaginateTypeDef
 
 ### SourceUri
 - **Type**: typing.Optional[str]
@@ -14492,10 +14886,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -14507,7 +14901,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListContextsRequestRequestTypeDef
+# ListContextsRequestTypeDef
 
 ### SourceUri
 - **Type**: typing.Optional[str]
@@ -14516,10 +14910,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -14548,7 +14942,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDataQualityJobDefinitionsRequestListDataQualityJobDefinitionsPaginateTypeDef
+# ListDataQualityJobDefinitionsRequestPaginateTypeDef
 
 ### EndpointName
 - **Type**: typing.Optional[str]
@@ -14563,16 +14957,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListDataQualityJobDefinitionsRequestRequestTypeDef
+# ListDataQualityJobDefinitionsRequestTypeDef
 
 ### EndpointName
 - **Type**: typing.Optional[str]
@@ -14593,10 +14987,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 
 # ListDataQualityJobDefinitionsResponseTypeDef
@@ -14613,19 +15007,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDeviceFleetsRequestListDeviceFleetsPaginateTypeDef
+# ListDeviceFleetsRequestPaginateTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -14640,7 +15034,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListDeviceFleetsRequestRequestTypeDef
+# ListDeviceFleetsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -14649,16 +15043,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -14684,10 +15078,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDevicesRequestListDevicesPaginateTypeDef
+# ListDevicesRequestPaginateTypeDef
 
 ### LatestHeartbeatAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### ModelName
 - **Type**: typing.Optional[str]
@@ -14699,7 +15093,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListDevicesRequestRequestTypeDef
+# ListDevicesRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -14708,7 +15102,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### LatestHeartbeatAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### ModelName
 - **Type**: typing.Optional[str]
@@ -14731,13 +15125,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDomainsRequestListDomainsPaginateTypeDef
+# ListDomainsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListDomainsRequestRequestTypeDef
+# ListDomainsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -14760,19 +15154,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListEdgeDeploymentPlansRequestListEdgeDeploymentPlansPaginateTypeDef
+# ListEdgeDeploymentPlansRequestPaginateTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -14790,7 +15184,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListEdgeDeploymentPlansRequestRequestTypeDef
+# ListEdgeDeploymentPlansRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -14799,16 +15193,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -14837,19 +15231,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListEdgePackagingJobsRequestListEdgePackagingJobsPaginateTypeDef
+# ListEdgePackagingJobsRequestPaginateTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -14870,7 +15264,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListEdgePackagingJobsRequestRequestTypeDef
+# ListEdgePackagingJobsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -14879,16 +15273,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -14920,7 +15314,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListEndpointConfigsInputListEndpointConfigsPaginateTypeDef
+# ListEndpointConfigsInputPaginateTypeDef
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -14932,16 +15326,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListEndpointConfigsInputRequestTypeDef
+# ListEndpointConfigsInputTypeDef
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -14959,10 +15353,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 
 # ListEndpointConfigsOutputTypeDef
@@ -14979,7 +15373,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListEndpointsInputListEndpointsPaginateTypeDef
+# ListEndpointsInputPaginateTypeDef
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name', 'Status']]
@@ -14991,16 +15385,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['Creating', 'Deleting', 'Failed', 'InService', 'OutOfService', 'RollingBack', 'SystemUpdating', 'UpdateRollbackFailed', 'Updating']]
@@ -15009,7 +15403,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListEndpointsInputRequestTypeDef
+# ListEndpointsInputTypeDef
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name', 'Status']]
@@ -15027,16 +15421,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['Creating', 'Deleting', 'Failed', 'InService', 'OutOfService', 'RollingBack', 'SystemUpdating', 'UpdateRollbackFailed', 'Updating']]
@@ -15056,13 +15450,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListExperimentsRequestListExperimentsPaginateTypeDef
+# ListExperimentsRequestPaginateTypeDef
 
 ### CreatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -15074,13 +15468,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListExperimentsRequestRequestTypeDef
+# ListExperimentsRequestTypeDef
 
 ### CreatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -15109,7 +15503,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFeatureGroupsRequestListFeatureGroupsPaginateTypeDef
+# ListFeatureGroupsRequestPaginateTypeDef
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -15121,10 +15515,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Active', 'Blocked', 'Disabled']]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
@@ -15136,7 +15530,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListFeatureGroupsRequestRequestTypeDef
+# ListFeatureGroupsRequestTypeDef
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -15148,10 +15542,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Active', 'Blocked', 'Disabled']]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
@@ -15180,13 +15574,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFlowDefinitionsRequestListFlowDefinitionsPaginateTypeDef
+# ListFlowDefinitionsRequestPaginateTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
@@ -15195,13 +15589,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListFlowDefinitionsRequestRequestTypeDef
+# ListFlowDefinitionsRequestTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
@@ -15227,7 +15621,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListHubContentVersionsRequestRequestTypeDef
+# ListHubContentVersionsRequestTypeDef
 
 ### HubName
 - **Type**: <class 'str'>
@@ -15248,10 +15642,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'HubContentName', 'HubContentStatus']]
@@ -15280,7 +15674,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListHubContentsRequestRequestTypeDef
+# ListHubContentsRequestTypeDef
 
 ### HubName
 - **Type**: <class 'str'>
@@ -15297,10 +15691,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'HubContentName', 'HubContentStatus']]
@@ -15329,22 +15723,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListHubsRequestRequestTypeDef
+# ListHubsRequestTypeDef
 
 ### NameContains
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['AccountIdOwner', 'CreationTime', 'HubName', 'HubStatus']]
@@ -15373,13 +15767,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListHumanTaskUisRequestListHumanTaskUisPaginateTypeDef
+# ListHumanTaskUisRequestPaginateTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
@@ -15388,13 +15782,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListHumanTaskUisRequestRequestTypeDef
+# ListHumanTaskUisRequestTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
@@ -15420,7 +15814,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListHyperParameterTuningJobsRequestListHyperParameterTuningJobsPaginateTypeDef
+# ListHyperParameterTuningJobsRequestPaginateTypeDef
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name', 'Status']]
@@ -15432,16 +15826,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['Completed', 'DeleteFailed', 'Deleting', 'Failed', 'InProgress', 'Stopped', 'Stopping']]
@@ -15450,7 +15844,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListHyperParameterTuningJobsRequestRequestTypeDef
+# ListHyperParameterTuningJobsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -15468,16 +15862,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['Completed', 'DeleteFailed', 'Deleting', 'Failed', 'InProgress', 'Stopped', 'Stopping']]
@@ -15497,23 +15891,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListImageVersionsRequestListImageVersionsPaginateTypeDef
+# ListImageVersionsRequestPaginateTypeDef
 
 ### ImageName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CREATION_TIME', 'LAST_MODIFIED_TIME', 'VERSION']]
@@ -15525,23 +15919,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListImageVersionsRequestRequestTypeDef
+# ListImageVersionsRequestTypeDef
 
 ### ImageName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -15570,19 +15964,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListImagesRequestListImagesPaginateTypeDef
+# ListImagesRequestPaginateTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -15597,19 +15991,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListImagesRequestRequestTypeDef
+# ListImagesRequestTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -15641,7 +16035,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListInferenceComponentsInputListInferenceComponentsPaginateTypeDef
+# ListInferenceComponentsInputPaginateTypeDef
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name', 'Status']]
@@ -15653,16 +16047,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['Creating', 'Deleting', 'Failed', 'InService', 'Updating']]
@@ -15677,7 +16071,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListInferenceComponentsInputRequestTypeDef
+# ListInferenceComponentsInputTypeDef
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name', 'Status']]
@@ -15695,16 +16089,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['Creating', 'Deleting', 'Failed', 'InService', 'Updating']]
@@ -15730,75 +16124,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListInferenceExperimentsRequestListInferenceExperimentsPaginateTypeDef
-
-### NameContains
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['ShadowMode']]
-
-### StatusEquals
-- **Type**: typing.Optional[typing.Literal['Cancelled', 'Completed', 'Created', 'Creating', 'Running', 'Starting', 'Stopping', 'Updating']]
-
-### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
-
-### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
-
-### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
-
-### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
-
-### SortBy
-- **Type**: typing.Optional[typing.Literal['CreationTime', 'Name', 'Status']]
-
-### SortOrder
-- **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
-
-
-# ListInferenceExperimentsRequestRequestTypeDef
-
-### NameContains
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['ShadowMode']]
-
-### StatusEquals
-- **Type**: typing.Optional[typing.Literal['Cancelled', 'Completed', 'Created', 'Creating', 'Running', 'Starting', 'Stopping', 'Updating']]
-
-### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
-
-### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
-
-### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
-
-### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
-
-### SortBy
-- **Type**: typing.Optional[typing.Literal['CreationTime', 'Name', 'Status']]
-
-### SortOrder
-- **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### MaxResults
-- **Type**: typing.Optional[int]
-
-
 # ListInferenceExperimentsResponseTypeDef
 
 ### InferenceExperiments
@@ -15813,7 +16138,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListInferenceRecommendationsJobStepsRequestListInferenceRecommendationsJobStepsPaginateTypeDef
+# ListInferenceRecommendationsJobStepsRequestPaginateTypeDef
 
 ### JobName
 - **Type**: <class 'str'>
@@ -15829,7 +16154,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListInferenceRecommendationsJobStepsRequestRequestTypeDef
+# ListInferenceRecommendationsJobStepsRequestTypeDef
 
 ### JobName
 - **Type**: <class 'str'>
@@ -15862,19 +16187,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListInferenceRecommendationsJobsRequestListInferenceRecommendationsJobsPaginateTypeDef
+# ListInferenceRecommendationsJobsRequestPaginateTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -15898,19 +16223,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListInferenceRecommendationsJobsRequestRequestTypeDef
+# ListInferenceRecommendationsJobsRequestTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -15951,17 +16276,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListLabelingJobsForWorkteamRequestListLabelingJobsForWorkteamPaginateTypeDef
+# ListLabelingJobsForWorkteamRequestPaginateTypeDef
 
 ### WorkteamArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### JobReferenceCodeContains
 - **Type**: typing.Optional[str]
@@ -15976,7 +16301,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListLabelingJobsForWorkteamRequestRequestTypeDef
+# ListLabelingJobsForWorkteamRequestTypeDef
 
 ### WorkteamArn
 - **Type**: <class 'str'>
@@ -15989,10 +16314,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### JobReferenceCodeContains
 - **Type**: typing.Optional[str]
@@ -16018,19 +16343,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListLabelingJobsRequestListLabelingJobsPaginateTypeDef
+# ListLabelingJobsRequestPaginateTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -16048,19 +16373,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListLabelingJobsRequestRequestTypeDef
+# ListLabelingJobsRequestTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -16095,13 +16420,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListLineageGroupsRequestListLineageGroupsPaginateTypeDef
+# ListLineageGroupsRequestPaginateTypeDef
 
 ### CreatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -16113,13 +16438,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListLineageGroupsRequestRequestTypeDef
+# ListLineageGroupsRequestTypeDef
 
 ### CreatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -16148,13 +16473,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListMlflowTrackingServersRequestListMlflowTrackingServersPaginateTypeDef
+# ListMlflowTrackingServersRequestPaginateTypeDef
 
 ### CreatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### TrackingServerStatus
 - **Type**: typing.Optional[typing.Literal['CreateFailed', 'Created', 'Creating', 'DeleteFailed', 'Deleting', 'MaintenanceComplete', 'MaintenanceFailed', 'MaintenanceInProgress', 'StartFailed', 'Started', 'Starting', 'StopFailed', 'Stopped', 'Stopping', 'UpdateFailed', 'Updated', 'Updating']]
@@ -16172,13 +16497,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListMlflowTrackingServersRequestRequestTypeDef
+# ListMlflowTrackingServersRequestTypeDef
 
 ### CreatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### TrackingServerStatus
 - **Type**: typing.Optional[typing.Literal['CreateFailed', 'Created', 'Creating', 'DeleteFailed', 'Deleting', 'MaintenanceComplete', 'MaintenanceFailed', 'MaintenanceInProgress', 'StartFailed', 'Started', 'Starting', 'StopFailed', 'Stopped', 'Stopping', 'UpdateFailed', 'Updated', 'Updating']]
@@ -16213,7 +16538,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListModelBiasJobDefinitionsRequestListModelBiasJobDefinitionsPaginateTypeDef
+# ListModelBiasJobDefinitionsRequestPaginateTypeDef
 
 ### EndpointName
 - **Type**: typing.Optional[str]
@@ -16228,16 +16553,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListModelBiasJobDefinitionsRequestRequestTypeDef
+# ListModelBiasJobDefinitionsRequestTypeDef
 
 ### EndpointName
 - **Type**: typing.Optional[str]
@@ -16258,10 +16583,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 
 # ListModelBiasJobDefinitionsResponseTypeDef
@@ -16278,7 +16603,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListModelCardExportJobsRequestListModelCardExportJobsPaginateTypeDef
+# ListModelCardExportJobsRequestPaginateTypeDef
 
 ### ModelCardName
 - **Type**: <class 'str'>
@@ -16288,10 +16613,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### ModelCardExportJobNameContains
 - **Type**: typing.Optional[str]
@@ -16309,7 +16634,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListModelCardExportJobsRequestRequestTypeDef
+# ListModelCardExportJobsRequestTypeDef
 
 ### ModelCardName
 - **Type**: <class 'str'>
@@ -16319,10 +16644,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### ModelCardExportJobNameContains
 - **Type**: typing.Optional[str]
@@ -16357,17 +16682,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListModelCardVersionsRequestListModelCardVersionsPaginateTypeDef
+# ListModelCardVersionsRequestPaginateTypeDef
 
 ### ModelCardName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### ModelCardStatus
 - **Type**: typing.Optional[typing.Literal['Approved', 'Archived', 'Draft', 'PendingReview']]
@@ -16382,17 +16707,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListModelCardVersionsRequestRequestTypeDef
+# ListModelCardVersionsRequestTypeDef
 
 ### ModelCardName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -16424,13 +16749,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListModelCardsRequestListModelCardsPaginateTypeDef
+# ListModelCardsRequestPaginateTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -16448,13 +16773,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListModelCardsRequestRequestTypeDef
+# ListModelCardsRequestTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -16489,7 +16814,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListModelExplainabilityJobDefinitionsRequestListModelExplainabilityJobDefinitionsPaginateTypeDef
+# ListModelExplainabilityJobDefinitionsRequestPaginateTypeDef
 
 ### EndpointName
 - **Type**: typing.Optional[str]
@@ -16504,16 +16829,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListModelExplainabilityJobDefinitionsRequestRequestTypeDef
+# ListModelExplainabilityJobDefinitionsRequestTypeDef
 
 ### EndpointName
 - **Type**: typing.Optional[str]
@@ -16534,10 +16859,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 
 # ListModelExplainabilityJobDefinitionsResponseTypeDef
@@ -16554,7 +16879,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListModelMetadataRequestListModelMetadataPaginateTypeDef
+# ListModelMetadataRequestPaginateTypeDef
 
 ### SearchExpression
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelMetadataSearchExpressionTypeDef]
@@ -16563,7 +16888,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListModelMetadataRequestRequestTypeDef
+# ListModelMetadataRequestTypeDef
 
 ### SearchExpression
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelMetadataSearchExpressionTypeDef]
@@ -16589,13 +16914,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListModelPackageGroupsInputListModelPackageGroupsPaginateTypeDef
+# ListModelPackageGroupsInputPaginateTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -16613,13 +16938,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListModelPackageGroupsInputRequestTypeDef
+# ListModelPackageGroupsInputTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -16654,13 +16979,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListModelPackagesInputListModelPackagesPaginateTypeDef
+# ListModelPackagesInputPaginateTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -16684,13 +17009,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListModelPackagesInputRequestTypeDef
+# ListModelPackagesInputTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -16731,7 +17056,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListModelQualityJobDefinitionsRequestListModelQualityJobDefinitionsPaginateTypeDef
+# ListModelQualityJobDefinitionsRequestPaginateTypeDef
 
 ### EndpointName
 - **Type**: typing.Optional[str]
@@ -16746,16 +17071,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListModelQualityJobDefinitionsRequestRequestTypeDef
+# ListModelQualityJobDefinitionsRequestTypeDef
 
 ### EndpointName
 - **Type**: typing.Optional[str]
@@ -16776,10 +17101,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 
 # ListModelQualityJobDefinitionsResponseTypeDef
@@ -16796,7 +17121,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListModelsInputListModelsPaginateTypeDef
+# ListModelsInputPaginateTypeDef
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -16808,16 +17133,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListModelsInputRequestTypeDef
+# ListModelsInputTypeDef
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -16835,10 +17160,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 
 # ListModelsOutputTypeDef
@@ -16855,7 +17180,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListMonitoringAlertHistoryRequestListMonitoringAlertHistoryPaginateTypeDef
+# ListMonitoringAlertHistoryRequestPaginateTypeDef
 
 ### MonitoringScheduleName
 - **Type**: typing.Optional[str]
@@ -16870,10 +17195,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['InAlert', 'OK']]
@@ -16882,7 +17207,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListMonitoringAlertHistoryRequestRequestTypeDef
+# ListMonitoringAlertHistoryRequestTypeDef
 
 ### MonitoringScheduleName
 - **Type**: typing.Optional[str]
@@ -16903,10 +17228,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['InAlert', 'OK']]
@@ -16926,7 +17251,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListMonitoringAlertsRequestListMonitoringAlertsPaginateTypeDef
+# ListMonitoringAlertsRequestPaginateTypeDef
 
 ### MonitoringScheduleName
 - **Type**: <class 'str'>
@@ -16936,7 +17261,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListMonitoringAlertsRequestRequestTypeDef
+# ListMonitoringAlertsRequestTypeDef
 
 ### MonitoringScheduleName
 - **Type**: <class 'str'>
@@ -16963,7 +17288,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListMonitoringExecutionsRequestListMonitoringExecutionsPaginateTypeDef
+# ListMonitoringExecutionsRequestPaginateTypeDef
 
 ### MonitoringScheduleName
 - **Type**: typing.Optional[str]
@@ -16978,22 +17303,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### ScheduledTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### ScheduledTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['Completed', 'CompletedWithViolations', 'Failed', 'InProgress', 'Pending', 'Stopped', 'Stopping']]
@@ -17008,7 +17333,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListMonitoringExecutionsRequestRequestTypeDef
+# ListMonitoringExecutionsRequestTypeDef
 
 ### MonitoringScheduleName
 - **Type**: typing.Optional[str]
@@ -17029,22 +17354,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ScheduledTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### ScheduledTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['Completed', 'CompletedWithViolations', 'Failed', 'InProgress', 'Pending', 'Stopped', 'Stopping']]
@@ -17070,7 +17395,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListMonitoringSchedulesRequestListMonitoringSchedulesPaginateTypeDef
+# ListMonitoringSchedulesRequestPaginateTypeDef
 
 ### EndpointName
 - **Type**: typing.Optional[str]
@@ -17085,16 +17410,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['Failed', 'Pending', 'Scheduled', 'Stopped']]
@@ -17109,7 +17434,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListMonitoringSchedulesRequestRequestTypeDef
+# ListMonitoringSchedulesRequestTypeDef
 
 ### EndpointName
 - **Type**: typing.Optional[str]
@@ -17130,16 +17455,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['Failed', 'Pending', 'Scheduled', 'Stopped']]
@@ -17165,7 +17490,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListNotebookInstanceLifecycleConfigsInputListNotebookInstanceLifecycleConfigsPaginateTypeDef
+# ListNotebookInstanceLifecycleConfigsInputPaginateTypeDef
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'LastModifiedTime', 'Name']]
@@ -17177,22 +17502,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListNotebookInstanceLifecycleConfigsInputRequestTypeDef
+# ListNotebookInstanceLifecycleConfigsInputTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -17210,16 +17535,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 
 # ListNotebookInstanceLifecycleConfigsOutputTypeDef
@@ -17236,7 +17561,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListNotebookInstancesInputListNotebookInstancesPaginateTypeDef
+# ListNotebookInstancesInputPaginateTypeDef
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name', 'Status']]
@@ -17248,16 +17573,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['Deleting', 'Failed', 'InService', 'Pending', 'Stopped', 'Stopping', 'Updating']]
@@ -17275,7 +17600,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListNotebookInstancesInputRequestTypeDef
+# ListNotebookInstancesInputTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -17293,16 +17618,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['Deleting', 'Failed', 'InService', 'Pending', 'Stopped', 'Stopping', 'Updating']]
@@ -17331,19 +17656,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListOptimizationJobsRequestListOptimizationJobsPaginateTypeDef
+# ListOptimizationJobsRequestPaginateTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### OptimizationContains
 - **Type**: typing.Optional[str]
@@ -17364,7 +17689,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListOptimizationJobsRequestRequestTypeDef
+# ListOptimizationJobsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -17373,16 +17698,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### OptimizationContains
 - **Type**: typing.Optional[str]
@@ -17414,7 +17739,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPipelineExecutionStepsRequestListPipelineExecutionStepsPaginateTypeDef
+# ListPartnerAppsRequestPaginateTypeDef
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
+
+
+# ListPartnerAppsRequestTypeDef
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListPartnerAppsResponseTypeDef
+
+### Summaries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.PartnerAppSummaryTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListPipelineExecutionStepsRequestPaginateTypeDef
 
 ### PipelineExecutionArn
 - **Type**: typing.Optional[str]
@@ -17426,7 +17780,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListPipelineExecutionStepsRequestRequestTypeDef
+# ListPipelineExecutionStepsRequestTypeDef
 
 ### PipelineExecutionArn
 - **Type**: typing.Optional[str]
@@ -17455,17 +17809,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPipelineExecutionsRequestListPipelineExecutionsPaginateTypeDef
+# ListPipelineExecutionsRequestPaginateTypeDef
 
 ### PipelineName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### CreatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'PipelineExecutionArn']]
@@ -17477,17 +17831,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListPipelineExecutionsRequestRequestTypeDef
+# ListPipelineExecutionsRequestTypeDef
 
 ### PipelineName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### CreatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'PipelineExecutionArn']]
@@ -17516,7 +17870,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPipelineParametersForExecutionRequestListPipelineParametersForExecutionPaginateTypeDef
+# ListPipelineParametersForExecutionRequestPaginateTypeDef
 
 ### PipelineExecutionArn
 - **Type**: <class 'str'>
@@ -17526,7 +17880,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListPipelineParametersForExecutionRequestRequestTypeDef
+# ListPipelineParametersForExecutionRequestTypeDef
 
 ### PipelineExecutionArn
 - **Type**: <class 'str'>
@@ -17553,16 +17907,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPipelinesRequestListPipelinesPaginateTypeDef
+# ListPipelinesRequestPaginateTypeDef
 
 ### PipelineNamePrefix
 - **Type**: typing.Optional[str]
 
 ### CreatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -17574,16 +17928,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListPipelinesRequestRequestTypeDef
+# ListPipelinesRequestTypeDef
 
 ### PipelineNamePrefix
 - **Type**: typing.Optional[str]
 
 ### CreatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -17612,19 +17966,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListProcessingJobsRequestListProcessingJobsPaginateTypeDef
+# ListProcessingJobsRequestPaginateTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -17642,19 +17996,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListProcessingJobsRequestRequestTypeDef
+# ListProcessingJobsRequestTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -17689,13 +18043,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListProjectsInputRequestTypeDef
+# ListProjectsInputTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -17727,16 +18081,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResourceCatalogsRequestListResourceCatalogsPaginateTypeDef
+# ListResourceCatalogsRequestPaginateTypeDef
 
 ### NameContains
 - **Type**: typing.Optional[str]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
@@ -17748,16 +18102,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListResourceCatalogsRequestRequestTypeDef
+# ListResourceCatalogsRequestTypeDef
 
 ### NameContains
 - **Type**: typing.Optional[str]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
@@ -17786,7 +18140,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSpacesRequestListSpacesPaginateTypeDef
+# ListSpacesRequestPaginateTypeDef
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
@@ -17804,7 +18158,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListSpacesRequestRequestTypeDef
+# ListSpacesRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -17839,7 +18193,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListStageDevicesRequestListStageDevicesPaginateTypeDef
+# ListStageDevicesRequestPaginateTypeDef
 
 ### EdgeDeploymentPlanName
 - **Type**: <class 'str'>
@@ -17856,7 +18210,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListStageDevicesRequestRequestTypeDef
+# ListStageDevicesRequestTypeDef
 
 ### EdgeDeploymentPlanName
 - **Type**: <class 'str'>
@@ -17890,7 +18244,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListStudioLifecycleConfigsRequestListStudioLifecycleConfigsPaginateTypeDef
+# ListStudioLifecycleConfigsRequestPaginateTypeDef
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -17899,16 +18253,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CodeEditor', 'JupyterLab', 'JupyterServer', 'KernelGateway']]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### ModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### ModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'LastModifiedTime', 'Name']]
@@ -17920,7 +18274,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListStudioLifecycleConfigsRequestRequestTypeDef
+# ListStudioLifecycleConfigsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -17935,16 +18289,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CodeEditor', 'JupyterLab', 'JupyterServer', 'KernelGateway']]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### ModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### ModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'LastModifiedTime', 'Name']]
@@ -17967,7 +18321,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSubscribedWorkteamsRequestListSubscribedWorkteamsPaginateTypeDef
+# ListSubscribedWorkteamsRequestPaginateTypeDef
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -17976,7 +18330,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListSubscribedWorkteamsRequestRequestTypeDef
+# ListSubscribedWorkteamsRequestTypeDef
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -18002,7 +18356,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsInputListTagsPaginateTypeDef
+# ListTagsInputPaginateTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -18012,7 +18366,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListTagsInputRequestTypeDef
+# ListTagsInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -18039,7 +18393,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTrainingJobsForHyperParameterTuningJobRequestListTrainingJobsForHyperParameterTuningJobPaginateTypeDef
+# ListTrainingJobsForHyperParameterTuningJobRequestPaginateTypeDef
 
 ### HyperParameterTuningJobName
 - **Type**: <class 'str'>
@@ -18058,7 +18412,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListTrainingJobsForHyperParameterTuningJobRequestRequestTypeDef
+# ListTrainingJobsForHyperParameterTuningJobRequestTypeDef
 
 ### HyperParameterTuningJobName
 - **Type**: <class 'str'>
@@ -18094,19 +18448,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTrainingJobsRequestListTrainingJobsPaginateTypeDef
+# ListTrainingJobsRequestPaginateTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -18123,11 +18477,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### WarmPoolStatusEquals
 - **Type**: typing.Optional[typing.Literal['Available', 'InUse', 'Reused', 'Terminated']]
 
+### TrainingPlanArnEquals
+- **Type**: typing.Optional[str]
+
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListTrainingJobsRequestRequestTypeDef
+# ListTrainingJobsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -18136,16 +18493,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -18161,6 +18518,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### WarmPoolStatusEquals
 - **Type**: typing.Optional[typing.Literal['Available', 'InUse', 'Reused', 'Terminated']]
+
+### TrainingPlanArnEquals
+- **Type**: typing.Optional[str]
 
 
 # ListTrainingJobsResponseTypeDef
@@ -18177,19 +18537,78 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTransformJobsRequestListTransformJobsPaginateTypeDef
+# ListTrainingPlansRequestPaginateTypeDef
+
+### StartTimeAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
+
+### StartTimeBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
+
+### SortBy
+- **Type**: typing.Optional[typing.Literal['StartTime', 'Status', 'TrainingPlanName']]
+
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TrainingPlanFilterTypeDef]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
+
+
+# ListTrainingPlansRequestTypeDef
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### StartTimeAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
+
+### StartTimeBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
+
+### SortBy
+- **Type**: typing.Optional[typing.Literal['StartTime', 'Status', 'TrainingPlanName']]
+
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TrainingPlanFilterTypeDef]]
+
+
+# ListTrainingPlansResponseTypeDef
+
+### TrainingPlanSummaries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.TrainingPlanSummaryTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListTransformJobsRequestPaginateTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -18207,19 +18626,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListTransformJobsRequestRequestTypeDef
+# ListTransformJobsRequestTypeDef
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -18254,7 +18673,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTrialComponentsRequestListTrialComponentsPaginateTypeDef
+# ListTrialComponentsRequestPaginateTypeDef
 
 ### ExperimentName
 - **Type**: typing.Optional[str]
@@ -18266,10 +18685,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -18281,7 +18700,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListTrialComponentsRequestRequestTypeDef
+# ListTrialComponentsRequestTypeDef
 
 ### ExperimentName
 - **Type**: typing.Optional[str]
@@ -18293,10 +18712,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -18325,7 +18744,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTrialsRequestListTrialsPaginateTypeDef
+# ListTrialsRequestPaginateTypeDef
 
 ### ExperimentName
 - **Type**: typing.Optional[str]
@@ -18334,10 +18753,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -18349,7 +18768,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListTrialsRequestRequestTypeDef
+# ListTrialsRequestTypeDef
 
 ### ExperimentName
 - **Type**: typing.Optional[str]
@@ -18358,10 +18777,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -18390,7 +18809,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListUserProfilesRequestListUserProfilesPaginateTypeDef
+# ListUserProfilesRequestPaginateTypeDef
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
@@ -18408,7 +18827,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListUserProfilesRequestRequestTypeDef
+# ListUserProfilesRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -18443,7 +18862,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListWorkforcesRequestListWorkforcesPaginateTypeDef
+# ListWorkforcesRequestPaginateTypeDef
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreateDate', 'Name']]
@@ -18458,7 +18877,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListWorkforcesRequestRequestTypeDef
+# ListWorkforcesRequestTypeDef
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreateDate', 'Name']]
@@ -18490,7 +18909,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListWorkteamsRequestListWorkteamsPaginateTypeDef
+# ListWorkteamsRequestPaginateTypeDef
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreateDate', 'Name']]
@@ -18505,7 +18924,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
 
 
-# ListWorkteamsRequestRequestTypeDef
+# ListWorkteamsRequestTypeDef
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreateDate', 'Name']]
@@ -18537,15 +18956,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# MemberDefinitionExtraOutputTypeDef
-
-### CognitoMemberDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CognitoMemberDefinitionTypeDef]
-
-### OidcMemberDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.OidcMemberDefinitionExtraOutputTypeDef]
-
-
 # MemberDefinitionOutputTypeDef
 
 ### CognitoMemberDefinition
@@ -18561,8 +18971,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CognitoMemberDefinitionTypeDef]
 
 ### OidcMemberDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.OidcMemberDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.OidcMemberDefinitionUnionTypeDef]
 
+
+# MemberDefinitionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MetadataPropertiesTypeDef
 
@@ -18593,18 +19009,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # MetricDatumTypeDef
 
-### MetricName
-- **Type**: typing.Optional[typing.Literal['AUC', 'Accuracy', 'AverageWeightedQuantileLoss', 'BalancedAccuracy', 'F1', 'F1macro', 'MAE', 'MAPE', 'MASE', 'MSE', 'Precision', 'PrecisionMacro', 'R2', 'RMSE', 'Recall', 'RecallMacro', 'WAPE']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Value
-- **Type**: typing.Optional[float]
-
-### Set
-- **Type**: typing.Optional[typing.Literal['Test', 'Train', 'Validation']]
-
-### StandardMetricName
-- **Type**: typing.Optional[typing.Literal['AUC', 'Accuracy', 'AverageWeightedQuantileLoss', 'BalancedAccuracy', 'F1', 'F1macro', 'InferenceLatency', 'LogLoss', 'MAE', 'MAPE', 'MASE', 'MSE', 'Perplexity', 'Precision', 'PrecisionMacro', 'R2', 'RMSE', 'Recall', 'RecallMacro', 'Rouge1', 'Rouge2', 'RougeL', 'RougeLSum', 'TrainingLoss', 'ValidationLoss', 'WAPE']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MetricDefinitionTypeDef
 
@@ -18682,6 +19089,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
+# ModelBiasAppSpecificationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ModelBiasBaselineConfigTypeDef
 
 ### BaseliningJobName
@@ -18716,6 +19129,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### BatchTransformInput
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.BatchTransformInputTypeDef]
 
+
+# ModelBiasJobInputUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ModelCardExportArtifactsTypeDef
 
@@ -18887,6 +19306,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### OverrideEnvironment
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
+
+# ModelCompilationConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ModelConfigurationTypeDef
 
@@ -19089,6 +19514,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
+# ModelExplainabilityAppSpecificationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ModelExplainabilityBaselineConfigTypeDef
 
 ### BaseliningJobName
@@ -19116,6 +19547,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.BatchTransformInputTypeDef]
 
 
+# ModelExplainabilityJobInputUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ModelInfrastructureConfigTypeDef
 
 ### InfrastructureType
@@ -19141,6 +19578,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ValueInMilliseconds
 - **Type**: typing.Optional[int]
+
+
+# ModelLifeCycleTypeDef
+
+### Stage
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### StageStatus
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### StageDescription
+- **Type**: typing.Optional[str]
 
 
 # ModelMetadataFilterTypeDef
@@ -19198,46 +19649,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ExplainabilityTypeDef]
 
 
-# ModelPackageContainerDefinitionExtraOutputTypeDef
-
-### Image
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ContainerHostname
-- **Type**: typing.Optional[str]
-
-### ImageDigest
-- **Type**: typing.Optional[str]
-
-### ModelDataUrl
-- **Type**: typing.Optional[str]
-
-### ModelDataSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelDataSourceTypeDef]
-
-### ProductId
-- **Type**: typing.Optional[str]
-
-### Environment
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### ModelInput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelInputTypeDef]
-
-### Framework
-- **Type**: typing.Optional[str]
-
-### FrameworkVersion
-- **Type**: typing.Optional[str]
-
-### NearestModelName
-- **Type**: typing.Optional[str]
-
-### AdditionalS3DataSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AdditionalS3DataSourceTypeDef]
-
-
 # ModelPackageContainerDefinitionOutputTypeDef
 
 ### Image
@@ -19276,6 +19687,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### AdditionalS3DataSource
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AdditionalS3DataSourceTypeDef]
+
+### ModelDataETag
+- **Type**: typing.Optional[str]
 
 
 # ModelPackageContainerDefinitionTypeDef
@@ -19317,6 +19731,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### AdditionalS3DataSource
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AdditionalS3DataSourceTypeDef]
 
+### ModelDataETag
+- **Type**: typing.Optional[str]
+
+
+# ModelPackageContainerDefinitionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ModelPackageGroupSummaryTypeDef
 
@@ -19514,6 +19937,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ModelCard
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageModelCardTypeDef]
 
+### ModelLifeCycle
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelLifeCycleTypeDef]
+
 ### Tags
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
 
@@ -19525,17 +19951,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SkipModelValidation
 - **Type**: typing.Optional[typing.Literal['All', 'None']]
-
-
-# ModelPackageValidationProfileExtraOutputTypeDef
-
-### ProfileName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### TransformJobDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TransformJobDefinitionExtraOutputTypeDef'>
-- **Required**: Yes
 
 
 # ModelPackageValidationProfileOutputTypeDef
@@ -19560,17 +19975,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModelPackageValidationSpecificationExtraOutputTypeDef
-
-### ValidationRole
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ValidationProfiles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageValidationProfileExtraOutputTypeDef]
-- **Required**: Yes
-
-
 # ModelPackageValidationSpecificationOutputTypeDef
 
 ### ValidationRole
@@ -19592,6 +19996,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageValidationProfileTypeDef]
 - **Required**: Yes
 
+
+# ModelPackageValidationSpecificationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ModelQualityAppSpecificationOutputTypeDef
 
@@ -19643,6 +20053,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
+# ModelQualityAppSpecificationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ModelQualityBaselineConfigTypeDef
 
 ### BaseliningJobName
@@ -19678,6 +20094,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.BatchTransformInputTypeDef]
 
 
+# ModelQualityJobInputUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ModelQualityTypeDef
 
 ### Statistics
@@ -19705,6 +20127,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
+# ModelQuantizationConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ModelRegisterSettingsTypeDef
 
 ### Status
@@ -19713,6 +20141,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### CrossAccountModelRegisterRoleArn
 - **Type**: typing.Optional[str]
 
+
+# ModelShardingConfigOutputTypeDef
+
+### Image
+- **Type**: typing.Optional[str]
+
+### OverrideEnvironment
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# ModelShardingConfigTypeDef
+
+### Image
+- **Type**: typing.Optional[str]
+
+### OverrideEnvironment
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+
+# ModelShardingConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ModelStepMetadataTypeDef
 
@@ -19861,25 +20313,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# MonitoringAppSpecificationExtraOutputTypeDef
-
-### ImageUri
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ContainerEntrypoint
-- **Type**: typing.Optional[typing.List[str]]
-
-### ContainerArguments
-- **Type**: typing.Optional[typing.List[str]]
-
-### RecordPreprocessorSourceUri
-- **Type**: typing.Optional[str]
-
-### PostAnalyticsProcessorSourceUri
-- **Type**: typing.Optional[str]
-
-
 # MonitoringAppSpecificationOutputTypeDef
 
 ### ImageUri
@@ -19937,7 +20370,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InstanceType
-- **Type**: typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge']
+- **Type**: typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.16xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.8xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge']
 - **Required**: Yes
 
 ### VolumeSizeInGB
@@ -19958,18 +20391,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Header
 - **Type**: typing.Optional[bool]
-
-
-# MonitoringDatasetFormatExtraOutputTypeDef
-
-### Csv
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringCsvDatasetFormatTypeDef]
-
-### Json
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringJsonDatasetFormatTypeDef]
-
-### Parquet
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 
 # MonitoringDatasetFormatOutputTypeDef
@@ -20040,15 +20461,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# MonitoringInputExtraOutputTypeDef
-
-### EndpointInput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.EndpointInputTypeDef]
-
-### BatchTransformInput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.BatchTransformInputExtraOutputTypeDef]
-
-
 # MonitoringInputOutputTypeDef
 
 ### EndpointInput
@@ -20065,41 +20477,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### BatchTransformInput
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.BatchTransformInputTypeDef]
-
-
-# MonitoringJobDefinitionExtraOutputTypeDef
-
-### MonitoringInputs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringInputExtraOutputTypeDef]
-- **Required**: Yes
-
-### MonitoringOutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringOutputConfigExtraOutputTypeDef'>
-- **Required**: Yes
-
-### MonitoringResources
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringResourcesTypeDef'>
-- **Required**: Yes
-
-### MonitoringAppSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringAppSpecificationExtraOutputTypeDef'>
-- **Required**: Yes
-
-### RoleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### BaselineConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringBaselineConfigTypeDef]
-
-### StoppingCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringStoppingConditionTypeDef]
-
-### Environment
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### NetworkConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.NetworkConfigExtraOutputTypeDef]
 
 
 # MonitoringJobDefinitionOutputTypeDef
@@ -20221,15 +20598,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigTypeDef]
 
 
-# MonitoringOutputConfigExtraOutputTypeDef
+# MonitoringNetworkConfigUnionTypeDef
 
-### MonitoringOutputs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringOutputTypeDef]
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### KmsKeyId
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MonitoringOutputConfigOutputTypeDef
 
@@ -20250,6 +20623,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### KmsKeyId
 - **Type**: typing.Optional[str]
 
+
+# MonitoringOutputConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MonitoringOutputTypeDef
 
@@ -20277,21 +20656,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### S3UploadMode
 - **Type**: typing.Optional[typing.Literal['Continuous', 'EndOfJob']]
-
-
-# MonitoringScheduleConfigExtraOutputTypeDef
-
-### ScheduleConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ScheduleConfigTypeDef]
-
-### MonitoringJobDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringJobDefinitionExtraOutputTypeDef]
-
-### MonitoringJobDefinitionName
-- **Type**: typing.Optional[str]
-
-### MonitoringType
-- **Type**: typing.Optional[typing.Literal['DataQuality', 'ModelBias', 'ModelExplainability', 'ModelQuality']]
 
 
 # MonitoringScheduleConfigOutputTypeDef
@@ -20323,6 +20687,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### MonitoringType
 - **Type**: typing.Optional[typing.Literal['DataQuality', 'ModelBias', 'ModelExplainability', 'ModelQuality']]
 
+
+# MonitoringScheduleConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MonitoringScheduleSummaryTypeDef
 
@@ -20433,6 +20803,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# NeoVpcConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # NestedFiltersTypeDef
 
 ### NestedPropertyName
@@ -20442,18 +20818,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Filters
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.FilterTypeDef]
 - **Required**: Yes
-
-
-# NetworkConfigExtraOutputTypeDef
-
-### EnableInterContainerTrafficEncryption
-- **Type**: typing.Optional[bool]
-
-### EnableNetworkIsolation
-- **Type**: typing.Optional[bool]
-
-### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigExtraOutputTypeDef]
 
 
 # NetworkConfigOutputTypeDef
@@ -20479,6 +20843,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### VpcConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigTypeDef]
 
+
+# NetworkConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # NotebookInstanceLifecycleConfigSummaryTypeDef
 
@@ -20520,7 +20890,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InstanceType
-- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c6id.12xlarge', 'ml.c6id.16xlarge', 'ml.c6id.24xlarge', 'ml.c6id.2xlarge', 'ml.c6id.32xlarge', 'ml.c6id.4xlarge', 'ml.c6id.8xlarge', 'ml.c6id.large', 'ml.c6id.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.16xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.8xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m6id.12xlarge', 'ml.m6id.16xlarge', 'ml.m6id.24xlarge', 'ml.m6id.2xlarge', 'ml.m6id.32xlarge', 'ml.m6id.4xlarge', 'ml.m6id.8xlarge', 'ml.m6id.large', 'ml.m6id.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r6id.12xlarge', 'ml.r6id.16xlarge', 'ml.r6id.24xlarge', 'ml.r6id.2xlarge', 'ml.r6id.32xlarge', 'ml.r6id.4xlarge', 'ml.r6id.8xlarge', 'ml.r6id.large', 'ml.r6id.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge']]
+- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c6id.12xlarge', 'ml.c6id.16xlarge', 'ml.c6id.24xlarge', 'ml.c6id.2xlarge', 'ml.c6id.32xlarge', 'ml.c6id.4xlarge', 'ml.c6id.8xlarge', 'ml.c6id.large', 'ml.c6id.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.16xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.8xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m6id.12xlarge', 'ml.m6id.16xlarge', 'ml.m6id.24xlarge', 'ml.m6id.2xlarge', 'ml.m6id.32xlarge', 'ml.m6id.4xlarge', 'ml.m6id.8xlarge', 'ml.m6id.large', 'ml.m6id.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r6id.12xlarge', 'ml.r6id.16xlarge', 'ml.r6id.24xlarge', 'ml.r6id.2xlarge', 'ml.r6id.32xlarge', 'ml.r6id.4xlarge', 'ml.r6id.8xlarge', 'ml.r6id.large', 'ml.r6id.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']]
 
 ### CreationTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -20653,12 +21023,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# OidcMemberDefinitionExtraOutputTypeDef
-
-### Groups
-- **Type**: typing.Optional[typing.List[str]]
-
-
 # OidcMemberDefinitionOutputTypeDef
 
 ### Groups
@@ -20670,6 +21034,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Groups
 - **Type**: typing.Optional[typing.Sequence[str]]
 
+
+# OidcMemberDefinitionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # OnlineStoreConfigTypeDef
 
@@ -20706,15 +21076,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ModelCompilationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelCompilationConfigOutputTypeDef]
 
+### ModelShardingConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelShardingConfigOutputTypeDef]
+
 
 # OptimizationConfigTypeDef
 
 ### ModelQuantizationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelQuantizationConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelQuantizationConfigUnionTypeDef]
 
 ### ModelCompilationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelCompilationConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelCompilationConfigUnionTypeDef]
 
+### ModelShardingConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelShardingConfigUnionTypeDef]
+
+
+# OptimizationConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # OptimizationJobModelSourceS3TypeDef
 
@@ -20811,6 +21193,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
+
+# OptimizationVpcConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # OutputConfigTypeDef
 
@@ -20911,21 +21299,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CategoricalParameterRangeSpecificationTypeDef]
 
 
-# ParameterRangesExtraOutputTypeDef
-
-### IntegerParameterRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.IntegerParameterRangeTypeDef]]
-
-### ContinuousParameterRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ContinuousParameterRangeTypeDef]]
-
-### CategoricalParameterRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.CategoricalParameterRangeExtraOutputTypeDef]]
-
-### AutoParameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AutoParameterTypeDef]]
-
-
 # ParameterRangesOutputTypeDef
 
 ### IntegerParameterRanges
@@ -20950,11 +21323,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ContinuousParameterRangeTypeDef]]
 
 ### CategoricalParameterRanges
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.CategoricalParameterRangeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.CategoricalParameterRangeUnionTypeDef]]
 
 ### AutoParameters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.AutoParameterTypeDef]]
 
+
+# ParameterRangesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ParameterTypeDef
 
@@ -20981,6 +21360,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ExperimentName
 - **Type**: typing.Optional[str]
 
+
+# PartnerAppConfigOutputTypeDef
+
+### AdminUsers
+- **Type**: typing.Optional[typing.List[str]]
+
+### Arguments
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# PartnerAppConfigTypeDef
+
+### AdminUsers
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### Arguments
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+
+# PartnerAppConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# PartnerAppMaintenanceConfigTypeDef
+
+### MaintenanceWindowStart
+- **Type**: typing.Optional[str]
+
+
+# PartnerAppSummaryTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PendingDeploymentSummaryTypeDef
 
@@ -21020,7 +21435,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### InstanceType
-- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']]
+- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.r8g.12xlarge', 'ml.r8g.16xlarge', 'ml.r8g.24xlarge', 'ml.r8g.2xlarge', 'ml.r8g.48xlarge', 'ml.r8g.4xlarge', 'ml.r8g.8xlarge', 'ml.r8g.large', 'ml.r8g.medium', 'ml.r8g.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]
 
 ### AcceleratorType
 - **Type**: typing.Optional[typing.Literal['ml.eia1.large', 'ml.eia1.medium', 'ml.eia1.xlarge', 'ml.eia2.large', 'ml.eia2.medium', 'ml.eia2.xlarge']]
@@ -21110,6 +21525,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### AutoMLJob
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobStepMetadataTypeDef]
+
+### Endpoint
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.EndpointStepMetadataTypeDef]
+
+### EndpointConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.EndpointConfigStepMetadataTypeDef]
 
 
 # PipelineExecutionStepTypeDef
@@ -21298,6 +21719,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# PriorityClassTypeDef
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Weight
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+
 # ProcessingClusterConfigTypeDef
 
 ### InstanceCount
@@ -21305,7 +21737,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InstanceType
-- **Type**: typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge']
+- **Type**: typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.16xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.8xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge']
 - **Required**: Yes
 
 ### VolumeSizeInGB
@@ -21445,16 +21877,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
 
 
-# ProcessingOutputConfigExtraOutputTypeDef
-
-### Outputs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ProcessingOutputTypeDef]
-- **Required**: Yes
-
-### KmsKeyId
-- **Type**: typing.Optional[str]
-
-
 # ProcessingOutputConfigOutputTypeDef
 
 ### Outputs
@@ -21474,6 +21896,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### KmsKeyId
 - **Type**: typing.Optional[str]
 
+
+# ProcessingOutputConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProcessingOutputTypeDef
 
@@ -21500,26 +21928,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ProcessingS3InputTypeDef
 
-### S3Uri
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### S3DataType
-- **Type**: typing.Literal['ManifestFile', 'S3Prefix']
-- **Required**: Yes
-
-### LocalPath
-- **Type**: typing.Optional[str]
-
-### S3InputMode
-- **Type**: typing.Optional[typing.Literal['File', 'Pipe']]
-
-### S3DataDistributionType
-- **Type**: typing.Optional[typing.Literal['FullyReplicated', 'ShardedByS3Key']]
-
-### S3CompressionType
-- **Type**: typing.Optional[typing.Literal['Gzip', 'None']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProcessingS3OutputTypeDef
 
@@ -21527,13 +21938,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### LocalPath
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### S3UploadMode
 - **Type**: typing.Literal['Continuous', 'EndOfJob']
 - **Required**: Yes
+
+### LocalPath
+- **Type**: typing.Optional[str]
 
 
 # ProcessingStoppingConditionTypeDef
@@ -21658,7 +22068,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### InstanceType
-- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']]
+- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.r8g.12xlarge', 'ml.r8g.16xlarge', 'ml.r8g.24xlarge', 'ml.r8g.2xlarge', 'ml.r8g.48xlarge', 'ml.r8g.4xlarge', 'ml.r8g.8xlarge', 'ml.r8g.large', 'ml.r8g.medium', 'ml.r8g.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]
 
 ### InitialVariantWeight
 - **Type**: typing.Optional[float]
@@ -21691,22 +22101,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantRoutingConfigTypeDef]
 
 ### InferenceAmiVersion
-- **Type**: typing.Optional[typing.Literal['al2-ami-sagemaker-inference-gpu-2']]
-
-
-# ProfilerConfigExtraOutputTypeDef
-
-### S3OutputPath
-- **Type**: typing.Optional[str]
-
-### ProfilingIntervalInMilliseconds
-- **Type**: typing.Optional[int]
-
-### ProfilingParameters
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### DisableProfiler
-- **Type**: typing.Optional[bool]
+- **Type**: typing.Optional[typing.Literal['al2-ami-sagemaker-inference-gpu-2', 'al2-ami-sagemaker-inference-gpu-2-1', 'al2-ami-sagemaker-inference-gpu-3-1']]
 
 
 # ProfilerConfigForUpdateTypeDef
@@ -21754,6 +22149,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
+# ProfilerConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ProfilerRuleConfigurationOutputTypeDef
 
 ### RuleConfigurationName
@@ -21771,7 +22172,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InstanceType
-- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge']]
+- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.16xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.8xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge']]
 
 ### VolumeSizeInGB
 - **Type**: typing.Optional[int]
@@ -21797,7 +22198,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InstanceType
-- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge']]
+- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.16xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.8xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge']]
 
 ### VolumeSizeInGB
 - **Type**: typing.Optional[int]
@@ -21805,6 +22206,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RuleParameters
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
+
+# ProfilerRuleConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProfilerRuleEvaluationStatusTypeDef
 
@@ -21917,7 +22324,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.USDTypeDef]
 
 
-# PutModelPackageGroupPolicyInputRequestTypeDef
+# PutModelPackageGroupPolicyInputTypeDef
 
 ### ModelPackageGroupName
 - **Type**: <class 'str'>
@@ -21981,22 +22388,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['Action', 'Artifact', 'Context', 'TrialComponent']]]
 
 ### CreatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### CreatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### ModifiedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### ModifiedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### Properties
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# QueryLineageRequestRequestTypeDef
+# QueryLineageRequestTypeDef
 
 ### StartArns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -22100,7 +22507,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RealTimeInferenceConfigTypeDef
 
 ### InstanceType
-- **Type**: typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c6id.12xlarge', 'ml.c6id.16xlarge', 'ml.c6id.24xlarge', 'ml.c6id.2xlarge', 'ml.c6id.32xlarge', 'ml.c6id.4xlarge', 'ml.c6id.8xlarge', 'ml.c6id.large', 'ml.c6id.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.16xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.8xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m6id.12xlarge', 'ml.m6id.16xlarge', 'ml.m6id.24xlarge', 'ml.m6id.2xlarge', 'ml.m6id.32xlarge', 'ml.m6id.4xlarge', 'ml.m6id.8xlarge', 'ml.m6id.large', 'ml.m6id.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r6id.12xlarge', 'ml.r6id.16xlarge', 'ml.r6id.24xlarge', 'ml.r6id.2xlarge', 'ml.r6id.32xlarge', 'ml.r6id.4xlarge', 'ml.r6id.8xlarge', 'ml.r6id.large', 'ml.r6id.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge']
+- **Type**: typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c6id.12xlarge', 'ml.c6id.16xlarge', 'ml.c6id.24xlarge', 'ml.c6id.2xlarge', 'ml.c6id.32xlarge', 'ml.c6id.4xlarge', 'ml.c6id.8xlarge', 'ml.c6id.large', 'ml.c6id.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.16xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.8xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m6id.12xlarge', 'ml.m6id.16xlarge', 'ml.m6id.24xlarge', 'ml.m6id.2xlarge', 'ml.m6id.32xlarge', 'ml.m6id.4xlarge', 'ml.m6id.8xlarge', 'ml.m6id.large', 'ml.m6id.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r6id.12xlarge', 'ml.r6id.16xlarge', 'ml.r6id.24xlarge', 'ml.r6id.2xlarge', 'ml.r6id.32xlarge', 'ml.r6id.4xlarge', 'ml.r6id.8xlarge', 'ml.r6id.large', 'ml.r6id.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']
 - **Required**: Yes
 
 ### InstanceCount
@@ -22115,7 +22522,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InstanceType
-- **Type**: typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']
+- **Type**: typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.r8g.12xlarge', 'ml.r8g.16xlarge', 'ml.r8g.24xlarge', 'ml.r8g.2xlarge', 'ml.r8g.48xlarge', 'ml.r8g.4xlarge', 'ml.r8g.8xlarge', 'ml.r8g.large', 'ml.r8g.medium', 'ml.r8g.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']
 - **Required**: Yes
 
 ### Environment
@@ -22285,6 +22692,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.RecommendationJobVpcConfigTypeDef]
 
 
+# RecommendationJobInputConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # RecommendationJobOutputConfigTypeDef
 
 ### KmsKeyId
@@ -22344,6 +22757,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### FlatInvocations
 - **Type**: typing.Optional[typing.Literal['Continue', 'Stop']]
 
+
+# RecommendationJobStoppingConditionsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RecommendationJobVpcConfigOutputTypeDef
 
@@ -22428,7 +22847,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BZIP2', 'GZIP', 'None', 'SNAPPY', 'ZSTD']]
 
 
-# RegisterDevicesRequestRequestTypeDef
+# RegisterDevicesRequestTypeDef
 
 ### DeviceFleetName
 - **Type**: <class 'str'>
@@ -22460,7 +22879,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# RenderUiTemplateRequestRequestTypeDef
+# RenderUiTemplateRequestTypeDef
 
 ### Task
 - **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.RenderableTaskTypeDef'>
@@ -22517,6 +22936,66 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# ReservedCapacityOfferingTypeDef
+
+### InstanceType
+- **Type**: typing.Literal['ml.p4d.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.trn1.32xlarge', 'ml.trn2.48xlarge']
+- **Required**: Yes
+
+### InstanceCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### AvailabilityZone
+- **Type**: typing.Optional[str]
+
+### DurationHours
+- **Type**: typing.Optional[int]
+
+### DurationMinutes
+- **Type**: typing.Optional[int]
+
+### StartTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### EndTime
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# ReservedCapacitySummaryTypeDef
+
+### ReservedCapacityArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### InstanceType
+- **Type**: typing.Literal['ml.p4d.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.trn1.32xlarge', 'ml.trn2.48xlarge']
+- **Required**: Yes
+
+### TotalInstanceCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Status
+- **Type**: typing.Literal['Active', 'Expired', 'Failed', 'Pending', 'Scheduled']
+- **Required**: Yes
+
+### AvailabilityZone
+- **Type**: typing.Optional[str]
+
+### DurationHours
+- **Type**: typing.Optional[int]
+
+### DurationMinutes
+- **Type**: typing.Optional[int]
+
+### StartTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### EndTime
+- **Type**: typing.Optional[datetime.datetime]
+
+
 # ResolvedAttributesTypeDef
 
 ### AutoMLJobObjective
@@ -22548,28 +23027,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResourceConfigExtraOutputTypeDef
-
-### VolumeSizeInGB
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### InstanceType
-- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']]
-
-### InstanceCount
-- **Type**: typing.Optional[int]
-
-### VolumeKmsKeyId
-- **Type**: typing.Optional[str]
-
-### KeepAlivePeriodInSeconds
-- **Type**: typing.Optional[int]
-
-### InstanceGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.InstanceGroupTypeDef]]
-
-
 # ResourceConfigForUpdateTypeDef
 
 ### KeepAlivePeriodInSeconds
@@ -22584,7 +23041,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InstanceType
-- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']]
+- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.16xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.8xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]
 
 ### InstanceCount
 - **Type**: typing.Optional[int]
@@ -22598,6 +23055,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### InstanceGroups
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.InstanceGroupTypeDef]]
 
+### TrainingPlanArn
+- **Type**: typing.Optional[str]
+
 
 # ResourceConfigTypeDef
 
@@ -22606,7 +23066,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InstanceType
-- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']]
+- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.16xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.8xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]
 
 ### InstanceCount
 - **Type**: typing.Optional[int]
@@ -22620,6 +23080,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### InstanceGroups
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.InstanceGroupTypeDef]]
 
+### TrainingPlanArn
+- **Type**: typing.Optional[str]
+
+
+# ResourceConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResourceLimitsTypeDef
 
@@ -22631,6 +23100,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### MaxRuntimeInSeconds
+- **Type**: typing.Optional[int]
+
+
+# ResourceSharingConfigTypeDef
+
+### Strategy
+- **Type**: typing.Literal['DontLend', 'Lend', 'LendAndBorrow']
+- **Required**: Yes
+
+### BorrowLimit
 - **Type**: typing.Optional[int]
 
 
@@ -22646,7 +23125,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InstanceType
-- **Type**: typing.Optional[typing.Literal['ml.c5.12xlarge', 'ml.c5.18xlarge', 'ml.c5.24xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c6id.12xlarge', 'ml.c6id.16xlarge', 'ml.c6id.24xlarge', 'ml.c6id.2xlarge', 'ml.c6id.32xlarge', 'ml.c6id.4xlarge', 'ml.c6id.8xlarge', 'ml.c6id.large', 'ml.c6id.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.geospatial.interactive', 'ml.m5.12xlarge', 'ml.m5.16xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.8xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.16xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.8xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m6id.12xlarge', 'ml.m6id.16xlarge', 'ml.m6id.24xlarge', 'ml.m6id.2xlarge', 'ml.m6id.32xlarge', 'ml.m6id.4xlarge', 'ml.m6id.8xlarge', 'ml.m6id.large', 'ml.m6id.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r6id.12xlarge', 'ml.r6id.16xlarge', 'ml.r6id.24xlarge', 'ml.r6id.2xlarge', 'ml.r6id.32xlarge', 'ml.r6id.4xlarge', 'ml.r6id.8xlarge', 'ml.r6id.large', 'ml.r6id.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.micro', 'ml.t3.small', 'ml.t3.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'system']]
+- **Type**: typing.Optional[typing.Literal['ml.c5.12xlarge', 'ml.c5.18xlarge', 'ml.c5.24xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c6id.12xlarge', 'ml.c6id.16xlarge', 'ml.c6id.24xlarge', 'ml.c6id.2xlarge', 'ml.c6id.32xlarge', 'ml.c6id.4xlarge', 'ml.c6id.8xlarge', 'ml.c6id.large', 'ml.c6id.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.geospatial.interactive', 'ml.m5.12xlarge', 'ml.m5.16xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.8xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.16xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.8xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m6id.12xlarge', 'ml.m6id.16xlarge', 'ml.m6id.24xlarge', 'ml.m6id.2xlarge', 'ml.m6id.32xlarge', 'ml.m6id.4xlarge', 'ml.m6id.8xlarge', 'ml.m6id.large', 'ml.m6id.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r6id.12xlarge', 'ml.r6id.16xlarge', 'ml.r6id.24xlarge', 'ml.r6id.2xlarge', 'ml.r6id.32xlarge', 'ml.r6id.4xlarge', 'ml.r6id.8xlarge', 'ml.r6id.large', 'ml.r6id.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.micro', 'ml.t3.small', 'ml.t3.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'system']]
 
 ### LifecycleConfigArn
 - **Type**: typing.Optional[str]
@@ -22680,7 +23159,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Delete', 'Retain']]
 
 
-# RetryPipelineExecutionRequestRequestTypeDef
+# RetryPipelineExecutionRequestTypeDef
 
 ### PipelineExecutionArn
 - **Type**: <class 'str'>
@@ -22729,65 +23208,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CapacitySizeTypeDef]
 
 
-# S3DataSourceExtraOutputTypeDef
-
-### S3DataType
-- **Type**: typing.Literal['AugmentedManifestFile', 'ManifestFile', 'S3Prefix']
-- **Required**: Yes
-
-### S3Uri
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### S3DataDistributionType
-- **Type**: <class 'NoneType'>
-
-### AttributeNames
-- **Type**: typing.Optional[typing.List[str]]
-
-### InstanceGroupNames
-- **Type**: typing.Optional[typing.List[str]]
-
-
 # S3DataSourceOutputTypeDef
 
-### S3DataType
-- **Type**: typing.Literal['AugmentedManifestFile', 'ManifestFile', 'S3Prefix']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### S3Uri
-- **Type**: <class 'str'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### S3DataDistributionType
-- **Type**: <class 'NoneType'>
+# S3DataSourceUnionTypeDef
 
-### AttributeNames
-- **Type**: typing.Optional[typing.List[str]]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### InstanceGroupNames
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# S3DataSourceTypeDef
-
-### S3DataType
-- **Type**: typing.Literal['AugmentedManifestFile', 'ManifestFile', 'S3Prefix']
-- **Required**: Yes
-
-### S3Uri
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### S3DataDistributionType
-- **Type**: <class 'NoneType'>
-
-### AttributeNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### InstanceGroupNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # S3ModelDataSourceTypeDef
 
@@ -22808,6 +23239,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### HubAccessConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceHubAccessConfigTypeDef]
+
+### ManifestS3Uri
+- **Type**: typing.Optional[str]
+
+### ETag
+- **Type**: typing.Optional[str]
+
+### ManifestEtag
+- **Type**: typing.Optional[str]
 
 
 # S3PresignTypeDef
@@ -22866,6 +23306,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# SchedulerConfigOutputTypeDef
+
+### PriorityClasses
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.PriorityClassTypeDef]]
+
+### FairShare
+- **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
+
+
+# SchedulerConfigTypeDef
+
+### PriorityClasses
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.PriorityClassTypeDef]]
+
+### FairShare
+- **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
+
+
+# SchedulerConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# SearchExpressionPaginatorTypeDef
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.FilterTypeDef]]
+
+### NestedFilters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.NestedFiltersTypeDef]]
+
+### SubExpressions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### Operator
+- **Type**: typing.Optional[typing.Literal['And', 'Or']]
+
+
 # SearchExpressionTypeDef
 
 ### Filters
@@ -22875,7 +23354,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.NestedFiltersTypeDef]]
 
 ### SubExpressions
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 ### Operator
 - **Type**: typing.Optional[typing.Literal['And', 'Or']]
@@ -22929,14 +23408,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelDashboardModelTypeDef]
 
 
-# SearchRequestRequestTypeDef
+# SearchRequestPaginateTypeDef
 
 ### Resource
 - **Type**: typing.Literal['Endpoint', 'Experiment', 'ExperimentTrial', 'ExperimentTrialComponent', 'FeatureGroup', 'FeatureMetadata', 'HyperParameterTuningJob', 'Image', 'ImageVersion', 'Model', 'ModelCard', 'ModelPackage', 'ModelPackageGroup', 'Pipeline', 'PipelineExecution', 'Project', 'TrainingJob']
 - **Required**: Yes
 
 ### SearchExpression
-- **Type**: typing.Optional[ForwardRef('SearchExpressionTypeDef')]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SearchExpressionPaginatorTypeDef]
+
+### SortBy
+- **Type**: typing.Optional[str]
+
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
+
+### CrossAccountFilterOption
+- **Type**: typing.Optional[typing.Literal['CrossAccount', 'SameAccount']]
+
+### VisibilityConditions
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.VisibilityConditionsTypeDef]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
+
+
+# SearchRequestTypeDef
+
+### Resource
+- **Type**: typing.Literal['Endpoint', 'Experiment', 'ExperimentTrial', 'ExperimentTrialComponent', 'FeatureGroup', 'FeatureMetadata', 'HyperParameterTuningJob', 'Image', 'ImageVersion', 'Model', 'ModelCard', 'ModelPackage', 'ModelPackageGroup', 'Pipeline', 'PipelineExecution', 'Project', 'TrainingJob']
+- **Required**: Yes
+
+### SearchExpression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SearchExpressionTypeDef]
 
 ### SortBy
 - **Type**: typing.Optional[str]
@@ -22957,31 +23461,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.VisibilityConditionsTypeDef]]
 
 
-# SearchRequestSearchPaginateTypeDef
-
-### Resource
-- **Type**: typing.Literal['Endpoint', 'Experiment', 'ExperimentTrial', 'ExperimentTrialComponent', 'FeatureGroup', 'FeatureMetadata', 'HyperParameterTuningJob', 'Image', 'ImageVersion', 'Model', 'ModelCard', 'ModelPackage', 'ModelPackageGroup', 'Pipeline', 'PipelineExecution', 'Project', 'TrainingJob']
-- **Required**: Yes
-
-### SearchExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SearchExpressionTypeDef]
-
-### SortBy
-- **Type**: typing.Optional[str]
-
-### SortOrder
-- **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
-
-### CrossAccountFilterOption
-- **Type**: typing.Optional[typing.Literal['CrossAccount', 'SameAccount']]
-
-### VisibilityConditions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.VisibilityConditionsTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfigTypeDef]
-
-
 # SearchResponseTypeDef
 
 ### Results
@@ -22994,6 +23473,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### NextToken
 - **Type**: typing.Optional[str]
+
+
+# SearchTrainingPlanOfferingsRequestTypeDef
+
+### InstanceType
+- **Type**: typing.Literal['ml.p4d.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.trn1.32xlarge', 'ml.trn2.48xlarge']
+- **Required**: Yes
+
+### InstanceCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### TargetResources
+- **Type**: typing.Sequence[typing.Literal['hyperpod-cluster', 'training-job']]
+- **Required**: Yes
+
+### StartTimeAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
+
+### EndTimeBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
+
+### DurationHours
+- **Type**: typing.Optional[int]
+
+
+# SearchTrainingPlanOfferingsResponseTypeDef
+
+### TrainingPlanOfferings
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.TrainingPlanOfferingTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
 
 
 # SecondaryStatusTransitionTypeDef
@@ -23020,16 +23534,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SelectiveExecutionConfigExtraOutputTypeDef
-
-### SelectedSteps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.SelectedStepTypeDef]
-- **Required**: Yes
-
-### SourcePipelineExecutionArn
-- **Type**: typing.Optional[str]
-
-
 # SelectiveExecutionConfigOutputTypeDef
 
 ### SelectedSteps
@@ -23050,13 +23554,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# SelectiveExecutionConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # SelectiveExecutionResultTypeDef
 
 ### SourcePipelineExecutionArn
 - **Type**: typing.Optional[str]
 
 
-# SendPipelineExecutionStepFailureRequestRequestTypeDef
+# SendPipelineExecutionStepFailureRequestTypeDef
 
 ### CallbackToken
 - **Type**: <class 'str'>
@@ -23080,7 +23590,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SendPipelineExecutionStepSuccessRequestRequestTypeDef
+# SendPipelineExecutionStepSuccessRequestTypeDef
 
 ### CallbackToken
 - **Type**: <class 'str'>
@@ -23111,22 +23621,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ProvisionedProductStatusMessage
 - **Type**: typing.Optional[str]
-
-
-# ServiceCatalogProvisioningDetailsExtraOutputTypeDef
-
-### ProductId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ProvisioningArtifactId
-- **Type**: typing.Optional[str]
-
-### PathId
-- **Type**: typing.Optional[str]
-
-### ProvisioningParameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ProvisioningParameterTypeDef]]
 
 
 # ServiceCatalogProvisioningDetailsOutputTypeDef
@@ -23160,6 +23654,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ProvisioningParameters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ProvisioningParameterTypeDef]]
 
+
+# ServiceCatalogProvisioningDetailsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ServiceCatalogProvisioningUpdateDetailsTypeDef
 
@@ -23198,6 +23698,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# ShadowModeConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ShadowModelVariantConfigTypeDef
 
 ### ShadowModelVariantName
@@ -23228,13 +23734,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SourceAlgorithmSpecificationExtraOutputTypeDef
-
-### SourceAlgorithms
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.SourceAlgorithmTypeDef]
-- **Required**: Yes
-
-
 # SourceAlgorithmSpecificationOutputTypeDef
 
 ### SourceAlgorithms
@@ -23249,6 +23748,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# SourceAlgorithmSpecificationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # SourceAlgorithmTypeDef
 
 ### AlgorithmName
@@ -23261,12 +23766,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ModelDataSource
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelDataSourceTypeDef]
 
-
-# SourceIpConfigExtraOutputTypeDef
-
-### Cidrs
-- **Type**: typing.List[str]
-- **Required**: Yes
+### ModelDataETag
+- **Type**: typing.Optional[str]
 
 
 # SourceIpConfigOutputTypeDef
@@ -23283,10 +23784,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# SourceIpConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# SpaceAppLifecycleManagementTypeDef
+
+### IdleSettings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SpaceIdleSettingsTypeDef]
+
+
 # SpaceCodeEditorAppSettingsTypeDef
 
 ### DefaultResourceSpec
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceSpecTypeDef]
+
+### AppLifecycleManagement
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SpaceAppLifecycleManagementTypeDef]
 
 
 # SpaceDetailsTypeDef
@@ -23319,6 +23835,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# SpaceIdleSettingsTypeDef
+
+### IdleTimeoutInMinutes
+- **Type**: typing.Optional[int]
+
+
 # SpaceJupyterLabAppSettingsOutputTypeDef
 
 ### DefaultResourceSpec
@@ -23326,6 +23848,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### CodeRepositories
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.CodeRepositoryTypeDef]]
+
+### AppLifecycleManagement
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SpaceAppLifecycleManagementTypeDef]
 
 
 # SpaceJupyterLabAppSettingsTypeDef
@@ -23335,6 +23860,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### CodeRepositories
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.CodeRepositoryTypeDef]]
+
+### AppLifecycleManagement
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SpaceAppLifecycleManagementTypeDef]
 
 
 # SpaceSettingsOutputTypeDef
@@ -23394,6 +23922,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.CustomFileSystemTypeDef]]
 
 
+# SpaceSettingsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # SpaceSharingSettingsSummaryTypeDef
 
 ### SharingType
@@ -23425,7 +23959,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# StartEdgeDeploymentStageRequestRequestTypeDef
+# StartEdgeDeploymentStageRequestTypeDef
 
 ### EdgeDeploymentPlanName
 - **Type**: <class 'str'>
@@ -23436,7 +23970,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartInferenceExperimentRequestRequestTypeDef
+# StartInferenceExperimentRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -23454,7 +23988,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartMlflowTrackingServerRequestRequestTypeDef
+# StartMlflowTrackingServerRequestTypeDef
 
 ### TrackingServerName
 - **Type**: <class 'str'>
@@ -23472,21 +24006,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartMonitoringScheduleRequestRequestTypeDef
+# StartMonitoringScheduleRequestTypeDef
 
 ### MonitoringScheduleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StartNotebookInstanceInputRequestTypeDef
+# StartNotebookInstanceInputTypeDef
 
 ### NotebookInstanceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StartPipelineExecutionRequestRequestTypeDef
+# StartPipelineExecutionRequestTypeDef
 
 ### PipelineName
 - **Type**: <class 'str'>
@@ -23509,7 +24043,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ParallelismConfigurationTypeDef]
 
 ### SelectiveExecutionConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SelectiveExecutionConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SelectiveExecutionConfigUnionTypeDef]
 
 
 # StartPipelineExecutionResponseTypeDef
@@ -23523,21 +24057,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopAutoMLJobRequestRequestTypeDef
+# StopAutoMLJobRequestTypeDef
 
 ### AutoMLJobName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopCompilationJobRequestRequestTypeDef
+# StopCompilationJobRequestTypeDef
 
 ### CompilationJobName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopEdgeDeploymentStageRequestRequestTypeDef
+# StopEdgeDeploymentStageRequestTypeDef
 
 ### EdgeDeploymentPlanName
 - **Type**: <class 'str'>
@@ -23548,21 +24082,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopEdgePackagingJobRequestRequestTypeDef
+# StopEdgePackagingJobRequestTypeDef
 
 ### EdgePackagingJobName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopHyperParameterTuningJobRequestRequestTypeDef
+# StopHyperParameterTuningJobRequestTypeDef
 
 ### HyperParameterTuningJobName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopInferenceExperimentRequestRequestTypeDef
+# StopInferenceExperimentRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -23593,21 +24127,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopInferenceRecommendationsJobRequestRequestTypeDef
+# StopInferenceRecommendationsJobRequestTypeDef
 
 ### JobName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopLabelingJobRequestRequestTypeDef
+# StopLabelingJobRequestTypeDef
 
 ### LabelingJobName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopMlflowTrackingServerRequestRequestTypeDef
+# StopMlflowTrackingServerRequestTypeDef
 
 ### TrackingServerName
 - **Type**: <class 'str'>
@@ -23625,28 +24159,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopMonitoringScheduleRequestRequestTypeDef
+# StopMonitoringScheduleRequestTypeDef
 
 ### MonitoringScheduleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopNotebookInstanceInputRequestTypeDef
+# StopNotebookInstanceInputTypeDef
 
 ### NotebookInstanceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopOptimizationJobRequestRequestTypeDef
+# StopOptimizationJobRequestTypeDef
 
 ### OptimizationJobName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopPipelineExecutionRequestRequestTypeDef
+# StopPipelineExecutionRequestTypeDef
 
 ### PipelineExecutionArn
 - **Type**: <class 'str'>
@@ -23668,21 +24202,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopProcessingJobRequestRequestTypeDef
+# StopProcessingJobRequestTypeDef
 
 ### ProcessingJobName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopTrainingJobRequestRequestTypeDef
+# StopTrainingJobRequestTypeDef
 
 ### TrainingJobName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopTransformJobRequestRequestTypeDef
+# StopTransformJobRequestTypeDef
 
 ### TransformJobName
 - **Type**: <class 'str'>
@@ -23722,19 +24256,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StudioWebPortalSettingsOutputTypeDef
 
 ### HiddenMlTools
-- **Type**: typing.Optional[typing.List[typing.Literal['AutoMl', 'DataWrangler', 'EmrClusters', 'Endpoints', 'Experiments', 'FeatureStore', 'InferenceRecommender', 'JumpStart', 'ModelEvaluation', 'Models', 'Pipelines', 'Projects', 'Training']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['AutoMl', 'Comet', 'DataWrangler', 'DeepchecksLLMEvaluation', 'EmrClusters', 'Endpoints', 'Experiments', 'FeatureStore', 'Fiddler', 'HyperPodClusters', 'InferenceOptimization', 'InferenceRecommender', 'JumpStart', 'LakeraGuard', 'ModelEvaluation', 'Models', 'PerformanceEvaluation', 'Pipelines', 'Projects', 'Training']]]
 
 ### HiddenAppTypes
 - **Type**: typing.Optional[typing.List[typing.Literal['Canvas', 'CodeEditor', 'DetailedProfiler', 'JupyterLab', 'JupyterServer', 'KernelGateway', 'RSessionGateway', 'RStudioServerPro', 'TensorBoard']]]
+
+### HiddenInstanceTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['ml.c5.12xlarge', 'ml.c5.18xlarge', 'ml.c5.24xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c6id.12xlarge', 'ml.c6id.16xlarge', 'ml.c6id.24xlarge', 'ml.c6id.2xlarge', 'ml.c6id.32xlarge', 'ml.c6id.4xlarge', 'ml.c6id.8xlarge', 'ml.c6id.large', 'ml.c6id.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.geospatial.interactive', 'ml.m5.12xlarge', 'ml.m5.16xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.8xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.16xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.8xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m6id.12xlarge', 'ml.m6id.16xlarge', 'ml.m6id.24xlarge', 'ml.m6id.2xlarge', 'ml.m6id.32xlarge', 'ml.m6id.4xlarge', 'ml.m6id.8xlarge', 'ml.m6id.large', 'ml.m6id.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r6id.12xlarge', 'ml.r6id.16xlarge', 'ml.r6id.24xlarge', 'ml.r6id.2xlarge', 'ml.r6id.32xlarge', 'ml.r6id.4xlarge', 'ml.r6id.8xlarge', 'ml.r6id.large', 'ml.r6id.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.micro', 'ml.t3.small', 'ml.t3.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'system']]]
+
+### HiddenSageMakerImageVersionAliases
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.HiddenSageMakerImageOutputTypeDef]]
 
 
 # StudioWebPortalSettingsTypeDef
 
 ### HiddenMlTools
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['AutoMl', 'DataWrangler', 'EmrClusters', 'Endpoints', 'Experiments', 'FeatureStore', 'InferenceRecommender', 'JumpStart', 'ModelEvaluation', 'Models', 'Pipelines', 'Projects', 'Training']]]
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['AutoMl', 'Comet', 'DataWrangler', 'DeepchecksLLMEvaluation', 'EmrClusters', 'Endpoints', 'Experiments', 'FeatureStore', 'Fiddler', 'HyperPodClusters', 'InferenceOptimization', 'InferenceRecommender', 'JumpStart', 'LakeraGuard', 'ModelEvaluation', 'Models', 'PerformanceEvaluation', 'Pipelines', 'Projects', 'Training']]]
 
 ### HiddenAppTypes
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['Canvas', 'CodeEditor', 'DetailedProfiler', 'JupyterLab', 'JupyterServer', 'KernelGateway', 'RSessionGateway', 'RStudioServerPro', 'TensorBoard']]]
+
+### HiddenInstanceTypes
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['ml.c5.12xlarge', 'ml.c5.18xlarge', 'ml.c5.24xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c6id.12xlarge', 'ml.c6id.16xlarge', 'ml.c6id.24xlarge', 'ml.c6id.2xlarge', 'ml.c6id.32xlarge', 'ml.c6id.4xlarge', 'ml.c6id.8xlarge', 'ml.c6id.large', 'ml.c6id.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.geospatial.interactive', 'ml.m5.12xlarge', 'ml.m5.16xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.8xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.16xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.8xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m6id.12xlarge', 'ml.m6id.16xlarge', 'ml.m6id.24xlarge', 'ml.m6id.2xlarge', 'ml.m6id.32xlarge', 'ml.m6id.4xlarge', 'ml.m6id.8xlarge', 'ml.m6id.large', 'ml.m6id.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r6id.12xlarge', 'ml.r6id.16xlarge', 'ml.r6id.24xlarge', 'ml.r6id.2xlarge', 'ml.r6id.32xlarge', 'ml.r6id.4xlarge', 'ml.r6id.8xlarge', 'ml.r6id.large', 'ml.r6id.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.micro', 'ml.t3.small', 'ml.t3.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'system']]]
+
+### HiddenSageMakerImageVersionAliases
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.HiddenSageMakerImageTypeDef]]
 
 
 # SubscribedWorkteamTypeDef
@@ -23893,7 +24439,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### CompletionCriteria
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobCompletionCriteriaTypeDef]
 
-### BaseValidatorModelName
+### BaseModelName
 - **Type**: typing.Optional[str]
 
 ### TextGenerationHyperParameters
@@ -23908,7 +24454,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### CompletionCriteria
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobCompletionCriteriaTypeDef]
 
-### BaseValidatorModelName
+### BaseModelName
 - **Type**: typing.Optional[str]
 
 ### TextGenerationHyperParameters
@@ -23920,7 +24466,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # TextGenerationResolvedAttributesTypeDef
 
-### BaseValidatorModelName
+### BaseModelName
 - **Type**: typing.Optional[str]
 
 
@@ -24091,6 +24637,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, typing.Literal['avg', 'first', 'max', 'min', 'sum']]]
 
 
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # TrackingServerSummaryTypeDef
 
 ### TrackingServerArn
@@ -24141,20 +24693,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # TrafficRoutingConfigTypeDef
 
-### Type
-- **Type**: typing.Literal['ALL_AT_ONCE', 'CANARY', 'LINEAR']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### WaitIntervalInSeconds
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### CanarySize
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CapacitySizeTypeDef]
-
-### LinearStepSize
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CapacitySizeTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TrainingImageConfigTypeDef
 
@@ -24266,8 +24807,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### LastModifiedTime
 - **Type**: typing.Optional[datetime.datetime]
 
+### SecondaryStatus
+- **Type**: typing.Optional[typing.Literal['Completed', 'Downloading', 'DownloadingTrainingImage', 'Failed', 'Interrupted', 'LaunchingMLInstances', 'MaxRuntimeExceeded', 'MaxWaitTimeExceeded', 'Pending', 'PreparingTrainingStack', 'Restarting', 'Starting', 'Stopped', 'Stopping', 'Training', 'Updating', 'Uploading']]
+
 ### WarmPoolStatus
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.WarmPoolStatusTypeDef]
+
+### TrainingPlanArn
+- **Type**: typing.Optional[str]
 
 
 # TrainingJobTypeDef
@@ -24387,6 +24934,100 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
 
 
+# TrainingPlanFilterTypeDef
+
+### Name
+- **Type**: typing.Literal['Status']
+- **Required**: Yes
+
+### Value
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# TrainingPlanOfferingTypeDef
+
+### TrainingPlanOfferingId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TargetResources
+- **Type**: typing.List[typing.Literal['hyperpod-cluster', 'training-job']]
+- **Required**: Yes
+
+### RequestedStartTimeAfter
+- **Type**: typing.Optional[datetime.datetime]
+
+### RequestedEndTimeBefore
+- **Type**: typing.Optional[datetime.datetime]
+
+### DurationHours
+- **Type**: typing.Optional[int]
+
+### DurationMinutes
+- **Type**: typing.Optional[int]
+
+### UpfrontFee
+- **Type**: typing.Optional[str]
+
+### CurrencyCode
+- **Type**: typing.Optional[str]
+
+### ReservedCapacityOfferings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ReservedCapacityOfferingTypeDef]]
+
+
+# TrainingPlanSummaryTypeDef
+
+### TrainingPlanArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TrainingPlanName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Status
+- **Type**: typing.Literal['Active', 'Expired', 'Failed', 'Pending', 'Scheduled']
+- **Required**: Yes
+
+### StatusMessage
+- **Type**: typing.Optional[str]
+
+### DurationHours
+- **Type**: typing.Optional[int]
+
+### DurationMinutes
+- **Type**: typing.Optional[int]
+
+### StartTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### EndTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### UpfrontFee
+- **Type**: typing.Optional[str]
+
+### CurrencyCode
+- **Type**: typing.Optional[str]
+
+### TotalInstanceCount
+- **Type**: typing.Optional[int]
+
+### AvailableInstanceCount
+- **Type**: typing.Optional[int]
+
+### InUseInstanceCount
+- **Type**: typing.Optional[int]
+
+### TargetResources
+- **Type**: typing.Optional[typing.List[typing.Literal['hyperpod-cluster', 'training-job']]]
+
+### ReservedCapacitySummaries
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ReservedCapacitySummaryTypeDef]]
+
+
 # TrainingRepositoryAuthConfigTypeDef
 
 ### TrainingRepositoryCredentialsProviderArn
@@ -24401,7 +25042,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SupportedTrainingInstanceTypes
-- **Type**: typing.List[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']]
+- **Type**: typing.List[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.16xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.8xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]
 - **Required**: Yes
 
 ### TrainingChannels
@@ -24434,7 +25075,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SupportedTrainingInstanceTypes
-- **Type**: typing.Sequence[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']]
+- **Type**: typing.Sequence[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.16xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.8xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]
 - **Required**: Yes
 
 ### TrainingChannels
@@ -24460,6 +25101,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AdditionalS3DataSourceTypeDef]
 
 
+# TrainingSpecificationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # TransformDataSourceTypeDef
 
 ### S3DataSource
@@ -24481,33 +25128,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SplitType
 - **Type**: typing.Optional[typing.Literal['Line', 'None', 'RecordIO', 'TFRecord']]
-
-
-# TransformJobDefinitionExtraOutputTypeDef
-
-### TransformInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TransformInputTypeDef'>
-- **Required**: Yes
-
-### TransformOutput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TransformOutputTypeDef'>
-- **Required**: Yes
-
-### TransformResources
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TransformResourcesTypeDef'>
-- **Required**: Yes
-
-### MaxConcurrentTransforms
-- **Type**: typing.Optional[int]
-
-### MaxPayloadInMB
-- **Type**: typing.Optional[int]
-
-### BatchStrategy
-- **Type**: typing.Optional[typing.Literal['MultiRecord', 'SingleRecord']]
-
-### Environment
-- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # TransformJobDefinitionOutputTypeDef
@@ -24686,7 +25306,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TransformResourcesTypeDef
 
 ### InstanceType
-- **Type**: typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge']
+- **Type**: typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge']
 - **Required**: Yes
 
 ### InstanceCount
@@ -25045,7 +25665,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateActionRequestRequestTypeDef
+# UpdateActionRequestTypeDef
 
 ### ActionName
 - **Type**: <class 'str'>
@@ -25075,20 +25695,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAppImageConfigRequestRequestTypeDef
+# UpdateAppImageConfigRequestTypeDef
 
 ### AppImageConfigName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### KernelGatewayImageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.KernelGatewayImageConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.KernelGatewayImageConfigUnionTypeDef]
 
 ### JupyterLabAppImageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.JupyterLabAppImageConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.JupyterLabAppImageConfigUnionTypeDef]
 
 ### CodeEditorAppImageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CodeEditorAppImageConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CodeEditorAppImageConfigUnionTypeDef]
 
 
 # UpdateAppImageConfigResponseTypeDef
@@ -25102,7 +25722,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateArtifactRequestRequestTypeDef
+# UpdateArtifactRequestTypeDef
 
 ### ArtifactArn
 - **Type**: <class 'str'>
@@ -25129,7 +25749,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateClusterRequestRequestTypeDef
+# UpdateClusterRequestTypeDef
 
 ### ClusterName
 - **Type**: <class 'str'>
@@ -25138,6 +25758,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### InstanceGroups
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ClusterInstanceGroupSpecificationTypeDef]
 - **Required**: Yes
+
+### NodeRecovery
+- **Type**: typing.Optional[typing.Literal['Automatic', 'None']]
+
+### InstanceGroupsToDelete
+- **Type**: typing.Optional[typing.Sequence[str]]
 
 
 # UpdateClusterResponseTypeDef
@@ -25151,7 +25777,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateClusterSoftwareRequestRequestTypeDef
+# UpdateClusterSchedulerConfigRequestTypeDef
+
+### ClusterSchedulerConfigId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TargetVersion
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### SchedulerConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SchedulerConfigUnionTypeDef]
+
+### Description
+- **Type**: typing.Optional[str]
+
+
+# UpdateClusterSchedulerConfigResponseTypeDef
+
+### ClusterSchedulerConfigArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ClusterSchedulerConfigVersion
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateClusterSoftwareRequestTypeDef
 
 ### ClusterName
 - **Type**: <class 'str'>
@@ -25169,7 +25827,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateCodeRepositoryInputRequestTypeDef
+# UpdateCodeRepositoryInputTypeDef
 
 ### CodeRepositoryName
 - **Type**: <class 'str'>
@@ -25190,7 +25848,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateContextRequestRequestTypeDef
+# UpdateComputeQuotaRequestTypeDef
+
+### ComputeQuotaId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TargetVersion
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### ComputeQuotaConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ComputeQuotaConfigUnionTypeDef]
+
+### ComputeQuotaTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ComputeQuotaTargetTypeDef]
+
+### ActivationState
+- **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
+
+### Description
+- **Type**: typing.Optional[str]
+
+
+# UpdateComputeQuotaResponseTypeDef
+
+### ComputeQuotaArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ComputeQuotaVersion
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateContextRequestTypeDef
 
 ### ContextName
 - **Type**: <class 'str'>
@@ -25217,7 +25913,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDeviceFleetRequestRequestTypeDef
+# UpdateDeviceFleetRequestTypeDef
 
 ### DeviceFleetName
 - **Type**: <class 'str'>
@@ -25237,7 +25933,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpdateDevicesRequestRequestTypeDef
+# UpdateDevicesRequestTypeDef
 
 ### DeviceFleetName
 - **Type**: <class 'str'>
@@ -25248,14 +25944,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDomainRequestRequestTypeDef
+# UpdateDomainRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### DefaultUserSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserSettingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserSettingsUnionTypeDef]
 
 ### DomainSettingsForUpdate
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DomainSettingsForUpdateTypeDef]
@@ -25264,13 +25960,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Customer', 'Service']]
 
 ### DefaultSpaceSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DefaultSpaceSettingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DefaultSpaceSettingsUnionTypeDef]
 
 ### SubnetIds
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### AppNetworkAccessType
 - **Type**: typing.Optional[typing.Literal['PublicInternetOnly', 'VpcOnly']]
+
+### TagPropagation
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
 # UpdateDomainResponseTypeDef
@@ -25284,7 +25983,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateEndpointInputRequestTypeDef
+# UpdateEndpointInputTypeDef
 
 ### EndpointName
 - **Type**: <class 'str'>
@@ -25301,7 +26000,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.VariantPropertyTypeDef]]
 
 ### DeploymentConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DeploymentConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DeploymentConfigUnionTypeDef]
 
 ### RetainDeploymentConfig
 - **Type**: typing.Optional[bool]
@@ -25318,7 +26017,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateEndpointWeightsAndCapacitiesInputRequestTypeDef
+# UpdateEndpointWeightsAndCapacitiesInputTypeDef
 
 ### EndpointName
 - **Type**: <class 'str'>
@@ -25340,7 +26039,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateExperimentRequestRequestTypeDef
+# UpdateExperimentRequestTypeDef
 
 ### ExperimentName
 - **Type**: <class 'str'>
@@ -25364,7 +26063,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateFeatureGroupRequestRequestTypeDef
+# UpdateFeatureGroupRequestTypeDef
 
 ### FeatureGroupName
 - **Type**: <class 'str'>
@@ -25391,7 +26090,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateFeatureMetadataRequestRequestTypeDef
+# UpdateFeatureMetadataRequestTypeDef
 
 ### FeatureGroupName
 - **Type**: <class 'str'>
@@ -25411,7 +26110,89 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# UpdateHubRequestRequestTypeDef
+# UpdateHubContentReferenceRequestTypeDef
+
+### HubName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### HubContentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### HubContentType
+- **Type**: typing.Literal['Model', 'ModelReference', 'Notebook']
+- **Required**: Yes
+
+### MinVersion
+- **Type**: typing.Optional[str]
+
+
+# UpdateHubContentReferenceResponseTypeDef
+
+### HubArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### HubContentArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateHubContentRequestTypeDef
+
+### HubName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### HubContentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### HubContentType
+- **Type**: typing.Literal['Model', 'ModelReference', 'Notebook']
+- **Required**: Yes
+
+### HubContentVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### HubContentDisplayName
+- **Type**: typing.Optional[str]
+
+### HubContentDescription
+- **Type**: typing.Optional[str]
+
+### HubContentMarkdown
+- **Type**: typing.Optional[str]
+
+### HubContentSearchKeywords
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### SupportStatus
+- **Type**: typing.Optional[typing.Literal['Deprecated', 'Restricted', 'Supported']]
+
+
+# UpdateHubContentResponseTypeDef
+
+### HubArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### HubContentArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateHubRequestTypeDef
 
 ### HubName
 - **Type**: <class 'str'>
@@ -25438,7 +26219,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateImageRequestRequestTypeDef
+# UpdateImageRequestTypeDef
 
 ### ImageName
 - **Type**: <class 'str'>
@@ -25468,7 +26249,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateImageVersionRequestRequestTypeDef
+# UpdateImageVersionRequestTypeDef
 
 ### ImageName
 - **Type**: <class 'str'>
@@ -25519,7 +26300,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateInferenceComponentInputRequestTypeDef
+# UpdateInferenceComponentInputTypeDef
 
 ### InferenceComponentName
 - **Type**: <class 'str'>
@@ -25530,6 +26311,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### RuntimeConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentRuntimeConfigTypeDef]
+
+### DeploymentConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentDeploymentConfigUnionTypeDef]
 
 
 # UpdateInferenceComponentOutputTypeDef
@@ -25543,7 +26327,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateInferenceComponentRuntimeConfigInputRequestTypeDef
+# UpdateInferenceComponentRuntimeConfigInputTypeDef
 
 ### InferenceComponentName
 - **Type**: <class 'str'>
@@ -25565,14 +26349,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateInferenceExperimentRequestRequestTypeDef
+# UpdateInferenceExperimentRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceExperimentScheduleTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceExperimentScheduleUnionTypeDef]
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -25581,10 +26365,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ModelVariantConfigTypeDef]]
 
 ### DataStorageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceExperimentDataStorageConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceExperimentDataStorageConfigUnionTypeDef]
 
 ### ShadowModeConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ShadowModeConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ShadowModeConfigUnionTypeDef]
 
 
 # UpdateInferenceExperimentResponseTypeDef
@@ -25598,7 +26382,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateMlflowTrackingServerRequestRequestTypeDef
+# UpdateMlflowTrackingServerRequestTypeDef
 
 ### TrackingServerName
 - **Type**: <class 'str'>
@@ -25628,7 +26412,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateModelCardRequestRequestTypeDef
+# UpdateModelCardRequestTypeDef
 
 ### ModelCardName
 - **Type**: <class 'str'>
@@ -25652,7 +26436,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateModelPackageInputRequestTypeDef
+# UpdateModelPackageInputTypeDef
 
 ### ModelPackageArn
 - **Type**: <class 'str'>
@@ -25671,16 +26455,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### AdditionalInferenceSpecificationsToAdd
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.sagemaker_classes.AdditionalInferenceSpecificationDefinitionTypeDef, aws_resource_validator.pydantic_models.sagemaker_classes.AdditionalInferenceSpecificationDefinitionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.AdditionalInferenceSpecificationDefinitionUnionTypeDef]]
 
 ### InferenceSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceSpecificationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceSpecificationUnionTypeDef]
 
 ### SourceUri
 - **Type**: typing.Optional[str]
 
 ### ModelCard
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageModelCardTypeDef]
+
+### ModelLifeCycle
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelLifeCycleTypeDef]
+
+### ClientToken
+- **Type**: typing.Optional[str]
 
 
 # UpdateModelPackageOutputTypeDef
@@ -25694,7 +26484,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateMonitoringAlertRequestRequestTypeDef
+# UpdateMonitoringAlertRequestTypeDef
 
 ### MonitoringScheduleName
 - **Type**: <class 'str'>
@@ -25728,14 +26518,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateMonitoringScheduleRequestRequestTypeDef
+# UpdateMonitoringScheduleRequestTypeDef
 
 ### MonitoringScheduleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### MonitoringScheduleConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringScheduleConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringScheduleConfigUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -25750,14 +26540,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateNotebookInstanceInputRequestTypeDef
+# UpdateNotebookInstanceInputTypeDef
 
 ### NotebookInstanceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### InstanceType
-- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c6id.12xlarge', 'ml.c6id.16xlarge', 'ml.c6id.24xlarge', 'ml.c6id.2xlarge', 'ml.c6id.32xlarge', 'ml.c6id.4xlarge', 'ml.c6id.8xlarge', 'ml.c6id.large', 'ml.c6id.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.16xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.8xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m6id.12xlarge', 'ml.m6id.16xlarge', 'ml.m6id.24xlarge', 'ml.m6id.2xlarge', 'ml.m6id.32xlarge', 'ml.m6id.4xlarge', 'ml.m6id.8xlarge', 'ml.m6id.large', 'ml.m6id.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r6id.12xlarge', 'ml.r6id.16xlarge', 'ml.r6id.24xlarge', 'ml.r6id.2xlarge', 'ml.r6id.32xlarge', 'ml.r6id.4xlarge', 'ml.r6id.8xlarge', 'ml.r6id.large', 'ml.r6id.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge']]
+- **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c6id.12xlarge', 'ml.c6id.16xlarge', 'ml.c6id.24xlarge', 'ml.c6id.2xlarge', 'ml.c6id.32xlarge', 'ml.c6id.4xlarge', 'ml.c6id.8xlarge', 'ml.c6id.large', 'ml.c6id.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.16xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.8xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m6id.12xlarge', 'ml.m6id.16xlarge', 'ml.m6id.24xlarge', 'ml.m6id.2xlarge', 'ml.m6id.32xlarge', 'ml.m6id.4xlarge', 'ml.m6id.8xlarge', 'ml.m6id.large', 'ml.m6id.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r6id.12xlarge', 'ml.r6id.16xlarge', 'ml.r6id.24xlarge', 'ml.r6id.2xlarge', 'ml.r6id.32xlarge', 'ml.r6id.4xlarge', 'ml.r6id.8xlarge', 'ml.r6id.large', 'ml.r6id.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge']]
 
 ### RoleArn
 - **Type**: typing.Optional[str]
@@ -25796,7 +26586,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InstanceMetadataServiceConfigurationTypeDef]
 
 
-# UpdateNotebookInstanceLifecycleConfigInputRequestTypeDef
+# UpdateNotebookInstanceLifecycleConfigInputTypeDef
 
 ### NotebookInstanceLifecycleConfigName
 - **Type**: <class 'str'>
@@ -25809,7 +26599,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.NotebookInstanceLifecycleHookTypeDef]]
 
 
-# UpdatePipelineExecutionRequestRequestTypeDef
+# UpdatePartnerAppRequestTypeDef
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### MaintenanceConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PartnerAppMaintenanceConfigTypeDef]
+
+### Tier
+- **Type**: typing.Optional[str]
+
+### ApplicationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PartnerAppConfigUnionTypeDef]
+
+### EnableIamSessionBasedIdentity
+- **Type**: typing.Optional[bool]
+
+### ClientToken
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TagTypeDef]]
+
+
+# UpdatePartnerAppResponseTypeDef
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdatePipelineExecutionRequestTypeDef
 
 ### PipelineExecutionArn
 - **Type**: <class 'str'>
@@ -25836,7 +26662,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePipelineRequestRequestTypeDef
+# UpdatePipelineRequestTypeDef
 
 ### PipelineName
 - **Type**: <class 'str'>
@@ -25872,7 +26698,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateProjectInputRequestTypeDef
+# UpdateProjectInputTypeDef
 
 ### ProjectName
 - **Type**: <class 'str'>
@@ -25899,7 +26725,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateSpaceRequestRequestTypeDef
+# UpdateSpaceRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -25910,7 +26736,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SpaceSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SpaceSettingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SpaceSettingsUnionTypeDef]
 
 ### SpaceDisplayName
 - **Type**: typing.Optional[str]
@@ -25927,7 +26753,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateTrainingJobRequestRequestTypeDef
+# UpdateTrainingJobRequestTypeDef
 
 ### TrainingJobName
 - **Type**: <class 'str'>
@@ -25937,7 +26763,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProfilerConfigForUpdateTypeDef]
 
 ### ProfilerRuleConfigurations
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.sagemaker_classes.ProfilerRuleConfigurationTypeDef, aws_resource_validator.pydantic_models.sagemaker_classes.ProfilerRuleConfigurationOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ProfilerRuleConfigurationUnionTypeDef]]
 
 ### ResourceConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceConfigForUpdateTypeDef]
@@ -25957,7 +26783,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateTrialComponentRequestRequestTypeDef
+# UpdateTrialComponentRequestTypeDef
 
 ### TrialComponentName
 - **Type**: <class 'str'>
@@ -25970,10 +26796,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentStatusTypeDef]
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimestampTypeDef]
 
 ### Parameters
 - **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentParameterValueTypeDef]]
@@ -26005,7 +26831,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateTrialRequestRequestTypeDef
+# UpdateTrialRequestTypeDef
 
 ### TrialName
 - **Type**: <class 'str'>
@@ -26026,7 +26852,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateUserProfileRequestRequestTypeDef
+# UpdateUserProfileRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -26037,7 +26863,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UserSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserSettingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserSettingsUnionTypeDef]
 
 
 # UpdateUserProfileResponseTypeDef
@@ -26051,14 +26877,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateWorkforceRequestRequestTypeDef
+# UpdateWorkforceRequestTypeDef
 
 ### WorkforceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### SourceIpConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SourceIpConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SourceIpConfigUnionTypeDef]
 
 ### OidcConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.OidcConfigTypeDef]
@@ -26078,14 +26904,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateWorkteamRequestRequestTypeDef
+# UpdateWorkteamRequestTypeDef
 
 ### WorkteamName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### MemberDefinitions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.sagemaker_classes.MemberDefinitionTypeDef, aws_resource_validator.pydantic_models.sagemaker_classes.MemberDefinitionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.MemberDefinitionUnionTypeDef]]
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -26194,6 +27020,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### StudioWebPortalSettings
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.StudioWebPortalSettingsOutputTypeDef]
 
+### AutoMountHomeEFS
+- **Type**: typing.Optional[typing.Literal['DefaultAsDomain', 'Disabled', 'Enabled']]
+
 
 # UserSettingsTypeDef
 
@@ -26248,6 +27077,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### StudioWebPortalSettings
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.StudioWebPortalSettingsTypeDef]
 
+### AutoMountHomeEFS
+- **Type**: typing.Optional[typing.Literal['DefaultAsDomain', 'Disabled', 'Enabled']]
+
+
+# UserSettingsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # VariantPropertyTypeDef
 
@@ -26265,15 +27103,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # VertexTypeDef
 
-### Arn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[str]
-
-### LineageType
-- **Type**: typing.Optional[typing.Literal['Action', 'Artifact', 'Context', 'TrialComponent']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # VisibilityConditionsTypeDef
 
@@ -26282,17 +27114,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Value
 - **Type**: typing.Optional[str]
-
-
-# VpcConfigExtraOutputTypeDef
-
-### SecurityGroupIds
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### Subnets
-- **Type**: typing.List[str]
-- **Required**: Yes
 
 
 # VpcConfigOutputTypeDef
@@ -26316,6 +27137,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
+
+# VpcConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # WaiterConfigTypeDef
 

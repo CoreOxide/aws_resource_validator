@@ -55,7 +55,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchCreateAttendeeRequestRequestTypeDef
+# BatchCreateAttendeeRequestTypeDef
 
 ### MeetingId
 - **Type**: <class 'str'>
@@ -81,7 +81,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchUpdateAttendeeCapabilitiesExceptRequestRequestTypeDef
+# BatchUpdateAttendeeCapabilitiesExceptRequestTypeDef
 
 ### MeetingId
 - **Type**: <class 'str'>
@@ -124,7 +124,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.AttendeeCapabilitiesTypeDef]
 
 
-# CreateAttendeeRequestRequestTypeDef
+# CreateAttendeeRequestTypeDef
 
 ### MeetingId
 - **Type**: <class 'str'>
@@ -149,7 +149,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateMeetingRequestRequestTypeDef
+# CreateMeetingRequestTypeDef
 
 ### ClientRequestToken
 - **Type**: <class 'str'>
@@ -193,7 +193,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateMeetingWithAttendeesRequestRequestTypeDef
+# CreateMeetingWithAttendeesRequestTypeDef
 
 ### ClientRequestToken
 - **Type**: <class 'str'>
@@ -249,7 +249,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAttendeeRequestRequestTypeDef
+# DeleteAttendeeRequestTypeDef
 
 ### MeetingId
 - **Type**: <class 'str'>
@@ -260,7 +260,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteMeetingRequestRequestTypeDef
+# DeleteMeetingRequestTypeDef
 
 ### MeetingId
 - **Type**: <class 'str'>
@@ -276,27 +276,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EngineTranscribeMedicalSettingsTypeDef
 
-### LanguageCode
-- **Type**: typing.Literal['en-US']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Specialty
-- **Type**: typing.Literal['CARDIOLOGY', 'NEUROLOGY', 'ONCOLOGY', 'PRIMARYCARE', 'RADIOLOGY', 'UROLOGY']
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['CONVERSATION', 'DICTATION']
-- **Required**: Yes
-
-### VocabularyName
-- **Type**: typing.Optional[str]
-
-### Region
-- **Type**: typing.Optional[typing.Literal['ap-southeast-2', 'auto', 'ca-central-1', 'eu-west-1', 'us-east-1', 'us-east-2', 'us-west-2']]
-
-### ContentIdentificationType
-- **Type**: typing.Optional[typing.Literal['PHI']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EngineTranscribeSettingsTypeDef
 
@@ -349,7 +331,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetAttendeeRequestRequestTypeDef
+# GetAttendeeRequestTypeDef
 
 ### MeetingId
 - **Type**: <class 'str'>
@@ -371,7 +353,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMeetingRequestRequestTypeDef
+# GetMeetingRequestTypeDef
 
 ### MeetingId
 - **Type**: <class 'str'>
@@ -389,7 +371,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListAttendeesRequestRequestTypeDef
+# ListAttendeesRequestTypeDef
 
 ### MeetingId
 - **Type**: <class 'str'>
@@ -408,16 +390,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.AttendeeTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -525,10 +506,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -541,8 +518,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# StartMeetingTranscriptionRequestRequestTypeDef
+
+# StartMeetingTranscriptionRequestTypeDef
 
 ### MeetingId
 - **Type**: <class 'str'>
@@ -553,14 +533,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopMeetingTranscriptionRequestRequestTypeDef
+# StopMeetingTranscriptionRequestTypeDef
 
 ### MeetingId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -591,7 +571,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.EngineTranscribeMedicalSettingsTypeDef]
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -602,7 +582,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAttendeeCapabilitiesRequestRequestTypeDef
+# UpdateAttendeeCapabilitiesRequestTypeDef
 
 ### MeetingId
 - **Type**: <class 'str'>

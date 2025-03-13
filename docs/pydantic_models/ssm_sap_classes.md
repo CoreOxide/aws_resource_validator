@@ -17,51 +17,15 @@
 
 # ApplicationSummaryTypeDef
 
-### Id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### DiscoveryStatus
-- **Type**: typing.Optional[typing.Literal['DELETING', 'REFRESH_FAILED', 'REGISTERING', 'REGISTRATION_FAILED', 'SUCCESS']]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['HANA', 'SAP_ABAP']]
-
-### Arn
-- **Type**: typing.Optional[str]
-
-### Tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ApplicationTypeDef
 
-### Id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[typing.Literal['HANA', 'SAP_ABAP']]
-
-### Arn
-- **Type**: typing.Optional[str]
-
-### AppRegistryArn
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['ACTIVATED', 'DELETING', 'FAILED', 'REGISTERING', 'STARTING', 'STOPPED', 'STOPPING', 'UNKNOWN']]
-
-### DiscoveryStatus
-- **Type**: typing.Optional[typing.Literal['DELETING', 'REFRESH_FAILED', 'REGISTERING', 'REGISTRATION_FAILED', 'SUCCESS']]
-
-### Components
-- **Type**: typing.Optional[typing.List[str]]
-
-### LastUpdated
-- **Type**: typing.Optional[datetime.datetime]
-
-### StatusMessage
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AssociatedHostTypeDef
 
@@ -94,6 +58,21 @@
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ComponentInfoTypeDef
+
+### ComponentType
+- **Type**: typing.Literal['ABAP', 'ASCS', 'DIALOG', 'ERS', 'HANA', 'HANA_NODE', 'WD', 'WEBDISP']
+- **Required**: Yes
+
+### Sid
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Ec2InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # ComponentSummaryTypeDef
 
@@ -244,8 +223,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### LastUpdated
 - **Type**: typing.Optional[datetime.datetime]
 
+### ConnectedComponentArns
+- **Type**: typing.Optional[typing.List[str]]
 
-# DeleteResourcePermissionInputRequestTypeDef
+
+# DeleteResourcePermissionInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -269,7 +251,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeregisterApplicationInputRequestTypeDef
+# DeregisterApplicationInputTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -291,7 +273,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetApplicationInputRequestTypeDef
+# GetApplicationInputTypeDef
 
 ### ApplicationId
 - **Type**: typing.Optional[str]
@@ -318,7 +300,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetComponentInputRequestTypeDef
+# GetComponentInputTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -344,7 +326,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDatabaseInputRequestTypeDef
+# GetDatabaseInputTypeDef
 
 ### ApplicationId
 - **Type**: typing.Optional[str]
@@ -374,7 +356,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetOperationInputRequestTypeDef
+# GetOperationInputTypeDef
 
 ### OperationId
 - **Type**: <class 'str'>
@@ -392,7 +374,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResourcePermissionInputRequestTypeDef
+# GetResourcePermissionInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -446,7 +428,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ELASTIC_IP', 'OVERLAY', 'UNKNOWN', 'VPC_SUBNET']]
 
 
-# ListApplicationsInputListApplicationsPaginateTypeDef
+# ListApplicationsInputPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ssm_sap_classes.FilterTypeDef]]
@@ -455,7 +437,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_sap_classes.PaginatorConfigTypeDef]
 
 
-# ListApplicationsInputRequestTypeDef
+# ListApplicationsInputTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -481,7 +463,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListComponentsInputListComponentsPaginateTypeDef
+# ListComponentsInputPaginateTypeDef
 
 ### ApplicationId
 - **Type**: typing.Optional[str]
@@ -490,7 +472,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_sap_classes.PaginatorConfigTypeDef]
 
 
-# ListComponentsInputRequestTypeDef
+# ListComponentsInputTypeDef
 
 ### ApplicationId
 - **Type**: typing.Optional[str]
@@ -516,7 +498,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDatabasesInputListDatabasesPaginateTypeDef
+# ListDatabasesInputPaginateTypeDef
 
 ### ApplicationId
 - **Type**: typing.Optional[str]
@@ -528,7 +510,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_sap_classes.PaginatorConfigTypeDef]
 
 
-# ListDatabasesInputRequestTypeDef
+# ListDatabasesInputTypeDef
 
 ### ApplicationId
 - **Type**: typing.Optional[str]
@@ -557,7 +539,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListOperationEventsInputListOperationEventsPaginateTypeDef
+# ListOperationEventsInputPaginateTypeDef
 
 ### OperationId
 - **Type**: <class 'str'>
@@ -570,7 +552,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_sap_classes.PaginatorConfigTypeDef]
 
 
-# ListOperationEventsInputRequestTypeDef
+# ListOperationEventsInputTypeDef
 
 ### OperationId
 - **Type**: <class 'str'>
@@ -600,7 +582,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListOperationsInputListOperationsPaginateTypeDef
+# ListOperationsInputPaginateTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -613,7 +595,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_sap_classes.PaginatorConfigTypeDef]
 
 
-# ListOperationsInputRequestTypeDef
+# ListOperationsInputTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -643,7 +625,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -681,39 +663,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # OperationTypeDef
 
-### Id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['ERROR', 'INPROGRESS', 'SUCCESS']]
-
-### StatusMessage
-- **Type**: typing.Optional[str]
-
-### Properties
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### ResourceType
-- **Type**: typing.Optional[str]
-
-### ResourceId
-- **Type**: typing.Optional[str]
-
-### ResourceArn
-- **Type**: typing.Optional[str]
-
-### StartTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### EndTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### LastUpdatedTime
-- **Type**: typing.Optional[datetime.datetime]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PaginatorConfigTypeDef
 
@@ -727,7 +679,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutResourcePermissionInputRequestTypeDef
+# PutResourcePermissionInputTypeDef
 
 ### ActionType
 - **Type**: typing.Literal['RESTORE']
@@ -753,7 +705,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RegisterApplicationInputRequestTypeDef
+# RegisterApplicationInputTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -781,6 +733,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### DatabaseArn
 - **Type**: typing.Optional[str]
+
+### ComponentsInfo
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ssm_sap_classes.ComponentInfoTypeDef]]
 
 
 # RegisterApplicationOutputTypeDef
@@ -847,7 +802,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartApplicationInputRequestTypeDef
+# StartApplicationInputTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -865,7 +820,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartApplicationRefreshInputRequestTypeDef
+# StartApplicationRefreshInputTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -883,7 +838,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopApplicationInputRequestTypeDef
+# StopApplicationInputTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -907,7 +862,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -918,7 +873,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -929,7 +884,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateApplicationSettingsInputRequestTypeDef
+# UpdateApplicationSettingsInputTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>

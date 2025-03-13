@@ -10,7 +10,7 @@
 - **Type**: string
 - **Pattern**: `[\u0009\u000A\u000D\u0020-\u00FF]+`
 - **Min Length**: 1
-- **Max Length**: 20480
+- **Max Length**: 81920
 
 ### AccountId
 - **Type**: string
@@ -32,13 +32,13 @@
 
 ### Base64String1To4096
 - **Type**: string
-- **Pattern**: `^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$`
+- **Pattern**: `(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?`
 - **Min Length**: 1
 - **Max Length**: 4096
 
 ### CnameString
 - **Type**: string
-- **Pattern**: `^[-a-zA-Z0-9;/?:@&=+$,%_.!~*()\']*$`
+- **Pattern**: `[-a-zA-Z0-9;/?:@&=+$,%_.!~*()\']*`
 - **Min Length**: 0
 - **Max Length**: 253
 
@@ -48,9 +48,15 @@
 - **Min Length**: 2
 - **Max Length**: 2
 
+### CrlPathString
+- **Type**: string
+- **Pattern**: `[-a-zA-Z0-9;?:@&=+$,%_.!~*()\']+(/[-a-zA-Z0-9;?:@&=+$,%_.!~*()\']+)*`
+- **Min Length**: 0
+- **Max Length**: 253
+
 ### CustomObjectIdentifier
 - **Type**: string
-- **Pattern**: `^([0-2])\.([0-9]|([0-3][0-9]))((\.([0-9]+)){0,126})$`
+- **Pattern**: `([0-2])\.([0-9]|([0-3][0-9]))((\.([0-9]+)){0,126})`
 - **Min Length**: 0
 - **Max Length**: 64
 
@@ -62,25 +68,25 @@
 
 ### Principal
 - **Type**: string
-- **Pattern**: `^[^*]+$`
+- **Pattern**: `[^*]+`
 - **Min Length**: 0
 - **Max Length**: 128
 
 ### S3BucketName3To255
 - **Type**: string
-- **Pattern**: `^[-a-zA-Z0-9._/]+$`
+- **Pattern**: `[-a-zA-Z0-9._/]+`
 - **Min Length**: 3
 - **Max Length**: 255
 
 ### TagKey
 - **Type**: string
-- **Pattern**: `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
+- **Pattern**: `([\p{L}\p{Z}\p{N}_.:/=+\-@]*)`
 - **Min Length**: 1
 - **Max Length**: 128
 
 ### TagValue
 - **Type**: string
-- **Pattern**: `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
+- **Pattern**: `([\p{L}\p{Z}\p{N}_.:/=+\-@]*)`
 - **Min Length**: 0
 - **Max Length**: 256
 

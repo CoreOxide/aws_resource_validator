@@ -110,6 +110,12 @@
 - **Type**: string
 - **Pattern**: `^\d{12}|ALL_ACCOUNTS|SELF$`
 
+### TargetResourceTagsKey
+- **Type**: string
+- **Pattern**: `^[\p{L}\p{Z}\p{N}_.:/=\-@]*$`
+- **Min Length**: 1
+- **Max Length**: 128
+
 ### TimeOfDay
 - **Type**: string
 - **Pattern**: `^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$`

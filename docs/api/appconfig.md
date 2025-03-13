@@ -2,7 +2,7 @@
 
 ### Arn
 - **Type**: string
-- **Pattern**: `arn:(aws[a-zA-Z-]*)?:[a-z]+:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1})?:(\d{12})?:[a-zA-Z0-9-_/:.]+`
+- **Pattern**: `arn:(aws[a-zA-Z-]*)?:[a-z]+:([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1})?:(\d{12})?:[a-zA-Z0-9-_/:.]+`
 - **Min Length**: 20
 - **Max Length**: 2048
 

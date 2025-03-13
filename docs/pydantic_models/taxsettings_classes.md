@@ -38,11 +38,17 @@
 ### canadaAdditionalInfo
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.CanadaAdditionalInfoTypeDef]
 
+### egyptAdditionalInfo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.EgyptAdditionalInfoTypeDef]
+
 ### estoniaAdditionalInfo
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.EstoniaAdditionalInfoTypeDef]
 
 ### georgiaAdditionalInfo
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.GeorgiaAdditionalInfoTypeDef]
+
+### greeceAdditionalInfo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.GreeceAdditionalInfoTypeDef]
 
 ### israelAdditionalInfo
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.IsraelAdditionalInfoTypeDef]
@@ -54,7 +60,7 @@
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.KenyaAdditionalInfoTypeDef]
 
 ### malaysiaAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.MalaysiaAdditionalInfoTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.MalaysiaAdditionalInfoUnionTypeDef]
 
 ### polandAdditionalInfo
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.PolandAdditionalInfoTypeDef]
@@ -77,6 +83,9 @@
 ### ukraineAdditionalInfo
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.UkraineAdditionalInfoTypeDef]
 
+### vietnamAdditionalInfo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.VietnamAdditionalInfoTypeDef]
+
 
 # AdditionalInfoResponseTypeDef
 
@@ -86,11 +95,17 @@
 ### canadaAdditionalInfo
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.CanadaAdditionalInfoTypeDef]
 
+### egyptAdditionalInfo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.EgyptAdditionalInfoTypeDef]
+
 ### estoniaAdditionalInfo
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.EstoniaAdditionalInfoTypeDef]
 
 ### georgiaAdditionalInfo
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.GeorgiaAdditionalInfoTypeDef]
+
+### greeceAdditionalInfo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.GreeceAdditionalInfoTypeDef]
 
 ### indiaAdditionalInfo
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.IndiaAdditionalInfoTypeDef]
@@ -128,6 +143,9 @@
 ### ukraineAdditionalInfo
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.UkraineAdditionalInfoTypeDef]
 
+### vietnamAdditionalInfo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.VietnamAdditionalInfoTypeDef]
+
 
 # AddressTypeDef
 
@@ -160,6 +178,16 @@
 - **Type**: typing.Optional[str]
 
 
+# AuthorityTypeDef
+
+### country
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### state
+- **Type**: typing.Optional[str]
+
+
 # BaseValidatorModel
 
 Oops! This Pydantic model is currently empty. Stay tuned!
@@ -180,7 +208,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchDeleteTaxRegistrationRequestRequestTypeDef
+# BatchDeleteTaxRegistrationRequestTypeDef
 
 ### accountIds
 - **Type**: typing.Sequence[str]
@@ -191,6 +219,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### errors
 - **Type**: typing.List[aws_resource_validator.pydantic_models.taxsettings_classes.BatchDeleteTaxRegistrationErrorTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# BatchGetTaxExemptionsRequestTypeDef
+
+### accountIds
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+
+# BatchGetTaxExemptionsResponseTypeDef
+
+### failedAccounts
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### taxExemptionDetailsMap
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.taxsettings_classes.TaxExemptionDetailsTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -212,7 +262,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchPutTaxRegistrationRequestRequestTypeDef
+# BatchPutTaxRegistrationRequestTypeDef
 
 ### accountIds
 - **Type**: typing.Sequence[str]
@@ -238,6 +288,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # BrazilAdditionalInfoTypeDef
 
 ### ccmCode
@@ -262,7 +318,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteTaxRegistrationRequestRequestTypeDef
+# DeleteSupplementalTaxRegistrationRequestTypeDef
+
+### authorityId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteTaxRegistrationRequestTypeDef
 
 ### accountId
 - **Type**: typing.Optional[str]
@@ -278,9 +341,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# EgyptAdditionalInfoTypeDef
+
+### uniqueIdentificationNumber
+- **Type**: typing.Optional[str]
+
+### uniqueIdentificationNumberExpirationDate
+- **Type**: typing.Optional[str]
+
+
 # EstoniaAdditionalInfoTypeDef
 
 ### registryCommercialCode
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# ExemptionCertificateTypeDef
+
+### documentFile
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.BlobTypeDef'>
+- **Required**: Yes
+
+### documentName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -292,15 +375,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTaxRegistrationDocumentRequestRequestTypeDef
+# GetTaxExemptionTypesResponseTypeDef
 
-### destinationS3Location
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.DestinationS3LocationTypeDef'>
+### taxExemptionTypes
+- **Type**: typing.List[aws_resource_validator.pydantic_models.taxsettings_classes.TaxExemptionTypeTypeDef]
 - **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetTaxInheritanceResponseTypeDef
+
+### heritageStatus
+- **Type**: typing.Literal['OptIn', 'OptOut']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetTaxRegistrationDocumentRequestTypeDef
 
 ### taxDocumentMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.TaxDocumentMetadataTypeDef'>
 - **Required**: Yes
+
+### destinationS3Location
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.DestinationS3LocationTypeDef]
 
 
 # GetTaxRegistrationDocumentResponseTypeDef
@@ -309,12 +413,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### presignedS3Url
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
 
-# GetTaxRegistrationRequestRequestTypeDef
+# GetTaxRegistrationRequestTypeDef
 
 ### accountId
 - **Type**: typing.Optional[str]
@@ -329,6 +437,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+
+# GreeceAdditionalInfoTypeDef
+
+### contractingAuthorityCode
+- **Type**: typing.Optional[str]
 
 
 # IndiaAdditionalInfoTypeDef
@@ -380,13 +494,71 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTaxRegistrationsRequestListTaxRegistrationsPaginateTypeDef
+# ListSupplementalTaxRegistrationsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.PaginatorConfigTypeDef]
 
 
-# ListTaxRegistrationsRequestRequestTypeDef
+# ListSupplementalTaxRegistrationsRequestTypeDef
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListSupplementalTaxRegistrationsResponseTypeDef
+
+### taxRegistrations
+- **Type**: typing.List[aws_resource_validator.pydantic_models.taxsettings_classes.SupplementalTaxRegistrationTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListTaxExemptionsRequestPaginateTypeDef
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.PaginatorConfigTypeDef]
+
+
+# ListTaxExemptionsRequestTypeDef
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListTaxExemptionsResponseTypeDef
+
+### taxExemptionDetailsMap
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.taxsettings_classes.TaxExemptionDetailsTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListTaxRegistrationsRequestPaginateTypeDef
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.PaginatorConfigTypeDef]
+
+
+# ListTaxRegistrationsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -401,28 +573,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.taxsettings_classes.AccountDetailsTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
+
 
 # MalaysiaAdditionalInfoOutputTypeDef
 
+### businessRegistrationNumber
+- **Type**: typing.Optional[str]
+
 ### serviceTaxCodes
-- **Type**: typing.List[typing.Literal['Consultancy', 'Digital Service And Electronic Medium', 'IT Services', 'Training Or Coaching']]
-- **Required**: Yes
+- **Type**: typing.Optional[typing.List[typing.Literal['Consultancy', 'Digital Service And Electronic Medium', 'IT Services', 'Training Or Coaching']]]
+
+### taxInformationNumber
+- **Type**: typing.Optional[str]
 
 
 # MalaysiaAdditionalInfoTypeDef
 
-### serviceTaxCodes
-- **Type**: typing.Sequence[typing.Literal['Consultancy', 'Digital Service And Electronic Medium', 'IT Services', 'Training Or Coaching']]
-- **Required**: Yes
+### businessRegistrationNumber
+- **Type**: typing.Optional[str]
 
+### serviceTaxCodes
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['Consultancy', 'Digital Service And Electronic Medium', 'IT Services', 'Training Or Coaching']]]
+
+### taxInformationNumber
+- **Type**: typing.Optional[str]
+
+
+# MalaysiaAdditionalInfoUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PaginatorConfigTypeDef
 
@@ -445,7 +632,65 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# PutTaxRegistrationRequestRequestTypeDef
+# PutSupplementalTaxRegistrationRequestTypeDef
+
+### taxRegistrationEntry
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.SupplementalTaxRegistrationEntryTypeDef'>
+- **Required**: Yes
+
+
+# PutSupplementalTaxRegistrationResponseTypeDef
+
+### authorityId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['Deleted', 'Pending', 'Rejected', 'Verified']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# PutTaxExemptionRequestTypeDef
+
+### accountIds
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### authority
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.AuthorityTypeDef'>
+- **Required**: Yes
+
+### exemptionCertificate
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.ExemptionCertificateTypeDef'>
+- **Required**: Yes
+
+### exemptionType
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# PutTaxExemptionResponseTypeDef
+
+### caseId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# PutTaxInheritanceRequestTypeDef
+
+### heritageStatus
+- **Type**: typing.Optional[typing.Literal['OptIn', 'OptOut']]
+
+
+# PutTaxRegistrationRequestTypeDef
 
 ### taxRegistrationEntry
 - **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.TaxRegistrationEntryTypeDef'>
@@ -534,6 +779,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# SupplementalTaxRegistrationEntryTypeDef
+
+### address
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.AddressTypeDef'>
+- **Required**: Yes
+
+### legalName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### registrationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### registrationType
+- **Type**: typing.Literal['VAT']
+- **Required**: Yes
+
+
+# SupplementalTaxRegistrationTypeDef
+
+### address
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.AddressTypeDef'>
+- **Required**: Yes
+
+### authorityId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### legalName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### registrationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### registrationType
+- **Type**: typing.Literal['VAT']
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['Deleted', 'Pending', 'Rejected', 'Verified']
+- **Required**: Yes
+
+
 # TaxDocumentMetadataTypeDef
 
 ### taxDocumentAccessToken
@@ -545,6 +836,56 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# TaxExemptionDetailsTypeDef
+
+### heritageObtainedDetails
+- **Type**: typing.Optional[bool]
+
+### heritageObtainedParentEntity
+- **Type**: typing.Optional[str]
+
+### heritageObtainedReason
+- **Type**: typing.Optional[str]
+
+### taxExemptions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.taxsettings_classes.TaxExemptionTypeDef]]
+
+
+# TaxExemptionTypeDef
+
+### authority
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.AuthorityTypeDef'>
+- **Required**: Yes
+
+### taxExemptionType
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.TaxExemptionTypeTypeDef'>
+- **Required**: Yes
+
+### effectiveDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### expirationDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### status
+- **Type**: typing.Optional[typing.Literal['Expired', 'None', 'Pending', 'Valid']]
+
+### systemEffectiveDate
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# TaxExemptionTypeTypeDef
+
+### applicableJurisdictions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.taxsettings_classes.AuthorityTypeDef]]
+
+### description
+- **Type**: typing.Optional[str]
+
+### displayName
+- **Type**: typing.Optional[str]
+
+
 # TaxInheritanceDetailsTypeDef
 
 ### inheritanceObtainedReason
@@ -554,11 +895,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# TaxRegistrationDocFileTypeDef
+
+### fileContent
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.BlobTypeDef'>
+- **Required**: Yes
+
+### fileName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
 # TaxRegistrationDocumentTypeDef
 
+### file
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.TaxRegistrationDocFileTypeDef]
+
 ### s3Location
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.SourceS3LocationTypeDef'>
-- **Required**: Yes
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.SourceS3LocationTypeDef]
 
 
 # TaxRegistrationEntryTypeDef
@@ -568,7 +922,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### registrationType
-- **Type**: typing.Literal['CNPJ', 'CPF', 'GST', 'SST', 'VAT']
+- **Type**: typing.Literal['CNPJ', 'CPF', 'GST', 'NRIC', 'SST', 'TIN', 'VAT']
 - **Required**: Yes
 
 ### additionalTaxInformation
@@ -605,7 +959,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### registrationType
-- **Type**: typing.Literal['CNPJ', 'CPF', 'GST', 'SST', 'VAT']
+- **Type**: typing.Literal['CNPJ', 'CPF', 'GST', 'NRIC', 'SST', 'TIN', 'VAT']
 - **Required**: Yes
 
 ### status
@@ -640,7 +994,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### registrationType
-- **Type**: typing.Literal['CNPJ', 'CPF', 'GST', 'SST', 'VAT']
+- **Type**: typing.Literal['CNPJ', 'CPF', 'GST', 'NRIC', 'SST', 'TIN', 'VAT']
 - **Required**: Yes
 
 ### status
@@ -689,5 +1043,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### taxRegistrationDocuments
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.taxsettings_classes.TaxRegistrationDocumentTypeDef]]
+
+
+# VietnamAdditionalInfoTypeDef
+
+### electronicTransactionCodeNumber
+- **Type**: typing.Optional[str]
+
+### enterpriseIdentificationNumber
+- **Type**: typing.Optional[str]
+
+### paymentVoucherNumber
+- **Type**: typing.Optional[str]
+
+### paymentVoucherNumberDate
+- **Type**: typing.Optional[str]
 
 

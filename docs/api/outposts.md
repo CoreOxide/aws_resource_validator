@@ -125,6 +125,12 @@
 - **Min Length**: 1
 - **Max Length**: 200
 
+### InstanceId
+- **Type**: string
+- **Pattern**: `^i-[0-9a-z]+$`
+- **Min Length**: 11
+- **Max Length**: 32
+
 ### InstanceTypeName
 - **Type**: string
 - **Pattern**: `^[a-z0-9\-]+\.[a-z0-9\-]+$`
@@ -188,6 +194,12 @@
 - **Pattern**: `^(arn:aws([a-z-]+)?:outposts:[a-z\d-]+:\d{12}:outpost/)?op-[a-f0-9]{17}$`
 - **Min Length**: 1
 - **Max Length**: 180
+
+### OutpostInstanceType
+- **Type**: string
+- **Pattern**: `[a-z0-9\-\.]+`
+- **Min Length**: 3
+- **Max Length**: 30
 
 ### OutpostName
 - **Type**: string

@@ -16,7 +16,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateAliasInputRequestTypeDef
+# CreateAliasInputTypeDef
 
 ### AliasName
 - **Type**: <class 'str'>
@@ -37,7 +37,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateKeyInputRequestTypeDef
+# CreateKeyInputTypeDef
 
 ### KeyAttributes
 - **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyAttributesTypeDef'>
@@ -68,14 +68,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAliasInputRequestTypeDef
+# DeleteAliasInputTypeDef
 
 ### AliasName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteKeyInputRequestTypeDef
+# DeleteKeyInputTypeDef
 
 ### KeyIdentifier
 - **Type**: <class 'str'>
@@ -126,7 +126,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['RSA_OAEP_SHA_256', 'RSA_OAEP_SHA_512']]
 
 
-# ExportKeyInputRequestTypeDef
+# ExportKeyInputTypeDef
 
 ### KeyMaterial
 - **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ExportKeyMaterialTypeDef'>
@@ -198,7 +198,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyBlockHeadersTypeDef]
 
 
-# GetAliasInputRequestTypeDef
+# GetAliasInputTypeDef
 
 ### AliasName
 - **Type**: <class 'str'>
@@ -216,7 +216,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetKeyInputRequestTypeDef
+# GetKeyInputTypeDef
 
 ### KeyIdentifier
 - **Type**: <class 'str'>
@@ -234,14 +234,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetParametersForExportInputRequestTypeDef
+# GetParametersForExportInputTypeDef
 
 ### KeyMaterialType
 - **Type**: typing.Literal['KEY_CRYPTOGRAM', 'ROOT_PUBLIC_KEY_CERTIFICATE', 'TR31_KEY_BLOCK', 'TR34_KEY_BLOCK', 'TRUSTED_PUBLIC_KEY_CERTIFICATE']
 - **Required**: Yes
 
 ### SigningKeyAlgorithm
-- **Type**: typing.Literal['AES_128', 'AES_192', 'AES_256', 'RSA_2048', 'RSA_3072', 'RSA_4096', 'TDES_2KEY', 'TDES_3KEY']
+- **Type**: typing.Literal['AES_128', 'AES_192', 'AES_256', 'ECC_NIST_P256', 'ECC_NIST_P384', 'RSA_2048', 'RSA_3072', 'RSA_4096', 'TDES_2KEY', 'TDES_3KEY']
 - **Required**: Yes
 
 
@@ -256,7 +256,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SigningKeyAlgorithm
-- **Type**: typing.Literal['AES_128', 'AES_192', 'AES_256', 'RSA_2048', 'RSA_3072', 'RSA_4096', 'TDES_2KEY', 'TDES_3KEY']
+- **Type**: typing.Literal['AES_128', 'AES_192', 'AES_256', 'ECC_NIST_P256', 'ECC_NIST_P384', 'RSA_2048', 'RSA_3072', 'RSA_4096', 'TDES_2KEY', 'TDES_3KEY']
 - **Required**: Yes
 
 ### ExportToken
@@ -272,14 +272,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetParametersForImportInputRequestTypeDef
+# GetParametersForImportInputTypeDef
 
 ### KeyMaterialType
 - **Type**: typing.Literal['KEY_CRYPTOGRAM', 'ROOT_PUBLIC_KEY_CERTIFICATE', 'TR31_KEY_BLOCK', 'TR34_KEY_BLOCK', 'TRUSTED_PUBLIC_KEY_CERTIFICATE']
 - **Required**: Yes
 
 ### WrappingKeyAlgorithm
-- **Type**: typing.Literal['AES_128', 'AES_192', 'AES_256', 'RSA_2048', 'RSA_3072', 'RSA_4096', 'TDES_2KEY', 'TDES_3KEY']
+- **Type**: typing.Literal['AES_128', 'AES_192', 'AES_256', 'ECC_NIST_P256', 'ECC_NIST_P384', 'RSA_2048', 'RSA_3072', 'RSA_4096', 'TDES_2KEY', 'TDES_3KEY']
 - **Required**: Yes
 
 
@@ -294,7 +294,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### WrappingKeyAlgorithm
-- **Type**: typing.Literal['AES_128', 'AES_192', 'AES_256', 'RSA_2048', 'RSA_3072', 'RSA_4096', 'TDES_2KEY', 'TDES_3KEY']
+- **Type**: typing.Literal['AES_128', 'AES_192', 'AES_256', 'ECC_NIST_P256', 'ECC_NIST_P384', 'RSA_2048', 'RSA_3072', 'RSA_4096', 'TDES_2KEY', 'TDES_3KEY']
 - **Required**: Yes
 
 ### ImportToken
@@ -310,7 +310,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPublicKeyCertificateInputRequestTypeDef
+# GetPublicKeyCertificateInputTypeDef
 
 ### KeyIdentifier
 - **Type**: <class 'str'>
@@ -354,7 +354,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['RSA_OAEP_SHA_256', 'RSA_OAEP_SHA_512']]
 
 
-# ImportKeyInputRequestTypeDef
+# ImportKeyInputTypeDef
 
 ### KeyMaterial
 - **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ImportKeyMaterialTypeDef'>
@@ -447,7 +447,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### KeyAlgorithm
-- **Type**: typing.Literal['AES_128', 'AES_192', 'AES_256', 'RSA_2048', 'RSA_3072', 'RSA_4096', 'TDES_2KEY', 'TDES_3KEY']
+- **Type**: typing.Literal['AES_128', 'AES_192', 'AES_256', 'ECC_NIST_P256', 'ECC_NIST_P384', 'RSA_2048', 'RSA_3072', 'RSA_4096', 'TDES_2KEY', 'TDES_3KEY']
 - **Required**: Yes
 
 ### KeyModesOfUse
@@ -578,13 +578,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ListAliasesInputListAliasesPaginateTypeDef
+# ListAliasesInputPaginateTypeDef
+
+### KeyArn
+- **Type**: typing.Optional[str]
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.PaginatorConfigTypeDef]
 
 
-# ListAliasesInputRequestTypeDef
+# ListAliasesInputTypeDef
+
+### KeyArn
+- **Type**: typing.Optional[str]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -607,7 +613,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListKeysInputListKeysPaginateTypeDef
+# ListKeysInputPaginateTypeDef
 
 ### KeyState
 - **Type**: typing.Optional[typing.Literal['CREATE_COMPLETE', 'CREATE_IN_PROGRESS', 'DELETE_COMPLETE', 'DELETE_PENDING']]
@@ -616,7 +622,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.PaginatorConfigTypeDef]
 
 
-# ListKeysInputRequestTypeDef
+# ListKeysInputTypeDef
 
 ### KeyState
 - **Type**: typing.Optional[typing.Literal['CREATE_COMPLETE', 'CREATE_IN_PROGRESS', 'DELETE_COMPLETE', 'DELETE_PENDING']]
@@ -642,7 +648,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceInputListTagsForResourcePaginateTypeDef
+# ListTagsForResourceInputPaginateTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -652,7 +658,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.PaginatorConfigTypeDef]
 
 
-# ListTagsForResourceInputRequestTypeDef
+# ListTagsForResourceInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -713,7 +719,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RestoreKeyInputRequestTypeDef
+# RestoreKeyInputTypeDef
 
 ### KeyIdentifier
 - **Type**: <class 'str'>
@@ -742,7 +748,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartKeyUsageInputRequestTypeDef
+# StartKeyUsageInputTypeDef
 
 ### KeyIdentifier
 - **Type**: <class 'str'>
@@ -760,7 +766,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopKeyUsageInputRequestTypeDef
+# StopKeyUsageInputTypeDef
 
 ### KeyIdentifier
 - **Type**: <class 'str'>
@@ -778,7 +784,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceInputRequestTypeDef
+# TagResourceInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -796,7 +802,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Value
-- **Type**: typing.Optional[str]
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 
 # TrustedCertificatePublicKeyTypeDef
@@ -814,7 +821,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceInputRequestTypeDef
+# UntagResourceInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -825,7 +832,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAliasInputRequestTypeDef
+# UpdateAliasInputTypeDef
 
 ### AliasName
 - **Type**: <class 'str'>

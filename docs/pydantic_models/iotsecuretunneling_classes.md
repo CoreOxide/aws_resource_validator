@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CloseTunnelRequestRequestTypeDef
+# CloseTunnelRequestTypeDef
 
 ### tunnelId
 - **Type**: <class 'str'>
@@ -25,7 +25,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# DescribeTunnelRequestRequestTypeDef
+# DescribeTunnelRequestTypeDef
 
 ### tunnelId
 - **Type**: <class 'str'>
@@ -43,7 +43,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DestinationConfigTypeDef
+# DestinationConfigOutputTypeDef
 
 ### services
 - **Type**: typing.List[str]
@@ -53,7 +53,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# DestinationConfigTypeDef
+
+### services
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### thingName
+- **Type**: typing.Optional[str]
+
+
+# DestinationConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -71,7 +87,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTunnelsRequestRequestTypeDef
+# ListTunnelsRequestTypeDef
 
 ### thingName
 - **Type**: typing.Optional[str]
@@ -89,16 +105,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.iotsecuretunneling_classes.TunnelSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.iotsecuretunneling_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# OpenTunnelRequestRequestTypeDef
+
+# OpenTunnelRequestTypeDef
 
 ### description
 - **Type**: typing.Optional[str]
@@ -107,7 +122,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotsecuretunneling_classes.TagTypeDef]]
 
 ### destinationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsecuretunneling_classes.DestinationConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsecuretunneling_classes.DestinationConfigUnionTypeDef]
 
 ### timeoutConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsecuretunneling_classes.TimeoutConfigTypeDef]
@@ -142,10 +157,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -158,8 +169,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# RotateTunnelAccessTokenRequestRequestTypeDef
+
+# RotateTunnelAccessTokenRequestTypeDef
 
 ### tunnelId
 - **Type**: <class 'str'>
@@ -170,7 +184,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### destinationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsecuretunneling_classes.DestinationConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsecuretunneling_classes.DestinationConfigUnionTypeDef]
 
 
 # RotateTunnelAccessTokenResponseTypeDef
@@ -192,7 +206,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -262,7 +276,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### destinationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsecuretunneling_classes.DestinationConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsecuretunneling_classes.DestinationConfigOutputTypeDef]
 
 ### timeoutConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsecuretunneling_classes.TimeoutConfigTypeDef]
@@ -277,7 +291,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>

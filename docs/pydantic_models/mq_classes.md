@@ -170,7 +170,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.ConfigurationIdTypeDef]
 
 
-# CreateBrokerRequestRequestTypeDef
+# CreateBrokerRequestTypeDef
 
 ### BrokerName
 - **Type**: <class 'str'>
@@ -257,7 +257,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateConfigurationRequestRequestTypeDef
+# CreateConfigurationRequestTypeDef
 
 ### EngineType
 - **Type**: typing.Literal['ACTIVEMQ', 'RABBITMQ']
@@ -308,7 +308,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTagsRequestRequestTypeDef
+# CreateTagsRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -318,7 +318,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateUserRequestRequestTypeDef
+# CreateUserRequestTypeDef
 
 ### BrokerId
 - **Type**: <class 'str'>
@@ -363,7 +363,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.DataReplicationCounterpartTypeDef]
 
 
-# DeleteBrokerRequestRequestTypeDef
+# DeleteBrokerRequestTypeDef
 
 ### BrokerId
 - **Type**: <class 'str'>
@@ -381,7 +381,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteTagsRequestRequestTypeDef
+# DeleteTagsRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -392,7 +392,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteUserRequestRequestTypeDef
+# DeleteUserRequestTypeDef
 
 ### BrokerId
 - **Type**: <class 'str'>
@@ -403,7 +403,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeBrokerEngineTypesRequestRequestTypeDef
+# DescribeBrokerEngineTypesRequestTypeDef
 
 ### EngineType
 - **Type**: typing.Optional[str]
@@ -433,7 +433,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeBrokerInstanceOptionsRequestRequestTypeDef
+# DescribeBrokerInstanceOptionsRequestTypeDef
 
 ### EngineType
 - **Type**: typing.Optional[str]
@@ -469,7 +469,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeBrokerRequestRequestTypeDef
+# DescribeBrokerRequestTypeDef
 
 ### BrokerId
 - **Type**: <class 'str'>
@@ -615,7 +615,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeConfigurationRequestRequestTypeDef
+# DescribeConfigurationRequestTypeDef
 
 ### ConfigurationId
 - **Type**: <class 'str'>
@@ -669,7 +669,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeConfigurationRevisionRequestRequestTypeDef
+# DescribeConfigurationRevisionRequestTypeDef
 
 ### ConfigurationId
 - **Type**: <class 'str'>
@@ -703,7 +703,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeUserRequestRequestTypeDef
+# DescribeUserRequestTypeDef
 
 ### BrokerId
 - **Type**: <class 'str'>
@@ -850,13 +850,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ListBrokersRequestListBrokersPaginateTypeDef
+# ListBrokersRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.PaginatorConfigTypeDef]
 
 
-# ListBrokersRequestRequestTypeDef
+# ListBrokersRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -879,7 +879,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListConfigurationRevisionsRequestRequestTypeDef
+# ListConfigurationRevisionsRequestTypeDef
 
 ### ConfigurationId
 - **Type**: <class 'str'>
@@ -914,7 +914,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListConfigurationsRequestRequestTypeDef
+# ListConfigurationsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -941,7 +941,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsRequestRequestTypeDef
+# ListTagsRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -959,7 +959,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListUsersRequestRequestTypeDef
+# ListUsersRequestTypeDef
 
 ### BrokerId
 - **Type**: <class 'str'>
@@ -1044,7 +1044,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# PromoteRequestRequestTypeDef
+# PromoteRequestTypeDef
 
 ### BrokerId
 - **Type**: <class 'str'>
@@ -1066,7 +1066,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RebootBrokerRequestRequestTypeDef
+# RebootBrokerRequestTypeDef
 
 ### BrokerId
 - **Type**: <class 'str'>
@@ -1108,7 +1108,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateBrokerRequestRequestTypeDef
+# UpdateBrokerRequestTypeDef
 
 ### BrokerId
 - **Type**: <class 'str'>
@@ -1208,7 +1208,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateConfigurationRequestRequestTypeDef
+# UpdateConfigurationRequestTypeDef
 
 ### ConfigurationId
 - **Type**: <class 'str'>
@@ -1253,7 +1253,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateUserRequestRequestTypeDef
+# UpdateUserRequestTypeDef
 
 ### BrokerId
 - **Type**: <class 'str'>

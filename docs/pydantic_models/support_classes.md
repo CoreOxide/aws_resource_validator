@@ -1,9 +1,9 @@
 # Support Classes
 
-# AddAttachmentsToSetRequestRequestTypeDef
+# AddAttachmentsToSetRequestTypeDef
 
 ### attachments
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.support_classes.AttachmentTypeDef, aws_resource_validator.pydantic_models.support_classes.AttachmentOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.support_classes.AttachmentUnionTypeDef]
 - **Required**: Yes
 
 ### attachmentSetId
@@ -25,7 +25,7 @@
 - **Required**: Yes
 
 
-# AddCommunicationToCaseRequestRequestTypeDef
+# AddCommunicationToCaseRequestTypeDef
 
 ### communicationBody
 - **Type**: <class 'str'>
@@ -76,10 +76,22 @@
 - **Type**: typing.Optional[str]
 
 ### data
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.support_classes.BlobTypeDef]
 
+
+# AttachmentUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BaseValidatorModel
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# BlobTypeDef
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
@@ -153,17 +165,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # CommunicationTypeOptionsTypeDef
 
-### type
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### supportedHours
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.support_classes.SupportedHourTypeDef]]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### datesWithoutSupport
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.support_classes.DateIntervalTypeDef]]
-
-
-# CreateCaseRequestRequestTypeDef
+# CreateCaseRequestTypeDef
 
 ### subject
 - **Type**: <class 'str'>
@@ -215,7 +221,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeAttachmentRequestRequestTypeDef
+# DescribeAttachmentRequestTypeDef
 
 ### attachmentId
 - **Type**: <class 'str'>
@@ -233,7 +239,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeCasesRequestDescribeCasesPaginateTypeDef
+# DescribeCasesRequestPaginateTypeDef
 
 ### caseIdList
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -260,7 +266,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.support_classes.PaginatorConfigTypeDef]
 
 
-# DescribeCasesRequestRequestTypeDef
+# DescribeCasesRequestTypeDef
 
 ### caseIdList
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -296,16 +302,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.support_classes.CaseDetailsTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeCommunicationsRequestDescribeCommunicationsPaginateTypeDef
+
+# DescribeCommunicationsRequestPaginateTypeDef
 
 ### caseId
 - **Type**: <class 'str'>
@@ -321,7 +326,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.support_classes.PaginatorConfigTypeDef]
 
 
-# DescribeCommunicationsRequestRequestTypeDef
+# DescribeCommunicationsRequestTypeDef
 
 ### caseId
 - **Type**: <class 'str'>
@@ -346,16 +351,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.support_classes.CommunicationTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeCreateCaseOptionsRequestRequestTypeDef
+
+# DescribeCreateCaseOptionsRequestTypeDef
 
 ### issueType
 - **Type**: <class 'str'>
@@ -389,7 +393,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeServicesRequestRequestTypeDef
+# DescribeServicesRequestTypeDef
 
 ### serviceCodeList
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -409,7 +413,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeSeverityLevelsRequestRequestTypeDef
+# DescribeSeverityLevelsRequestTypeDef
 
 ### language
 - **Type**: typing.Optional[str]
@@ -426,7 +430,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeSupportedLanguagesRequestRequestTypeDef
+# DescribeSupportedLanguagesRequestTypeDef
 
 ### issueType
 - **Type**: <class 'str'>
@@ -452,7 +456,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeTrustedAdvisorCheckRefreshStatusesRequestRequestTypeDef
+# DescribeTrustedAdvisorCheckRefreshStatusesRequestTypeDef
 
 ### checkIds
 - **Type**: typing.Sequence[str]
@@ -470,7 +474,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeTrustedAdvisorCheckResultRequestRequestTypeDef
+# DescribeTrustedAdvisorCheckResultRequestTypeDef
 
 ### checkId
 - **Type**: <class 'str'>
@@ -491,7 +495,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeTrustedAdvisorCheckSummariesRequestRequestTypeDef
+# DescribeTrustedAdvisorCheckSummariesRequestTypeDef
 
 ### checkIds
 - **Type**: typing.Sequence[str]
@@ -509,7 +513,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeTrustedAdvisorChecksRequestRequestTypeDef
+# DescribeTrustedAdvisorChecksRequestTypeDef
 
 ### language
 - **Type**: <class 'str'>
@@ -548,7 +552,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RefreshTrustedAdvisorCheckRequestRequestTypeDef
+# RefreshTrustedAdvisorCheckRequestTypeDef
 
 ### checkId
 - **Type**: <class 'str'>
@@ -566,7 +570,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResolveCaseRequestRequestTypeDef
+# ResolveCaseRequestTypeDef
 
 ### caseId
 - **Type**: typing.Optional[str]
@@ -659,26 +663,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # TrustedAdvisorCheckDescriptionTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### category
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### metadata
-- **Type**: typing.List[str]
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TrustedAdvisorCheckRefreshStatusTypeDef
 

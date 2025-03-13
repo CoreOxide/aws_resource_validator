@@ -1,6 +1,6 @@
 # Omics Classes
 
-# AbortMultipartReadSetUploadRequestRequestTypeDef
+# AbortMultipartReadSetUploadRequestTypeDef
 
 ### sequenceStoreId
 - **Type**: <class 'str'>
@@ -11,7 +11,7 @@
 - **Required**: Yes
 
 
-# AcceptShareRequestRequestTypeDef
+# AcceptShareRequestTypeDef
 
 ### shareId
 - **Type**: <class 'str'>
@@ -35,33 +35,17 @@
 - **Type**: typing.Optional[typing.Literal['CANCELLED', 'CANCELLING', 'COMPLETED', 'COMPLETED_WITH_FAILURES', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']]
 
 ### createdAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.TimestampTypeDef]
 
 ### createdBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.TimestampTypeDef]
 
 
 # ActivateReadSetJobItemTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'COMPLETED', 'COMPLETED_WITH_FAILURES', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### completionTime
-- **Type**: typing.Optional[datetime.datetime]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ActivateReadSetSourceItemTypeDef
 
@@ -97,141 +81,21 @@
 
 # AnnotationImportJobItemTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### destinationName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### versionName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### roleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['CANCELLED', 'COMPLETED', 'COMPLETED_WITH_FAILURES', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### completionTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### runLeftNormalization
-- **Type**: typing.Optional[bool]
-
-### annotationFields
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AnnotationStoreItemTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### reference
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ReferenceItemTypeDef'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']
-- **Required**: Yes
-
-### storeArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### storeFormat
-- **Type**: typing.Literal['GFF', 'TSV', 'VCF']
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sseConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.SseConfigTypeDef'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### statusMessage
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### storeSizeBytes
-- **Type**: <class 'int'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AnnotationStoreVersionItemTypeDef
 
-### storeId
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']
-- **Required**: Yes
-
-### versionArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### versionName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### statusMessage
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### versionSizeBytes
-- **Type**: <class 'int'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BaseValidatorModel
 
@@ -239,7 +103,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchDeleteReadSetRequestRequestTypeDef
+# BatchDeleteReadSetRequestTypeDef
 
 ### ids
 - **Type**: typing.Sequence[str]
@@ -261,28 +125,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CancelAnnotationImportRequestRequestTypeDef
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CancelAnnotationImportRequestTypeDef
 
 ### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CancelRunRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# CancelVariantImportRequestRequestTypeDef
+# CancelVariantImportRequestTypeDef
 
 ### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CompleteMultipartReadSetUploadRequestRequestTypeDef
+# CompleteMultipartReadSetUploadRequestTypeDef
 
 ### sequenceStoreId
 - **Type**: <class 'str'>
@@ -323,7 +186,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAnnotationStoreRequestRequestTypeDef
+# CreateAnnotationStoreRequestTypeDef
 
 ### storeFormat
 - **Type**: typing.Literal['GFF', 'TSV', 'VCF']
@@ -348,49 +211,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.SseConfigTypeDef]
 
 ### storeOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.StoreOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.StoreOptionsUnionTypeDef]
 
 
-# CreateAnnotationStoreResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### reference
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ReferenceItemTypeDef'>
-- **Required**: Yes
-
-### storeFormat
-- **Type**: typing.Literal['GFF', 'TSV', 'VCF']
-- **Required**: Yes
-
-### storeOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.StoreOptionsOutputTypeDef'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### versionName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# CreateAnnotationStoreVersionRequestRequestTypeDef
+# CreateAnnotationStoreVersionRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -404,48 +228,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### versionOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.VersionOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.VersionOptionsUnionTypeDef]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateAnnotationStoreVersionResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### versionName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### storeId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### versionOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.VersionOptionsOutputTypeDef'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# CreateMultipartReadSetUploadRequestRequestTypeDef
+# CreateMultipartReadSetUploadRequestTypeDef
 
 ### sequenceStoreId
 - **Type**: <class 'str'>
@@ -534,7 +323,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateReferenceStoreRequestRequestTypeDef
+# CreateReferenceStoreRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -553,38 +342,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateReferenceStoreResponseTypeDef
+# CreateRunCacheRequestTypeDef
 
-### id
+### cacheS3Location
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### arn
+### requestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+### cacheBehavior
+- **Type**: typing.Optional[typing.Literal['CACHE_ALWAYS', 'CACHE_ON_FAILURE']]
 
 ### description
-- **Type**: <class 'str'>
-- **Required**: Yes
+- **Type**: typing.Optional[str]
 
-### sseConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.SseConfigTypeDef'>
-- **Required**: Yes
+### name
+- **Type**: typing.Optional[str]
 
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
+### tags
+- **Type**: typing.Optional[typing.Mapping[str, str]]
 
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
+### cacheBucketOwnerId
+- **Type**: typing.Optional[str]
 
 
-# CreateRunGroupRequestRequestTypeDef
+# CreateRunGroupRequestTypeDef
 
 ### requestId
 - **Type**: <class 'str'>
@@ -609,26 +393,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CreateRunGroupResponseTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# CreateSequenceStoreRequestRequestTypeDef
+# CreateSequenceStoreRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -652,47 +417,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### eTagAlgorithmFamily
 - **Type**: typing.Optional[typing.Literal['MD5up', 'SHA256up', 'SHA512up']]
 
+### propagatedSetLevelTags
+- **Type**: typing.Optional[typing.Sequence[str]]
 
-# CreateSequenceStoreResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sseConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.SseConfigTypeDef'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### fallbackLocation
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### eTagAlgorithmFamily
-- **Type**: typing.Literal['MD5up', 'SHA256up', 'SHA512up']
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
+### s3AccessConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.S3AccessConfigTypeDef]
 
 
-# CreateShareRequestRequestTypeDef
+# CreateShareRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -725,7 +457,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateVariantStoreRequestRequestTypeDef
+# CreateVariantStoreRequestTypeDef
 
 ### reference
 - **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ReferenceItemTypeDef'>
@@ -744,34 +476,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.SseConfigTypeDef]
 
 
-# CreateVariantStoreResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### reference
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ReferenceItemTypeDef'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# CreateWorkflowRequestRequestTypeDef
+# CreateWorkflowRequestTypeDef
 
 ### requestId
 - **Type**: <class 'str'>
@@ -787,7 +492,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CWL', 'NEXTFLOW', 'WDL']]
 
 ### definitionZip
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.BlobTypeDef]
 
 ### definitionUri
 - **Type**: typing.Optional[str]
@@ -808,30 +513,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['GPU']]
 
 
-# CreateWorkflowResponseTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVE', 'CREATING', 'DELETED', 'FAILED', 'INACTIVE', 'UPDATING']
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# DeleteAnnotationStoreRequestRequestTypeDef
+# DeleteAnnotationStoreRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -852,7 +534,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAnnotationStoreVersionsRequestRequestTypeDef
+# DeleteAnnotationStoreVersionsRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -877,46 +559,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteReferenceRequestRequestTypeDef
+# DeleteS3AccessPolicyRequestTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### referenceStoreId
+### s3AccessPointArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteReferenceStoreRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# DeleteRunGroupRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# DeleteRunRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# DeleteSequenceStoreRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# DeleteShareRequestRequestTypeDef
+# DeleteShareRequestTypeDef
 
 ### shareId
 - **Type**: <class 'str'>
@@ -934,7 +584,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteVariantStoreRequestRequestTypeDef
+# DeleteVariantStoreRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -952,13 +602,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# DeleteWorkflowRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
 - **Required**: Yes
 
 
@@ -981,57 +624,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ExportReadSetDetailTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['FAILED', 'FINISHED', 'IN_PROGRESS', 'NOT_STARTED']
-- **Required**: Yes
-
-### statusMessage
-- **Type**: typing.Optional[str]
-
-
 # ExportReadSetFilterTypeDef
 
 ### status
 - **Type**: typing.Optional[typing.Literal['CANCELLED', 'CANCELLING', 'COMPLETED', 'COMPLETED_WITH_FAILURES', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']]
 
 ### createdAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.TimestampTypeDef]
 
 ### createdBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.TimestampTypeDef]
 
 
 # ExportReadSetJobDetailTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### destination
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'COMPLETED', 'COMPLETED_WITH_FAILURES', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### completionTime
-- **Type**: typing.Optional[datetime.datetime]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ExportReadSetTypeDef
 
@@ -1055,18 +664,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ReadSetS3AccessTypeDef]
 
 
-# FilterTypeDef
-
-### resourceArns
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### status
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ACTIVATING', 'ACTIVE', 'DELETED', 'DELETING', 'FAILED', 'PENDING']]]
-
-### type
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ANNOTATION_STORE', 'VARIANT_STORE', 'WORKFLOW']]]
-
-
 # FormatOptionsTypeDef
 
 ### tsvOptions
@@ -1076,7 +673,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.VcfOptionsTypeDef]
 
 
-# GetAnnotationImportRequestAnnotationImportJobCreatedWaitTypeDef
+# GetAnnotationImportRequestTypeDef
+
+### jobId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetAnnotationImportRequestWaitTypeDef
 
 ### jobId
 - **Type**: <class 'str'>
@@ -1086,20 +690,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.WaiterConfigTypeDef]
 
 
-# GetAnnotationImportRequestRequestTypeDef
+# GetAnnotationStoreRequestTypeDef
 
-### jobId
+### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetAnnotationImportResponseTypeDef
+# GetAnnotationStoreRequestWaitExtraTypeDef
 
-### id
+### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### destinationName
+### WaiterConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.WaiterConfigTypeDef]
+
+
+# GetAnnotationStoreRequestWaitTypeDef
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### WaiterConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.WaiterConfigTypeDef]
+
+
+# GetAnnotationStoreVersionRequestTypeDef
+
+### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -1107,146 +727,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### roleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
 
-### status
-- **Type**: typing.Literal['CANCELLED', 'COMPLETED', 'COMPLETED_WITH_FAILURES', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']
-- **Required**: Yes
-
-### statusMessage
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### completionTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.AnnotationImportItemDetailTypeDef]
-- **Required**: Yes
-
-### runLeftNormalization
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### formatOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.FormatOptionsTypeDef'>
-- **Required**: Yes
-
-### annotationFields
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetAnnotationStoreRequestAnnotationStoreCreatedWaitTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.WaiterConfigTypeDef]
-
-
-# GetAnnotationStoreRequestAnnotationStoreDeletedWaitTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.WaiterConfigTypeDef]
-
-
-# GetAnnotationStoreRequestRequestTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# GetAnnotationStoreResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### reference
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ReferenceItemTypeDef'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']
-- **Required**: Yes
-
-### storeArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sseConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.SseConfigTypeDef'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### storeOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.StoreOptionsOutputTypeDef'>
-- **Required**: Yes
-
-### storeFormat
-- **Type**: typing.Literal['GFF', 'TSV', 'VCF']
-- **Required**: Yes
-
-### statusMessage
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### storeSizeBytes
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### numVersions
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetAnnotationStoreVersionRequestAnnotationStoreVersionCreatedWaitTypeDef
+# GetAnnotationStoreVersionRequestWaitExtraTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -1260,7 +742,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.WaiterConfigTypeDef]
 
 
-# GetAnnotationStoreVersionRequestAnnotationStoreVersionDeletedWaitTypeDef
+# GetAnnotationStoreVersionRequestWaitTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -1272,364 +754,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### WaiterConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.WaiterConfigTypeDef]
-
-
-# GetAnnotationStoreVersionRequestRequestTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### versionName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# GetAnnotationStoreVersionResponseTypeDef
-
-### storeId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']
-- **Required**: Yes
-
-### versionArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### versionName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### versionOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.VersionOptionsOutputTypeDef'>
-- **Required**: Yes
-
-### statusMessage
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### versionSizeBytes
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetReadSetActivationJobRequestReadSetActivationJobCompletedWaitTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.WaiterConfigTypeDef]
-
-
-# GetReadSetActivationJobRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# GetReadSetActivationJobResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'COMPLETED', 'COMPLETED_WITH_FAILURES', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']
-- **Required**: Yes
-
-### statusMessage
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### completionTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### sources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.ActivateReadSetSourceItemTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetReadSetExportJobRequestReadSetExportJobCompletedWaitTypeDef
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.WaiterConfigTypeDef]
-
-
-# GetReadSetExportJobRequestRequestTypeDef
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# GetReadSetExportJobResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### destination
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'COMPLETED', 'COMPLETED_WITH_FAILURES', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']
-- **Required**: Yes
-
-### statusMessage
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### completionTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### readSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.ExportReadSetDetailTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetReadSetImportJobRequestReadSetImportJobCompletedWaitTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.WaiterConfigTypeDef]
-
-
-# GetReadSetImportJobRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# GetReadSetImportJobResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### roleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'COMPLETED', 'COMPLETED_WITH_FAILURES', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']
-- **Required**: Yes
-
-### statusMessage
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### completionTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### sources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.ImportReadSetSourceItemTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetReadSetMetadataRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# GetReadSetMetadataResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### subjectId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sampleId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVATING', 'ACTIVE', 'ARCHIVED', 'DELETED', 'DELETING', 'PROCESSING_UPLOAD', 'UPLOAD_FAILED']
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### fileType
-- **Type**: typing.Literal['BAM', 'CRAM', 'FASTQ', 'UBAM']
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### sequenceInformation
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.SequenceInformationTypeDef'>
-- **Required**: Yes
-
-### referenceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### files
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ReadSetFilesTypeDef'>
-- **Required**: Yes
-
-### statusMessage
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationType
-- **Type**: typing.Literal['IMPORT', 'UPLOAD']
-- **Required**: Yes
-
-### etag
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ETagTypeDef'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetReadSetRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### partNumber
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### file
-- **Type**: typing.Optional[typing.Literal['INDEX', 'SOURCE1', 'SOURCE2']]
 
 
 # GetReadSetResponseTypeDef
@@ -1643,149 +767,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetReferenceImportJobRequestReferenceImportJobCompletedWaitTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### referenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.WaiterConfigTypeDef]
-
-
-# GetReferenceImportJobRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### referenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# GetReferenceImportJobResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### referenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### roleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'COMPLETED', 'COMPLETED_WITH_FAILURES', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']
-- **Required**: Yes
-
-### statusMessage
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### completionTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### sources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.ImportReferenceSourceItemTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetReferenceMetadataRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### referenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# GetReferenceMetadataResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### referenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### md5
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVE', 'DELETED', 'DELETING']
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### files
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ReferenceFilesTypeDef'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetReferenceRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### referenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### partNumber
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### range
-- **Type**: typing.Optional[str]
-
-### file
-- **Type**: typing.Optional[typing.Literal['INDEX', 'SOURCE']]
-
-
 # GetReferenceResponseTypeDef
 
 ### payload
@@ -1795,300 +776,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
-
-
-# GetReferenceStoreRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# GetReferenceStoreResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sseConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.SseConfigTypeDef'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetRunGroupRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# GetRunGroupResponseTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### maxCpus
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### maxRuns
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### maxDuration
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### maxGpus
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetRunRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### export
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['DEFINITION']]]
-
-
-# GetRunRequestRunCompletedWaitTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### export
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['DEFINITION']]]
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.WaiterConfigTypeDef]
-
-
-# GetRunRequestRunRunningWaitTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### export
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['DEFINITION']]]
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.WaiterConfigTypeDef]
-
-
-# GetRunResponseTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['CANCELLED', 'COMPLETED', 'DELETED', 'FAILED', 'PENDING', 'RUNNING', 'STARTING', 'STOPPING']
-- **Required**: Yes
-
-### workflowId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### workflowType
-- **Type**: typing.Literal['PRIVATE', 'READY2RUN']
-- **Required**: Yes
-
-### runId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### roleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### runGroupId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### priority
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### definition
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### digest
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### parameters
-- **Type**: typing.Dict[str, typing.Any]
-- **Required**: Yes
-
-### storageCapacity
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### outputUri
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### logLevel
-- **Type**: typing.Literal['ALL', 'ERROR', 'FATAL', 'OFF']
-- **Required**: Yes
-
-### resourceDigests
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### startedBy
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### startTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### stopTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### statusMessage
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### accelerators
-- **Type**: typing.Literal['GPU']
-- **Required**: Yes
-
-### retentionMode
-- **Type**: typing.Literal['REMOVE', 'RETAIN']
-- **Required**: Yes
-
-### failureReason
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### logLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.RunLogLocationTypeDef'>
-- **Required**: Yes
-
-### uuid
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### runOutputUri
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### storageType
-- **Type**: typing.Literal['DYNAMIC', 'STATIC']
-- **Required**: Yes
-
-### workflowOwnerId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetRunTaskRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### taskId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# GetRunTaskRequestTaskCompletedWaitTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### taskId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.WaiterConfigTypeDef]
-
-
-# GetRunTaskRequestTaskRunningWaitTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### taskId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.WaiterConfigTypeDef]
 
 
 # GetRunTaskResponseTypeDef
@@ -2107,6 +794,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### cpus
 - **Type**: <class 'int'>
+- **Required**: Yes
+
+### cacheHit
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### cacheS3Uri
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### memory
@@ -2150,49 +845,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSequenceStoreRequestRequestTypeDef
+# GetS3AccessPolicyRequestTypeDef
 
-### id
+### s3AccessPointArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetSequenceStoreResponseTypeDef
+# GetS3AccessPolicyResponseTypeDef
 
-### id
+### s3AccessPointArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### arn
+### storeId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### name
-- **Type**: <class 'str'>
+### storeType
+- **Type**: typing.Literal['REFERENCE_STORE', 'SEQUENCE_STORE']
 - **Required**: Yes
 
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sseConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.SseConfigTypeDef'>
-- **Required**: Yes
-
-### creationTime
+### updateTime
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
-### fallbackLocation
+### s3AccessPolicy
 - **Type**: <class 'str'>
-- **Required**: Yes
-
-### s3Access
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.SequenceStoreS3AccessTypeDef'>
-- **Required**: Yes
-
-### eTagAlgorithmFamily
-- **Type**: typing.Literal['MD5up', 'SHA256up', 'SHA512up']
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -2200,7 +879,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetShareRequestRequestTypeDef
+# GetShareRequestTypeDef
 
 ### shareId
 - **Type**: <class 'str'>
@@ -2218,14 +897,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetVariantImportRequestRequestTypeDef
+# GetVariantImportRequestTypeDef
 
 ### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetVariantImportRequestVariantImportJobCreatedWaitTypeDef
+# GetVariantImportRequestWaitTypeDef
 
 ### jobId
 - **Type**: <class 'str'>
@@ -2235,65 +914,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.WaiterConfigTypeDef]
 
 
-# GetVariantImportResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### destinationName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### roleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['CANCELLED', 'COMPLETED', 'COMPLETED_WITH_FAILURES', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']
-- **Required**: Yes
-
-### statusMessage
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### completionTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.VariantImportItemDetailTypeDef]
-- **Required**: Yes
-
-### runLeftNormalization
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### annotationFields
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetVariantStoreRequestRequestTypeDef
+# GetVariantStoreRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetVariantStoreRequestVariantStoreCreatedWaitTypeDef
+# GetVariantStoreRequestWaitExtraTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -2303,7 +931,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.WaiterConfigTypeDef]
 
 
-# GetVariantStoreRequestVariantStoreDeletedWaitTypeDef
+# GetVariantStoreRequestWaitTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -2311,171 +939,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### WaiterConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.WaiterConfigTypeDef]
-
-
-# GetVariantStoreResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### reference
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ReferenceItemTypeDef'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']
-- **Required**: Yes
-
-### storeArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sseConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.SseConfigTypeDef'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### statusMessage
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### storeSizeBytes
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetWorkflowRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Optional[typing.Literal['PRIVATE', 'READY2RUN']]
-
-### export
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['DEFINITION']]]
-
-### workflowOwnerId
-- **Type**: typing.Optional[str]
-
-
-# GetWorkflowRequestWorkflowActiveWaitTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Optional[typing.Literal['PRIVATE', 'READY2RUN']]
-
-### export
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['DEFINITION']]]
-
-### workflowOwnerId
-- **Type**: typing.Optional[str]
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.WaiterConfigTypeDef]
-
-
-# GetWorkflowResponseTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVE', 'CREATING', 'DELETED', 'FAILED', 'INACTIVE', 'UPDATING']
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['PRIVATE', 'READY2RUN']
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### engine
-- **Type**: typing.Literal['CWL', 'NEXTFLOW', 'WDL']
-- **Required**: Yes
-
-### definition
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### main
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### digest
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### parameterTemplate
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.omics_classes.WorkflowParameterTypeDef]
-- **Required**: Yes
-
-### storageCapacity
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### statusMessage
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### metadata
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### accelerators
-- **Type**: typing.Literal['GPU']
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
 
 
 # ImportReadSetFilterTypeDef
@@ -2484,37 +947,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CANCELLED', 'CANCELLING', 'COMPLETED', 'COMPLETED_WITH_FAILURES', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']]
 
 ### createdAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.TimestampTypeDef]
 
 ### createdBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.TimestampTypeDef]
 
 
 # ImportReadSetJobItemTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### roleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'COMPLETED', 'COMPLETED_WITH_FAILURES', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### completionTime
-- **Type**: typing.Optional[datetime.datetime]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ImportReadSetSourceItemTypeDef
 
@@ -2556,6 +999,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
+### readSetId
+- **Type**: typing.Optional[str]
+
 
 # ImportReferenceFilterTypeDef
 
@@ -2563,37 +1009,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CANCELLED', 'CANCELLING', 'COMPLETED', 'COMPLETED_WITH_FAILURES', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']]
 
 ### createdAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.TimestampTypeDef]
 
 ### createdBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.TimestampTypeDef]
 
 
 # ImportReferenceJobItemTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### referenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### roleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'COMPLETED', 'COMPLETED_WITH_FAILURES', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### completionTime
-- **Type**: typing.Optional[datetime.datetime]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ImportReferenceSourceItemTypeDef
 
@@ -2616,6 +1042,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
+### referenceId
+- **Type**: typing.Optional[str]
+
 
 # ListAnnotationImportJobsFilterTypeDef
 
@@ -2626,46 +1055,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAnnotationImportJobsRequestListAnnotationImportJobsPaginateTypeDef
-
-### ids
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ListAnnotationImportJobsFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.PaginatorConfigTypeDef]
-
-
-# ListAnnotationImportJobsRequestRequestTypeDef
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-### ids
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ListAnnotationImportJobsFilterTypeDef]
-
-
 # ListAnnotationImportJobsResponseTypeDef
 
 ### annotationImportJobs
 - **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.AnnotationImportJobItemTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # ListAnnotationStoreVersionsFilterTypeDef
@@ -2674,48 +1075,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']]
 
 
-# ListAnnotationStoreVersionsRequestListAnnotationStoreVersionsPaginateTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ListAnnotationStoreVersionsFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.PaginatorConfigTypeDef]
-
-
-# ListAnnotationStoreVersionsRequestRequestTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ListAnnotationStoreVersionsFilterTypeDef]
-
-
 # ListAnnotationStoreVersionsResponseTypeDef
 
 ### annotationStoreVersions
 - **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.AnnotationStoreVersionItemTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # ListAnnotationStoresFilterTypeDef
@@ -2724,49 +1095,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']]
 
 
-# ListAnnotationStoresRequestListAnnotationStoresPaginateTypeDef
-
-### ids
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ListAnnotationStoresFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.PaginatorConfigTypeDef]
-
-
-# ListAnnotationStoresRequestRequestTypeDef
-
-### ids
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ListAnnotationStoresFilterTypeDef]
-
-
 # ListAnnotationStoresResponseTypeDef
 
 ### annotationStores
 - **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.AnnotationStoreItemTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListMultipartReadSetUploadsRequestListMultipartReadSetUploadsPaginateTypeDef
+
+# ListMultipartReadSetUploadsRequestPaginateTypeDef
 
 ### sequenceStoreId
 - **Type**: <class 'str'>
@@ -2776,7 +1119,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.PaginatorConfigTypeDef]
 
 
-# ListMultipartReadSetUploadsRequestRequestTypeDef
+# ListMultipartReadSetUploadsRequestTypeDef
 
 ### sequenceStoreId
 - **Type**: <class 'str'>
@@ -2791,10 +1134,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListMultipartReadSetUploadsResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### uploads
 - **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.MultipartReadSetUploadListItemTypeDef]
 - **Required**: Yes
@@ -2803,41 +1142,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# ListReadSetActivationJobsRequestListReadSetActivationJobsPaginateTypeDef
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ActivateReadSetFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.PaginatorConfigTypeDef]
-
-
-# ListReadSetActivationJobsRequestRequestTypeDef
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
 
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ActivateReadSetFilterTypeDef]
-
 
 # ListReadSetActivationJobsResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### activationJobs
 - **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.ActivateReadSetJobItemTypeDef]
@@ -2847,41 +1156,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# ListReadSetExportJobsRequestListReadSetExportJobsPaginateTypeDef
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ExportReadSetFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.PaginatorConfigTypeDef]
-
-
-# ListReadSetExportJobsRequestRequestTypeDef
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
 
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ExportReadSetFilterTypeDef]
-
 
 # ListReadSetExportJobsResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### exportJobs
 - **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.ExportReadSetJobDetailTypeDef]
@@ -2891,41 +1170,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# ListReadSetImportJobsRequestListReadSetImportJobsPaginateTypeDef
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ImportReadSetFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.PaginatorConfigTypeDef]
-
-
-# ListReadSetImportJobsRequestRequestTypeDef
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
 
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ImportReadSetFilterTypeDef]
-
 
 # ListReadSetImportJobsResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### importJobs
 - **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.ImportReadSetJobItemTypeDef]
@@ -2935,57 +1184,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# ListReadSetUploadPartsRequestListReadSetUploadPartsPaginateTypeDef
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### uploadId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### partSource
-- **Type**: typing.Literal['SOURCE1', 'SOURCE2']
-- **Required**: Yes
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ReadSetUploadPartListFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.PaginatorConfigTypeDef]
-
-
-# ListReadSetUploadPartsRequestRequestTypeDef
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### uploadId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### partSource
-- **Type**: typing.Literal['SOURCE1', 'SOURCE2']
-- **Required**: Yes
-
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
 
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ReadSetUploadPartListFilterTypeDef]
-
 
 # ListReadSetUploadPartsResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### parts
 - **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.ReadSetUploadPartListItemTypeDef]
@@ -2995,41 +1198,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# ListReadSetsRequestListReadSetsPaginateTypeDef
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ReadSetFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.PaginatorConfigTypeDef]
-
-
-# ListReadSetsRequestRequestTypeDef
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
 
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ReadSetFilterTypeDef]
-
 
 # ListReadSetsResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### readSets
 - **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.ReadSetListItemTypeDef]
@@ -3039,41 +1212,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# ListReferenceImportJobsRequestListReferenceImportJobsPaginateTypeDef
-
-### referenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ImportReferenceFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.PaginatorConfigTypeDef]
-
-
-# ListReferenceImportJobsRequestRequestTypeDef
-
-### referenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
 
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ImportReferenceFilterTypeDef]
-
 
 # ListReferenceImportJobsResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### importJobs
 - **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.ImportReferenceJobItemTypeDef]
@@ -3083,33 +1226,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# ListReferenceStoresRequestListReferenceStoresPaginateTypeDef
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ReferenceStoreFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.PaginatorConfigTypeDef]
-
-
-# ListReferenceStoresRequestRequestTypeDef
-
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
 
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ReferenceStoreFilterTypeDef]
-
 
 # ListReferenceStoresResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### referenceStores
 - **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.ReferenceStoreDetailTypeDef]
@@ -3119,41 +1240,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# ListReferencesRequestListReferencesPaginateTypeDef
-
-### referenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ReferenceFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.PaginatorConfigTypeDef]
-
-
-# ListReferencesRequestRequestTypeDef
-
-### referenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
 
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ReferenceFilterTypeDef]
-
 
 # ListReferencesResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### references
 - **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.ReferenceListItemTypeDef]
@@ -3163,8 +1254,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListRunGroupsRequestListRunGroupsPaginateTypeDef
+
+# ListRunCachesRequestPaginateTypeDef
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.PaginatorConfigTypeDef]
+
+
+# ListRunCachesRequestTypeDef
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### startingToken
+- **Type**: typing.Optional[str]
+
+
+# ListRunCachesResponseTypeDef
+
+### items
+- **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.RunCacheListItemTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListRunGroupsRequestPaginateTypeDef
 
 ### name
 - **Type**: typing.Optional[str]
@@ -3173,7 +1296,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.PaginatorConfigTypeDef]
 
 
-# ListRunGroupsRequestRequestTypeDef
+# ListRunGroupsRequestTypeDef
 
 ### name
 - **Type**: typing.Optional[str]
@@ -3191,42 +1314,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.RunGroupListItemTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# ListRunTasksRequestListRunTasksPaginateTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Optional[typing.Literal['CANCELLED', 'COMPLETED', 'FAILED', 'PENDING', 'RUNNING', 'STARTING', 'STOPPING']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.PaginatorConfigTypeDef]
-
-
-# ListRunTasksRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Optional[typing.Literal['CANCELLED', 'COMPLETED', 'FAILED', 'PENDING', 'RUNNING', 'STARTING', 'STOPPING']]
-
-### startingToken
+### nextToken
 - **Type**: typing.Optional[str]
-
-### maxResults
-- **Type**: typing.Optional[int]
 
 
 # ListRunTasksResponseTypeDef
@@ -3235,16 +1328,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.TaskListItemTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListRunsRequestListRunsPaginateTypeDef
+
+# ListRunsRequestPaginateTypeDef
 
 ### name
 - **Type**: typing.Optional[str]
@@ -3259,7 +1351,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.PaginatorConfigTypeDef]
 
 
-# ListRunsRequestRequestTypeDef
+# ListRunsRequestTypeDef
 
 ### name
 - **Type**: typing.Optional[str]
@@ -3283,41 +1375,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.RunListItemTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# ListSequenceStoresRequestListSequenceStoresPaginateTypeDef
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.SequenceStoreFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.PaginatorConfigTypeDef]
-
-
-# ListSequenceStoresRequestRequestTypeDef
-
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
 
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.SequenceStoreFilterTypeDef]
-
 
 # ListSequenceStoresResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### sequenceStores
 - **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.SequenceStoreDetailTypeDef]
@@ -3327,34 +1393,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# ListSharesRequestListSharesPaginateTypeDef
-
-### resourceOwner
-- **Type**: typing.Literal['OTHER', 'SELF']
-- **Required**: Yes
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.FilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.PaginatorConfigTypeDef]
-
-
-# ListSharesRequestRequestTypeDef
-
-### resourceOwner
-- **Type**: typing.Literal['OTHER', 'SELF']
-- **Required**: Yes
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.FilterTypeDef]
-
 ### nextToken
 - **Type**: typing.Optional[str]
-
-### maxResults
-- **Type**: typing.Optional[int]
 
 
 # ListSharesResponseTypeDef
@@ -3363,16 +1403,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.ShareDetailsTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -3399,46 +1438,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListVariantImportJobsRequestListVariantImportJobsPaginateTypeDef
-
-### ids
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ListVariantImportJobsFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.PaginatorConfigTypeDef]
-
-
-# ListVariantImportJobsRequestRequestTypeDef
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-### ids
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ListVariantImportJobsFilterTypeDef]
-
-
 # ListVariantImportJobsResponseTypeDef
 
 ### variantImportJobs
 - **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.VariantImportJobItemTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # ListVariantStoresFilterTypeDef
@@ -3447,73 +1458,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']]
 
 
-# ListVariantStoresRequestListVariantStoresPaginateTypeDef
-
-### ids
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ListVariantStoresFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.PaginatorConfigTypeDef]
-
-
-# ListVariantStoresRequestRequestTypeDef
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-### ids
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ListVariantStoresFilterTypeDef]
-
-
 # ListVariantStoresResponseTypeDef
 
 ### variantStores
 - **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.VariantStoreItemTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# ListWorkflowsRequestListWorkflowsPaginateTypeDef
-
-### type
-- **Type**: typing.Optional[typing.Literal['PRIVATE', 'READY2RUN']]
-
-### name
+### nextToken
 - **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.PaginatorConfigTypeDef]
-
-
-# ListWorkflowsRequestRequestTypeDef
-
-### type
-- **Type**: typing.Optional[typing.Literal['PRIVATE', 'READY2RUN']]
-
-### name
-- **Type**: typing.Optional[str]
-
-### startingToken
-- **Type**: typing.Optional[str]
-
-### maxResults
-- **Type**: typing.Optional[int]
 
 
 # ListWorkflowsResponseTypeDef
@@ -3522,13 +1478,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.omics_classes.WorkflowListItemTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # MultipartReadSetUploadListItemTypeDef
@@ -3587,6 +1542,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# PutS3AccessPolicyRequestTypeDef
+
+### s3AccessPointArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### s3AccessPolicy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# PutS3AccessPolicyResponseTypeDef
+
+### s3AccessPointArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### storeId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### storeType
+- **Type**: typing.Literal['REFERENCE_STORE', 'SEQUENCE_STORE']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
 # ReadOptionsTypeDef
 
 ### sep
@@ -3619,18 +1604,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ReadSetBatchErrorTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### code
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### message
-- **Type**: <class 'str'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ReadSetFilesTypeDef
 
@@ -3656,10 +1632,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### createdAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.TimestampTypeDef]
 
 ### createdBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.TimestampTypeDef]
 
 ### sampleId
 - **Type**: typing.Optional[str]
@@ -3676,57 +1652,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ReadSetListItemTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVATING', 'ACTIVE', 'ARCHIVED', 'DELETED', 'DELETING', 'PROCESSING_UPLOAD', 'UPLOAD_FAILED']
-- **Required**: Yes
-
-### fileType
-- **Type**: typing.Literal['BAM', 'CRAM', 'FASTQ', 'UBAM']
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### subjectId
-- **Type**: typing.Optional[str]
-
-### sampleId
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-### referenceArn
-- **Type**: typing.Optional[str]
-
-### sequenceInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.SequenceInformationTypeDef]
-
-### statusMessage
-- **Type**: typing.Optional[str]
-
-### creationType
-- **Type**: typing.Optional[typing.Literal['IMPORT', 'UPLOAD']]
-
-### etag
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.ETagTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ReadSetS3AccessTypeDef
 
@@ -3737,10 +1665,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ReadSetUploadPartListFilterTypeDef
 
 ### createdAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.TimestampTypeDef]
 
 ### createdBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.TimestampTypeDef]
 
 
 # ReadSetUploadPartListItemTypeDef
@@ -3786,10 +1714,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### createdAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.TimestampTypeDef]
 
 ### createdBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.TimestampTypeDef]
 
 
 # ReferenceItemTypeDef
@@ -3800,63 +1728,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ReferenceListItemTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### referenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### md5
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETED', 'DELETING']]
-
-### name
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ReferenceStoreDetailTypeDef
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### name
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-### sseConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.SseConfigTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ReferenceStoreFilterTypeDef
 
@@ -3864,10 +1744,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### createdAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.TimestampTypeDef]
 
 ### createdBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.TimestampTypeDef]
 
 
 # ResponseMetadataTypeDef
@@ -3892,68 +1772,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# RunCacheListItemTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # RunGroupListItemTypeDef
 
-### arn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### id
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### maxCpus
-- **Type**: typing.Optional[int]
-
-### maxRuns
-- **Type**: typing.Optional[int]
-
-### maxDuration
-- **Type**: typing.Optional[int]
-
-### creationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### maxGpus
-- **Type**: typing.Optional[int]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RunListItemTypeDef
 
-### arn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### id
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[typing.Literal['CANCELLED', 'COMPLETED', 'DELETED', 'FAILED', 'PENDING', 'RUNNING', 'STARTING', 'STOPPING']]
-
-### workflowId
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### priority
-- **Type**: typing.Optional[int]
-
-### storageCapacity
-- **Type**: typing.Optional[int]
-
-### creationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### startTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### stopTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### storageType
-- **Type**: typing.Optional[typing.Literal['DYNAMIC', 'STATIC']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RunLogLocationTypeDef
 
@@ -3961,6 +1796,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### runLogStream
+- **Type**: typing.Optional[str]
+
+
+# S3AccessConfigTypeDef
+
+### accessLogLocation
 - **Type**: typing.Optional[str]
 
 
@@ -3981,33 +1822,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SequenceStoreDetailTypeDef
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### name
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-### sseConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.SseConfigTypeDef]
-
-### fallbackLocation
-- **Type**: typing.Optional[str]
-
-### eTagAlgorithmFamily
-- **Type**: typing.Optional[typing.Literal['MD5up', 'SHA256up', 'SHA512up']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SequenceStoreFilterTypeDef
 
@@ -4015,10 +1832,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### createdAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.TimestampTypeDef]
 
 ### createdBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.TimestampTypeDef]
+
+### status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']]
+
+### updatedAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.TimestampTypeDef]
+
+### updatedBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.TimestampTypeDef]
 
 
 # SequenceStoreS3AccessTypeDef
@@ -4027,6 +1853,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### s3AccessPointArn
+- **Type**: typing.Optional[str]
+
+### accessLogLocation
 - **Type**: typing.Optional[str]
 
 
@@ -4075,15 +1904,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SseConfigTypeDef
 
-### type
-- **Type**: typing.Literal['KMS']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### keyArn
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-
-# StartAnnotationImportRequestRequestTypeDef
+# StartAnnotationImportRequestTypeDef
 
 ### destinationName
 - **Type**: <class 'str'>
@@ -4121,7 +1946,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartReadSetActivationJobRequestRequestTypeDef
+# StartReadSetActivationJobRequestTypeDef
 
 ### sequenceStoreId
 - **Type**: <class 'str'>
@@ -4135,29 +1960,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartReadSetActivationJobResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'COMPLETED', 'COMPLETED_WITH_FAILURES', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
 # StartReadSetActivationJobSourceItemTypeDef
 
 ### readSetId
@@ -4165,7 +1967,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartReadSetExportJobRequestRequestTypeDef
+# StartReadSetExportJobRequestTypeDef
 
 ### sequenceStoreId
 - **Type**: <class 'str'>
@@ -4187,34 +1989,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartReadSetExportJobResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### destination
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'COMPLETED', 'COMPLETED_WITH_FAILURES', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# StartReadSetImportJobRequestRequestTypeDef
+# StartReadSetImportJobRequestTypeDef
 
 ### sequenceStoreId
 - **Type**: <class 'str'>
@@ -4230,33 +2005,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### clientToken
 - **Type**: typing.Optional[str]
-
-
-# StartReadSetImportJobResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sequenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### roleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'COMPLETED', 'COMPLETED_WITH_FAILURES', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
 
 
 # StartReadSetImportJobSourceItemTypeDef
@@ -4293,7 +2041,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# StartReferenceImportJobRequestRequestTypeDef
+# StartReferenceImportJobRequestTypeDef
 
 ### referenceStoreId
 - **Type**: <class 'str'>
@@ -4309,33 +2057,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### clientToken
 - **Type**: typing.Optional[str]
-
-
-# StartReferenceImportJobResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### referenceStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### roleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'COMPLETED', 'COMPLETED_WITH_FAILURES', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
 
 
 # StartReferenceImportJobSourceItemTypeDef
@@ -4355,7 +2076,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# StartRunRequestRequestTypeDef
+# StartRunRequestTypeDef
 
 ### roleArn
 - **Type**: <class 'str'>
@@ -4376,6 +2097,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### name
 - **Type**: typing.Optional[str]
+
+### cacheId
+- **Type**: typing.Optional[str]
+
+### cacheBehavior
+- **Type**: typing.Optional[typing.Literal['CACHE_ALWAYS', 'CACHE_ON_FAILURE']]
 
 ### runGroupId
 - **Type**: typing.Optional[str]
@@ -4408,38 +2135,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartRunResponseTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['CANCELLED', 'COMPLETED', 'DELETED', 'FAILED', 'PENDING', 'RUNNING', 'STARTING', 'STOPPING']
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### uuid
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### runOutputUri
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# StartVariantImportRequestRequestTypeDef
+# StartVariantImportRequestTypeDef
 
 ### destinationName
 - **Type**: <class 'str'>
@@ -4483,7 +2179,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.TsvStoreOptionsTypeDef]
 
 
-# TagResourceRequestRequestTypeDef
+# StoreOptionsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -4508,6 +2210,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### cpus
 - **Type**: typing.Optional[int]
 
+### cacheHit
+- **Type**: typing.Optional[bool]
+
+### cacheS3Uri
+- **Type**: typing.Optional[str]
+
 ### memory
 - **Type**: typing.Optional[int]
 
@@ -4526,6 +2234,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### instanceType
 - **Type**: typing.Optional[str]
 
+
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TsvOptionsTypeDef
 
@@ -4581,7 +2295,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Literal['BOOLEAN', 'DOUBLE', 'FLOAT', 'INT', 'LONG', 'STRING']]]]
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -4592,7 +2306,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAnnotationStoreRequestRequestTypeDef
+# UpdateAnnotationStoreRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -4602,50 +2316,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateAnnotationStoreResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### reference
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ReferenceItemTypeDef'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### storeOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.StoreOptionsOutputTypeDef'>
-- **Required**: Yes
-
-### storeFormat
-- **Type**: typing.Literal['GFF', 'TSV', 'VCF']
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# UpdateAnnotationStoreVersionRequestRequestTypeDef
+# UpdateAnnotationStoreVersionRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -4659,68 +2330,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateAnnotationStoreVersionResponseTypeDef
-
-### storeId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### versionName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# UpdateRunGroupRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: typing.Optional[str]
-
-### maxCpus
-- **Type**: typing.Optional[int]
-
-### maxRuns
-- **Type**: typing.Optional[int]
-
-### maxDuration
-- **Type**: typing.Optional[int]
-
-### maxGpus
-- **Type**: typing.Optional[int]
-
-
-# UpdateVariantStoreRequestRequestTypeDef
+# UpdateVariantStoreRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -4730,55 +2340,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateVariantStoreResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### reference
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ReferenceItemTypeDef'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# UpdateWorkflowRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-
-# UploadReadSetPartRequestRequestTypeDef
+# UploadReadSetPartRequestTypeDef
 
 ### sequenceStoreId
 - **Type**: <class 'str'>
@@ -4797,7 +2359,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### payload
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.BlobTypeDef'>
 - **Required**: Yes
 
 
@@ -4835,86 +2397,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # VariantImportJobItemTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### destinationName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### roleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['CANCELLED', 'COMPLETED', 'COMPLETED_WITH_FAILURES', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### completionTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### runLeftNormalization
-- **Type**: typing.Optional[bool]
-
-### annotationFields
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # VariantStoreItemTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### reference
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.ReferenceItemTypeDef'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']
-- **Required**: Yes
-
-### storeArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sseConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.omics_classes.SseConfigTypeDef'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### statusMessage
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### storeSizeBytes
-- **Type**: <class 'int'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # VcfOptionsTypeDef
 
@@ -4948,6 +2439,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.omics_classes.TsvVersionOptionsTypeDef]
 
 
+# VersionOptionsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # WaiterConfigTypeDef
 
 ### Delay
@@ -4959,30 +2456,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # WorkflowListItemTypeDef
 
-### arn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### id
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETED', 'FAILED', 'INACTIVE', 'UPDATING']]
-
-### type
-- **Type**: typing.Optional[typing.Literal['PRIVATE', 'READY2RUN']]
-
-### digest
-- **Type**: typing.Optional[str]
-
-### creationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### metadata
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # WorkflowParameterTypeDef
 

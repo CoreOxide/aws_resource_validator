@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateHttpNamespaceRequestRequestTypeDef
+# CreateHttpNamespaceRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -33,7 +33,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePrivateDnsNamespaceRequestRequestTypeDef
+# CreatePrivateDnsNamespaceRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -67,7 +67,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePublicDnsNamespaceRequestRequestTypeDef
+# CreatePublicDnsNamespaceRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -97,37 +97,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateServiceRequestRequestTypeDef
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### NamespaceId
-- **Type**: typing.Optional[str]
-
-### CreatorRequestId
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### DnsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicediscovery_classes.DnsConfigTypeDef]
-
-### HealthCheckConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicediscovery_classes.HealthCheckConfigTypeDef]
-
-### HealthCheckCustomConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicediscovery_classes.HealthCheckCustomConfigTypeDef]
-
-### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.servicediscovery_classes.TagTypeDef]]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['HTTP']]
-
-
 # CreateServiceResponseTypeDef
 
 ### Service
@@ -139,7 +108,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteNamespaceRequestRequestTypeDef
+# DeleteNamespaceRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -157,14 +126,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteServiceRequestRequestTypeDef
+# DeleteServiceAttributesRequestTypeDef
+
+### ServiceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Attributes
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+
+# DeleteServiceRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeregisterInstanceRequestRequestTypeDef
+# DeregisterInstanceRequestTypeDef
 
 ### ServiceId
 - **Type**: <class 'str'>
@@ -186,29 +166,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DiscoverInstancesRequestRequestTypeDef
-
-### NamespaceName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ServiceName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### MaxResults
-- **Type**: typing.Optional[int]
-
-### QueryParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### OptionalParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### HealthStatus
-- **Type**: typing.Optional[typing.Literal['ALL', 'HEALTHY', 'HEALTHY_OR_ELSE_ALL', 'UNHEALTHY']]
-
-
 # DiscoverInstancesResponseTypeDef
 
 ### Instances
@@ -221,17 +178,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.servicediscovery_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# DiscoverInstancesRevisionRequestRequestTypeDef
-
-### NamespaceName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ServiceName
-- **Type**: <class 'str'>
 - **Required**: Yes
 
 
@@ -253,7 +199,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DnsConfigPaginatorTypeDef
+# DnsConfigOutputTypeDef
 
 ### DnsRecords
 - **Type**: typing.List[aws_resource_validator.pydantic_models.servicediscovery_classes.DnsRecordTypeDef]
@@ -290,14 +236,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DnsRecordTypeDef
 
-### Type
-- **Type**: typing.Literal['A', 'AAAA', 'CNAME', 'SRV']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### TTL
-- **Type**: <class 'int'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EmptyResponseMetadataTypeDef
 
@@ -306,7 +247,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetInstanceRequestRequestTypeDef
+# GetInstanceRequestTypeDef
 
 ### ServiceId
 - **Type**: <class 'str'>
@@ -328,7 +269,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetInstancesHealthStatusRequestRequestTypeDef
+# GetInstancesHealthStatusRequestTypeDef
 
 ### ServiceId
 - **Type**: <class 'str'>
@@ -350,16 +291,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Dict[str, typing.Literal['HEALTHY', 'UNHEALTHY', 'UNKNOWN']]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.servicediscovery_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# GetNamespaceRequestRequestTypeDef
+
+# GetNamespaceRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -377,7 +317,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetOperationRequestRequestTypeDef
+# GetOperationRequestTypeDef
 
 ### OperationId
 - **Type**: <class 'str'>
@@ -395,7 +335,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetServiceRequestRequestTypeDef
+# GetServiceAttributesRequestTypeDef
+
+### ServiceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetServiceAttributesResponseTypeDef
+
+### ServiceAttributes
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicediscovery_classes.ServiceAttributesTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicediscovery_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetServiceRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -415,16 +373,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # HealthCheckConfigTypeDef
 
-### Type
-- **Type**: typing.Literal['HTTP', 'HTTPS', 'TCP']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### ResourcePath
-- **Type**: typing.Optional[str]
-
-### FailureThreshold
-- **Type**: typing.Optional[int]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HealthCheckCustomConfigTypeDef
 
@@ -434,21 +385,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # HttpInstanceSummaryTypeDef
 
-### InstanceId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### NamespaceName
-- **Type**: typing.Optional[str]
-
-### ServiceName
-- **Type**: typing.Optional[str]
-
-### HealthStatus
-- **Type**: typing.Optional[typing.Literal['HEALTHY', 'UNHEALTHY', 'UNKNOWN']]
-
-### Attributes
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HttpNamespaceChangeTypeDef
 
@@ -485,7 +424,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# ListInstancesRequestListInstancesPaginateTypeDef
+# ListInstancesRequestPaginateTypeDef
 
 ### ServiceId
 - **Type**: <class 'str'>
@@ -495,7 +434,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicediscovery_classes.PaginatorConfigTypeDef]
 
 
-# ListInstancesRequestRequestTypeDef
+# ListInstancesRequestTypeDef
 
 ### ServiceId
 - **Type**: <class 'str'>
@@ -514,16 +453,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.servicediscovery_classes.InstanceSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.servicediscovery_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListNamespacesRequestListNamespacesPaginateTypeDef
+
+# ListNamespacesRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.servicediscovery_classes.NamespaceFilterTypeDef]]
@@ -532,7 +470,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicediscovery_classes.PaginatorConfigTypeDef]
 
 
-# ListNamespacesRequestRequestTypeDef
+# ListNamespacesRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -550,16 +488,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.servicediscovery_classes.NamespaceSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.servicediscovery_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListOperationsRequestListOperationsPaginateTypeDef
+
+# ListOperationsRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.servicediscovery_classes.OperationFilterTypeDef]]
@@ -568,7 +505,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicediscovery_classes.PaginatorConfigTypeDef]
 
 
-# ListOperationsRequestRequestTypeDef
+# ListOperationsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -586,16 +523,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.servicediscovery_classes.OperationSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.servicediscovery_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListServicesRequestListServicesPaginateTypeDef
+
+# ListServicesRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.servicediscovery_classes.ServiceFilterTypeDef]]
@@ -604,7 +540,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicediscovery_classes.PaginatorConfigTypeDef]
 
 
-# ListServicesRequestRequestTypeDef
+# ListServicesRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -616,37 +552,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.servicediscovery_classes.ServiceFilterTypeDef]]
 
 
-# ListServicesResponsePaginatorTypeDef
-
-### Services
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicediscovery_classes.ServiceSummaryPaginatorTypeDef]
-- **Required**: Yes
-
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicediscovery_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
 # ListServicesResponseTypeDef
 
 ### Services
 - **Type**: typing.List[aws_resource_validator.pydantic_models.servicediscovery_classes.ServiceSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.servicediscovery_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -689,60 +609,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # NamespaceSummaryTypeDef
 
-### Id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Arn
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['DNS_PRIVATE', 'DNS_PUBLIC', 'HTTP']]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### ServiceCount
-- **Type**: typing.Optional[int]
-
-### Properties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicediscovery_classes.NamespacePropertiesTypeDef]
-
-### CreateDate
-- **Type**: typing.Optional[datetime.datetime]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # NamespaceTypeDef
 
-### Id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Arn
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['DNS_PRIVATE', 'DNS_PUBLIC', 'HTTP']]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### ServiceCount
-- **Type**: typing.Optional[int]
-
-### Properties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicediscovery_classes.NamespacePropertiesTypeDef]
-
-### CreateDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### CreatorRequestId
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # OperationFilterTypeDef
 
@@ -769,30 +644,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # OperationTypeDef
 
-### Id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[typing.Literal['CREATE_NAMESPACE', 'DELETE_NAMESPACE', 'DEREGISTER_INSTANCE', 'REGISTER_INSTANCE', 'UPDATE_NAMESPACE', 'UPDATE_SERVICE']]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['FAIL', 'PENDING', 'SUBMITTED', 'SUCCESS']]
-
-### ErrorMessage
-- **Type**: typing.Optional[str]
-
-### ErrorCode
-- **Type**: typing.Optional[str]
-
-### CreateDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### UpdateDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### Targets
-- **Type**: typing.Optional[typing.Dict[typing.Literal['INSTANCE', 'NAMESPACE', 'SERVICE'], str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PaginatorConfigTypeDef
 
@@ -880,7 +734,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RegisterInstanceRequestRequestTypeDef
+# RegisterInstanceRequestTypeDef
 
 ### ServiceId
 - **Type**: <class 'str'>
@@ -945,6 +799,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# ServiceAttributesTypeDef
+
+### ServiceArn
+- **Type**: typing.Optional[str]
+
+### Attributes
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
 # ServiceChangeTypeDef
 
 ### Description
@@ -971,112 +834,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BEGINS_WITH', 'BETWEEN', 'EQ', 'IN']]
 
 
-# ServiceSummaryPaginatorTypeDef
-
-### Id
-- **Type**: typing.Optional[str]
-
-### Arn
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['DNS', 'DNS_HTTP', 'HTTP']]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### InstanceCount
-- **Type**: typing.Optional[int]
-
-### DnsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicediscovery_classes.DnsConfigPaginatorTypeDef]
-
-### HealthCheckConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicediscovery_classes.HealthCheckConfigTypeDef]
-
-### HealthCheckCustomConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicediscovery_classes.HealthCheckCustomConfigTypeDef]
-
-### CreateDate
-- **Type**: typing.Optional[datetime.datetime]
-
-
 # ServiceSummaryTypeDef
 
-### Id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Arn
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['DNS', 'DNS_HTTP', 'HTTP']]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### InstanceCount
-- **Type**: typing.Optional[int]
-
-### DnsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicediscovery_classes.DnsConfigTypeDef]
-
-### HealthCheckConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicediscovery_classes.HealthCheckConfigTypeDef]
-
-### HealthCheckCustomConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicediscovery_classes.HealthCheckCustomConfigTypeDef]
-
-### CreateDate
-- **Type**: typing.Optional[datetime.datetime]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ServiceTypeDef
 
-### Id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Arn
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Name
-- **Type**: typing.Optional[str]
-
-### NamespaceId
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### InstanceCount
-- **Type**: typing.Optional[int]
-
-### DnsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicediscovery_classes.DnsConfigTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['DNS', 'DNS_HTTP', 'HTTP']]
-
-### HealthCheckConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicediscovery_classes.HealthCheckConfigTypeDef]
-
-### HealthCheckCustomConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicediscovery_classes.HealthCheckCustomConfigTypeDef]
-
-### CreateDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### CreatorRequestId
-- **Type**: typing.Optional[str]
-
-
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -1098,7 +868,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -1109,7 +879,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateHttpNamespaceRequestRequestTypeDef
+# UpdateHttpNamespaceRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -1134,7 +904,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateInstanceCustomHealthStatusRequestRequestTypeDef
+# UpdateInstanceCustomHealthStatusRequestTypeDef
 
 ### ServiceId
 - **Type**: <class 'str'>
@@ -1149,7 +919,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePrivateDnsNamespaceRequestRequestTypeDef
+# UpdatePrivateDnsNamespaceRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -1174,7 +944,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePublicDnsNamespaceRequestRequestTypeDef
+# UpdatePublicDnsNamespaceRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -1199,7 +969,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateServiceRequestRequestTypeDef
+# UpdateServiceAttributesRequestTypeDef
+
+### ServiceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Attributes
+- **Type**: typing.Mapping[str, str]
+- **Required**: Yes
+
+
+# UpdateServiceRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>

@@ -1,5 +1,9 @@
 # Omics Service
 
+### AccessLogLocation
+- **Type**: string
+- **Pattern**: `$|^s3://([a-z0-9][a-z0-9-.]{1,61}[a-z0-9])/?((.{1,800})/)?`
+
 ### ActivationJobId
 - **Type**: string
 - **Pattern**: `[0-9]+`
@@ -11,6 +15,12 @@
 - **Pattern**: `arn:([^: ]*):([^: ]*):([^: ]*):([0-9]{12}):([^: ]*)`
 - **Min Length**: 20
 - **Max Length**: 2048
+
+### AwsAccountId
+- **Type**: string
+- **Pattern**: `[0-9]+`
+- **Min Length**: 12
+- **Max Length**: 12
 
 ### ClientToken
 - **Type**: string
@@ -24,9 +34,19 @@
 - **Min Length**: 1
 - **Max Length**: 100
 
+### CreationJobId
+- **Type**: string
+- **Pattern**: `[a-zA-Z0-9]+`
+- **Min Length**: 1
+- **Max Length**: 127
+
 ### EngineLogStream
 - **Type**: string
 - **Pattern**: `[\p{L}||\p{M}||\p{Z}||\p{S}||\p{N}||\p{P}]+`
+
+### EngineVersion
+- **Type**: string
+- **Pattern**: `[0-9]{2}.[0-9]{2}.[0-9]`
 
 ### ExportJobId
 - **Type**: string
@@ -52,6 +72,12 @@
 - **Min Length**: 1
 - **Max Length**: 127
 
+### ListToken
+- **Type**: string
+- **Pattern**: `[\p{L}||\p{M}||\p{Z}||\p{S}||\p{N}||\p{P}]+`
+- **Min Length**: 1
+- **Max Length**: 128
+
 ### Md5
 - **Type**: string
 - **Pattern**: `[\p{L}||\p{N}]+`
@@ -63,6 +89,12 @@
 - **Pattern**: `[\p{L}||\p{M}||\p{Z}||\p{S}||\p{N}||\p{P}]+`
 - **Min Length**: 1
 - **Max Length**: 6144
+
+### NumericIdInArn
+- **Type**: string
+- **Pattern**: `[0-9]+`
+- **Min Length**: 1
+- **Max Length**: 18
 
 ### Range
 - **Type**: string
@@ -167,6 +199,24 @@
 ### RunArn
 - **Type**: string
 - **Pattern**: `arn:.+`
+- **Min Length**: 1
+- **Max Length**: 128
+
+### RunCacheArn
+- **Type**: string
+- **Pattern**: `arn:.+`
+- **Min Length**: 1
+- **Max Length**: 128
+
+### RunCacheId
+- **Type**: string
+- **Pattern**: `[0-9]+`
+- **Min Length**: 1
+- **Max Length**: 18
+
+### RunCacheRequestId
+- **Type**: string
+- **Pattern**: `[\p{L}||\p{M}||\p{Z}||\p{S}||\p{N}||\p{P}]+`
 - **Min Length**: 1
 - **Max Length**: 128
 
@@ -282,6 +332,10 @@
 - **Type**: string
 - **Pattern**: `s3://([a-z0-9][a-z0-9-.]{1,61}[a-z0-9])/(.{1,1024})`
 
+### S3UriForBucketOrObject
+- **Type**: string
+- **Pattern**: `s3://([a-z0-9][a-z0-9-.]{1,61}[a-z0-9])(/(.{0,1024}))?`
+
 ### SampleId
 - **Type**: string
 - **Pattern**: `[\p{L}||\p{M}||\p{Z}||\p{S}||\p{N}||\p{P}]+`
@@ -316,6 +370,12 @@
 - **Min Length**: 1
 - **Max Length**: 127
 
+### SequenceStoreStatusMessage
+- **Type**: string
+- **Pattern**: `[\p{L}||\p{M}||\p{Z}||\p{S}||\p{N}||\p{P}]+`
+- **Min Length**: 1
+- **Max Length**: 127
+
 ### ShareName
 - **Type**: string
 - **Pattern**: `[a-zA-Z0-9_-]+`
@@ -327,6 +387,12 @@
 - **Pattern**: `.*arn:([^: ]*):([^: ]*):([^: ]*):([0-9]{12}):([^: ]*).*`
 - **Min Length**: 20
 - **Max Length**: 2048
+
+### StoreId
+- **Type**: string
+- **Pattern**: `[0-9]+`
+- **Min Length**: 10
+- **Max Length**: 36
 
 ### StoreName
 - **Type**: string
@@ -381,6 +447,18 @@
 - **Pattern**: `[0-9]+`
 - **Min Length**: 10
 - **Max Length**: 36
+
+### UserCustomDescription
+- **Type**: string
+- **Pattern**: `[\p{L}||\p{M}||\p{Z}||\p{S}||\p{N}||\p{P}]+`
+- **Min Length**: 1
+- **Max Length**: 256
+
+### UserCustomName
+- **Type**: string
+- **Pattern**: `[\p{L}||\p{M}||\p{Z}||\p{S}||\p{N}||\p{P}]+`
+- **Min Length**: 1
+- **Max Length**: 128
 
 ### VersionName
 - **Type**: string

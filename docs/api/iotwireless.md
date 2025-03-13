@@ -53,6 +53,11 @@
 - **Type**: string
 - **Pattern**: `[a-fA-F0-9]{32}`
 
+### FileDescriptor
+- **Type**: string
+- **Pattern**: `^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$`
+- **Max Length**: 332
+
 ### Fingerprint
 - **Type**: string
 - **Pattern**: `[a-fA-F0-9]{64}`

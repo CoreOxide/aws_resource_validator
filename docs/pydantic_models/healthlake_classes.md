@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateFHIRDatastoreRequestRequestTypeDef
+# CreateFHIRDatastoreRequestTypeDef
 
 ### DatastoreTypeVersion
 - **Type**: typing.Literal['R4']
@@ -63,10 +63,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATING', 'DELETED', 'DELETING']]
 
 ### CreatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.TimestampTypeDef]
 
 ### CreatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.TimestampTypeDef]
 
 
 # DatastorePropertiesTypeDef
@@ -110,7 +110,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.ErrorCauseTypeDef]
 
 
-# DeleteFHIRDatastoreRequestRequestTypeDef
+# DeleteFHIRDatastoreRequestTypeDef
 
 ### DatastoreId
 - **Type**: <class 'str'>
@@ -140,7 +140,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeFHIRDatastoreRequestRequestTypeDef
+# DescribeFHIRDatastoreRequestTypeDef
 
 ### DatastoreId
 - **Type**: <class 'str'>
@@ -158,7 +158,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeFHIRExportJobRequestRequestTypeDef
+# DescribeFHIRExportJobRequestTypeDef
 
 ### DatastoreId
 - **Type**: <class 'str'>
@@ -180,7 +180,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeFHIRImportJobRequestRequestTypeDef
+# DescribeFHIRImportJobRequestTypeDef
 
 ### DatastoreId
 - **Type**: <class 'str'>
@@ -218,7 +218,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### JobStatus
-- **Type**: typing.Literal['CANCEL_COMPLETED', 'CANCEL_FAILED', 'CANCEL_IN_PROGRESS', 'CANCEL_SUBMITTED', 'COMPLETED', 'COMPLETED_WITH_ERRORS', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']
+- **Type**: typing.Literal['CANCEL_COMPLETED', 'CANCEL_FAILED', 'CANCEL_IN_PROGRESS', 'CANCEL_SUBMITTED', 'COMPLETED', 'COMPLETED_WITH_ERRORS', 'FAILED', 'IN_PROGRESS', 'QUEUED', 'SUBMITTED']
 - **Required**: Yes
 
 ### SubmitTime
@@ -249,7 +249,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # IdentityProviderConfigurationTypeDef
 
 ### AuthorizationStrategy
-- **Type**: typing.Literal['AWS_AUTH', 'SMART_ON_FHIR_V1']
+- **Type**: typing.Literal['AWS_AUTH', 'SMART_ON_FHIR', 'SMART_ON_FHIR_V1']
 - **Required**: Yes
 
 ### FineGrainedAuthorizationEnabled
@@ -269,7 +269,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### JobStatus
-- **Type**: typing.Literal['CANCEL_COMPLETED', 'CANCEL_FAILED', 'CANCEL_IN_PROGRESS', 'CANCEL_SUBMITTED', 'COMPLETED', 'COMPLETED_WITH_ERRORS', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']
+- **Type**: typing.Literal['CANCEL_COMPLETED', 'CANCEL_FAILED', 'CANCEL_IN_PROGRESS', 'CANCEL_SUBMITTED', 'COMPLETED', 'COMPLETED_WITH_ERRORS', 'FAILED', 'IN_PROGRESS', 'QUEUED', 'SUBMITTED']
 - **Required**: Yes
 
 ### SubmitTime
@@ -346,7 +346,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFHIRDatastoresRequestRequestTypeDef
+# ListFHIRDatastoresRequestTypeDef
 
 ### Filter
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.DatastoreFilterTypeDef]
@@ -364,16 +364,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.healthlake_classes.DatastorePropertiesTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListFHIRExportJobsRequestRequestTypeDef
+
+# ListFHIRExportJobsRequestTypeDef
 
 ### DatastoreId
 - **Type**: <class 'str'>
@@ -389,13 +388,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### JobStatus
-- **Type**: typing.Optional[typing.Literal['CANCEL_COMPLETED', 'CANCEL_FAILED', 'CANCEL_IN_PROGRESS', 'CANCEL_SUBMITTED', 'COMPLETED', 'COMPLETED_WITH_ERRORS', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']]
+- **Type**: typing.Optional[typing.Literal['CANCEL_COMPLETED', 'CANCEL_FAILED', 'CANCEL_IN_PROGRESS', 'CANCEL_SUBMITTED', 'COMPLETED', 'COMPLETED_WITH_ERRORS', 'FAILED', 'IN_PROGRESS', 'QUEUED', 'SUBMITTED']]
 
 ### SubmittedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.TimestampTypeDef]
 
 ### SubmittedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.TimestampTypeDef]
 
 
 # ListFHIRExportJobsResponseTypeDef
@@ -404,16 +403,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.healthlake_classes.ExportJobPropertiesTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListFHIRImportJobsRequestRequestTypeDef
+
+# ListFHIRImportJobsRequestTypeDef
 
 ### DatastoreId
 - **Type**: <class 'str'>
@@ -429,13 +427,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### JobStatus
-- **Type**: typing.Optional[typing.Literal['CANCEL_COMPLETED', 'CANCEL_FAILED', 'CANCEL_IN_PROGRESS', 'CANCEL_SUBMITTED', 'COMPLETED', 'COMPLETED_WITH_ERRORS', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']]
+- **Type**: typing.Optional[typing.Literal['CANCEL_COMPLETED', 'CANCEL_FAILED', 'CANCEL_IN_PROGRESS', 'CANCEL_SUBMITTED', 'COMPLETED', 'COMPLETED_WITH_ERRORS', 'FAILED', 'IN_PROGRESS', 'QUEUED', 'SUBMITTED']]
 
 ### SubmittedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.TimestampTypeDef]
 
 ### SubmittedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.TimestampTypeDef]
 
 
 # ListFHIRImportJobsResponseTypeDef
@@ -444,16 +442,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.healthlake_classes.ImportJobPropertiesTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -524,7 +521,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartFHIRExportJobRequestRequestTypeDef
+# StartFHIRExportJobRequestTypeDef
 
 ### OutputDataConfig
 - **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.OutputDataConfigTypeDef'>
@@ -538,11 +535,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### ClientToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### JobName
+- **Type**: typing.Optional[str]
+
+### ClientToken
 - **Type**: typing.Optional[str]
 
 
@@ -553,7 +549,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### JobStatus
-- **Type**: typing.Literal['CANCEL_COMPLETED', 'CANCEL_FAILED', 'CANCEL_IN_PROGRESS', 'CANCEL_SUBMITTED', 'COMPLETED', 'COMPLETED_WITH_ERRORS', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']
+- **Type**: typing.Literal['CANCEL_COMPLETED', 'CANCEL_FAILED', 'CANCEL_IN_PROGRESS', 'CANCEL_SUBMITTED', 'COMPLETED', 'COMPLETED_WITH_ERRORS', 'FAILED', 'IN_PROGRESS', 'QUEUED', 'SUBMITTED']
 - **Required**: Yes
 
 ### DatastoreId
@@ -565,7 +561,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartFHIRImportJobRequestRequestTypeDef
+# StartFHIRImportJobRequestTypeDef
 
 ### InputDataConfig
 - **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.InputDataConfigTypeDef'>
@@ -583,11 +579,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### ClientToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### JobName
+- **Type**: typing.Optional[str]
+
+### ClientToken
 - **Type**: typing.Optional[str]
 
 
@@ -598,7 +593,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### JobStatus
-- **Type**: typing.Literal['CANCEL_COMPLETED', 'CANCEL_FAILED', 'CANCEL_IN_PROGRESS', 'CANCEL_SUBMITTED', 'COMPLETED', 'COMPLETED_WITH_ERRORS', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']
+- **Type**: typing.Literal['CANCEL_COMPLETED', 'CANCEL_FAILED', 'CANCEL_IN_PROGRESS', 'CANCEL_SUBMITTED', 'COMPLETED', 'COMPLETED_WITH_ERRORS', 'FAILED', 'IN_PROGRESS', 'QUEUED', 'SUBMITTED']
 - **Required**: Yes
 
 ### DatastoreId
@@ -610,7 +605,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -632,7 +627,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>

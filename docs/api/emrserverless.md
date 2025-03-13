@@ -54,7 +54,7 @@
 
 ### EncryptionKeyArn
 - **Type**: string
-- **Pattern**: `arn:(aws[a-zA-Z0-9-]*):kms:[a-zA-Z0-9\-]*:(\d{12})?:key\/[a-zA-Z0-9-]+`
+- **Pattern**: `arn:(aws[a-zA-Z0-9-]*):kms:[a-zA-Z0-9\-]*:([0-9]{12}):key\/[a-zA-Z0-9-]+`
 - **Min Length**: 20
 - **Max Length**: 2048
 
@@ -68,7 +68,7 @@
 - **Type**: string
 - **Pattern**: `.*\S.*`
 - **Min Length**: 1
-- **Max Length**: 256
+- **Max Length**: 4096
 
 ### HiveCliParameters
 - **Type**: string
@@ -78,7 +78,7 @@
 
 ### IAMRoleArn
 - **Type**: string
-- **Pattern**: `arn:(aws[a-zA-Z0-9-]*):iam::(\d{12})?:(role((\u002F)|(\u002F[\u0021-\u007F]+\u002F))[\w+=,.@-]+)`
+- **Pattern**: `arn:(aws[a-zA-Z0-9-]*):iam::([0-9]{12}):(role((\u002F)|(\u002F[\u0021-\u007F]+\u002F))[\w+=,.@-]+)`
 - **Min Length**: 20
 - **Max Length**: 2048
 
@@ -88,7 +88,7 @@
 
 ### ImageUri
 - **Type**: string
-- **Pattern**: `([a-z0-9]+[a-z0-9-.]*)\/((?:[a-z0-9]+(?:[._-][a-z0-9]+)*\/)*[a-z0-9]+(?:[._-][a-z0-9]+)*)(?:\:([a-zA-Z0-9_][a-zA-Z0-9-._]{0,299})|@(sha256:[0-9a-f]{64}))`
+- **Pattern**: `([0-9]{12})\.dkr\.ecr\.([a-z0-9-]+).([a-z0-9._-]+)\/((?:[a-z0-9]+(?:[-._][a-z0-9]+)*/)*[a-z0-9]+(?:[-._][a-z0-9]+)*)(?::([a-zA-Z0-9_]+[a-zA-Z0-9-._]*)|@(sha256:[0-9a-f]{64}))`
 - **Min Length**: 1
 - **Max Length**: 1024
 

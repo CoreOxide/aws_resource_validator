@@ -75,7 +75,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchDescribeEntitiesRequestRequestTypeDef
+# BatchDescribeEntitiesRequestTypeDef
 
 ### EntityRequestList
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.marketplace_catalog_classes.EntityRequestTypeDef]
@@ -106,7 +106,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CancelChangeSetRequestRequestTypeDef
+# CancelChangeSetRequestTypeDef
 
 ### Catalog
 - **Type**: <class 'str'>
@@ -341,14 +341,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['Draft', 'Limited', 'Public', 'Restricted', 'Unavailable']]]
 
 
-# DeleteResourcePolicyRequestRequestTypeDef
+# DeleteResourcePolicyRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeChangeSetRequestRequestTypeDef
+# DescribeChangeSetRequestTypeDef
 
 ### Catalog
 - **Type**: <class 'str'>
@@ -406,7 +406,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEntityRequestRequestTypeDef
+# DescribeEntityRequestTypeDef
 
 ### Catalog
 - **Type**: <class 'str'>
@@ -518,13 +518,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EntityTypeDef
 
-### Type
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Identifier
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EntityTypeFiltersTypeDef
 
@@ -586,7 +582,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# GetResourcePolicyRequestRequestTypeDef
+# GetResourcePolicyRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -604,7 +600,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListChangeSetsRequestListChangeSetsPaginateTypeDef
+# ListChangeSetsRequestPaginateTypeDef
 
 ### Catalog
 - **Type**: <class 'str'>
@@ -620,7 +616,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.PaginatorConfigTypeDef]
 
 
-# ListChangeSetsRequestRequestTypeDef
+# ListChangeSetsRequestTypeDef
 
 ### Catalog
 - **Type**: <class 'str'>
@@ -645,16 +641,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ChangeSetSummaryListItemTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListEntitiesRequestListEntitiesPaginateTypeDef
+
+# ListEntitiesRequestPaginateTypeDef
 
 ### Catalog
 - **Type**: <class 'str'>
@@ -683,7 +678,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.PaginatorConfigTypeDef]
 
 
-# ListEntitiesRequestRequestTypeDef
+# ListEntitiesRequestTypeDef
 
 ### Catalog
 - **Type**: <class 'str'>
@@ -721,16 +716,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.marketplace_catalog_classes.EntitySummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -923,7 +917,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutResourcePolicyRequestRequestTypeDef
+# PutResourcePolicyRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1253,7 +1247,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 
-# StartChangeSetRequestRequestTypeDef
+# StartChangeSetRequestTypeDef
 
 ### Catalog
 - **Type**: <class 'str'>
@@ -1291,7 +1285,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1313,7 +1307,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>

@@ -57,7 +57,7 @@
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.AcceleratorEventTypeDef]]
 
 
-# AddCustomRoutingEndpointsRequestRequestTypeDef
+# AddCustomRoutingEndpointsRequestTypeDef
 
 ### EndpointConfigurations
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingEndpointConfigurationTypeDef]
@@ -83,7 +83,7 @@
 - **Required**: Yes
 
 
-# AddEndpointsRequestRequestTypeDef
+# AddEndpointsRequestTypeDef
 
 ### EndpointConfigurations
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.EndpointConfigurationTypeDef]
@@ -109,7 +109,7 @@
 - **Required**: Yes
 
 
-# AdvertiseByoipCidrRequestRequestTypeDef
+# AdvertiseByoipCidrRequestTypeDef
 
 ### Cidr
 - **Type**: <class 'str'>
@@ -127,7 +127,7 @@
 - **Required**: Yes
 
 
-# AllowCustomRoutingTrafficRequestRequestTypeDef
+# AllowCustomRoutingTrafficRequestTypeDef
 
 ### EndpointGroupArn
 - **Type**: <class 'str'>
@@ -206,7 +206,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAcceleratorRequestRequestTypeDef
+# CreateAcceleratorRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -240,7 +240,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCrossAccountAttachmentRequestRequestTypeDef
+# CreateCrossAccountAttachmentRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -271,7 +271,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCustomRoutingAcceleratorRequestRequestTypeDef
+# CreateCustomRoutingAcceleratorRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -305,7 +305,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCustomRoutingEndpointGroupRequestRequestTypeDef
+# CreateCustomRoutingEndpointGroupRequestTypeDef
 
 ### ListenerArn
 - **Type**: <class 'str'>
@@ -335,7 +335,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCustomRoutingListenerRequestRequestTypeDef
+# CreateCustomRoutingListenerRequestTypeDef
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
@@ -361,7 +361,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateEndpointGroupRequestRequestTypeDef
+# CreateEndpointGroupRequestTypeDef
 
 ### ListenerArn
 - **Type**: <class 'str'>
@@ -409,28 +409,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
-
-
-# CreateListenerRequestRequestTypeDef
-
-### AcceleratorArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PortRanges
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.PortRangeTypeDef]
-- **Required**: Yes
-
-### Protocol
-- **Type**: typing.Literal['TCP', 'UDP']
-- **Required**: Yes
-
-### IdempotencyToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ClientAffinity
-- **Type**: typing.Optional[typing.Literal['NONE', 'SOURCE_IP']]
 
 
 # CreateListenerResponseTypeDef
@@ -564,56 +542,56 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.PortRangeTypeDef]]
 
 
-# DeleteAcceleratorRequestRequestTypeDef
+# DeleteAcceleratorRequestTypeDef
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteCrossAccountAttachmentRequestRequestTypeDef
+# DeleteCrossAccountAttachmentRequestTypeDef
 
 ### AttachmentArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteCustomRoutingAcceleratorRequestRequestTypeDef
+# DeleteCustomRoutingAcceleratorRequestTypeDef
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteCustomRoutingEndpointGroupRequestRequestTypeDef
+# DeleteCustomRoutingEndpointGroupRequestTypeDef
 
 ### EndpointGroupArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteCustomRoutingListenerRequestRequestTypeDef
+# DeleteCustomRoutingListenerRequestTypeDef
 
 ### ListenerArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteEndpointGroupRequestRequestTypeDef
+# DeleteEndpointGroupRequestTypeDef
 
 ### EndpointGroupArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteListenerRequestRequestTypeDef
+# DeleteListenerRequestTypeDef
 
 ### ListenerArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DenyCustomRoutingTrafficRequestRequestTypeDef
+# DenyCustomRoutingTrafficRequestTypeDef
 
 ### EndpointGroupArn
 - **Type**: <class 'str'>
@@ -633,7 +611,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeprovisionByoipCidrRequestRequestTypeDef
+# DeprovisionByoipCidrRequestTypeDef
 
 ### Cidr
 - **Type**: <class 'str'>
@@ -651,7 +629,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAcceleratorAttributesRequestRequestTypeDef
+# DescribeAcceleratorAttributesRequestTypeDef
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
@@ -669,7 +647,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAcceleratorRequestRequestTypeDef
+# DescribeAcceleratorRequestTypeDef
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
@@ -687,7 +665,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeCrossAccountAttachmentRequestRequestTypeDef
+# DescribeCrossAccountAttachmentRequestTypeDef
 
 ### AttachmentArn
 - **Type**: <class 'str'>
@@ -705,7 +683,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeCustomRoutingAcceleratorAttributesRequestRequestTypeDef
+# DescribeCustomRoutingAcceleratorAttributesRequestTypeDef
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
@@ -723,7 +701,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeCustomRoutingAcceleratorRequestRequestTypeDef
+# DescribeCustomRoutingAcceleratorRequestTypeDef
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
@@ -741,7 +719,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeCustomRoutingEndpointGroupRequestRequestTypeDef
+# DescribeCustomRoutingEndpointGroupRequestTypeDef
 
 ### EndpointGroupArn
 - **Type**: <class 'str'>
@@ -759,7 +737,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeCustomRoutingListenerRequestRequestTypeDef
+# DescribeCustomRoutingListenerRequestTypeDef
 
 ### ListenerArn
 - **Type**: <class 'str'>
@@ -777,7 +755,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEndpointGroupRequestRequestTypeDef
+# DescribeEndpointGroupRequestTypeDef
 
 ### EndpointGroupArn
 - **Type**: <class 'str'>
@@ -795,7 +773,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeListenerRequestRequestTypeDef
+# DescribeListenerRequestTypeDef
 
 ### ListenerArn
 - **Type**: <class 'str'>
@@ -935,13 +913,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['IPv4', 'IPv6']]
 
 
-# ListAcceleratorsRequestListAcceleratorsPaginateTypeDef
+# ListAcceleratorsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfigTypeDef]
 
 
-# ListAcceleratorsRequestRequestTypeDef
+# ListAcceleratorsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -964,13 +942,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListByoipCidrsRequestListByoipCidrsPaginateTypeDef
+# ListByoipCidrsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfigTypeDef]
 
 
-# ListByoipCidrsRequestRequestTypeDef
+# ListByoipCidrsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -993,13 +971,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCrossAccountAttachmentsRequestListCrossAccountAttachmentsPaginateTypeDef
+# ListCrossAccountAttachmentsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfigTypeDef]
 
 
-# ListCrossAccountAttachmentsRequestRequestTypeDef
+# ListCrossAccountAttachmentsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1033,7 +1011,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListCrossAccountResourcesRequestListCrossAccountResourcesPaginateTypeDef
+# ListCrossAccountResourcesRequestPaginateTypeDef
 
 ### ResourceOwnerAwsAccountId
 - **Type**: <class 'str'>
@@ -1046,7 +1024,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfigTypeDef]
 
 
-# ListCrossAccountResourcesRequestRequestTypeDef
+# ListCrossAccountResourcesRequestTypeDef
 
 ### ResourceOwnerAwsAccountId
 - **Type**: <class 'str'>
@@ -1076,13 +1054,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCustomRoutingAcceleratorsRequestListCustomRoutingAcceleratorsPaginateTypeDef
+# ListCustomRoutingAcceleratorsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfigTypeDef]
 
 
-# ListCustomRoutingAcceleratorsRequestRequestTypeDef
+# ListCustomRoutingAcceleratorsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1105,7 +1083,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCustomRoutingEndpointGroupsRequestListCustomRoutingEndpointGroupsPaginateTypeDef
+# ListCustomRoutingEndpointGroupsRequestPaginateTypeDef
 
 ### ListenerArn
 - **Type**: <class 'str'>
@@ -1115,7 +1093,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfigTypeDef]
 
 
-# ListCustomRoutingEndpointGroupsRequestRequestTypeDef
+# ListCustomRoutingEndpointGroupsRequestTypeDef
 
 ### ListenerArn
 - **Type**: <class 'str'>
@@ -1142,7 +1120,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCustomRoutingListenersRequestListCustomRoutingListenersPaginateTypeDef
+# ListCustomRoutingListenersRequestPaginateTypeDef
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
@@ -1152,7 +1130,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfigTypeDef]
 
 
-# ListCustomRoutingListenersRequestRequestTypeDef
+# ListCustomRoutingListenersRequestTypeDef
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
@@ -1179,7 +1157,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCustomRoutingPortMappingsByDestinationRequestListCustomRoutingPortMappingsByDestinationPaginateTypeDef
+# ListCustomRoutingPortMappingsByDestinationRequestPaginateTypeDef
 
 ### EndpointId
 - **Type**: <class 'str'>
@@ -1193,7 +1171,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfigTypeDef]
 
 
-# ListCustomRoutingPortMappingsByDestinationRequestRequestTypeDef
+# ListCustomRoutingPortMappingsByDestinationRequestTypeDef
 
 ### EndpointId
 - **Type**: <class 'str'>
@@ -1224,7 +1202,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCustomRoutingPortMappingsRequestListCustomRoutingPortMappingsPaginateTypeDef
+# ListCustomRoutingPortMappingsRequestPaginateTypeDef
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
@@ -1237,7 +1215,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfigTypeDef]
 
 
-# ListCustomRoutingPortMappingsRequestRequestTypeDef
+# ListCustomRoutingPortMappingsRequestTypeDef
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
@@ -1267,7 +1245,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListEndpointGroupsRequestListEndpointGroupsPaginateTypeDef
+# ListEndpointGroupsRequestPaginateTypeDef
 
 ### ListenerArn
 - **Type**: <class 'str'>
@@ -1277,7 +1255,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfigTypeDef]
 
 
-# ListEndpointGroupsRequestRequestTypeDef
+# ListEndpointGroupsRequestTypeDef
 
 ### ListenerArn
 - **Type**: <class 'str'>
@@ -1304,7 +1282,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListListenersRequestListListenersPaginateTypeDef
+# ListListenersRequestPaginateTypeDef
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
@@ -1314,7 +1292,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfigTypeDef]
 
 
-# ListListenersRequestRequestTypeDef
+# ListListenersRequestTypeDef
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
@@ -1341,7 +1319,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1361,18 +1339,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListenerTypeDef
 
-### ListenerArn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### PortRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.PortRangeTypeDef]]
-
-### Protocol
-- **Type**: typing.Optional[typing.Literal['TCP', 'UDP']]
-
-### ClientAffinity
-- **Type**: typing.Optional[typing.Literal['NONE', 'SOURCE_IP']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PaginatorConfigTypeDef
 
@@ -1425,7 +1394,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ProvisionByoipCidrRequestRequestTypeDef
+# ProvisionByoipCidrRequestTypeDef
 
 ### Cidr
 - **Type**: <class 'str'>
@@ -1447,7 +1416,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveCustomRoutingEndpointsRequestRequestTypeDef
+# RemoveCustomRoutingEndpointsRequestTypeDef
 
 ### EndpointIds
 - **Type**: typing.Sequence[str]
@@ -1458,7 +1427,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveEndpointsRequestRequestTypeDef
+# RemoveEndpointsRequestTypeDef
 
 ### EndpointIdentifiers
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.EndpointIdentifierTypeDef]
@@ -1512,7 +1481,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1534,7 +1503,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1545,7 +1514,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAcceleratorAttributesRequestRequestTypeDef
+# UpdateAcceleratorAttributesRequestTypeDef
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
@@ -1572,7 +1541,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAcceleratorRequestRequestTypeDef
+# UpdateAcceleratorRequestTypeDef
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
@@ -1602,7 +1571,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateCrossAccountAttachmentRequestRequestTypeDef
+# UpdateCrossAccountAttachmentRequestTypeDef
 
 ### AttachmentArn
 - **Type**: <class 'str'>
@@ -1635,7 +1604,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateCustomRoutingAcceleratorAttributesRequestRequestTypeDef
+# UpdateCustomRoutingAcceleratorAttributesRequestTypeDef
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
@@ -1662,7 +1631,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateCustomRoutingAcceleratorRequestRequestTypeDef
+# UpdateCustomRoutingAcceleratorRequestTypeDef
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
@@ -1692,7 +1661,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateCustomRoutingListenerRequestRequestTypeDef
+# UpdateCustomRoutingListenerRequestTypeDef
 
 ### ListenerArn
 - **Type**: <class 'str'>
@@ -1714,7 +1683,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateEndpointGroupRequestRequestTypeDef
+# UpdateEndpointGroupRequestTypeDef
 
 ### EndpointGroupArn
 - **Type**: <class 'str'>
@@ -1756,22 +1725,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateListenerRequestRequestTypeDef
-
-### ListenerArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PortRanges
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.PortRangeTypeDef]]
-
-### Protocol
-- **Type**: typing.Optional[typing.Literal['TCP', 'UDP']]
-
-### ClientAffinity
-- **Type**: typing.Optional[typing.Literal['NONE', 'SOURCE_IP']]
-
-
 # UpdateListenerResponseTypeDef
 
 ### Listener
@@ -1783,7 +1736,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# WithdrawByoipCidrRequestRequestTypeDef
+# WithdrawByoipCidrRequestTypeDef
 
 ### Cidr
 - **Type**: <class 'str'>

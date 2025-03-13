@@ -28,7 +28,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SendSSHPublicKeyRequestRequestTypeDef
+# SendSSHPublicKeyRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -61,7 +61,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SendSerialConsoleSSHPublicKeyRequestRequestTypeDef
+# SendSerialConsoleSSHPublicKeyRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>

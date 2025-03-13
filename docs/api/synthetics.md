@@ -6,7 +6,7 @@
 
 ### CanaryArn
 - **Type**: string
-- **Pattern**: `arn:(aws[a-zA-Z-]*)?:synthetics:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}:\d{12}:canary:[0-9a-z_\-]{1,21}`
+- **Pattern**: `arn:(aws[a-zA-Z-]*)?:synthetics:[a-z]{2,4}(-[a-z]{2,4})?-[a-z]+-\d{1}:\d{12}:canary:[0-9a-z_\-]{1,255}`
 - **Min Length**: 1
 - **Max Length**: 2048
 
@@ -14,7 +14,7 @@
 - **Type**: string
 - **Pattern**: `^[0-9a-z_\-]+$`
 - **Min Length**: 1
-- **Max Length**: 21
+- **Max Length**: 255
 
 ### CodeHandler
 - **Type**: string
@@ -28,19 +28,19 @@
 
 ### FunctionArn
 - **Type**: string
-- **Pattern**: `arn:(aws[a-zA-Z-]*)?:lambda:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}:\d{12}:function:[a-zA-Z0-9-_]+(:(\$LATEST|[a-zA-Z0-9-_]+))?`
+- **Pattern**: `arn:(aws[a-zA-Z-]*)?:lambda:[a-z]{2,4}(-[a-z]{2,4})?-[a-z]+-\d{1}:\d{12}:function:[a-zA-Z0-9-_]+(:(\$LATEST|[a-zA-Z0-9-_]+))?`
 - **Min Length**: 1
 - **Max Length**: 2048
 
 ### GroupArn
 - **Type**: string
-- **Pattern**: `arn:(aws[a-zA-Z-]*)?:synthetics:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}:\d{12}:group:[0-9a-z]+`
+- **Pattern**: `arn:(aws[a-zA-Z-]*)?:synthetics:[a-z]{2,4}(-[a-z]{2,4})?-[a-z]+-\d{1}:\d{12}:group:[0-9a-z]+`
 - **Min Length**: 1
 - **Max Length**: 128
 
 ### KmsKeyArn
 - **Type**: string
-- **Pattern**: `arn:(aws[a-zA-Z-]*)?:kms:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}:\d{12}:key/[\w\-\/]+`
+- **Pattern**: `arn:(aws[a-zA-Z-]*)?:kms:[a-z]{2,4}(-[a-z]{2,4})?-[a-z]+-\d{1}:\d{12}:key/[\w\-\/]+`
 - **Min Length**: 1
 - **Max Length**: 2048
 
@@ -52,7 +52,7 @@
 
 ### ResourceArn
 - **Type**: string
-- **Pattern**: `arn:(aws[a-zA-Z-]*)?:synthetics:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}:\d{12}:(canary|group):[0-9a-z_\-]+`
+- **Pattern**: `arn:(aws[a-zA-Z-]*)?:synthetics:[a-z]{2,4}(-[a-z]{2,4})?-[a-z]+-\d{1}:\d{12}:(canary|group):[0-9a-z_\-]+`
 - **Min Length**: 1
 - **Max Length**: 2048
 

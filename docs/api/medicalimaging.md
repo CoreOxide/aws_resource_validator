@@ -4,6 +4,12 @@
 - **Type**: string
 - **Pattern**: `arn:aws((-us-gov)|(-iso)|(-iso-b)|(-cn))?:medical-imaging:[a-z0-9-]+:[0-9]{12}:datastore/[0-9a-z]{32}(/imageset/[0-9a-z]{32})?`
 
+### AwsAccountId
+- **Type**: string
+- **Pattern**: `\d+`
+- **Min Length**: 12
+- **Max Length**: 12
+
 ### ClientToken
 - **Type**: string
 - **Pattern**: `[A-Za-z0-9._-]+`
@@ -12,15 +18,15 @@
 
 ### DICOMSeriesInstanceUID
 - **Type**: string
-- **Pattern**: `(?:[1-9][0-9]*|0)(\.(?:[1-9][0-9]*|0))*`
+- **Pattern**: `(?:[0-9][0-9]*|0)(\.(?:[1-9][0-9]*|0))*`
 - **Min Length**: 0
-- **Max Length**: 64
+- **Max Length**: 256
 
 ### DICOMStudyInstanceUID
 - **Type**: string
-- **Pattern**: `(?:[1-9][0-9]*|0)(\.(?:[1-9][0-9]*|0))*`
+- **Pattern**: `(?:[0-9][0-9]*|0)(\.(?:[1-9][0-9]*|0))*`
 - **Min Length**: 0
-- **Max Length**: 64
+- **Max Length**: 256
 
 ### DatastoreId
 - **Type**: string

@@ -2,5 +2,5 @@
 
 ### AccountId
 - **Type**: string
-- **Pattern**: `^[0-9]{12}$`
+- **Pattern**: `[0-9]{12}`
 
