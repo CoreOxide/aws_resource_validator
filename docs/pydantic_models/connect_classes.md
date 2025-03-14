@@ -7,7 +7,7 @@
 - **Required**: Yes
 
 
-# ActivateEvaluationFormRequestRequestTypeDef
+# ActivateEvaluationFormRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -41,6 +41,15 @@
 - **Required**: Yes
 
 
+# AdditionalEmailRecipientsTypeDef
+
+### ToList
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.connect_classes.EmailRecipientTypeDef]]
+
+### CcList
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.connect_classes.EmailRecipientTypeDef]]
+
+
 # AgentConfigOutputTypeDef
 
 ### Distributions
@@ -55,16 +64,22 @@
 - **Required**: Yes
 
 
+# AgentConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # AgentContactReferenceTypeDef
 
 ### ContactId
 - **Type**: typing.Optional[str]
 
 ### Channel
-- **Type**: typing.Optional[typing.Literal['CHAT', 'TASK', 'VOICE']]
+- **Type**: typing.Optional[typing.Literal['CHAT', 'EMAIL', 'TASK', 'VOICE']]
 
 ### InitiationMethod
-- **Type**: typing.Optional[typing.Literal['API', 'CALLBACK', 'DISCONNECT', 'EXTERNAL_OUTBOUND', 'INBOUND', 'MONITOR', 'OUTBOUND', 'QUEUE_TRANSFER', 'TRANSFER']]
+- **Type**: typing.Optional[typing.Literal['AGENT_REPLY', 'API', 'CALLBACK', 'DISCONNECT', 'EXTERNAL_OUTBOUND', 'FLOW', 'INBOUND', 'MONITOR', 'OUTBOUND', 'QUEUE_TRANSFER', 'TRANSFER', 'WEBRTC_API']]
 
 ### AgentContactState
 - **Type**: typing.Optional[typing.Literal['CONNECTED', 'CONNECTED_ONHOLD', 'CONNECTING', 'ENDED', 'ERROR', 'INCOMING', 'MISSED', 'PENDING', 'REJECTED']]
@@ -142,65 +157,65 @@
 - **Type**: typing.Optional[str]
 
 
+# AgentStatusSearchCriteriaPaginatorTypeDef
+
+### OrConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### AndConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### StringCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
+
+
+# AgentStatusSearchCriteriaTypeDef
+
+### OrConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### AndConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### StringCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
+
+
+# AgentStatusSearchFilterTypeDef
+
+### AttributeFilter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ControlPlaneAttributeFilterTypeDef]
+
+
 # AgentStatusSummaryTypeDef
 
-### Id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Arn
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['CUSTOM', 'OFFLINE', 'ROUTABLE']]
-
-### LastModifiedTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### LastModifiedRegion
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AgentStatusTypeDef
 
-### AgentStatusARN
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### AgentStatusId
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Name
-- **Type**: typing.Optional[str]
+# AgentsCriteriaOutputTypeDef
 
-### Description
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['CUSTOM', 'OFFLINE', 'ROUTABLE']]
-
-### DisplayOrder
-- **Type**: typing.Optional[int]
-
-### State
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### Tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### LastModifiedTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### LastModifiedRegion
-- **Type**: typing.Optional[str]
+### AgentIds
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # AgentsCriteriaTypeDef
 
 ### AgentIds
-- **Type**: typing.Optional[typing.List[str]]
+- **Type**: typing.Optional[typing.Sequence[str]]
 
+
+# AgentsCriteriaUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AllowedCapabilitiesTypeDef
 
@@ -225,6 +240,18 @@
 ### ResourceShareArn
 - **Type**: typing.Optional[str]
 
+### ResourceShareStatus
+- **Type**: typing.Optional[str]
+
+
+# AnalyticsDataSetsResultTypeDef
+
+### DataSetId
+- **Type**: typing.Optional[str]
+
+### DataSetName
+- **Type**: typing.Optional[str]
+
 
 # AnswerMachineDetectionConfigTypeDef
 
@@ -233,15 +260,6 @@
 
 ### AwaitAnswerMachinePrompt
 - **Type**: typing.Optional[bool]
-
-
-# ApplicationExtraOutputTypeDef
-
-### Namespace
-- **Type**: typing.Optional[str]
-
-### ApplicationPermissions
-- **Type**: typing.Optional[typing.List[str]]
 
 
 # ApplicationOutputTypeDef
@@ -262,7 +280,13 @@
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# AssociateAnalyticsDataSetRequestRequestTypeDef
+# ApplicationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AssociateAnalyticsDataSetRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -299,7 +323,7 @@
 - **Required**: Yes
 
 
-# AssociateApprovedOriginRequestRequestTypeDef
+# AssociateApprovedOriginRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -309,8 +333,11 @@
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### ClientToken
+- **Type**: typing.Optional[str]
 
-# AssociateBotRequestRequestTypeDef
+
+# AssociateBotRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -322,22 +349,25 @@
 ### LexV2Bot
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.LexV2BotTypeDef]
 
+### ClientToken
+- **Type**: typing.Optional[str]
 
-# AssociateDefaultVocabularyRequestRequestTypeDef
+
+# AssociateDefaultVocabularyRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### LanguageCode
-- **Type**: typing.Literal['ar-AE', 'de-CH', 'de-DE', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'fr-CA', 'fr-FR', 'hi-IN', 'it-IT', 'ja-JP', 'ko-KR', 'pt-BR', 'pt-PT', 'zh-CN']
+- **Type**: typing.Literal['ar-AE', 'ca-ES', 'da-DK', 'de-CH', 'de-DE', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'fi-FI', 'fr-CA', 'fr-FR', 'hi-IN', 'id-ID', 'it-IT', 'ja-JP', 'ko-KR', 'ms-MY', 'nl-NL', 'no-NO', 'pl-PL', 'pt-BR', 'pt-PT', 'sv-SE', 'tl-PH', 'zh-CN']
 - **Required**: Yes
 
 ### VocabularyId
 - **Type**: typing.Optional[str]
 
 
-# AssociateFlowRequestRequestTypeDef
+# AssociateFlowRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -352,23 +382,26 @@
 - **Required**: Yes
 
 ### ResourceType
-- **Type**: typing.Literal['SMS_PHONE_NUMBER']
+- **Type**: typing.Literal['ANALYTICS_CONNECTOR', 'INBOUND_EMAIL', 'OUTBOUND_EMAIL', 'SMS_PHONE_NUMBER', 'WHATSAPP_MESSAGING_PHONE_NUMBER']
 - **Required**: Yes
 
 
-# AssociateInstanceStorageConfigRequestRequestTypeDef
+# AssociateInstanceStorageConfigRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResourceType
-- **Type**: typing.Literal['AGENT_EVENTS', 'ATTACHMENTS', 'CALL_RECORDINGS', 'CHAT_TRANSCRIPTS', 'CONTACT_EVALUATIONS', 'CONTACT_TRACE_RECORDS', 'MEDIA_STREAMS', 'REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS', 'REAL_TIME_CONTACT_ANALYSIS_SEGMENTS', 'REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS', 'SCHEDULED_REPORTS', 'SCREEN_RECORDINGS']
+- **Type**: typing.Literal['AGENT_EVENTS', 'ATTACHMENTS', 'CALL_RECORDINGS', 'CHAT_TRANSCRIPTS', 'CONTACT_EVALUATIONS', 'CONTACT_TRACE_RECORDS', 'EMAIL_MESSAGES', 'MEDIA_STREAMS', 'REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS', 'REAL_TIME_CONTACT_ANALYSIS_SEGMENTS', 'REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS', 'SCHEDULED_REPORTS', 'SCREEN_RECORDINGS']
 - **Required**: Yes
 
 ### StorageConfig
 - **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.InstanceStorageConfigTypeDef'>
 - **Required**: Yes
+
+### ClientToken
+- **Type**: typing.Optional[str]
 
 
 # AssociateInstanceStorageConfigResponseTypeDef
@@ -382,7 +415,7 @@
 - **Required**: Yes
 
 
-# AssociateLambdaFunctionRequestRequestTypeDef
+# AssociateLambdaFunctionRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -392,8 +425,11 @@
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### ClientToken
+- **Type**: typing.Optional[str]
 
-# AssociateLexBotRequestRequestTypeDef
+
+# AssociateLexBotRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -403,8 +439,11 @@
 - **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.LexBotTypeDef'>
 - **Required**: Yes
 
+### ClientToken
+- **Type**: typing.Optional[str]
 
-# AssociatePhoneNumberContactFlowRequestRequestTypeDef
+
+# AssociatePhoneNumberContactFlowRequestTypeDef
 
 ### PhoneNumberId
 - **Type**: <class 'str'>
@@ -419,7 +458,7 @@
 - **Required**: Yes
 
 
-# AssociateQueueQuickConnectsRequestRequestTypeDef
+# AssociateQueueQuickConnectsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -434,7 +473,7 @@
 - **Required**: Yes
 
 
-# AssociateRoutingProfileQueuesRequestRequestTypeDef
+# AssociateRoutingProfileQueuesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -449,7 +488,7 @@
 - **Required**: Yes
 
 
-# AssociateSecurityKeyRequestRequestTypeDef
+# AssociateSecurityKeyRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -458,6 +497,9 @@
 ### Key
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+### ClientToken
+- **Type**: typing.Optional[str]
 
 
 # AssociateSecurityKeyResponseTypeDef
@@ -471,7 +513,7 @@
 - **Required**: Yes
 
 
-# AssociateTrafficDistributionGroupUserRequestRequestTypeDef
+# AssociateTrafficDistributionGroupUserRequestTypeDef
 
 ### TrafficDistributionGroupId
 - **Type**: <class 'str'>
@@ -486,7 +528,7 @@
 - **Required**: Yes
 
 
-# AssociateUserProficienciesRequestRequestTypeDef
+# AssociateUserProficienciesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -499,6 +541,36 @@
 ### UserProficiencies
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.UserProficiencyTypeDef]
 - **Required**: Yes
+
+
+# AssociatedContactSummaryTypeDef
+
+### ContactId
+- **Type**: typing.Optional[str]
+
+### ContactArn
+- **Type**: typing.Optional[str]
+
+### InitiationTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### DisconnectTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### InitialContactId
+- **Type**: typing.Optional[str]
+
+### PreviousContactId
+- **Type**: typing.Optional[str]
+
+### RelatedContactId
+- **Type**: typing.Optional[str]
+
+### InitiationMethod
+- **Type**: typing.Optional[typing.Literal['AGENT_REPLY', 'API', 'CALLBACK', 'DISCONNECT', 'EXTERNAL_OUTBOUND', 'FLOW', 'INBOUND', 'MONITOR', 'OUTBOUND', 'QUEUE_TRANSFER', 'TRANSFER', 'WEBRTC_API']]
+
+### Channel
+- **Type**: typing.Optional[typing.Literal['CHAT', 'EMAIL', 'TASK', 'VOICE']]
 
 
 # AttachedFileErrorTypeDef
@@ -543,7 +615,7 @@
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.CreatedByInfoTypeDef]
 
 ### FileUseCaseType
-- **Type**: typing.Optional[typing.Literal['ATTACHMENT']]
+- **Type**: typing.Optional[typing.Literal['ATTACHMENT', 'EMAIL_MESSAGE']]
 
 ### AssociatedResourceArn
 - **Type**: typing.Optional[str]
@@ -561,7 +633,10 @@
 - **Type**: typing.Optional[str]
 
 ### Status
-- **Type**: typing.Optional[typing.Literal['APPROVED', 'REJECTED']]
+- **Type**: typing.Optional[typing.Literal['APPROVED', 'AVAILABLE', 'DELETED', 'FAILED', 'PROCESSING', 'REJECTED']]
+
+### Arn
+- **Type**: typing.Optional[str]
 
 
 # AttendeeTypeDef
@@ -582,6 +657,27 @@
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.HierarchyGroupConditionTypeDef]
 
 
+# AttributeConditionOutputTypeDef
+
+### Name
+- **Type**: typing.Optional[str]
+
+### Value
+- **Type**: typing.Optional[str]
+
+### ProficiencyLevel
+- **Type**: typing.Optional[float]
+
+### Range
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.RangeTypeDef]
+
+### MatchCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.MatchCriteriaOutputTypeDef]
+
+### ComparisonOperator
+- **Type**: typing.Optional[str]
+
+
 # AttributeConditionTypeDef
 
 ### Name
@@ -593,17 +689,26 @@
 ### ProficiencyLevel
 - **Type**: typing.Optional[float]
 
+### Range
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.RangeTypeDef]
+
 ### MatchCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.MatchCriteriaTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.MatchCriteriaUnionTypeDef]
 
 ### ComparisonOperator
 - **Type**: typing.Optional[str]
 
 
+# AttributeConditionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # AttributeTypeDef
 
 ### AttributeType
-- **Type**: typing.Optional[typing.Literal['AUTO_RESOLVE_BEST_VOICES', 'CONTACTFLOW_LOGS', 'CONTACT_LENS', 'EARLY_MEDIA', 'ENHANCED_CHAT_MONITORING', 'ENHANCED_CONTACT_MONITORING', 'HIGH_VOLUME_OUTBOUND', 'INBOUND_CALLS', 'MULTI_PARTY_CONFERENCE', 'OUTBOUND_CALLS', 'USE_CUSTOM_TTS_VOICES']]
+- **Type**: typing.Optional[typing.Literal['AUTO_RESOLVE_BEST_VOICES', 'CONTACTFLOW_LOGS', 'CONTACT_LENS', 'EARLY_MEDIA', 'ENHANCED_CHAT_MONITORING', 'ENHANCED_CONTACT_MONITORING', 'HIGH_VOLUME_OUTBOUND', 'INBOUND_CALLS', 'MULTI_PARTY_CHAT_CONFERENCE', 'MULTI_PARTY_CONFERENCE', 'OUTBOUND_CALLS', 'USE_CUSTOM_TTS_VOICES']]
 
 ### Value
 - **Type**: typing.Optional[str]
@@ -702,7 +807,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchAssociateAnalyticsDataSetRequestRequestTypeDef
+# BatchAssociateAnalyticsDataSetRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -731,7 +836,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchDisassociateAnalyticsDataSetRequestRequestTypeDef
+# BatchDisassociateAnalyticsDataSetRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -760,7 +865,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchGetAttachedFileMetadataRequestRequestTypeDef
+# BatchGetAttachedFileMetadataRequestTypeDef
 
 ### FileIds
 - **Type**: typing.Sequence[str]
@@ -790,7 +895,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchGetFlowAssociationRequestRequestTypeDef
+# BatchGetFlowAssociationRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -801,7 +906,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceType
-- **Type**: typing.Optional[typing.Literal['VOICE_PHONE_NUMBER']]
+- **Type**: typing.Optional[typing.Literal['ANALYTICS_CONNECTOR', 'INBOUND_EMAIL', 'OUTBOUND_EMAIL', 'VOICE_PHONE_NUMBER', 'WHATSAPP_MESSAGING_PHONE_NUMBER']]
 
 
 # BatchGetFlowAssociationResponseTypeDef
@@ -815,7 +920,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchPutContactRequestRequestTypeDef
+# BatchPutContactRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -852,16 +957,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ChatEventTypeDef
 
-### Type
-- **Type**: typing.Literal['DISCONNECT', 'EVENT', 'MESSAGE']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### ContentType
-- **Type**: typing.Optional[str]
-
-### Content
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ChatMessageTypeDef
 
@@ -888,7 +986,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ClaimPhoneNumberRequestRequestTypeDef
+# ClaimPhoneNumberRequestTypeDef
 
 ### PhoneNumber
 - **Type**: <class 'str'>
@@ -961,7 +1059,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CompleteAttachedFileUploadRequestRequestTypeDef
+# CommonAttributeAndConditionTypeDef
+
+### TagConditions
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.TagConditionTypeDef]]
+
+
+# CompleteAttachedFileUploadRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -974,6 +1078,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### AssociatedResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+
+# ConditionTypeDef
+
+### StringCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
+
+### NumberCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.NumberConditionTypeDef]
 
 
 # ConnectionDataTypeDef
@@ -989,6 +1102,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Transcript
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.TranscriptTypeDef]
+
+
+# ContactConfigurationTypeDef
+
+### ContactId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ParticipantRole
+- **Type**: typing.Optional[typing.Literal['AGENT', 'CUSTOMER', 'CUSTOM_BOT', 'SUPERVISOR', 'SYSTEM']]
+
+### IncludeRawMessage
+- **Type**: typing.Optional[bool]
 
 
 # ContactDataRequestTypeDef
@@ -1018,16 +1144,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['CONNECTED', 'CONNECTED_ONHOLD', 'CONNECTING', 'ENDED', 'ERROR', 'INCOMING', 'MISSED', 'PENDING', 'REJECTED']]]
 
 
-# ContactFlowModuleSearchCriteriaTypeDef
+# ContactFlowModuleSearchCriteriaPaginatorTypeDef
 
 ### OrConditions
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 ### AndConditions
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 ### StringCondition
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
+
+### StateCondition
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'ARCHIVED']]
+
+### StatusCondition
+- **Type**: typing.Optional[typing.Literal['PUBLISHED', 'SAVED']]
+
+
+# ContactFlowModuleSearchCriteriaTypeDef
+
+### OrConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### AndConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### StringCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
+
+### StateCondition
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'ARCHIVED']]
+
+### StatusCondition
+- **Type**: typing.Optional[typing.Literal['PUBLISHED', 'SAVED']]
 
 
 # ContactFlowModuleSearchFilterTypeDef
@@ -1078,19 +1228,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# ContactFlowSearchCriteriaTypeDef
+# ContactFlowSearchCriteriaPaginatorTypeDef
 
 ### OrConditions
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 ### AndConditions
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 ### StringCondition
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
 
 ### TypeCondition
-- **Type**: typing.Optional[typing.Literal['AGENT_HOLD', 'AGENT_TRANSFER', 'AGENT_WHISPER', 'CONTACT_FLOW', 'CUSTOMER_HOLD', 'CUSTOMER_QUEUE', 'CUSTOMER_WHISPER', 'OUTBOUND_WHISPER', 'QUEUE_TRANSFER']]
+- **Type**: typing.Optional[typing.Literal['AGENT_HOLD', 'AGENT_TRANSFER', 'AGENT_WHISPER', 'CAMPAIGN', 'CONTACT_FLOW', 'CUSTOMER_HOLD', 'CUSTOMER_QUEUE', 'CUSTOMER_WHISPER', 'OUTBOUND_WHISPER', 'QUEUE_TRANSFER']]
+
+### StateCondition
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'ARCHIVED']]
+
+### StatusCondition
+- **Type**: typing.Optional[typing.Literal['PUBLISHED', 'SAVED']]
+
+
+# ContactFlowSearchCriteriaTypeDef
+
+### OrConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### AndConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### StringCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
+
+### TypeCondition
+- **Type**: typing.Optional[typing.Literal['AGENT_HOLD', 'AGENT_TRANSFER', 'AGENT_WHISPER', 'CAMPAIGN', 'CONTACT_FLOW', 'CUSTOMER_HOLD', 'CUSTOMER_QUEUE', 'CUSTOMER_WHISPER', 'OUTBOUND_WHISPER', 'QUEUE_TRANSFER']]
 
 ### StateCondition
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'ARCHIVED']]
@@ -1117,7 +1288,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ContactFlowType
-- **Type**: typing.Optional[typing.Literal['AGENT_HOLD', 'AGENT_TRANSFER', 'AGENT_WHISPER', 'CONTACT_FLOW', 'CUSTOMER_HOLD', 'CUSTOMER_QUEUE', 'CUSTOMER_WHISPER', 'OUTBOUND_WHISPER', 'QUEUE_TRANSFER']]
+- **Type**: typing.Optional[typing.Literal['AGENT_HOLD', 'AGENT_TRANSFER', 'AGENT_WHISPER', 'CAMPAIGN', 'CONTACT_FLOW', 'CUSTOMER_HOLD', 'CUSTOMER_QUEUE', 'CUSTOMER_WHISPER', 'OUTBOUND_WHISPER', 'QUEUE_TRANSFER']]
 
 ### ContactFlowState
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'ARCHIVED']]
@@ -1128,32 +1299,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ContactFlowTypeDef
 
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ContactFlowVersionSummaryTypeDef
+
 ### Arn
 - **Type**: typing.Optional[str]
 
-### Id
+### VersionDescription
 - **Type**: typing.Optional[str]
 
-### Name
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['AGENT_HOLD', 'AGENT_TRANSFER', 'AGENT_WHISPER', 'CONTACT_FLOW', 'CUSTOMER_HOLD', 'CUSTOMER_QUEUE', 'CUSTOMER_WHISPER', 'OUTBOUND_WHISPER', 'QUEUE_TRANSFER']]
-
-### State
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'ARCHIVED']]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['PUBLISHED', 'SAVED']]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Content
-- **Type**: typing.Optional[str]
-
-### Tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
+### Version
+- **Type**: typing.Optional[int]
 
 
 # ContactSearchSummaryAgentInfoTypeDef
@@ -1174,6 +1333,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
+# ContactSearchSummarySegmentAttributeValueTypeDef
+
+### ValueString
+- **Type**: typing.Optional[str]
+
+
 # ContactSearchSummaryTypeDef
 
 ### Arn
@@ -1189,10 +1354,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InitiationMethod
-- **Type**: typing.Optional[typing.Literal['API', 'CALLBACK', 'DISCONNECT', 'EXTERNAL_OUTBOUND', 'INBOUND', 'MONITOR', 'OUTBOUND', 'QUEUE_TRANSFER', 'TRANSFER']]
+- **Type**: typing.Optional[typing.Literal['AGENT_REPLY', 'API', 'CALLBACK', 'DISCONNECT', 'EXTERNAL_OUTBOUND', 'FLOW', 'INBOUND', 'MONITOR', 'OUTBOUND', 'QUEUE_TRANSFER', 'TRANSFER', 'WEBRTC_API']]
 
 ### Channel
-- **Type**: typing.Optional[typing.Literal['CHAT', 'TASK', 'VOICE']]
+- **Type**: typing.Optional[typing.Literal['CHAT', 'EMAIL', 'TASK', 'VOICE']]
 
 ### QueueInfo
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ContactSearchSummaryQueueInfoTypeDef]
@@ -1209,6 +1374,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ScheduledTimestamp
 - **Type**: typing.Optional[datetime.datetime]
 
+### SegmentAttributes
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.connect_classes.ContactSearchSummarySegmentAttributeValueTypeDef]]
+
 
 # ContactTypeDef
 
@@ -1224,8 +1392,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### PreviousContactId
 - **Type**: typing.Optional[str]
 
+### ContactAssociationId
+- **Type**: typing.Optional[str]
+
 ### InitiationMethod
-- **Type**: typing.Optional[typing.Literal['API', 'CALLBACK', 'DISCONNECT', 'EXTERNAL_OUTBOUND', 'INBOUND', 'MONITOR', 'OUTBOUND', 'QUEUE_TRANSFER', 'TRANSFER']]
+- **Type**: typing.Optional[typing.Literal['AGENT_REPLY', 'API', 'CALLBACK', 'DISCONNECT', 'EXTERNAL_OUTBOUND', 'FLOW', 'INBOUND', 'MONITOR', 'OUTBOUND', 'QUEUE_TRANSFER', 'TRANSFER', 'WEBRTC_API']]
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -1234,7 +1405,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Channel
-- **Type**: typing.Optional[typing.Literal['CHAT', 'TASK', 'VOICE']]
+- **Type**: typing.Optional[typing.Literal['CHAT', 'EMAIL', 'TASK', 'VOICE']]
 
 ### QueueInfo
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.QueueInfoTypeDef]
@@ -1272,6 +1443,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### WisdomInfo
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.WisdomInfoTypeDef]
 
+### CustomerId
+- **Type**: typing.Optional[str]
+
+### CustomerEndpoint
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.EndpointInfoTypeDef]
+
+### SystemEndpoint
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.EndpointInfoTypeDef]
+
 ### QueueTimeAdjustmentSeconds
 - **Type**: typing.Optional[int]
 
@@ -1305,8 +1485,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### DisconnectDetails
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.DisconnectDetailsTypeDef]
 
+### AdditionalEmailRecipients
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.AdditionalEmailRecipientsTypeDef]
+
 ### SegmentAttributes
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.connect_classes.SegmentAttributeValueTypeDef]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.connect_classes.SegmentAttributeValueOutputTypeDef]]
+
+
+# ControlPlaneAttributeFilterTypeDef
+
+### OrConditions
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.CommonAttributeAndConditionTypeDef]]
+
+### AndCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.CommonAttributeAndConditionTypeDef]
+
+### TagCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.TagConditionTypeDef]
 
 
 # ControlPlaneTagFilterTypeDef
@@ -1336,7 +1531,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.HierarchyGroupConditionTypeDef]
 
 
-# CreateAgentStatusRequestRequestTypeDef
+# CreateAgentStatusRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -1389,7 +1584,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateCaseActionDefinitionTypeDef
 
 ### Fields
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.FieldValueTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.FieldValueUnionExtraTypeDef]
 - **Required**: Yes
 
 ### TemplateId
@@ -1397,7 +1592,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateContactFlowModuleRequestRequestTypeDef
+# CreateCaseActionDefinitionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CreateContactFlowModuleRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -1436,34 +1637,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateContactFlowRequestRequestTypeDef
-
-### InstanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['AGENT_HOLD', 'AGENT_TRANSFER', 'AGENT_WHISPER', 'CONTACT_FLOW', 'CUSTOMER_HOLD', 'CUSTOMER_QUEUE', 'CUSTOMER_WHISPER', 'OUTBOUND_WHISPER', 'QUEUE_TRANSFER']
-- **Required**: Yes
-
-### Content
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['PUBLISHED', 'SAVED']]
-
-### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-
 # CreateContactFlowResponseTypeDef
 
 ### ContactFlowId
@@ -1474,12 +1647,158 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### FlowContentSha256
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
 
-# CreateEvaluationFormRequestRequestTypeDef
+# CreateContactFlowVersionRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ContactFlowId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Description
+- **Type**: typing.Optional[str]
+
+### FlowContentSha256
+- **Type**: typing.Optional[str]
+
+### ContactFlowVersion
+- **Type**: typing.Optional[int]
+
+### LastModifiedTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.TimestampTypeDef]
+
+### LastModifiedRegion
+- **Type**: typing.Optional[str]
+
+
+# CreateContactFlowVersionResponseTypeDef
+
+### ContactFlowArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Version
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateContactRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Channel
+- **Type**: typing.Literal['CHAT', 'EMAIL', 'TASK', 'VOICE']
+- **Required**: Yes
+
+### InitiationMethod
+- **Type**: typing.Literal['AGENT_REPLY', 'API', 'CALLBACK', 'DISCONNECT', 'EXTERNAL_OUTBOUND', 'FLOW', 'INBOUND', 'MONITOR', 'OUTBOUND', 'QUEUE_TRANSFER', 'TRANSFER', 'WEBRTC_API']
+- **Required**: Yes
+
+### ClientToken
+- **Type**: typing.Optional[str]
+
+### RelatedContactId
+- **Type**: typing.Optional[str]
+
+### Attributes
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### References
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.connect_classes.ReferenceTypeDef]]
+
+### ExpiryDurationInMinutes
+- **Type**: typing.Optional[int]
+
+### UserInfo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.UserInfoTypeDef]
+
+### InitiateAs
+- **Type**: typing.Optional[typing.Literal['CONNECTED_TO_USER']]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### SegmentAttributes
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.connect_classes.SegmentAttributeValueUnionTypeDef]]
+
+### PreviousContactId
+- **Type**: typing.Optional[str]
+
+
+# CreateContactResponseTypeDef
+
+### ContactId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ContactArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateEmailAddressRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EmailAddress
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Description
+- **Type**: typing.Optional[str]
+
+### DisplayName
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### ClientToken
+- **Type**: typing.Optional[str]
+
+
+# CreateEmailAddressResponseTypeDef
+
+### EmailAddressId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EmailAddressArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateEvaluationFormRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -1490,7 +1809,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Sequence[typing.Union[ForwardRef("'EvaluationFormItemTypeDef'"), ForwardRef("'EvaluationFormItemOutputTypeDef'")]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.EvaluationFormItemUnionTypeDef]
 - **Required**: Yes
 
 ### Description
@@ -1518,7 +1837,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateHoursOfOperationRequestRequestTypeDef
+# CreateHoursOfOperationOverrideRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### HoursOfOperationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Config
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.HoursOfOperationOverrideConfigTypeDef]
+- **Default**: <class 'aws_resource_validator.pydantic_models.base_validator_model.BaseValidatorModel.Config'>
+
+### EffectiveFrom
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EffectiveTill
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Description
+- **Type**: typing.Optional[str]
+
+
+# CreateHoursOfOperationOverrideResponseTypeDef
+
+### HoursOfOperationOverrideId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateHoursOfOperationRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -1558,7 +1918,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateInstanceRequestRequestTypeDef
+# CreateInstanceRequestTypeDef
 
 ### IdentityManagementType
 - **Type**: typing.Literal['CONNECT_MANAGED', 'EXISTING_DIRECTORY', 'SAML']
@@ -1600,14 +1960,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateIntegrationAssociationRequestRequestTypeDef
+# CreateIntegrationAssociationRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### IntegrationType
-- **Type**: typing.Literal['APPLICATION', 'CASES_DOMAIN', 'EVENT', 'FILE_SCANNER', 'PINPOINT_APP', 'VOICE_ID', 'WISDOM_ASSISTANT', 'WISDOM_KNOWLEDGE_BASE', 'WISDOM_QUICK_RESPONSES']
+- **Type**: typing.Literal['ANALYTICS_CONNECTOR', 'APPLICATION', 'CALL_TRANSFER_CONNECTOR', 'CASES_DOMAIN', 'COGNITO_USER_POOL', 'EVENT', 'FILE_SCANNER', 'PINPOINT_APP', 'Q_MESSAGE_TEMPLATES', 'SES_IDENTITY', 'VOICE_ID', 'WISDOM_ASSISTANT', 'WISDOM_KNOWLEDGE_BASE', 'WISDOM_QUICK_RESPONSES']
 - **Required**: Yes
 
 ### IntegrationArn
@@ -1642,7 +2002,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateParticipantRequestRequestTypeDef
+# CreateParticipantRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -1675,7 +2035,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePersistentContactAssociationRequestRequestTypeDef
+# CreatePersistentContactAssociationRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -1708,7 +2068,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePredefinedAttributeRequestRequestTypeDef
+# CreatePredefinedAttributeRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -1719,11 +2079,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.PredefinedAttributeValuesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.PredefinedAttributeValuesUnionTypeDef'>
 - **Required**: Yes
 
 
-# CreatePromptRequestRequestTypeDef
+# CreatePromptRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -1759,7 +2119,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateQueueRequestRequestTypeDef
+# CreatePushNotificationRegistrationRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PinpointAppArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DeviceToken
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DeviceType
+- **Type**: typing.Literal['APNS', 'APNS_SANDBOX', 'GCM']
+- **Required**: Yes
+
+### ContactConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ContactConfigurationTypeDef'>
+- **Required**: Yes
+
+### ClientToken
+- **Type**: typing.Optional[str]
+
+
+# CreatePushNotificationRegistrationResponseTypeDef
+
+### RegistrationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateQueueRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -1778,6 +2175,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### OutboundCallerConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.OutboundCallerConfigTypeDef]
+
+### OutboundEmailConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.OutboundEmailConfigTypeDef]
 
 ### MaxContacts
 - **Type**: typing.Optional[int]
@@ -1804,7 +2204,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateQuickConnectRequestRequestTypeDef
+# CreateQuickConnectRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -1840,7 +2240,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateRoutingProfileRequestRequestTypeDef
+# CreateRoutingProfileRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -1887,7 +2287,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateRuleRequestRequestTypeDef
+# CreateRuleRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -1906,7 +2306,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Actions
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.connect_classes.RuleActionTypeDef, aws_resource_validator.pydantic_models.connect_classes.RuleActionOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.RuleActionUnionTypeDef]
 - **Required**: Yes
 
 ### PublishStatus
@@ -1932,7 +2332,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateSecurityProfileRequestRequestTypeDef
+# CreateSecurityProfileRequestTypeDef
 
 ### SecurityProfileName
 - **Type**: <class 'str'>
@@ -1958,7 +2358,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### Applications
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.connect_classes.ApplicationTypeDef, aws_resource_validator.pydantic_models.connect_classes.ApplicationExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.ApplicationUnionTypeDef]]
 
 ### HierarchyRestrictedResources
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1982,7 +2382,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTaskTemplateRequestRequestTypeDef
+# CreateTaskTemplateRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -1993,7 +2393,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Fields
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.connect_classes.TaskTemplateFieldTypeDef, aws_resource_validator.pydantic_models.connect_classes.TaskTemplateFieldOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.TaskTemplateFieldUnionTypeDef]
 - **Required**: Yes
 
 ### Description
@@ -2002,11 +2402,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ContactFlowId
 - **Type**: typing.Optional[str]
 
+### SelfAssignFlowId
+- **Type**: typing.Optional[str]
+
 ### Constraints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.TaskTemplateConstraintsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.TaskTemplateConstraintsUnionTypeDef]
 
 ### Defaults
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.TaskTemplateDefaultsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.TaskTemplateDefaultsUnionTypeDef]
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
@@ -2030,7 +2433,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTrafficDistributionGroupRequestRequestTypeDef
+# CreateTrafficDistributionGroupRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -2065,7 +2468,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateUseCaseRequestRequestTypeDef
+# CreateUseCaseRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2098,7 +2501,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateUserHierarchyGroupRequestRequestTypeDef
+# CreateUserHierarchyGroupRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -2130,7 +2533,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateUserRequestRequestTypeDef
+# CreateUserRequestTypeDef
 
 ### Username
 - **Type**: <class 'str'>
@@ -2183,7 +2586,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateViewRequestRequestTypeDef
+# CreateViewRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2222,7 +2625,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateViewVersionRequestRequestTypeDef
+# CreateViewVersionRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2250,7 +2653,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateVocabularyRequestRequestTypeDef
+# CreateVocabularyRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2261,7 +2664,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LanguageCode
-- **Type**: typing.Literal['ar-AE', 'de-CH', 'de-DE', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'fr-CA', 'fr-FR', 'hi-IN', 'it-IT', 'ja-JP', 'ko-KR', 'pt-BR', 'pt-PT', 'zh-CN']
+- **Type**: typing.Literal['ar-AE', 'ca-ES', 'da-DK', 'de-CH', 'de-DE', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'fi-FI', 'fr-CA', 'fr-FR', 'hi-IN', 'id-ID', 'it-IT', 'ja-JP', 'ko-KR', 'ms-MY', 'nl-NL', 'no-NO', 'pl-PL', 'pt-BR', 'pt-PT', 'sv-SE', 'tl-PH', 'zh-CN']
 - **Required**: Yes
 
 ### Content
@@ -2385,6 +2788,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
+# DateConditionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # DateReferenceTypeDef
 
 ### Name
@@ -2394,7 +2803,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeactivateEvaluationFormRequestRequestTypeDef
+# DeactivateEvaluationFormRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2435,7 +2844,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LanguageCode
-- **Type**: typing.Literal['ar-AE', 'de-CH', 'de-DE', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'fr-CA', 'fr-FR', 'hi-IN', 'it-IT', 'ja-JP', 'ko-KR', 'pt-BR', 'pt-PT', 'zh-CN']
+- **Type**: typing.Literal['ar-AE', 'ca-ES', 'da-DK', 'de-CH', 'de-DE', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'fi-FI', 'fr-CA', 'fr-FR', 'hi-IN', 'id-ID', 'it-IT', 'ja-JP', 'ko-KR', 'ms-MY', 'nl-NL', 'no-NO', 'pl-PL', 'pt-BR', 'pt-PT', 'sv-SE', 'tl-PH', 'zh-CN']
 - **Required**: Yes
 
 ### VocabularyId
@@ -2447,7 +2856,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAttachedFileRequestRequestTypeDef
+# DeleteAttachedFileRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2462,7 +2871,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteContactEvaluationRequestRequestTypeDef
+# DeleteContactEvaluationRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2473,7 +2882,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteContactFlowModuleRequestRequestTypeDef
+# DeleteContactFlowModuleRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2484,7 +2893,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteContactFlowRequestRequestTypeDef
+# DeleteContactFlowRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2495,7 +2904,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteEvaluationFormRequestRequestTypeDef
+# DeleteContactFlowVersionRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ContactFlowId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ContactFlowVersion
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+
+# DeleteEmailAddressRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EmailAddressId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteEvaluationFormRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2509,7 +2944,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DeleteHoursOfOperationRequestRequestTypeDef
+# DeleteHoursOfOperationOverrideRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### HoursOfOperationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### HoursOfOperationOverrideId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteHoursOfOperationRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2520,14 +2970,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteInstanceRequestRequestTypeDef
+# DeleteInstanceRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### ClientToken
+- **Type**: typing.Optional[str]
 
-# DeleteIntegrationAssociationRequestRequestTypeDef
+
+# DeleteIntegrationAssociationRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2538,7 +2991,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeletePredefinedAttributeRequestRequestTypeDef
+# DeletePredefinedAttributeRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2549,7 +3002,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeletePromptRequestRequestTypeDef
+# DeletePromptRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2560,7 +3013,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteQueueRequestRequestTypeDef
+# DeletePushNotificationRegistrationRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### RegistrationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ContactId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteQueueRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2571,7 +3039,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteQuickConnectRequestRequestTypeDef
+# DeleteQuickConnectRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2582,7 +3050,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteRoutingProfileRequestRequestTypeDef
+# DeleteRoutingProfileRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2593,7 +3061,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteRuleRequestRequestTypeDef
+# DeleteRuleRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2604,7 +3072,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteSecurityProfileRequestRequestTypeDef
+# DeleteSecurityProfileRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2615,7 +3083,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteTaskTemplateRequestRequestTypeDef
+# DeleteTaskTemplateRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2626,14 +3094,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteTrafficDistributionGroupRequestRequestTypeDef
+# DeleteTrafficDistributionGroupRequestTypeDef
 
 ### TrafficDistributionGroupId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteUseCaseRequestRequestTypeDef
+# DeleteUseCaseRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2648,7 +3116,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteUserHierarchyGroupRequestRequestTypeDef
+# DeleteUserHierarchyGroupRequestTypeDef
 
 ### HierarchyGroupId
 - **Type**: <class 'str'>
@@ -2659,7 +3127,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteUserRequestRequestTypeDef
+# DeleteUserRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2670,7 +3138,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteViewRequestRequestTypeDef
+# DeleteViewRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2681,7 +3149,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteViewVersionRequestRequestTypeDef
+# DeleteViewVersionRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2696,7 +3164,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteVocabularyRequestRequestTypeDef
+# DeleteVocabularyRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2726,7 +3194,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAgentStatusRequestRequestTypeDef
+# DescribeAgentStatusRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2748,7 +3216,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAuthenticationProfileRequestRequestTypeDef
+# DescribeAuthenticationProfileRequestTypeDef
 
 ### AuthenticationProfileId
 - **Type**: <class 'str'>
@@ -2770,7 +3238,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeContactEvaluationRequestRequestTypeDef
+# DescribeContactEvaluationRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2796,7 +3264,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeContactFlowModuleRequestRequestTypeDef
+# DescribeContactFlowModuleRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2818,7 +3286,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeContactFlowRequestRequestTypeDef
+# DescribeContactFlowRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2840,7 +3308,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeContactRequestRequestTypeDef
+# DescribeContactRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2862,7 +3330,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEvaluationFormRequestRequestTypeDef
+# DescribeEmailAddressRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EmailAddressId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeEmailAddressResponseTypeDef
+
+### EmailAddressId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EmailAddressArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EmailAddress
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DisplayName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CreateTimestamp
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ModifiedTimestamp
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Dict[str, str]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DescribeEvaluationFormRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2887,7 +3405,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeHoursOfOperationRequestRequestTypeDef
+# DescribeHoursOfOperationOverrideRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### HoursOfOperationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### HoursOfOperationOverrideId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeHoursOfOperationOverrideResponseTypeDef
+
+### HoursOfOperationOverride
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.HoursOfOperationOverrideTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DescribeHoursOfOperationRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2909,14 +3453,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeInstanceAttributeRequestRequestTypeDef
+# DescribeInstanceAttributeRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### AttributeType
-- **Type**: typing.Literal['AUTO_RESOLVE_BEST_VOICES', 'CONTACTFLOW_LOGS', 'CONTACT_LENS', 'EARLY_MEDIA', 'ENHANCED_CHAT_MONITORING', 'ENHANCED_CONTACT_MONITORING', 'HIGH_VOLUME_OUTBOUND', 'INBOUND_CALLS', 'MULTI_PARTY_CONFERENCE', 'OUTBOUND_CALLS', 'USE_CUSTOM_TTS_VOICES']
+- **Type**: typing.Literal['AUTO_RESOLVE_BEST_VOICES', 'CONTACTFLOW_LOGS', 'CONTACT_LENS', 'EARLY_MEDIA', 'ENHANCED_CHAT_MONITORING', 'ENHANCED_CONTACT_MONITORING', 'HIGH_VOLUME_OUTBOUND', 'INBOUND_CALLS', 'MULTI_PARTY_CHAT_CONFERENCE', 'MULTI_PARTY_CONFERENCE', 'OUTBOUND_CALLS', 'USE_CUSTOM_TTS_VOICES']
 - **Required**: Yes
 
 
@@ -2931,7 +3475,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeInstanceRequestRequestTypeDef
+# DescribeInstanceRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2944,12 +3488,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.InstanceTypeDef'>
 - **Required**: Yes
 
+### ReplicationConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ReplicationConfigurationTypeDef'>
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
 
-# DescribeInstanceStorageConfigRequestRequestTypeDef
+# DescribeInstanceStorageConfigRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2960,7 +3508,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceType
-- **Type**: typing.Literal['AGENT_EVENTS', 'ATTACHMENTS', 'CALL_RECORDINGS', 'CHAT_TRANSCRIPTS', 'CONTACT_EVALUATIONS', 'CONTACT_TRACE_RECORDS', 'MEDIA_STREAMS', 'REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS', 'REAL_TIME_CONTACT_ANALYSIS_SEGMENTS', 'REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS', 'SCHEDULED_REPORTS', 'SCREEN_RECORDINGS']
+- **Type**: typing.Literal['AGENT_EVENTS', 'ATTACHMENTS', 'CALL_RECORDINGS', 'CHAT_TRANSCRIPTS', 'CONTACT_EVALUATIONS', 'CONTACT_TRACE_RECORDS', 'EMAIL_MESSAGES', 'MEDIA_STREAMS', 'REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS', 'REAL_TIME_CONTACT_ANALYSIS_SEGMENTS', 'REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS', 'SCHEDULED_REPORTS', 'SCREEN_RECORDINGS']
 - **Required**: Yes
 
 
@@ -2975,7 +3523,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribePhoneNumberRequestRequestTypeDef
+# DescribePhoneNumberRequestTypeDef
 
 ### PhoneNumberId
 - **Type**: <class 'str'>
@@ -2993,7 +3541,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribePredefinedAttributeRequestRequestTypeDef
+# DescribePredefinedAttributeRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -3015,7 +3563,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribePromptRequestRequestTypeDef
+# DescribePromptRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -3037,7 +3585,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeQueueRequestRequestTypeDef
+# DescribeQueueRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -3059,7 +3607,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeQuickConnectRequestRequestTypeDef
+# DescribeQuickConnectRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -3081,7 +3629,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeRoutingProfileRequestRequestTypeDef
+# DescribeRoutingProfileRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -3103,7 +3651,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeRuleRequestRequestTypeDef
+# DescribeRuleRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -3125,7 +3673,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeSecurityProfileRequestRequestTypeDef
+# DescribeSecurityProfileRequestTypeDef
 
 ### SecurityProfileId
 - **Type**: <class 'str'>
@@ -3147,7 +3695,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeTrafficDistributionGroupRequestRequestTypeDef
+# DescribeTrafficDistributionGroupRequestTypeDef
 
 ### TrafficDistributionGroupId
 - **Type**: <class 'str'>
@@ -3165,7 +3713,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeUserHierarchyGroupRequestRequestTypeDef
+# DescribeUserHierarchyGroupRequestTypeDef
 
 ### HierarchyGroupId
 - **Type**: <class 'str'>
@@ -3187,7 +3735,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeUserHierarchyStructureRequestRequestTypeDef
+# DescribeUserHierarchyStructureRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -3205,7 +3753,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeUserRequestRequestTypeDef
+# DescribeUserRequestTypeDef
 
 ### UserId
 - **Type**: <class 'str'>
@@ -3227,7 +3775,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeViewRequestRequestTypeDef
+# DescribeViewRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -3249,7 +3797,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeVocabularyRequestRequestTypeDef
+# DescribeVocabularyRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -3289,7 +3837,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.QueueReferenceTypeDef]
 
 ### Channel
-- **Type**: typing.Optional[typing.Literal['CHAT', 'TASK', 'VOICE']]
+- **Type**: typing.Optional[typing.Literal['CHAT', 'EMAIL', 'TASK', 'VOICE']]
 
 ### RoutingProfile
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.RoutingProfileReferenceTypeDef]
@@ -3298,7 +3846,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DisassociateAnalyticsDataSetRequestRequestTypeDef
+# DisassociateAnalyticsDataSetRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -3312,7 +3860,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DisassociateApprovedOriginRequestRequestTypeDef
+# DisassociateApprovedOriginRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -3322,8 +3870,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### ClientToken
+- **Type**: typing.Optional[str]
 
-# DisassociateBotRequestRequestTypeDef
+
+# DisassociateBotRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -3335,8 +3886,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### LexV2Bot
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.LexV2BotTypeDef]
 
+### ClientToken
+- **Type**: typing.Optional[str]
 
-# DisassociateFlowRequestRequestTypeDef
+
+# DisassociateFlowRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -3347,11 +3901,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceType
-- **Type**: typing.Literal['SMS_PHONE_NUMBER']
+- **Type**: typing.Literal['ANALYTICS_CONNECTOR', 'INBOUND_EMAIL', 'OUTBOUND_EMAIL', 'SMS_PHONE_NUMBER', 'WHATSAPP_MESSAGING_PHONE_NUMBER']
 - **Required**: Yes
 
 
-# DisassociateInstanceStorageConfigRequestRequestTypeDef
+# DisassociateInstanceStorageConfigRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -3362,11 +3916,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceType
-- **Type**: typing.Literal['AGENT_EVENTS', 'ATTACHMENTS', 'CALL_RECORDINGS', 'CHAT_TRANSCRIPTS', 'CONTACT_EVALUATIONS', 'CONTACT_TRACE_RECORDS', 'MEDIA_STREAMS', 'REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS', 'REAL_TIME_CONTACT_ANALYSIS_SEGMENTS', 'REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS', 'SCHEDULED_REPORTS', 'SCREEN_RECORDINGS']
+- **Type**: typing.Literal['AGENT_EVENTS', 'ATTACHMENTS', 'CALL_RECORDINGS', 'CHAT_TRANSCRIPTS', 'CONTACT_EVALUATIONS', 'CONTACT_TRACE_RECORDS', 'EMAIL_MESSAGES', 'MEDIA_STREAMS', 'REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS', 'REAL_TIME_CONTACT_ANALYSIS_SEGMENTS', 'REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS', 'SCHEDULED_REPORTS', 'SCREEN_RECORDINGS']
 - **Required**: Yes
 
+### ClientToken
+- **Type**: typing.Optional[str]
 
-# DisassociateLambdaFunctionRequestRequestTypeDef
+
+# DisassociateLambdaFunctionRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -3376,8 +3933,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### ClientToken
+- **Type**: typing.Optional[str]
 
-# DisassociateLexBotRequestRequestTypeDef
+
+# DisassociateLexBotRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -3391,8 +3951,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### ClientToken
+- **Type**: typing.Optional[str]
 
-# DisassociatePhoneNumberContactFlowRequestRequestTypeDef
+
+# DisassociatePhoneNumberContactFlowRequestTypeDef
 
 ### PhoneNumberId
 - **Type**: <class 'str'>
@@ -3403,7 +3966,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateQueueQuickConnectsRequestRequestTypeDef
+# DisassociateQueueQuickConnectsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -3418,7 +3981,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateRoutingProfileQueuesRequestRequestTypeDef
+# DisassociateRoutingProfileQueuesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -3433,7 +3996,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateSecurityKeyRequestRequestTypeDef
+# DisassociateSecurityKeyRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -3443,8 +4006,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### ClientToken
+- **Type**: typing.Optional[str]
 
-# DisassociateTrafficDistributionGroupUserRequestRequestTypeDef
+
+# DisassociateTrafficDistributionGroupUserRequestTypeDef
 
 ### TrafficDistributionGroupId
 - **Type**: <class 'str'>
@@ -3459,7 +4025,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateUserProficienciesRequestRequestTypeDef
+# DisassociateUserProficienciesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -3486,7 +4052,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DismissUserContactRequestRequestTypeDef
+# DismissUserContactRequestTypeDef
 
 ### UserId
 - **Type**: <class 'str'>
@@ -3521,6 +4087,90 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# EffectiveHoursOfOperationsTypeDef
+
+### Date
+- **Type**: typing.Optional[str]
+
+### OperationalHours
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.connect_classes.OperationalHourTypeDef]]
+
+
+# EmailAddressInfoTypeDef
+
+### EmailAddress
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DisplayName
+- **Type**: typing.Optional[str]
+
+
+# EmailAddressMetadataTypeDef
+
+### EmailAddressId
+- **Type**: typing.Optional[str]
+
+### EmailAddressArn
+- **Type**: typing.Optional[str]
+
+### EmailAddress
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### DisplayName
+- **Type**: typing.Optional[str]
+
+
+# EmailAddressSearchCriteriaTypeDef
+
+### OrConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### AndConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### StringCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
+
+
+# EmailAddressSearchFilterTypeDef
+
+### TagFilter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ControlPlaneTagFilterTypeDef]
+
+
+# EmailAttachmentTypeDef
+
+### FileName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### S3Url
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# EmailMessageReferenceTypeDef
+
+### Name
+- **Type**: typing.Optional[str]
+
+### Arn
+- **Type**: typing.Optional[str]
+
+
+# EmailRecipientTypeDef
+
+### Address
+- **Type**: typing.Optional[str]
+
+### DisplayName
+- **Type**: typing.Optional[str]
+
+
 # EmailReferenceTypeDef
 
 ### Name
@@ -3548,14 +4198,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# EndpointInfoTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # EndpointTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['CONTACT_FLOW', 'TELEPHONE_NUMBER', 'VOIP']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Address
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ErrorResultTypeDef
 
@@ -3612,7 +4265,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.List[ForwardRef('EvaluationFormItemOutputTypeDef')]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.connect_classes.EvaluationFormItemOutputTypeDef]
 - **Required**: Yes
 
 ### Description
@@ -3625,7 +4278,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EvaluationFormItemOutputTypeDef
 
 ### Section
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.EvaluationFormSectionOutputTypeDef]
 
 ### Question
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.EvaluationFormQuestionOutputTypeDef]
@@ -3634,11 +4287,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EvaluationFormItemTypeDef
 
 ### Section
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.EvaluationFormSectionUnionTypeDef]
 
 ### Question
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.EvaluationFormQuestionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.EvaluationFormQuestionUnionTypeDef]
 
+
+# EvaluationFormItemUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EvaluationFormNumericQuestionAutomationTypeDef
 
@@ -3697,6 +4356,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.EvaluationFormNumericQuestionAutomationTypeDef]
 
 
+# EvaluationFormNumericQuestionPropertiesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # EvaluationFormQuestionOutputTypeDef
 
 ### Title
@@ -3745,7 +4410,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### QuestionTypeProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.EvaluationFormQuestionTypePropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.EvaluationFormQuestionTypePropertiesUnionTypeDef]
 
 ### Weight
 - **Type**: typing.Optional[float]
@@ -3763,11 +4428,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EvaluationFormQuestionTypePropertiesTypeDef
 
 ### Numeric
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.EvaluationFormNumericQuestionPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.EvaluationFormNumericQuestionPropertiesUnionTypeDef]
 
 ### SingleSelect
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.EvaluationFormSingleSelectQuestionPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.EvaluationFormSingleSelectQuestionPropertiesUnionTypeDef]
 
+
+# EvaluationFormQuestionTypePropertiesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# EvaluationFormQuestionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EvaluationFormScoringStrategyTypeDef
 
@@ -3791,7 +4468,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.List[ForwardRef('EvaluationFormItemOutputTypeDef')]
+- **Type**: typing.List[typing.Dict[str, typing.Any]]
 - **Required**: Yes
 
 ### Instructions
@@ -3812,7 +4489,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Sequence[ForwardRef('EvaluationFormItemTypeDef')]
+- **Type**: typing.Sequence[typing.Mapping[str, typing.Any]]
 - **Required**: Yes
 
 ### Instructions
@@ -3821,6 +4498,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Weight
 - **Type**: typing.Optional[float]
 
+
+# EvaluationFormSectionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EvaluationFormSingleSelectQuestionAutomationOptionTypeDef
 
@@ -3848,22 +4531,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# EvaluationFormSingleSelectQuestionAutomationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # EvaluationFormSingleSelectQuestionOptionTypeDef
 
-### RefId
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Text
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Score
-- **Type**: typing.Optional[int]
-
-### AutomaticFail
-- **Type**: typing.Optional[bool]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EvaluationFormSingleSelectQuestionPropertiesOutputTypeDef
 
@@ -3888,8 +4566,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DROPDOWN', 'RADIO']]
 
 ### Automation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.EvaluationFormSingleSelectQuestionAutomationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.EvaluationFormSingleSelectQuestionAutomationUnionTypeDef]
 
+
+# EvaluationFormSingleSelectQuestionPropertiesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EvaluationFormSummaryTypeDef
 
@@ -3962,7 +4646,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.List[ForwardRef('EvaluationFormItemOutputTypeDef')]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.connect_classes.EvaluationFormItemOutputTypeDef]
 - **Required**: Yes
 
 ### CreatedTime
@@ -4160,10 +4844,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ExpressionTypeDef
+# ExpressionOutputTypeDef
 
 ### AttributeCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.AttributeConditionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.AttributeConditionOutputTypeDef]
 
 ### AndExpression
 - **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
@@ -4171,6 +4855,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### OrExpression
 - **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
+### NotAttributeCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.AttributeConditionOutputTypeDef]
+
+
+# ExpressionTypeDef
+
+### AttributeCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.AttributeConditionUnionTypeDef]
+
+### AndExpression
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### OrExpression
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### NotAttributeCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.AttributeConditionUnionTypeDef]
+
+
+# ExpressionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FailedRequestTypeDef
 
@@ -4202,9 +4910,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Value
-- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.FieldValueUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.FieldValueUnionUnionTypeDef'>
 - **Required**: Yes
 
+
+# FieldValueUnionExtraTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FieldValueUnionOutputTypeDef
 
@@ -4236,6 +4950,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# FieldValueUnionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # FilterV2TypeDef
 
 ### FilterKey
@@ -4251,7 +4971,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### Channels
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CHAT', 'TASK', 'VOICE']]]
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['CHAT', 'EMAIL', 'TASK', 'VOICE']]]
 
 ### RoutingProfiles
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -4269,10 +4989,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ResourceType
-- **Type**: typing.Optional[typing.Literal['VOICE_PHONE_NUMBER']]
+- **Type**: typing.Optional[typing.Literal['ANALYTICS_CONNECTOR', 'INBOUND_EMAIL', 'OUTBOUND_EMAIL', 'VOICE_PHONE_NUMBER', 'WHATSAPP_MESSAGING_PHONE_NUMBER']]
 
 
-# GetAttachedFileRequestRequestTypeDef
+# GetAttachedFileRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -4321,7 +5041,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FileUseCaseType
-- **Type**: typing.Literal['ATTACHMENT']
+- **Type**: typing.Literal['ATTACHMENT', 'EMAIL_MESSAGE']
 - **Required**: Yes
 
 ### CreatedBy
@@ -4341,7 +5061,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetContactAttributesRequestRequestTypeDef
+# GetContactAttributesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -4363,7 +5083,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCurrentMetricDataRequestRequestTypeDef
+# GetCurrentMetricDataRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -4412,7 +5132,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetCurrentUserDataRequestRequestTypeDef
+# GetCurrentUserDataRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -4447,7 +5167,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetFederationTokenRequestRequestTypeDef
+# GetEffectiveHoursOfOperationsRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### HoursOfOperationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### FromDate
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ToDate
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetEffectiveHoursOfOperationsResponseTypeDef
+
+### EffectiveHoursOfOperationList
+- **Type**: typing.List[aws_resource_validator.pydantic_models.connect_classes.EffectiveHoursOfOperationsTypeDef]
+- **Required**: Yes
+
+### TimeZone
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetFederationTokenRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -4477,7 +5231,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetFlowAssociationRequestRequestTypeDef
+# GetFlowAssociationRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -4488,7 +5242,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceType
-- **Type**: typing.Literal['SMS_PHONE_NUMBER']
+- **Type**: typing.Literal['ANALYTICS_CONNECTOR', 'INBOUND_EMAIL', 'OUTBOUND_EMAIL', 'SMS_PHONE_NUMBER', 'WHATSAPP_MESSAGING_PHONE_NUMBER']
 - **Required**: Yes
 
 
@@ -4503,7 +5257,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceType
-- **Type**: typing.Literal['SMS_PHONE_NUMBER']
+- **Type**: typing.Literal['ANALYTICS_CONNECTOR', 'INBOUND_EMAIL', 'OUTBOUND_EMAIL', 'SMS_PHONE_NUMBER', 'WHATSAPP_MESSAGING_PHONE_NUMBER']
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -4511,18 +5265,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMetricDataRequestGetMetricDataPaginateTypeDef
+# GetMetricDataRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### Filters
@@ -4540,18 +5294,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# GetMetricDataRequestRequestTypeDef
+# GetMetricDataRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### Filters
@@ -4586,18 +5340,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetMetricDataV2RequestRequestTypeDef
+# GetMetricDataV2RequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### Filters
@@ -4605,7 +5359,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Metrics
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.connect_classes.MetricV2TypeDef, aws_resource_validator.pydantic_models.connect_classes.MetricV2OutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.MetricV2UnionTypeDef]
 - **Required**: Yes
 
 ### Interval
@@ -4635,7 +5389,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetPromptFileRequestRequestTypeDef
+# GetPromptFileRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -4665,7 +5419,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTaskTemplateRequestRequestTypeDef
+# GetTaskTemplateRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -4705,6 +5459,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### SelfAssignFlowId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### Constraints
 - **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.TaskTemplateConstraintsOutputTypeDef'>
 - **Required**: Yes
@@ -4738,7 +5496,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTrafficDistributionRequestRequestTypeDef
+# GetTrafficDistributionRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -4998,13 +5756,94 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# HoursOfOperationOverrideConfigTypeDef
+
+### Day
+- **Type**: typing.Optional[typing.Literal['FRIDAY', 'MONDAY', 'SATURDAY', 'SUNDAY', 'THURSDAY', 'TUESDAY', 'WEDNESDAY']]
+
+### StartTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.OverrideTimeSliceTypeDef]
+
+### EndTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.OverrideTimeSliceTypeDef]
+
+
+# HoursOfOperationOverrideSearchCriteriaPaginatorTypeDef
+
+### OrConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### AndConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### StringCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
+
+### DateCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.DateConditionTypeDef]
+
+
+# HoursOfOperationOverrideSearchCriteriaTypeDef
+
+### OrConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### AndConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### StringCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
+
+### DateCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.DateConditionTypeDef]
+
+
+# HoursOfOperationOverrideTypeDef
+
+### HoursOfOperationOverrideId
+- **Type**: typing.Optional[str]
+
+### HoursOfOperationId
+- **Type**: typing.Optional[str]
+
+### HoursOfOperationArn
+- **Type**: typing.Optional[str]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### Config
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.connect_classes.HoursOfOperationOverrideConfigTypeDef]]
+
+### EffectiveFrom
+- **Type**: typing.Optional[str]
+
+### EffectiveTill
+- **Type**: typing.Optional[str]
+
+
+# HoursOfOperationSearchCriteriaPaginatorTypeDef
+
+### OrConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### AndConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### StringCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
+
+
 # HoursOfOperationSearchCriteriaTypeDef
 
 ### OrConditions
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 ### AndConditions
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 ### StringCondition
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
@@ -5075,7 +5914,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ImportPhoneNumberRequestRequestTypeDef
+# ImportPhoneNumberRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -5108,6 +5947,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+
+# InboundAdditionalRecipientsTypeDef
+
+### ToAddresses
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.EmailAddressInfoTypeDef]]
+
+### CcAddresses
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.EmailAddressInfoTypeDef]]
+
+
+# InboundEmailContentTypeDef
+
+### MessageSourceType
+- **Type**: typing.Literal['RAW']
+- **Required**: Yes
+
+### RawMessage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.InboundRawMessageTypeDef]
+
+
+# InboundRawMessageTypeDef
+
+### Subject
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Body
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ContentType
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Headers
+- **Type**: typing.Optional[typing.Mapping[typing.Literal['IN_REPLY_TO', 'MESSAGE_ID', 'REFERENCES', 'X_SES_SPAM_VERDICT', 'X_SES_VIRUS_VERDICT'], str]]
 
 
 # InstanceStatusReasonTypeDef
@@ -5222,7 +6098,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### IntegrationType
-- **Type**: typing.Optional[typing.Literal['APPLICATION', 'CASES_DOMAIN', 'EVENT', 'FILE_SCANNER', 'PINPOINT_APP', 'VOICE_ID', 'WISDOM_ASSISTANT', 'WISDOM_KNOWLEDGE_BASE', 'WISDOM_QUICK_RESPONSES']]
+- **Type**: typing.Optional[typing.Literal['ANALYTICS_CONNECTOR', 'APPLICATION', 'CALL_TRANSFER_CONNECTOR', 'CASES_DOMAIN', 'COGNITO_USER_POOL', 'EVENT', 'FILE_SCANNER', 'PINPOINT_APP', 'Q_MESSAGE_TEMPLATES', 'SES_IDENTITY', 'VOICE_ID', 'WISDOM_ASSISTANT', 'WISDOM_KNOWLEDGE_BASE', 'WISDOM_QUICK_RESPONSES']]
 
 ### IntegrationArn
 - **Type**: typing.Optional[str]
@@ -5307,7 +6183,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAgentStatusRequestListAgentStatusesPaginateTypeDef
+# ListAgentStatusRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -5320,7 +6196,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListAgentStatusRequestRequestTypeDef
+# ListAgentStatusRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -5350,7 +6226,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAnalyticsDataAssociationsRequestRequestTypeDef
+# ListAnalyticsDataAssociationsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -5380,7 +6256,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListApprovedOriginsRequestListApprovedOriginsPaginateTypeDef
+# ListAnalyticsDataLakeDataSetsRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+
+# ListAnalyticsDataLakeDataSetsResponseTypeDef
+
+### Results
+- **Type**: typing.List[aws_resource_validator.pydantic_models.connect_classes.AnalyticsDataSetsResultTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListApprovedOriginsRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -5390,7 +6293,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListApprovedOriginsRequestRequestTypeDef
+# ListApprovedOriginsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -5417,7 +6320,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAuthenticationProfilesRequestListAuthenticationProfilesPaginateTypeDef
+# ListAssociatedContactsRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ContactId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListAssociatedContactsResponseTypeDef
+
+### ContactSummaryList
+- **Type**: typing.List[aws_resource_validator.pydantic_models.connect_classes.AssociatedContactSummaryTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListAuthenticationProfilesRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -5427,7 +6361,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListAuthenticationProfilesRequestRequestTypeDef
+# ListAuthenticationProfilesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -5454,7 +6388,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListBotsRequestListBotsPaginateTypeDef
+# ListBotsRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -5468,7 +6402,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListBotsRequestRequestTypeDef
+# ListBotsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -5499,7 +6433,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListContactEvaluationsRequestListContactEvaluationsPaginateTypeDef
+# ListConditionTypeDef
+
+### TargetListType
+- **Type**: typing.Optional[typing.Literal['PROFICIENCIES']]
+
+### Conditions
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.ConditionTypeDef]]
+
+
+# ListContactEvaluationsRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -5513,7 +6456,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListContactEvaluationsRequestRequestTypeDef
+# ListContactEvaluationsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -5541,7 +6484,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListContactFlowModulesRequestListContactFlowModulesPaginateTypeDef
+# ListContactFlowModulesRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -5554,7 +6497,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListContactFlowModulesRequestRequestTypeDef
+# ListContactFlowModulesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -5584,27 +6527,72 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListContactFlowsRequestListContactFlowsPaginateTypeDef
+# ListContactFlowVersionsRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### ContactFlowTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['AGENT_HOLD', 'AGENT_TRANSFER', 'AGENT_WHISPER', 'CONTACT_FLOW', 'CUSTOMER_HOLD', 'CUSTOMER_QUEUE', 'CUSTOMER_WHISPER', 'OUTBOUND_WHISPER', 'QUEUE_TRANSFER']]]
+### ContactFlowId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListContactFlowsRequestRequestTypeDef
+# ListContactFlowVersionsRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ContactFlowId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+
+# ListContactFlowVersionsResponseTypeDef
+
+### ContactFlowVersionSummaryList
+- **Type**: typing.List[aws_resource_validator.pydantic_models.connect_classes.ContactFlowVersionSummaryTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListContactFlowsRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ContactFlowTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['AGENT_HOLD', 'AGENT_TRANSFER', 'AGENT_WHISPER', 'CONTACT_FLOW', 'CUSTOMER_HOLD', 'CUSTOMER_QUEUE', 'CUSTOMER_WHISPER', 'OUTBOUND_WHISPER', 'QUEUE_TRANSFER']]]
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['AGENT_HOLD', 'AGENT_TRANSFER', 'AGENT_WHISPER', 'CAMPAIGN', 'CONTACT_FLOW', 'CUSTOMER_HOLD', 'CUSTOMER_QUEUE', 'CUSTOMER_WHISPER', 'OUTBOUND_WHISPER', 'QUEUE_TRANSFER']]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
+
+
+# ListContactFlowsRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ContactFlowTypes
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['AGENT_HOLD', 'AGENT_TRANSFER', 'AGENT_WHISPER', 'CAMPAIGN', 'CONTACT_FLOW', 'CUSTOMER_HOLD', 'CUSTOMER_QUEUE', 'CUSTOMER_WHISPER', 'OUTBOUND_WHISPER', 'QUEUE_TRANSFER']]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -5627,7 +6615,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListContactReferencesRequestListContactReferencesPaginateTypeDef
+# ListContactReferencesRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -5638,14 +6626,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ReferenceTypes
-- **Type**: typing.Sequence[typing.Literal['ATTACHMENT', 'DATE', 'EMAIL', 'NUMBER', 'STRING', 'URL']]
+- **Type**: typing.Sequence[typing.Literal['ATTACHMENT', 'CONTACT_ANALYSIS', 'DATE', 'EMAIL', 'EMAIL_MESSAGE', 'NUMBER', 'STRING', 'URL']]
 - **Required**: Yes
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListContactReferencesRequestRequestTypeDef
+# ListContactReferencesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -5656,7 +6644,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ReferenceTypes
-- **Type**: typing.Sequence[typing.Literal['ATTACHMENT', 'DATE', 'EMAIL', 'NUMBER', 'STRING', 'URL']]
+- **Type**: typing.Sequence[typing.Literal['ATTACHMENT', 'CONTACT_ANALYSIS', 'DATE', 'EMAIL', 'EMAIL_MESSAGE', 'NUMBER', 'STRING', 'URL']]
 - **Required**: Yes
 
 ### NextToken
@@ -5677,27 +6665,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDefaultVocabulariesRequestListDefaultVocabulariesPaginateTypeDef
+# ListDefaultVocabulariesRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### LanguageCode
-- **Type**: typing.Optional[typing.Literal['ar-AE', 'de-CH', 'de-DE', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'fr-CA', 'fr-FR', 'hi-IN', 'it-IT', 'ja-JP', 'ko-KR', 'pt-BR', 'pt-PT', 'zh-CN']]
+- **Type**: typing.Optional[typing.Literal['ar-AE', 'ca-ES', 'da-DK', 'de-CH', 'de-DE', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'fi-FI', 'fr-CA', 'fr-FR', 'hi-IN', 'id-ID', 'it-IT', 'ja-JP', 'ko-KR', 'ms-MY', 'nl-NL', 'no-NO', 'pl-PL', 'pt-BR', 'pt-PT', 'sv-SE', 'tl-PH', 'zh-CN']]
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListDefaultVocabulariesRequestRequestTypeDef
+# ListDefaultVocabulariesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### LanguageCode
-- **Type**: typing.Optional[typing.Literal['ar-AE', 'de-CH', 'de-DE', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'fr-CA', 'fr-FR', 'hi-IN', 'it-IT', 'ja-JP', 'ko-KR', 'pt-BR', 'pt-PT', 'zh-CN']]
+- **Type**: typing.Optional[typing.Literal['ar-AE', 'ca-ES', 'da-DK', 'de-CH', 'de-DE', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'fi-FI', 'fr-CA', 'fr-FR', 'hi-IN', 'id-ID', 'it-IT', 'ja-JP', 'ko-KR', 'ms-MY', 'nl-NL', 'no-NO', 'pl-PL', 'pt-BR', 'pt-PT', 'sv-SE', 'tl-PH', 'zh-CN']]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -5720,7 +6708,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListEvaluationFormVersionsRequestListEvaluationFormVersionsPaginateTypeDef
+# ListEvaluationFormVersionsRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -5734,7 +6722,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListEvaluationFormVersionsRequestRequestTypeDef
+# ListEvaluationFormVersionsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -5765,7 +6753,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListEvaluationFormsRequestListEvaluationFormsPaginateTypeDef
+# ListEvaluationFormsRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -5775,7 +6763,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListEvaluationFormsRequestRequestTypeDef
+# ListEvaluationFormsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -5802,27 +6790,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFlowAssociationsRequestListFlowAssociationsPaginateTypeDef
+# ListFlowAssociationsRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResourceType
-- **Type**: typing.Optional[typing.Literal['VOICE_PHONE_NUMBER']]
+- **Type**: typing.Optional[typing.Literal['ANALYTICS_CONNECTOR', 'INBOUND_EMAIL', 'OUTBOUND_EMAIL', 'VOICE_PHONE_NUMBER', 'WHATSAPP_MESSAGING_PHONE_NUMBER']]
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListFlowAssociationsRequestRequestTypeDef
+# ListFlowAssociationsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResourceType
-- **Type**: typing.Optional[typing.Literal['VOICE_PHONE_NUMBER']]
+- **Type**: typing.Optional[typing.Literal['ANALYTICS_CONNECTOR', 'INBOUND_EMAIL', 'OUTBOUND_EMAIL', 'VOICE_PHONE_NUMBER', 'WHATSAPP_MESSAGING_PHONE_NUMBER']]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -5845,7 +6833,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListHoursOfOperationsRequestListHoursOfOperationsPaginateTypeDef
+# ListHoursOfOperationOverridesRequestPaginateTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### HoursOfOperationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
+
+
+# ListHoursOfOperationOverridesRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### HoursOfOperationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+
+# ListHoursOfOperationOverridesResponseTypeDef
+
+### HoursOfOperationOverrideList
+- **Type**: typing.List[aws_resource_validator.pydantic_models.connect_classes.HoursOfOperationOverrideTypeDef]
+- **Required**: Yes
+
+### LastModifiedRegion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### LastModifiedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListHoursOfOperationsRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -5855,7 +6896,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListHoursOfOperationsRequestRequestTypeDef
+# ListHoursOfOperationsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -5882,7 +6923,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListInstanceAttributesRequestListInstanceAttributesPaginateTypeDef
+# ListInstanceAttributesRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -5892,7 +6933,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListInstanceAttributesRequestRequestTypeDef
+# ListInstanceAttributesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -5919,28 +6960,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListInstanceStorageConfigsRequestListInstanceStorageConfigsPaginateTypeDef
+# ListInstanceStorageConfigsRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResourceType
-- **Type**: typing.Literal['AGENT_EVENTS', 'ATTACHMENTS', 'CALL_RECORDINGS', 'CHAT_TRANSCRIPTS', 'CONTACT_EVALUATIONS', 'CONTACT_TRACE_RECORDS', 'MEDIA_STREAMS', 'REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS', 'REAL_TIME_CONTACT_ANALYSIS_SEGMENTS', 'REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS', 'SCHEDULED_REPORTS', 'SCREEN_RECORDINGS']
+- **Type**: typing.Literal['AGENT_EVENTS', 'ATTACHMENTS', 'CALL_RECORDINGS', 'CHAT_TRANSCRIPTS', 'CONTACT_EVALUATIONS', 'CONTACT_TRACE_RECORDS', 'EMAIL_MESSAGES', 'MEDIA_STREAMS', 'REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS', 'REAL_TIME_CONTACT_ANALYSIS_SEGMENTS', 'REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS', 'SCHEDULED_REPORTS', 'SCREEN_RECORDINGS']
 - **Required**: Yes
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListInstanceStorageConfigsRequestRequestTypeDef
+# ListInstanceStorageConfigsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResourceType
-- **Type**: typing.Literal['AGENT_EVENTS', 'ATTACHMENTS', 'CALL_RECORDINGS', 'CHAT_TRANSCRIPTS', 'CONTACT_EVALUATIONS', 'CONTACT_TRACE_RECORDS', 'MEDIA_STREAMS', 'REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS', 'REAL_TIME_CONTACT_ANALYSIS_SEGMENTS', 'REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS', 'SCHEDULED_REPORTS', 'SCREEN_RECORDINGS']
+- **Type**: typing.Literal['AGENT_EVENTS', 'ATTACHMENTS', 'CALL_RECORDINGS', 'CHAT_TRANSCRIPTS', 'CONTACT_EVALUATIONS', 'CONTACT_TRACE_RECORDS', 'EMAIL_MESSAGES', 'MEDIA_STREAMS', 'REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS', 'REAL_TIME_CONTACT_ANALYSIS_SEGMENTS', 'REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS', 'SCHEDULED_REPORTS', 'SCREEN_RECORDINGS']
 - **Required**: Yes
 
 ### NextToken
@@ -5964,13 +7005,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListInstancesRequestListInstancesPaginateTypeDef
+# ListInstancesRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListInstancesRequestRequestTypeDef
+# ListInstancesRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -5993,14 +7034,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListIntegrationAssociationsRequestListIntegrationAssociationsPaginateTypeDef
+# ListIntegrationAssociationsRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### IntegrationType
-- **Type**: typing.Optional[typing.Literal['APPLICATION', 'CASES_DOMAIN', 'EVENT', 'FILE_SCANNER', 'PINPOINT_APP', 'VOICE_ID', 'WISDOM_ASSISTANT', 'WISDOM_KNOWLEDGE_BASE', 'WISDOM_QUICK_RESPONSES']]
+- **Type**: typing.Optional[typing.Literal['ANALYTICS_CONNECTOR', 'APPLICATION', 'CALL_TRANSFER_CONNECTOR', 'CASES_DOMAIN', 'COGNITO_USER_POOL', 'EVENT', 'FILE_SCANNER', 'PINPOINT_APP', 'Q_MESSAGE_TEMPLATES', 'SES_IDENTITY', 'VOICE_ID', 'WISDOM_ASSISTANT', 'WISDOM_KNOWLEDGE_BASE', 'WISDOM_QUICK_RESPONSES']]
 
 ### IntegrationArn
 - **Type**: typing.Optional[str]
@@ -6009,14 +7050,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListIntegrationAssociationsRequestRequestTypeDef
+# ListIntegrationAssociationsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### IntegrationType
-- **Type**: typing.Optional[typing.Literal['APPLICATION', 'CASES_DOMAIN', 'EVENT', 'FILE_SCANNER', 'PINPOINT_APP', 'VOICE_ID', 'WISDOM_ASSISTANT', 'WISDOM_KNOWLEDGE_BASE', 'WISDOM_QUICK_RESPONSES']]
+- **Type**: typing.Optional[typing.Literal['ANALYTICS_CONNECTOR', 'APPLICATION', 'CALL_TRANSFER_CONNECTOR', 'CASES_DOMAIN', 'COGNITO_USER_POOL', 'EVENT', 'FILE_SCANNER', 'PINPOINT_APP', 'Q_MESSAGE_TEMPLATES', 'SES_IDENTITY', 'VOICE_ID', 'WISDOM_ASSISTANT', 'WISDOM_KNOWLEDGE_BASE', 'WISDOM_QUICK_RESPONSES']]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -6042,7 +7083,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListLambdaFunctionsRequestListLambdaFunctionsPaginateTypeDef
+# ListLambdaFunctionsRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6052,7 +7093,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListLambdaFunctionsRequestRequestTypeDef
+# ListLambdaFunctionsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6079,7 +7120,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListLexBotsRequestListLexBotsPaginateTypeDef
+# ListLexBotsRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6089,7 +7130,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListLexBotsRequestRequestTypeDef
+# ListLexBotsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6116,7 +7157,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPhoneNumbersRequestListPhoneNumbersPaginateTypeDef
+# ListPhoneNumbersRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6132,7 +7173,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListPhoneNumbersRequestRequestTypeDef
+# ListPhoneNumbersRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6195,7 +7236,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPhoneNumbersV2RequestListPhoneNumbersV2PaginateTypeDef
+# ListPhoneNumbersV2RequestPaginateTypeDef
 
 ### TargetArn
 - **Type**: typing.Optional[str]
@@ -6216,7 +7257,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListPhoneNumbersV2RequestRequestTypeDef
+# ListPhoneNumbersV2RequestTypeDef
 
 ### TargetArn
 - **Type**: typing.Optional[str]
@@ -6254,7 +7295,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPredefinedAttributesRequestListPredefinedAttributesPaginateTypeDef
+# ListPredefinedAttributesRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6264,7 +7305,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListPredefinedAttributesRequestRequestTypeDef
+# ListPredefinedAttributesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6291,7 +7332,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPromptsRequestListPromptsPaginateTypeDef
+# ListPromptsRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6301,7 +7342,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListPromptsRequestRequestTypeDef
+# ListPromptsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6328,7 +7369,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListQueueQuickConnectsRequestListQueueQuickConnectsPaginateTypeDef
+# ListQueueQuickConnectsRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6342,7 +7383,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListQueueQuickConnectsRequestRequestTypeDef
+# ListQueueQuickConnectsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6381,7 +7422,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListQueuesRequestListQueuesPaginateTypeDef
+# ListQueuesRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6394,7 +7435,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListQueuesRequestRequestTypeDef
+# ListQueuesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6424,7 +7465,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListQuickConnectsRequestListQuickConnectsPaginateTypeDef
+# ListQuickConnectsRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6437,7 +7478,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListQuickConnectsRequestRequestTypeDef
+# ListQuickConnectsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6467,7 +7508,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListRealtimeContactAnalysisSegmentsV2RequestRequestTypeDef
+# ListRealtimeContactAnalysisSegmentsV2RequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6482,7 +7523,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SegmentTypes
-- **Type**: typing.Sequence[typing.Literal['Attachments', 'Categories', 'Event', 'Issues', 'Transcript']]
+- **Type**: typing.Sequence[typing.Literal['Attachments', 'Categories', 'Event', 'Issues', 'PostContactSummary', 'Transcript']]
 - **Required**: Yes
 
 ### MaxResults
@@ -6514,7 +7555,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListRoutingProfileQueuesRequestListRoutingProfileQueuesPaginateTypeDef
+# ListRoutingProfileQueuesRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6528,7 +7569,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListRoutingProfileQueuesRequestRequestTypeDef
+# ListRoutingProfileQueuesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6567,7 +7608,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListRoutingProfilesRequestListRoutingProfilesPaginateTypeDef
+# ListRoutingProfilesRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6577,7 +7618,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListRoutingProfilesRequestRequestTypeDef
+# ListRoutingProfilesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6604,7 +7645,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListRulesRequestListRulesPaginateTypeDef
+# ListRulesRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6620,7 +7661,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListRulesRequestRequestTypeDef
+# ListRulesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6653,7 +7694,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSecurityKeysRequestListSecurityKeysPaginateTypeDef
+# ListSecurityKeysRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6663,7 +7704,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListSecurityKeysRequestRequestTypeDef
+# ListSecurityKeysRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6690,7 +7731,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSecurityProfileApplicationsRequestListSecurityProfileApplicationsPaginateTypeDef
+# ListSecurityProfileApplicationsRequestPaginateTypeDef
 
 ### SecurityProfileId
 - **Type**: <class 'str'>
@@ -6704,7 +7745,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListSecurityProfileApplicationsRequestRequestTypeDef
+# ListSecurityProfileApplicationsRequestTypeDef
 
 ### SecurityProfileId
 - **Type**: <class 'str'>
@@ -6743,7 +7784,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSecurityProfilePermissionsRequestListSecurityProfilePermissionsPaginateTypeDef
+# ListSecurityProfilePermissionsRequestPaginateTypeDef
 
 ### SecurityProfileId
 - **Type**: <class 'str'>
@@ -6757,7 +7798,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListSecurityProfilePermissionsRequestRequestTypeDef
+# ListSecurityProfilePermissionsRequestTypeDef
 
 ### SecurityProfileId
 - **Type**: <class 'str'>
@@ -6796,7 +7837,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSecurityProfilesRequestListSecurityProfilesPaginateTypeDef
+# ListSecurityProfilesRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6806,7 +7847,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListSecurityProfilesRequestRequestTypeDef
+# ListSecurityProfilesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6833,7 +7874,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -6851,7 +7892,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTaskTemplatesRequestListTaskTemplatesPaginateTypeDef
+# ListTaskTemplatesRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6867,7 +7908,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListTaskTemplatesRequestRequestTypeDef
+# ListTaskTemplatesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6900,7 +7941,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTrafficDistributionGroupUsersRequestRequestTypeDef
+# ListTrafficDistributionGroupUsersRequestPaginateTypeDef
+
+### TrafficDistributionGroupId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
+
+
+# ListTrafficDistributionGroupUsersRequestTypeDef
 
 ### TrafficDistributionGroupId
 - **Type**: <class 'str'>
@@ -6927,7 +7978,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTrafficDistributionGroupsRequestListTrafficDistributionGroupsPaginateTypeDef
+# ListTrafficDistributionGroupsRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: typing.Optional[str]
@@ -6936,7 +7987,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListTrafficDistributionGroupsRequestRequestTypeDef
+# ListTrafficDistributionGroupsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -6962,7 +8013,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListUseCasesRequestListUseCasesPaginateTypeDef
+# ListUseCasesRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -6976,7 +8027,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListUseCasesRequestRequestTypeDef
+# ListUseCasesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -7007,7 +8058,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListUserHierarchyGroupsRequestListUserHierarchyGroupsPaginateTypeDef
+# ListUserHierarchyGroupsRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -7017,7 +8068,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListUserHierarchyGroupsRequestRequestTypeDef
+# ListUserHierarchyGroupsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -7044,7 +8095,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListUserProficienciesRequestListUserProficienciesPaginateTypeDef
+# ListUserProficienciesRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -7058,7 +8109,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListUserProficienciesRequestRequestTypeDef
+# ListUserProficienciesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -7097,7 +8148,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListUsersRequestListUsersPaginateTypeDef
+# ListUsersRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -7107,7 +8158,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListUsersRequestRequestTypeDef
+# ListUsersRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -7134,7 +8185,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListViewVersionsRequestListViewVersionsPaginateTypeDef
+# ListViewVersionsRequestPaginateTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -7148,7 +8199,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
-# ListViewVersionsRequestRequestTypeDef
+# ListViewVersionsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -7179,35 +8230,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListViewsRequestListViewsPaginateTypeDef
-
-### InstanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Optional[typing.Literal['AWS_MANAGED', 'CUSTOMER_MANAGED']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
-
-
-# ListViewsRequestRequestTypeDef
-
-### InstanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Optional[typing.Literal['AWS_MANAGED', 'CUSTOMER_MANAGED']]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### MaxResults
-- **Type**: typing.Optional[int]
-
-
 # ListViewsResponseTypeDef
 
 ### ViewsSummaryList
@@ -7222,16 +8244,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# MatchCriteriaOutputTypeDef
+
+### AgentsCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.AgentsCriteriaOutputTypeDef]
+
+
 # MatchCriteriaTypeDef
 
 ### AgentsCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.AgentsCriteriaTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.AgentsCriteriaUnionTypeDef]
 
+
+# MatchCriteriaUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MediaConcurrencyTypeDef
 
 ### Channel
-- **Type**: typing.Literal['CHAT', 'TASK', 'VOICE']
+- **Type**: typing.Literal['CHAT', 'EMAIL', 'TASK', 'VOICE']
 - **Required**: Yes
 
 ### Concurrency
@@ -7314,6 +8348,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
+# MetricFilterV2UnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # MetricIntervalTypeDef
 
 ### Interval
@@ -7359,10 +8399,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.ThresholdV2TypeDef]]
 
 ### MetricFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.MetricFilterV2TypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.MetricFilterV2UnionTypeDef]]
 
 
-# MonitorContactRequestRequestTypeDef
+# MetricV2UnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# MonitorContactRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -7431,6 +8477,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
+# NotificationRecipientTypeUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# NumberConditionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # NumberReferenceTypeDef
 
 ### Name
@@ -7447,6 +8505,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# OperationalHourTypeDef
+
+### Start
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.OverrideTimeSliceTypeDef]
+
+### End
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.OverrideTimeSliceTypeDef]
+
+
+# OutboundAdditionalRecipientsTypeDef
+
+### CcEmailAddresses
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.EmailAddressInfoTypeDef]]
+
+
 # OutboundCallerConfigTypeDef
 
 ### OutboundCallerIdName
@@ -7457,6 +8530,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### OutboundFlowId
 - **Type**: typing.Optional[str]
+
+
+# OutboundEmailConfigTypeDef
+
+### OutboundEmailAddressId
+- **Type**: typing.Optional[str]
+
+
+# OutboundEmailContentTypeDef
+
+### MessageSourceType
+- **Type**: typing.Literal['RAW', 'TEMPLATE']
+- **Required**: Yes
+
+### TemplatedMessageConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.TemplatedMessageConfigTypeDef]
+
+### RawMessage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.OutboundRawMessageTypeDef]
+
+
+# OutboundRawMessageTypeDef
+
+### Subject
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Body
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ContentType
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# OverrideTimeSliceTypeDef
+
+### Hours
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Minutes
+- **Type**: <class 'int'>
+- **Required**: Yes
 
 
 # PaginatorConfigTypeDef
@@ -7474,6 +8592,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ParticipantCapabilitiesTypeDef
 
 ### Video
+- **Type**: typing.Optional[typing.Literal['SEND']]
+
+### ScreenShare
 - **Type**: typing.Optional[typing.Literal['SEND']]
 
 
@@ -7526,7 +8647,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PauseContactRequestRequestTypeDef
+# PauseContactRequestTypeDef
 
 ### ContactId
 - **Type**: <class 'str'>
@@ -7583,13 +8704,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AD', 'AE', 'AF', 'AG', 'AI', 'AL', 'AM', 'AN', 'AO', 'AQ', 'AR', 'AS', 'AT', 'AU', 'AW', 'AZ', 'BA', 'BB', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BL', 'BM', 'BN', 'BO', 'BR', 'BS', 'BT', 'BW', 'BY', 'BZ', 'CA', 'CC', 'CD', 'CF', 'CG', 'CH', 'CI', 'CK', 'CL', 'CM', 'CN', 'CO', 'CR', 'CU', 'CV', 'CW', 'CX', 'CY', 'CZ', 'DE', 'DJ', 'DK', 'DM', 'DO', 'DZ', 'EC', 'EE', 'EG', 'EH', 'ER', 'ES', 'ET', 'FI', 'FJ', 'FK', 'FM', 'FO', 'FR', 'GA', 'GB', 'GD', 'GE', 'GG', 'GH', 'GI', 'GL', 'GM', 'GN', 'GQ', 'GR', 'GT', 'GU', 'GW', 'GY', 'HK', 'HN', 'HR', 'HT', 'HU', 'ID', 'IE', 'IL', 'IM', 'IN', 'IO', 'IQ', 'IR', 'IS', 'IT', 'JE', 'JM', 'JO', 'JP', 'KE', 'KG', 'KH', 'KI', 'KM', 'KN', 'KP', 'KR', 'KW', 'KY', 'KZ', 'LA', 'LB', 'LC', 'LI', 'LK', 'LR', 'LS', 'LT', 'LU', 'LV', 'LY', 'MA', 'MC', 'MD', 'ME', 'MF', 'MG', 'MH', 'MK', 'ML', 'MM', 'MN', 'MO', 'MP', 'MR', 'MS', 'MT', 'MU', 'MV', 'MW', 'MX', 'MY', 'MZ', 'NA', 'NC', 'NE', 'NG', 'NI', 'NL', 'NO', 'NP', 'NR', 'NU', 'NZ', 'OM', 'PA', 'PE', 'PF', 'PG', 'PH', 'PK', 'PL', 'PM', 'PN', 'PR', 'PT', 'PW', 'PY', 'QA', 'RE', 'RO', 'RS', 'RU', 'RW', 'SA', 'SB', 'SC', 'SD', 'SE', 'SG', 'SH', 'SI', 'SJ', 'SK', 'SL', 'SM', 'SN', 'SO', 'SR', 'ST', 'SV', 'SX', 'SY', 'SZ', 'TC', 'TD', 'TG', 'TH', 'TJ', 'TK', 'TL', 'TM', 'TN', 'TO', 'TR', 'TT', 'TV', 'TW', 'TZ', 'UA', 'UG', 'US', 'UY', 'UZ', 'VA', 'VC', 'VE', 'VG', 'VI', 'VN', 'VU', 'WF', 'WS', 'YE', 'YT', 'ZA', 'ZM', 'ZW']]
 
 
+# PredefinedAttributeSearchCriteriaPaginatorTypeDef
+
+### OrConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### AndConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### StringCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
+
+
 # PredefinedAttributeSearchCriteriaTypeDef
 
 ### OrConditions
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 ### AndConditions
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 ### StringCondition
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
@@ -7622,12 +8755,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PredefinedAttributeValuesExtraOutputTypeDef
-
-### StringList
-- **Type**: typing.Optional[typing.List[str]]
-
-
 # PredefinedAttributeValuesOutputTypeDef
 
 ### StringList
@@ -7640,13 +8767,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
+# PredefinedAttributeValuesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# PromptSearchCriteriaPaginatorTypeDef
+
+### OrConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### AndConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### StringCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
+
+
 # PromptSearchCriteriaTypeDef
 
 ### OrConditions
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 ### AndConditions
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 ### StringCondition
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
@@ -7700,7 +8845,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutUserStatusRequestRequestTypeDef
+# PutUserStatusRequestTypeDef
 
 ### UserId
 - **Type**: <class 'str'>
@@ -7722,6 +8867,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Customer
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.CustomerQualityMetricsTypeDef]
+
+
+# QueueInfoInputTypeDef
+
+### Id
+- **Type**: typing.Optional[str]
 
 
 # QueueInfoTypeDef
@@ -7753,13 +8904,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# QueueSearchCriteriaPaginatorTypeDef
+
+### OrConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### AndConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### StringCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
+
+### QueueTypeCondition
+- **Type**: typing.Optional[typing.Literal['STANDARD']]
+
+
 # QueueSearchCriteriaTypeDef
 
 ### OrConditions
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 ### AndConditions
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 ### StringCondition
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
@@ -7812,6 +8978,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### OutboundCallerConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.OutboundCallerConfigTypeDef]
 
+### OutboundEmailConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.OutboundEmailConfigTypeDef]
+
 ### HoursOfOperationId
 - **Type**: typing.Optional[str]
 
@@ -7847,13 +9016,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PhoneNumberQuickConnectConfigTypeDef]
 
 
+# QuickConnectSearchCriteriaPaginatorTypeDef
+
+### OrConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### AndConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### StringCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
+
+
 # QuickConnectSearchCriteriaTypeDef
 
 ### OrConditions
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 ### AndConditions
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 ### StringCondition
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
@@ -7911,6 +9092,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### LastModifiedRegion
 - **Type**: typing.Optional[str]
+
+
+# RangeTypeDef
+
+### MinProficiencyLevel
+- **Type**: typing.Optional[float]
+
+### MaxProficiencyLevel
+- **Type**: typing.Optional[float]
 
 
 # ReadOnlyFieldInfoTypeDef
@@ -8031,6 +9221,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# RealTimeContactAnalysisSegmentPostContactSummaryTypeDef
+
+### Status
+- **Type**: typing.Literal['COMPLETED', 'FAILED']
+- **Required**: Yes
+
+### Content
+- **Type**: typing.Optional[str]
+
+### FailureCode
+- **Type**: typing.Optional[typing.Literal['FAILED_SAFETY_GUIDELINES', 'INSUFFICIENT_CONVERSATION_CONTENT', 'INTERNAL_ERROR', 'INVALID_ANALYSIS_CONFIGURATION', 'QUOTA_EXCEEDED']]
+
+
 # RealTimeContactAnalysisSegmentTranscriptTypeDef
 
 ### Id
@@ -8118,6 +9321,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Attachments
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.RealTimeContactAnalysisSegmentAttachmentsTypeDef]
 
+### PostContactSummary
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.RealTimeContactAnalysisSegmentPostContactSummaryTypeDef]
+
 
 # ReferenceSummaryTypeDef
 
@@ -8126,6 +9332,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Attachment
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.AttachmentReferenceTypeDef]
+
+### EmailMessage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.EmailMessageReferenceTypeDef]
 
 ### String
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringReferenceTypeDef]
@@ -8142,16 +9351,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ReferenceTypeDef
 
-### Value
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Literal['ATTACHMENT', 'DATE', 'EMAIL', 'NUMBER', 'STRING', 'URL']
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-
-# ReleasePhoneNumberRequestRequestTypeDef
+# ReleasePhoneNumberRequestTypeDef
 
 ### PhoneNumberId
 - **Type**: <class 'str'>
@@ -8161,7 +9365,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ReplicateInstanceRequestRequestTypeDef
+# ReplicateInstanceRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -8192,6 +9396,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+
+# ReplicationConfigurationTypeDef
+
+### ReplicationStatusSummaryList
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.connect_classes.ReplicationStatusSummaryTypeDef]]
+
+### SourceRegion
+- **Type**: typing.Optional[str]
+
+### GlobalSignInEndpoint
+- **Type**: typing.Optional[str]
+
+
+# ReplicationStatusSummaryTypeDef
+
+### Region
+- **Type**: typing.Optional[str]
+
+### ReplicationStatus
+- **Type**: typing.Optional[typing.Literal['INSTANCE_REPLICATION_COMPLETE', 'INSTANCE_REPLICATION_DELETION_FAILED', 'INSTANCE_REPLICATION_FAILED', 'INSTANCE_REPLICATION_IN_PROGRESS', 'INSTANCE_REPLICA_DELETING', 'RESOURCE_REPLICATION_NOT_STARTED']]
+
+### ReplicationStatusReason
+- **Type**: typing.Optional[str]
 
 
 # RequiredFieldInfoTypeDef
@@ -8228,7 +9456,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResumeContactRecordingRequestRequestTypeDef
+# ResumeContactRecordingRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -8242,8 +9470,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### ContactRecordingType
+- **Type**: typing.Optional[typing.Literal['AGENT', 'IVR', 'SCREEN']]
 
-# ResumeContactRequestRequestTypeDef
+
+# ResumeContactRequestTypeDef
 
 ### ContactId
 - **Type**: <class 'str'>
@@ -8255,6 +9486,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ContactFlowId
 - **Type**: typing.Optional[str]
+
+
+# RoutingCriteriaInputStepExpiryTypeDef
+
+### DurationInSeconds
+- **Type**: typing.Optional[int]
+
+
+# RoutingCriteriaInputStepTypeDef
+
+### Expiry
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.RoutingCriteriaInputStepExpiryTypeDef]
+
+### Expression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ExpressionUnionTypeDef]
+
+
+# RoutingCriteriaInputTypeDef
+
+### Steps
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.RoutingCriteriaInputStepTypeDef]]
 
 
 # RoutingCriteriaTypeDef
@@ -8292,7 +9544,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Channel
-- **Type**: typing.Literal['CHAT', 'TASK', 'VOICE']
+- **Type**: typing.Literal['CHAT', 'EMAIL', 'TASK', 'VOICE']
 - **Required**: Yes
 
 
@@ -8318,7 +9570,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Channel
-- **Type**: typing.Literal['CHAT', 'TASK', 'VOICE']
+- **Type**: typing.Literal['CHAT', 'EMAIL', 'TASK', 'VOICE']
 - **Required**: Yes
 
 
@@ -8331,13 +9583,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# RoutingProfileSearchCriteriaPaginatorTypeDef
+
+### OrConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### AndConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### StringCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
+
+
 # RoutingProfileSearchCriteriaTypeDef
 
 ### OrConditions
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 ### AndConditions
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 ### StringCondition
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
@@ -8453,7 +9717,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TaskAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.TaskActionDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.TaskActionDefinitionUnionTypeDef]
 
 ### EventBridgeAction
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.EventBridgeActionDefinitionTypeDef]
@@ -8462,13 +9726,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
 
 ### SendNotificationAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.SendNotificationActionDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.SendNotificationActionDefinitionUnionTypeDef]
 
 ### CreateCaseAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.CreateCaseActionDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.CreateCaseActionDefinitionUnionTypeDef]
 
 ### UpdateCaseAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.UpdateCaseActionDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.UpdateCaseActionDefinitionUnionTypeDef]
 
 ### EndAssociatedTasksAction
 - **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
@@ -8476,6 +9740,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### SubmitAutoEvaluationAction
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.SubmitAutoEvaluationActionDefinitionTypeDef]
 
+
+# RuleActionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RuleSummaryTypeDef
 
@@ -8582,7 +9852,83 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.EncryptionConfigTypeDef]
 
 
-# SearchAvailablePhoneNumbersRequestRequestTypeDef
+# SearchAgentStatusesRequestPaginateTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SearchFilter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.AgentStatusSearchFilterTypeDef]
+
+### SearchCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.AgentStatusSearchCriteriaPaginatorTypeDef]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
+
+
+# SearchAgentStatusesRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### SearchFilter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.AgentStatusSearchFilterTypeDef]
+
+### SearchCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.AgentStatusSearchCriteriaTypeDef]
+
+
+# SearchAgentStatusesResponseTypeDef
+
+### AgentStatuses
+- **Type**: typing.List[aws_resource_validator.pydantic_models.connect_classes.AgentStatusTypeDef]
+- **Required**: Yes
+
+### ApproximateTotalCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# SearchAvailablePhoneNumbersRequestPaginateTypeDef
+
+### PhoneNumberCountryCode
+- **Type**: typing.Literal['AD', 'AE', 'AF', 'AG', 'AI', 'AL', 'AM', 'AN', 'AO', 'AQ', 'AR', 'AS', 'AT', 'AU', 'AW', 'AZ', 'BA', 'BB', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BL', 'BM', 'BN', 'BO', 'BR', 'BS', 'BT', 'BW', 'BY', 'BZ', 'CA', 'CC', 'CD', 'CF', 'CG', 'CH', 'CI', 'CK', 'CL', 'CM', 'CN', 'CO', 'CR', 'CU', 'CV', 'CW', 'CX', 'CY', 'CZ', 'DE', 'DJ', 'DK', 'DM', 'DO', 'DZ', 'EC', 'EE', 'EG', 'EH', 'ER', 'ES', 'ET', 'FI', 'FJ', 'FK', 'FM', 'FO', 'FR', 'GA', 'GB', 'GD', 'GE', 'GG', 'GH', 'GI', 'GL', 'GM', 'GN', 'GQ', 'GR', 'GT', 'GU', 'GW', 'GY', 'HK', 'HN', 'HR', 'HT', 'HU', 'ID', 'IE', 'IL', 'IM', 'IN', 'IO', 'IQ', 'IR', 'IS', 'IT', 'JE', 'JM', 'JO', 'JP', 'KE', 'KG', 'KH', 'KI', 'KM', 'KN', 'KP', 'KR', 'KW', 'KY', 'KZ', 'LA', 'LB', 'LC', 'LI', 'LK', 'LR', 'LS', 'LT', 'LU', 'LV', 'LY', 'MA', 'MC', 'MD', 'ME', 'MF', 'MG', 'MH', 'MK', 'ML', 'MM', 'MN', 'MO', 'MP', 'MR', 'MS', 'MT', 'MU', 'MV', 'MW', 'MX', 'MY', 'MZ', 'NA', 'NC', 'NE', 'NG', 'NI', 'NL', 'NO', 'NP', 'NR', 'NU', 'NZ', 'OM', 'PA', 'PE', 'PF', 'PG', 'PH', 'PK', 'PL', 'PM', 'PN', 'PR', 'PT', 'PW', 'PY', 'QA', 'RE', 'RO', 'RS', 'RU', 'RW', 'SA', 'SB', 'SC', 'SD', 'SE', 'SG', 'SH', 'SI', 'SJ', 'SK', 'SL', 'SM', 'SN', 'SO', 'SR', 'ST', 'SV', 'SX', 'SY', 'SZ', 'TC', 'TD', 'TG', 'TH', 'TJ', 'TK', 'TL', 'TM', 'TN', 'TO', 'TR', 'TT', 'TV', 'TW', 'TZ', 'UA', 'UG', 'US', 'UY', 'UZ', 'VA', 'VC', 'VE', 'VG', 'VI', 'VN', 'VU', 'WF', 'WS', 'YE', 'YT', 'ZA', 'ZM', 'ZW']
+- **Required**: Yes
+
+### PhoneNumberType
+- **Type**: typing.Literal['DID', 'SHARED', 'SHORT_CODE', 'THIRD_PARTY_DID', 'THIRD_PARTY_TF', 'TOLL_FREE', 'UIFN']
+- **Required**: Yes
+
+### TargetArn
+- **Type**: typing.Optional[str]
+
+### InstanceId
+- **Type**: typing.Optional[str]
+
+### PhoneNumberPrefix
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
+
+
+# SearchAvailablePhoneNumbersRequestTypeDef
 
 ### PhoneNumberCountryCode
 - **Type**: typing.Literal['AD', 'AE', 'AF', 'AG', 'AI', 'AL', 'AM', 'AN', 'AO', 'AQ', 'AR', 'AS', 'AT', 'AU', 'AW', 'AZ', 'BA', 'BB', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BL', 'BM', 'BN', 'BO', 'BR', 'BS', 'BT', 'BW', 'BY', 'BZ', 'CA', 'CC', 'CD', 'CF', 'CG', 'CH', 'CI', 'CK', 'CL', 'CM', 'CN', 'CO', 'CR', 'CU', 'CV', 'CW', 'CX', 'CY', 'CZ', 'DE', 'DJ', 'DK', 'DM', 'DO', 'DZ', 'EC', 'EE', 'EG', 'EH', 'ER', 'ES', 'ET', 'FI', 'FJ', 'FK', 'FM', 'FO', 'FR', 'GA', 'GB', 'GD', 'GE', 'GG', 'GH', 'GI', 'GL', 'GM', 'GN', 'GQ', 'GR', 'GT', 'GU', 'GW', 'GY', 'HK', 'HN', 'HR', 'HT', 'HU', 'ID', 'IE', 'IL', 'IM', 'IN', 'IO', 'IQ', 'IR', 'IS', 'IT', 'JE', 'JM', 'JO', 'JP', 'KE', 'KG', 'KH', 'KI', 'KM', 'KN', 'KP', 'KR', 'KW', 'KY', 'KZ', 'LA', 'LB', 'LC', 'LI', 'LK', 'LR', 'LS', 'LT', 'LU', 'LV', 'LY', 'MA', 'MC', 'MD', 'ME', 'MF', 'MG', 'MH', 'MK', 'ML', 'MM', 'MN', 'MO', 'MP', 'MR', 'MS', 'MT', 'MU', 'MV', 'MW', 'MX', 'MY', 'MZ', 'NA', 'NC', 'NE', 'NG', 'NI', 'NL', 'NO', 'NP', 'NR', 'NU', 'NZ', 'OM', 'PA', 'PE', 'PF', 'PG', 'PH', 'PK', 'PL', 'PM', 'PN', 'PR', 'PT', 'PW', 'PY', 'QA', 'RE', 'RO', 'RS', 'RU', 'RW', 'SA', 'SB', 'SC', 'SD', 'SE', 'SG', 'SH', 'SI', 'SJ', 'SK', 'SL', 'SM', 'SN', 'SO', 'SR', 'ST', 'SV', 'SX', 'SY', 'SZ', 'TC', 'TD', 'TG', 'TH', 'TJ', 'TK', 'TL', 'TM', 'TN', 'TO', 'TR', 'TT', 'TV', 'TW', 'TZ', 'UA', 'UG', 'US', 'UY', 'UZ', 'VA', 'VC', 'VE', 'VG', 'VI', 'VN', 'VU', 'WF', 'WS', 'YE', 'YT', 'ZA', 'ZM', 'ZW']
@@ -8606,29 +9952,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### NextToken
 - **Type**: typing.Optional[str]
-
-
-# SearchAvailablePhoneNumbersRequestSearchAvailablePhoneNumbersPaginateTypeDef
-
-### PhoneNumberCountryCode
-- **Type**: typing.Literal['AD', 'AE', 'AF', 'AG', 'AI', 'AL', 'AM', 'AN', 'AO', 'AQ', 'AR', 'AS', 'AT', 'AU', 'AW', 'AZ', 'BA', 'BB', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BL', 'BM', 'BN', 'BO', 'BR', 'BS', 'BT', 'BW', 'BY', 'BZ', 'CA', 'CC', 'CD', 'CF', 'CG', 'CH', 'CI', 'CK', 'CL', 'CM', 'CN', 'CO', 'CR', 'CU', 'CV', 'CW', 'CX', 'CY', 'CZ', 'DE', 'DJ', 'DK', 'DM', 'DO', 'DZ', 'EC', 'EE', 'EG', 'EH', 'ER', 'ES', 'ET', 'FI', 'FJ', 'FK', 'FM', 'FO', 'FR', 'GA', 'GB', 'GD', 'GE', 'GG', 'GH', 'GI', 'GL', 'GM', 'GN', 'GQ', 'GR', 'GT', 'GU', 'GW', 'GY', 'HK', 'HN', 'HR', 'HT', 'HU', 'ID', 'IE', 'IL', 'IM', 'IN', 'IO', 'IQ', 'IR', 'IS', 'IT', 'JE', 'JM', 'JO', 'JP', 'KE', 'KG', 'KH', 'KI', 'KM', 'KN', 'KP', 'KR', 'KW', 'KY', 'KZ', 'LA', 'LB', 'LC', 'LI', 'LK', 'LR', 'LS', 'LT', 'LU', 'LV', 'LY', 'MA', 'MC', 'MD', 'ME', 'MF', 'MG', 'MH', 'MK', 'ML', 'MM', 'MN', 'MO', 'MP', 'MR', 'MS', 'MT', 'MU', 'MV', 'MW', 'MX', 'MY', 'MZ', 'NA', 'NC', 'NE', 'NG', 'NI', 'NL', 'NO', 'NP', 'NR', 'NU', 'NZ', 'OM', 'PA', 'PE', 'PF', 'PG', 'PH', 'PK', 'PL', 'PM', 'PN', 'PR', 'PT', 'PW', 'PY', 'QA', 'RE', 'RO', 'RS', 'RU', 'RW', 'SA', 'SB', 'SC', 'SD', 'SE', 'SG', 'SH', 'SI', 'SJ', 'SK', 'SL', 'SM', 'SN', 'SO', 'SR', 'ST', 'SV', 'SX', 'SY', 'SZ', 'TC', 'TD', 'TG', 'TH', 'TJ', 'TK', 'TL', 'TM', 'TN', 'TO', 'TR', 'TT', 'TV', 'TW', 'TZ', 'UA', 'UG', 'US', 'UY', 'UZ', 'VA', 'VC', 'VE', 'VG', 'VI', 'VN', 'VU', 'WF', 'WS', 'YE', 'YT', 'ZA', 'ZM', 'ZW']
-- **Required**: Yes
-
-### PhoneNumberType
-- **Type**: typing.Literal['DID', 'SHARED', 'SHORT_CODE', 'THIRD_PARTY_DID', 'THIRD_PARTY_TF', 'TOLL_FREE', 'UIFN']
-- **Required**: Yes
-
-### TargetArn
-- **Type**: typing.Optional[str]
-
-### InstanceId
-- **Type**: typing.Optional[str]
-
-### PhoneNumberPrefix
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
 # SearchAvailablePhoneNumbersResponseTypeDef
@@ -8645,7 +9968,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchContactFlowModulesRequestRequestTypeDef
+# SearchContactFlowModulesRequestPaginateTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SearchFilter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ContactFlowModuleSearchFilterTypeDef]
+
+### SearchCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ContactFlowModuleSearchCriteriaPaginatorTypeDef]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
+
+
+# SearchContactFlowModulesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -8662,22 +10001,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SearchCriteria
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ContactFlowModuleSearchCriteriaTypeDef]
-
-
-# SearchContactFlowModulesRequestSearchContactFlowModulesPaginateTypeDef
-
-### InstanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SearchFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ContactFlowModuleSearchFilterTypeDef]
-
-### SearchCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ContactFlowModuleSearchCriteriaTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
 # SearchContactFlowModulesResponseTypeDef
@@ -8698,7 +10021,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchContactFlowsRequestRequestTypeDef
+# SearchContactFlowsRequestPaginateTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SearchFilter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ContactFlowSearchFilterTypeDef]
+
+### SearchCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ContactFlowSearchCriteriaPaginatorTypeDef]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
+
+
+# SearchContactFlowsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -8715,22 +10054,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SearchCriteria
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ContactFlowSearchCriteriaTypeDef]
-
-
-# SearchContactFlowsRequestSearchContactFlowsPaginateTypeDef
-
-### InstanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SearchFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ContactFlowSearchFilterTypeDef]
-
-### SearchCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ContactFlowSearchCriteriaTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
 # SearchContactFlowsResponseTypeDef
@@ -8751,7 +10074,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchContactsRequestRequestTypeDef
+# SearchContactsRequestPaginateTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TimeRange
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.SearchContactsTimeRangeTypeDef'>
+- **Required**: Yes
+
+### SearchCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.SearchCriteriaTypeDef]
+
+### Sort
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.SortTypeDef]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
+
+
+# SearchContactsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -8772,26 +10115,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Sort
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.SortTypeDef]
-
-
-# SearchContactsRequestSearchContactsPaginateTypeDef
-
-### InstanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### TimeRange
-- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.SearchContactsTimeRangeTypeDef'>
-- **Required**: Yes
-
-### SearchCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.SearchCriteriaTypeDef]
-
-### Sort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.SortTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
 # SearchContactsResponseTypeDef
@@ -8814,18 +10137,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SearchContactsTimeRangeTypeDef
 
-### Type
-- **Type**: typing.Literal['CONNECTED_TO_AGENT_TIMESTAMP', 'DISCONNECT_TIMESTAMP', 'INITIATION_TIMESTAMP', 'SCHEDULED_TIMESTAMP']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### StartTime
-- **Type**: typing.Union[datetime.datetime, str]
-- **Required**: Yes
-
-### EndTime
-- **Type**: typing.Union[datetime.datetime, str]
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SearchCriteriaTypeDef
 
@@ -8836,13 +10150,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.AgentHierarchyGroupsTypeDef]
 
 ### Channels
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CHAT', 'TASK', 'VOICE']]]
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['CHAT', 'EMAIL', 'TASK', 'VOICE']]]
 
 ### ContactAnalysis
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ContactAnalysisTypeDef]
 
 ### InitiationMethods
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['API', 'CALLBACK', 'DISCONNECT', 'EXTERNAL_OUTBOUND', 'INBOUND', 'MONITOR', 'OUTBOUND', 'QUEUE_TRANSFER', 'TRANSFER']]]
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['AGENT_REPLY', 'API', 'CALLBACK', 'DISCONNECT', 'EXTERNAL_OUTBOUND', 'FLOW', 'INBOUND', 'MONITOR', 'OUTBOUND', 'QUEUE_TRANSFER', 'TRANSFER', 'WEBRTC_API']]]
 
 ### QueueIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -8850,8 +10164,117 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### SearchableContactAttributes
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.SearchableContactAttributesTypeDef]
 
+### SearchableSegmentAttributes
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.SearchableSegmentAttributesTypeDef]
 
-# SearchHoursOfOperationsRequestRequestTypeDef
+
+# SearchEmailAddressesRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### SearchCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.EmailAddressSearchCriteriaTypeDef]
+
+### SearchFilter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.EmailAddressSearchFilterTypeDef]
+
+
+# SearchEmailAddressesResponseTypeDef
+
+### EmailAddresses
+- **Type**: typing.List[aws_resource_validator.pydantic_models.connect_classes.EmailAddressMetadataTypeDef]
+- **Required**: Yes
+
+### ApproximateTotalCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# SearchHoursOfOperationOverridesRequestPaginateTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SearchFilter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.HoursOfOperationSearchFilterTypeDef]
+
+### SearchCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.HoursOfOperationOverrideSearchCriteriaPaginatorTypeDef]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
+
+
+# SearchHoursOfOperationOverridesRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### SearchFilter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.HoursOfOperationSearchFilterTypeDef]
+
+### SearchCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.HoursOfOperationOverrideSearchCriteriaTypeDef]
+
+
+# SearchHoursOfOperationOverridesResponseTypeDef
+
+### HoursOfOperationOverrides
+- **Type**: typing.List[aws_resource_validator.pydantic_models.connect_classes.HoursOfOperationOverrideTypeDef]
+- **Required**: Yes
+
+### ApproximateTotalCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# SearchHoursOfOperationsRequestPaginateTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SearchFilter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.HoursOfOperationSearchFilterTypeDef]
+
+### SearchCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.HoursOfOperationSearchCriteriaPaginatorTypeDef]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
+
+
+# SearchHoursOfOperationsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -8868,22 +10291,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SearchCriteria
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.HoursOfOperationSearchCriteriaTypeDef]
-
-
-# SearchHoursOfOperationsRequestSearchHoursOfOperationsPaginateTypeDef
-
-### InstanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SearchFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.HoursOfOperationSearchFilterTypeDef]
-
-### SearchCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.HoursOfOperationSearchCriteriaTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
 # SearchHoursOfOperationsResponseTypeDef
@@ -8904,7 +10311,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchPredefinedAttributesRequestRequestTypeDef
+# SearchPredefinedAttributesRequestPaginateTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SearchCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PredefinedAttributeSearchCriteriaPaginatorTypeDef]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
+
+
+# SearchPredefinedAttributesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -8917,20 +10337,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### SearchCriteria
-- **Type**: typing.Optional[ForwardRef('PredefinedAttributeSearchCriteriaTypeDef')]
-
-
-# SearchPredefinedAttributesRequestSearchPredefinedAttributesPaginateTypeDef
-
-### InstanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SearchCriteria
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PredefinedAttributeSearchCriteriaTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
 # SearchPredefinedAttributesResponseTypeDef
@@ -8951,7 +10358,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchPromptsRequestRequestTypeDef
+# SearchPromptsRequestPaginateTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SearchFilter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PromptSearchFilterTypeDef]
+
+### SearchCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PromptSearchCriteriaPaginatorTypeDef]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
+
+
+# SearchPromptsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -8968,22 +10391,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SearchCriteria
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PromptSearchCriteriaTypeDef]
-
-
-# SearchPromptsRequestSearchPromptsPaginateTypeDef
-
-### InstanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SearchFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PromptSearchFilterTypeDef]
-
-### SearchCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PromptSearchCriteriaTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
 # SearchPromptsResponseTypeDef
@@ -9004,7 +10411,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchQueuesRequestRequestTypeDef
+# SearchQueuesRequestPaginateTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SearchFilter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.QueueSearchFilterTypeDef]
+
+### SearchCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.QueueSearchCriteriaPaginatorTypeDef]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
+
+
+# SearchQueuesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -9021,22 +10444,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SearchCriteria
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.QueueSearchCriteriaTypeDef]
-
-
-# SearchQueuesRequestSearchQueuesPaginateTypeDef
-
-### InstanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SearchFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.QueueSearchFilterTypeDef]
-
-### SearchCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.QueueSearchCriteriaTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
 # SearchQueuesResponseTypeDef
@@ -9057,7 +10464,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchQuickConnectsRequestRequestTypeDef
+# SearchQuickConnectsRequestPaginateTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SearchFilter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.QuickConnectSearchFilterTypeDef]
+
+### SearchCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.QuickConnectSearchCriteriaPaginatorTypeDef]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
+
+
+# SearchQuickConnectsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -9074,22 +10497,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SearchCriteria
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.QuickConnectSearchCriteriaTypeDef]
-
-
-# SearchQuickConnectsRequestSearchQuickConnectsPaginateTypeDef
-
-### InstanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SearchFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.QuickConnectSearchFilterTypeDef]
-
-### SearchCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.QuickConnectSearchCriteriaTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
 # SearchQuickConnectsResponseTypeDef
@@ -9110,7 +10517,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchResourceTagsRequestRequestTypeDef
+# SearchResourceTagsRequestPaginateTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResourceTypes
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### SearchCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ResourceTagsSearchCriteriaTypeDef]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
+
+
+# SearchResourceTagsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -9127,22 +10550,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SearchCriteria
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ResourceTagsSearchCriteriaTypeDef]
-
-
-# SearchResourceTagsRequestSearchResourceTagsPaginateTypeDef
-
-### InstanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResourceTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### SearchCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ResourceTagsSearchCriteriaTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
 # SearchResourceTagsResponseTypeDef
@@ -9159,7 +10566,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchRoutingProfilesRequestRequestTypeDef
+# SearchRoutingProfilesRequestPaginateTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SearchFilter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.RoutingProfileSearchFilterTypeDef]
+
+### SearchCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.RoutingProfileSearchCriteriaPaginatorTypeDef]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
+
+
+# SearchRoutingProfilesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -9176,22 +10599,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SearchCriteria
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.RoutingProfileSearchCriteriaTypeDef]
-
-
-# SearchRoutingProfilesRequestSearchRoutingProfilesPaginateTypeDef
-
-### InstanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SearchFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.RoutingProfileSearchFilterTypeDef]
-
-### SearchCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.RoutingProfileSearchCriteriaTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
 # SearchRoutingProfilesResponseTypeDef
@@ -9212,7 +10619,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchSecurityProfilesRequestRequestTypeDef
+# SearchSecurityProfilesRequestPaginateTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SearchCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.SecurityProfileSearchCriteriaPaginatorTypeDef]
+
+### SearchFilter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.SecurityProfilesSearchFilterTypeDef]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
+
+
+# SearchSecurityProfilesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -9229,22 +10652,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SearchFilter
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.SecurityProfilesSearchFilterTypeDef]
-
-
-# SearchSecurityProfilesRequestSearchSecurityProfilesPaginateTypeDef
-
-### InstanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SearchCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.SecurityProfileSearchCriteriaTypeDef]
-
-### SearchFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.SecurityProfilesSearchFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
 # SearchSecurityProfilesResponseTypeDef
@@ -9265,7 +10672,76 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchUsersRequestRequestTypeDef
+# SearchUserHierarchyGroupsRequestPaginateTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SearchFilter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.UserHierarchyGroupSearchFilterTypeDef]
+
+### SearchCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.UserHierarchyGroupSearchCriteriaPaginatorTypeDef]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
+
+
+# SearchUserHierarchyGroupsRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### SearchFilter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.UserHierarchyGroupSearchFilterTypeDef]
+
+### SearchCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.UserHierarchyGroupSearchCriteriaTypeDef]
+
+
+# SearchUserHierarchyGroupsResponseTypeDef
+
+### UserHierarchyGroups
+- **Type**: typing.List[aws_resource_validator.pydantic_models.connect_classes.HierarchyGroupTypeDef]
+- **Required**: Yes
+
+### ApproximateTotalCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# SearchUsersRequestPaginateTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SearchFilter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.UserSearchFilterTypeDef]
+
+### SearchCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.UserSearchCriteriaPaginatorTypeDef]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
+
+
+# SearchUsersRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -9282,22 +10758,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SearchCriteria
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.UserSearchCriteriaTypeDef]
-
-
-# SearchUsersRequestSearchUsersPaginateTypeDef
-
-### InstanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SearchFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.UserSearchFilterTypeDef]
-
-### SearchCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.UserSearchCriteriaTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
 
 
 # SearchUsersResponseTypeDef
@@ -9318,7 +10778,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchVocabulariesRequestRequestTypeDef
+# SearchVocabulariesRequestPaginateTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### State
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATION_FAILED', 'CREATION_IN_PROGRESS', 'DELETE_IN_PROGRESS']]
+
+### NameStartsWith
+- **Type**: typing.Optional[str]
+
+### LanguageCode
+- **Type**: typing.Optional[typing.Literal['ar-AE', 'ca-ES', 'da-DK', 'de-CH', 'de-DE', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'fi-FI', 'fr-CA', 'fr-FR', 'hi-IN', 'id-ID', 'it-IT', 'ja-JP', 'ko-KR', 'ms-MY', 'nl-NL', 'no-NO', 'pl-PL', 'pt-BR', 'pt-PT', 'sv-SE', 'tl-PH', 'zh-CN']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
+
+
+# SearchVocabulariesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -9337,26 +10816,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LanguageCode
-- **Type**: typing.Optional[typing.Literal['ar-AE', 'de-CH', 'de-DE', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'fr-CA', 'fr-FR', 'hi-IN', 'it-IT', 'ja-JP', 'ko-KR', 'pt-BR', 'pt-PT', 'zh-CN']]
-
-
-# SearchVocabulariesRequestSearchVocabulariesPaginateTypeDef
-
-### InstanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### State
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATION_FAILED', 'CREATION_IN_PROGRESS', 'DELETE_IN_PROGRESS']]
-
-### NameStartsWith
-- **Type**: typing.Optional[str]
-
-### LanguageCode
-- **Type**: typing.Optional[typing.Literal['ar-AE', 'de-CH', 'de-DE', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'fr-CA', 'fr-FR', 'hi-IN', 'it-IT', 'ja-JP', 'ko-KR', 'pt-BR', 'pt-PT', 'zh-CN']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[typing.Literal['ar-AE', 'ca-ES', 'da-DK', 'de-CH', 'de-DE', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'fi-FI', 'fr-CA', 'fr-FR', 'hi-IN', 'id-ID', 'it-IT', 'ja-JP', 'ko-KR', 'ms-MY', 'nl-NL', 'no-NO', 'pl-PL', 'pt-BR', 'pt-PT', 'sv-SE', 'tl-PH', 'zh-CN']]
 
 
 # SearchVocabulariesResponseTypeDef
@@ -9394,6 +10854,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['MATCH_ALL', 'MATCH_ANY']]
 
 
+# SearchableSegmentAttributesCriteriaTypeDef
+
+### Key
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Values
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+
+# SearchableSegmentAttributesTypeDef
+
+### Criteria
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.SearchableSegmentAttributesCriteriaTypeDef]
+- **Required**: Yes
+
+### MatchType
+- **Type**: typing.Optional[typing.Literal['MATCH_ALL', 'MATCH_ANY']]
+
+
 # SecurityKeyTypeDef
 
 ### AssociationId
@@ -9406,13 +10887,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
+# SecurityProfileSearchCriteriaPaginatorTypeDef
+
+### OrConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### AndConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### StringCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
+
+
 # SecurityProfileSearchCriteriaTypeDef
 
 ### OrConditions
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 ### AndConditions
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 ### StringCondition
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
@@ -9502,13 +10995,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ControlPlaneTagFilterTypeDef]
 
 
+# SegmentAttributeValueOutputTypeDef
+
+### ValueString
+- **Type**: typing.Optional[str]
+
+### ValueMap
+- **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, typing.Any]]]
+
+### ValueInteger
+- **Type**: typing.Optional[int]
+
+
 # SegmentAttributeValueTypeDef
 
 ### ValueString
 - **Type**: typing.Optional[str]
 
+### ValueMap
+- **Type**: typing.Optional[typing.Mapping[str, typing.Mapping[str, typing.Any]]]
 
-# SendChatIntegrationEventRequestRequestTypeDef
+### ValueInteger
+- **Type**: typing.Optional[int]
+
+
+# SegmentAttributeValueUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# SendChatIntegrationEventRequestTypeDef
 
 ### SourceId
 - **Type**: <class 'str'>
@@ -9581,10 +11098,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Recipient
-- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.NotificationRecipientTypeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.NotificationRecipientTypeUnionTypeDef'>
 - **Required**: Yes
 
 ### Subject
+- **Type**: typing.Optional[str]
+
+
+# SendNotificationActionDefinitionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# SendOutboundEmailRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### FromEmailAddress
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.EmailAddressInfoTypeDef'>
+- **Required**: Yes
+
+### DestinationEmailAddress
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.EmailAddressInfoTypeDef'>
+- **Required**: Yes
+
+### EmailMessage
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.OutboundEmailContentTypeDef'>
+- **Required**: Yes
+
+### TrafficType
+- **Type**: typing.Literal['CAMPAIGN', 'GENERAL']
+- **Required**: Yes
+
+### AdditionalRecipients
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.OutboundAdditionalRecipientsTypeDef]
+
+### SourceCampaign
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.SourceCampaignTypeDef]
+
+### ClientToken
 - **Type**: typing.Optional[str]
 
 
@@ -9601,6 +11156,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.SignInDistributionTypeDef]
 - **Required**: Yes
 
+
+# SignInConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SignInDistributionTypeDef
 
@@ -9639,7 +11200,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartAttachedFileUploadRequestRequestTypeDef
+# SourceCampaignTypeDef
+
+### CampaignId
+- **Type**: typing.Optional[str]
+
+### OutboundRequestId
+- **Type**: typing.Optional[str]
+
+
+# StartAttachedFileUploadRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -9654,7 +11224,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FileUseCaseType
-- **Type**: typing.Literal['ATTACHMENT']
+- **Type**: typing.Literal['ATTACHMENT', 'EMAIL_MESSAGE']
 - **Required**: Yes
 
 ### AssociatedResourceArn
@@ -9705,7 +11275,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartChatContactRequestRequestTypeDef
+# StartChatContactRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -9741,7 +11311,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SegmentAttributes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.connect_classes.SegmentAttributeValueTypeDef]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.connect_classes.SegmentAttributeValueUnionTypeDef]]
+
+### CustomerId
+- **Type**: typing.Optional[str]
 
 
 # StartChatContactResponseTypeDef
@@ -9767,7 +11340,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartContactEvaluationRequestRequestTypeDef
+# StartContactEvaluationRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -9800,7 +11373,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartContactRecordingRequestRequestTypeDef
+# StartContactRecordingRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -9819,7 +11392,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartContactStreamingRequestRequestTypeDef
+# StartContactStreamingRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -9849,7 +11422,161 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartOutboundVoiceContactRequestRequestTypeDef
+# StartEmailContactRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### FromEmailAddress
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.EmailAddressInfoTypeDef'>
+- **Required**: Yes
+
+### DestinationEmailAddress
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EmailMessage
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.InboundEmailContentTypeDef'>
+- **Required**: Yes
+
+### Description
+- **Type**: typing.Optional[str]
+
+### References
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.connect_classes.ReferenceTypeDef]]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### AdditionalRecipients
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.InboundAdditionalRecipientsTypeDef]
+
+### Attachments
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.EmailAttachmentTypeDef]]
+
+### ContactFlowId
+- **Type**: typing.Optional[str]
+
+### RelatedContactId
+- **Type**: typing.Optional[str]
+
+### Attributes
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### SegmentAttributes
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.connect_classes.SegmentAttributeValueUnionTypeDef]]
+
+### ClientToken
+- **Type**: typing.Optional[str]
+
+
+# StartEmailContactResponseTypeDef
+
+### ContactId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# StartOutboundChatContactRequestTypeDef
+
+### SourceEndpoint
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.EndpointTypeDef'>
+- **Required**: Yes
+
+### DestinationEndpoint
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.EndpointTypeDef'>
+- **Required**: Yes
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SegmentAttributes
+- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.connect_classes.SegmentAttributeValueUnionTypeDef]
+- **Required**: Yes
+
+### ContactFlowId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Attributes
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### ChatDurationInMinutes
+- **Type**: typing.Optional[int]
+
+### ParticipantDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ParticipantDetailsTypeDef]
+
+### InitialSystemMessage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ChatMessageTypeDef]
+
+### RelatedContactId
+- **Type**: typing.Optional[str]
+
+### SupportedMessagingContentTypes
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### ClientToken
+- **Type**: typing.Optional[str]
+
+
+# StartOutboundChatContactResponseTypeDef
+
+### ContactId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# StartOutboundEmailContactRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ContactId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DestinationEmailAddress
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.EmailAddressInfoTypeDef'>
+- **Required**: Yes
+
+### EmailMessage
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.OutboundEmailContentTypeDef'>
+- **Required**: Yes
+
+### FromEmailAddress
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.EmailAddressInfoTypeDef]
+
+### AdditionalRecipients
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.OutboundAdditionalRecipientsTypeDef]
+
+### ClientToken
+- **Type**: typing.Optional[str]
+
+
+# StartOutboundEmailContactResponseTypeDef
+
+### ContactId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# StartOutboundVoiceContactRequestTypeDef
 
 ### DestinationPhoneNumber
 - **Type**: <class 'str'>
@@ -9908,7 +11635,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartTaskContactRequestRequestTypeDef
+# StartScreenSharingRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ContactId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ClientToken
+- **Type**: typing.Optional[str]
+
+
+# StartTaskContactRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -9937,7 +11678,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ScheduledTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.TimestampTypeDef]
 
 ### TaskTemplateId
 - **Type**: typing.Optional[str]
@@ -9947,6 +11688,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### RelatedContactId
 - **Type**: typing.Optional[str]
+
+### SegmentAttributes
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.connect_classes.SegmentAttributeValueUnionTypeDef]]
 
 
 # StartTaskContactResponseTypeDef
@@ -9960,7 +11704,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartWebRTCContactRequestRequestTypeDef
+# StartWebRTCContactRequestTypeDef
 
 ### ContactFlowId
 - **Type**: <class 'str'>
@@ -10022,13 +11766,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ExpiryTypeDef]
 
 ### Expression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ExpressionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ExpressionOutputTypeDef]
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'EXPIRED', 'INACTIVE', 'JOINED']]
 
 
-# StopContactRecordingRequestRequestTypeDef
+# StopContactRecordingRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -10042,8 +11786,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### ContactRecordingType
+- **Type**: typing.Optional[typing.Literal['AGENT', 'IVR', 'SCREEN']]
 
-# StopContactRequestRequestTypeDef
+
+# StopContactRequestTypeDef
 
 ### ContactId
 - **Type**: <class 'str'>
@@ -10057,7 +11804,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.DisconnectReasonTypeDef]
 
 
-# StopContactStreamingRequestRequestTypeDef
+# StopContactStreamingRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -10074,15 +11821,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # StringConditionTypeDef
 
-### FieldName
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Value
-- **Type**: typing.Optional[str]
-
-### ComparisonType
-- **Type**: typing.Optional[typing.Literal['CONTAINS', 'EXACT', 'STARTS_WITH']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StringReferenceTypeDef
 
@@ -10100,7 +11841,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SubmitContactEvaluationRequestRequestTypeDef
+# SubmitContactEvaluationRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -10141,7 +11882,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SuspendContactRecordingRequestRequestTypeDef
+# SuspendContactRecordingRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -10155,6 +11896,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### ContactRecordingType
+- **Type**: typing.Optional[typing.Literal['AGENT', 'IVR', 'SCREEN']]
+
 
 # TagConditionTypeDef
 
@@ -10165,7 +11909,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagContactRequestRequestTypeDef
+# TagContactRequestTypeDef
 
 ### ContactId
 - **Type**: <class 'str'>
@@ -10180,7 +11924,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -10249,6 +11993,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.connect_classes.ReferenceTypeDef]]
 
 
+# TaskActionDefinitionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # TaskTemplateConstraintsOutputTypeDef
 
 ### RequiredFields
@@ -10273,6 +12023,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.InvisibleFieldInfoTypeDef]]
 
 
+# TaskTemplateConstraintsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # TaskTemplateDefaultFieldValueTypeDef
 
 ### Id
@@ -10294,6 +12050,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.TaskTemplateDefaultFieldValueTypeDef]]
 
 
+# TaskTemplateDefaultsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # TaskTemplateFieldIdentifierTypeDef
 
 ### Name
@@ -10302,35 +12064,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # TaskTemplateFieldOutputTypeDef
 
-### Id
-- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.TaskTemplateFieldIdentifierTypeDef'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Description
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Type
-- **Type**: typing.Optional[typing.Literal['BOOLEAN', 'DATE_TIME', 'DESCRIPTION', 'EMAIL', 'NAME', 'NUMBER', 'QUICK_CONNECT', 'SCHEDULED_TIME', 'SINGLE_SELECT', 'TEXT', 'TEXT_AREA', 'URL']]
+# TaskTemplateFieldUnionTypeDef
 
-### SingleSelectOptions
-- **Type**: typing.Optional[typing.List[str]]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-
-# TaskTemplateFieldTypeDef
-
-### Id
-- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.TaskTemplateFieldIdentifierTypeDef'>
-- **Required**: Yes
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['BOOLEAN', 'DATE_TIME', 'DESCRIPTION', 'EMAIL', 'NAME', 'NUMBER', 'QUICK_CONNECT', 'SCHEDULED_TIME', 'SINGLE_SELECT', 'TEXT', 'TEXT_AREA', 'URL']]
-
-### SingleSelectOptions
-- **Type**: typing.Optional[typing.Sequence[str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TaskTemplateMetadataTypeDef
 
@@ -10370,6 +12112,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# TelephonyConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TemplateAttributesTypeDef
+
+### CustomAttributes
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### CustomerProfileAttributes
+- **Type**: typing.Optional[str]
+
+
+# TemplatedMessageConfigTypeDef
+
+### KnowledgeBaseId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### MessageTemplateId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TemplateAttributes
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.TemplateAttributesTypeDef'>
+- **Required**: Yes
+
+
 # ThresholdTypeDef
 
 ### Comparison
@@ -10387,6 +12159,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ThresholdValue
 - **Type**: typing.Optional[float]
 
+
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TrafficDistributionGroupSummaryTypeDef
 
@@ -10467,7 +12245,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['MATCH_ALL', 'MATCH_ANY']]
 
 
-# TransferContactRequestRequestTypeDef
+# TransferContactRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -10506,7 +12284,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagContactRequestRequestTypeDef
+# UntagContactRequestTypeDef
 
 ### ContactId
 - **Type**: <class 'str'>
@@ -10521,7 +12299,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -10532,7 +12310,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAgentStatusRequestRequestTypeDef
+# UpdateAgentStatusRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -10558,7 +12336,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpdateAuthenticationProfileRequestRequestTypeDef
+# UpdateAuthenticationProfileRequestTypeDef
 
 ### AuthenticationProfileId
 - **Type**: <class 'str'>
@@ -10594,11 +12372,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateCaseActionDefinitionTypeDef
 
 ### Fields
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.FieldValueTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.FieldValueUnionExtraTypeDef]
 - **Required**: Yes
 
 
-# UpdateContactAttributesRequestRequestTypeDef
+# UpdateCaseActionDefinitionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UpdateContactAttributesRequestTypeDef
 
 ### InitialContactId
 - **Type**: <class 'str'>
@@ -10613,7 +12397,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateContactEvaluationRequestRequestTypeDef
+# UpdateContactEvaluationRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -10645,7 +12429,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateContactFlowContentRequestRequestTypeDef
+# UpdateContactFlowContentRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -10660,7 +12444,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateContactFlowMetadataRequestRequestTypeDef
+# UpdateContactFlowMetadataRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -10680,7 +12464,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'ARCHIVED']]
 
 
-# UpdateContactFlowModuleContentRequestRequestTypeDef
+# UpdateContactFlowModuleContentRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -10695,7 +12479,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateContactFlowModuleMetadataRequestRequestTypeDef
+# UpdateContactFlowModuleMetadataRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -10715,7 +12499,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'ARCHIVED']]
 
 
-# UpdateContactFlowNameRequestRequestTypeDef
+# UpdateContactFlowNameRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -10732,7 +12516,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateContactRequestRequestTypeDef
+# UpdateContactRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -10751,8 +12535,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### References
 - **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.connect_classes.ReferenceTypeDef]]
 
+### SegmentAttributes
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.connect_classes.SegmentAttributeValueUnionTypeDef]]
 
-# UpdateContactRoutingDataRequestRequestTypeDef
+### QueueInfo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.QueueInfoInputTypeDef]
+
+### UserInfo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.UserInfoTypeDef]
+
+### CustomerEndpoint
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.EndpointTypeDef]
+
+### SystemEndpoint
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.EndpointTypeDef]
+
+
+# UpdateContactRoutingDataRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -10768,8 +12567,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### QueuePriority
 - **Type**: typing.Optional[int]
 
+### RoutingCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.RoutingCriteriaInputTypeDef]
 
-# UpdateContactScheduleRequestRequestTypeDef
+
+# UpdateContactScheduleRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -10780,11 +12582,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ScheduledTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 
-# UpdateEvaluationFormRequestRequestTypeDef
+# UpdateEmailAddressMetadataRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EmailAddressId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Description
+- **Type**: typing.Optional[str]
+
+### DisplayName
+- **Type**: typing.Optional[str]
+
+### ClientToken
+- **Type**: typing.Optional[str]
+
+
+# UpdateEmailAddressMetadataResponseTypeDef
+
+### EmailAddressId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EmailAddressArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateEvaluationFormRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -10803,7 +12640,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Sequence[typing.Union[ForwardRef("'EvaluationFormItemTypeDef'"), ForwardRef("'EvaluationFormItemOutputTypeDef'")]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.EvaluationFormItemUnionTypeDef]
 - **Required**: Yes
 
 ### CreateNewVersion
@@ -10838,7 +12675,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateHoursOfOperationRequestRequestTypeDef
+# UpdateHoursOfOperationOverrideRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### HoursOfOperationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### HoursOfOperationOverrideId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### Config
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.HoursOfOperationOverrideConfigTypeDef]]
+
+### EffectiveFrom
+- **Type**: typing.Optional[str]
+
+### EffectiveTill
+- **Type**: typing.Optional[str]
+
+
+# UpdateHoursOfOperationRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -10861,22 +12728,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.HoursOfOperationConfigTypeDef]]
 
 
-# UpdateInstanceAttributeRequestRequestTypeDef
+# UpdateInstanceAttributeRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### AttributeType
-- **Type**: typing.Literal['AUTO_RESOLVE_BEST_VOICES', 'CONTACTFLOW_LOGS', 'CONTACT_LENS', 'EARLY_MEDIA', 'ENHANCED_CHAT_MONITORING', 'ENHANCED_CONTACT_MONITORING', 'HIGH_VOLUME_OUTBOUND', 'INBOUND_CALLS', 'MULTI_PARTY_CONFERENCE', 'OUTBOUND_CALLS', 'USE_CUSTOM_TTS_VOICES']
+- **Type**: typing.Literal['AUTO_RESOLVE_BEST_VOICES', 'CONTACTFLOW_LOGS', 'CONTACT_LENS', 'EARLY_MEDIA', 'ENHANCED_CHAT_MONITORING', 'ENHANCED_CONTACT_MONITORING', 'HIGH_VOLUME_OUTBOUND', 'INBOUND_CALLS', 'MULTI_PARTY_CHAT_CONFERENCE', 'MULTI_PARTY_CONFERENCE', 'OUTBOUND_CALLS', 'USE_CUSTOM_TTS_VOICES']
 - **Required**: Yes
 
 ### Value
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### ClientToken
+- **Type**: typing.Optional[str]
 
-# UpdateInstanceStorageConfigRequestRequestTypeDef
+
+# UpdateInstanceStorageConfigRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -10887,12 +12757,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceType
-- **Type**: typing.Literal['AGENT_EVENTS', 'ATTACHMENTS', 'CALL_RECORDINGS', 'CHAT_TRANSCRIPTS', 'CONTACT_EVALUATIONS', 'CONTACT_TRACE_RECORDS', 'MEDIA_STREAMS', 'REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS', 'REAL_TIME_CONTACT_ANALYSIS_SEGMENTS', 'REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS', 'SCHEDULED_REPORTS', 'SCREEN_RECORDINGS']
+- **Type**: typing.Literal['AGENT_EVENTS', 'ATTACHMENTS', 'CALL_RECORDINGS', 'CHAT_TRANSCRIPTS', 'CONTACT_EVALUATIONS', 'CONTACT_TRACE_RECORDS', 'EMAIL_MESSAGES', 'MEDIA_STREAMS', 'REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS', 'REAL_TIME_CONTACT_ANALYSIS_SEGMENTS', 'REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS', 'SCHEDULED_REPORTS', 'SCREEN_RECORDINGS']
 - **Required**: Yes
 
 ### StorageConfig
 - **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.InstanceStorageConfigTypeDef'>
 - **Required**: Yes
+
+### ClientToken
+- **Type**: typing.Optional[str]
+
+
+# UpdateParticipantAuthenticationRequestTypeDef
+
+### State
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Code
+- **Type**: typing.Optional[str]
+
+### Error
+- **Type**: typing.Optional[str]
+
+### ErrorDescription
+- **Type**: typing.Optional[str]
 
 
 # UpdateParticipantRoleConfigChannelInfoTypeDef
@@ -10901,7 +12794,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ChatParticipantRoleConfigTypeDef]
 
 
-# UpdateParticipantRoleConfigRequestRequestTypeDef
+# UpdateParticipantRoleConfigRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -10916,7 +12809,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePhoneNumberMetadataRequestRequestTypeDef
+# UpdatePhoneNumberMetadataRequestTypeDef
 
 ### PhoneNumberId
 - **Type**: <class 'str'>
@@ -10929,7 +12822,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdatePhoneNumberRequestRequestTypeDef
+# UpdatePhoneNumberRequestTypeDef
 
 ### PhoneNumberId
 - **Type**: <class 'str'>
@@ -10960,7 +12853,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePredefinedAttributeRequestRequestTypeDef
+# UpdatePredefinedAttributeRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -10971,10 +12864,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PredefinedAttributeValuesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.PredefinedAttributeValuesUnionTypeDef]
 
 
-# UpdatePromptRequestRequestTypeDef
+# UpdatePromptRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -11009,7 +12902,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateQueueHoursOfOperationRequestRequestTypeDef
+# UpdateQueueHoursOfOperationRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -11024,7 +12917,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateQueueMaxContactsRequestRequestTypeDef
+# UpdateQueueMaxContactsRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -11038,7 +12931,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# UpdateQueueNameRequestRequestTypeDef
+# UpdateQueueNameRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -11055,7 +12948,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateQueueOutboundCallerConfigRequestRequestTypeDef
+# UpdateQueueOutboundCallerConfigRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -11070,7 +12963,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateQueueStatusRequestRequestTypeDef
+# UpdateQueueOutboundEmailConfigRequestTypeDef
+
+### InstanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### QueueId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### OutboundEmailConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.OutboundEmailConfigTypeDef'>
+- **Required**: Yes
+
+
+# UpdateQueueStatusRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -11085,7 +12993,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateQuickConnectConfigRequestRequestTypeDef
+# UpdateQuickConnectConfigRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -11100,7 +13008,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateQuickConnectNameRequestRequestTypeDef
+# UpdateQuickConnectNameRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -11117,7 +13025,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateRoutingProfileAgentAvailabilityTimerRequestRequestTypeDef
+# UpdateRoutingProfileAgentAvailabilityTimerRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -11132,7 +13040,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRoutingProfileConcurrencyRequestRequestTypeDef
+# UpdateRoutingProfileConcurrencyRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -11147,7 +13055,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRoutingProfileDefaultOutboundQueueRequestRequestTypeDef
+# UpdateRoutingProfileDefaultOutboundQueueRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -11162,7 +13070,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRoutingProfileNameRequestRequestTypeDef
+# UpdateRoutingProfileNameRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -11179,7 +13087,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateRoutingProfileQueuesRequestRequestTypeDef
+# UpdateRoutingProfileQueuesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -11194,7 +13102,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRuleRequestRequestTypeDef
+# UpdateRuleRequestTypeDef
 
 ### RuleId
 - **Type**: <class 'str'>
@@ -11213,7 +13121,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Actions
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.connect_classes.RuleActionTypeDef, aws_resource_validator.pydantic_models.connect_classes.RuleActionOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.RuleActionUnionTypeDef]
 - **Required**: Yes
 
 ### PublishStatus
@@ -11221,7 +13129,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateSecurityProfileRequestRequestTypeDef
+# UpdateSecurityProfileRequestTypeDef
 
 ### SecurityProfileId
 - **Type**: <class 'str'>
@@ -11244,7 +13152,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### Applications
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.connect_classes.ApplicationTypeDef, aws_resource_validator.pydantic_models.connect_classes.ApplicationExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.ApplicationUnionTypeDef]]
 
 ### HierarchyRestrictedResources
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -11253,7 +13161,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateTaskTemplateRequestRequestTypeDef
+# UpdateTaskTemplateRequestTypeDef
 
 ### TaskTemplateId
 - **Type**: <class 'str'>
@@ -11272,17 +13180,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ContactFlowId
 - **Type**: typing.Optional[str]
 
+### SelfAssignFlowId
+- **Type**: typing.Optional[str]
+
 ### Constraints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.TaskTemplateConstraintsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.TaskTemplateConstraintsUnionTypeDef]
 
 ### Defaults
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.TaskTemplateDefaultsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.TaskTemplateDefaultsUnionTypeDef]
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
 
 ### Fields
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.connect_classes.TaskTemplateFieldTypeDef, aws_resource_validator.pydantic_models.connect_classes.TaskTemplateFieldOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connect_classes.TaskTemplateFieldUnionTypeDef]]
 
 
 # UpdateTaskTemplateResponseTypeDef
@@ -11308,6 +13219,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ContactFlowId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SelfAssignFlowId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -11340,23 +13255,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateTrafficDistributionRequestRequestTypeDef
+# UpdateTrafficDistributionRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### TelephonyConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.TelephonyConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.TelephonyConfigUnionTypeDef]
 
 ### SignInConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.SignInConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.SignInConfigUnionTypeDef]
 
 ### AgentConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.AgentConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.AgentConfigUnionTypeDef]
 
 
-# UpdateUserHierarchyGroupNameRequestRequestTypeDef
+# UpdateUserHierarchyGroupNameRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -11371,7 +13286,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateUserHierarchyRequestRequestTypeDef
+# UpdateUserHierarchyRequestTypeDef
 
 ### UserId
 - **Type**: <class 'str'>
@@ -11385,7 +13300,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateUserHierarchyStructureRequestRequestTypeDef
+# UpdateUserHierarchyStructureRequestTypeDef
 
 ### HierarchyStructure
 - **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.HierarchyStructureUpdateTypeDef'>
@@ -11396,7 +13311,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateUserIdentityInfoRequestRequestTypeDef
+# UpdateUserIdentityInfoRequestTypeDef
 
 ### IdentityInfo
 - **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.UserIdentityInfoTypeDef'>
@@ -11411,7 +13326,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateUserPhoneConfigRequestRequestTypeDef
+# UpdateUserPhoneConfigRequestTypeDef
 
 ### PhoneConfig
 - **Type**: <class 'aws_resource_validator.pydantic_models.connect_classes.UserPhoneConfigTypeDef'>
@@ -11426,7 +13341,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateUserProficienciesRequestRequestTypeDef
+# UpdateUserProficienciesRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -11441,7 +13356,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateUserRoutingProfileRequestRequestTypeDef
+# UpdateUserRoutingProfileRequestTypeDef
 
 ### RoutingProfileId
 - **Type**: <class 'str'>
@@ -11456,7 +13371,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateUserSecurityProfilesRequestRequestTypeDef
+# UpdateUserSecurityProfilesRequestTypeDef
 
 ### SecurityProfileIds
 - **Type**: typing.Sequence[str]
@@ -11471,7 +13386,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateViewContentRequestRequestTypeDef
+# UpdateViewContentRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -11501,7 +13416,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateViewMetadataRequestRequestTypeDef
+# UpdateViewMetadataRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -11584,19 +13499,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.AgentStatusReferenceTypeDef]
 
 ### AvailableSlotsByChannel
-- **Type**: typing.Optional[typing.Dict[typing.Literal['CHAT', 'TASK', 'VOICE'], int]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['CHAT', 'EMAIL', 'TASK', 'VOICE'], int]]
 
 ### MaxSlotsByChannel
-- **Type**: typing.Optional[typing.Dict[typing.Literal['CHAT', 'TASK', 'VOICE'], int]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['CHAT', 'EMAIL', 'TASK', 'VOICE'], int]]
 
 ### ActiveSlotsByChannel
-- **Type**: typing.Optional[typing.Dict[typing.Literal['CHAT', 'TASK', 'VOICE'], int]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['CHAT', 'EMAIL', 'TASK', 'VOICE'], int]]
 
 ### Contacts
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.connect_classes.AgentContactReferenceTypeDef]]
 
 ### NextStatus
 - **Type**: typing.Optional[str]
+
+
+# UserHierarchyGroupSearchCriteriaPaginatorTypeDef
+
+### OrConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### AndConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### StringCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
+
+
+# UserHierarchyGroupSearchCriteriaTypeDef
+
+### OrConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### AndConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### StringCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
+
+
+# UserHierarchyGroupSearchFilterTypeDef
+
+### AttributeFilter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ControlPlaneAttributeFilterTypeDef]
 
 
 # UserIdentityInfoLiteTypeDef
@@ -11623,6 +13568,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Mobile
+- **Type**: typing.Optional[str]
+
+
+# UserInfoTypeDef
+
+### UserId
 - **Type**: typing.Optional[str]
 
 
@@ -11688,16 +13639,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UserSearchCriteriaTypeDef
+# UserSearchCriteriaPaginatorTypeDef
 
 ### OrConditions
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 ### AndConditions
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 ### StringCondition
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
+
+### ListCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ListConditionTypeDef]
+
+### HierarchyGroupCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.HierarchyGroupConditionTypeDef]
+
+
+# UserSearchCriteriaTypeDef
+
+### OrConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### AndConditions
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+### StringCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.StringConditionTypeDef]
+
+### ListCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ListConditionTypeDef]
 
 ### HierarchyGroupCondition
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.HierarchyGroupConditionTypeDef]
@@ -11825,90 +13797,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ViewSummaryTypeDef
 
-### Id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Arn
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['AWS_MANAGED', 'CUSTOMER_MANAGED']]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['PUBLISHED', 'SAVED']]
-
-### Description
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ViewTypeDef
 
-### Id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Arn
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['PUBLISHED', 'SAVED']]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['AWS_MANAGED', 'CUSTOMER_MANAGED']]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Version
-- **Type**: typing.Optional[int]
-
-### VersionDescription
-- **Type**: typing.Optional[str]
-
-### Content
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connect_classes.ViewContentTypeDef]
-
-### Tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### CreatedTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### LastModifiedTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### ViewContentSha256
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ViewVersionSummaryTypeDef
 
-### Id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Arn
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['AWS_MANAGED', 'CUSTOMER_MANAGED']]
-
-### Version
-- **Type**: typing.Optional[int]
-
-### VersionDescription
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # VocabularySummaryTypeDef
 
@@ -11925,7 +13828,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LanguageCode
-- **Type**: typing.Literal['ar-AE', 'de-CH', 'de-DE', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'fr-CA', 'fr-FR', 'hi-IN', 'it-IT', 'ja-JP', 'ko-KR', 'pt-BR', 'pt-PT', 'zh-CN']
+- **Type**: typing.Literal['ar-AE', 'ca-ES', 'da-DK', 'de-CH', 'de-DE', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'fi-FI', 'fr-CA', 'fr-FR', 'hi-IN', 'id-ID', 'it-IT', 'ja-JP', 'ko-KR', 'ms-MY', 'nl-NL', 'no-NO', 'pl-PL', 'pt-BR', 'pt-PT', 'sv-SE', 'tl-PH', 'zh-CN']
 - **Required**: Yes
 
 ### State
@@ -11955,7 +13858,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LanguageCode
-- **Type**: typing.Literal['ar-AE', 'de-CH', 'de-DE', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'fr-CA', 'fr-FR', 'hi-IN', 'it-IT', 'ja-JP', 'ko-KR', 'pt-BR', 'pt-PT', 'zh-CN']
+- **Type**: typing.Literal['ar-AE', 'ca-ES', 'da-DK', 'de-CH', 'de-DE', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'fi-FI', 'fr-CA', 'fr-FR', 'hi-IN', 'id-ID', 'it-IT', 'ja-JP', 'ko-KR', 'ms-MY', 'nl-NL', 'no-NO', 'pl-PL', 'pt-BR', 'pt-PT', 'sv-SE', 'tl-PH', 'zh-CN']
 - **Required**: Yes
 
 ### State
@@ -11980,6 +13883,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### VoiceRecordingTrack
 - **Type**: typing.Optional[typing.Literal['ALL', 'FROM_AGENT', 'TO_AGENT']]
+
+### IvrRecordingTrack
+- **Type**: typing.Optional[typing.Literal['ALL']]
 
 
 # WisdomInfoTypeDef

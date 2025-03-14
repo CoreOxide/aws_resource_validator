@@ -1,6 +1,6 @@
 # Elasticache Classes
 
-# AddTagsToResourceMessageRequestTypeDef
+# AddTagsToResourceMessageTypeDef
 
 ### ResourceName
 - **Type**: <class 'str'>
@@ -28,23 +28,17 @@
 
 # AuthenticationModeTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['iam', 'no-password-required', 'password']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Passwords
-- **Type**: typing.Optional[typing.Sequence[str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AuthenticationTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['iam', 'no-password', 'password']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### PasswordCount
-- **Type**: typing.Optional[int]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-
-# AuthorizeCacheSecurityGroupIngressMessageRequestTypeDef
+# AuthorizeCacheSecurityGroupIngressMessageTypeDef
 
 ### CacheSecurityGroupName
 - **Type**: <class 'str'>
@@ -82,7 +76,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchApplyUpdateActionMessageRequestTypeDef
+# BatchApplyUpdateActionMessageTypeDef
 
 ### ServiceUpdateName
 - **Type**: <class 'str'>
@@ -95,7 +89,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# BatchStopUpdateActionMessageRequestTypeDef
+# BatchStopUpdateActionMessageTypeDef
 
 ### ServiceUpdateName
 - **Type**: <class 'str'>
@@ -519,7 +513,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CompleteMigrationMessageRequestTypeDef
+# CompleteMigrationMessageTypeDef
 
 ### ReplicationGroupId
 - **Type**: <class 'str'>
@@ -557,7 +551,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# CopyServerlessCacheSnapshotRequestRequestTypeDef
+# CopyServerlessCacheSnapshotRequestTypeDef
 
 ### SourceServerlessCacheSnapshotName
 - **Type**: <class 'str'>
@@ -585,7 +579,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CopySnapshotMessageRequestTypeDef
+# CopySnapshotMessageTypeDef
 
 ### SourceSnapshotName
 - **Type**: <class 'str'>
@@ -616,7 +610,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCacheClusterMessageRequestTypeDef
+# CreateCacheClusterMessageTypeDef
 
 ### CacheClusterId
 - **Type**: <class 'str'>
@@ -721,7 +715,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCacheParameterGroupMessageRequestTypeDef
+# CreateCacheParameterGroupMessageTypeDef
 
 ### CacheParameterGroupName
 - **Type**: <class 'str'>
@@ -750,7 +744,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCacheSecurityGroupMessageRequestTypeDef
+# CreateCacheSecurityGroupMessageTypeDef
 
 ### CacheSecurityGroupName
 - **Type**: <class 'str'>
@@ -775,7 +769,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCacheSubnetGroupMessageRequestTypeDef
+# CreateCacheSubnetGroupMessageTypeDef
 
 ### CacheSubnetGroupName
 - **Type**: <class 'str'>
@@ -804,7 +798,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateGlobalReplicationGroupMessageRequestTypeDef
+# CreateGlobalReplicationGroupMessageTypeDef
 
 ### GlobalReplicationGroupIdSuffix
 - **Type**: <class 'str'>
@@ -829,7 +823,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateReplicationGroupMessageRequestTypeDef
+# CreateReplicationGroupMessageTypeDef
 
 ### ReplicationGroupId
 - **Type**: <class 'str'>
@@ -864,7 +858,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### NodeGroupConfiguration
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.elasticache_classes.NodeGroupConfigurationTypeDef, aws_resource_validator.pydantic_models.elasticache_classes.NodeGroupConfigurationExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.NodeGroupConfigurationUnionTypeDef]]
 
 ### CacheNodeType
 - **Type**: typing.Optional[str]
@@ -962,7 +956,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateServerlessCacheRequestRequestTypeDef
+# CreateServerlessCacheRequestTypeDef
 
 ### ServerlessCacheName
 - **Type**: <class 'str'>
@@ -1017,7 +1011,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateServerlessCacheSnapshotRequestRequestTypeDef
+# CreateServerlessCacheSnapshotRequestTypeDef
 
 ### ServerlessCacheSnapshotName
 - **Type**: <class 'str'>
@@ -1045,7 +1039,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateSnapshotMessageRequestTypeDef
+# CreateSnapshotMessageTypeDef
 
 ### SnapshotName
 - **Type**: <class 'str'>
@@ -1075,7 +1069,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateUserGroupMessageRequestTypeDef
+# CreateUserGroupMessageTypeDef
 
 ### UserGroupId
 - **Type**: <class 'str'>
@@ -1092,7 +1086,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.TagTypeDef]]
 
 
-# CreateUserMessageRequestTypeDef
+# CreateUserMessageTypeDef
 
 ### UserId
 - **Type**: <class 'str'>
@@ -1145,7 +1139,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DecreaseNodeGroupsInGlobalReplicationGroupMessageRequestTypeDef
+# DecreaseNodeGroupsInGlobalReplicationGroupMessageTypeDef
 
 ### GlobalReplicationGroupId
 - **Type**: <class 'str'>
@@ -1177,7 +1171,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DecreaseReplicaCountMessageRequestTypeDef
+# DecreaseReplicaCountMessageTypeDef
 
 ### ReplicationGroupId
 - **Type**: <class 'str'>
@@ -1208,7 +1202,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteCacheClusterMessageRequestTypeDef
+# DeleteCacheClusterMessageTypeDef
 
 ### CacheClusterId
 - **Type**: <class 'str'>
@@ -1229,28 +1223,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteCacheParameterGroupMessageRequestTypeDef
+# DeleteCacheParameterGroupMessageTypeDef
 
 ### CacheParameterGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteCacheSecurityGroupMessageRequestTypeDef
+# DeleteCacheSecurityGroupMessageTypeDef
 
 ### CacheSecurityGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteCacheSubnetGroupMessageRequestTypeDef
+# DeleteCacheSubnetGroupMessageTypeDef
 
 ### CacheSubnetGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteGlobalReplicationGroupMessageRequestTypeDef
+# DeleteGlobalReplicationGroupMessageTypeDef
 
 ### GlobalReplicationGroupId
 - **Type**: <class 'str'>
@@ -1272,7 +1266,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteReplicationGroupMessageRequestTypeDef
+# DeleteReplicationGroupMessageTypeDef
 
 ### ReplicationGroupId
 - **Type**: <class 'str'>
@@ -1296,7 +1290,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteServerlessCacheRequestRequestTypeDef
+# DeleteServerlessCacheRequestTypeDef
 
 ### ServerlessCacheName
 - **Type**: <class 'str'>
@@ -1317,7 +1311,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteServerlessCacheSnapshotRequestRequestTypeDef
+# DeleteServerlessCacheSnapshotRequestTypeDef
 
 ### ServerlessCacheSnapshotName
 - **Type**: <class 'str'>
@@ -1335,7 +1329,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteSnapshotMessageRequestTypeDef
+# DeleteSnapshotMessageTypeDef
 
 ### SnapshotName
 - **Type**: <class 'str'>
@@ -1353,21 +1347,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteUserGroupMessageRequestTypeDef
+# DeleteUserGroupMessageTypeDef
 
 ### UserGroupId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteUserMessageRequestTypeDef
+# DeleteUserMessageTypeDef
 
 ### UserId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeCacheClustersMessageCacheClusterAvailableWaitTypeDef
+# DescribeCacheClustersMessagePaginateTypeDef
+
+### CacheClusterId
+- **Type**: typing.Optional[str]
+
+### ShowCacheNodeInfo
+- **Type**: typing.Optional[bool]
+
+### ShowCacheClustersNotInReplicationGroups
+- **Type**: typing.Optional[bool]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfigTypeDef]
+
+
+# DescribeCacheClustersMessageTypeDef
+
+### CacheClusterId
+- **Type**: typing.Optional[str]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
+
+### Marker
+- **Type**: typing.Optional[str]
+
+### ShowCacheNodeInfo
+- **Type**: typing.Optional[bool]
+
+### ShowCacheClustersNotInReplicationGroups
+- **Type**: typing.Optional[bool]
+
+
+# DescribeCacheClustersMessageWaitExtraTypeDef
 
 ### CacheClusterId
 - **Type**: typing.Optional[str]
@@ -1388,7 +1415,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.WaiterConfigTypeDef]
 
 
-# DescribeCacheClustersMessageCacheClusterDeletedWaitTypeDef
+# DescribeCacheClustersMessageWaitTypeDef
 
 ### CacheClusterId
 - **Type**: typing.Optional[str]
@@ -1409,40 +1436,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.WaiterConfigTypeDef]
 
 
-# DescribeCacheClustersMessageDescribeCacheClustersPaginateTypeDef
-
-### CacheClusterId
-- **Type**: typing.Optional[str]
-
-### ShowCacheNodeInfo
-- **Type**: typing.Optional[bool]
-
-### ShowCacheClustersNotInReplicationGroups
-- **Type**: typing.Optional[bool]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfigTypeDef]
-
-
-# DescribeCacheClustersMessageRequestTypeDef
-
-### CacheClusterId
-- **Type**: typing.Optional[str]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-### Marker
-- **Type**: typing.Optional[str]
-
-### ShowCacheNodeInfo
-- **Type**: typing.Optional[bool]
-
-### ShowCacheClustersNotInReplicationGroups
-- **Type**: typing.Optional[bool]
-
-
-# DescribeCacheEngineVersionsMessageDescribeCacheEngineVersionsPaginateTypeDef
+# DescribeCacheEngineVersionsMessagePaginateTypeDef
 
 ### Engine
 - **Type**: typing.Optional[str]
@@ -1460,7 +1454,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfigTypeDef]
 
 
-# DescribeCacheEngineVersionsMessageRequestTypeDef
+# DescribeCacheEngineVersionsMessageTypeDef
 
 ### Engine
 - **Type**: typing.Optional[str]
@@ -1481,7 +1475,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DescribeCacheParameterGroupsMessageDescribeCacheParameterGroupsPaginateTypeDef
+# DescribeCacheParameterGroupsMessagePaginateTypeDef
 
 ### CacheParameterGroupName
 - **Type**: typing.Optional[str]
@@ -1490,7 +1484,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfigTypeDef]
 
 
-# DescribeCacheParameterGroupsMessageRequestTypeDef
+# DescribeCacheParameterGroupsMessageTypeDef
 
 ### CacheParameterGroupName
 - **Type**: typing.Optional[str]
@@ -1502,20 +1496,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeCacheParametersMessageDescribeCacheParametersPaginateTypeDef
-
-### CacheParameterGroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Source
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfigTypeDef]
-
-
-# DescribeCacheParametersMessageRequestTypeDef
+# DescribeCacheParametersMessagePaginateTypeDef
 
 ### CacheParameterGroupName
 - **Type**: <class 'str'>
@@ -1524,6 +1505,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Source
 - **Type**: typing.Optional[str]
 
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfigTypeDef]
+
+
+# DescribeCacheParametersMessageTypeDef
+
+### CacheParameterGroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Source
+- **Type**: typing.Optional[str]
+
 ### MaxRecords
 - **Type**: typing.Optional[int]
 
@@ -1531,7 +1525,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeCacheSecurityGroupsMessageDescribeCacheSecurityGroupsPaginateTypeDef
+# DescribeCacheSecurityGroupsMessagePaginateTypeDef
 
 ### CacheSecurityGroupName
 - **Type**: typing.Optional[str]
@@ -1540,7 +1534,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfigTypeDef]
 
 
-# DescribeCacheSecurityGroupsMessageRequestTypeDef
+# DescribeCacheSecurityGroupsMessageTypeDef
 
 ### CacheSecurityGroupName
 - **Type**: typing.Optional[str]
@@ -1552,7 +1546,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeCacheSubnetGroupsMessageDescribeCacheSubnetGroupsPaginateTypeDef
+# DescribeCacheSubnetGroupsMessagePaginateTypeDef
 
 ### CacheSubnetGroupName
 - **Type**: typing.Optional[str]
@@ -1561,7 +1555,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfigTypeDef]
 
 
-# DescribeCacheSubnetGroupsMessageRequestTypeDef
+# DescribeCacheSubnetGroupsMessageTypeDef
 
 ### CacheSubnetGroupName
 - **Type**: typing.Optional[str]
@@ -1573,7 +1567,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeEngineDefaultParametersMessageDescribeEngineDefaultParametersPaginateTypeDef
+# DescribeEngineDefaultParametersMessagePaginateTypeDef
 
 ### CacheParameterGroupFamily
 - **Type**: <class 'str'>
@@ -1583,7 +1577,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfigTypeDef]
 
 
-# DescribeEngineDefaultParametersMessageRequestTypeDef
+# DescribeEngineDefaultParametersMessageTypeDef
 
 ### CacheParameterGroupFamily
 - **Type**: <class 'str'>
@@ -1607,7 +1601,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEventsMessageDescribeEventsPaginateTypeDef
+# DescribeEventsMessagePaginateTypeDef
 
 ### SourceIdentifier
 - **Type**: typing.Optional[str]
@@ -1616,10 +1610,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['cache-cluster', 'cache-parameter-group', 'cache-security-group', 'cache-subnet-group', 'replication-group', 'serverless-cache', 'serverless-cache-snapshot', 'user', 'user-group']]
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.TimestampTypeDef]
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.TimestampTypeDef]
 
 ### Duration
 - **Type**: typing.Optional[int]
@@ -1628,7 +1622,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfigTypeDef]
 
 
-# DescribeEventsMessageRequestTypeDef
+# DescribeEventsMessageTypeDef
 
 ### SourceIdentifier
 - **Type**: typing.Optional[str]
@@ -1637,10 +1631,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['cache-cluster', 'cache-parameter-group', 'cache-security-group', 'cache-subnet-group', 'replication-group', 'serverless-cache', 'serverless-cache-snapshot', 'user', 'user-group']]
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.TimestampTypeDef]
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.TimestampTypeDef]
 
 ### Duration
 - **Type**: typing.Optional[int]
@@ -1652,7 +1646,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeGlobalReplicationGroupsMessageDescribeGlobalReplicationGroupsPaginateTypeDef
+# DescribeGlobalReplicationGroupsMessagePaginateTypeDef
 
 ### GlobalReplicationGroupId
 - **Type**: typing.Optional[str]
@@ -1664,7 +1658,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfigTypeDef]
 
 
-# DescribeGlobalReplicationGroupsMessageRequestTypeDef
+# DescribeGlobalReplicationGroupsMessageTypeDef
 
 ### GlobalReplicationGroupId
 - **Type**: typing.Optional[str]
@@ -1694,7 +1688,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeReplicationGroupsMessageDescribeReplicationGroupsPaginateTypeDef
+# DescribeReplicationGroupsMessagePaginateTypeDef
 
 ### ReplicationGroupId
 - **Type**: typing.Optional[str]
@@ -1703,7 +1697,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfigTypeDef]
 
 
-# DescribeReplicationGroupsMessageReplicationGroupAvailableWaitTypeDef
+# DescribeReplicationGroupsMessageTypeDef
+
+### ReplicationGroupId
+- **Type**: typing.Optional[str]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
+
+### Marker
+- **Type**: typing.Optional[str]
+
+
+# DescribeReplicationGroupsMessageWaitExtraTypeDef
 
 ### ReplicationGroupId
 - **Type**: typing.Optional[str]
@@ -1718,7 +1724,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.WaiterConfigTypeDef]
 
 
-# DescribeReplicationGroupsMessageReplicationGroupDeletedWaitTypeDef
+# DescribeReplicationGroupsMessageWaitTypeDef
 
 ### ReplicationGroupId
 - **Type**: typing.Optional[str]
@@ -1733,19 +1739,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.WaiterConfigTypeDef]
 
 
-# DescribeReplicationGroupsMessageRequestTypeDef
-
-### ReplicationGroupId
-- **Type**: typing.Optional[str]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-### Marker
-- **Type**: typing.Optional[str]
-
-
-# DescribeReservedCacheNodesMessageDescribeReservedCacheNodesPaginateTypeDef
+# DescribeReservedCacheNodesMessagePaginateTypeDef
 
 ### ReservedCacheNodeId
 - **Type**: typing.Optional[str]
@@ -1769,7 +1763,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfigTypeDef]
 
 
-# DescribeReservedCacheNodesMessageRequestTypeDef
+# DescribeReservedCacheNodesMessageTypeDef
 
 ### ReservedCacheNodeId
 - **Type**: typing.Optional[str]
@@ -1796,7 +1790,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeReservedCacheNodesOfferingsMessageDescribeReservedCacheNodesOfferingsPaginateTypeDef
+# DescribeReservedCacheNodesOfferingsMessagePaginateTypeDef
 
 ### ReservedCacheNodesOfferingId
 - **Type**: typing.Optional[str]
@@ -1817,7 +1811,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfigTypeDef]
 
 
-# DescribeReservedCacheNodesOfferingsMessageRequestTypeDef
+# DescribeReservedCacheNodesOfferingsMessageTypeDef
 
 ### ReservedCacheNodesOfferingId
 - **Type**: typing.Optional[str]
@@ -1841,7 +1835,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeServerlessCacheSnapshotsRequestDescribeServerlessCacheSnapshotsPaginateTypeDef
+# DescribeServerlessCacheSnapshotsRequestPaginateTypeDef
 
 ### ServerlessCacheName
 - **Type**: typing.Optional[str]
@@ -1856,7 +1850,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfigTypeDef]
 
 
-# DescribeServerlessCacheSnapshotsRequestRequestTypeDef
+# DescribeServerlessCacheSnapshotsRequestTypeDef
 
 ### ServerlessCacheName
 - **Type**: typing.Optional[str]
@@ -1888,7 +1882,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeServerlessCachesRequestDescribeServerlessCachesPaginateTypeDef
+# DescribeServerlessCachesRequestPaginateTypeDef
 
 ### ServerlessCacheName
 - **Type**: typing.Optional[str]
@@ -1897,7 +1891,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfigTypeDef]
 
 
-# DescribeServerlessCachesRequestRequestTypeDef
+# DescribeServerlessCachesRequestTypeDef
 
 ### ServerlessCacheName
 - **Type**: typing.Optional[str]
@@ -1923,7 +1917,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeServiceUpdatesMessageDescribeServiceUpdatesPaginateTypeDef
+# DescribeServiceUpdatesMessagePaginateTypeDef
 
 ### ServiceUpdateName
 - **Type**: typing.Optional[str]
@@ -1935,7 +1929,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfigTypeDef]
 
 
-# DescribeServiceUpdatesMessageRequestTypeDef
+# DescribeServiceUpdatesMessageTypeDef
 
 ### ServiceUpdateName
 - **Type**: typing.Optional[str]
@@ -1965,7 +1959,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeSnapshotsMessageDescribeSnapshotsPaginateTypeDef
+# DescribeSnapshotsMessagePaginateTypeDef
 
 ### ReplicationGroupId
 - **Type**: typing.Optional[str]
@@ -1986,7 +1980,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfigTypeDef]
 
 
-# DescribeSnapshotsMessageRequestTypeDef
+# DescribeSnapshotsMessageTypeDef
 
 ### ReplicationGroupId
 - **Type**: typing.Optional[str]
@@ -2010,7 +2004,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DescribeUpdateActionsMessageDescribeUpdateActionsPaginateTypeDef
+# DescribeUpdateActionsMessagePaginateTypeDef
 
 ### ServiceUpdateName
 - **Type**: typing.Optional[str]
@@ -2040,7 +2034,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfigTypeDef]
 
 
-# DescribeUpdateActionsMessageRequestTypeDef
+# DescribeUpdateActionsMessageTypeDef
 
 ### ServiceUpdateName
 - **Type**: typing.Optional[str]
@@ -2073,7 +2067,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeUserGroupsMessageDescribeUserGroupsPaginateTypeDef
+# DescribeUserGroupsMessagePaginateTypeDef
 
 ### UserGroupId
 - **Type**: typing.Optional[str]
@@ -2082,7 +2076,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfigTypeDef]
 
 
-# DescribeUserGroupsMessageRequestTypeDef
+# DescribeUserGroupsMessageTypeDef
 
 ### UserGroupId
 - **Type**: typing.Optional[str]
@@ -2109,7 +2103,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeUsersMessageDescribeUsersPaginateTypeDef
+# DescribeUsersMessagePaginateTypeDef
 
 ### Engine
 - **Type**: typing.Optional[str]
@@ -2124,7 +2118,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfigTypeDef]
 
 
-# DescribeUsersMessageRequestTypeDef
+# DescribeUsersMessageTypeDef
 
 ### Engine
 - **Type**: typing.Optional[str]
@@ -2166,7 +2160,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.KinesisFirehoseDestinationDetailsTypeDef]
 
 
-# DisassociateGlobalReplicationGroupMessageRequestTypeDef
+# DisassociateGlobalReplicationGroupMessageTypeDef
 
 ### GlobalReplicationGroupId
 - **Type**: <class 'str'>
@@ -2274,7 +2268,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ExportServerlessCacheSnapshotRequestRequestTypeDef
+# ExportServerlessCacheSnapshotRequestTypeDef
 
 ### ServerlessCacheSnapshotName
 - **Type**: <class 'str'>
@@ -2296,7 +2290,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# FailoverGlobalReplicationGroupMessageRequestTypeDef
+# FailoverGlobalReplicationGroupMessageTypeDef
 
 ### GlobalReplicationGroupId
 - **Type**: <class 'str'>
@@ -2411,7 +2405,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# IncreaseNodeGroupsInGlobalReplicationGroupMessageRequestTypeDef
+# IncreaseNodeGroupsInGlobalReplicationGroupMessageTypeDef
 
 ### GlobalReplicationGroupId
 - **Type**: <class 'str'>
@@ -2440,7 +2434,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# IncreaseReplicaCountMessageRequestTypeDef
+# IncreaseReplicaCountMessageTypeDef
 
 ### ReplicationGroupId
 - **Type**: <class 'str'>
@@ -2474,7 +2468,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAllowedNodeTypeModificationsMessageRequestTypeDef
+# ListAllowedNodeTypeModificationsMessageTypeDef
 
 ### CacheClusterId
 - **Type**: typing.Optional[str]
@@ -2483,7 +2477,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceMessageRequestTypeDef
+# ListTagsForResourceMessageTypeDef
 
 ### ResourceName
 - **Type**: <class 'str'>
@@ -2529,7 +2523,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ModifyCacheClusterMessageRequestTypeDef
+# ModifyCacheClusterMessageTypeDef
 
 ### CacheClusterId
 - **Type**: <class 'str'>
@@ -2567,6 +2561,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ApplyImmediately
 - **Type**: typing.Optional[bool]
+
+### Engine
+- **Type**: typing.Optional[str]
 
 ### EngineVersion
 - **Type**: typing.Optional[str]
@@ -2607,7 +2604,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyCacheParameterGroupMessageRequestTypeDef
+# ModifyCacheParameterGroupMessageTypeDef
 
 ### CacheParameterGroupName
 - **Type**: <class 'str'>
@@ -2618,7 +2615,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyCacheSubnetGroupMessageRequestTypeDef
+# ModifyCacheSubnetGroupMessageTypeDef
 
 ### CacheSubnetGroupName
 - **Type**: <class 'str'>
@@ -2642,7 +2639,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyGlobalReplicationGroupMessageRequestTypeDef
+# ModifyGlobalReplicationGroupMessageTypeDef
 
 ### GlobalReplicationGroupId
 - **Type**: <class 'str'>
@@ -2653,6 +2650,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CacheNodeType
+- **Type**: typing.Optional[str]
+
+### Engine
 - **Type**: typing.Optional[str]
 
 ### EngineVersion
@@ -2679,7 +2679,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyReplicationGroupMessageRequestTypeDef
+# ModifyReplicationGroupMessageTypeDef
 
 ### ReplicationGroupId
 - **Type**: <class 'str'>
@@ -2723,6 +2723,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ApplyImmediately
 - **Type**: typing.Optional[bool]
+
+### Engine
+- **Type**: typing.Optional[str]
 
 ### EngineVersion
 - **Type**: typing.Optional[str]
@@ -2781,7 +2784,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyReplicationGroupShardConfigurationMessageRequestTypeDef
+# ModifyReplicationGroupShardConfigurationMessageTypeDef
 
 ### ReplicationGroupId
 - **Type**: <class 'str'>
@@ -2816,7 +2819,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyServerlessCacheRequestRequestTypeDef
+# ModifyServerlessCacheRequestTypeDef
 
 ### ServerlessCacheName
 - **Type**: <class 'str'>
@@ -2843,6 +2846,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### DailySnapshotTime
 - **Type**: typing.Optional[str]
 
+### Engine
+- **Type**: typing.Optional[str]
+
+### MajorEngineVersion
+- **Type**: typing.Optional[str]
+
 
 # ModifyServerlessCacheResponseTypeDef
 
@@ -2855,7 +2864,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyUserGroupMessageRequestTypeDef
+# ModifyUserGroupMessageTypeDef
 
 ### UserGroupId
 - **Type**: <class 'str'>
@@ -2867,8 +2876,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### UserIdsToRemove
 - **Type**: typing.Optional[typing.Sequence[str]]
 
+### Engine
+- **Type**: typing.Optional[str]
 
-# ModifyUserMessageRequestTypeDef
+
+# ModifyUserMessageTypeDef
 
 ### UserId
 - **Type**: <class 'str'>
@@ -2889,29 +2901,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### AuthenticationMode
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.AuthenticationModeTypeDef]
 
-
-# NodeGroupConfigurationExtraOutputTypeDef
-
-### NodeGroupId
+### Engine
 - **Type**: typing.Optional[str]
-
-### Slots
-- **Type**: typing.Optional[str]
-
-### ReplicaCount
-- **Type**: typing.Optional[int]
-
-### PrimaryAvailabilityZone
-- **Type**: typing.Optional[str]
-
-### ReplicaAvailabilityZones
-- **Type**: typing.Optional[typing.List[str]]
-
-### PrimaryOutpostArn
-- **Type**: typing.Optional[str]
-
-### ReplicaOutpostArns
-- **Type**: typing.Optional[typing.List[str]]
 
 
 # NodeGroupConfigurationOutputTypeDef
@@ -2961,6 +2952,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ReplicaOutpostArns
 - **Type**: typing.Optional[typing.Sequence[str]]
 
+
+# NodeGroupConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # NodeGroupMemberTypeDef
 
@@ -3184,7 +3181,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['complete', 'in-progress', 'not-applicable', 'not-applied', 'scheduled', 'scheduling', 'stopped', 'stopping', 'waiting-to-start']]
 
 
-# PurchaseReservedCacheNodesOfferingMessageRequestTypeDef
+# PurchaseReservedCacheNodesOfferingMessageTypeDef
 
 ### ReservedCacheNodesOfferingId
 - **Type**: <class 'str'>
@@ -3211,7 +3208,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RebalanceSlotsInGlobalReplicationGroupMessageRequestTypeDef
+# RebalanceSlotsInGlobalReplicationGroupMessageTypeDef
 
 ### GlobalReplicationGroupId
 - **Type**: <class 'str'>
@@ -3233,7 +3230,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RebootCacheClusterMessageRequestTypeDef
+# RebootCacheClusterMessageTypeDef
 
 ### CacheClusterId
 - **Type**: <class 'str'>
@@ -3279,7 +3276,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveTagsFromResourceMessageRequestTypeDef
+# RemoveTagsFromResourceMessageTypeDef
 
 ### ResourceName
 - **Type**: <class 'str'>
@@ -3430,6 +3427,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ClusterMode
 - **Type**: typing.Optional[typing.Literal['compatible', 'disabled', 'enabled']]
 
+### Engine
+- **Type**: typing.Optional[str]
+
 
 # ReservedCacheNodeMessageTypeDef
 
@@ -3530,7 +3530,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache_classes.RecurringChargeTypeDef]]
 
 
-# ResetCacheParameterGroupMessageRequestTypeDef
+# ResetCacheParameterGroupMessageTypeDef
 
 ### CacheParameterGroupName
 - **Type**: <class 'str'>
@@ -3580,7 +3580,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RevokeCacheSecurityGroupIngressMessageRequestTypeDef
+# RevokeCacheSecurityGroupIngressMessageTypeDef
 
 ### CacheSecurityGroupName
 - **Type**: <class 'str'>
@@ -3858,7 +3858,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['disabled', 'enabled']]
 
 
-# StartMigrationMessageRequestTypeDef
+# StartMigrationMessageTypeDef
 
 ### ReplicationGroupId
 - **Type**: <class 'str'>
@@ -3921,7 +3921,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TestFailoverMessageRequestTypeDef
+# TestFailoverMessageTypeDef
 
 ### ReplicationGroupId
 - **Type**: <class 'str'>
@@ -3943,7 +3943,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TestMigrationMessageRequestTypeDef
+# TestMigrationMessageTypeDef
 
 ### ReplicationGroupId
 - **Type**: <class 'str'>
@@ -3968,11 +3968,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TimeRangeFilterTypeDef
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.TimestampTypeDef]
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.TimestampTypeDef]
 
+
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UnprocessedUpdateActionTypeDef
 

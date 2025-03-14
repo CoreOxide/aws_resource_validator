@@ -1,6 +1,6 @@
 # Kinesis Classes
 
-# AddTagsToStreamInputRequestTypeDef
+# AddTagsToStreamInputTypeDef
 
 ### Tags
 - **Type**: typing.Mapping[str, str]
@@ -14,6 +14,12 @@
 
 
 # BaseValidatorModel
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# BlobTypeDef
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
@@ -76,7 +82,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateStreamInputRequestTypeDef
+# CreateStreamInputTypeDef
 
 ### StreamName
 - **Type**: <class 'str'>
@@ -88,8 +94,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### StreamModeDetails
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesis_classes.StreamModeDetailsTypeDef]
 
+### Tags
+- **Type**: typing.Optional[typing.Mapping[str, str]]
 
-# DecreaseStreamRetentionPeriodInputRequestTypeDef
+
+# DecreaseStreamRetentionPeriodInputTypeDef
 
 ### RetentionPeriodHours
 - **Type**: <class 'int'>
@@ -102,14 +111,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteResourcePolicyInputRequestTypeDef
+# DeleteResourcePolicyInputTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteStreamInputRequestTypeDef
+# DeleteStreamInputTypeDef
 
 ### StreamName
 - **Type**: typing.Optional[str]
@@ -121,7 +130,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeregisterStreamConsumerInputRequestTypeDef
+# DeregisterStreamConsumerInputTypeDef
 
 ### StreamARN
 - **Type**: typing.Optional[str]
@@ -156,7 +165,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeStreamConsumerInputRequestTypeDef
+# DescribeStreamConsumerInputTypeDef
 
 ### StreamARN
 - **Type**: typing.Optional[str]
@@ -179,7 +188,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeStreamInputDescribeStreamPaginateTypeDef
+# DescribeStreamInputPaginateTypeDef
 
 ### StreamName
 - **Type**: typing.Optional[str]
@@ -191,7 +200,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesis_classes.PaginatorConfigTypeDef]
 
 
-# DescribeStreamInputRequestTypeDef
+# DescribeStreamInputTypeDef
 
 ### StreamName
 - **Type**: typing.Optional[str]
@@ -206,7 +215,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeStreamInputStreamExistsWaitTypeDef
+# DescribeStreamInputWaitExtraTypeDef
 
 ### StreamName
 - **Type**: typing.Optional[str]
@@ -224,7 +233,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesis_classes.WaiterConfigTypeDef]
 
 
-# DescribeStreamInputStreamNotExistsWaitTypeDef
+# DescribeStreamInputWaitTypeDef
 
 ### StreamName
 - **Type**: typing.Optional[str]
@@ -253,7 +262,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeStreamSummaryInputRequestTypeDef
+# DescribeStreamSummaryInputTypeDef
 
 ### StreamName
 - **Type**: typing.Optional[str]
@@ -273,7 +282,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisableEnhancedMonitoringInputRequestTypeDef
+# DisableEnhancedMonitoringInputTypeDef
 
 ### ShardLevelMetrics
 - **Type**: typing.Sequence[typing.Literal['ALL', 'IncomingBytes', 'IncomingRecords', 'IteratorAgeMilliseconds', 'OutgoingBytes', 'OutgoingRecords', 'ReadProvisionedThroughputExceeded', 'WriteProvisionedThroughputExceeded']]
@@ -293,7 +302,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EnableEnhancedMonitoringInputRequestTypeDef
+# EnableEnhancedMonitoringInputTypeDef
 
 ### ShardLevelMetrics
 - **Type**: typing.Sequence[typing.Literal['ALL', 'IncomingBytes', 'IncomingRecords', 'IteratorAgeMilliseconds', 'OutgoingBytes', 'OutgoingRecords', 'ReadProvisionedThroughputExceeded', 'WriteProvisionedThroughputExceeded']]
@@ -335,7 +344,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRecordsInputRequestTypeDef
+# GetRecordsInputTypeDef
 
 ### ShardIterator
 - **Type**: <class 'str'>
@@ -371,7 +380,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResourcePolicyInputRequestTypeDef
+# GetResourcePolicyInputTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -389,7 +398,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetShardIteratorInputRequestTypeDef
+# GetShardIteratorInputTypeDef
 
 ### ShardId
 - **Type**: <class 'str'>
@@ -406,7 +415,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Timestamp
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesis_classes.TimestampTypeDef]
 
 ### StreamARN
 - **Type**: typing.Optional[str]
@@ -434,7 +443,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# IncreaseStreamRetentionPeriodInputRequestTypeDef
+# IncreaseStreamRetentionPeriodInputTypeDef
 
 ### RetentionPeriodHours
 - **Type**: <class 'int'>
@@ -489,7 +498,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListShardsInputListShardsPaginateTypeDef
+# ListShardsInputPaginateTypeDef
 
 ### StreamName
 - **Type**: typing.Optional[str]
@@ -498,7 +507,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StreamCreationTimestamp
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesis_classes.TimestampTypeDef]
 
 ### ShardFilter
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesis_classes.ShardFilterTypeDef]
@@ -510,7 +519,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesis_classes.PaginatorConfigTypeDef]
 
 
-# ListShardsInputRequestTypeDef
+# ListShardsInputTypeDef
 
 ### StreamName
 - **Type**: typing.Optional[str]
@@ -525,7 +534,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### StreamCreationTimestamp
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesis_classes.TimestampTypeDef]
 
 ### ShardFilter
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesis_classes.ShardFilterTypeDef]
@@ -540,29 +549,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.kinesis_classes.ShardTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListStreamConsumersInputListStreamConsumersPaginateTypeDef
+
+# ListStreamConsumersInputPaginateTypeDef
 
 ### StreamARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### StreamCreationTimestamp
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesis_classes.TimestampTypeDef]
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesis_classes.PaginatorConfigTypeDef]
 
 
-# ListStreamConsumersInputRequestTypeDef
+# ListStreamConsumersInputTypeDef
 
 ### StreamARN
 - **Type**: <class 'str'>
@@ -575,7 +583,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### StreamCreationTimestamp
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesis_classes.TimestampTypeDef]
 
 
 # ListStreamConsumersOutputTypeDef
@@ -584,16 +592,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.kinesis_classes.ConsumerTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListStreamsInputListStreamsPaginateTypeDef
+
+# ListStreamsInputPaginateTypeDef
 
 ### ExclusiveStartStreamName
 - **Type**: typing.Optional[str]
@@ -602,7 +609,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesis_classes.PaginatorConfigTypeDef]
 
 
-# ListStreamsInputRequestTypeDef
+# ListStreamsInputTypeDef
 
 ### Limit
 - **Type**: typing.Optional[int]
@@ -624,10 +631,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### StreamSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.kinesis_classes.StreamSummaryTypeDef]
 - **Required**: Yes
@@ -636,8 +639,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForStreamInputRequestTypeDef
+
+# ListTagsForStreamInputTypeDef
 
 ### StreamName
 - **Type**: typing.Optional[str]
@@ -667,7 +673,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# MergeShardsInputRequestTypeDef
+# MergeShardsInputTypeDef
 
 ### ShardToMerge
 - **Type**: <class 'str'>
@@ -696,10 +702,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutRecordInputRequestTypeDef
+# PutRecordInputTypeDef
 
 ### Data
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### PartitionKey
@@ -738,7 +744,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutRecordsInputRequestTypeDef
+# PutRecordsInputTypeDef
 
 ### Records
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kinesis_classes.PutRecordsRequestEntryTypeDef]
@@ -773,7 +779,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutRecordsRequestEntryTypeDef
 
 ### Data
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### PartitionKey
@@ -799,7 +805,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutResourcePolicyInputRequestTypeDef
+# PutResourcePolicyInputTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -831,7 +837,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['KMS', 'NONE']]
 
 
-# RegisterStreamConsumerInputRequestTypeDef
+# RegisterStreamConsumerInputTypeDef
 
 ### StreamARN
 - **Type**: <class 'str'>
@@ -853,7 +859,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveTagsFromStreamInputRequestTypeDef
+# RemoveTagsFromStreamInputTypeDef
 
 ### TagKeys
 - **Type**: typing.Sequence[str]
@@ -884,10 +890,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -899,6 +901,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # SequenceNumberRangeTypeDef
@@ -913,16 +918,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ShardFilterTypeDef
 
-### Type
-- **Type**: typing.Literal['AFTER_SHARD_ID', 'AT_LATEST', 'AT_TIMESTAMP', 'AT_TRIM_HORIZON', 'FROM_TIMESTAMP', 'FROM_TRIM_HORIZON']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### ShardId
-- **Type**: typing.Optional[str]
-
-### Timestamp
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ShardTypeDef
 
@@ -945,7 +943,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SplitShardInputRequestTypeDef
+# SplitShardInputTypeDef
 
 ### ShardToSplit
 - **Type**: <class 'str'>
@@ -962,7 +960,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartStreamEncryptionInputRequestTypeDef
+# StartStreamEncryptionInputTypeDef
 
 ### EncryptionType
 - **Type**: typing.Literal['KMS', 'NONE']
@@ -981,18 +979,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # StartingPositionTypeDef
 
-### Type
-- **Type**: typing.Literal['AFTER_SEQUENCE_NUMBER', 'AT_SEQUENCE_NUMBER', 'AT_TIMESTAMP', 'LATEST', 'TRIM_HORIZON']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### SequenceNumber
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Timestamp
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
-
-
-# StopStreamEncryptionInputRequestTypeDef
+# StopStreamEncryptionInputTypeDef
 
 ### EncryptionType
 - **Type**: typing.Literal['KMS', 'NONE']
@@ -1176,7 +1167,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesis_classes.ChildShardTypeDef]]
 
 
-# SubscribeToShardInputRequestTypeDef
+# SubscribeToShardInputTypeDef
 
 ### ConsumerARN
 - **Type**: <class 'str'>
@@ -1194,7 +1185,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SubscribeToShardOutputTypeDef
 
 ### EventStream
-- **Type**: ForwardRef('EventStream[SubscribeToShardEventStreamTypeDef]')
+- **Type**: aws_resource_validator.pydantic_models.base_validator_model.EventStream[aws_resource_validator.pydantic_models.kinesis_classes.SubscribeToShardEventStreamTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -1212,7 +1203,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateShardCountInputRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UpdateShardCountInputTypeDef
 
 ### TargetShardCount
 - **Type**: <class 'int'>
@@ -1252,7 +1249,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateStreamModeInputRequestTypeDef
+# UpdateStreamModeInputTypeDef
 
 ### StreamARN
 - **Type**: <class 'str'>

@@ -10,6 +10,10 @@
 - **Type**: string
 - **Pattern**: `[^\u0000-\u001F\u007F]+`
 
+### AssetModelVersionFilter
+- **Type**: string
+- **Pattern**: `^(LATEST|ACTIVE)$`
+
 ### AssetPropertyAlias
 - **Type**: string
 - **Pattern**: `[^\u0000-\u001F\u007F]+`
@@ -27,6 +31,18 @@
 - **Pattern**: `\S{36,64}`
 - **Min Length**: 36
 - **Max Length**: 64
+
+### ConversationId
+- **Type**: string
+- **Pattern**: `[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}`
+- **Min Length**: 36
+- **Max Length**: 36
+
+### CoreDeviceThingName
+- **Type**: string
+- **Pattern**: `^[a-zA-Z0-9:_-]+$`
+- **Min Length**: 1
+- **Max Length**: 128
 
 ### CustomID
 - **Type**: string
@@ -50,9 +66,13 @@
 - **Min Length**: 1
 - **Max Length**: 2048
 
+### ETag
+- **Type**: string
+- **Pattern**: `^[\w-]{43}$`
+
 ### Email
 - **Type**: string
-- **Pattern**: `[^@]+@[^@]+`
+- **Pattern**: `^[a-zA-Z0-9_\-\.\+]+@[a-zA-Z0-9_\-\.\+]+\.[a-zA-Z]{2,}$`
 - **Min Length**: 1
 - **Max Length**: 255
 
@@ -68,17 +88,41 @@
 - **Min Length**: 2
 - **Max Length**: 128
 
+### GatewayName
+- **Type**: string
+- **Pattern**: `[^\u0000-\u001F\u007F]+`
+- **Min Length**: 1
+- **Max Length**: 256
+
+### GatewayVersion
+- **Type**: string
+- **Pattern**: `^[0-9]+$`
+- **Min Length**: 1
+- **Max Length**: 1024
+
 ### ID
 - **Type**: string
 - **Pattern**: `^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
 - **Min Length**: 36
 - **Max Length**: 36
 
+### IamArn
+- **Type**: string
+- **Pattern**: `^arn:aws(-cn|-us-gov)?:[a-zA-Z0-9-:\/_\.\+=,@]+$`
+- **Min Length**: 1
+- **Max Length**: 1600
+
 ### IdentityId
 - **Type**: string
 - **Pattern**: `\S+`
 - **Min Length**: 1
 - **Max Length**: 256
+
+### IotCoreThingName
+- **Type**: string
+- **Pattern**: `^[a-zA-Z0-9:_-]+$`
+- **Min Length**: 1
+- **Max Length**: 128
 
 ### Macro
 - **Type**: string
@@ -126,11 +170,27 @@
 - **Min Length**: 2
 - **Max Length**: 3
 
+### RestrictedDescription
+- **Type**: string
+- **Pattern**: `^[a-zA-Z0-9 _\-#$*!@]+$`
+- **Min Length**: 1
+- **Max Length**: 2048
+
+### RestrictedName
+- **Type**: string
+- **Pattern**: `^[a-zA-Z0-9 _\-#$*!@]+$`
+- **Min Length**: 1
+- **Max Length**: 256
+
 ### SSOApplicationId
 - **Type**: string
 - **Pattern**: `^[!-~]*`
 - **Min Length**: 1
 - **Max Length**: 64
+
+### SelectAll
+- **Type**: string
+- **Pattern**: `\*`
 
 ### Url
 - **Type**: string
@@ -143,4 +203,10 @@
 - **Pattern**: `^[a-z][a-z0-9_]*$`
 - **Min Length**: 1
 - **Max Length**: 64
+
+### Version
+- **Type**: string
+- **Pattern**: `^(0|([1-9]{1}\d*))$`
+- **Min Length**: 1
+- **Max Length**: 10
 

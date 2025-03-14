@@ -13,7 +13,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchAssociateScramSecretRequestRequestTypeDef
+# BatchAssociateScramSecretRequestTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -39,7 +39,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchDisassociateScramSecretRequestRequestTypeDef
+# BatchDisassociateScramSecretRequestTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -64,6 +64,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.kafka_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BrokerCountUpdateInfoTypeDef
 
@@ -97,32 +103,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### S3
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.S3TypeDef]
-
-
-# BrokerNodeGroupInfoExtraOutputTypeDef
-
-### ClientSubnets
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### InstanceType
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### BrokerAZDistribution
-- **Type**: typing.Optional[typing.Literal['DEFAULT']]
-
-### SecurityGroups
-- **Type**: typing.Optional[typing.List[str]]
-
-### StorageInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.StorageInfoTypeDef]
-
-### ConnectivityInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.ConnectivityInfoTypeDef]
-
-### ZoneIds
-- **Type**: typing.Optional[typing.List[str]]
 
 
 # BrokerNodeGroupInfoOutputTypeDef
@@ -177,6 +157,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
+# BrokerNodeGroupInfoUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # BrokerNodeInfoTypeDef
 
 ### AttachedENIId
@@ -210,18 +196,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ClientAuthenticationExtraOutputTypeDef
-
-### Sasl
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.SaslTypeDef]
-
-### Tls
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.TlsExtraOutputTypeDef]
-
-### Unauthenticated
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.UnauthenticatedTypeDef]
-
-
 # ClientAuthenticationOutputTypeDef
 
 ### Sasl
@@ -240,11 +214,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.SaslTypeDef]
 
 ### Tls
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.TlsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.TlsUnionTypeDef]
 
 ### Unauthenticated
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.UnauthenticatedTypeDef]
 
+
+# ClientAuthenticationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ClientVpcConnectionTypeDef
 
@@ -612,6 +592,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
+# ConsumerGroupReplicationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ConsumerGroupReplicationUpdateTypeDef
 
 ### ConsumerGroupsToExclude
@@ -637,10 +623,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# CreateClusterRequestRequestTypeDef
+# CreateClusterRequestTypeDef
 
 ### BrokerNodeGroupInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafka_classes.BrokerNodeGroupInfoTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafka_classes.BrokerNodeGroupInfoUnionTypeDef'>
 - **Required**: Yes
 
 ### ClusterName
@@ -656,7 +642,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ClientAuthentication
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.ClientAuthenticationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.ClientAuthenticationUnionTypeDef]
 
 ### ConfigurationInfo
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.ConfigurationInfoTypeDef]
@@ -699,7 +685,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateClusterV2RequestRequestTypeDef
+# CreateClusterV2RequestTypeDef
 
 ### ClusterName
 - **Type**: <class 'str'>
@@ -738,14 +724,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateConfigurationRequestRequestTypeDef
+# CreateConfigurationRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ServerProperties
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafka_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### Description
@@ -782,7 +768,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateReplicatorRequestRequestTypeDef
+# CreateReplicatorRequestTypeDef
 
 ### KafkaClusters
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kafka_classes.KafkaClusterTypeDef]
@@ -826,7 +812,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateVpcConnectionRequestRequestTypeDef
+# CreateVpcConnectionRequestTypeDef
 
 ### TargetClusterArn
 - **Type**: <class 'str'>
@@ -891,14 +877,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteClusterPolicyRequestRequestTypeDef
+# DeleteClusterPolicyRequestTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteClusterRequestRequestTypeDef
+# DeleteClusterRequestTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -923,7 +909,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteConfigurationRequestRequestTypeDef
+# DeleteConfigurationRequestTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
@@ -945,7 +931,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteReplicatorRequestRequestTypeDef
+# DeleteReplicatorRequestTypeDef
 
 ### ReplicatorArn
 - **Type**: <class 'str'>
@@ -970,7 +956,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteVpcConnectionRequestRequestTypeDef
+# DeleteVpcConnectionRequestTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
@@ -992,7 +978,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeClusterOperationRequestRequestTypeDef
+# DescribeClusterOperationRequestTypeDef
 
 ### ClusterOperationArn
 - **Type**: <class 'str'>
@@ -1010,7 +996,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeClusterOperationV2RequestRequestTypeDef
+# DescribeClusterOperationV2RequestTypeDef
 
 ### ClusterOperationArn
 - **Type**: <class 'str'>
@@ -1028,7 +1014,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeClusterRequestRequestTypeDef
+# DescribeClusterRequestTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -1046,7 +1032,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeClusterV2RequestRequestTypeDef
+# DescribeClusterV2RequestTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -1064,7 +1050,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeConfigurationRequestRequestTypeDef
+# DescribeConfigurationRequestTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1106,7 +1092,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeConfigurationRevisionRequestRequestTypeDef
+# DescribeConfigurationRevisionRequestTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1144,7 +1130,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeReplicatorRequestRequestTypeDef
+# DescribeReplicatorRequestTypeDef
 
 ### ReplicatorArn
 - **Type**: <class 'str'>
@@ -1210,7 +1196,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeVpcConnectionRequestRequestTypeDef
+# DescribeVpcConnectionRequestTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1320,7 +1306,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetBootstrapBrokersRequestRequestTypeDef
+# GetBootstrapBrokersRequestTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -1374,7 +1360,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetClusterPolicyRequestRequestTypeDef
+# GetClusterPolicyRequestTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -1396,7 +1382,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCompatibleKafkaVersionsRequestRequestTypeDef
+# GetCompatibleKafkaVersionsRequestTypeDef
 
 ### ClusterArn
 - **Type**: typing.Optional[str]
@@ -1453,6 +1439,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
+# KafkaClusterClientVpcConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # KafkaClusterDescriptionTypeDef
 
 ### AmazonMskCluster
@@ -1481,7 +1473,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VpcConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafka_classes.KafkaClusterClientVpcConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafka_classes.KafkaClusterClientVpcConfigUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -1494,7 +1486,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'DEPRECATED']]
 
 
-# ListClientVpcConnectionsRequestListClientVpcConnectionsPaginateTypeDef
+# ListClientVpcConnectionsRequestPaginateTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -1504,7 +1496,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.PaginatorConfigTypeDef]
 
 
-# ListClientVpcConnectionsRequestRequestTypeDef
+# ListClientVpcConnectionsRequestTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -1531,7 +1523,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListClusterOperationsRequestListClusterOperationsPaginateTypeDef
+# ListClusterOperationsRequestPaginateTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -1541,7 +1533,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.PaginatorConfigTypeDef]
 
 
-# ListClusterOperationsRequestRequestTypeDef
+# ListClusterOperationsRequestTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -1568,7 +1560,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListClusterOperationsV2RequestListClusterOperationsV2PaginateTypeDef
+# ListClusterOperationsV2RequestPaginateTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -1578,7 +1570,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.PaginatorConfigTypeDef]
 
 
-# ListClusterOperationsV2RequestRequestTypeDef
+# ListClusterOperationsV2RequestTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -1605,7 +1597,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListClustersRequestListClustersPaginateTypeDef
+# ListClustersRequestPaginateTypeDef
 
 ### ClusterNameFilter
 - **Type**: typing.Optional[str]
@@ -1614,7 +1606,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.PaginatorConfigTypeDef]
 
 
-# ListClustersRequestRequestTypeDef
+# ListClustersRequestTypeDef
 
 ### ClusterNameFilter
 - **Type**: typing.Optional[str]
@@ -1640,7 +1632,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListClustersV2RequestListClustersV2PaginateTypeDef
+# ListClustersV2RequestPaginateTypeDef
 
 ### ClusterNameFilter
 - **Type**: typing.Optional[str]
@@ -1652,7 +1644,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.PaginatorConfigTypeDef]
 
 
-# ListClustersV2RequestRequestTypeDef
+# ListClustersV2RequestTypeDef
 
 ### ClusterNameFilter
 - **Type**: typing.Optional[str]
@@ -1681,7 +1673,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListConfigurationRevisionsRequestListConfigurationRevisionsPaginateTypeDef
+# ListConfigurationRevisionsRequestPaginateTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1691,7 +1683,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.PaginatorConfigTypeDef]
 
 
-# ListConfigurationRevisionsRequestRequestTypeDef
+# ListConfigurationRevisionsRequestTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1718,13 +1710,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListConfigurationsRequestListConfigurationsPaginateTypeDef
+# ListConfigurationsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.PaginatorConfigTypeDef]
 
 
-# ListConfigurationsRequestRequestTypeDef
+# ListConfigurationsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1747,13 +1739,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListKafkaVersionsRequestListKafkaVersionsPaginateTypeDef
+# ListKafkaVersionsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.PaginatorConfigTypeDef]
 
 
-# ListKafkaVersionsRequestRequestTypeDef
+# ListKafkaVersionsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1776,7 +1768,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListNodesRequestListNodesPaginateTypeDef
+# ListNodesRequestPaginateTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -1786,7 +1778,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.PaginatorConfigTypeDef]
 
 
-# ListNodesRequestRequestTypeDef
+# ListNodesRequestTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -1813,7 +1805,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListReplicatorsRequestListReplicatorsPaginateTypeDef
+# ListReplicatorsRequestPaginateTypeDef
 
 ### ReplicatorNameFilter
 - **Type**: typing.Optional[str]
@@ -1822,7 +1814,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.PaginatorConfigTypeDef]
 
 
-# ListReplicatorsRequestRequestTypeDef
+# ListReplicatorsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1848,7 +1840,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListScramSecretsRequestListScramSecretsPaginateTypeDef
+# ListScramSecretsRequestPaginateTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -1858,7 +1850,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.PaginatorConfigTypeDef]
 
 
-# ListScramSecretsRequestRequestTypeDef
+# ListScramSecretsRequestTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -1885,7 +1877,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1903,13 +1895,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListVpcConnectionsRequestListVpcConnectionsPaginateTypeDef
+# ListVpcConnectionsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.PaginatorConfigTypeDef]
 
 
-# ListVpcConnectionsRequestRequestTypeDef
+# ListVpcConnectionsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -2066,7 +2058,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ProvisionedRequestTypeDef
 
 ### BrokerNodeGroupInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafka_classes.BrokerNodeGroupInfoTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafka_classes.BrokerNodeGroupInfoUnionTypeDef'>
 - **Required**: Yes
 
 ### KafkaVersion
@@ -2078,7 +2070,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ClientAuthentication
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.ClientAuthenticationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.ClientAuthenticationUnionTypeDef]
 
 ### ConfigurationInfo
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.ConfigurationInfoTypeDef]
@@ -2151,11 +2143,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PublicAccessTypeDef
 
-### Type
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PutClusterPolicyRequestRequestTypeDef
+# PutClusterPolicyRequestTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -2180,7 +2172,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RebootBrokerRequestRequestTypeDef
+# RebootBrokerRequestTypeDef
 
 ### BrokerIds
 - **Type**: typing.Sequence[str]
@@ -2206,7 +2198,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RejectClientVpcConnectionRequestRequestTypeDef
+# RejectClientVpcConnectionRequestTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -2247,7 +2239,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ReplicationInfoTypeDef
 
 ### ConsumerGroupReplication
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafka_classes.ConsumerGroupReplicationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafka_classes.ConsumerGroupReplicationUnionTypeDef'>
 - **Required**: Yes
 
 ### SourceKafkaClusterArn
@@ -2263,15 +2255,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TopicReplication
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafka_classes.TopicReplicationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafka_classes.TopicReplicationUnionTypeDef'>
 - **Required**: Yes
 
 
 # ReplicationStartingPositionTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['EARLIEST', 'LATEST']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ReplicationStateInfoTypeDef
 
@@ -2281,6 +2273,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Message
 - **Type**: typing.Optional[str]
 
+
+# ReplicationTopicNameConfigurationTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ReplicatorSummaryTypeDef
 
@@ -2371,7 +2369,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ServerlessRequestTypeDef
 
 ### VpcConfigs
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kafka_classes.VpcConfigTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kafka_classes.VpcConfigUnionTypeDef]
 - **Required**: Yes
 
 ### ClientAuthentication
@@ -2409,7 +2407,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.EBSStorageInfoTypeDef]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2418,15 +2416,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Tags
 - **Type**: typing.Mapping[str, str]
 - **Required**: Yes
-
-
-# TlsExtraOutputTypeDef
-
-### CertificateAuthorityArnList
-- **Type**: typing.Optional[typing.List[str]]
-
-### Enabled
-- **Type**: typing.Optional[bool]
 
 
 # TlsOutputTypeDef
@@ -2447,6 +2436,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
+# TlsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # TopicReplicationOutputTypeDef
 
 ### TopicsToReplicate
@@ -2464,6 +2459,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### StartingPosition
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.ReplicationStartingPositionTypeDef]
+
+### TopicNameConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.ReplicationTopicNameConfigurationTypeDef]
 
 ### TopicsToExclude
 - **Type**: typing.Optional[typing.List[str]]
@@ -2487,9 +2485,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### StartingPosition
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.ReplicationStartingPositionTypeDef]
 
+### TopicNameConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.ReplicationTopicNameConfigurationTypeDef]
+
 ### TopicsToExclude
 - **Type**: typing.Optional[typing.Sequence[str]]
 
+
+# TopicReplicationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TopicReplicationUpdateTypeDef
 
@@ -2532,7 +2539,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2543,7 +2550,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateBrokerCountRequestRequestTypeDef
+# UpdateBrokerCountRequestTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -2573,7 +2580,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateBrokerStorageRequestRequestTypeDef
+# UpdateBrokerStorageRequestTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -2603,7 +2610,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateBrokerTypeRequestRequestTypeDef
+# UpdateBrokerTypeRequestTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -2633,7 +2640,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateClusterConfigurationRequestRequestTypeDef
+# UpdateClusterConfigurationRequestTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -2663,7 +2670,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateClusterKafkaVersionRequestRequestTypeDef
+# UpdateClusterKafkaVersionRequestTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -2696,14 +2703,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateConfigurationRequestRequestTypeDef
+# UpdateConfigurationRequestTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ServerProperties
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafka_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### Description
@@ -2725,7 +2732,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateConnectivityRequestRequestTypeDef
+# UpdateConnectivityRequestTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -2755,7 +2762,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateMonitoringRequestRequestTypeDef
+# UpdateMonitoringRequestTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -2790,7 +2797,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateReplicationInfoRequestRequestTypeDef
+# UpdateReplicationInfoRequestTypeDef
 
 ### CurrentVersion
 - **Type**: <class 'str'>
@@ -2830,7 +2837,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateSecurityRequestRequestTypeDef
+# UpdateSecurityRequestTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -2841,7 +2848,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ClientAuthentication
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.ClientAuthenticationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.ClientAuthenticationUnionTypeDef]
 
 ### EncryptionInfo
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafka_classes.EncryptionInfoTypeDef]
@@ -2862,7 +2869,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateStorageRequestRequestTypeDef
+# UpdateStorageRequestTypeDef
 
 ### ClusterArn
 - **Type**: <class 'str'>
@@ -2899,12 +2906,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # UserIdentityTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['AWSACCOUNT', 'AWSSERVICE']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### PrincipalId
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # VpcConfigOutputTypeDef
 
@@ -2925,6 +2929,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### SecurityGroupIds
 - **Type**: typing.Optional[typing.Sequence[str]]
 
+
+# VpcConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # VpcConnectionInfoServerlessTypeDef
 

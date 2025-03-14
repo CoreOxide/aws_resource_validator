@@ -6,6 +6,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # BucketInfoTypeDef
 
 ### buckets
@@ -29,45 +35,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # FieldStatsTypeDef
 
-### min
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### max
-- **Type**: typing.Optional[str]
-
-### count
-- **Type**: typing.Optional[int]
-
-### missing
-- **Type**: typing.Optional[int]
-
-### sum
-- **Type**: typing.Optional[float]
-
-### sumOfSquares
-- **Type**: typing.Optional[float]
-
-### mean
-- **Type**: typing.Optional[str]
-
-### stddev
-- **Type**: typing.Optional[float]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HitTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### fields
-- **Type**: typing.Optional[typing.Dict[str, typing.List[str]]]
-
-### exprs
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### highlights
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HitsTypeDef
 
@@ -90,10 +66,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -106,8 +78,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# SearchRequestRequestTypeDef
+
+# SearchRequestTypeDef
 
 ### query
 - **Type**: <class 'str'>
@@ -197,7 +172,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudsearchdomain_classes.SuggestionMatchTypeDef]]
 
 
-# SuggestRequestRequestTypeDef
+# SuggestRequestTypeDef
 
 ### query
 - **Type**: <class 'str'>
@@ -237,20 +212,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SuggestionMatchTypeDef
 
-### suggestion
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### score
-- **Type**: typing.Optional[int]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### id
-- **Type**: typing.Optional[str]
-
-
-# UploadDocumentsRequestRequestTypeDef
+# UploadDocumentsRequestTypeDef
 
 ### documents
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearchdomain_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### contentType

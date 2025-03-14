@@ -6,7 +6,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DeleteThingShadowRequestRequestTypeDef
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DeleteThingShadowRequestTypeDef
 
 ### thingName
 - **Type**: <class 'str'>
@@ -34,7 +40,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRetainedMessageRequestRequestTypeDef
+# GetRetainedMessageRequestTypeDef
 
 ### topic
 - **Type**: <class 'str'>
@@ -68,7 +74,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetThingShadowRequestRequestTypeDef
+# GetThingShadowRequestTypeDef
 
 ### thingName
 - **Type**: <class 'str'>
@@ -89,7 +95,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListNamedShadowsForThingRequestRequestTypeDef
+# ListNamedShadowsForThingRequestTypeDef
 
 ### thingName
 - **Type**: <class 'str'>
@@ -108,10 +114,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### timestamp
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -120,14 +122,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListRetainedMessagesRequestListRetainedMessagesPaginateTypeDef
+
+# ListRetainedMessagesRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.iot_data_classes.PaginatorConfigTypeDef]
 
 
-# ListRetainedMessagesRequestRequestTypeDef
+# ListRetainedMessagesRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -142,13 +147,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.iot_data_classes.RetainedMessageSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # PaginatorConfigTypeDef
@@ -163,7 +167,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PublishRequestRequestTypeDef
+# PublishRequestTypeDef
 
 ### topic
 - **Type**: <class 'str'>
@@ -176,7 +180,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### payload
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iot_data_classes.BlobTypeDef]
 
 ### userProperties
 - **Type**: typing.Optional[str]
@@ -203,10 +207,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -218,6 +218,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # RetainedMessageSummaryTypeDef
@@ -235,14 +238,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# UpdateThingShadowRequestRequestTypeDef
+# UpdateThingShadowRequestTypeDef
 
 ### thingName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### payload
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### shadowName

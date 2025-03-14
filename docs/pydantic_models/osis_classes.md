@@ -50,7 +50,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePipelineRequestRequestTypeDef
+# CreatePipelineRequestTypeDef
 
 ### PipelineName
 - **Type**: <class 'str'>
@@ -72,7 +72,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.osis_classes.LogPublishingOptionsTypeDef]
 
 ### VpcOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.osis_classes.VpcOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.osis_classes.VpcOptionsUnionTypeDef]
 
 ### BufferOptions
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.osis_classes.BufferOptionsTypeDef]
@@ -95,7 +95,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeletePipelineRequestRequestTypeDef
+# DeletePipelineRequestTypeDef
 
 ### PipelineName
 - **Type**: <class 'str'>
@@ -109,7 +109,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPipelineBlueprintRequestRequestTypeDef
+# GetPipelineBlueprintRequestTypeDef
 
 ### BlueprintName
 - **Type**: <class 'str'>
@@ -134,7 +134,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPipelineChangeProgressRequestRequestTypeDef
+# GetPipelineChangeProgressRequestTypeDef
 
 ### PipelineName
 - **Type**: <class 'str'>
@@ -152,7 +152,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPipelineRequestRequestTypeDef
+# GetPipelineRequestTypeDef
 
 ### PipelineName
 - **Type**: <class 'str'>
@@ -181,7 +181,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListPipelinesRequestRequestTypeDef
+# ListPipelinesRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -204,7 +204,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
@@ -272,12 +272,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PipelineDestinationTypeDef
 
-### ServiceName
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Endpoint
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PipelineStatusReasonTypeDef
 
@@ -399,14 +396,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ServiceVpcEndpointTypeDef
 
-### ServiceName
-- **Type**: typing.Optional[typing.Literal['OPENSEARCH_SERVERLESS']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### VpcEndpointId
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-
-# StartPipelineRequestRequestTypeDef
+# StartPipelineRequestTypeDef
 
 ### PipelineName
 - **Type**: <class 'str'>
@@ -424,7 +418,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopPipelineRequestRequestTypeDef
+# StopPipelineRequestTypeDef
 
 ### PipelineName
 - **Type**: <class 'str'>
@@ -442,7 +436,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
@@ -464,7 +458,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
@@ -475,7 +469,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePipelineRequestRequestTypeDef
+# UpdatePipelineRequestTypeDef
 
 ### PipelineName
 - **Type**: <class 'str'>
@@ -511,7 +505,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ValidatePipelineRequestRequestTypeDef
+# ValidatePipelineRequestTypeDef
 
 ### PipelineConfigurationBody
 - **Type**: <class 'str'>
@@ -592,4 +586,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### VpcEndpointManagement
 - **Type**: typing.Optional[typing.Literal['CUSTOMER', 'SERVICE']]
 
+
+# VpcOptionsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

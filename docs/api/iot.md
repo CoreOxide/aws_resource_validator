@@ -19,7 +19,7 @@
 
 ### AttributeValue
 - **Type**: string
-- **Pattern**: `[a-zA-Z0-9_.,@/:#-]*`
+- **Pattern**: `[a-zA-Z0-9_.,@/:#=\[\]-]*`
 - **Max Length**: 800
 
 ### AuditDescription
@@ -108,6 +108,11 @@
 - **Min Length**: 2
 - **Max Length**: 43
 
+### ClientCertificateCallbackArn
+- **Type**: string
+- **Pattern**: `[\s\S]*`
+- **Max Length**: 2048
+
 ### ClientRequestToken
 - **Type**: string
 - **Pattern**: `^[a-zA-Z0-9-_]+$`
@@ -120,10 +125,55 @@
 - **Min Length**: 36
 - **Max Length**: 64
 
+### CommandDescription
+- **Type**: string
+- **Pattern**: `[^\p{C}]*`
+- **Max Length**: 2028
+
+### CommandExecutionId
+- **Type**: string
+- **Pattern**: `[a-zA-Z0-9_-]+`
+- **Min Length**: 1
+- **Max Length**: 64
+
+### CommandExecutionResultName
+- **Type**: string
+- **Pattern**: `[a-zA-Z0-9_-]+`
+- **Min Length**: 1
+- **Max Length**: 32
+
+### CommandId
+- **Type**: string
+- **Pattern**: `[a-zA-Z0-9_-]+`
+- **Min Length**: 1
+- **Max Length**: 64
+
+### CommandParameterDescription
+- **Type**: string
+- **Pattern**: `[^\p{C}]*`
+- **Max Length**: 2028
+
+### CommandParameterName
+- **Type**: string
+- **Pattern**: `^[.$a-zA-Z0-9_-]+$`
+- **Min Length**: 1
+- **Max Length**: 192
+
 ### Comment
 - **Type**: string
 - **Pattern**: `[^\p{C}]+`
 - **Max Length**: 2028
+
+### ConnectionAttributeName
+- **Type**: string
+- **Pattern**: `[a-zA-Z0-9:.]+`
+- **Max Length**: 128
+
+### ConnectivityApiThingName
+- **Type**: string
+- **Pattern**: `[a-zA-Z0-9:_-]+`
+- **Min Length**: 1
+- **Max Length**: 128
 
 ### CustomMetricDisplayName
 - **Type**: string
@@ -150,6 +200,11 @@
 - **Pattern**: `[a-zA-Z0-9:_-]+`
 - **Min Length**: 1
 - **Max Length**: 128
+
+### DisplayName
+- **Type**: string
+- **Pattern**: `[^\p{C}]*`
+- **Max Length**: 64
 
 ### DomainConfigurationName
 - **Type**: string
@@ -364,7 +419,7 @@
 - **Type**: string
 - **Pattern**: `[^\p{C}]+`
 - **Min Length**: 1
-- **Max Length**: 512
+- **Max Length**: 30720
 
 ### PayloadVersion
 - **Type**: string
@@ -495,6 +550,16 @@
 - **Min Length**: 1
 - **Max Length**: 64
 
+### StatusReasonCode
+- **Type**: string
+- **Pattern**: `[A-Z0-9_-]+`
+- **Max Length**: 64
+
+### StatusReasonDescription
+- **Type**: string
+- **Pattern**: `[^\p{C}]*`
+- **Max Length**: 1024
+
 ### StreamDescription
 - **Type**: string
 - **Pattern**: `[^\p{C}]+`
@@ -581,6 +646,17 @@
 - **Pattern**: `[A-Za-z0-9+/]+={0,2}`
 - **Min Length**: 1
 - **Max Length**: 2560
+
+### UnsignedLongParameterValue
+- **Type**: string
+- **Pattern**: `^[0-9]*$`
+- **Min Length**: 1
+- **Max Length**: 20
+
+### UserPropertyKeyName
+- **Type**: string
+- **Pattern**: `[a-zA-Z0-9:$.]+`
+- **Max Length**: 128
 
 ### Value
 - **Type**: string

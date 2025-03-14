@@ -11,9 +11,9 @@
 
 # ActionGroupExecutorTypeDef
 
-### customControl
-- **Type**: typing.Optional[typing.Literal['RETURN_CONTROL']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ActionGroupSummaryTypeDef
 
@@ -82,8 +82,11 @@
 ### functionSchema
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.FunctionSchemaOutputTypeDef]
 
+### parentActionGroupSignatureParams
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
 ### parentActionSignature
-- **Type**: typing.Optional[typing.Literal['AMAZON.CodeInterpreter', 'AMAZON.UserInput']]
+- **Type**: typing.Optional[typing.Literal['AMAZON.CodeInterpreter', 'AMAZON.UserInput', 'ANTHROPIC.Bash', 'ANTHROPIC.Computer', 'ANTHROPIC.TextEditor']]
 
 
 # AgentAliasHistoryEventTypeDef
@@ -118,7 +121,7 @@
 - **Required**: Yes
 
 ### agentAliasStatus
-- **Type**: typing.Literal['CREATING', 'DELETING', 'FAILED', 'PREPARED', 'UPDATING']
+- **Type**: typing.Literal['CREATING', 'DELETING', 'DISSOCIATED', 'FAILED', 'PREPARED', 'UPDATING']
 - **Required**: Yes
 
 ### createdAt
@@ -151,7 +154,7 @@
 - **Required**: Yes
 
 ### agentAliasStatus
-- **Type**: typing.Literal['CREATING', 'DELETING', 'FAILED', 'PREPARED', 'UPDATING']
+- **Type**: typing.Literal['CREATING', 'DELETING', 'DISSOCIATED', 'FAILED', 'PREPARED', 'UPDATING']
 - **Required**: Yes
 
 ### agentId
@@ -181,6 +184,92 @@
 
 ### failureReasons
 - **Type**: typing.Optional[typing.List[str]]
+
+
+# AgentCollaboratorSummaryTypeDef
+
+### agentDescriptor
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.AgentDescriptorTypeDef'>
+- **Required**: Yes
+
+### agentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### agentVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### collaborationInstruction
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### collaboratorId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### collaboratorName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastUpdatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### relayConversationHistory
+- **Type**: typing.Literal['DISABLED', 'TO_COLLABORATOR']
+- **Required**: Yes
+
+
+# AgentCollaboratorTypeDef
+
+### agentDescriptor
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.AgentDescriptorTypeDef'>
+- **Required**: Yes
+
+### agentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### agentVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### collaborationInstruction
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### collaboratorId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### collaboratorName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastUpdatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### clientToken
+- **Type**: typing.Optional[str]
+
+### relayConversationHistory
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'TO_COLLABORATOR']]
+
+
+# AgentDescriptorTypeDef
+
+### aliasArn
+- **Type**: typing.Optional[str]
 
 
 # AgentFlowNodeConfigurationTypeDef
@@ -305,8 +394,14 @@
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
+### agentCollaboration
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'SUPERVISOR', 'SUPERVISOR_ROUTER']]
+
 ### clientToken
 - **Type**: typing.Optional[str]
+
+### customOrchestration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.CustomOrchestrationTypeDef]
 
 ### customerEncryptionKeyArn
 - **Type**: typing.Optional[str]
@@ -328,6 +423,9 @@
 
 ### memoryConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.MemoryConfigurationOutputTypeDef]
+
+### orchestrationType
+- **Type**: typing.Optional[typing.Literal['CUSTOM_ORCHESTRATION', 'DEFAULT']]
 
 ### preparedAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -406,6 +504,9 @@
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### agentCollaboration
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'SUPERVISOR', 'SUPERVISOR_ROUTER']]
+
 ### customerEncryptionKeyArn
 - **Type**: typing.Optional[str]
 
@@ -434,7 +535,47 @@
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# AssociateAgentKnowledgeBaseRequestRequestTypeDef
+# AssociateAgentCollaboratorRequestTypeDef
+
+### agentDescriptor
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.AgentDescriptorTypeDef'>
+- **Required**: Yes
+
+### agentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### agentVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### collaborationInstruction
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### collaboratorName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### clientToken
+- **Type**: typing.Optional[str]
+
+### relayConversationHistory
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'TO_COLLABORATOR']]
+
+
+# AssociateAgentCollaboratorResponseTypeDef
+
+### agentCollaborator
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.AgentCollaboratorTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# AssociateAgentKnowledgeBaseRequestTypeDef
 
 ### agentId
 - **Type**: <class 'str'>
@@ -473,10 +614,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
+# BedrockDataAutomationConfigurationTypeDef
+
+### parsingModality
+- **Type**: typing.Optional[typing.Literal['MULTIMODAL']]
+
+
 # BedrockEmbeddingModelConfigurationTypeDef
 
 ### dimensions
 - **Type**: typing.Optional[int]
+
+### embeddingDataType
+- **Type**: typing.Optional[typing.Literal['BINARY', 'FLOAT32']]
 
 
 # BedrockFoundationModelConfigurationTypeDef
@@ -485,9 +635,84 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### parsingModality
+- **Type**: typing.Optional[typing.Literal['MULTIMODAL']]
+
 ### parsingPrompt
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.ParsingPromptTypeDef]
 
+
+# BedrockFoundationModelContextEnrichmentConfigurationTypeDef
+
+### enrichmentStrategyConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.EnrichmentStrategyConfigurationTypeDef'>
+- **Required**: Yes
+
+### modelArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ByteContentDocTypeDef
+
+### data
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.BlobTypeDef'>
+- **Required**: Yes
+
+### mimeType
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# CachePointBlockTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ChatPromptTemplateConfigurationOutputTypeDef
+
+### messages
+- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.MessageOutputTypeDef]
+- **Required**: Yes
+
+### inputVariables
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptInputVariableTypeDef]]
+
+### system
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.SystemContentBlockTypeDef]]
+
+### toolConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.ToolConfigurationOutputTypeDef]
+
+
+# ChatPromptTemplateConfigurationTypeDef
+
+### messages
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.bedrock_agent_classes.MessageUnionTypeDef]
+- **Required**: Yes
+
+### inputVariables
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptInputVariableTypeDef]]
+
+### system
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_agent_classes.SystemContentBlockTypeDef]]
+
+### toolConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.ToolConfigurationUnionTypeDef]
+
+
+# ChatPromptTemplateConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ChunkingConfigurationOutputTypeDef
 
@@ -586,27 +811,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# ContentBlockTypeDef
+
+### cachePoint
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.CachePointBlockTypeDef]
+
+### text
+- **Type**: typing.Optional[str]
+
+
+# ContextEnrichmentConfigurationTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # CrawlFilterConfigurationOutputTypeDef
 
-### type
-- **Type**: typing.Literal['PATTERN']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### patternObjectFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PatternObjectFilterConfigurationOutputTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CrawlFilterConfigurationTypeDef
 
-### type
-- **Type**: typing.Literal['PATTERN']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### patternObjectFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PatternObjectFilterConfigurationTypeDef]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-
-# CreateAgentActionGroupRequestRequestTypeDef
+# CreateAgentActionGroupRequestTypeDef
 
 ### actionGroupName
 - **Type**: <class 'str'>
@@ -636,10 +868,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### functionSchema
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.FunctionSchemaTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.FunctionSchemaUnionTypeDef]
 
 ### parentActionGroupSignature
-- **Type**: typing.Optional[typing.Literal['AMAZON.CodeInterpreter', 'AMAZON.UserInput']]
+- **Type**: typing.Optional[typing.Literal['AMAZON.CodeInterpreter', 'AMAZON.UserInput', 'ANTHROPIC.Bash', 'ANTHROPIC.Computer', 'ANTHROPIC.TextEditor']]
+
+### parentActionGroupSignatureParams
+- **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
 # CreateAgentActionGroupResponseTypeDef
@@ -653,7 +888,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAgentAliasRequestRequestTypeDef
+# CreateAgentAliasRequestTypeDef
 
 ### agentAliasName
 - **Type**: <class 'str'>
@@ -687,17 +922,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAgentRequestRequestTypeDef
+# CreateAgentRequestTypeDef
 
 ### agentName
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+### agentCollaboration
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'SUPERVISOR', 'SUPERVISOR_ROUTER']]
 
 ### agentResourceRoleArn
 - **Type**: typing.Optional[str]
 
 ### clientToken
 - **Type**: typing.Optional[str]
+
+### customOrchestration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.CustomOrchestrationTypeDef]
 
 ### customerEncryptionKeyArn
 - **Type**: typing.Optional[str]
@@ -718,10 +959,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### memoryConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.MemoryConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.MemoryConfigurationUnionTypeDef]
+
+### orchestrationType
+- **Type**: typing.Optional[typing.Literal['CUSTOM_ORCHESTRATION', 'DEFAULT']]
 
 ### promptOverrideConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptOverrideConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptOverrideConfigurationUnionTypeDef]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -738,10 +982,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDataSourceRequestRequestTypeDef
+# CreateDataSourceRequestTypeDef
 
 ### dataSourceConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.DataSourceConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.DataSourceConfigurationUnionTypeDef'>
 - **Required**: Yes
 
 ### knowledgeBaseId
@@ -765,7 +1009,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.ServerSideEncryptionConfigurationTypeDef]
 
 ### vectorIngestionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.VectorIngestionConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.VectorIngestionConfigurationUnionTypeDef]
 
 
 # CreateDataSourceResponseTypeDef
@@ -779,7 +1023,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateFlowAliasRequestRequestTypeDef
+# CreateFlowAliasRequestTypeDef
 
 ### flowIdentifier
 - **Type**: <class 'str'>
@@ -803,46 +1047,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateFlowAliasResponseTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### flowId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### routingConfiguration
-- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowAliasRoutingConfigurationListItemTypeDef]
-- **Required**: Yes
-
-### updatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# CreateFlowRequestRequestTypeDef
+# CreateFlowRequestTypeDef
 
 ### executionRoleArn
 - **Type**: <class 'str'>
@@ -859,7 +1064,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### definition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowDefinitionUnionTypeDef]
 
 ### description
 - **Type**: typing.Optional[str]
@@ -868,58 +1073,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateFlowResponseTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### customerEncryptionKeyArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### definition
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowDefinitionOutputTypeDef'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### executionRoleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['Failed', 'NotPrepared', 'Prepared', 'Preparing']
-- **Required**: Yes
-
-### updatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### version
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# CreateFlowVersionRequestRequestTypeDef
+# CreateFlowVersionRequestTypeDef
 
 ### flowIdentifier
 - **Type**: <class 'str'>
@@ -932,57 +1086,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateFlowVersionResponseTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### customerEncryptionKeyArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### definition
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowDefinitionOutputTypeDef'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### executionRoleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['Failed', 'NotPrepared', 'Prepared', 'Preparing']
-- **Required**: Yes
-
-### version
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# CreateKnowledgeBaseRequestRequestTypeDef
+# CreateKnowledgeBaseRequestTypeDef
 
 ### knowledgeBaseConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.KnowledgeBaseConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.KnowledgeBaseConfigurationUnionTypeDef'>
 - **Required**: Yes
 
 ### name
@@ -993,15 +1100,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### storageConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.StorageConfigurationTypeDef'>
-- **Required**: Yes
-
 ### clientToken
 - **Type**: typing.Optional[str]
 
 ### description
 - **Type**: typing.Optional[str]
+
+### storageConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.StorageConfigurationTypeDef]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -1018,7 +1124,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePromptRequestRequestTypeDef
+# CreatePromptRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -1040,57 +1146,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### variants
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptVariantTypeDef, aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptVariantOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptVariantUnionTypeDef]]
 
 
-# CreatePromptResponseTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### customerEncryptionKeyArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### defaultVariant
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### updatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### variants
-- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptVariantOutputTypeDef]
-- **Required**: Yes
-
-### version
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# CreatePromptVersionRequestRequestTypeDef
+# CreatePromptVersionRequestTypeDef
 
 ### promptIdentifier
 - **Type**: <class 'str'>
@@ -1106,51 +1165,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreatePromptVersionResponseTypeDef
+# CuratedQueryTypeDef
 
-### arn
+### naturalLanguage
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### customerEncryptionKeyArn
+### sql
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### defaultVariant
+
+# CustomContentTypeDef
+
+### customDocumentIdentifier
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.CustomDocumentIdentifierTypeDef'>
+- **Required**: Yes
+
+### sourceType
+- **Type**: typing.Literal['IN_LINE', 'S3_LOCATION']
+- **Required**: Yes
+
+### inlineContent
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.InlineContentTypeDef]
+
+### s3Location
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.CustomS3LocationTypeDef]
+
+
+# CustomDocumentIdentifierTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CustomOrchestrationTypeDef
+
+### executor
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.OrchestrationExecutorTypeDef]
+
+
+# CustomS3LocationTypeDef
+
+### uri
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### updatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### variants
-- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptVariantOutputTypeDef]
-- **Required**: Yes
-
-### version
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
+### bucketOwnerAccountId
+- **Type**: typing.Optional[str]
 
 
 # CustomTransformationConfigurationOutputTypeDef
@@ -1175,49 +1237,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# CyclicConnectionFlowValidationDetailsTypeDef
+
+### connection
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
 # DataSourceConfigurationOutputTypeDef
 
-### type
-- **Type**: typing.Literal['CONFLUENCE', 'S3', 'SALESFORCE', 'SHAREPOINT', 'WEB']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### confluenceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.ConfluenceDataSourceConfigurationOutputTypeDef]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### s3Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.S3DataSourceConfigurationOutputTypeDef]
+# DataSourceConfigurationUnionTypeDef
 
-### salesforceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.SalesforceDataSourceConfigurationOutputTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### sharePointConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.SharePointDataSourceConfigurationOutputTypeDef]
-
-### webConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.WebDataSourceConfigurationOutputTypeDef]
-
-
-# DataSourceConfigurationTypeDef
-
-### type
-- **Type**: typing.Literal['CONFLUENCE', 'S3', 'SALESFORCE', 'SHAREPOINT', 'WEB']
-- **Required**: Yes
-
-### confluenceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.ConfluenceDataSourceConfigurationTypeDef]
-
-### s3Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.S3DataSourceConfigurationTypeDef]
-
-### salesforceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.SalesforceDataSourceConfigurationTypeDef]
-
-### sharePointConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.SharePointDataSourceConfigurationTypeDef]
-
-### webConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.WebDataSourceConfigurationTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DataSourceSummaryTypeDef
 
@@ -1291,7 +1328,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.VectorIngestionConfigurationOutputTypeDef]
 
 
-# DeleteAgentActionGroupRequestRequestTypeDef
+# DeleteAgentActionGroupRequestTypeDef
 
 ### actionGroupId
 - **Type**: <class 'str'>
@@ -1309,7 +1346,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteAgentAliasRequestRequestTypeDef
+# DeleteAgentAliasRequestTypeDef
 
 ### agentAliasId
 - **Type**: <class 'str'>
@@ -1327,7 +1364,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### agentAliasStatus
-- **Type**: typing.Literal['CREATING', 'DELETING', 'FAILED', 'PREPARED', 'UPDATING']
+- **Type**: typing.Literal['CREATING', 'DELETING', 'DISSOCIATED', 'FAILED', 'PREPARED', 'UPDATING']
 - **Required**: Yes
 
 ### agentId
@@ -1339,7 +1376,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAgentRequestRequestTypeDef
+# DeleteAgentRequestTypeDef
 
 ### agentId
 - **Type**: <class 'str'>
@@ -1364,7 +1401,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAgentVersionRequestRequestTypeDef
+# DeleteAgentVersionRequestTypeDef
 
 ### agentId
 - **Type**: <class 'str'>
@@ -1397,7 +1434,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDataSourceRequestRequestTypeDef
+# DeleteDataSourceRequestTypeDef
 
 ### dataSourceId
 - **Type**: <class 'str'>
@@ -1427,7 +1464,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteFlowAliasRequestRequestTypeDef
+# DeleteFlowAliasRequestTypeDef
 
 ### aliasIdentifier
 - **Type**: <class 'str'>
@@ -1438,22 +1475,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteFlowAliasResponseTypeDef
-
-### flowId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# DeleteFlowRequestRequestTypeDef
+# DeleteFlowRequestTypeDef
 
 ### flowIdentifier
 - **Type**: <class 'str'>
@@ -1463,18 +1485,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteFlowResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# DeleteFlowVersionRequestRequestTypeDef
+# DeleteFlowVersionRequestTypeDef
 
 ### flowIdentifier
 - **Type**: <class 'str'>
@@ -1488,14 +1499,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteFlowVersionResponseTypeDef
+# DeleteKnowledgeBaseDocumentsRequestTypeDef
 
-### id
+### dataSourceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### version
+### documentIdentifiers
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.bedrock_agent_classes.DocumentIdentifierTypeDef]
+- **Required**: Yes
+
+### knowledgeBaseId
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+### clientToken
+- **Type**: typing.Optional[str]
+
+
+# DeleteKnowledgeBaseDocumentsResponseTypeDef
+
+### documentDetails
+- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.KnowledgeBaseDocumentDetailTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -1503,7 +1528,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteKnowledgeBaseRequestRequestTypeDef
+# DeleteKnowledgeBaseRequestTypeDef
 
 ### knowledgeBaseId
 - **Type**: <class 'str'>
@@ -1525,7 +1550,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeletePromptRequestRequestTypeDef
+# DeletePromptRequestTypeDef
 
 ### promptIdentifier
 - **Type**: <class 'str'>
@@ -1535,22 +1560,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeletePromptResponseTypeDef
+# DisassociateAgentCollaboratorRequestTypeDef
 
-### id
+### agentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### version
+### agentVersion
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
+### collaboratorId
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisassociateAgentKnowledgeBaseRequestRequestTypeDef
+# DisassociateAgentKnowledgeBaseRequestTypeDef
 
 ### agentId
 - **Type**: <class 'str'>
@@ -1565,10 +1590,71 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# DocumentContentTypeDef
+
+### dataSourceType
+- **Type**: typing.Literal['CUSTOM', 'S3']
+- **Required**: Yes
+
+### custom
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.CustomContentTypeDef]
+
+### s3
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.S3ContentTypeDef]
+
+
+# DocumentIdentifierTypeDef
+
+### dataSourceType
+- **Type**: typing.Literal['CUSTOM', 'S3']
+- **Required**: Yes
+
+### custom
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.CustomDocumentIdentifierTypeDef]
+
+### s3
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.S3LocationTypeDef]
+
+
+# DocumentMetadataTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DuplicateConditionExpressionFlowValidationDetailsTypeDef
+
+### expression
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### node
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DuplicateConnectionsFlowValidationDetailsTypeDef
+
+### source
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### target
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
 # EmbeddingModelConfigurationTypeDef
 
 ### bedrockEmbeddingModelConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.BedrockEmbeddingModelConfigurationTypeDef]
+
+
+# EnrichmentStrategyConfigurationTypeDef
+
+### method
+- **Type**: typing.Literal['CHUNK_ENTITY_EXTRACTION']
+- **Required**: Yes
 
 
 # FixedSizeChunkingConfigurationTypeDef
@@ -1590,37 +1676,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # FlowAliasSummaryTypeDef
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### flowId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### routingConfiguration
-- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowAliasRoutingConfigurationListItemTypeDef]
-- **Required**: Yes
-
-### updatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FlowConditionTypeDef
 
@@ -1650,25 +1708,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # FlowConnectionTypeDef
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### source
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### target
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['Conditional', 'Data']
-- **Required**: Yes
-
-### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowConnectionConfigurationTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FlowDataConnectionConfigurationTypeDef
 
@@ -1687,7 +1729,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowConnectionTypeDef]]
 
 ### nodes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowNodeExtraOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowNodeExtraTypeDef]]
 
 
 # FlowDefinitionTypeDef
@@ -1699,217 +1741,125 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowNodeTypeDef]]
 
 
-# FlowNodeConfigurationOutputTypeDef
+# FlowDefinitionUnionTypeDef
 
-### agent
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.AgentFlowNodeConfigurationTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### collector
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### condition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.ConditionFlowNodeConfigurationOutputTypeDef]
+# FlowNodeExtraTypeDef
 
-### input
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### iterator
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
-
-### knowledgeBase
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.KnowledgeBaseFlowNodeConfigurationTypeDef]
-
-### lambdaFunction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.LambdaFunctionFlowNodeConfigurationTypeDef]
-
-### lex
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.LexFlowNodeConfigurationTypeDef]
-
-### output
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
-
-### prompt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptFlowNodeConfigurationOutputTypeDef]
-
-### retrieval
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.RetrievalFlowNodeConfigurationTypeDef]
-
-### storage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.StorageFlowNodeConfigurationTypeDef]
-
-
-# FlowNodeConfigurationTypeDef
-
-### agent
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.AgentFlowNodeConfigurationTypeDef]
-
-### collector
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
-
-### condition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.ConditionFlowNodeConfigurationTypeDef]
-
-### input
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
-
-### iterator
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
-
-### knowledgeBase
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.KnowledgeBaseFlowNodeConfigurationTypeDef]
-
-### lambdaFunction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.LambdaFunctionFlowNodeConfigurationTypeDef]
-
-### lex
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.LexFlowNodeConfigurationTypeDef]
-
-### output
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
-
-### prompt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptFlowNodeConfigurationTypeDef]
-
-### retrieval
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.RetrievalFlowNodeConfigurationTypeDef]
-
-### storage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.StorageFlowNodeConfigurationTypeDef]
-
-
-# FlowNodeExtraOutputTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['Agent', 'Collector', 'Condition', 'Input', 'Iterator', 'KnowledgeBase', 'LambdaFunction', 'Lex', 'Output', 'Prompt', 'Retrieval', 'Storage']
-- **Required**: Yes
-
-### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowNodeConfigurationOutputTypeDef]
-
-### inputs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowNodeInputTypeDef]]
-
-### outputs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowNodeOutputTypeDef]]
-
-
-# FlowNodeInputTypeDef
-
-### expression
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['Array', 'Boolean', 'Number', 'Object', 'String']
-- **Required**: Yes
-
-
-# FlowNodeOutputTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['Array', 'Boolean', 'Number', 'Object', 'String']
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FlowNodeTypeDef
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: typing.Literal['Agent', 'Collector', 'Condition', 'Input', 'Iterator', 'KnowledgeBase', 'LambdaFunction', 'Lex', 'Output', 'Prompt', 'Retrieval', 'Storage']
-- **Required**: Yes
-
-### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowNodeConfigurationTypeDef]
-
-### inputs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowNodeInputTypeDef]]
-
-### outputs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowNodeOutputTypeDef]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FlowSummaryTypeDef
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+# FlowValidationDetailsTypeDef
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+### cyclicConnection
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.CyclicConnectionFlowValidationDetailsTypeDef]
 
-### status
-- **Type**: typing.Literal['Failed', 'NotPrepared', 'Prepared', 'Preparing']
-- **Required**: Yes
+### duplicateConditionExpression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.DuplicateConditionExpressionFlowValidationDetailsTypeDef]
 
-### updatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
+### duplicateConnections
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.DuplicateConnectionsFlowValidationDetailsTypeDef]
 
-### version
-- **Type**: <class 'str'>
-- **Required**: Yes
+### incompatibleConnectionDataType
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.IncompatibleConnectionDataTypeFlowValidationDetailsTypeDef]
 
-### description
-- **Type**: typing.Optional[str]
+### malformedConditionExpression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.MalformedConditionExpressionFlowValidationDetailsTypeDef]
+
+### malformedNodeInputExpression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.MalformedNodeInputExpressionFlowValidationDetailsTypeDef]
+
+### mismatchedNodeInputType
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.MismatchedNodeInputTypeFlowValidationDetailsTypeDef]
+
+### mismatchedNodeOutputType
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.MismatchedNodeOutputTypeFlowValidationDetailsTypeDef]
+
+### missingConnectionConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.MissingConnectionConfigurationFlowValidationDetailsTypeDef]
+
+### missingDefaultCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.MissingDefaultConditionFlowValidationDetailsTypeDef]
+
+### missingEndingNodes
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### missingNodeConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.MissingNodeConfigurationFlowValidationDetailsTypeDef]
+
+### missingNodeInput
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.MissingNodeInputFlowValidationDetailsTypeDef]
+
+### missingNodeOutput
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.MissingNodeOutputFlowValidationDetailsTypeDef]
+
+### missingStartingNodes
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### multipleNodeInputConnections
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.MultipleNodeInputConnectionsFlowValidationDetailsTypeDef]
+
+### unfulfilledNodeInput
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.UnfulfilledNodeInputFlowValidationDetailsTypeDef]
+
+### unknownConnectionCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.UnknownConnectionConditionFlowValidationDetailsTypeDef]
+
+### unknownConnectionSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.UnknownConnectionSourceFlowValidationDetailsTypeDef]
+
+### unknownConnectionSourceOutput
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.UnknownConnectionSourceOutputFlowValidationDetailsTypeDef]
+
+### unknownConnectionTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.UnknownConnectionTargetFlowValidationDetailsTypeDef]
+
+### unknownConnectionTargetInput
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.UnknownConnectionTargetInputFlowValidationDetailsTypeDef]
+
+### unknownNodeInput
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.UnknownNodeInputFlowValidationDetailsTypeDef]
+
+### unknownNodeOutput
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.UnknownNodeOutputFlowValidationDetailsTypeDef]
+
+### unreachableNode
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.UnreachableNodeFlowValidationDetailsTypeDef]
+
+### unsatisfiedConnectionConditions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.UnsatisfiedConnectionConditionsFlowValidationDetailsTypeDef]
+
+### unspecified
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 
 # FlowValidationTypeDef
 
-### message
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### severity
-- **Type**: typing.Literal['Error', 'Warning']
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FlowVersionSummaryTypeDef
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['Failed', 'NotPrepared', 'Prepared', 'Preparing']
-- **Required**: Yes
-
-### version
-- **Type**: <class 'str'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FunctionOutputTypeDef
 
@@ -1922,6 +1872,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### parameters
 - **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.bedrock_agent_classes.ParameterDetailTypeDef]]
+
+### requireConfirmation
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
 # FunctionSchemaOutputTypeDef
@@ -1936,6 +1889,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_agent_classes.FunctionTypeDef]]
 
 
+# FunctionSchemaUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # FunctionTypeDef
 
 ### name
@@ -1948,8 +1907,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### parameters
 - **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.bedrock_agent_classes.ParameterDetailTypeDef]]
 
+### requireConfirmation
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
-# GetAgentActionGroupRequestRequestTypeDef
+
+# GetAgentActionGroupRequestTypeDef
 
 ### actionGroupId
 - **Type**: <class 'str'>
@@ -1975,7 +1937,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAgentAliasRequestRequestTypeDef
+# GetAgentAliasRequestTypeDef
 
 ### agentAliasId
 - **Type**: <class 'str'>
@@ -1997,7 +1959,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAgentKnowledgeBaseRequestRequestTypeDef
+# GetAgentCollaboratorRequestTypeDef
+
+### agentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### agentVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### collaboratorId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetAgentCollaboratorResponseTypeDef
+
+### agentCollaborator
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.AgentCollaboratorTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetAgentKnowledgeBaseRequestTypeDef
 
 ### agentId
 - **Type**: <class 'str'>
@@ -2023,7 +2011,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAgentRequestRequestTypeDef
+# GetAgentRequestTypeDef
 
 ### agentId
 - **Type**: <class 'str'>
@@ -2041,7 +2029,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAgentVersionRequestRequestTypeDef
+# GetAgentVersionRequestTypeDef
 
 ### agentId
 - **Type**: <class 'str'>
@@ -2063,7 +2051,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDataSourceRequestRequestTypeDef
+# GetDataSourceRequestTypeDef
 
 ### dataSourceId
 - **Type**: <class 'str'>
@@ -2085,7 +2073,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetFlowAliasRequestRequestTypeDef
+# GetFlowAliasRequestTypeDef
 
 ### aliasIdentifier
 - **Type**: <class 'str'>
@@ -2096,108 +2084,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetFlowAliasResponseTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### flowId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### routingConfiguration
-- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowAliasRoutingConfigurationListItemTypeDef]
-- **Required**: Yes
-
-### updatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetFlowRequestRequestTypeDef
+# GetFlowRequestTypeDef
 
 ### flowIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetFlowResponseTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### customerEncryptionKeyArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### definition
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowDefinitionOutputTypeDef'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### executionRoleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['Failed', 'NotPrepared', 'Prepared', 'Preparing']
-- **Required**: Yes
-
-### updatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### validations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowValidationTypeDef]
-- **Required**: Yes
-
-### version
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetFlowVersionRequestRequestTypeDef
+# GetFlowVersionRequestTypeDef
 
 ### flowIdentifier
 - **Type**: <class 'str'>
@@ -2208,54 +2102,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetFlowVersionResponseTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### customerEncryptionKeyArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### definition
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowDefinitionOutputTypeDef'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### executionRoleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['Failed', 'NotPrepared', 'Prepared', 'Preparing']
-- **Required**: Yes
-
-### version
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetIngestionJobRequestRequestTypeDef
+# GetIngestionJobRequestTypeDef
 
 ### dataSourceId
 - **Type**: <class 'str'>
@@ -2281,7 +2128,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetKnowledgeBaseRequestRequestTypeDef
+# GetKnowledgeBaseDocumentsRequestTypeDef
+
+### dataSourceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### documentIdentifiers
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.bedrock_agent_classes.DocumentIdentifierTypeDef]
+- **Required**: Yes
+
+### knowledgeBaseId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetKnowledgeBaseDocumentsResponseTypeDef
+
+### documentDetails
+- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.KnowledgeBaseDocumentDetailTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetKnowledgeBaseRequestTypeDef
 
 ### knowledgeBaseId
 - **Type**: <class 'str'>
@@ -2299,7 +2172,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPromptRequestRequestTypeDef
+# GetPromptRequestTypeDef
 
 ### promptIdentifier
 - **Type**: <class 'str'>
@@ -2307,53 +2180,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### promptVersion
 - **Type**: typing.Optional[str]
-
-
-# GetPromptResponseTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### customerEncryptionKeyArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### defaultVariant
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### updatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### variants
-- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptVariantOutputTypeDef]
-- **Required**: Yes
-
-### version
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
 
 
 # GuardrailConfigurationTypeDef
@@ -2394,6 +2220,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# IncompatibleConnectionDataTypeFlowValidationDetailsTypeDef
+
+### connection
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
 # InferenceConfigurationOutputTypeDef
 
 ### maximumLength
@@ -2430,20 +2263,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
+# IngestKnowledgeBaseDocumentsRequestTypeDef
+
+### dataSourceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### documents
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.bedrock_agent_classes.KnowledgeBaseDocumentTypeDef]
+- **Required**: Yes
+
+### knowledgeBaseId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### clientToken
+- **Type**: typing.Optional[str]
+
+
+# IngestKnowledgeBaseDocumentsResponseTypeDef
+
+### documentDetails
+- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.KnowledgeBaseDocumentDetailTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
 # IngestionJobFilterTypeDef
 
-### attribute
-- **Type**: typing.Literal['STATUS']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### operator
-- **Type**: typing.Literal['EQ']
-- **Required**: Yes
-
-### values
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # IngestionJobSortByTypeDef
 
@@ -2499,7 +2352,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### status
-- **Type**: typing.Literal['COMPLETE', 'FAILED', 'IN_PROGRESS', 'STARTING']
+- **Type**: typing.Literal['COMPLETE', 'FAILED', 'IN_PROGRESS', 'STARTING', 'STOPPED', 'STOPPING']
 - **Required**: Yes
 
 ### updatedAt
@@ -2532,7 +2385,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### status
-- **Type**: typing.Literal['COMPLETE', 'FAILED', 'IN_PROGRESS', 'STARTING']
+- **Type**: typing.Literal['COMPLETE', 'FAILED', 'IN_PROGRESS', 'STARTING', 'STOPPED', 'STOPPING']
 - **Required**: Yes
 
 ### updatedAt
@@ -2549,6 +2402,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.IngestionJobStatisticsTypeDef]
 
 
+# InlineContentTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # IntermediateStorageTypeDef
 
 ### s3Location
@@ -2556,14 +2415,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# KnowledgeBaseConfigurationTypeDef
+# KendraKnowledgeBaseConfigurationTypeDef
 
-### type
-- **Type**: typing.Literal['VECTOR']
+### kendraIndexArn
+- **Type**: <class 'str'>
 - **Required**: Yes
 
-### vectorKnowledgeBaseConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.VectorKnowledgeBaseConfigurationTypeDef]
+
+# KnowledgeBaseConfigurationOutputTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# KnowledgeBaseConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# KnowledgeBaseDocumentDetailTypeDef
+
+### dataSourceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### identifier
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.DocumentIdentifierTypeDef'>
+- **Required**: Yes
+
+### knowledgeBaseId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['DELETE_IN_PROGRESS', 'DELETING', 'FAILED', 'IGNORED', 'INDEXED', 'IN_PROGRESS', 'METADATA_PARTIALLY_INDEXED', 'METADATA_UPDATE_FAILED', 'NOT_FOUND', 'PARTIALLY_INDEXED', 'PENDING', 'STARTING']
+- **Required**: Yes
+
+### statusReason
+- **Type**: typing.Optional[str]
+
+### updatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# KnowledgeBaseDocumentTypeDef
+
+### content
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.DocumentContentTypeDef'>
+- **Required**: Yes
+
+### metadata
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.DocumentMetadataTypeDef]
 
 
 # KnowledgeBaseFlowNodeConfigurationTypeDef
@@ -2571,6 +2474,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### knowledgeBaseId
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+### guardrailConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.GuardrailConfigurationTypeDef]
 
 ### modelId
 - **Type**: typing.Optional[str]
@@ -2609,7 +2515,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### knowledgeBaseConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.KnowledgeBaseConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.KnowledgeBaseConfigurationOutputTypeDef'>
 - **Required**: Yes
 
 ### knowledgeBaseId
@@ -2628,10 +2534,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Literal['ACTIVE', 'CREATING', 'DELETE_UNSUCCESSFUL', 'DELETING', 'FAILED', 'UPDATING']
 - **Required**: Yes
 
-### storageConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.StorageConfigurationTypeDef'>
-- **Required**: Yes
-
 ### updatedAt
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
@@ -2641,6 +2543,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### failureReasons
 - **Type**: typing.Optional[typing.List[str]]
+
+### storageConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.StorageConfigurationTypeDef]
 
 
 # LambdaFunctionFlowNodeConfigurationTypeDef
@@ -2661,7 +2566,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListAgentActionGroupsRequestListAgentActionGroupsPaginateTypeDef
+# ListAgentActionGroupsRequestPaginateTypeDef
 
 ### agentId
 - **Type**: <class 'str'>
@@ -2675,7 +2580,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PaginatorConfigTypeDef]
 
 
-# ListAgentActionGroupsRequestRequestTypeDef
+# ListAgentActionGroupsRequestTypeDef
 
 ### agentId
 - **Type**: <class 'str'>
@@ -2698,16 +2603,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.ActionGroupSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListAgentAliasesRequestListAgentAliasesPaginateTypeDef
+
+# ListAgentAliasesRequestPaginateTypeDef
 
 ### agentId
 - **Type**: <class 'str'>
@@ -2717,7 +2621,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PaginatorConfigTypeDef]
 
 
-# ListAgentAliasesRequestRequestTypeDef
+# ListAgentAliasesRequestTypeDef
 
 ### agentId
 - **Type**: <class 'str'>
@@ -2736,16 +2640,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.AgentAliasSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListAgentKnowledgeBasesRequestListAgentKnowledgeBasesPaginateTypeDef
+
+# ListAgentCollaboratorsRequestPaginateTypeDef
 
 ### agentId
 - **Type**: <class 'str'>
@@ -2759,7 +2662,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PaginatorConfigTypeDef]
 
 
-# ListAgentKnowledgeBasesRequestRequestTypeDef
+# ListAgentCollaboratorsRequestTypeDef
+
+### agentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### agentVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListAgentCollaboratorsResponseTypeDef
+
+### agentCollaboratorSummaries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.AgentCollaboratorSummaryTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListAgentKnowledgeBasesRequestPaginateTypeDef
+
+### agentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### agentVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PaginatorConfigTypeDef]
+
+
+# ListAgentKnowledgeBasesRequestTypeDef
 
 ### agentId
 - **Type**: <class 'str'>
@@ -2782,16 +2730,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.AgentKnowledgeBaseSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListAgentVersionsRequestListAgentVersionsPaginateTypeDef
+
+# ListAgentVersionsRequestPaginateTypeDef
 
 ### agentId
 - **Type**: <class 'str'>
@@ -2801,7 +2748,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PaginatorConfigTypeDef]
 
 
-# ListAgentVersionsRequestRequestTypeDef
+# ListAgentVersionsRequestTypeDef
 
 ### agentId
 - **Type**: <class 'str'>
@@ -2820,22 +2767,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.AgentVersionSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListAgentsRequestListAgentsPaginateTypeDef
+
+# ListAgentsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PaginatorConfigTypeDef]
 
 
-# ListAgentsRequestRequestTypeDef
+# ListAgentsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2850,16 +2796,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.AgentSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListDataSourcesRequestListDataSourcesPaginateTypeDef
+
+# ListDataSourcesRequestPaginateTypeDef
 
 ### knowledgeBaseId
 - **Type**: <class 'str'>
@@ -2869,7 +2814,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PaginatorConfigTypeDef]
 
 
-# ListDataSourcesRequestRequestTypeDef
+# ListDataSourcesRequestTypeDef
 
 ### knowledgeBaseId
 - **Type**: <class 'str'>
@@ -2888,16 +2833,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.DataSourceSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListFlowAliasesRequestListFlowAliasesPaginateTypeDef
+
+# ListFlowAliasesRequestPaginateTypeDef
 
 ### flowIdentifier
 - **Type**: <class 'str'>
@@ -2907,7 +2851,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PaginatorConfigTypeDef]
 
 
-# ListFlowAliasesRequestRequestTypeDef
+# ListFlowAliasesRequestTypeDef
 
 ### flowIdentifier
 - **Type**: <class 'str'>
@@ -2926,16 +2870,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowAliasSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListFlowVersionsRequestListFlowVersionsPaginateTypeDef
+
+# ListFlowVersionsRequestPaginateTypeDef
 
 ### flowIdentifier
 - **Type**: <class 'str'>
@@ -2945,7 +2888,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PaginatorConfigTypeDef]
 
 
-# ListFlowVersionsRequestRequestTypeDef
+# ListFlowVersionsRequestTypeDef
 
 ### flowIdentifier
 - **Type**: <class 'str'>
@@ -2964,22 +2907,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowVersionSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListFlowsRequestListFlowsPaginateTypeDef
+
+# ListFlowsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PaginatorConfigTypeDef]
 
 
-# ListFlowsRequestRequestTypeDef
+# ListFlowsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2994,16 +2936,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListIngestionJobsRequestListIngestionJobsPaginateTypeDef
+
+# ListIngestionJobsRequestPaginateTypeDef
 
 ### dataSourceId
 - **Type**: <class 'str'>
@@ -3023,7 +2964,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PaginatorConfigTypeDef]
 
 
-# ListIngestionJobsRequestRequestTypeDef
+# ListIngestionJobsRequestTypeDef
 
 ### dataSourceId
 - **Type**: <class 'str'>
@@ -3052,22 +2993,66 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.IngestionJobSummaryTypeDef]
 - **Required**: Yes
 
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
 ### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListKnowledgeBaseDocumentsRequestPaginateTypeDef
+
+### dataSourceId
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+### knowledgeBaseId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PaginatorConfigTypeDef]
+
+
+# ListKnowledgeBaseDocumentsRequestTypeDef
+
+### dataSourceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### knowledgeBaseId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListKnowledgeBaseDocumentsResponseTypeDef
+
+### documentDetails
+- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.KnowledgeBaseDocumentDetailTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListKnowledgeBasesRequestListKnowledgeBasesPaginateTypeDef
+
+# ListKnowledgeBasesRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PaginatorConfigTypeDef]
 
 
-# ListKnowledgeBasesRequestRequestTypeDef
+# ListKnowledgeBasesRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -3082,16 +3067,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.KnowledgeBaseSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListPromptsRequestListPromptsPaginateTypeDef
+
+# ListPromptsRequestPaginateTypeDef
 
 ### promptIdentifier
 - **Type**: typing.Optional[str]
@@ -3100,7 +3084,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PaginatorConfigTypeDef]
 
 
-# ListPromptsRequestRequestTypeDef
+# ListPromptsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -3114,10 +3098,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListPromptsResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### promptSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptSummaryTypeDef]
 - **Required**: Yes
@@ -3126,8 +3106,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -3145,11 +3128,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# MalformedConditionExpressionFlowValidationDetailsTypeDef
+
+### cause
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### condition
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### node
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# MalformedNodeInputExpressionFlowValidationDetailsTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # MemoryConfigurationOutputTypeDef
 
 ### enabledMemoryTypes
 - **Type**: typing.List[typing.Literal['SESSION_SUMMARY']]
 - **Required**: Yes
+
+### sessionSummaryConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.SessionSummaryConfigurationTypeDef]
 
 ### storageDays
 - **Type**: typing.Optional[int]
@@ -3161,8 +3168,121 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Sequence[typing.Literal['SESSION_SUMMARY']]
 - **Required**: Yes
 
+### sessionSummaryConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.SessionSummaryConfigurationTypeDef]
+
 ### storageDays
 - **Type**: typing.Optional[int]
+
+
+# MemoryConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# MessageOutputTypeDef
+
+### content
+- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.ContentBlockTypeDef]
+- **Required**: Yes
+
+### role
+- **Type**: typing.Literal['assistant', 'user']
+- **Required**: Yes
+
+
+# MessageTypeDef
+
+### content
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.bedrock_agent_classes.ContentBlockTypeDef]
+- **Required**: Yes
+
+### role
+- **Type**: typing.Literal['assistant', 'user']
+- **Required**: Yes
+
+
+# MessageUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# MetadataAttributeTypeDef
+
+### key
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### value
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.MetadataAttributeValueTypeDef'>
+- **Required**: Yes
+
+
+# MetadataAttributeValueTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# MismatchedNodeInputTypeFlowValidationDetailsTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# MismatchedNodeOutputTypeFlowValidationDetailsTypeDef
+
+### expectedType
+- **Type**: typing.Literal['Array', 'Boolean', 'Number', 'Object', 'String']
+- **Required**: Yes
+
+### node
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### output
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# MissingConnectionConfigurationFlowValidationDetailsTypeDef
+
+### connection
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# MissingDefaultConditionFlowValidationDetailsTypeDef
+
+### node
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# MissingNodeConfigurationFlowValidationDetailsTypeDef
+
+### node
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# MissingNodeInputFlowValidationDetailsTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# MissingNodeOutputFlowValidationDetailsTypeDef
+
+### node
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### output
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 
 # MongoDbAtlasConfigurationTypeDef
@@ -3210,6 +3330,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# MultipleNodeInputConnectionsFlowValidationDetailsTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# NeptuneAnalyticsConfigurationTypeDef
+
+### fieldMapping
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.NeptuneAnalyticsFieldMappingTypeDef'>
+- **Required**: Yes
+
+### graphArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# NeptuneAnalyticsFieldMappingTypeDef
+
+### metadataField
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### textField
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
 # OpenSearchServerlessConfigurationTypeDef
 
 ### collectionArn
@@ -3240,6 +3388,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# OrchestrationExecutorTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # PaginatorConfigTypeDef
 
 ### MaxItems
@@ -3254,22 +3408,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ParameterDetailTypeDef
 
-### type
-- **Type**: typing.Literal['array', 'boolean', 'integer', 'number', 'string']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### description
-- **Type**: typing.Optional[str]
-
-### required
-- **Type**: typing.Optional[bool]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ParsingConfigurationTypeDef
 
 ### parsingStrategy
-- **Type**: typing.Literal['BEDROCK_FOUNDATION_MODEL']
+- **Type**: typing.Literal['BEDROCK_DATA_AUTOMATION', 'BEDROCK_FOUNDATION_MODEL']
 - **Required**: Yes
+
+### bedrockDataAutomationConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.BedrockDataAutomationConfigurationTypeDef]
 
 ### bedrockFoundationModelConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.BedrockFoundationModelConfigurationTypeDef]
@@ -3351,7 +3501,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PrepareAgentRequestRequestTypeDef
+# PrepareAgentRequestTypeDef
 
 ### agentId
 - **Type**: <class 'str'>
@@ -3381,31 +3531,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PrepareFlowRequestRequestTypeDef
+# PrepareFlowRequestTypeDef
 
 ### flowIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# PrepareFlowResponseTypeDef
+# PromptAgentResourceTypeDef
 
-### id
+### agentIdentifier
 - **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['Failed', 'NotPrepared', 'Prepared', 'Preparing']
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
 
 # PromptConfigurationOutputTypeDef
 
+### additionalModelRequestFields
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
 ### basePromptTemplate
+- **Type**: typing.Optional[str]
+
+### foundationModel
 - **Type**: typing.Optional[str]
 
 ### inferenceConfiguration
@@ -3421,12 +3569,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### promptType
-- **Type**: typing.Optional[typing.Literal['KNOWLEDGE_BASE_RESPONSE_GENERATION', 'ORCHESTRATION', 'POST_PROCESSING', 'PRE_PROCESSING']]
+- **Type**: typing.Optional[typing.Literal['KNOWLEDGE_BASE_RESPONSE_GENERATION', 'MEMORY_SUMMARIZATION', 'ORCHESTRATION', 'POST_PROCESSING', 'PRE_PROCESSING']]
 
 
 # PromptConfigurationTypeDef
 
+### additionalModelRequestFields
+- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+
 ### basePromptTemplate
+- **Type**: typing.Optional[str]
+
+### foundationModel
 - **Type**: typing.Optional[str]
 
 ### inferenceConfiguration
@@ -3442,7 +3596,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### promptType
-- **Type**: typing.Optional[typing.Literal['KNOWLEDGE_BASE_RESPONSE_GENERATION', 'ORCHESTRATION', 'POST_PROCESSING', 'PRE_PROCESSING']]
+- **Type**: typing.Optional[typing.Literal['KNOWLEDGE_BASE_RESPONSE_GENERATION', 'MEMORY_SUMMARIZATION', 'ORCHESTRATION', 'POST_PROCESSING', 'PRE_PROCESSING']]
 
 
 # PromptFlowNodeConfigurationOutputTypeDef
@@ -3451,12 +3605,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptFlowNodeSourceConfigurationOutputTypeDef'>
 - **Required**: Yes
 
+### guardrailConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.GuardrailConfigurationTypeDef]
+
 
 # PromptFlowNodeConfigurationTypeDef
 
 ### sourceConfiguration
 - **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptFlowNodeSourceConfigurationTypeDef'>
 - **Required**: Yes
+
+### guardrailConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.GuardrailConfigurationTypeDef]
 
 
 # PromptFlowNodeInlineConfigurationOutputTypeDef
@@ -3470,8 +3630,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### templateType
-- **Type**: typing.Literal['TEXT']
+- **Type**: typing.Literal['CHAT', 'TEXT']
 - **Required**: Yes
+
+### additionalModelRequestFields
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### inferenceConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptInferenceConfigurationOutputTypeDef]
@@ -3488,8 +3651,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### templateType
-- **Type**: typing.Literal['TEXT']
+- **Type**: typing.Literal['CHAT', 'TEXT']
 - **Required**: Yes
+
+### additionalModelRequestFields
+- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
 
 ### inferenceConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptInferenceConfigurationTypeDef]
@@ -3520,6 +3686,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptFlowNodeResourceConfigurationTypeDef]
 
 
+# PromptGenAiResourceTypeDef
+
+### agent
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptAgentResourceTypeDef]
+
+
 # PromptInferenceConfigurationOutputTypeDef
 
 ### text
@@ -3529,13 +3701,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PromptInferenceConfigurationTypeDef
 
 ### text
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptModelInferenceConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptModelInferenceConfigurationUnionTypeDef]
 
+
+# PromptInferenceConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PromptInputVariableTypeDef
 
 ### name
 - **Type**: typing.Optional[str]
+
+
+# PromptMetadataEntryTypeDef
+
+### key
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### value
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 
 # PromptModelInferenceConfigurationOutputTypeDef
@@ -3548,9 +3737,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### temperature
 - **Type**: typing.Optional[float]
-
-### topK
-- **Type**: typing.Optional[int]
 
 ### topP
 - **Type**: typing.Optional[float]
@@ -3567,12 +3753,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### temperature
 - **Type**: typing.Optional[float]
 
-### topK
-- **Type**: typing.Optional[int]
-
 ### topP
 - **Type**: typing.Optional[float]
 
+
+# PromptModelInferenceConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PromptOverrideConfigurationOutputTypeDef
 
@@ -3594,37 +3783,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# PromptOverrideConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # PromptSummaryTypeDef
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### updatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### version
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PromptTemplateConfigurationOutputTypeDef
+
+### chat
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.ChatPromptTemplateConfigurationOutputTypeDef]
 
 ### text
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.TextPromptTemplateConfigurationOutputTypeDef]
@@ -3632,9 +3806,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PromptTemplateConfigurationTypeDef
 
-### text
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.TextPromptTemplateConfigurationTypeDef]
+### chat
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.ChatPromptTemplateConfigurationUnionTypeDef]
 
+### text
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.TextPromptTemplateConfigurationUnionTypeDef]
+
+
+# PromptTemplateConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PromptVariantOutputTypeDef
 
@@ -3642,18 +3825,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### templateType
-- **Type**: typing.Literal['TEXT']
+### templateConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptTemplateConfigurationOutputTypeDef'>
 - **Required**: Yes
+
+### templateType
+- **Type**: typing.Literal['CHAT', 'TEXT']
+- **Required**: Yes
+
+### additionalModelRequestFields
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### genAiResource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptGenAiResourceTypeDef]
 
 ### inferenceConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptInferenceConfigurationOutputTypeDef]
 
+### metadata
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptMetadataEntryTypeDef]]
+
 ### modelId
 - **Type**: typing.Optional[str]
-
-### templateConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptTemplateConfigurationOutputTypeDef]
 
 
 # PromptVariantTypeDef
@@ -3662,18 +3855,114 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### templateType
-- **Type**: typing.Literal['TEXT']
+### templateConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptTemplateConfigurationUnionTypeDef'>
 - **Required**: Yes
 
+### templateType
+- **Type**: typing.Literal['CHAT', 'TEXT']
+- **Required**: Yes
+
+### additionalModelRequestFields
+- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+
+### genAiResource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptGenAiResourceTypeDef]
+
 ### inferenceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptInferenceConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptInferenceConfigurationUnionTypeDef]
+
+### metadata
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptMetadataEntryTypeDef]]
 
 ### modelId
 - **Type**: typing.Optional[str]
 
-### templateConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptTemplateConfigurationTypeDef]
+
+# PromptVariantUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# QueryGenerationColumnTypeDef
+
+### description
+- **Type**: typing.Optional[str]
+
+### inclusion
+- **Type**: typing.Optional[typing.Literal['EXCLUDE', 'INCLUDE']]
+
+### name
+- **Type**: typing.Optional[str]
+
+
+# QueryGenerationConfigurationOutputTypeDef
+
+### executionTimeoutSeconds
+- **Type**: typing.Optional[int]
+
+### generationContext
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.QueryGenerationContextOutputTypeDef]
+
+
+# QueryGenerationConfigurationTypeDef
+
+### executionTimeoutSeconds
+- **Type**: typing.Optional[int]
+
+### generationContext
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.QueryGenerationContextTypeDef]
+
+
+# QueryGenerationContextOutputTypeDef
+
+### curatedQueries
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.CuratedQueryTypeDef]]
+
+### tables
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.QueryGenerationTableOutputTypeDef]]
+
+
+# QueryGenerationContextTypeDef
+
+### curatedQueries
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_agent_classes.CuratedQueryTypeDef]]
+
+### tables
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_agent_classes.QueryGenerationTableTypeDef]]
+
+
+# QueryGenerationTableOutputTypeDef
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### columns
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.QueryGenerationColumnTypeDef]]
+
+### description
+- **Type**: typing.Optional[str]
+
+### inclusion
+- **Type**: typing.Optional[typing.Literal['EXCLUDE', 'INCLUDE']]
+
+
+# QueryGenerationTableTypeDef
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### columns
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_agent_classes.QueryGenerationColumnTypeDef]]
+
+### description
+- **Type**: typing.Optional[str]
+
+### inclusion
+- **Type**: typing.Optional[typing.Literal['EXCLUDE', 'INCLUDE']]
 
 
 # RdsConfigurationTypeDef
@@ -3752,6 +4041,107 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# RedshiftConfigurationOutputTypeDef
+
+### queryEngineConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.RedshiftQueryEngineConfigurationTypeDef'>
+- **Required**: Yes
+
+### storageConfigurations
+- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.RedshiftQueryEngineStorageConfigurationOutputTypeDef]
+- **Required**: Yes
+
+### queryGenerationConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.QueryGenerationConfigurationOutputTypeDef]
+
+
+# RedshiftConfigurationTypeDef
+
+### queryEngineConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.RedshiftQueryEngineConfigurationTypeDef'>
+- **Required**: Yes
+
+### storageConfigurations
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.bedrock_agent_classes.RedshiftQueryEngineStorageConfigurationTypeDef]
+- **Required**: Yes
+
+### queryGenerationConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.QueryGenerationConfigurationTypeDef]
+
+
+# RedshiftProvisionedAuthConfigurationTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# RedshiftProvisionedConfigurationTypeDef
+
+### authConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.RedshiftProvisionedAuthConfigurationTypeDef'>
+- **Required**: Yes
+
+### clusterIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# RedshiftQueryEngineAwsDataCatalogStorageConfigurationOutputTypeDef
+
+### tableNames
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
+# RedshiftQueryEngineAwsDataCatalogStorageConfigurationTypeDef
+
+### tableNames
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+
+# RedshiftQueryEngineConfigurationTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# RedshiftQueryEngineRedshiftStorageConfigurationTypeDef
+
+### databaseName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# RedshiftQueryEngineStorageConfigurationOutputTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# RedshiftQueryEngineStorageConfigurationTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# RedshiftServerlessAuthConfigurationTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# RedshiftServerlessConfigurationTypeDef
+
+### authConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.RedshiftServerlessAuthConfigurationTypeDef'>
+- **Required**: Yes
+
+### workgroupArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
 # ResponseMetadataTypeDef
 
 ### RequestId
@@ -3792,6 +4182,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### s3
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.RetrievalFlowNodeS3ConfigurationTypeDef]
+
+
+# S3ContentTypeDef
+
+### s3Location
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.S3LocationTypeDef'>
+- **Required**: Yes
 
 
 # S3DataSourceConfigurationOutputTypeDef
@@ -3910,6 +4307,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# SessionSummaryConfigurationTypeDef
+
+### maxRecentSessions
+- **Type**: typing.Optional[int]
+
+
 # SharePointCrawlerConfigurationOutputTypeDef
 
 ### filterConfiguration
@@ -3945,7 +4348,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SharePointSourceConfigurationOutputTypeDef
 
 ### authType
-- **Type**: typing.Literal['OAUTH2_CLIENT_CREDENTIALS']
+- **Type**: typing.Literal['OAUTH2_CLIENT_CREDENTIALS', 'OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS']
 - **Required**: Yes
 
 ### credentialsSecretArn
@@ -3971,7 +4374,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SharePointSourceConfigurationTypeDef
 
 ### authType
-- **Type**: typing.Literal['OAUTH2_CLIENT_CREDENTIALS']
+- **Type**: typing.Literal['OAUTH2_CLIENT_CREDENTIALS', 'OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS']
 - **Required**: Yes
 
 ### credentialsSecretArn
@@ -3994,7 +4397,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartIngestionJobRequestRequestTypeDef
+# SpecificToolChoiceTypeDef
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# StartIngestionJobRequestTypeDef
 
 ### dataSourceId
 - **Type**: <class 'str'>
@@ -4022,27 +4432,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StorageConfigurationTypeDef
+# StopIngestionJobRequestTypeDef
 
-### type
-- **Type**: typing.Literal['MONGO_DB_ATLAS', 'OPENSEARCH_SERVERLESS', 'PINECONE', 'RDS', 'REDIS_ENTERPRISE_CLOUD']
+### dataSourceId
+- **Type**: <class 'str'>
 - **Required**: Yes
 
-### mongoDbAtlasConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.MongoDbAtlasConfigurationTypeDef]
+### ingestionJobId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-### opensearchServerlessConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.OpenSearchServerlessConfigurationTypeDef]
+### knowledgeBaseId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-### pineconeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PineconeConfigurationTypeDef]
 
-### rdsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.RdsConfigurationTypeDef]
+# StopIngestionJobResponseTypeDef
 
-### redisEnterpriseCloudConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.RedisEnterpriseCloudConfigurationTypeDef]
+### ingestionJob
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.IngestionJobTypeDef'>
+- **Required**: Yes
 
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# StorageConfigurationTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StorageFlowNodeConfigurationTypeDef
 
@@ -4064,7 +4484,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.StorageFlowNodeS3ConfigurationTypeDef]
 
 
-# TagResourceRequestRequestTypeDef
+# SupplementalDataStorageConfigurationOutputTypeDef
+
+### storageLocations
+- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.SupplementalDataStorageLocationTypeDef]
+- **Required**: Yes
+
+
+# SupplementalDataStorageConfigurationTypeDef
+
+### storageLocations
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.bedrock_agent_classes.SupplementalDataStorageLocationTypeDef]
+- **Required**: Yes
+
+
+# SupplementalDataStorageLocationTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# SystemContentBlockTypeDef
+
+### cachePoint
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.CachePointBlockTypeDef]
+
+### text
+- **Type**: typing.Optional[str]
+
+
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -4075,11 +4524,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# TextContentDocTypeDef
+
+### data
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
 # TextPromptTemplateConfigurationOutputTypeDef
 
 ### text
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+### cachePoint
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.CachePointBlockTypeDef]
 
 ### inputVariables
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptInputVariableTypeDef]]
@@ -4091,9 +4550,132 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### cachePoint
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.CachePointBlockTypeDef]
+
 ### inputVariables
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptInputVariableTypeDef]]
 
+
+# TextPromptTemplateConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ToolChoiceOutputTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ToolChoiceUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ToolConfigurationOutputTypeDef
+
+### tools
+- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.ToolOutputTypeDef]
+- **Required**: Yes
+
+### toolChoice
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.ToolChoiceOutputTypeDef]
+
+
+# ToolConfigurationTypeDef
+
+### tools
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.bedrock_agent_classes.ToolUnionTypeDef]
+- **Required**: Yes
+
+### toolChoice
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.ToolChoiceUnionTypeDef]
+
+
+# ToolConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ToolInputSchemaOutputTypeDef
+
+### json
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+
+# ToolInputSchemaTypeDef
+
+### json
+- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+
+
+# ToolInputSchemaUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ToolOutputTypeDef
+
+### cachePoint
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.CachePointBlockTypeDef]
+
+### toolSpec
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.ToolSpecificationOutputTypeDef]
+
+
+# ToolSpecificationOutputTypeDef
+
+### inputSchema
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ToolInputSchemaOutputTypeDef'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+
+# ToolSpecificationTypeDef
+
+### inputSchema
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ToolInputSchemaUnionTypeDef'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+
+# ToolSpecificationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ToolTypeDef
+
+### cachePoint
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.CachePointBlockTypeDef]
+
+### toolSpec
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.ToolSpecificationUnionTypeDef]
+
+
+# ToolUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TransformationFunctionTypeDef
 
@@ -4120,7 +4702,79 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UnfulfilledNodeInputFlowValidationDetailsTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UnknownConnectionConditionFlowValidationDetailsTypeDef
+
+### connection
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# UnknownConnectionSourceFlowValidationDetailsTypeDef
+
+### connection
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# UnknownConnectionSourceOutputFlowValidationDetailsTypeDef
+
+### connection
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# UnknownConnectionTargetFlowValidationDetailsTypeDef
+
+### connection
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# UnknownConnectionTargetInputFlowValidationDetailsTypeDef
+
+### connection
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# UnknownNodeInputFlowValidationDetailsTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UnknownNodeOutputFlowValidationDetailsTypeDef
+
+### node
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### output
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# UnreachableNodeFlowValidationDetailsTypeDef
+
+### node
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# UnsatisfiedConnectionConditionsFlowValidationDetailsTypeDef
+
+### connection
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -4131,7 +4785,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAgentActionGroupRequestRequestTypeDef
+# UpdateAgentActionGroupRequestTypeDef
 
 ### actionGroupId
 - **Type**: <class 'str'>
@@ -4162,10 +4816,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### functionSchema
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.FunctionSchemaTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.FunctionSchemaUnionTypeDef]
 
 ### parentActionGroupSignature
-- **Type**: typing.Optional[typing.Literal['AMAZON.CodeInterpreter', 'AMAZON.UserInput']]
+- **Type**: typing.Optional[typing.Literal['AMAZON.CodeInterpreter', 'AMAZON.UserInput', 'ANTHROPIC.Bash', 'ANTHROPIC.Computer', 'ANTHROPIC.TextEditor']]
+
+### parentActionGroupSignatureParams
+- **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
 # UpdateAgentActionGroupResponseTypeDef
@@ -4179,7 +4836,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAgentAliasRequestRequestTypeDef
+# UpdateAgentAliasRequestTypeDef
 
 ### agentAliasId
 - **Type**: <class 'str'>
@@ -4211,7 +4868,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAgentKnowledgeBaseRequestRequestTypeDef
+# UpdateAgentCollaboratorRequestTypeDef
+
+### agentDescriptor
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.AgentDescriptorTypeDef'>
+- **Required**: Yes
+
+### agentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### agentVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### collaborationInstruction
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### collaboratorId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### collaboratorName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### relayConversationHistory
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'TO_COLLABORATOR']]
+
+
+# UpdateAgentCollaboratorResponseTypeDef
+
+### agentCollaborator
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.AgentCollaboratorTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateAgentKnowledgeBaseRequestTypeDef
 
 ### agentId
 - **Type**: <class 'str'>
@@ -4243,7 +4941,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAgentRequestRequestTypeDef
+# UpdateAgentRequestTypeDef
 
 ### agentId
 - **Type**: <class 'str'>
@@ -4261,6 +4959,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### agentCollaboration
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'SUPERVISOR', 'SUPERVISOR_ROUTER']]
+
+### customOrchestration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.CustomOrchestrationTypeDef]
+
 ### customerEncryptionKeyArn
 - **Type**: typing.Optional[str]
 
@@ -4277,10 +4981,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### memoryConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.MemoryConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.MemoryConfigurationUnionTypeDef]
+
+### orchestrationType
+- **Type**: typing.Optional[typing.Literal['CUSTOM_ORCHESTRATION', 'DEFAULT']]
 
 ### promptOverrideConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptOverrideConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptOverrideConfigurationUnionTypeDef]
 
 
 # UpdateAgentResponseTypeDef
@@ -4294,10 +5001,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDataSourceRequestRequestTypeDef
+# UpdateDataSourceRequestTypeDef
 
 ### dataSourceConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.DataSourceConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.DataSourceConfigurationUnionTypeDef'>
 - **Required**: Yes
 
 ### dataSourceId
@@ -4322,7 +5029,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.ServerSideEncryptionConfigurationTypeDef]
 
 ### vectorIngestionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.VectorIngestionConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.VectorIngestionConfigurationUnionTypeDef]
 
 
 # UpdateDataSourceResponseTypeDef
@@ -4336,7 +5043,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateFlowAliasRequestRequestTypeDef
+# UpdateFlowAliasRequestTypeDef
 
 ### aliasIdentifier
 - **Type**: <class 'str'>
@@ -4358,46 +5065,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateFlowAliasResponseTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### flowId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### routingConfiguration
-- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowAliasRoutingConfigurationListItemTypeDef]
-- **Required**: Yes
-
-### updatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# UpdateFlowRequestRequestTypeDef
+# UpdateFlowRequestTypeDef
 
 ### executionRoleArn
 - **Type**: <class 'str'>
@@ -4415,67 +5083,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### definition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowDefinitionUnionTypeDef]
 
 ### description
 - **Type**: typing.Optional[str]
 
 
-# UpdateFlowResponseTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### customerEncryptionKeyArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### definition
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowDefinitionOutputTypeDef'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### executionRoleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['Failed', 'NotPrepared', 'Prepared', 'Preparing']
-- **Required**: Yes
-
-### updatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### version
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# UpdateKnowledgeBaseRequestRequestTypeDef
+# UpdateKnowledgeBaseRequestTypeDef
 
 ### knowledgeBaseConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.KnowledgeBaseConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.KnowledgeBaseConfigurationUnionTypeDef'>
 - **Required**: Yes
 
 ### knowledgeBaseId
@@ -4490,12 +5107,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### storageConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.StorageConfigurationTypeDef'>
-- **Required**: Yes
-
 ### description
 - **Type**: typing.Optional[str]
+
+### storageConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.StorageConfigurationTypeDef]
 
 
 # UpdateKnowledgeBaseResponseTypeDef
@@ -4509,7 +5125,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePromptRequestRequestTypeDef
+# UpdatePromptRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -4529,54 +5145,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### variants
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptVariantTypeDef, aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptVariantOutputTypeDef]]]
-
-
-# UpdatePromptResponseTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### customerEncryptionKeyArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### defaultVariant
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### updatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### variants
-- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptVariantOutputTypeDef]
-- **Required**: Yes
-
-### version
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_agent_classes.PromptVariantUnionTypeDef]]
 
 
 # UrlConfigurationOutputTypeDef
@@ -4591,10 +5160,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_agent_classes.SeedUrlTypeDef]]
 
 
+# ValidateFlowDefinitionRequestTypeDef
+
+### definition
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowDefinitionUnionTypeDef'>
+- **Required**: Yes
+
+
+# ValidateFlowDefinitionResponseTypeDef
+
+### validations
+- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_agent_classes.FlowValidationTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_agent_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
 # VectorIngestionConfigurationOutputTypeDef
 
 ### chunkingConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.ChunkingConfigurationOutputTypeDef]
+
+### contextEnrichmentConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.ContextEnrichmentConfigurationTypeDef]
 
 ### customTransformationConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.CustomTransformationConfigurationOutputTypeDef]
@@ -4608,11 +5198,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### chunkingConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.ChunkingConfigurationTypeDef]
 
+### contextEnrichmentConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.ContextEnrichmentConfigurationTypeDef]
+
 ### customTransformationConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.CustomTransformationConfigurationTypeDef]
 
 ### parsingConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.ParsingConfigurationTypeDef]
+
+
+# VectorIngestionConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# VectorKnowledgeBaseConfigurationOutputTypeDef
+
+### embeddingModelArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### embeddingModelConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.EmbeddingModelConfigurationTypeDef]
+
+### supplementalDataStorageConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.SupplementalDataStorageConfigurationOutputTypeDef]
 
 
 # VectorKnowledgeBaseConfigurationTypeDef
@@ -4623,6 +5235,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### embeddingModelConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.EmbeddingModelConfigurationTypeDef]
+
+### supplementalDataStorageConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_agent_classes.SupplementalDataStorageConfigurationTypeDef]
 
 
 # WebCrawlerConfigurationOutputTypeDef
@@ -4639,6 +5254,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### scope
 - **Type**: typing.Optional[typing.Literal['HOST_ONLY', 'SUBDOMAINS']]
 
+### userAgent
+- **Type**: typing.Optional[str]
+
+### userAgentHeader
+- **Type**: typing.Optional[str]
+
 
 # WebCrawlerConfigurationTypeDef
 
@@ -4654,8 +5275,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### scope
 - **Type**: typing.Optional[typing.Literal['HOST_ONLY', 'SUBDOMAINS']]
 
+### userAgent
+- **Type**: typing.Optional[str]
+
+### userAgentHeader
+- **Type**: typing.Optional[str]
+
 
 # WebCrawlerLimitsTypeDef
+
+### maxPages
+- **Type**: typing.Optional[int]
 
 ### rateLimit
 - **Type**: typing.Optional[int]

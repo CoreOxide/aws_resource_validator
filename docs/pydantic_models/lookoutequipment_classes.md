@@ -27,7 +27,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDatasetRequestRequestTypeDef
+# CreateDatasetRequestTypeDef
 
 ### DatasetName
 - **Type**: <class 'str'>
@@ -66,7 +66,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateInferenceSchedulerRequestRequestTypeDef
+# CreateInferenceSchedulerRequestTypeDef
 
 ### ModelName
 - **Type**: <class 'str'>
@@ -129,7 +129,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLabelGroupRequestRequestTypeDef
+# CreateLabelGroupRequestTypeDef
 
 ### LabelGroupName
 - **Type**: <class 'str'>
@@ -161,18 +161,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLabelRequestRequestTypeDef
+# CreateLabelRequestTypeDef
 
 ### LabelGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutequipment_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutequipment_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### Rating
@@ -204,7 +204,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateModelRequestRequestTypeDef
+# CreateModelRequestTypeDef
 
 ### ModelName
 - **Type**: <class 'str'>
@@ -225,16 +225,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutequipment_classes.LabelsInputConfigurationTypeDef]
 
 ### TrainingDataStartTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutequipment_classes.TimestampTypeDef]
 
 ### TrainingDataEndTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutequipment_classes.TimestampTypeDef]
 
 ### EvaluationDataStartTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutequipment_classes.TimestampTypeDef]
 
 ### EvaluationDataEndTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutequipment_classes.TimestampTypeDef]
 
 ### RoleArn
 - **Type**: typing.Optional[str]
@@ -270,7 +270,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateRetrainingSchedulerRequestRequestTypeDef
+# CreateRetrainingSchedulerRequestTypeDef
 
 ### ModelName
 - **Type**: <class 'str'>
@@ -289,7 +289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RetrainingStartDate
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutequipment_classes.TimestampTypeDef]
 
 ### PromoteMode
 - **Type**: typing.Optional[typing.Literal['MANAGED', 'MANUAL']]
@@ -382,28 +382,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# DeleteDatasetRequestRequestTypeDef
+# DeleteDatasetRequestTypeDef
 
 ### DatasetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteInferenceSchedulerRequestRequestTypeDef
+# DeleteInferenceSchedulerRequestTypeDef
 
 ### InferenceSchedulerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteLabelGroupRequestRequestTypeDef
+# DeleteLabelGroupRequestTypeDef
 
 ### LabelGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteLabelRequestRequestTypeDef
+# DeleteLabelRequestTypeDef
 
 ### LabelGroupName
 - **Type**: <class 'str'>
@@ -414,28 +414,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteModelRequestRequestTypeDef
+# DeleteModelRequestTypeDef
 
 ### ModelName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteResourcePolicyRequestRequestTypeDef
+# DeleteResourcePolicyRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteRetrainingSchedulerRequestRequestTypeDef
+# DeleteRetrainingSchedulerRequestTypeDef
 
 ### ModelName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeDataIngestionJobRequestRequestTypeDef
+# DescribeDataIngestionJobRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
@@ -505,7 +505,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDatasetRequestRequestTypeDef
+# DescribeDatasetRequestTypeDef
 
 ### DatasetName
 - **Type**: <class 'str'>
@@ -575,7 +575,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeInferenceSchedulerRequestRequestTypeDef
+# DescribeInferenceSchedulerRequestTypeDef
 
 ### InferenceSchedulerName
 - **Type**: <class 'str'>
@@ -645,7 +645,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeLabelGroupRequestRequestTypeDef
+# DescribeLabelGroupRequestTypeDef
 
 ### LabelGroupName
 - **Type**: <class 'str'>
@@ -679,7 +679,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeLabelRequestRequestTypeDef
+# DescribeLabelRequestTypeDef
 
 ### LabelGroupName
 - **Type**: <class 'str'>
@@ -737,7 +737,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeModelRequestRequestTypeDef
+# DescribeModelRequestTypeDef
 
 ### ModelName
 - **Type**: <class 'str'>
@@ -919,7 +919,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeModelVersionRequestRequestTypeDef
+# DescribeModelVersionRequestTypeDef
 
 ### ModelName
 - **Type**: <class 'str'>
@@ -1077,7 +1077,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeResourcePolicyRequestRequestTypeDef
+# DescribeResourcePolicyRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1107,7 +1107,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeRetrainingSchedulerRequestRequestTypeDef
+# DescribeRetrainingSchedulerRequestTypeDef
 
 ### ModelName
 - **Type**: <class 'str'>
@@ -1171,7 +1171,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ImportDatasetRequestRequestTypeDef
+# ImportDatasetRequestTypeDef
 
 ### SourceDatasetArn
 - **Type**: <class 'str'>
@@ -1214,7 +1214,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ImportModelVersionRequestRequestTypeDef
+# ImportModelVersionRequestTypeDef
 
 ### SourceModelVersionArn
 - **Type**: <class 'str'>
@@ -1551,7 +1551,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDataIngestionJobsRequestRequestTypeDef
+# ListDataIngestionJobsRequestTypeDef
 
 ### DatasetName
 - **Type**: typing.Optional[str]
@@ -1568,10 +1568,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListDataIngestionJobsResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### DataIngestionJobSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutequipment_classes.DataIngestionJobSummaryTypeDef]
 - **Required**: Yes
@@ -1580,8 +1576,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.lookoutequipment_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListDatasetsRequestRequestTypeDef
+
+# ListDatasetsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1595,10 +1594,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListDatasetsResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### DatasetSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutequipment_classes.DatasetSummaryTypeDef]
 - **Required**: Yes
@@ -1607,19 +1602,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.lookoutequipment_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListInferenceEventsRequestRequestTypeDef
+
+# ListInferenceEventsRequestTypeDef
 
 ### InferenceSchedulerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### IntervalStartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutequipment_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### IntervalEndTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutequipment_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### NextToken
@@ -1631,10 +1629,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListInferenceEventsResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### InferenceEventSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutequipment_classes.InferenceEventSummaryTypeDef]
 - **Required**: Yes
@@ -1643,8 +1637,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.lookoutequipment_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListInferenceExecutionsRequestRequestTypeDef
+
+# ListInferenceExecutionsRequestTypeDef
 
 ### InferenceSchedulerName
 - **Type**: <class 'str'>
@@ -1657,20 +1654,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### DataStartTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutequipment_classes.TimestampTypeDef]
 
 ### DataEndTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutequipment_classes.TimestampTypeDef]
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['FAILED', 'IN_PROGRESS', 'SUCCESS']]
 
 
 # ListInferenceExecutionsResponseTypeDef
-
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### InferenceExecutionSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutequipment_classes.InferenceExecutionSummaryTypeDef]
@@ -1680,8 +1673,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.lookoutequipment_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListInferenceSchedulersRequestRequestTypeDef
+
+# ListInferenceSchedulersRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1701,10 +1697,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListInferenceSchedulersResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### InferenceSchedulerSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutequipment_classes.InferenceSchedulerSummaryTypeDef]
 - **Required**: Yes
@@ -1713,8 +1705,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.lookoutequipment_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListLabelGroupsRequestRequestTypeDef
+
+# ListLabelGroupsRequestTypeDef
 
 ### LabelGroupNameBeginsWith
 - **Type**: typing.Optional[str]
@@ -1728,10 +1723,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListLabelGroupsResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### LabelGroupSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutequipment_classes.LabelGroupSummaryTypeDef]
 - **Required**: Yes
@@ -1740,18 +1731,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.lookoutequipment_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListLabelsRequestRequestTypeDef
+
+# ListLabelsRequestTypeDef
 
 ### LabelGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### IntervalStartTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutequipment_classes.TimestampTypeDef]
 
 ### IntervalEndTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutequipment_classes.TimestampTypeDef]
 
 ### FaultCode
 - **Type**: typing.Optional[str]
@@ -1768,10 +1762,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListLabelsResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### LabelSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutequipment_classes.LabelSummaryTypeDef]
 - **Required**: Yes
@@ -1780,8 +1770,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.lookoutequipment_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListModelVersionsRequestRequestTypeDef
+
+# ListModelVersionsRequestTypeDef
 
 ### ModelName
 - **Type**: <class 'str'>
@@ -1800,10 +1793,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['IMPORT', 'RETRAINING', 'TRAINING']]
 
 ### CreatedAtEndTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutequipment_classes.TimestampTypeDef]
 
 ### CreatedAtStartTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutequipment_classes.TimestampTypeDef]
 
 ### MaxModelVersion
 - **Type**: typing.Optional[int]
@@ -1814,10 +1807,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListModelVersionsResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ModelVersionSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutequipment_classes.ModelVersionSummaryTypeDef]
 - **Required**: Yes
@@ -1826,8 +1815,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.lookoutequipment_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListModelsRequestRequestTypeDef
+
+# ListModelsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1847,10 +1839,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListModelsResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ModelSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutequipment_classes.ModelSummaryTypeDef]
 - **Required**: Yes
@@ -1859,8 +1847,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.lookoutequipment_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListRetrainingSchedulersRequestRequestTypeDef
+
+# ListRetrainingSchedulersRequestTypeDef
 
 ### ModelNameBeginsWith
 - **Type**: typing.Optional[str]
@@ -1881,16 +1872,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutequipment_classes.RetrainingSchedulerSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.lookoutequipment_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListSensorStatisticsRequestRequestTypeDef
+
+# ListSensorStatisticsRequestTypeDef
 
 ### DatasetName
 - **Type**: <class 'str'>
@@ -1912,16 +1902,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutequipment_classes.SensorStatisticsSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.lookoutequipment_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2069,7 +2058,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutResourcePolicyRequestRequestTypeDef
+# PutResourcePolicyRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2108,10 +2097,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -2123,6 +2108,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # RetrainingSchedulerSummaryTypeDef
@@ -2206,7 +2194,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartDataIngestionJobRequestRequestTypeDef
+# StartDataIngestionJobRequestTypeDef
 
 ### DatasetName
 - **Type**: <class 'str'>
@@ -2240,7 +2228,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartInferenceSchedulerRequestRequestTypeDef
+# StartInferenceSchedulerRequestTypeDef
 
 ### InferenceSchedulerName
 - **Type**: <class 'str'>
@@ -2274,7 +2262,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartRetrainingSchedulerRequestRequestTypeDef
+# StartRetrainingSchedulerRequestTypeDef
 
 ### ModelName
 - **Type**: <class 'str'>
@@ -2300,7 +2288,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopInferenceSchedulerRequestRequestTypeDef
+# StopInferenceSchedulerRequestTypeDef
 
 ### InferenceSchedulerName
 - **Type**: <class 'str'>
@@ -2334,7 +2322,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopRetrainingSchedulerRequestRequestTypeDef
+# StopRetrainingSchedulerRequestTypeDef
 
 ### ModelName
 - **Type**: <class 'str'>
@@ -2360,7 +2348,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2382,6 +2370,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # UnsupportedTimestampsTypeDef
 
 ### TotalNumberOfUnsupportedTimestamps
@@ -2389,7 +2383,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2400,7 +2394,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateActiveModelVersionRequestRequestTypeDef
+# UpdateActiveModelVersionRequestTypeDef
 
 ### ModelName
 - **Type**: <class 'str'>
@@ -2442,7 +2436,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateInferenceSchedulerRequestRequestTypeDef
+# UpdateInferenceSchedulerRequestTypeDef
 
 ### InferenceSchedulerName
 - **Type**: <class 'str'>
@@ -2464,7 +2458,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateLabelGroupRequestRequestTypeDef
+# UpdateLabelGroupRequestTypeDef
 
 ### LabelGroupName
 - **Type**: <class 'str'>
@@ -2474,7 +2468,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# UpdateModelRequestRequestTypeDef
+# UpdateModelRequestTypeDef
 
 ### ModelName
 - **Type**: <class 'str'>
@@ -2490,14 +2484,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutequipment_classes.ModelDiagnosticsOutputConfigurationTypeDef]
 
 
-# UpdateRetrainingSchedulerRequestRequestTypeDef
+# UpdateRetrainingSchedulerRequestTypeDef
 
 ### ModelName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### RetrainingStartDate
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutequipment_classes.TimestampTypeDef]
 
 ### RetrainingFrequency
 - **Type**: typing.Optional[str]

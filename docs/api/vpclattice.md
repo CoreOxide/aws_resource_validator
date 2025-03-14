@@ -102,11 +102,83 @@
 - **Min Length**: 1
 - **Max Length**: 10000
 
+### PortRange
+- **Type**: string
+- **Pattern**: `^((\d{1,5}\-\d{1,5})|(\d+))$`
+- **Min Length**: 1
+- **Max Length**: 11
+
 ### ResourceArn
 - **Type**: string
-- **Pattern**: `^arn(:[a-z0-9]+([.-][a-z0-9]+)*){2}(:([a-z0-9]+([.-][a-z0-9]+)*)?){2}:((servicenetwork/sn)|(service/svc))-[0-9a-z]{17}$`
+- **Pattern**: `^arn(:[a-z0-9]+([.-][a-z0-9]+)*){2}(:([a-z0-9]+([.-][a-z0-9]+)*)?){2}:((servicenetwork/sn)|(service/svc)|(resourceconfiguration/rcfg))-[0-9a-z]{17}$`
 - **Min Length**: 20
 - **Max Length**: 200
+
+### ResourceConfigurationArn
+- **Type**: string
+- **Pattern**: `^arn:[a-z0-9f\-]+:vpc-lattice:[a-zA-Z0-9\-]+:\d{12}:resourceconfiguration/rcfg-[0-9a-z]{17}$`
+- **Min Length**: 20
+- **Max Length**: 2048
+
+### ResourceConfigurationId
+- **Type**: string
+- **Pattern**: `^rcfg-[0-9a-z]{17}$`
+- **Min Length**: 22
+- **Max Length**: 22
+
+### ResourceConfigurationIdentifier
+- **Type**: string
+- **Pattern**: `^((rcfg-[0-9a-z]{17})|(arn:[a-z0-9\-]+:vpc-lattice:[a-zA-Z0-9\-]+:\d{12}:resourceconfiguration/rcfg-[0-9a-z]{17}))$`
+- **Min Length**: 20
+- **Max Length**: 2048
+
+### ResourceConfigurationName
+- **Type**: string
+- **Pattern**: `^(?!rcfg-)(?![-])(?!.*[-]$)(?!.*[-]{2})[a-z0-9-]+$`
+- **Min Length**: 3
+- **Max Length**: 40
+
+### ResourceEndpointAssociationArn
+- **Type**: string
+- **Pattern**: `^arn:[a-z0-9\-]+:vpc-lattice:[a-zA-Z0-9\-]+:\d{12}:resourceendpointassociation/rea-[0-9a-f]{17}$`
+- **Min Length**: 21
+- **Max Length**: 2048
+
+### ResourceEndpointAssociationId
+- **Type**: string
+- **Pattern**: `^rea-[0-9a-f]{17}$`
+- **Min Length**: 21
+- **Max Length**: 21
+
+### ResourceEndpointAssociationIdentifier
+- **Type**: string
+- **Pattern**: `^((rea-[0-9a-f]{17})|(arn:[a-z0-9\-]+:vpc-lattice:[a-zA-Z0-9\-]+:\d{12}:resourceendpointassociation/rea-[0-9a-f]{17}))$`
+- **Min Length**: 21
+- **Max Length**: 2048
+
+### ResourceGatewayArn
+- **Type**: string
+- **Pattern**: `^arn:[a-z0-9\-]+:vpc-lattice:[a-zA-Z0-9\-]+:\d{12}:resourcegateway/rgw-[0-9a-z]{17}$`
+- **Min Length**: 20
+- **Max Length**: 2048
+
+### ResourceGatewayId
+- **Type**: string
+- **Pattern**: `^rgw-[0-9a-z]{17}$`
+- **Min Length**: 21
+- **Max Length**: 21
+
+### ResourceGatewayIdentifier
+- **Type**: string
+- **Pattern**: `^((rgw-[0-9a-z]{17})|(arn:[a-z0-9\-]+:vpc-lattice:[a-zA-Z0-9\-]+:\d{12}:resourcegateway/rgw-[0-9a-z]{17}))$`
+- **Min Length**: 17
+- **Max Length**: 2048
+
+### ResourceGatewayName
+- **Type**: string
+- **Pattern**: `^(?!rgw-)(?![-])(?!.*[-]$)(?!.*[-]{2})[a-z0-9-]+$`
+- **Min Length**: 3
+- **Max Length**: 40
 
 ### ResourceId
 - **Type**: string
@@ -116,7 +188,7 @@
 
 ### ResourceIdentifier
 - **Type**: string
-- **Pattern**: `^((((sn)|(svc))-[0-9a-z]{17})|(arn(:[a-z0-9]+([.-][a-z0-9]+)*){2}(:([a-z0-9]+([.-][a-z0-9]+)*)?){2}:((servicenetwork/sn)|(service/svc))-[0-9a-z]{17}))$`
+- **Pattern**: `^((((sn)|(svc)|(rcfg))-[0-9a-z]{17})|(arn(:[a-z0-9]+([.-][a-z0-9]+)*){2}(:([a-z0-9]+([.-][a-z0-9]+)*)?){2}:((servicenetwork/sn)|(resourceconfiguration/rcfg)|(service/svc))-[0-9a-z]{17}))$`
 - **Min Length**: 17
 - **Max Length**: 200
 
@@ -183,8 +255,8 @@
 ### ServiceNetworkId
 - **Type**: string
 - **Pattern**: `^sn-[0-9a-z]{17}$`
-- **Min Length**: 32
-- **Max Length**: 32
+- **Min Length**: 20
+- **Max Length**: 20
 
 ### ServiceNetworkIdentifier
 - **Type**: string
@@ -197,6 +269,24 @@
 - **Pattern**: `^(?![-])(?!.*[-]$)(?!.*[-]{2})[a-z0-9-]+$`
 - **Min Length**: 3
 - **Max Length**: 63
+
+### ServiceNetworkResourceAssociationArn
+- **Type**: string
+- **Pattern**: `^arn:[a-z0-9\-]+:vpc-lattice:[a-zA-Z0-9\-]+:\d{12}:servicenetworkresourceassociation/snra-[0-9a-f]{17}$`
+- **Min Length**: 22
+- **Max Length**: 2048
+
+### ServiceNetworkResourceAssociationId
+- **Type**: string
+- **Pattern**: `^snra-[0-9a-f]{17}$`
+- **Min Length**: 22
+- **Max Length**: 22
+
+### ServiceNetworkResourceAssociationIdentifier
+- **Type**: string
+- **Pattern**: `^((snra-[0-9a-z]{17})|(arn:[a-z0-9\-]+:vpc-lattice:[a-zA-Z0-9\-]+:\d{12}:servicenetworkresourceassociation/snra-[0-9a-f]{17}))$`
+- **Min Length**: 22
+- **Max Length**: 2048
 
 ### ServiceNetworkServiceAssociationArn
 - **Type**: string
@@ -252,9 +342,27 @@
 - **Min Length**: 3
 - **Max Length**: 128
 
+### VpcEndpointId
+- **Type**: string
+- **Pattern**: `^vpce-[0-9a-f]{17}$`
+- **Min Length**: 22
+- **Max Length**: 22
+
+### VpcEndpointOwner
+- **Type**: string
+- **Pattern**: `^\d{12}$`
+- **Min Length**: 12
+- **Max Length**: 12
+
 ### VpcId
 - **Type**: string
 - **Pattern**: `^vpc-(([0-9a-z]{8})|([0-9a-z]{17}))$`
 - **Min Length**: 5
 - **Max Length**: 50
+
+### WildcardArn
+- **Type**: string
+- **Pattern**: `^arn:[a-z0-9][-.a-z0-9]{0,62}:[a-z0-9][-.a-z0-9]{0,62}:([a-z0-9][-.a-z0-9]{0,62})?:\d{12}?:[^/].{0,1023}$`
+- **Min Length**: 20
+- **Max Length**: 2048
 

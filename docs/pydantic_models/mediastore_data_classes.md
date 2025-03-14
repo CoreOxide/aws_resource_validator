@@ -6,14 +6,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DeleteObjectRequestRequestTypeDef
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DeleteObjectRequestTypeDef
 
 ### Path
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeObjectRequestRequestTypeDef
+# DescribeObjectRequestTypeDef
 
 ### Path
 - **Type**: <class 'str'>
@@ -47,7 +53,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetObjectRequestRequestTypeDef
+# GetObjectRequestTypeDef
 
 ### Path
 - **Type**: <class 'str'>
@@ -98,26 +104,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ItemTypeDef
 
-### Name
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[typing.Literal['FOLDER', 'OBJECT']]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### ETag
-- **Type**: typing.Optional[str]
-
-### LastModified
-- **Type**: typing.Optional[datetime.datetime]
-
-### ContentType
-- **Type**: typing.Optional[str]
-
-### ContentLength
-- **Type**: typing.Optional[int]
-
-
-# ListItemsRequestListItemsPaginateTypeDef
+# ListItemsRequestPaginateTypeDef
 
 ### Path
 - **Type**: typing.Optional[str]
@@ -126,7 +117,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediastore_data_classes.PaginatorConfigTypeDef]
 
 
-# ListItemsRequestRequestTypeDef
+# ListItemsRequestTypeDef
 
 ### Path
 - **Type**: typing.Optional[str]
@@ -144,13 +135,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.mediastore_data_classes.ItemTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_data_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # PaginatorConfigTypeDef
@@ -165,10 +155,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutObjectRequestRequestTypeDef
+# PutObjectRequestTypeDef
 
 ### Body
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_data_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### Path
@@ -213,10 +203,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -228,5 +214,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 

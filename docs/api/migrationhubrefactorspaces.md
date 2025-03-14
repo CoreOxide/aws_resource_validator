@@ -32,7 +32,7 @@
 
 ### Description
 - **Type**: string
-- **Pattern**: `^[a-zA-Z0-9-_\s\.\!\*\#\@\\']+$`
+- **Pattern**: `^[a-zA-Z0-9\-_\s.!*#@\']+$`
 - **Min Length**: 1
 - **Max Length**: 256
 

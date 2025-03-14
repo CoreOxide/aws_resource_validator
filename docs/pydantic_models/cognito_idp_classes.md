@@ -12,6 +12,12 @@
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cognito_idp_classes.RecoveryOptionTypeTypeDef]]
 
 
+# AccountRecoverySettingTypeUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # AccountTakeoverActionTypeTypeDef
 
 ### Notify
@@ -45,7 +51,7 @@
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.NotifyConfigurationTypeTypeDef]
 
 
-# AddCustomAttributesRequestRequestTypeDef
+# AddCustomAttributesRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -56,7 +62,7 @@
 - **Required**: Yes
 
 
-# AdminAddUserToGroupRequestRequestTypeDef
+# AdminAddUserToGroupRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -71,7 +77,7 @@
 - **Required**: Yes
 
 
-# AdminConfirmSignUpRequestRequestTypeDef
+# AdminConfirmSignUpRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -97,7 +103,7 @@
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.MessageTemplateTypeTypeDef]
 
 
-# AdminCreateUserRequestRequestTypeDef
+# AdminCreateUserRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -140,7 +146,7 @@
 - **Required**: Yes
 
 
-# AdminDeleteUserAttributesRequestRequestTypeDef
+# AdminDeleteUserAttributesRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -155,7 +161,7 @@
 - **Required**: Yes
 
 
-# AdminDeleteUserRequestRequestTypeDef
+# AdminDeleteUserRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -166,7 +172,7 @@
 - **Required**: Yes
 
 
-# AdminDisableProviderForUserRequestRequestTypeDef
+# AdminDisableProviderForUserRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -177,7 +183,7 @@
 - **Required**: Yes
 
 
-# AdminDisableUserRequestRequestTypeDef
+# AdminDisableUserRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -188,7 +194,7 @@
 - **Required**: Yes
 
 
-# AdminEnableUserRequestRequestTypeDef
+# AdminEnableUserRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -199,7 +205,7 @@
 - **Required**: Yes
 
 
-# AdminForgetDeviceRequestRequestTypeDef
+# AdminForgetDeviceRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -214,7 +220,7 @@
 - **Required**: Yes
 
 
-# AdminGetDeviceRequestRequestTypeDef
+# AdminGetDeviceRequestTypeDef
 
 ### DeviceKey
 - **Type**: <class 'str'>
@@ -240,7 +246,7 @@
 - **Required**: Yes
 
 
-# AdminGetUserRequestRequestTypeDef
+# AdminGetUserRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -294,7 +300,7 @@
 - **Required**: Yes
 
 
-# AdminInitiateAuthRequestRequestTypeDef
+# AdminInitiateAuthRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -305,7 +311,7 @@
 - **Required**: Yes
 
 ### AuthFlow
-- **Type**: typing.Literal['ADMIN_NO_SRP_AUTH', 'ADMIN_USER_PASSWORD_AUTH', 'CUSTOM_AUTH', 'REFRESH_TOKEN', 'REFRESH_TOKEN_AUTH', 'USER_PASSWORD_AUTH', 'USER_SRP_AUTH']
+- **Type**: typing.Literal['ADMIN_NO_SRP_AUTH', 'ADMIN_USER_PASSWORD_AUTH', 'CUSTOM_AUTH', 'REFRESH_TOKEN', 'REFRESH_TOKEN_AUTH', 'USER_AUTH', 'USER_PASSWORD_AUTH', 'USER_SRP_AUTH']
 - **Required**: Yes
 
 ### AuthParameters
@@ -320,11 +326,14 @@
 ### ContextData
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.ContextDataTypeTypeDef]
 
+### Session
+- **Type**: typing.Optional[str]
+
 
 # AdminInitiateAuthResponseTypeDef
 
 ### ChallengeName
-- **Type**: typing.Literal['ADMIN_NO_SRP_AUTH', 'CUSTOM_CHALLENGE', 'DEVICE_PASSWORD_VERIFIER', 'DEVICE_SRP_AUTH', 'MFA_SETUP', 'NEW_PASSWORD_REQUIRED', 'PASSWORD_VERIFIER', 'SELECT_MFA_TYPE', 'SMS_MFA', 'SOFTWARE_TOKEN_MFA']
+- **Type**: typing.Literal['ADMIN_NO_SRP_AUTH', 'CUSTOM_CHALLENGE', 'DEVICE_PASSWORD_VERIFIER', 'DEVICE_SRP_AUTH', 'EMAIL_OTP', 'MFA_SETUP', 'NEW_PASSWORD_REQUIRED', 'PASSWORD', 'PASSWORD_SRP', 'PASSWORD_VERIFIER', 'SELECT_CHALLENGE', 'SELECT_MFA_TYPE', 'SMS_MFA', 'SMS_OTP', 'SOFTWARE_TOKEN_MFA', 'WEB_AUTHN']
 - **Required**: Yes
 
 ### Session
@@ -339,12 +348,16 @@
 - **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.AuthenticationResultTypeTypeDef'>
 - **Required**: Yes
 
+### AvailableChallenges
+- **Type**: typing.List[typing.Literal['ADMIN_NO_SRP_AUTH', 'CUSTOM_CHALLENGE', 'DEVICE_PASSWORD_VERIFIER', 'DEVICE_SRP_AUTH', 'EMAIL_OTP', 'MFA_SETUP', 'NEW_PASSWORD_REQUIRED', 'PASSWORD', 'PASSWORD_SRP', 'PASSWORD_VERIFIER', 'SELECT_CHALLENGE', 'SELECT_MFA_TYPE', 'SMS_MFA', 'SMS_OTP', 'SOFTWARE_TOKEN_MFA', 'WEB_AUTHN']]
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
 
-# AdminLinkProviderForUserRequestRequestTypeDef
+# AdminLinkProviderForUserRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -359,7 +372,7 @@
 - **Required**: Yes
 
 
-# AdminListDevicesRequestRequestTypeDef
+# AdminListDevicesRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -391,7 +404,7 @@
 - **Required**: Yes
 
 
-# AdminListGroupsForUserRequestAdminListGroupsForUserPaginateTypeDef
+# AdminListGroupsForUserRequestPaginateTypeDef
 
 ### Username
 - **Type**: <class 'str'>
@@ -405,7 +418,7 @@
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.PaginatorConfigTypeDef]
 
 
-# AdminListGroupsForUserRequestRequestTypeDef
+# AdminListGroupsForUserRequestTypeDef
 
 ### Username
 - **Type**: <class 'str'>
@@ -436,7 +449,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AdminListUserAuthEventsRequestAdminListUserAuthEventsPaginateTypeDef
+# AdminListUserAuthEventsRequestPaginateTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -450,7 +463,7 @@
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.PaginatorConfigTypeDef]
 
 
-# AdminListUserAuthEventsRequestRequestTypeDef
+# AdminListUserAuthEventsRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -481,7 +494,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AdminRemoveUserFromGroupRequestRequestTypeDef
+# AdminRemoveUserFromGroupRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -496,7 +509,7 @@
 - **Required**: Yes
 
 
-# AdminResetUserPasswordRequestRequestTypeDef
+# AdminResetUserPasswordRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -510,7 +523,7 @@
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# AdminRespondToAuthChallengeRequestRequestTypeDef
+# AdminRespondToAuthChallengeRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -521,7 +534,7 @@
 - **Required**: Yes
 
 ### ChallengeName
-- **Type**: typing.Literal['ADMIN_NO_SRP_AUTH', 'CUSTOM_CHALLENGE', 'DEVICE_PASSWORD_VERIFIER', 'DEVICE_SRP_AUTH', 'MFA_SETUP', 'NEW_PASSWORD_REQUIRED', 'PASSWORD_VERIFIER', 'SELECT_MFA_TYPE', 'SMS_MFA', 'SOFTWARE_TOKEN_MFA']
+- **Type**: typing.Literal['ADMIN_NO_SRP_AUTH', 'CUSTOM_CHALLENGE', 'DEVICE_PASSWORD_VERIFIER', 'DEVICE_SRP_AUTH', 'EMAIL_OTP', 'MFA_SETUP', 'NEW_PASSWORD_REQUIRED', 'PASSWORD', 'PASSWORD_SRP', 'PASSWORD_VERIFIER', 'SELECT_CHALLENGE', 'SELECT_MFA_TYPE', 'SMS_MFA', 'SMS_OTP', 'SOFTWARE_TOKEN_MFA', 'WEB_AUTHN']
 - **Required**: Yes
 
 ### ChallengeResponses
@@ -543,7 +556,7 @@
 # AdminRespondToAuthChallengeResponseTypeDef
 
 ### ChallengeName
-- **Type**: typing.Literal['ADMIN_NO_SRP_AUTH', 'CUSTOM_CHALLENGE', 'DEVICE_PASSWORD_VERIFIER', 'DEVICE_SRP_AUTH', 'MFA_SETUP', 'NEW_PASSWORD_REQUIRED', 'PASSWORD_VERIFIER', 'SELECT_MFA_TYPE', 'SMS_MFA', 'SOFTWARE_TOKEN_MFA']
+- **Type**: typing.Literal['ADMIN_NO_SRP_AUTH', 'CUSTOM_CHALLENGE', 'DEVICE_PASSWORD_VERIFIER', 'DEVICE_SRP_AUTH', 'EMAIL_OTP', 'MFA_SETUP', 'NEW_PASSWORD_REQUIRED', 'PASSWORD', 'PASSWORD_SRP', 'PASSWORD_VERIFIER', 'SELECT_CHALLENGE', 'SELECT_MFA_TYPE', 'SMS_MFA', 'SMS_OTP', 'SOFTWARE_TOKEN_MFA', 'WEB_AUTHN']
 - **Required**: Yes
 
 ### Session
@@ -563,7 +576,7 @@
 - **Required**: Yes
 
 
-# AdminSetUserMFAPreferenceRequestRequestTypeDef
+# AdminSetUserMFAPreferenceRequestTypeDef
 
 ### Username
 - **Type**: <class 'str'>
@@ -579,8 +592,11 @@
 ### SoftwareTokenMfaSettings
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.SoftwareTokenMfaSettingsTypeTypeDef]
 
+### EmailMfaSettings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.EmailMfaSettingsTypeTypeDef]
 
-# AdminSetUserPasswordRequestRequestTypeDef
+
+# AdminSetUserPasswordRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -598,7 +614,7 @@
 - **Type**: typing.Optional[bool]
 
 
-# AdminSetUserSettingsRequestRequestTypeDef
+# AdminSetUserSettingsRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -613,7 +629,7 @@
 - **Required**: Yes
 
 
-# AdminUpdateAuthEventFeedbackRequestRequestTypeDef
+# AdminUpdateAuthEventFeedbackRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -632,7 +648,7 @@
 - **Required**: Yes
 
 
-# AdminUpdateDeviceStatusRequestRequestTypeDef
+# AdminUpdateDeviceStatusRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -650,7 +666,7 @@
 - **Type**: typing.Optional[typing.Literal['not_remembered', 'remembered']]
 
 
-# AdminUpdateUserAttributesRequestRequestTypeDef
+# AdminUpdateUserAttributesRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -668,7 +684,7 @@
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# AdminUserGlobalSignOutRequestRequestTypeDef
+# AdminUserGlobalSignOutRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -677,6 +693,12 @@
 ### Username
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+
+# AdvancedSecurityAdditionalFlowsTypeTypeDef
+
+### CustomAuthMode
+- **Type**: typing.Optional[typing.Literal['AUDIT', 'ENFORCED']]
 
 
 # AnalyticsConfigurationTypeTypeDef
@@ -703,7 +725,55 @@
 - **Type**: typing.Optional[str]
 
 
-# AssociateSoftwareTokenRequestRequestTypeDef
+# AssetTypeOutputTypeDef
+
+### Category
+- **Type**: typing.Literal['AUTH_APP_GRAPHIC', 'EMAIL_GRAPHIC', 'FAVICON_ICO', 'FAVICON_SVG', 'FORM_BACKGROUND', 'FORM_LOGO', 'IDP_BUTTON_ICON', 'PAGE_BACKGROUND', 'PAGE_FOOTER_BACKGROUND', 'PAGE_FOOTER_LOGO', 'PAGE_HEADER_BACKGROUND', 'PAGE_HEADER_LOGO', 'PASSKEY_GRAPHIC', 'PASSWORD_GRAPHIC', 'SMS_GRAPHIC']
+- **Required**: Yes
+
+### ColorMode
+- **Type**: typing.Literal['DARK', 'DYNAMIC', 'LIGHT']
+- **Required**: Yes
+
+### Extension
+- **Type**: typing.Literal['ICO', 'JPEG', 'PNG', 'SVG', 'WEBP']
+- **Required**: Yes
+
+### Bytes
+- **Type**: typing.Optional[bytes]
+
+### ResourceId
+- **Type**: typing.Optional[str]
+
+
+# AssetTypeTypeDef
+
+### Category
+- **Type**: typing.Literal['AUTH_APP_GRAPHIC', 'EMAIL_GRAPHIC', 'FAVICON_ICO', 'FAVICON_SVG', 'FORM_BACKGROUND', 'FORM_LOGO', 'IDP_BUTTON_ICON', 'PAGE_BACKGROUND', 'PAGE_FOOTER_BACKGROUND', 'PAGE_FOOTER_LOGO', 'PAGE_HEADER_BACKGROUND', 'PAGE_HEADER_LOGO', 'PASSKEY_GRAPHIC', 'PASSWORD_GRAPHIC', 'SMS_GRAPHIC']
+- **Required**: Yes
+
+### ColorMode
+- **Type**: typing.Literal['DARK', 'DYNAMIC', 'LIGHT']
+- **Required**: Yes
+
+### Extension
+- **Type**: typing.Literal['ICO', 'JPEG', 'PNG', 'SVG', 'WEBP']
+- **Required**: Yes
+
+### Bytes
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.BlobTypeDef]
+
+### ResourceId
+- **Type**: typing.Optional[str]
+
+
+# AssetTypeUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AssociateSoftwareTokenRequestTypeDef
 
 ### AccessToken
 - **Type**: typing.Optional[str]
@@ -791,6 +861,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ChallengeResponseTypeTypeDef
 
 ### ChallengeName
@@ -800,11 +876,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Failure', 'Success']]
 
 
-# ChangePasswordRequestRequestTypeDef
-
-### PreviousPassword
-- **Type**: <class 'str'>
-- **Required**: Yes
+# ChangePasswordRequestTypeDef
 
 ### ProposedPassword
 - **Type**: <class 'str'>
@@ -813,6 +885,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### AccessToken
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+### PreviousPassword
+- **Type**: typing.Optional[str]
 
 
 # CloudWatchLogsConfigurationTypeTypeDef
@@ -831,6 +906,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### AttributeName
 - **Type**: typing.Optional[str]
+
+
+# CompleteWebAuthnRegistrationRequestTypeDef
+
+### AccessToken
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Credential
+- **Type**: typing.Mapping[str, typing.Any]
+- **Required**: Yes
 
 
 # CompromisedCredentialsActionsTypeTypeDef
@@ -860,7 +946,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['PASSWORD_CHANGE', 'SIGN_IN', 'SIGN_UP']]]
 
 
-# ConfirmDeviceRequestRequestTypeDef
+# CompromisedCredentialsRiskConfigurationTypeUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ConfirmDeviceRequestTypeDef
 
 ### AccessToken
 - **Type**: <class 'str'>
@@ -888,7 +980,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ConfirmForgotPasswordRequestRequestTypeDef
+# ConfirmForgotPasswordRequestTypeDef
 
 ### ClientId
 - **Type**: <class 'str'>
@@ -919,7 +1011,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# ConfirmSignUpRequestRequestTypeDef
+# ConfirmSignUpRequestTypeDef
 
 ### ClientId
 - **Type**: <class 'str'>
@@ -948,6 +1040,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ClientMetadata
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
+### Session
+- **Type**: typing.Optional[str]
+
+
+# ConfirmSignUpResponseTypeDef
+
+### Session
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
 
 # ContextDataTypeTypeDef
 
@@ -971,7 +1077,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateGroupRequestRequestTypeDef
+# CreateGroupRequestTypeDef
 
 ### GroupName
 - **Type**: <class 'str'>
@@ -1002,7 +1108,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateIdentityProviderRequestRequestTypeDef
+# CreateIdentityProviderRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -1038,7 +1144,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateResourceServerRequestRequestTypeDef
+# CreateManagedLoginBrandingRequestTypeDef
+
+### UserPoolId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ClientId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### UseCognitoProvidedValues
+- **Type**: typing.Optional[bool]
+
+### Settings
+- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+
+### Assets
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cognito_idp_classes.AssetTypeUnionTypeDef]]
+
+
+# CreateManagedLoginBrandingResponseTypeDef
+
+### ManagedLoginBranding
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ManagedLoginBrandingTypeTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateResourceServerRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -1067,7 +1204,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateUserImportJobRequestRequestTypeDef
+# CreateUserImportJobRequestTypeDef
 
 ### JobName
 - **Type**: <class 'str'>
@@ -1093,7 +1230,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateUserPoolClientRequestRequestTypeDef
+# CreateUserPoolClientRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -1125,7 +1262,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### ExplicitAuthFlows
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ADMIN_NO_SRP_AUTH', 'ALLOW_ADMIN_USER_PASSWORD_AUTH', 'ALLOW_CUSTOM_AUTH', 'ALLOW_REFRESH_TOKEN_AUTH', 'ALLOW_USER_PASSWORD_AUTH', 'ALLOW_USER_SRP_AUTH', 'CUSTOM_AUTH_FLOW_ONLY', 'USER_PASSWORD_AUTH']]]
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['ADMIN_NO_SRP_AUTH', 'ALLOW_ADMIN_USER_PASSWORD_AUTH', 'ALLOW_CUSTOM_AUTH', 'ALLOW_REFRESH_TOKEN_AUTH', 'ALLOW_USER_AUTH', 'ALLOW_USER_PASSWORD_AUTH', 'ALLOW_USER_SRP_AUTH', 'CUSTOM_AUTH_FLOW_ONLY', 'USER_PASSWORD_AUTH']]]
 
 ### SupportedIdentityProviders
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1175,7 +1312,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateUserPoolDomainRequestRequestTypeDef
+# CreateUserPoolDomainRequestTypeDef
 
 ### Domain
 - **Type**: <class 'str'>
@@ -1185,11 +1322,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### ManagedLoginVersion
+- **Type**: typing.Optional[int]
+
 ### CustomDomainConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.CustomDomainConfigTypeTypeDef]
 
 
 # CreateUserPoolDomainResponseTypeDef
+
+### ManagedLoginVersion
+- **Type**: <class 'int'>
+- **Required**: Yes
 
 ### CloudFrontDomain
 - **Type**: <class 'str'>
@@ -1200,14 +1344,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateUserPoolRequestRequestTypeDef
+# CreateUserPoolRequestTypeDef
 
 ### PoolName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Policies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserPoolPolicyTypeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserPoolPolicyTypeUnionTypeDef]
 
 ### DeletionProtection
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
@@ -1243,7 +1387,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['OFF', 'ON', 'OPTIONAL']]
 
 ### UserAttributeUpdateSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserAttributeUpdateSettingsTypeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserAttributeUpdateSettingsTypeUnionTypeDef]
 
 ### DeviceConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.DeviceConfigurationTypeTypeDef]
@@ -1270,7 +1414,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UsernameConfigurationTypeTypeDef]
 
 ### AccountRecoverySetting
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AccountRecoverySettingTypeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AccountRecoverySettingTypeUnionTypeDef]
+
+### UserPoolTier
+- **Type**: typing.Optional[typing.Literal['ESSENTIALS', 'LITE', 'PLUS']]
 
 
 # CreateUserPoolResponseTypeDef
@@ -1313,7 +1460,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteGroupRequestRequestTypeDef
+# DeleteGroupRequestTypeDef
 
 ### GroupName
 - **Type**: <class 'str'>
@@ -1324,7 +1471,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteIdentityProviderRequestRequestTypeDef
+# DeleteIdentityProviderRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -1335,7 +1482,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteResourceServerRequestRequestTypeDef
+# DeleteManagedLoginBrandingRequestTypeDef
+
+### ManagedLoginBrandingId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### UserPoolId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteResourceServerRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -1346,7 +1504,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteUserAttributesRequestRequestTypeDef
+# DeleteUserAttributesRequestTypeDef
 
 ### UserAttributeNames
 - **Type**: typing.Sequence[str]
@@ -1357,7 +1515,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteUserPoolClientRequestRequestTypeDef
+# DeleteUserPoolClientRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -1368,7 +1526,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteUserPoolDomainRequestRequestTypeDef
+# DeleteUserPoolDomainRequestTypeDef
 
 ### Domain
 - **Type**: <class 'str'>
@@ -1379,21 +1537,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteUserPoolRequestRequestTypeDef
+# DeleteUserPoolRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteUserRequestRequestTypeDef
+# DeleteUserRequestTypeDef
 
 ### AccessToken
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeIdentityProviderRequestRequestTypeDef
+# DeleteWebAuthnCredentialRequestTypeDef
+
+### AccessToken
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CredentialId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeIdentityProviderRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -1415,7 +1584,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeResourceServerRequestRequestTypeDef
+# DescribeManagedLoginBrandingByClientRequestTypeDef
+
+### UserPoolId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ClientId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ReturnMergedResources
+- **Type**: typing.Optional[bool]
+
+
+# DescribeManagedLoginBrandingByClientResponseTypeDef
+
+### ManagedLoginBranding
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ManagedLoginBrandingTypeTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DescribeManagedLoginBrandingRequestTypeDef
+
+### UserPoolId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ManagedLoginBrandingId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ReturnMergedResources
+- **Type**: typing.Optional[bool]
+
+
+# DescribeManagedLoginBrandingResponseTypeDef
+
+### ManagedLoginBranding
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ManagedLoginBrandingTypeTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DescribeResourceServerRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -1437,7 +1656,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeRiskConfigurationRequestRequestTypeDef
+# DescribeRiskConfigurationRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -1458,7 +1677,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeUserImportJobRequestRequestTypeDef
+# DescribeUserImportJobRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -1480,7 +1699,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeUserPoolClientRequestRequestTypeDef
+# DescribeUserPoolClientRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -1502,7 +1721,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeUserPoolDomainRequestRequestTypeDef
+# DescribeUserPoolDomainRequestTypeDef
 
 ### Domain
 - **Type**: <class 'str'>
@@ -1520,7 +1739,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeUserPoolRequestRequestTypeDef
+# DescribeUserPoolRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -1600,6 +1819,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### CustomDomainConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.CustomDomainConfigTypeTypeDef]
 
+### ManagedLoginVersion
+- **Type**: typing.Optional[int]
+
 
 # EmailConfigurationTypeTypeDef
 
@@ -1617,6 +1839,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ConfigurationSet
 - **Type**: typing.Optional[str]
+
+
+# EmailMfaConfigTypeTypeDef
+
+### Message
+- **Type**: typing.Optional[str]
+
+### Subject
+- **Type**: typing.Optional[str]
+
+
+# EmailMfaSettingsTypeTypeDef
+
+### Enabled
+- **Type**: typing.Optional[bool]
+
+### PreferredMfa
+- **Type**: typing.Optional[bool]
 
 
 # EmptyResponseMetadataTypeDef
@@ -1670,7 +1910,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ForgetDeviceRequestRequestTypeDef
+# FirehoseConfigurationTypeTypeDef
+
+### StreamArn
+- **Type**: typing.Optional[str]
+
+
+# ForgetDeviceRequestTypeDef
 
 ### DeviceKey
 - **Type**: <class 'str'>
@@ -1680,7 +1926,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ForgotPasswordRequestRequestTypeDef
+# ForgotPasswordRequestTypeDef
 
 ### ClientId
 - **Type**: <class 'str'>
@@ -1714,7 +1960,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCSVHeaderRequestRequestTypeDef
+# GetCSVHeaderRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -1736,7 +1982,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDeviceRequestRequestTypeDef
+# GetDeviceRequestTypeDef
 
 ### DeviceKey
 - **Type**: <class 'str'>
@@ -1757,7 +2003,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetGroupRequestRequestTypeDef
+# GetGroupRequestTypeDef
 
 ### GroupName
 - **Type**: <class 'str'>
@@ -1779,7 +2025,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetIdentityProviderByIdentifierRequestRequestTypeDef
+# GetIdentityProviderByIdentifierRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -1801,7 +2047,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetLogDeliveryConfigurationRequestRequestTypeDef
+# GetLogDeliveryConfigurationRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -1819,7 +2065,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSigningCertificateRequestRequestTypeDef
+# GetSigningCertificateRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -1837,7 +2083,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetUICustomizationRequestRequestTypeDef
+# GetUICustomizationRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -1858,7 +2104,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetUserAttributeVerificationCodeRequestRequestTypeDef
+# GetUserAttributeVerificationCodeRequestTypeDef
 
 ### AccessToken
 - **Type**: <class 'str'>
@@ -1883,7 +2129,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetUserPoolMfaConfigRequestRequestTypeDef
+# GetUserAuthFactorsRequestTypeDef
+
+### AccessToken
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetUserAuthFactorsResponseTypeDef
+
+### Username
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PreferredMfaSetting
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### UserMFASettingList
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### ConfiguredUserAuthFactors
+- **Type**: typing.List[typing.Literal['EMAIL_OTP', 'PASSWORD', 'SMS_OTP', 'WEB_AUTHN']]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetUserPoolMfaConfigRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -1900,8 +2176,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.SoftwareTokenMfaConfigTypeTypeDef'>
 - **Required**: Yes
 
+### EmailMfaConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.EmailMfaConfigTypeTypeDef'>
+- **Required**: Yes
+
 ### MfaConfiguration
 - **Type**: typing.Literal['OFF', 'ON', 'OPTIONAL']
+- **Required**: Yes
+
+### WebAuthnConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.WebAuthnConfigurationTypeTypeDef'>
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -1909,7 +2193,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetUserRequestRequestTypeDef
+# GetUserRequestTypeDef
 
 ### AccessToken
 - **Type**: <class 'str'>
@@ -1943,7 +2227,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GlobalSignOutRequestRequestTypeDef
+# GlobalSignOutRequestTypeDef
 
 ### AccessToken
 - **Type**: <class 'str'>
@@ -2010,10 +2294,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# InitiateAuthRequestRequestTypeDef
+# InitiateAuthRequestTypeDef
 
 ### AuthFlow
-- **Type**: typing.Literal['ADMIN_NO_SRP_AUTH', 'ADMIN_USER_PASSWORD_AUTH', 'CUSTOM_AUTH', 'REFRESH_TOKEN', 'REFRESH_TOKEN_AUTH', 'USER_PASSWORD_AUTH', 'USER_SRP_AUTH']
+- **Type**: typing.Literal['ADMIN_NO_SRP_AUTH', 'ADMIN_USER_PASSWORD_AUTH', 'CUSTOM_AUTH', 'REFRESH_TOKEN', 'REFRESH_TOKEN_AUTH', 'USER_AUTH', 'USER_PASSWORD_AUTH', 'USER_SRP_AUTH']
 - **Required**: Yes
 
 ### ClientId
@@ -2032,11 +2316,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### UserContextData
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserContextDataTypeTypeDef]
 
+### Session
+- **Type**: typing.Optional[str]
+
 
 # InitiateAuthResponseTypeDef
 
 ### ChallengeName
-- **Type**: typing.Literal['ADMIN_NO_SRP_AUTH', 'CUSTOM_CHALLENGE', 'DEVICE_PASSWORD_VERIFIER', 'DEVICE_SRP_AUTH', 'MFA_SETUP', 'NEW_PASSWORD_REQUIRED', 'PASSWORD_VERIFIER', 'SELECT_MFA_TYPE', 'SMS_MFA', 'SOFTWARE_TOKEN_MFA']
+- **Type**: typing.Literal['ADMIN_NO_SRP_AUTH', 'CUSTOM_CHALLENGE', 'DEVICE_PASSWORD_VERIFIER', 'DEVICE_SRP_AUTH', 'EMAIL_OTP', 'MFA_SETUP', 'NEW_PASSWORD_REQUIRED', 'PASSWORD', 'PASSWORD_SRP', 'PASSWORD_VERIFIER', 'SELECT_CHALLENGE', 'SELECT_MFA_TYPE', 'SMS_MFA', 'SMS_OTP', 'SOFTWARE_TOKEN_MFA', 'WEB_AUTHN']
 - **Required**: Yes
 
 ### Session
@@ -2049,6 +2336,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### AuthenticationResult
 - **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.AuthenticationResultTypeTypeDef'>
+- **Required**: Yes
+
+### AvailableChallenges
+- **Type**: typing.List[typing.Literal['ADMIN_NO_SRP_AUTH', 'CUSTOM_CHALLENGE', 'DEVICE_PASSWORD_VERIFIER', 'DEVICE_SRP_AUTH', 'EMAIL_OTP', 'MFA_SETUP', 'NEW_PASSWORD_REQUIRED', 'PASSWORD', 'PASSWORD_SRP', 'PASSWORD_VERIFIER', 'SELECT_CHALLENGE', 'SELECT_MFA_TYPE', 'SMS_MFA', 'SMS_OTP', 'SOFTWARE_TOKEN_MFA', 'WEB_AUTHN']]
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -2101,7 +2392,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDevicesRequestRequestTypeDef
+# ListDevicesRequestTypeDef
 
 ### AccessToken
 - **Type**: <class 'str'>
@@ -2129,7 +2420,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListGroupsRequestListGroupsPaginateTypeDef
+# ListGroupsRequestPaginateTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -2139,7 +2430,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.PaginatorConfigTypeDef]
 
 
-# ListGroupsRequestRequestTypeDef
+# ListGroupsRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -2166,7 +2457,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListIdentityProvidersRequestListIdentityProvidersPaginateTypeDef
+# ListIdentityProvidersRequestPaginateTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -2176,7 +2467,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.PaginatorConfigTypeDef]
 
 
-# ListIdentityProvidersRequestRequestTypeDef
+# ListIdentityProvidersRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -2203,7 +2494,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResourceServersRequestListResourceServersPaginateTypeDef
+# ListResourceServersRequestPaginateTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -2213,7 +2504,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.PaginatorConfigTypeDef]
 
 
-# ListResourceServersRequestRequestTypeDef
+# ListResourceServersRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -2240,7 +2531,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2258,7 +2549,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListUserImportJobsRequestRequestTypeDef
+# ListUserImportJobsRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -2287,7 +2578,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListUserPoolClientsRequestListUserPoolClientsPaginateTypeDef
+# ListUserPoolClientsRequestPaginateTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -2297,7 +2588,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.PaginatorConfigTypeDef]
 
 
-# ListUserPoolClientsRequestRequestTypeDef
+# ListUserPoolClientsRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -2324,13 +2615,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListUserPoolsRequestListUserPoolsPaginateTypeDef
+# ListUserPoolsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.PaginatorConfigTypeDef]
 
 
-# ListUserPoolsRequestRequestTypeDef
+# ListUserPoolsRequestTypeDef
 
 ### MaxResults
 - **Type**: <class 'int'>
@@ -2354,7 +2645,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListUsersInGroupRequestListUsersInGroupPaginateTypeDef
+# ListUsersInGroupRequestPaginateTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -2368,7 +2659,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.PaginatorConfigTypeDef]
 
 
-# ListUsersInGroupRequestRequestTypeDef
+# ListUsersInGroupRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -2399,7 +2690,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListUsersRequestListUsersPaginateTypeDef
+# ListUsersRequestPaginateTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -2415,7 +2706,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.PaginatorConfigTypeDef]
 
 
-# ListUsersRequestRequestTypeDef
+# ListUsersRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -2449,18 +2740,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# ListWebAuthnCredentialsRequestTypeDef
+
+### AccessToken
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+
+# ListWebAuthnCredentialsResponseTypeDef
+
+### Credentials
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.WebAuthnCredentialDescriptionTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
 # LogConfigurationTypeTypeDef
 
 ### LogLevel
-- **Type**: typing.Literal['ERROR']
+- **Type**: typing.Literal['ERROR', 'INFO']
 - **Required**: Yes
 
 ### EventSource
-- **Type**: typing.Literal['userNotification']
+- **Type**: typing.Literal['userAuthEvents', 'userNotification']
 - **Required**: Yes
 
 ### CloudWatchLogsConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.CloudWatchLogsConfigurationTypeTypeDef]
+
+### S3Configuration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.S3ConfigurationTypeTypeDef]
+
+### FirehoseConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.FirehoseConfigurationTypeTypeDef]
 
 
 # LogDeliveryConfigurationTypeTypeDef
@@ -2481,6 +2805,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### AttributeName
 - **Type**: typing.Optional[str]
+
+
+# ManagedLoginBrandingTypeTypeDef
+
+### ManagedLoginBrandingId
+- **Type**: typing.Optional[str]
+
+### UserPoolId
+- **Type**: typing.Optional[str]
+
+### UseCognitoProvidedValues
+- **Type**: typing.Optional[bool]
+
+### Settings
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### Assets
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.AssetTypeOutputTypeDef]]
+
+### CreationDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### LastModifiedDate
+- **Type**: typing.Optional[datetime.datetime]
 
 
 # MessageTemplateTypeTypeDef
@@ -2577,6 +2925,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RequireSymbols
 - **Type**: typing.Optional[bool]
 
+### PasswordHistorySize
+- **Type**: typing.Optional[int]
+
 ### TemporaryPasswordValidityDays
 - **Type**: typing.Optional[int]
 
@@ -2584,7 +2935,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PreTokenGenerationVersionConfigTypeTypeDef
 
 ### LambdaVersion
-- **Type**: typing.Literal['V1_0', 'V2_0']
+- **Type**: typing.Literal['V1_0', 'V2_0', 'V3_0']
 - **Required**: Yes
 
 ### LambdaArn
@@ -2630,7 +2981,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResendConfirmationCodeRequestRequestTypeDef
+# ResendConfirmationCodeRequestTypeDef
 
 ### ClientId
 - **Type**: <class 'str'>
@@ -2690,14 +3041,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.ResourceServerScopeTypeTypeDef]]
 
 
-# RespondToAuthChallengeRequestRequestTypeDef
+# RespondToAuthChallengeRequestTypeDef
 
 ### ClientId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ChallengeName
-- **Type**: typing.Literal['ADMIN_NO_SRP_AUTH', 'CUSTOM_CHALLENGE', 'DEVICE_PASSWORD_VERIFIER', 'DEVICE_SRP_AUTH', 'MFA_SETUP', 'NEW_PASSWORD_REQUIRED', 'PASSWORD_VERIFIER', 'SELECT_MFA_TYPE', 'SMS_MFA', 'SOFTWARE_TOKEN_MFA']
+- **Type**: typing.Literal['ADMIN_NO_SRP_AUTH', 'CUSTOM_CHALLENGE', 'DEVICE_PASSWORD_VERIFIER', 'DEVICE_SRP_AUTH', 'EMAIL_OTP', 'MFA_SETUP', 'NEW_PASSWORD_REQUIRED', 'PASSWORD', 'PASSWORD_SRP', 'PASSWORD_VERIFIER', 'SELECT_CHALLENGE', 'SELECT_MFA_TYPE', 'SMS_MFA', 'SMS_OTP', 'SOFTWARE_TOKEN_MFA', 'WEB_AUTHN']
 - **Required**: Yes
 
 ### Session
@@ -2719,7 +3070,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RespondToAuthChallengeResponseTypeDef
 
 ### ChallengeName
-- **Type**: typing.Literal['ADMIN_NO_SRP_AUTH', 'CUSTOM_CHALLENGE', 'DEVICE_PASSWORD_VERIFIER', 'DEVICE_SRP_AUTH', 'MFA_SETUP', 'NEW_PASSWORD_REQUIRED', 'PASSWORD_VERIFIER', 'SELECT_MFA_TYPE', 'SMS_MFA', 'SOFTWARE_TOKEN_MFA']
+- **Type**: typing.Literal['ADMIN_NO_SRP_AUTH', 'CUSTOM_CHALLENGE', 'DEVICE_PASSWORD_VERIFIER', 'DEVICE_SRP_AUTH', 'EMAIL_OTP', 'MFA_SETUP', 'NEW_PASSWORD_REQUIRED', 'PASSWORD', 'PASSWORD_SRP', 'PASSWORD_VERIFIER', 'SELECT_CHALLENGE', 'SELECT_MFA_TYPE', 'SMS_MFA', 'SMS_OTP', 'SOFTWARE_TOKEN_MFA', 'WEB_AUTHN']
 - **Required**: Yes
 
 ### Session
@@ -2761,7 +3112,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RevokeTokenRequestRequestTypeDef
+# RevokeTokenRequestTypeDef
 
 ### Token
 - **Type**: <class 'str'>
@@ -2814,6 +3165,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
+# RiskExceptionConfigurationTypeUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# S3ConfigurationTypeTypeDef
+
+### BucketArn
+- **Type**: typing.Optional[str]
+
+
 # SMSMfaSettingsTypeTypeDef
 
 ### Enabled
@@ -2825,29 +3188,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SchemaAttributeTypeTypeDef
 
-### Name
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### AttributeDataType
-- **Type**: typing.Optional[typing.Literal['Boolean', 'DateTime', 'Number', 'String']]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### DeveloperOnlyAttribute
-- **Type**: typing.Optional[bool]
-
-### Mutable
-- **Type**: typing.Optional[bool]
-
-### Required
-- **Type**: typing.Optional[bool]
-
-### NumberAttributeConstraints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.NumberAttributeConstraintsTypeTypeDef]
-
-### StringAttributeConstraints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.StringAttributeConstraintsTypeTypeDef]
-
-
-# SetLogDeliveryConfigurationRequestRequestTypeDef
+# SetLogDeliveryConfigurationRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -2869,7 +3214,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetRiskConfigurationRequestRequestTypeDef
+# SetRiskConfigurationRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -2879,13 +3224,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CompromisedCredentialsRiskConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.CompromisedCredentialsRiskConfigurationTypeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.CompromisedCredentialsRiskConfigurationTypeUnionTypeDef]
 
 ### AccountTakeoverRiskConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AccountTakeoverRiskConfigurationTypeTypeDef]
 
 ### RiskExceptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.RiskExceptionConfigurationTypeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.RiskExceptionConfigurationTypeUnionTypeDef]
 
 
 # SetRiskConfigurationResponseTypeDef
@@ -2899,7 +3244,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetUICustomizationRequestRequestTypeDef
+# SetUICustomizationRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -2912,7 +3257,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ImageFile
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.BlobTypeDef]
 
 
 # SetUICustomizationResponseTypeDef
@@ -2926,7 +3271,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetUserMFAPreferenceRequestRequestTypeDef
+# SetUserMFAPreferenceRequestTypeDef
 
 ### AccessToken
 - **Type**: <class 'str'>
@@ -2938,8 +3283,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### SoftwareTokenMfaSettings
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.SoftwareTokenMfaSettingsTypeTypeDef]
 
+### EmailMfaSettings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.EmailMfaSettingsTypeTypeDef]
 
-# SetUserPoolMfaConfigRequestRequestTypeDef
+
+# SetUserPoolMfaConfigRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -2951,8 +3299,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### SoftwareTokenMfaConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.SoftwareTokenMfaConfigTypeTypeDef]
 
+### EmailMfaConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.EmailMfaConfigTypeTypeDef]
+
 ### MfaConfiguration
 - **Type**: typing.Optional[typing.Literal['OFF', 'ON', 'OPTIONAL']]
+
+### WebAuthnConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.WebAuthnConfigurationTypeTypeDef]
 
 
 # SetUserPoolMfaConfigResponseTypeDef
@@ -2965,8 +3319,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.SoftwareTokenMfaConfigTypeTypeDef'>
 - **Required**: Yes
 
+### EmailMfaConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.EmailMfaConfigTypeTypeDef'>
+- **Required**: Yes
+
 ### MfaConfiguration
 - **Type**: typing.Literal['OFF', 'ON', 'OPTIONAL']
+- **Required**: Yes
+
+### WebAuthnConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.WebAuthnConfigurationTypeTypeDef'>
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -2974,7 +3336,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetUserSettingsRequestRequestTypeDef
+# SetUserSettingsRequestTypeDef
 
 ### AccessToken
 - **Type**: <class 'str'>
@@ -2985,7 +3347,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SignUpRequestRequestTypeDef
+# SignInPolicyTypeOutputTypeDef
+
+### AllowedFirstAuthFactors
+- **Type**: typing.Optional[typing.List[typing.Literal['EMAIL_OTP', 'PASSWORD', 'SMS_OTP', 'WEB_AUTHN']]]
+
+
+# SignInPolicyTypeTypeDef
+
+### AllowedFirstAuthFactors
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['EMAIL_OTP', 'PASSWORD', 'SMS_OTP', 'WEB_AUTHN']]]
+
+
+# SignUpRequestTypeDef
 
 ### ClientId
 - **Type**: <class 'str'>
@@ -2995,11 +3369,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### Password
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### SecretHash
+- **Type**: typing.Optional[str]
+
+### Password
 - **Type**: typing.Optional[str]
 
 ### UserAttributes
@@ -3029,6 +3402,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UserSub
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Session
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -3074,7 +3451,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# StartUserImportJobRequestRequestTypeDef
+# StartUserImportJobRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -3096,7 +3473,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopUserImportJobRequestRequestTypeDef
+# StartWebAuthnRegistrationRequestTypeDef
+
+### AccessToken
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# StartWebAuthnRegistrationResponseTypeDef
+
+### CredentialCreationOptions
+- **Type**: typing.Dict[str, typing.Any]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# StopUserImportJobRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -3127,7 +3522,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -3174,7 +3569,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -3185,7 +3580,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAuthEventFeedbackRequestRequestTypeDef
+# UpdateAuthEventFeedbackRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -3208,7 +3603,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDeviceStatusRequestRequestTypeDef
+# UpdateDeviceStatusRequestTypeDef
 
 ### AccessToken
 - **Type**: <class 'str'>
@@ -3222,7 +3617,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['not_remembered', 'remembered']]
 
 
-# UpdateGroupRequestRequestTypeDef
+# UpdateGroupRequestTypeDef
 
 ### GroupName
 - **Type**: <class 'str'>
@@ -3253,7 +3648,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateIdentityProviderRequestRequestTypeDef
+# UpdateIdentityProviderRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -3284,7 +3679,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateResourceServerRequestRequestTypeDef
+# UpdateManagedLoginBrandingRequestTypeDef
+
+### UserPoolId
+- **Type**: typing.Optional[str]
+
+### ManagedLoginBrandingId
+- **Type**: typing.Optional[str]
+
+### UseCognitoProvidedValues
+- **Type**: typing.Optional[bool]
+
+### Settings
+- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+
+### Assets
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cognito_idp_classes.AssetTypeUnionTypeDef]]
+
+
+# UpdateManagedLoginBrandingResponseTypeDef
+
+### ManagedLoginBranding
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ManagedLoginBrandingTypeTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateResourceServerRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -3313,7 +3737,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateUserAttributesRequestRequestTypeDef
+# UpdateUserAttributesRequestTypeDef
 
 ### UserAttributes
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cognito_idp_classes.AttributeTypeTypeDef]
@@ -3338,7 +3762,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateUserPoolClientRequestRequestTypeDef
+# UpdateUserPoolClientRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
@@ -3370,7 +3794,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### ExplicitAuthFlows
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ADMIN_NO_SRP_AUTH', 'ALLOW_ADMIN_USER_PASSWORD_AUTH', 'ALLOW_CUSTOM_AUTH', 'ALLOW_REFRESH_TOKEN_AUTH', 'ALLOW_USER_PASSWORD_AUTH', 'ALLOW_USER_SRP_AUTH', 'CUSTOM_AUTH_FLOW_ONLY', 'USER_PASSWORD_AUTH']]]
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['ADMIN_NO_SRP_AUTH', 'ALLOW_ADMIN_USER_PASSWORD_AUTH', 'ALLOW_CUSTOM_AUTH', 'ALLOW_REFRESH_TOKEN_AUTH', 'ALLOW_USER_AUTH', 'ALLOW_USER_PASSWORD_AUTH', 'ALLOW_USER_SRP_AUTH', 'CUSTOM_AUTH_FLOW_ONLY', 'USER_PASSWORD_AUTH']]]
 
 ### SupportedIdentityProviders
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -3420,7 +3844,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateUserPoolDomainRequestRequestTypeDef
+# UpdateUserPoolDomainRequestTypeDef
 
 ### Domain
 - **Type**: <class 'str'>
@@ -3430,12 +3854,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### ManagedLoginVersion
+- **Type**: typing.Optional[int]
+
 ### CustomDomainConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.CustomDomainConfigTypeTypeDef'>
-- **Required**: Yes
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.CustomDomainConfigTypeTypeDef]
 
 
 # UpdateUserPoolDomainResponseTypeDef
+
+### ManagedLoginVersion
+- **Type**: <class 'int'>
+- **Required**: Yes
 
 ### CloudFrontDomain
 - **Type**: <class 'str'>
@@ -3446,14 +3876,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateUserPoolRequestRequestTypeDef
+# UpdateUserPoolRequestTypeDef
 
 ### UserPoolId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Policies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserPoolPolicyTypeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserPoolPolicyTypeUnionTypeDef]
 
 ### DeletionProtection
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
@@ -3480,7 +3910,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### UserAttributeUpdateSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserAttributeUpdateSettingsTypeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserAttributeUpdateSettingsTypeUnionTypeDef]
 
 ### MfaConfiguration
 - **Type**: typing.Optional[typing.Literal['OFF', 'ON', 'OPTIONAL']]
@@ -3504,7 +3934,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserPoolAddOnsTypeTypeDef]
 
 ### AccountRecoverySetting
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AccountRecoverySettingTypeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AccountRecoverySettingTypeUnionTypeDef]
+
+### PoolName
+- **Type**: typing.Optional[str]
+
+### UserPoolTier
+- **Type**: typing.Optional[typing.Literal['ESSENTIALS', 'LITE', 'PLUS']]
 
 
 # UserAttributeUpdateSettingsTypeOutputTypeDef
@@ -3518,6 +3954,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### AttributesRequireVerificationBeforeUpdate
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['email', 'phone_number']]]
 
+
+# UserAttributeUpdateSettingsTypeUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UserContextDataTypeTypeDef
 
@@ -3576,6 +4018,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Literal['AUDIT', 'ENFORCED', 'OFF']
 - **Required**: Yes
 
+### AdvancedSecurityAdditionalFlows
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AdvancedSecurityAdditionalFlowsTypeTypeDef]
+
 
 # UserPoolClientDescriptionTypeDef
 
@@ -3628,7 +4073,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### ExplicitAuthFlows
-- **Type**: typing.Optional[typing.List[typing.Literal['ADMIN_NO_SRP_AUTH', 'ALLOW_ADMIN_USER_PASSWORD_AUTH', 'ALLOW_CUSTOM_AUTH', 'ALLOW_REFRESH_TOKEN_AUTH', 'ALLOW_USER_PASSWORD_AUTH', 'ALLOW_USER_SRP_AUTH', 'CUSTOM_AUTH_FLOW_ONLY', 'USER_PASSWORD_AUTH']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ADMIN_NO_SRP_AUTH', 'ALLOW_ADMIN_USER_PASSWORD_AUTH', 'ALLOW_CUSTOM_AUTH', 'ALLOW_REFRESH_TOKEN_AUTH', 'ALLOW_USER_AUTH', 'ALLOW_USER_PASSWORD_AUTH', 'ALLOW_USER_SRP_AUTH', 'CUSTOM_AUTH_FLOW_ONLY', 'USER_PASSWORD_AUTH']]]
 
 ### SupportedIdentityProviders
 - **Type**: typing.Optional[typing.List[str]]
@@ -3688,11 +4133,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
+# UserPoolPolicyTypeOutputTypeDef
+
+### PasswordPolicy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.PasswordPolicyTypeTypeDef]
+
+### SignInPolicy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.SignInPolicyTypeOutputTypeDef]
+
+
 # UserPoolPolicyTypeTypeDef
 
 ### PasswordPolicy
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.PasswordPolicyTypeTypeDef]
 
+### SignInPolicy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.SignInPolicyTypeTypeDef]
+
+
+# UserPoolPolicyTypeUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UserPoolTypeTypeDef
 
@@ -3703,7 +4166,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Policies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserPoolPolicyTypeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserPoolPolicyTypeOutputTypeDef]
 
 ### DeletionProtection
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
@@ -3795,6 +4258,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### AccountRecoverySetting
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AccountRecoverySettingTypeOutputTypeDef]
 
+### UserPoolTier
+- **Type**: typing.Optional[typing.Literal['ESSENTIALS', 'LITE', 'PLUS']]
+
 
 # UserTypeTypeDef
 
@@ -3848,7 +4314,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CONFIRM_WITH_CODE', 'CONFIRM_WITH_LINK']]
 
 
-# VerifySoftwareTokenRequestRequestTypeDef
+# VerifySoftwareTokenRequestTypeDef
 
 ### UserCode
 - **Type**: <class 'str'>
@@ -3879,7 +4345,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# VerifyUserAttributeRequestRequestTypeDef
+# VerifyUserAttributeRequestTypeDef
 
 ### AccessToken
 - **Type**: <class 'str'>
@@ -3892,5 +4358,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Code
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+
+# WebAuthnConfigurationTypeTypeDef
+
+### RelyingPartyId
+- **Type**: typing.Optional[str]
+
+### UserVerification
+- **Type**: typing.Optional[typing.Literal['preferred', 'required']]
+
+
+# WebAuthnCredentialDescriptionTypeDef
+
+### CredentialId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### FriendlyCredentialName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### RelyingPartyId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AuthenticatorTransports
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### CreatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### AuthenticatorAttachment
+- **Type**: typing.Optional[str]
 
 

@@ -104,7 +104,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelContactRequestRequestTypeDef
+# CancelContactRequestTypeDef
 
 ### contactId
 - **Type**: <class 'str'>
@@ -289,7 +289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateConfigRequestRequestTypeDef
+# CreateConfigRequestTypeDef
 
 ### configData
 - **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ConfigTypeDataTypeDef'>
@@ -303,10 +303,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateDataflowEndpointGroupRequestRequestTypeDef
+# CreateDataflowEndpointGroupRequestTypeDef
 
 ### endpointDetails
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.groundstation_classes.EndpointDetailsTypeDef, aws_resource_validator.pydantic_models.groundstation_classes.EndpointDetailsOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.groundstation_classes.EndpointDetailsUnionTypeDef]
 - **Required**: Yes
 
 ### contactPostPassDurationSeconds
@@ -319,7 +319,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateEphemerisRequestRequestTypeDef
+# CreateEphemerisRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -336,7 +336,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.EphemerisDataTypeDef]
 
 ### expirationTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.TimestampTypeDef]
 
 ### kmsKeyArn
 - **Type**: typing.Optional[str]
@@ -348,7 +348,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateMissionProfileRequestRequestTypeDef
+# CreateMissionProfileRequestTypeDef
 
 ### dataflowEdges
 - **Type**: typing.Sequence[typing.Sequence[str]]
@@ -446,7 +446,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteConfigRequestRequestTypeDef
+# DeleteConfigRequestTypeDef
 
 ### configId
 - **Type**: <class 'str'>
@@ -457,21 +457,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDataflowEndpointGroupRequestRequestTypeDef
+# DeleteDataflowEndpointGroupRequestTypeDef
 
 ### dataflowEndpointGroupId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteEphemerisRequestRequestTypeDef
+# DeleteEphemerisRequestTypeDef
 
 ### ephemerisId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteMissionProfileRequestRequestTypeDef
+# DeleteMissionProfileRequestTypeDef
 
 ### missionProfileId
 - **Type**: <class 'str'>
@@ -485,7 +485,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeContactRequestContactScheduledWaitTypeDef
+# DescribeContactRequestTypeDef
+
+### contactId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeContactRequestWaitTypeDef
 
 ### contactId
 - **Type**: <class 'str'>
@@ -493,13 +500,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### WaiterConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.WaiterConfigTypeDef]
-
-
-# DescribeContactRequestRequestTypeDef
-
-### contactId
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 
 # DescribeContactResponseTypeDef
@@ -573,7 +573,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEphemerisRequestRequestTypeDef
+# DescribeEphemerisRequestTypeDef
 
 ### ephemerisId
 - **Type**: <class 'str'>
@@ -712,8 +712,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['HEALTHY', 'UNHEALTHY']]
 
 ### securityDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.SecurityDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.SecurityDetailsUnionTypeDef]
 
+
+# EndpointDetailsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EphemerisDataTypeDef
 
@@ -815,7 +821,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAgentConfigurationRequestRequestTypeDef
+# GetAgentConfigurationRequestTypeDef
 
 ### agentId
 - **Type**: <class 'str'>
@@ -837,7 +843,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetConfigRequestRequestTypeDef
+# GetConfigRequestTypeDef
 
 ### configId
 - **Type**: <class 'str'>
@@ -879,7 +885,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDataflowEndpointGroupRequestRequestTypeDef
+# GetDataflowEndpointGroupRequestTypeDef
 
 ### dataflowEndpointGroupId
 - **Type**: <class 'str'>
@@ -917,7 +923,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMinuteUsageRequestRequestTypeDef
+# GetMinuteUsageRequestTypeDef
 
 ### month
 - **Type**: <class 'int'>
@@ -955,7 +961,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMissionProfileRequestRequestTypeDef
+# GetMissionProfileRequestTypeDef
 
 ### missionProfileId
 - **Type**: <class 'str'>
@@ -1017,7 +1023,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSatelliteRequestRequestTypeDef
+# GetSatelliteRequestTypeDef
 
 ### satelliteId
 - **Type**: <class 'str'>
@@ -1086,13 +1092,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListConfigsRequestListConfigsPaginateTypeDef
+# ListConfigsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.PaginatorConfigTypeDef]
 
 
-# ListConfigsRequestRequestTypeDef
+# ListConfigsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1107,23 +1113,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation_classes.ConfigListItemTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListContactsRequestListContactsPaginateTypeDef
+
+# ListContactsRequestPaginateTypeDef
 
 ### endTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### startTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### statusList
@@ -1143,14 +1148,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.PaginatorConfigTypeDef]
 
 
-# ListContactsRequestRequestTypeDef
+# ListContactsRequestTypeDef
 
 ### endTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### startTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### statusList
@@ -1179,22 +1184,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation_classes.ContactDataTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListDataflowEndpointGroupsRequestListDataflowEndpointGroupsPaginateTypeDef
+
+# ListDataflowEndpointGroupsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.PaginatorConfigTypeDef]
 
 
-# ListDataflowEndpointGroupsRequestRequestTypeDef
+# ListDataflowEndpointGroupsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1209,19 +1213,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation_classes.DataflowEndpointListItemTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListEphemeridesRequestListEphemeridesPaginateTypeDef
+
+# ListEphemeridesRequestPaginateTypeDef
 
 ### endTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### satelliteId
@@ -1229,7 +1232,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### statusList
@@ -1239,10 +1242,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.PaginatorConfigTypeDef]
 
 
-# ListEphemeridesRequestRequestTypeDef
+# ListEphemeridesRequestTypeDef
 
 ### endTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### satelliteId
@@ -1250,7 +1253,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### maxResults
@@ -1269,16 +1272,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation_classes.EphemerisItemTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListGroundStationsRequestListGroundStationsPaginateTypeDef
+
+# ListGroundStationsRequestPaginateTypeDef
 
 ### satelliteId
 - **Type**: typing.Optional[str]
@@ -1287,7 +1289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.PaginatorConfigTypeDef]
 
 
-# ListGroundStationsRequestRequestTypeDef
+# ListGroundStationsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1305,22 +1307,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation_classes.GroundStationDataTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListMissionProfilesRequestListMissionProfilesPaginateTypeDef
+
+# ListMissionProfilesRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.PaginatorConfigTypeDef]
 
 
-# ListMissionProfilesRequestRequestTypeDef
+# ListMissionProfilesRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1335,22 +1336,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation_classes.MissionProfileListItemTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListSatellitesRequestListSatellitesPaginateTypeDef
+
+# ListSatellitesRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.PaginatorConfigTypeDef]
 
 
-# ListSatellitesRequestRequestTypeDef
+# ListSatellitesRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1361,10 +1361,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListSatellitesResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### satellites
 - **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation_classes.SatelliteListItemTypeDef]
 - **Required**: Yes
@@ -1373,8 +1369,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1460,7 +1459,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RegisterAgentRequestRequestTypeDef
+# RegisterAgentRequestTypeDef
 
 ### agentDetails
 - **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.AgentDetailsTypeDef'>
@@ -1482,10 +1481,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ReserveContactRequestRequestTypeDef
+# ReserveContactRequestTypeDef
 
 ### endTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### groundStation
@@ -1501,7 +1500,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### tags
@@ -1613,6 +1612,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# SecurityDetailsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # SocketAddressTypeDef
 
 ### name
@@ -1677,7 +1682,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.groundstation_classes.TLEDataTypeDef]]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1691,13 +1696,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TimeRangeTypeDef
 
 ### endTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### startTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.TimestampTypeDef'>
 - **Required**: Yes
 
+
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TrackingConfigTypeDef
 
@@ -1706,7 +1717,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1717,7 +1728,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAgentStatusRequestRequestTypeDef
+# UpdateAgentStatusRequestTypeDef
 
 ### agentId
 - **Type**: <class 'str'>
@@ -1747,7 +1758,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateConfigRequestRequestTypeDef
+# UpdateConfigRequestTypeDef
 
 ### configData
 - **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ConfigTypeDataTypeDef'>
@@ -1766,7 +1777,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateEphemerisRequestRequestTypeDef
+# UpdateEphemerisRequestTypeDef
 
 ### enabled
 - **Type**: <class 'bool'>
@@ -1783,7 +1794,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# UpdateMissionProfileRequestRequestTypeDef
+# UpdateMissionProfileRequestTypeDef
 
 ### missionProfileId
 - **Type**: <class 'str'>

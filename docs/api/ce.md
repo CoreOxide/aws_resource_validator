@@ -1,8 +1,26 @@
 # Ce Service
 
+### AccountId
+- **Type**: string
+- **Pattern**: `[0-9]{12}`
+- **Min Length**: 12
+- **Max Length**: 12
+
+### AnalysisId
+- **Type**: string
+- **Pattern**: `^[\S\s]{8}-[\S\s]{4}-[\S\s]{4}-[\S\s]{4}-[\S\s]{12}$`
+- **Min Length**: 36
+- **Max Length**: 36
+
 ### Arn
 - **Type**: string
 - **Pattern**: `arn:aws[-a-z0-9]*:[a-z0-9]+:[-a-z0-9]*:[0-9]{12}:[-a-zA-Z0-9/:_]+`
+- **Min Length**: 20
+- **Max Length**: 2048
+
+### BillingViewArn
+- **Type**: string
+- **Pattern**: `^arn:aws[a-z-]*:(billing)::[0-9]{12}:billingview/[-a-zA-Z0-9/:_+=.-@]{1,43}$`
 - **Min Length**: 20
 - **Max Length**: 2048
 
@@ -65,6 +83,12 @@
 - **Pattern**: `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
 - **Min Length**: 0
 - **Max Length**: 256
+
+### SavingsPlansId
+- **Type**: string
+- **Pattern**: `^[\S\s]{8}-[\S\s]{4}-[\S\s]{4}-[\S\s]{4}-[\S\s]{12}$`
+- **Min Length**: 36
+- **Max Length**: 36
 
 ### SearchString
 - **Type**: string

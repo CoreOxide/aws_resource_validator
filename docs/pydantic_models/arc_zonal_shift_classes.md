@@ -40,7 +40,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelZonalShiftRequestRequestTypeDef
+# CancelZonalShiftRequestTypeDef
 
 ### zonalShiftId
 - **Type**: <class 'str'>
@@ -49,16 +49,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ControlConditionTypeDef
 
-### alarmIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: typing.Literal['CLOUDWATCH']
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-
-# CreatePracticeRunConfigurationRequestRequestTypeDef
+# CreatePracticeRunConfigurationRequestTypeDef
 
 ### outcomeAlarms
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ControlConditionTypeDef]
@@ -101,7 +96,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeletePracticeRunConfigurationRequestRequestTypeDef
+# DeletePracticeRunConfigurationRequestTypeDef
 
 ### resourceIdentifier
 - **Type**: <class 'str'>
@@ -127,7 +122,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetManagedResourceRequestRequestTypeDef
+# GetAutoshiftObserverNotificationStatusResponseTypeDef
+
+### status
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetManagedResourceRequestTypeDef
 
 ### resourceIdentifier
 - **Type**: <class 'str'>
@@ -169,7 +175,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListAutoshiftsRequestListAutoshiftsPaginateTypeDef
+# ListAutoshiftsRequestPaginateTypeDef
 
 ### status
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'COMPLETED']]
@@ -178,7 +184,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.arc_zonal_shift_classes.PaginatorConfigTypeDef]
 
 
-# ListAutoshiftsRequestRequestTypeDef
+# ListAutoshiftsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -196,22 +202,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.arc_zonal_shift_classes.AutoshiftSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListManagedResourcesRequestListManagedResourcesPaginateTypeDef
+
+# ListManagedResourcesRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.arc_zonal_shift_classes.PaginatorConfigTypeDef]
 
 
-# ListManagedResourcesRequestRequestTypeDef
+# ListManagedResourcesRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -226,16 +231,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ManagedResourceSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListZonalShiftsRequestListZonalShiftsPaginateTypeDef
+
+# ListZonalShiftsRequestPaginateTypeDef
 
 ### resourceIdentifier
 - **Type**: typing.Optional[str]
@@ -247,7 +251,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.arc_zonal_shift_classes.PaginatorConfigTypeDef]
 
 
-# ListZonalShiftsRequestRequestTypeDef
+# ListZonalShiftsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -268,13 +272,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ZonalShiftSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # ManagedResourceSummaryTypeDef
@@ -339,10 +342,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -355,8 +354,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# StartZonalShiftRequestRequestTypeDef
+
+# StartZonalShiftRequestTypeDef
 
 ### awayFrom
 - **Type**: <class 'str'>
@@ -375,7 +377,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePracticeRunConfigurationRequestRequestTypeDef
+# UpdateAutoshiftObserverNotificationStatusRequestTypeDef
+
+### status
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+
+# UpdateAutoshiftObserverNotificationStatusResponseTypeDef
+
+### status
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdatePracticeRunConfigurationRequestTypeDef
 
 ### resourceIdentifier
 - **Type**: <class 'str'>
@@ -417,7 +437,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateZonalAutoshiftConfigurationRequestRequestTypeDef
+# UpdateZonalAutoshiftConfigurationRequestTypeDef
 
 ### resourceIdentifier
 - **Type**: <class 'str'>
@@ -443,7 +463,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateZonalShiftRequestRequestTypeDef
+# UpdateZonalShiftRequestTypeDef
 
 ### zonalShiftId
 - **Type**: <class 'str'>

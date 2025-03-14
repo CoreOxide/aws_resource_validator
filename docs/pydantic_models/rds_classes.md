@@ -23,7 +23,7 @@
 - **Type**: typing.Optional[int]
 
 
-# AddRoleToDBClusterMessageRequestTypeDef
+# AddRoleToDBClusterMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -37,7 +37,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AddRoleToDBInstanceMessageRequestTypeDef
+# AddRoleToDBInstanceMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -52,7 +52,7 @@
 - **Required**: Yes
 
 
-# AddSourceIdentifierToSubscriptionMessageRequestTypeDef
+# AddSourceIdentifierToSubscriptionMessageTypeDef
 
 ### SubscriptionName
 - **Type**: <class 'str'>
@@ -74,7 +74,7 @@
 - **Required**: Yes
 
 
-# AddTagsToResourceMessageRequestTypeDef
+# AddTagsToResourceMessageTypeDef
 
 ### ResourceName
 - **Type**: <class 'str'>
@@ -85,7 +85,7 @@
 - **Required**: Yes
 
 
-# ApplyPendingMaintenanceActionMessageRequestTypeDef
+# ApplyPendingMaintenanceActionMessageTypeDef
 
 ### ResourceIdentifier
 - **Type**: <class 'str'>
@@ -111,7 +111,7 @@
 - **Required**: Yes
 
 
-# AuthorizeDBSecurityGroupIngressMessageRequestTypeDef
+# AuthorizeDBSecurityGroupIngressMessageTypeDef
 
 ### DBSecurityGroupName
 - **Type**: <class 'str'>
@@ -159,14 +159,14 @@
 - **Type**: typing.Optional[str]
 
 
-# BacktrackDBClusterMessageRequestTypeDef
+# BacktrackDBClusterMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### BacktrackTo
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### Force
@@ -227,7 +227,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.TagTypeDef]]
 
 
-# CancelExportTaskMessageRequestTypeDef
+# CancelExportTaskMessageTypeDef
 
 ### ExportTaskIdentifier
 - **Type**: <class 'str'>
@@ -406,7 +406,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CopyDBClusterParameterGroupMessageRequestTypeDef
+# CopyDBClusterParameterGroupMessageTypeDef
 
 ### SourceDBClusterParameterGroupIdentifier
 - **Type**: <class 'str'>
@@ -435,7 +435,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CopyDBClusterSnapshotMessageRequestTypeDef
+# CopyDBClusterSnapshotMessageTypeDef
 
 ### SourceDBClusterSnapshotIdentifier
 - **Type**: <class 'str'>
@@ -472,7 +472,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CopyDBParameterGroupMessageRequestTypeDef
+# CopyDBParameterGroupMessageTypeDef
 
 ### SourceDBParameterGroupIdentifier
 - **Type**: <class 'str'>
@@ -501,7 +501,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CopyDBSnapshotMessageRequestTypeDef
+# CopyDBSnapshotMessageTypeDef
 
 ### SourceDBSnapshotIdentifier
 - **Type**: <class 'str'>
@@ -547,7 +547,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CopyOptionGroupMessageRequestTypeDef
+# CopyOptionGroupMessageTypeDef
 
 ### SourceOptionGroupIdentifier
 - **Type**: <class 'str'>
@@ -576,7 +576,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateBlueGreenDeploymentRequestRequestTypeDef
+# CreateBlueGreenDeploymentRequestTypeDef
 
 ### BlueGreenDeploymentName
 - **Type**: <class 'str'>
@@ -604,6 +604,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### UpgradeTargetStorageConfig
 - **Type**: typing.Optional[bool]
 
+### TargetIops
+- **Type**: typing.Optional[int]
+
+### TargetStorageType
+- **Type**: typing.Optional[str]
+
+### TargetAllocatedStorage
+- **Type**: typing.Optional[int]
+
+### TargetStorageThroughput
+- **Type**: typing.Optional[int]
+
 
 # CreateBlueGreenDeploymentResponseTypeDef
 
@@ -616,7 +628,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCustomDBEngineVersionMessageRequestTypeDef
+# CreateCustomDBEngineVersionMessageTypeDef
 
 ### Engine
 - **Type**: <class 'str'>
@@ -654,7 +666,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CreateDBClusterEndpointMessageRequestTypeDef
+# CreateDBClusterEndpointMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -678,7 +690,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.TagTypeDef]]
 
 
-# CreateDBClusterMessageRequestTypeDef
+# CreateDBClusterMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -808,6 +820,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### MonitoringRoleArn
 - **Type**: typing.Optional[str]
 
+### DatabaseInsightsMode
+- **Type**: typing.Optional[typing.Literal['advanced', 'standard']]
+
 ### EnablePerformanceInsights
 - **Type**: typing.Optional[bool]
 
@@ -825,6 +840,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### NetworkType
 - **Type**: typing.Optional[str]
+
+### ClusterScalabilityType
+- **Type**: typing.Optional[typing.Literal['limitless', 'standard']]
 
 ### DBSystemId
 - **Type**: typing.Optional[str]
@@ -848,7 +866,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateDBClusterParameterGroupMessageRequestTypeDef
+# CreateDBClusterParameterGroupMessageTypeDef
 
 ### DBClusterParameterGroupName
 - **Type**: <class 'str'>
@@ -888,7 +906,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDBClusterSnapshotMessageRequestTypeDef
+# CreateDBClusterSnapshotMessageTypeDef
 
 ### DBClusterSnapshotIdentifier
 - **Type**: <class 'str'>
@@ -913,7 +931,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDBInstanceMessageRequestTypeDef
+# CreateDBInstanceMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -1050,6 +1068,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### EnableIAMDatabaseAuthentication
 - **Type**: typing.Optional[bool]
 
+### DatabaseInsightsMode
+- **Type**: typing.Optional[typing.Literal['advanced', 'standard']]
+
 ### EnablePerformanceInsights
 - **Type**: typing.Optional[bool]
 
@@ -1108,7 +1129,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateDBInstanceReadReplicaMessageRequestTypeDef
+# CreateDBInstanceReadReplicaMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -1173,6 +1194,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### EnableIAMDatabaseAuthentication
 - **Type**: typing.Optional[bool]
+
+### DatabaseInsightsMode
+- **Type**: typing.Optional[typing.Literal['advanced', 'standard']]
 
 ### EnablePerformanceInsights
 - **Type**: typing.Optional[bool]
@@ -1272,7 +1296,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDBParameterGroupMessageRequestTypeDef
+# CreateDBParameterGroupMessageTypeDef
 
 ### DBParameterGroupName
 - **Type**: <class 'str'>
@@ -1301,7 +1325,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDBProxyEndpointRequestRequestTypeDef
+# CreateDBProxyEndpointRequestTypeDef
 
 ### DBProxyName
 - **Type**: <class 'str'>
@@ -1336,7 +1360,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDBProxyRequestRequestTypeDef
+# CreateDBProxyRequestTypeDef
 
 ### DBProxyName
 - **Type**: <class 'str'>
@@ -1385,7 +1409,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDBSecurityGroupMessageRequestTypeDef
+# CreateDBSecurityGroupMessageTypeDef
 
 ### DBSecurityGroupName
 - **Type**: <class 'str'>
@@ -1410,7 +1434,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDBShardGroupMessageRequestTypeDef
+# CreateDBShardGroupMessageTypeDef
 
 ### DBShardGroupIdentifier
 - **Type**: <class 'str'>
@@ -1427,11 +1451,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ComputeRedundancy
 - **Type**: typing.Optional[int]
 
+### MinACU
+- **Type**: typing.Optional[float]
+
 ### PubliclyAccessible
 - **Type**: typing.Optional[bool]
 
+### Tags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.TagTypeDef]]
 
-# CreateDBSnapshotMessageRequestTypeDef
+
+# CreateDBSnapshotMessageTypeDef
 
 ### DBSnapshotIdentifier
 - **Type**: <class 'str'>
@@ -1456,7 +1486,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDBSubnetGroupMessageRequestTypeDef
+# CreateDBSubnetGroupMessageTypeDef
 
 ### DBSubnetGroupName
 - **Type**: <class 'str'>
@@ -1485,7 +1515,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateEventSubscriptionMessageRequestTypeDef
+# CreateEventSubscriptionMessageTypeDef
 
 ### SubscriptionName
 - **Type**: <class 'str'>
@@ -1522,7 +1552,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateGlobalClusterMessageRequestTypeDef
+# CreateGlobalClusterMessageTypeDef
 
 ### GlobalClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -1548,6 +1578,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### StorageEncrypted
 - **Type**: typing.Optional[bool]
 
+### Tags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.TagTypeDef]]
+
 
 # CreateGlobalClusterResultTypeDef
 
@@ -1560,7 +1593,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateIntegrationMessageRequestTypeDef
+# CreateIntegrationMessageTypeDef
 
 ### SourceArn
 - **Type**: <class 'str'>
@@ -1590,7 +1623,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateOptionGroupMessageRequestTypeDef
+# CreateOptionGroupMessageTypeDef
 
 ### OptionGroupName
 - **Type**: <class 'str'>
@@ -1623,7 +1656,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTenantDatabaseMessageRequestTypeDef
+# CreateTenantDatabaseMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -2389,6 +2422,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### MonitoringRoleArn
 - **Type**: typing.Optional[str]
 
+### DatabaseInsightsMode
+- **Type**: typing.Optional[typing.Literal['advanced', 'standard']]
+
 ### PerformanceInsightsEnabled
 - **Type**: typing.Optional[bool]
 
@@ -2424,6 +2460,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### StorageThroughput
 - **Type**: typing.Optional[int]
+
+### ClusterScalabilityType
+- **Type**: typing.Optional[typing.Literal['limitless', 'standard']]
 
 ### CertificateDetails
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.CertificateDetailsTypeDef]
@@ -2585,6 +2624,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
+### ServerlessV2FeaturesSupport
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ServerlessV2FeaturesSupportTypeDef'>
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
@@ -2693,6 +2736,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SupportsIntegrations
 - **Type**: typing.Optional[bool]
+
+### ServerlessV2FeaturesSupport
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.ServerlessV2FeaturesSupportTypeDef]
 
 
 # DBInstanceAutomatedBackupMessageTypeDef
@@ -3012,6 +3058,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### IAMDatabaseAuthenticationEnabled
 - **Type**: typing.Optional[bool]
 
+### DatabaseInsightsMode
+- **Type**: typing.Optional[typing.Literal['advanced', 'standard']]
+
 ### PerformanceInsightsEnabled
 - **Type**: typing.Optional[bool]
 
@@ -3245,30 +3294,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DBProxyTargetTypeDef
 
-### TargetArn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Endpoint
-- **Type**: typing.Optional[str]
-
-### TrackedClusterId
-- **Type**: typing.Optional[str]
-
-### RdsResourceId
-- **Type**: typing.Optional[str]
-
-### Port
-- **Type**: typing.Optional[int]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['RDS_INSTANCE', 'RDS_SERVERLESS_ENDPOINT', 'TRACKED_CLUSTER']]
-
-### Role
-- **Type**: typing.Optional[typing.Literal['READ_ONLY', 'READ_WRITE', 'UNKNOWN']]
-
-### TargetHealth
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.TargetHealthTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DBProxyTypeDef
 
@@ -3473,6 +3501,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'float'>
 - **Required**: Yes
 
+### MinACU
+- **Type**: <class 'float'>
+- **Required**: Yes
+
 ### ComputeRedundancy
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -3487,6 +3519,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Endpoint
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+### DBShardGroupArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TagList
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.TagTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -3508,6 +3548,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### MaxACU
 - **Type**: typing.Optional[float]
 
+### MinACU
+- **Type**: typing.Optional[float]
+
 ### ComputeRedundancy
 - **Type**: typing.Optional[int]
 
@@ -3519,6 +3562,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Endpoint
 - **Type**: typing.Optional[str]
+
+### DBShardGroupArn
+- **Type**: typing.Optional[str]
+
+### TagList
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.TagTypeDef]]
 
 
 # DBSnapshotAttributeTypeDef
@@ -3761,7 +3810,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# DeleteBlueGreenDeploymentRequestRequestTypeDef
+# DeleteBlueGreenDeploymentRequestTypeDef
 
 ### BlueGreenDeploymentIdentifier
 - **Type**: <class 'str'>
@@ -3782,7 +3831,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteCustomDBEngineVersionMessageRequestTypeDef
+# DeleteCustomDBEngineVersionMessageTypeDef
 
 ### Engine
 - **Type**: <class 'str'>
@@ -3793,7 +3842,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDBClusterAutomatedBackupMessageRequestTypeDef
+# DeleteDBClusterAutomatedBackupMessageTypeDef
 
 ### DbClusterResourceId
 - **Type**: <class 'str'>
@@ -3811,14 +3860,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDBClusterEndpointMessageRequestTypeDef
+# DeleteDBClusterEndpointMessageTypeDef
 
 ### DBClusterEndpointIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDBClusterMessageRequestTypeDef
+# DeleteDBClusterMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -3834,7 +3883,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteDBClusterParameterGroupMessageRequestTypeDef
+# DeleteDBClusterParameterGroupMessageTypeDef
 
 ### DBClusterParameterGroupName
 - **Type**: <class 'str'>
@@ -3852,7 +3901,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDBClusterSnapshotMessageRequestTypeDef
+# DeleteDBClusterSnapshotMessageTypeDef
 
 ### DBClusterSnapshotIdentifier
 - **Type**: <class 'str'>
@@ -3870,7 +3919,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDBInstanceAutomatedBackupMessageRequestTypeDef
+# DeleteDBInstanceAutomatedBackupMessageTypeDef
 
 ### DbiResourceId
 - **Type**: typing.Optional[str]
@@ -3890,7 +3939,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDBInstanceMessageRequestTypeDef
+# DeleteDBInstanceMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -3917,14 +3966,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDBParameterGroupMessageRequestTypeDef
+# DeleteDBParameterGroupMessageTypeDef
 
 ### DBParameterGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDBProxyEndpointRequestRequestTypeDef
+# DeleteDBProxyEndpointRequestTypeDef
 
 ### DBProxyEndpointName
 - **Type**: <class 'str'>
@@ -3942,7 +3991,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDBProxyRequestRequestTypeDef
+# DeleteDBProxyRequestTypeDef
 
 ### DBProxyName
 - **Type**: <class 'str'>
@@ -3960,21 +4009,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDBSecurityGroupMessageRequestTypeDef
+# DeleteDBSecurityGroupMessageTypeDef
 
 ### DBSecurityGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDBShardGroupMessageRequestTypeDef
+# DeleteDBShardGroupMessageTypeDef
 
 ### DBShardGroupIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDBSnapshotMessageRequestTypeDef
+# DeleteDBSnapshotMessageTypeDef
 
 ### DBSnapshotIdentifier
 - **Type**: <class 'str'>
@@ -3992,14 +4041,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDBSubnetGroupMessageRequestTypeDef
+# DeleteDBSubnetGroupMessageTypeDef
 
 ### DBSubnetGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteEventSubscriptionMessageRequestTypeDef
+# DeleteEventSubscriptionMessageTypeDef
 
 ### SubscriptionName
 - **Type**: <class 'str'>
@@ -4017,7 +4066,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteGlobalClusterMessageRequestTypeDef
+# DeleteGlobalClusterMessageTypeDef
 
 ### GlobalClusterIdentifier
 - **Type**: <class 'str'>
@@ -4035,21 +4084,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteIntegrationMessageRequestTypeDef
+# DeleteIntegrationMessageTypeDef
 
 ### IntegrationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteOptionGroupMessageRequestTypeDef
+# DeleteOptionGroupMessageTypeDef
 
 ### OptionGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteTenantDatabaseMessageRequestTypeDef
+# DeleteTenantDatabaseMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -4077,7 +4126,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeregisterDBProxyTargetsRequestRequestTypeDef
+# DeregisterDBProxyTargetsRequestTypeDef
 
 ### DBProxyName
 - **Type**: <class 'str'>
@@ -4093,7 +4142,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DescribeBlueGreenDeploymentsRequestDescribeBlueGreenDeploymentsPaginateTypeDef
+# DescribeBlueGreenDeploymentsRequestPaginateTypeDef
 
 ### BlueGreenDeploymentIdentifier
 - **Type**: typing.Optional[str]
@@ -4105,7 +4154,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeBlueGreenDeploymentsRequestRequestTypeDef
+# DescribeBlueGreenDeploymentsRequestTypeDef
 
 ### BlueGreenDeploymentIdentifier
 - **Type**: typing.Optional[str]
@@ -4135,7 +4184,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeCertificatesMessageDescribeCertificatesPaginateTypeDef
+# DescribeCertificatesMessagePaginateTypeDef
 
 ### CertificateIdentifier
 - **Type**: typing.Optional[str]
@@ -4147,7 +4196,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeCertificatesMessageRequestTypeDef
+# DescribeCertificatesMessageTypeDef
 
 ### CertificateIdentifier
 - **Type**: typing.Optional[str]
@@ -4162,7 +4211,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDBClusterAutomatedBackupsMessageRequestTypeDef
+# DescribeDBClusterAutomatedBackupsMessagePaginateTypeDef
+
+### DbClusterResourceId
+- **Type**: typing.Optional[str]
+
+### DBClusterIdentifier
+- **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.FilterTypeDef]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
+
+
+# DescribeDBClusterAutomatedBackupsMessageTypeDef
 
 ### DbClusterResourceId
 - **Type**: typing.Optional[str]
@@ -4180,7 +4244,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDBClusterBacktracksMessageDescribeDBClusterBacktracksPaginateTypeDef
+# DescribeDBClusterBacktracksMessagePaginateTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -4196,7 +4260,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBClusterBacktracksMessageRequestTypeDef
+# DescribeDBClusterBacktracksMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -4215,7 +4279,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDBClusterEndpointsMessageDescribeDBClusterEndpointsPaginateTypeDef
+# DescribeDBClusterEndpointsMessagePaginateTypeDef
 
 ### DBClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -4230,7 +4294,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBClusterEndpointsMessageRequestTypeDef
+# DescribeDBClusterEndpointsMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -4248,7 +4312,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDBClusterParameterGroupsMessageDescribeDBClusterParameterGroupsPaginateTypeDef
+# DescribeDBClusterParameterGroupsMessagePaginateTypeDef
 
 ### DBClusterParameterGroupName
 - **Type**: typing.Optional[str]
@@ -4260,7 +4324,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBClusterParameterGroupsMessageRequestTypeDef
+# DescribeDBClusterParameterGroupsMessageTypeDef
 
 ### DBClusterParameterGroupName
 - **Type**: typing.Optional[str]
@@ -4275,7 +4339,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDBClusterParametersMessageDescribeDBClusterParametersPaginateTypeDef
+# DescribeDBClusterParametersMessagePaginateTypeDef
 
 ### DBClusterParameterGroupName
 - **Type**: <class 'str'>
@@ -4291,7 +4355,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBClusterParametersMessageRequestTypeDef
+# DescribeDBClusterParametersMessageTypeDef
 
 ### DBClusterParameterGroupName
 - **Type**: <class 'str'>
@@ -4310,7 +4374,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDBClusterSnapshotAttributesMessageRequestTypeDef
+# DescribeDBClusterSnapshotAttributesMessageTypeDef
 
 ### DBClusterSnapshotIdentifier
 - **Type**: <class 'str'>
@@ -4328,73 +4392,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDBClusterSnapshotsMessageDBClusterSnapshotAvailableWaitTypeDef
-
-### DBClusterIdentifier
-- **Type**: typing.Optional[str]
-
-### DBClusterSnapshotIdentifier
-- **Type**: typing.Optional[str]
-
-### SnapshotType
-- **Type**: typing.Optional[str]
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.FilterTypeDef]]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-### Marker
-- **Type**: typing.Optional[str]
-
-### IncludeShared
-- **Type**: typing.Optional[bool]
-
-### IncludePublic
-- **Type**: typing.Optional[bool]
-
-### DbClusterResourceId
-- **Type**: typing.Optional[str]
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.WaiterConfigTypeDef]
-
-
-# DescribeDBClusterSnapshotsMessageDBClusterSnapshotDeletedWaitTypeDef
-
-### DBClusterIdentifier
-- **Type**: typing.Optional[str]
-
-### DBClusterSnapshotIdentifier
-- **Type**: typing.Optional[str]
-
-### SnapshotType
-- **Type**: typing.Optional[str]
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.FilterTypeDef]]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-### Marker
-- **Type**: typing.Optional[str]
-
-### IncludeShared
-- **Type**: typing.Optional[bool]
-
-### IncludePublic
-- **Type**: typing.Optional[bool]
-
-### DbClusterResourceId
-- **Type**: typing.Optional[str]
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.WaiterConfigTypeDef]
-
-
-# DescribeDBClusterSnapshotsMessageDescribeDBClusterSnapshotsPaginateTypeDef
+# DescribeDBClusterSnapshotsMessagePaginateTypeDef
 
 ### DBClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -4421,7 +4419,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBClusterSnapshotsMessageRequestTypeDef
+# DescribeDBClusterSnapshotsMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -4451,9 +4449,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDBClustersMessageDBClusterAvailableWaitTypeDef
+# DescribeDBClusterSnapshotsMessageWaitExtraTypeDef
 
 ### DBClusterIdentifier
+- **Type**: typing.Optional[str]
+
+### DBClusterSnapshotIdentifier
+- **Type**: typing.Optional[str]
+
+### SnapshotType
 - **Type**: typing.Optional[str]
 
 ### Filters
@@ -4468,13 +4472,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### IncludeShared
 - **Type**: typing.Optional[bool]
 
+### IncludePublic
+- **Type**: typing.Optional[bool]
+
+### DbClusterResourceId
+- **Type**: typing.Optional[str]
+
 ### WaiterConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.WaiterConfigTypeDef]
 
 
-# DescribeDBClustersMessageDBClusterDeletedWaitTypeDef
+# DescribeDBClusterSnapshotsMessageWaitTypeDef
 
 ### DBClusterIdentifier
+- **Type**: typing.Optional[str]
+
+### DBClusterSnapshotIdentifier
+- **Type**: typing.Optional[str]
+
+### SnapshotType
 - **Type**: typing.Optional[str]
 
 ### Filters
@@ -4489,11 +4505,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### IncludeShared
 - **Type**: typing.Optional[bool]
 
+### IncludePublic
+- **Type**: typing.Optional[bool]
+
+### DbClusterResourceId
+- **Type**: typing.Optional[str]
+
 ### WaiterConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.WaiterConfigTypeDef]
 
 
-# DescribeDBClustersMessageDescribeDBClustersPaginateTypeDef
+# DescribeDBClustersMessagePaginateTypeDef
 
 ### DBClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -4508,7 +4530,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBClustersMessageRequestTypeDef
+# DescribeDBClustersMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -4526,7 +4548,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DescribeDBEngineVersionsMessageDescribeDBEngineVersionsPaginateTypeDef
+# DescribeDBClustersMessageWaitExtraTypeDef
+
+### DBClusterIdentifier
+- **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.FilterTypeDef]]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
+
+### Marker
+- **Type**: typing.Optional[str]
+
+### IncludeShared
+- **Type**: typing.Optional[bool]
+
+### WaiterConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.WaiterConfigTypeDef]
+
+
+# DescribeDBClustersMessageWaitTypeDef
+
+### DBClusterIdentifier
+- **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.FilterTypeDef]]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
+
+### Marker
+- **Type**: typing.Optional[str]
+
+### IncludeShared
+- **Type**: typing.Optional[bool]
+
+### WaiterConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.WaiterConfigTypeDef]
+
+
+# DescribeDBEngineVersionsMessagePaginateTypeDef
 
 ### Engine
 - **Type**: typing.Optional[str]
@@ -4556,7 +4620,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBEngineVersionsMessageRequestTypeDef
+# DescribeDBEngineVersionsMessageTypeDef
 
 ### Engine
 - **Type**: typing.Optional[str]
@@ -4589,7 +4653,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DescribeDBInstanceAutomatedBackupsMessageDescribeDBInstanceAutomatedBackupsPaginateTypeDef
+# DescribeDBInstanceAutomatedBackupsMessagePaginateTypeDef
 
 ### DbiResourceId
 - **Type**: typing.Optional[str]
@@ -4607,7 +4671,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBInstanceAutomatedBackupsMessageRequestTypeDef
+# DescribeDBInstanceAutomatedBackupsMessageTypeDef
 
 ### DbiResourceId
 - **Type**: typing.Optional[str]
@@ -4628,43 +4692,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDBInstancesMessageDBInstanceAvailableWaitTypeDef
-
-### DBInstanceIdentifier
-- **Type**: typing.Optional[str]
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.FilterTypeDef]]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-### Marker
-- **Type**: typing.Optional[str]
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.WaiterConfigTypeDef]
-
-
-# DescribeDBInstancesMessageDBInstanceDeletedWaitTypeDef
-
-### DBInstanceIdentifier
-- **Type**: typing.Optional[str]
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.FilterTypeDef]]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-### Marker
-- **Type**: typing.Optional[str]
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.WaiterConfigTypeDef]
-
-
-# DescribeDBInstancesMessageDescribeDBInstancesPaginateTypeDef
+# DescribeDBInstancesMessagePaginateTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: typing.Optional[str]
@@ -4676,7 +4704,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBInstancesMessageRequestTypeDef
+# DescribeDBInstancesMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: typing.Optional[str]
@@ -4689,6 +4717,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Marker
 - **Type**: typing.Optional[str]
+
+
+# DescribeDBInstancesMessageWaitExtraTypeDef
+
+### DBInstanceIdentifier
+- **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.FilterTypeDef]]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
+
+### Marker
+- **Type**: typing.Optional[str]
+
+### WaiterConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.WaiterConfigTypeDef]
+
+
+# DescribeDBInstancesMessageWaitTypeDef
+
+### DBInstanceIdentifier
+- **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.FilterTypeDef]]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
+
+### Marker
+- **Type**: typing.Optional[str]
+
+### WaiterConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.WaiterConfigTypeDef]
 
 
 # DescribeDBLogFilesDetailsTypeDef
@@ -4703,7 +4767,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeDBLogFilesMessageDescribeDBLogFilesPaginateTypeDef
+# DescribeDBLogFilesMessagePaginateTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -4725,7 +4789,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBLogFilesMessageRequestTypeDef
+# DescribeDBLogFilesMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -4765,7 +4829,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDBParameterGroupsMessageDescribeDBParameterGroupsPaginateTypeDef
+# DescribeDBParameterGroupsMessagePaginateTypeDef
 
 ### DBParameterGroupName
 - **Type**: typing.Optional[str]
@@ -4777,7 +4841,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBParameterGroupsMessageRequestTypeDef
+# DescribeDBParameterGroupsMessageTypeDef
 
 ### DBParameterGroupName
 - **Type**: typing.Optional[str]
@@ -4792,7 +4856,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDBParametersMessageDescribeDBParametersPaginateTypeDef
+# DescribeDBParametersMessagePaginateTypeDef
 
 ### DBParameterGroupName
 - **Type**: <class 'str'>
@@ -4808,7 +4872,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBParametersMessageRequestTypeDef
+# DescribeDBParametersMessageTypeDef
 
 ### DBParameterGroupName
 - **Type**: <class 'str'>
@@ -4827,7 +4891,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDBProxiesRequestDescribeDBProxiesPaginateTypeDef
+# DescribeDBProxiesRequestPaginateTypeDef
 
 ### DBProxyName
 - **Type**: typing.Optional[str]
@@ -4839,7 +4903,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBProxiesRequestRequestTypeDef
+# DescribeDBProxiesRequestTypeDef
 
 ### DBProxyName
 - **Type**: typing.Optional[str]
@@ -4869,7 +4933,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDBProxyEndpointsRequestDescribeDBProxyEndpointsPaginateTypeDef
+# DescribeDBProxyEndpointsRequestPaginateTypeDef
 
 ### DBProxyName
 - **Type**: typing.Optional[str]
@@ -4884,7 +4948,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBProxyEndpointsRequestRequestTypeDef
+# DescribeDBProxyEndpointsRequestTypeDef
 
 ### DBProxyName
 - **Type**: typing.Optional[str]
@@ -4917,7 +4981,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDBProxyTargetGroupsRequestDescribeDBProxyTargetGroupsPaginateTypeDef
+# DescribeDBProxyTargetGroupsRequestPaginateTypeDef
 
 ### DBProxyName
 - **Type**: <class 'str'>
@@ -4933,7 +4997,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBProxyTargetGroupsRequestRequestTypeDef
+# DescribeDBProxyTargetGroupsRequestTypeDef
 
 ### DBProxyName
 - **Type**: <class 'str'>
@@ -4967,7 +5031,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDBProxyTargetsRequestDescribeDBProxyTargetsPaginateTypeDef
+# DescribeDBProxyTargetsRequestPaginateTypeDef
 
 ### DBProxyName
 - **Type**: <class 'str'>
@@ -4983,7 +5047,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBProxyTargetsRequestRequestTypeDef
+# DescribeDBProxyTargetsRequestTypeDef
 
 ### DBProxyName
 - **Type**: <class 'str'>
@@ -5017,13 +5081,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDBRecommendationsMessageDescribeDBRecommendationsPaginateTypeDef
+# DescribeDBRecommendationsMessagePaginateTypeDef
 
 ### LastUpdatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.TimestampTypeDef]
 
 ### LastUpdatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.TimestampTypeDef]
 
 ### Locale
 - **Type**: typing.Optional[str]
@@ -5035,13 +5099,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBRecommendationsMessageRequestTypeDef
+# DescribeDBRecommendationsMessageTypeDef
 
 ### LastUpdatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.TimestampTypeDef]
 
 ### LastUpdatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.TimestampTypeDef]
 
 ### Locale
 - **Type**: typing.Optional[str]
@@ -5056,7 +5120,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDBSecurityGroupsMessageDescribeDBSecurityGroupsPaginateTypeDef
+# DescribeDBSecurityGroupsMessagePaginateTypeDef
 
 ### DBSecurityGroupName
 - **Type**: typing.Optional[str]
@@ -5068,7 +5132,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBSecurityGroupsMessageRequestTypeDef
+# DescribeDBSecurityGroupsMessageTypeDef
 
 ### DBSecurityGroupName
 - **Type**: typing.Optional[str]
@@ -5083,7 +5147,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDBShardGroupsMessageRequestTypeDef
+# DescribeDBShardGroupsMessageTypeDef
 
 ### DBShardGroupIdentifier
 - **Type**: typing.Optional[str]
@@ -5113,7 +5177,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDBSnapshotAttributesMessageRequestTypeDef
+# DescribeDBSnapshotAttributesMessageTypeDef
 
 ### DBSnapshotIdentifier
 - **Type**: <class 'str'>
@@ -5131,7 +5195,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDBSnapshotTenantDatabasesMessageRequestTypeDef
+# DescribeDBSnapshotTenantDatabasesMessagePaginateTypeDef
+
+### DBInstanceIdentifier
+- **Type**: typing.Optional[str]
+
+### DBSnapshotIdentifier
+- **Type**: typing.Optional[str]
+
+### SnapshotType
+- **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.FilterTypeDef]]
+
+### DbiResourceId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
+
+
+# DescribeDBSnapshotTenantDatabasesMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: typing.Optional[str]
@@ -5155,106 +5240,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDBSnapshotsMessageDBSnapshotAvailableWaitTypeDef
-
-### DBInstanceIdentifier
-- **Type**: typing.Optional[str]
-
-### DBSnapshotIdentifier
-- **Type**: typing.Optional[str]
-
-### SnapshotType
-- **Type**: typing.Optional[str]
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.FilterTypeDef]]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-### Marker
-- **Type**: typing.Optional[str]
-
-### IncludeShared
-- **Type**: typing.Optional[bool]
-
-### IncludePublic
-- **Type**: typing.Optional[bool]
-
-### DbiResourceId
-- **Type**: typing.Optional[str]
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.WaiterConfigTypeDef]
-
-
-# DescribeDBSnapshotsMessageDBSnapshotCompletedWaitTypeDef
-
-### DBInstanceIdentifier
-- **Type**: typing.Optional[str]
-
-### DBSnapshotIdentifier
-- **Type**: typing.Optional[str]
-
-### SnapshotType
-- **Type**: typing.Optional[str]
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.FilterTypeDef]]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-### Marker
-- **Type**: typing.Optional[str]
-
-### IncludeShared
-- **Type**: typing.Optional[bool]
-
-### IncludePublic
-- **Type**: typing.Optional[bool]
-
-### DbiResourceId
-- **Type**: typing.Optional[str]
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.WaiterConfigTypeDef]
-
-
-# DescribeDBSnapshotsMessageDBSnapshotDeletedWaitTypeDef
-
-### DBInstanceIdentifier
-- **Type**: typing.Optional[str]
-
-### DBSnapshotIdentifier
-- **Type**: typing.Optional[str]
-
-### SnapshotType
-- **Type**: typing.Optional[str]
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.FilterTypeDef]]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-### Marker
-- **Type**: typing.Optional[str]
-
-### IncludeShared
-- **Type**: typing.Optional[bool]
-
-### IncludePublic
-- **Type**: typing.Optional[bool]
-
-### DbiResourceId
-- **Type**: typing.Optional[str]
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.WaiterConfigTypeDef]
-
-
-# DescribeDBSnapshotsMessageDescribeDBSnapshotsPaginateTypeDef
+# DescribeDBSnapshotsMessagePaginateTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: typing.Optional[str]
@@ -5281,7 +5267,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBSnapshotsMessageRequestTypeDef
+# DescribeDBSnapshotsMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: typing.Optional[str]
@@ -5311,7 +5297,106 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDBSubnetGroupsMessageDescribeDBSubnetGroupsPaginateTypeDef
+# DescribeDBSnapshotsMessageWaitExtraExtraTypeDef
+
+### DBInstanceIdentifier
+- **Type**: typing.Optional[str]
+
+### DBSnapshotIdentifier
+- **Type**: typing.Optional[str]
+
+### SnapshotType
+- **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.FilterTypeDef]]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
+
+### Marker
+- **Type**: typing.Optional[str]
+
+### IncludeShared
+- **Type**: typing.Optional[bool]
+
+### IncludePublic
+- **Type**: typing.Optional[bool]
+
+### DbiResourceId
+- **Type**: typing.Optional[str]
+
+### WaiterConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.WaiterConfigTypeDef]
+
+
+# DescribeDBSnapshotsMessageWaitExtraTypeDef
+
+### DBInstanceIdentifier
+- **Type**: typing.Optional[str]
+
+### DBSnapshotIdentifier
+- **Type**: typing.Optional[str]
+
+### SnapshotType
+- **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.FilterTypeDef]]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
+
+### Marker
+- **Type**: typing.Optional[str]
+
+### IncludeShared
+- **Type**: typing.Optional[bool]
+
+### IncludePublic
+- **Type**: typing.Optional[bool]
+
+### DbiResourceId
+- **Type**: typing.Optional[str]
+
+### WaiterConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.WaiterConfigTypeDef]
+
+
+# DescribeDBSnapshotsMessageWaitTypeDef
+
+### DBInstanceIdentifier
+- **Type**: typing.Optional[str]
+
+### DBSnapshotIdentifier
+- **Type**: typing.Optional[str]
+
+### SnapshotType
+- **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.FilterTypeDef]]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
+
+### Marker
+- **Type**: typing.Optional[str]
+
+### IncludeShared
+- **Type**: typing.Optional[bool]
+
+### IncludePublic
+- **Type**: typing.Optional[bool]
+
+### DbiResourceId
+- **Type**: typing.Optional[str]
+
+### WaiterConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.WaiterConfigTypeDef]
+
+
+# DescribeDBSubnetGroupsMessagePaginateTypeDef
 
 ### DBSubnetGroupName
 - **Type**: typing.Optional[str]
@@ -5323,7 +5408,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBSubnetGroupsMessageRequestTypeDef
+# DescribeDBSubnetGroupsMessageTypeDef
 
 ### DBSubnetGroupName
 - **Type**: typing.Optional[str]
@@ -5338,7 +5423,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeEngineDefaultClusterParametersMessageDescribeEngineDefaultClusterParametersPaginateTypeDef
+# DescribeEngineDefaultClusterParametersMessagePaginateTypeDef
 
 ### DBParameterGroupFamily
 - **Type**: <class 'str'>
@@ -5351,7 +5436,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeEngineDefaultClusterParametersMessageRequestTypeDef
+# DescribeEngineDefaultClusterParametersMessageTypeDef
 
 ### DBParameterGroupFamily
 - **Type**: <class 'str'>
@@ -5378,7 +5463,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEngineDefaultParametersMessageDescribeEngineDefaultParametersPaginateTypeDef
+# DescribeEngineDefaultParametersMessagePaginateTypeDef
 
 ### DBParameterGroupFamily
 - **Type**: <class 'str'>
@@ -5391,7 +5476,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeEngineDefaultParametersMessageRequestTypeDef
+# DescribeEngineDefaultParametersMessageTypeDef
 
 ### DBParameterGroupFamily
 - **Type**: <class 'str'>
@@ -5418,7 +5503,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEventCategoriesMessageRequestTypeDef
+# DescribeEventCategoriesMessageTypeDef
 
 ### SourceType
 - **Type**: typing.Optional[str]
@@ -5427,7 +5512,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.FilterTypeDef]]
 
 
-# DescribeEventSubscriptionsMessageDescribeEventSubscriptionsPaginateTypeDef
+# DescribeEventSubscriptionsMessagePaginateTypeDef
 
 ### SubscriptionName
 - **Type**: typing.Optional[str]
@@ -5439,7 +5524,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeEventSubscriptionsMessageRequestTypeDef
+# DescribeEventSubscriptionsMessageTypeDef
 
 ### SubscriptionName
 - **Type**: typing.Optional[str]
@@ -5454,7 +5539,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeEventsMessageDescribeEventsPaginateTypeDef
+# DescribeEventsMessagePaginateTypeDef
 
 ### SourceIdentifier
 - **Type**: typing.Optional[str]
@@ -5463,10 +5548,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['blue-green-deployment', 'custom-engine-version', 'db-cluster', 'db-cluster-snapshot', 'db-instance', 'db-parameter-group', 'db-proxy', 'db-security-group', 'db-snapshot']]
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.TimestampTypeDef]
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.TimestampTypeDef]
 
 ### Duration
 - **Type**: typing.Optional[int]
@@ -5481,7 +5566,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeEventsMessageRequestTypeDef
+# DescribeEventsMessageTypeDef
 
 ### SourceIdentifier
 - **Type**: typing.Optional[str]
@@ -5490,10 +5575,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['blue-green-deployment', 'custom-engine-version', 'db-cluster', 'db-cluster-snapshot', 'db-instance', 'db-parameter-group', 'db-proxy', 'db-security-group', 'db-snapshot']]
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.TimestampTypeDef]
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.TimestampTypeDef]
 
 ### Duration
 - **Type**: typing.Optional[int]
@@ -5511,7 +5596,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeExportTasksMessageDescribeExportTasksPaginateTypeDef
+# DescribeExportTasksMessagePaginateTypeDef
 
 ### ExportTaskIdentifier
 - **Type**: typing.Optional[str]
@@ -5529,7 +5614,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeExportTasksMessageRequestTypeDef
+# DescribeExportTasksMessageTypeDef
 
 ### ExportTaskIdentifier
 - **Type**: typing.Optional[str]
@@ -5550,7 +5635,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CLUSTER', 'SNAPSHOT']]
 
 
-# DescribeGlobalClustersMessageDescribeGlobalClustersPaginateTypeDef
+# DescribeGlobalClustersMessagePaginateTypeDef
 
 ### GlobalClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -5562,7 +5647,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeGlobalClustersMessageRequestTypeDef
+# DescribeGlobalClustersMessageTypeDef
 
 ### GlobalClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -5577,7 +5662,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeIntegrationsMessageDescribeIntegrationsPaginateTypeDef
+# DescribeIntegrationsMessagePaginateTypeDef
 
 ### IntegrationIdentifier
 - **Type**: typing.Optional[str]
@@ -5589,7 +5674,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeIntegrationsMessageRequestTypeDef
+# DescribeIntegrationsMessageTypeDef
 
 ### IntegrationIdentifier
 - **Type**: typing.Optional[str]
@@ -5619,7 +5704,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeOptionGroupOptionsMessageDescribeOptionGroupOptionsPaginateTypeDef
+# DescribeOptionGroupOptionsMessagePaginateTypeDef
 
 ### EngineName
 - **Type**: <class 'str'>
@@ -5635,7 +5720,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeOptionGroupOptionsMessageRequestTypeDef
+# DescribeOptionGroupOptionsMessageTypeDef
 
 ### EngineName
 - **Type**: <class 'str'>
@@ -5654,7 +5739,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeOptionGroupsMessageDescribeOptionGroupsPaginateTypeDef
+# DescribeOptionGroupsMessagePaginateTypeDef
 
 ### OptionGroupName
 - **Type**: typing.Optional[str]
@@ -5672,7 +5757,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeOptionGroupsMessageRequestTypeDef
+# DescribeOptionGroupsMessageTypeDef
 
 ### OptionGroupName
 - **Type**: typing.Optional[str]
@@ -5693,7 +5778,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeOrderableDBInstanceOptionsMessageDescribeOrderableDBInstanceOptionsPaginateTypeDef
+# DescribeOrderableDBInstanceOptionsMessagePaginateTypeDef
 
 ### Engine
 - **Type**: <class 'str'>
@@ -5721,7 +5806,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeOrderableDBInstanceOptionsMessageRequestTypeDef
+# DescribeOrderableDBInstanceOptionsMessageTypeDef
 
 ### Engine
 - **Type**: <class 'str'>
@@ -5752,7 +5837,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribePendingMaintenanceActionsMessageRequestTypeDef
+# DescribePendingMaintenanceActionsMessagePaginateTypeDef
+
+### ResourceIdentifier
+- **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.FilterTypeDef]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
+
+
+# DescribePendingMaintenanceActionsMessageTypeDef
 
 ### ResourceIdentifier
 - **Type**: typing.Optional[str]
@@ -5767,7 +5864,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeReservedDBInstancesMessageDescribeReservedDBInstancesPaginateTypeDef
+# DescribeReservedDBInstancesMessagePaginateTypeDef
 
 ### ReservedDBInstanceId
 - **Type**: typing.Optional[str]
@@ -5800,7 +5897,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeReservedDBInstancesMessageRequestTypeDef
+# DescribeReservedDBInstancesMessageTypeDef
 
 ### ReservedDBInstanceId
 - **Type**: typing.Optional[str]
@@ -5836,7 +5933,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeReservedDBInstancesOfferingsMessageDescribeReservedDBInstancesOfferingsPaginateTypeDef
+# DescribeReservedDBInstancesOfferingsMessagePaginateTypeDef
 
 ### ReservedDBInstancesOfferingId
 - **Type**: typing.Optional[str]
@@ -5863,7 +5960,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeReservedDBInstancesOfferingsMessageRequestTypeDef
+# DescribeReservedDBInstancesOfferingsMessageTypeDef
 
 ### ReservedDBInstancesOfferingId
 - **Type**: typing.Optional[str]
@@ -5893,34 +5990,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeSourceRegionsMessageDescribeSourceRegionsPaginateTypeDef
-
-### RegionName
-- **Type**: typing.Optional[str]
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.FilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
-
-
-# DescribeSourceRegionsMessageRequestTypeDef
-
-### RegionName
-- **Type**: typing.Optional[str]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-### Marker
-- **Type**: typing.Optional[str]
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.FilterTypeDef]]
-
-
-# DescribeTenantDatabasesMessageDescribeTenantDatabasesPaginateTypeDef
+# DescribeTenantDatabasesMessagePaginateTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: typing.Optional[str]
@@ -5935,7 +6005,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeTenantDatabasesMessageRequestTypeDef
+# DescribeTenantDatabasesMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: typing.Optional[str]
@@ -5953,7 +6023,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeTenantDatabasesMessageTenantDatabaseAvailableWaitTypeDef
+# DescribeTenantDatabasesMessageWaitExtraTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: typing.Optional[str]
@@ -5974,7 +6044,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.WaiterConfigTypeDef]
 
 
-# DescribeTenantDatabasesMessageTenantDatabaseDeletedWaitTypeDef
+# DescribeTenantDatabasesMessageWaitTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: typing.Optional[str]
@@ -5995,7 +6065,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.WaiterConfigTypeDef]
 
 
-# DescribeValidDBInstanceModificationsMessageRequestTypeDef
+# DescribeValidDBInstanceModificationsMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -6013,7 +6083,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisableHttpEndpointRequestRequestTypeDef
+# DisableHttpEndpointRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -6037,12 +6107,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DocLinkTypeDef
 
-### Text
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Url
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DomainMembershipTypeDef
 
@@ -6096,7 +6163,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DownloadDBLogFilePortionMessageDownloadDBLogFilePortionPaginateTypeDef
+# DownloadDBLogFilePortionMessagePaginateTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -6110,7 +6177,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfigTypeDef]
 
 
-# DownloadDBLogFilePortionMessageRequestTypeDef
+# DownloadDBLogFilePortionMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -6149,7 +6216,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EnableHttpEndpointRequestRequestTypeDef
+# EnableHttpEndpointRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -6436,7 +6503,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# FailoverDBClusterMessageRequestTypeDef
+# FailoverDBClusterMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -6457,7 +6524,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# FailoverGlobalClusterMessageRequestTypeDef
+# FailoverGlobalClusterMessageTypeDef
 
 ### GlobalClusterIdentifier
 - **Type**: <class 'str'>
@@ -6564,8 +6631,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### GlobalClusterMembers
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.GlobalClusterMemberTypeDef]]
 
+### Endpoint
+- **Type**: typing.Optional[str]
+
 ### FailoverState
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.FailoverStateTypeDef]
+
+### TagList
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.TagTypeDef]]
 
 
 # GlobalClustersMessageTypeDef
@@ -6711,7 +6784,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# ListTagsForResourceMessageRequestTypeDef
+# ListTagsForResourceMessageTypeDef
 
 ### ResourceName
 - **Type**: <class 'str'>
@@ -6772,7 +6845,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ModifyActivityStreamRequestRequestTypeDef
+# ModifyActivityStreamRequestTypeDef
 
 ### ResourceArn
 - **Type**: typing.Optional[str]
@@ -6812,7 +6885,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyCertificatesMessageRequestTypeDef
+# ModifyCertificatesMessageTypeDef
 
 ### CertificateIdentifier
 - **Type**: typing.Optional[str]
@@ -6832,7 +6905,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyCurrentDBClusterCapacityMessageRequestTypeDef
+# ModifyCurrentDBClusterCapacityMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -6848,7 +6921,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ModifyCustomDBEngineVersionMessageRequestTypeDef
+# ModifyCustomDBEngineVersionMessageTypeDef
 
 ### Engine
 - **Type**: <class 'str'>
@@ -6865,7 +6938,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['available', 'inactive', 'inactive-except-restore']]
 
 
-# ModifyDBClusterEndpointMessageRequestTypeDef
+# ModifyDBClusterEndpointMessageTypeDef
 
 ### DBClusterEndpointIdentifier
 - **Type**: <class 'str'>
@@ -6881,7 +6954,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ModifyDBClusterMessageRequestTypeDef
+# ModifyDBClusterMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -6977,6 +7050,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### MonitoringRoleArn
 - **Type**: typing.Optional[str]
 
+### DatabaseInsightsMode
+- **Type**: typing.Optional[typing.Literal['advanced', 'standard']]
+
 ### EnablePerformanceInsights
 - **Type**: typing.Optional[bool]
 
@@ -7020,14 +7096,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ModifyDBClusterParameterGroupMessageRequestTypeDef
+# ModifyDBClusterParameterGroupMessageTypeDef
 
 ### DBClusterParameterGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.rds_classes.ParameterTypeDef, aws_resource_validator.pydantic_models.rds_classes.ParameterExtraOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.ParameterUnionTypeDef]
 - **Required**: Yes
 
 
@@ -7042,7 +7118,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyDBClusterSnapshotAttributeMessageRequestTypeDef
+# ModifyDBClusterSnapshotAttributeMessageTypeDef
 
 ### DBClusterSnapshotIdentifier
 - **Type**: <class 'str'>
@@ -7070,7 +7146,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyDBInstanceMessageRequestTypeDef
+# ModifyDBInstanceMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -7187,6 +7263,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### EnableIAMDatabaseAuthentication
 - **Type**: typing.Optional[bool]
 
+### DatabaseInsightsMode
+- **Type**: typing.Optional[typing.Literal['advanced', 'standard']]
+
 ### EnablePerformanceInsights
 - **Type**: typing.Optional[bool]
 
@@ -7265,18 +7344,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyDBParameterGroupMessageRequestTypeDef
+# ModifyDBParameterGroupMessageTypeDef
 
 ### DBParameterGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.rds_classes.ParameterTypeDef, aws_resource_validator.pydantic_models.rds_classes.ParameterExtraOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.ParameterUnionTypeDef]
 - **Required**: Yes
 
 
-# ModifyDBProxyEndpointRequestRequestTypeDef
+# ModifyDBProxyEndpointRequestTypeDef
 
 ### DBProxyEndpointName
 - **Type**: <class 'str'>
@@ -7300,7 +7379,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyDBProxyRequestRequestTypeDef
+# ModifyDBProxyRequestTypeDef
 
 ### DBProxyName
 - **Type**: <class 'str'>
@@ -7339,7 +7418,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyDBProxyTargetGroupRequestRequestTypeDef
+# ModifyDBProxyTargetGroupRequestTypeDef
 
 ### TargetGroupName
 - **Type**: <class 'str'>
@@ -7367,7 +7446,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyDBRecommendationMessageRequestTypeDef
+# ModifyDBRecommendationMessageTypeDef
 
 ### RecommendationId
 - **Type**: <class 'str'>
@@ -7383,7 +7462,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.RecommendedActionUpdateTypeDef]]
 
 
-# ModifyDBShardGroupMessageRequestTypeDef
+# ModifyDBShardGroupMessageTypeDef
 
 ### DBShardGroupIdentifier
 - **Type**: <class 'str'>
@@ -7392,8 +7471,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### MaxACU
 - **Type**: typing.Optional[float]
 
+### MinACU
+- **Type**: typing.Optional[float]
 
-# ModifyDBSnapshotAttributeMessageRequestTypeDef
+### ComputeRedundancy
+- **Type**: typing.Optional[int]
+
+
+# ModifyDBSnapshotAttributeMessageTypeDef
 
 ### DBSnapshotIdentifier
 - **Type**: <class 'str'>
@@ -7421,7 +7506,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyDBSnapshotMessageRequestTypeDef
+# ModifyDBSnapshotMessageTypeDef
 
 ### DBSnapshotIdentifier
 - **Type**: <class 'str'>
@@ -7445,7 +7530,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyDBSubnetGroupMessageRequestTypeDef
+# ModifyDBSubnetGroupMessageTypeDef
 
 ### DBSubnetGroupName
 - **Type**: <class 'str'>
@@ -7470,7 +7555,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyEventSubscriptionMessageRequestTypeDef
+# ModifyEventSubscriptionMessageTypeDef
 
 ### SubscriptionName
 - **Type**: <class 'str'>
@@ -7500,7 +7585,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyGlobalClusterMessageRequestTypeDef
+# ModifyGlobalClusterMessageTypeDef
 
 ### GlobalClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -7529,7 +7614,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyIntegrationMessageRequestTypeDef
+# ModifyIntegrationMessageTypeDef
 
 ### IntegrationIdentifier
 - **Type**: <class 'str'>
@@ -7545,7 +7630,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ModifyOptionGroupMessageRequestTypeDef
+# ModifyOptionGroupMessageTypeDef
 
 ### OptionGroupName
 - **Type**: <class 'str'>
@@ -7572,7 +7657,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyTenantDatabaseMessageRequestTypeDef
+# ModifyTenantDatabaseMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -7991,42 +8076,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ParameterExtraOutputTypeDef
-
-### ParameterName
-- **Type**: typing.Optional[str]
-
-### ParameterValue
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Source
-- **Type**: typing.Optional[str]
-
-### ApplyType
-- **Type**: typing.Optional[str]
-
-### DataType
-- **Type**: typing.Optional[str]
-
-### AllowedValues
-- **Type**: typing.Optional[str]
-
-### IsModifiable
-- **Type**: typing.Optional[bool]
-
-### MinimumEngineVersion
-- **Type**: typing.Optional[str]
-
-### ApplyMethod
-- **Type**: typing.Optional[typing.Literal['immediate', 'pending-reboot']]
-
-### SupportedEngineModes
-- **Type**: typing.Optional[typing.List[str]]
-
-
 # ParameterOutputTypeDef
 
 ### ParameterName
@@ -8098,6 +8147,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### SupportedEngineModes
 - **Type**: typing.Optional[typing.Sequence[str]]
 
+
+# ParameterUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PendingCloudwatchLogsExportsTypeDef
 
@@ -8258,7 +8313,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PromoteReadReplicaDBClusterMessageRequestTypeDef
+# PromoteReadReplicaDBClusterMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -8276,7 +8331,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PromoteReadReplicaMessageRequestTypeDef
+# PromoteReadReplicaMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -8300,7 +8355,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PurchaseReservedDBInstancesOfferingMessageRequestTypeDef
+# PurchaseReservedDBInstancesOfferingMessageTypeDef
 
 ### ReservedDBInstancesOfferingId
 - **Type**: <class 'str'>
@@ -8351,7 +8406,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['mounted', 'open-read-only']]
 
 
-# RebootDBClusterMessageRequestTypeDef
+# RebootDBClusterMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -8369,7 +8424,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RebootDBInstanceMessageRequestTypeDef
+# RebootDBInstanceMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -8390,7 +8445,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RebootDBShardGroupMessageRequestTypeDef
+# RebootDBShardGroupMessageTypeDef
 
 ### DBShardGroupIdentifier
 - **Type**: <class 'str'>
@@ -8462,7 +8517,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.ScalarReferenceDetailsTypeDef]
 
 
-# RegisterDBProxyTargetsRequestRequestTypeDef
+# RegisterDBProxyTargetsRequestTypeDef
 
 ### DBProxyName
 - **Type**: <class 'str'>
@@ -8489,7 +8544,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveFromGlobalClusterMessageRequestTypeDef
+# RemoveFromGlobalClusterMessageTypeDef
 
 ### GlobalClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -8509,7 +8564,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveRoleFromDBClusterMessageRequestTypeDef
+# RemoveRoleFromDBClusterMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -8523,7 +8578,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RemoveRoleFromDBInstanceMessageRequestTypeDef
+# RemoveRoleFromDBInstanceMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -8538,7 +8593,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveSourceIdentifierFromSubscriptionMessageRequestTypeDef
+# RemoveSourceIdentifierFromSubscriptionMessageTypeDef
 
 ### SubscriptionName
 - **Type**: <class 'str'>
@@ -8560,7 +8615,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveTagsFromResourceMessageRequestTypeDef
+# RemoveTagsFromResourceMessageTypeDef
 
 ### ResourceName
 - **Type**: <class 'str'>
@@ -8685,7 +8740,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.RecurringChargeTypeDef]]
 
 
-# ResetDBClusterParameterGroupMessageRequestTypeDef
+# ResetDBClusterParameterGroupMessageTypeDef
 
 ### DBClusterParameterGroupName
 - **Type**: <class 'str'>
@@ -8695,10 +8750,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.rds_classes.ParameterTypeDef, aws_resource_validator.pydantic_models.rds_classes.ParameterExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.ParameterUnionTypeDef]]
 
 
-# ResetDBParameterGroupMessageRequestTypeDef
+# ResetDBParameterGroupMessageTypeDef
 
 ### DBParameterGroupName
 - **Type**: <class 'str'>
@@ -8708,7 +8763,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.rds_classes.ParameterTypeDef, aws_resource_validator.pydantic_models.rds_classes.ParameterExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.ParameterUnionTypeDef]]
 
 
 # ResourcePendingMaintenanceActionsTypeDef
@@ -8742,7 +8797,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RestoreDBClusterFromS3MessageRequestTypeDef
+# RestoreDBClusterFromS3MessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -8874,7 +8929,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RestoreDBClusterFromSnapshotMessageRequestTypeDef
+# RestoreDBClusterFromSnapshotMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -8966,6 +9021,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RdsCustomClusterConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.RdsCustomClusterConfigurationTypeDef]
 
+### MonitoringInterval
+- **Type**: typing.Optional[int]
+
+### MonitoringRoleArn
+- **Type**: typing.Optional[str]
+
+### EnablePerformanceInsights
+- **Type**: typing.Optional[bool]
+
+### PerformanceInsightsKMSKeyId
+- **Type**: typing.Optional[str]
+
+### PerformanceInsightsRetentionPeriod
+- **Type**: typing.Optional[int]
+
 ### EngineLifecycleSupport
 - **Type**: typing.Optional[str]
 
@@ -8981,7 +9051,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RestoreDBClusterToPointInTimeMessageRequestTypeDef
+# RestoreDBClusterToPointInTimeMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -8994,7 +9064,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RestoreToTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.TimestampTypeDef]
 
 ### UseLatestRestorableTime
 - **Type**: typing.Optional[bool]
@@ -9071,6 +9141,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RdsCustomClusterConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.RdsCustomClusterConfigurationTypeDef]
 
+### MonitoringInterval
+- **Type**: typing.Optional[int]
+
+### MonitoringRoleArn
+- **Type**: typing.Optional[str]
+
+### EnablePerformanceInsights
+- **Type**: typing.Optional[bool]
+
+### PerformanceInsightsKMSKeyId
+- **Type**: typing.Optional[str]
+
+### PerformanceInsightsRetentionPeriod
+- **Type**: typing.Optional[int]
+
 ### EngineLifecycleSupport
 - **Type**: typing.Optional[str]
 
@@ -9086,7 +9171,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RestoreDBInstanceFromDBSnapshotMessageRequestTypeDef
+# RestoreDBInstanceFromDBSnapshotMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -9227,7 +9312,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RestoreDBInstanceFromS3MessageRequestTypeDef
+# RestoreDBInstanceFromS3MessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -9344,6 +9429,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### S3Prefix
 - **Type**: typing.Optional[str]
 
+### DatabaseInsightsMode
+- **Type**: typing.Optional[typing.Literal['advanced', 'standard']]
+
 ### EnablePerformanceInsights
 - **Type**: typing.Optional[bool]
 
@@ -9401,7 +9489,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RestoreDBInstanceToPointInTimeMessageRequestTypeDef
+# RestoreDBInstanceToPointInTimeMessageTypeDef
 
 ### TargetDBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -9411,7 +9499,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RestoreTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.TimestampTypeDef]
 
 ### UseLatestRestorableTime
 - **Type**: typing.Optional[bool]
@@ -9563,7 +9651,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# RevokeDBSecurityGroupIngressMessageRequestTypeDef
+# RevokeDBSecurityGroupIngressMessageTypeDef
 
 ### DBSecurityGroupName
 - **Type**: <class 'str'>
@@ -9641,6 +9729,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
+# ServerlessV2FeaturesSupportTypeDef
+
+### MinCapacity
+- **Type**: typing.Optional[float]
+
+### MaxCapacity
+- **Type**: typing.Optional[float]
+
+
 # ServerlessV2ScalingConfigurationInfoTypeDef
 
 ### MinCapacity
@@ -9648,6 +9745,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### MaxCapacity
 - **Type**: typing.Optional[float]
+
+### SecondsUntilAutoPause
+- **Type**: typing.Optional[int]
 
 
 # ServerlessV2ScalingConfigurationTypeDef
@@ -9657,6 +9757,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### MaxCapacity
 - **Type**: typing.Optional[float]
+
+### SecondsUntilAutoPause
+- **Type**: typing.Optional[int]
 
 
 # SourceRegionMessageTypeDef
@@ -9676,20 +9779,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SourceRegionTypeDef
 
-### RegionName
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Endpoint
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Status
-- **Type**: typing.Optional[str]
-
-### SupportsDBInstanceAutomatedBackupsReplication
-- **Type**: typing.Optional[bool]
-
-
-# StartActivityStreamRequestRequestTypeDef
+# StartActivityStreamRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -9741,7 +9835,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartDBClusterMessageRequestTypeDef
+# StartDBClusterMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -9759,7 +9853,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartDBInstanceAutomatedBackupsReplicationMessageRequestTypeDef
+# StartDBInstanceAutomatedBackupsReplicationMessageTypeDef
 
 ### SourceDBInstanceArn
 - **Type**: <class 'str'>
@@ -9789,7 +9883,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartDBInstanceMessageRequestTypeDef
+# StartDBInstanceMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -9807,7 +9901,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartExportTaskMessageRequestTypeDef
+# StartExportTaskMessageTypeDef
 
 ### ExportTaskIdentifier
 - **Type**: <class 'str'>
@@ -9836,7 +9930,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# StopActivityStreamRequestRequestTypeDef
+# StopActivityStreamRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -9865,7 +9959,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopDBClusterMessageRequestTypeDef
+# StopDBClusterMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -9883,7 +9977,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopDBInstanceAutomatedBackupsReplicationMessageRequestTypeDef
+# StopDBInstanceAutomatedBackupsReplicationMessageTypeDef
 
 ### SourceDBInstanceArn
 - **Type**: <class 'str'>
@@ -9901,7 +9995,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopDBInstanceMessageRequestTypeDef
+# StopDBInstanceMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -9937,7 +10031,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SwitchoverBlueGreenDeploymentRequestRequestTypeDef
+# SwitchoverBlueGreenDeploymentRequestTypeDef
 
 ### BlueGreenDeploymentIdentifier
 - **Type**: <class 'str'>
@@ -9970,7 +10064,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SwitchoverGlobalClusterMessageRequestTypeDef
+# SwitchoverGlobalClusterMessageTypeDef
 
 ### GlobalClusterIdentifier
 - **Type**: <class 'str'>
@@ -9992,7 +10086,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SwitchoverReadReplicaMessageRequestTypeDef
+# SwitchoverReadReplicaMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -10108,6 +10202,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # TimezoneTypeDef
 
 ### TimezoneName
@@ -10171,7 +10271,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED', 'REQUIRED']]
 
 ### ClientPasswordAuthType
-- **Type**: typing.Optional[typing.Literal['MYSQL_NATIVE_PASSWORD', 'POSTGRES_MD5', 'POSTGRES_SCRAM_SHA_256', 'SQL_SERVER_AUTHENTICATION']]
+- **Type**: typing.Optional[typing.Literal['MYSQL_CACHING_SHA2_PASSWORD', 'MYSQL_NATIVE_PASSWORD', 'POSTGRES_MD5', 'POSTGRES_SCRAM_SHA_256', 'SQL_SERVER_AUTHENTICATION']]
 
 
 # UserAuthConfigTypeDef
@@ -10192,7 +10292,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED', 'REQUIRED']]
 
 ### ClientPasswordAuthType
-- **Type**: typing.Optional[typing.Literal['MYSQL_NATIVE_PASSWORD', 'POSTGRES_MD5', 'POSTGRES_SCRAM_SHA_256', 'SQL_SERVER_AUTHENTICATION']]
+- **Type**: typing.Optional[typing.Literal['MYSQL_CACHING_SHA2_PASSWORD', 'MYSQL_NATIVE_PASSWORD', 'POSTGRES_MD5', 'POSTGRES_SCRAM_SHA_256', 'SQL_SERVER_AUTHENTICATION']]
 
 
 # ValidDBInstanceModificationsMessageTypeDef

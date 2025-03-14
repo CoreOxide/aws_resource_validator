@@ -78,6 +78,12 @@
 - **Pattern**: `(?s).*`
 - **Max Length**: 10000
 
+### ComputeRoleArn
+- **Type**: string
+- **Pattern**: `(?s).*`
+- **Min Length**: 0
+- **Max Length**: 1000
+
 ### Condition
 - **Type**: string
 - **Pattern**: `(?s).*`
@@ -203,7 +209,7 @@
 
 ### SourceUrl
 - **Type**: string
-- **Pattern**: `(?s).*`
+- **Pattern**: `^(s3|https|http)://.*`
 - **Max Length**: 3000
 
 ### StackArn
@@ -246,6 +252,12 @@
 - **Pattern**: `(?s).+`
 - **Min Length**: 1
 - **Max Length**: 2048
+
+### WebAclArn
+- **Type**: string
+- **Pattern**: `^arn:aws:wafv2:.*`
+- **Min Length**: 0
+- **Max Length**: 512
 
 ### WebhookId
 - **Type**: string

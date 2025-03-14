@@ -1,6 +1,6 @@
 # Machinelearning Classes
 
-# AddTagsInputRequestTypeDef
+# AddTagsInputTypeDef
 
 ### Tags
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.machinelearning_classes.TagTypeDef]
@@ -87,7 +87,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CreateBatchPredictionInputRequestTypeDef
+# CreateBatchPredictionInputTypeDef
 
 ### BatchPredictionId
 - **Type**: <class 'str'>
@@ -120,7 +120,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDataSourceFromRDSInputRequestTypeDef
+# CreateDataSourceFromRDSInputTypeDef
 
 ### DataSourceId
 - **Type**: <class 'str'>
@@ -152,7 +152,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDataSourceFromRedshiftInputRequestTypeDef
+# CreateDataSourceFromRedshiftInputTypeDef
 
 ### DataSourceId
 - **Type**: <class 'str'>
@@ -184,7 +184,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDataSourceFromS3InputRequestTypeDef
+# CreateDataSourceFromS3InputTypeDef
 
 ### DataSourceId
 - **Type**: <class 'str'>
@@ -212,7 +212,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateEvaluationInputRequestTypeDef
+# CreateEvaluationInputTypeDef
 
 ### EvaluationId
 - **Type**: <class 'str'>
@@ -241,7 +241,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateMLModelInputRequestTypeDef
+# CreateMLModelInputTypeDef
 
 ### MLModelId
 - **Type**: <class 'str'>
@@ -279,7 +279,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateRealtimeEndpointInputRequestTypeDef
+# CreateRealtimeEndpointInputTypeDef
 
 ### MLModelId
 - **Type**: <class 'str'>
@@ -358,7 +358,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# DeleteBatchPredictionInputRequestTypeDef
+# DeleteBatchPredictionInputTypeDef
 
 ### BatchPredictionId
 - **Type**: <class 'str'>
@@ -376,7 +376,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDataSourceInputRequestTypeDef
+# DeleteDataSourceInputTypeDef
 
 ### DataSourceId
 - **Type**: <class 'str'>
@@ -394,7 +394,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteEvaluationInputRequestTypeDef
+# DeleteEvaluationInputTypeDef
 
 ### EvaluationId
 - **Type**: <class 'str'>
@@ -412,7 +412,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteMLModelInputRequestTypeDef
+# DeleteMLModelInputTypeDef
 
 ### MLModelId
 - **Type**: <class 'str'>
@@ -430,7 +430,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteRealtimeEndpointInputRequestTypeDef
+# DeleteRealtimeEndpointInputTypeDef
 
 ### MLModelId
 - **Type**: <class 'str'>
@@ -452,7 +452,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteTagsInputRequestTypeDef
+# DeleteTagsInputTypeDef
 
 ### TagKeys
 - **Type**: typing.Sequence[str]
@@ -482,7 +482,76 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeBatchPredictionsInputBatchPredictionAvailableWaitTypeDef
+# DescribeBatchPredictionsInputPaginateTypeDef
+
+### FilterVariable
+- **Type**: typing.Optional[typing.Literal['CreatedAt', 'DataSourceId', 'DataURI', 'IAMUser', 'LastUpdatedAt', 'MLModelId', 'Name', 'Status']]
+
+### EQ
+- **Type**: typing.Optional[str]
+
+### GT
+- **Type**: typing.Optional[str]
+
+### LT
+- **Type**: typing.Optional[str]
+
+### GE
+- **Type**: typing.Optional[str]
+
+### LE
+- **Type**: typing.Optional[str]
+
+### NE
+- **Type**: typing.Optional[str]
+
+### Prefix
+- **Type**: typing.Optional[str]
+
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['asc', 'dsc']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.machinelearning_classes.PaginatorConfigTypeDef]
+
+
+# DescribeBatchPredictionsInputTypeDef
+
+### FilterVariable
+- **Type**: typing.Optional[typing.Literal['CreatedAt', 'DataSourceId', 'DataURI', 'IAMUser', 'LastUpdatedAt', 'MLModelId', 'Name', 'Status']]
+
+### EQ
+- **Type**: typing.Optional[str]
+
+### GT
+- **Type**: typing.Optional[str]
+
+### LT
+- **Type**: typing.Optional[str]
+
+### GE
+- **Type**: typing.Optional[str]
+
+### LE
+- **Type**: typing.Optional[str]
+
+### NE
+- **Type**: typing.Optional[str]
+
+### Prefix
+- **Type**: typing.Optional[str]
+
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['asc', 'dsc']]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### Limit
+- **Type**: typing.Optional[int]
+
+
+# DescribeBatchPredictionsInputWaitTypeDef
 
 ### FilterVariable
 - **Type**: typing.Optional[typing.Literal['CreatedAt', 'DataSourceId', 'DataURI', 'IAMUser', 'LastUpdatedAt', 'MLModelId', 'Name', 'Status']]
@@ -519,75 +588,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### WaiterConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.machinelearning_classes.WaiterConfigTypeDef]
-
-
-# DescribeBatchPredictionsInputDescribeBatchPredictionsPaginateTypeDef
-
-### FilterVariable
-- **Type**: typing.Optional[typing.Literal['CreatedAt', 'DataSourceId', 'DataURI', 'IAMUser', 'LastUpdatedAt', 'MLModelId', 'Name', 'Status']]
-
-### EQ
-- **Type**: typing.Optional[str]
-
-### GT
-- **Type**: typing.Optional[str]
-
-### LT
-- **Type**: typing.Optional[str]
-
-### GE
-- **Type**: typing.Optional[str]
-
-### LE
-- **Type**: typing.Optional[str]
-
-### NE
-- **Type**: typing.Optional[str]
-
-### Prefix
-- **Type**: typing.Optional[str]
-
-### SortOrder
-- **Type**: typing.Optional[typing.Literal['asc', 'dsc']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.machinelearning_classes.PaginatorConfigTypeDef]
-
-
-# DescribeBatchPredictionsInputRequestTypeDef
-
-### FilterVariable
-- **Type**: typing.Optional[typing.Literal['CreatedAt', 'DataSourceId', 'DataURI', 'IAMUser', 'LastUpdatedAt', 'MLModelId', 'Name', 'Status']]
-
-### EQ
-- **Type**: typing.Optional[str]
-
-### GT
-- **Type**: typing.Optional[str]
-
-### LT
-- **Type**: typing.Optional[str]
-
-### GE
-- **Type**: typing.Optional[str]
-
-### LE
-- **Type**: typing.Optional[str]
-
-### NE
-- **Type**: typing.Optional[str]
-
-### Prefix
-- **Type**: typing.Optional[str]
-
-### SortOrder
-- **Type**: typing.Optional[typing.Literal['asc', 'dsc']]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### Limit
-- **Type**: typing.Optional[int]
 
 
 # DescribeBatchPredictionsOutputTypeDef
@@ -596,16 +596,84 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.machinelearning_classes.BatchPredictionTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# DescribeDataSourcesInputDataSourceAvailableWaitTypeDef
+
+# DescribeDataSourcesInputPaginateTypeDef
+
+### FilterVariable
+- **Type**: typing.Optional[typing.Literal['CreatedAt', 'DataLocationS3', 'IAMUser', 'LastUpdatedAt', 'Name', 'Status']]
+
+### EQ
+- **Type**: typing.Optional[str]
+
+### GT
+- **Type**: typing.Optional[str]
+
+### LT
+- **Type**: typing.Optional[str]
+
+### GE
+- **Type**: typing.Optional[str]
+
+### LE
+- **Type**: typing.Optional[str]
+
+### NE
+- **Type**: typing.Optional[str]
+
+### Prefix
+- **Type**: typing.Optional[str]
+
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['asc', 'dsc']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.machinelearning_classes.PaginatorConfigTypeDef]
+
+
+# DescribeDataSourcesInputTypeDef
+
+### FilterVariable
+- **Type**: typing.Optional[typing.Literal['CreatedAt', 'DataLocationS3', 'IAMUser', 'LastUpdatedAt', 'Name', 'Status']]
+
+### EQ
+- **Type**: typing.Optional[str]
+
+### GT
+- **Type**: typing.Optional[str]
+
+### LT
+- **Type**: typing.Optional[str]
+
+### GE
+- **Type**: typing.Optional[str]
+
+### LE
+- **Type**: typing.Optional[str]
+
+### NE
+- **Type**: typing.Optional[str]
+
+### Prefix
+- **Type**: typing.Optional[str]
+
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['asc', 'dsc']]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### Limit
+- **Type**: typing.Optional[int]
+
+
+# DescribeDataSourcesInputWaitTypeDef
 
 ### FilterVariable
 - **Type**: typing.Optional[typing.Literal['CreatedAt', 'DataLocationS3', 'IAMUser', 'LastUpdatedAt', 'Name', 'Status']]
@@ -642,75 +710,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### WaiterConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.machinelearning_classes.WaiterConfigTypeDef]
-
-
-# DescribeDataSourcesInputDescribeDataSourcesPaginateTypeDef
-
-### FilterVariable
-- **Type**: typing.Optional[typing.Literal['CreatedAt', 'DataLocationS3', 'IAMUser', 'LastUpdatedAt', 'Name', 'Status']]
-
-### EQ
-- **Type**: typing.Optional[str]
-
-### GT
-- **Type**: typing.Optional[str]
-
-### LT
-- **Type**: typing.Optional[str]
-
-### GE
-- **Type**: typing.Optional[str]
-
-### LE
-- **Type**: typing.Optional[str]
-
-### NE
-- **Type**: typing.Optional[str]
-
-### Prefix
-- **Type**: typing.Optional[str]
-
-### SortOrder
-- **Type**: typing.Optional[typing.Literal['asc', 'dsc']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.machinelearning_classes.PaginatorConfigTypeDef]
-
-
-# DescribeDataSourcesInputRequestTypeDef
-
-### FilterVariable
-- **Type**: typing.Optional[typing.Literal['CreatedAt', 'DataLocationS3', 'IAMUser', 'LastUpdatedAt', 'Name', 'Status']]
-
-### EQ
-- **Type**: typing.Optional[str]
-
-### GT
-- **Type**: typing.Optional[str]
-
-### LT
-- **Type**: typing.Optional[str]
-
-### GE
-- **Type**: typing.Optional[str]
-
-### LE
-- **Type**: typing.Optional[str]
-
-### NE
-- **Type**: typing.Optional[str]
-
-### Prefix
-- **Type**: typing.Optional[str]
-
-### SortOrder
-- **Type**: typing.Optional[typing.Literal['asc', 'dsc']]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### Limit
-- **Type**: typing.Optional[int]
 
 
 # DescribeDataSourcesOutputTypeDef
@@ -719,16 +718,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.machinelearning_classes.DataSourceTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# DescribeEvaluationsInputDescribeEvaluationsPaginateTypeDef
+
+# DescribeEvaluationsInputPaginateTypeDef
 
 ### FilterVariable
 - **Type**: typing.Optional[typing.Literal['CreatedAt', 'DataSourceId', 'DataURI', 'IAMUser', 'LastUpdatedAt', 'MLModelId', 'Name', 'Status']]
@@ -761,7 +759,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.machinelearning_classes.PaginatorConfigTypeDef]
 
 
-# DescribeEvaluationsInputEvaluationAvailableWaitTypeDef
+# DescribeEvaluationsInputTypeDef
+
+### FilterVariable
+- **Type**: typing.Optional[typing.Literal['CreatedAt', 'DataSourceId', 'DataURI', 'IAMUser', 'LastUpdatedAt', 'MLModelId', 'Name', 'Status']]
+
+### EQ
+- **Type**: typing.Optional[str]
+
+### GT
+- **Type**: typing.Optional[str]
+
+### LT
+- **Type**: typing.Optional[str]
+
+### GE
+- **Type**: typing.Optional[str]
+
+### LE
+- **Type**: typing.Optional[str]
+
+### NE
+- **Type**: typing.Optional[str]
+
+### Prefix
+- **Type**: typing.Optional[str]
+
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['asc', 'dsc']]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### Limit
+- **Type**: typing.Optional[int]
+
+
+# DescribeEvaluationsInputWaitTypeDef
 
 ### FilterVariable
 - **Type**: typing.Optional[typing.Literal['CreatedAt', 'DataSourceId', 'DataURI', 'IAMUser', 'LastUpdatedAt', 'MLModelId', 'Name', 'Status']]
@@ -798,42 +832,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### WaiterConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.machinelearning_classes.WaiterConfigTypeDef]
-
-
-# DescribeEvaluationsInputRequestTypeDef
-
-### FilterVariable
-- **Type**: typing.Optional[typing.Literal['CreatedAt', 'DataSourceId', 'DataURI', 'IAMUser', 'LastUpdatedAt', 'MLModelId', 'Name', 'Status']]
-
-### EQ
-- **Type**: typing.Optional[str]
-
-### GT
-- **Type**: typing.Optional[str]
-
-### LT
-- **Type**: typing.Optional[str]
-
-### GE
-- **Type**: typing.Optional[str]
-
-### LE
-- **Type**: typing.Optional[str]
-
-### NE
-- **Type**: typing.Optional[str]
-
-### Prefix
-- **Type**: typing.Optional[str]
-
-### SortOrder
-- **Type**: typing.Optional[typing.Literal['asc', 'dsc']]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### Limit
-- **Type**: typing.Optional[int]
 
 
 # DescribeEvaluationsOutputTypeDef
@@ -842,16 +840,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.machinelearning_classes.EvaluationTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# DescribeMLModelsInputDescribeMLModelsPaginateTypeDef
+
+# DescribeMLModelsInputPaginateTypeDef
 
 ### FilterVariable
 - **Type**: typing.Optional[typing.Literal['Algorithm', 'CreatedAt', 'IAMUser', 'LastUpdatedAt', 'MLModelType', 'Name', 'RealtimeEndpointStatus', 'Status', 'TrainingDataSourceId', 'TrainingDataURI']]
@@ -884,7 +881,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.machinelearning_classes.PaginatorConfigTypeDef]
 
 
-# DescribeMLModelsInputMLModelAvailableWaitTypeDef
+# DescribeMLModelsInputTypeDef
+
+### FilterVariable
+- **Type**: typing.Optional[typing.Literal['Algorithm', 'CreatedAt', 'IAMUser', 'LastUpdatedAt', 'MLModelType', 'Name', 'RealtimeEndpointStatus', 'Status', 'TrainingDataSourceId', 'TrainingDataURI']]
+
+### EQ
+- **Type**: typing.Optional[str]
+
+### GT
+- **Type**: typing.Optional[str]
+
+### LT
+- **Type**: typing.Optional[str]
+
+### GE
+- **Type**: typing.Optional[str]
+
+### LE
+- **Type**: typing.Optional[str]
+
+### NE
+- **Type**: typing.Optional[str]
+
+### Prefix
+- **Type**: typing.Optional[str]
+
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['asc', 'dsc']]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### Limit
+- **Type**: typing.Optional[int]
+
+
+# DescribeMLModelsInputWaitTypeDef
 
 ### FilterVariable
 - **Type**: typing.Optional[typing.Literal['Algorithm', 'CreatedAt', 'IAMUser', 'LastUpdatedAt', 'MLModelType', 'Name', 'RealtimeEndpointStatus', 'Status', 'TrainingDataSourceId', 'TrainingDataURI']]
@@ -923,58 +956,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.machinelearning_classes.WaiterConfigTypeDef]
 
 
-# DescribeMLModelsInputRequestTypeDef
-
-### FilterVariable
-- **Type**: typing.Optional[typing.Literal['Algorithm', 'CreatedAt', 'IAMUser', 'LastUpdatedAt', 'MLModelType', 'Name', 'RealtimeEndpointStatus', 'Status', 'TrainingDataSourceId', 'TrainingDataURI']]
-
-### EQ
-- **Type**: typing.Optional[str]
-
-### GT
-- **Type**: typing.Optional[str]
-
-### LT
-- **Type**: typing.Optional[str]
-
-### GE
-- **Type**: typing.Optional[str]
-
-### LE
-- **Type**: typing.Optional[str]
-
-### NE
-- **Type**: typing.Optional[str]
-
-### Prefix
-- **Type**: typing.Optional[str]
-
-### SortOrder
-- **Type**: typing.Optional[typing.Literal['asc', 'dsc']]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### Limit
-- **Type**: typing.Optional[int]
-
-
 # DescribeMLModelsOutputTypeDef
 
 ### Results
 - **Type**: typing.List[aws_resource_validator.pydantic_models.machinelearning_classes.MLModelTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# DescribeTagsInputRequestTypeDef
+
+# DescribeTagsInputTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -1049,7 +1045,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# GetBatchPredictionInputRequestTypeDef
+# GetBatchPredictionInputTypeDef
 
 ### BatchPredictionId
 - **Type**: <class 'str'>
@@ -1131,7 +1127,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDataSourceInputRequestTypeDef
+# GetDataSourceInputTypeDef
 
 ### DataSourceId
 - **Type**: <class 'str'>
@@ -1228,7 +1224,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetEvaluationInputRequestTypeDef
+# GetEvaluationInputTypeDef
 
 ### EvaluationId
 - **Type**: <class 'str'>
@@ -1302,7 +1298,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMLModelInputRequestTypeDef
+# GetMLModelInputTypeDef
 
 ### MLModelId
 - **Type**: <class 'str'>
@@ -1481,7 +1477,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# PredictInputRequestTypeDef
+# PredictInputTypeDef
 
 ### MLModelId
 - **Type**: <class 'str'>
@@ -1692,10 +1688,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -1707,6 +1699,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # S3DataSpecTypeDef
@@ -1734,7 +1729,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateBatchPredictionInputRequestTypeDef
+# UpdateBatchPredictionInputTypeDef
 
 ### BatchPredictionId
 - **Type**: <class 'str'>
@@ -1756,7 +1751,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDataSourceInputRequestTypeDef
+# UpdateDataSourceInputTypeDef
 
 ### DataSourceId
 - **Type**: <class 'str'>
@@ -1778,7 +1773,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateEvaluationInputRequestTypeDef
+# UpdateEvaluationInputTypeDef
 
 ### EvaluationId
 - **Type**: <class 'str'>
@@ -1800,7 +1795,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateMLModelInputRequestTypeDef
+# UpdateMLModelInputTypeDef
 
 ### MLModelId
 - **Type**: <class 'str'>

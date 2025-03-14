@@ -50,7 +50,7 @@
 
 ### PolicyArn
 - **Type**: string
-- **Pattern**: `^arn:(aws|aws-cn|aws-us-gov|us-iso-east-1|us-isob-east-1):iam::(\d{12}|aws):policy(\u002F[\u0021-\u007F]+\u002F|\u002F)[\w+=,.@-]+$`
+- **Pattern**: `^arn:aws(-cn|-us-gov|-iso|-iso-[a-z]{1})?:iam::(\d{12}|aws):policy(\u002F[\u0021-\u007F]+\u002F|\u002F)[\w+=,.@-]+$`
 - **Min Length**: 25
 - **Max Length**: 684
 
@@ -74,7 +74,7 @@
 
 ### RoleArn
 - **Type**: string
-- **Pattern**: `^arn:(aws|aws-cn|aws-us-gov|us-iso-east-1|us-isob-east-1):iam::\d{12}:role(\u002F[\u0021-\u007F]+\u002F|\u002F)[\w+=,.@-]+$`
+- **Pattern**: `^arn:aws(-cn|-us-gov|-iso|-iso-[a-z]{1})?:iam::\d{12}:role(\u002F[\u0021-\u007F]+\u002F|\u002F)[\w+=,.@-]+$`
 - **Min Length**: 32
 - **Max Length**: 618
 

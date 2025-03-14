@@ -38,6 +38,9 @@
 ### tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
+### entityMetadata
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
 
 # BaseValidatorModel
 
@@ -47,11 +50,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DateTimeRangeTypeDef
 
-### to
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DescribeAffectedAccountsForOrganizationRequestDescribeAffectedAccountsForOrganizationPaginateTypeDef
+# DescribeAffectedAccountsForOrganizationRequestPaginateTypeDef
 
 ### eventArn
 - **Type**: <class 'str'>
@@ -61,7 +64,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.health_classes.PaginatorConfigTypeDef]
 
 
-# DescribeAffectedAccountsForOrganizationRequestRequestTypeDef
+# DescribeAffectedAccountsForOrganizationRequestTypeDef
 
 ### eventArn
 - **Type**: <class 'str'>
@@ -84,16 +87,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Literal['ACCOUNT_SPECIFIC', 'NONE', 'PUBLIC']
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.health_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeAffectedEntitiesForOrganizationRequestDescribeAffectedEntitiesForOrganizationPaginateTypeDef
+
+# DescribeAffectedEntitiesForOrganizationRequestPaginateTypeDef
 
 ### organizationEntityFilters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.health_classes.EventAccountFilterTypeDef]]
@@ -108,7 +110,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.health_classes.PaginatorConfigTypeDef]
 
 
-# DescribeAffectedEntitiesForOrganizationRequestRequestTypeDef
+# DescribeAffectedEntitiesForOrganizationRequestTypeDef
 
 ### organizationEntityFilters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.health_classes.EventAccountFilterTypeDef]]
@@ -136,42 +138,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.health_classes.OrganizationAffectedEntitiesErrorItemTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.health_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# DescribeAffectedEntitiesRequestDescribeAffectedEntitiesPaginateTypeDef
-
-### filter
-- **Type**: <class 'aws_resource_validator.pydantic_models.health_classes.EntityFilterTypeDef'>
-- **Required**: Yes
-
-### locale
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health_classes.PaginatorConfigTypeDef]
-
-
-# DescribeAffectedEntitiesRequestRequestTypeDef
-
-### filter
-- **Type**: <class 'aws_resource_validator.pydantic_models.health_classes.EntityFilterTypeDef'>
-- **Required**: Yes
-
-### locale
-- **Type**: typing.Optional[str]
-
 ### nextToken
 - **Type**: typing.Optional[str]
-
-### maxResults
-- **Type**: typing.Optional[int]
 
 
 # DescribeAffectedEntitiesResponseTypeDef
@@ -180,16 +152,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.health_classes.AffectedEntityTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.health_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeEntityAggregatesForOrganizationRequestRequestTypeDef
+
+# DescribeEntityAggregatesForOrganizationRequestTypeDef
 
 ### eventArns
 - **Type**: typing.Sequence[str]
@@ -210,7 +181,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEntityAggregatesRequestRequestTypeDef
+# DescribeEntityAggregatesRequestTypeDef
 
 ### eventArns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -227,51 +198,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEventAggregatesRequestDescribeEventAggregatesPaginateTypeDef
-
-### aggregateField
-- **Type**: typing.Literal['eventTypeCategory']
-- **Required**: Yes
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health_classes.EventFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health_classes.PaginatorConfigTypeDef]
-
-
-# DescribeEventAggregatesRequestRequestTypeDef
-
-### aggregateField
-- **Type**: typing.Literal['eventTypeCategory']
-- **Required**: Yes
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health_classes.EventFilterTypeDef]
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
 # DescribeEventAggregatesResponseTypeDef
 
 ### eventAggregates
 - **Type**: typing.List[aws_resource_validator.pydantic_models.health_classes.EventAggregateTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.health_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeEventDetailsForOrganizationRequestRequestTypeDef
+
+# DescribeEventDetailsForOrganizationRequestTypeDef
 
 ### organizationEventDetailFilters
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.health_classes.EventAccountFilterTypeDef]
@@ -296,7 +237,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEventDetailsRequestRequestTypeDef
+# DescribeEventDetailsRequestTypeDef
 
 ### eventArns
 - **Type**: typing.Sequence[str]
@@ -321,72 +262,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEventTypesRequestDescribeEventTypesPaginateTypeDef
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health_classes.EventTypeFilterTypeDef]
-
-### locale
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health_classes.PaginatorConfigTypeDef]
-
-
-# DescribeEventTypesRequestRequestTypeDef
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health_classes.EventTypeFilterTypeDef]
-
-### locale
-- **Type**: typing.Optional[str]
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-
 # DescribeEventTypesResponseTypeDef
 
 ### eventTypes
 - **Type**: typing.List[aws_resource_validator.pydantic_models.health_classes.EventTypeTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.health_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# DescribeEventsForOrganizationRequestDescribeEventsForOrganizationPaginateTypeDef
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health_classes.OrganizationEventFilterTypeDef]
-
-### locale
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health_classes.PaginatorConfigTypeDef]
-
-
-# DescribeEventsForOrganizationRequestRequestTypeDef
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health_classes.OrganizationEventFilterTypeDef]
-
 ### nextToken
-- **Type**: typing.Optional[str]
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-### locale
 - **Type**: typing.Optional[str]
 
 
@@ -396,39 +282,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.health_classes.OrganizationEventTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.health_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# DescribeEventsRequestDescribeEventsPaginateTypeDef
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health_classes.EventFilterTypeDef]
-
-### locale
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health_classes.PaginatorConfigTypeDef]
-
-
-# DescribeEventsRequestRequestTypeDef
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health_classes.EventFilterTypeDef]
-
 ### nextToken
-- **Type**: typing.Optional[str]
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-### locale
 - **Type**: typing.Optional[str]
 
 
@@ -438,13 +296,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.health_classes.EventTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.health_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # DescribeHealthServiceStatusForOrganizationResponseTypeDef
@@ -810,10 +667,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -825,5 +678,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 

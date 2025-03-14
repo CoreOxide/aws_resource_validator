@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# GetRawMessageContentRequestRequestTypeDef
+# GetRawMessageContentRequestTypeDef
 
 ### messageId
 - **Type**: <class 'str'>
@@ -24,7 +24,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutRawMessageContentRequestRequestTypeDef
+# PutRawMessageContentRequestTypeDef
 
 ### messageId
 - **Type**: <class 'str'>
@@ -48,10 +48,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -63,6 +59,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # S3ReferenceTypeDef

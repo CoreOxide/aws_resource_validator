@@ -54,11 +54,17 @@
 - **Min Length**: 1
 - **Max Length**: 1600
 
-### StatusDetail
+### SourceResourceDescription
 - **Type**: string
 - **Pattern**: `^.{0,500}$`
 - **Min Length**: 0
 - **Max Length**: 500
+
+### StatusDetail
+- **Type**: string
+- **Pattern**: `^.{0,2500}$`
+- **Min Length**: 0
+- **Max Length**: 2500
 
 ### Token
 - **Type**: string

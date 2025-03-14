@@ -1,5 +1,11 @@
 # Connectcases Service
 
+### CaseRuleName
+- **Type**: string
+- **Pattern**: `^.*[\S]$`
+- **Min Length**: 1
+- **Max Length**: 100
+
 ### DomainName
 - **Type**: string
 - **Pattern**: `^.*[\S]$`

@@ -69,7 +69,7 @@
 - **Type**: string
 - **Pattern**: `^((?!\\[nr]).)+`
 - **Min Length**: 1
-- **Max Length**: 10000
+- **Max Length**: 30000
 
 ### Name
 - **Type**: string
@@ -156,13 +156,13 @@
 
 ### ResourceTagKey
 - **Type**: string
-- **Pattern**: `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
+- **Pattern**: `^([\p{L}\p{Z}\p{N}_.:\/=+\-@*\\]*)$`
 - **Min Length**: 1
 - **Max Length**: 128
 
 ### ResourceTagValue
 - **Type**: string
-- **Pattern**: `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
+- **Pattern**: `^([\p{L}\p{Z}\p{N}_.:\/=+\-@*\\]*)$`
 - **Max Length**: 256
 
 ### ResourceType

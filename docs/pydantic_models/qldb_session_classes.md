@@ -12,6 +12,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # CommitTransactionRequestTypeDef
 
 ### TransactionId
@@ -19,7 +25,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CommitDigest
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_session_classes.BlobTypeDef'>
 - **Required**: Yes
 
 
@@ -55,7 +61,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qldb_session_classes.ValueHolderTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qldb_session_classes.ValueHolderUnionTypeDef]]
 
 
 # ExecuteStatementResultTypeDef
@@ -105,7 +111,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PageTypeDef
 
 ### Values
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qldb_session_classes.ValueHolderTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qldb_session_classes.ValueHolderOutputTypeDef]]
 
 ### NextPageToken
 - **Type**: typing.Optional[str]
@@ -114,10 +120,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ResponseMetadataTypeDef
 
 ### RequestId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### HostId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -133,8 +135,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# SendCommandRequestRequestTypeDef
+
+# SendCommandRequestTypeDef
 
 ### SessionToken
 - **Type**: typing.Optional[str]
@@ -227,12 +232,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ValueHolderTypeDef
+# ValueHolderOutputTypeDef
 
 ### IonBinary
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
+- **Type**: typing.Optional[bytes]
 
 ### IonText
 - **Type**: typing.Optional[str]
 
+
+# ValueHolderTypeDef
+
+### IonBinary
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qldb_session_classes.BlobTypeDef]
+
+### IonText
+- **Type**: typing.Optional[str]
+
+
+# ValueHolderUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

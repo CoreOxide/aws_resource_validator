@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateSlackChannelConfigurationRequestRequestTypeDef
+# CreateSlackChannelConfigurationRequestTypeDef
 
 ### channelId
 - **Type**: <class 'str'>
@@ -37,7 +37,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteSlackChannelConfigurationRequestRequestTypeDef
+# DeleteSlackChannelConfigurationRequestTypeDef
 
 ### channelId
 - **Type**: <class 'str'>
@@ -48,7 +48,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteSlackWorkspaceConfigurationRequestRequestTypeDef
+# DeleteSlackWorkspaceConfigurationRequestTypeDef
 
 ### teamId
 - **Type**: <class 'str'>
@@ -66,17 +66,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListSlackChannelConfigurationsRequestRequestTypeDef
+# ListSlackChannelConfigurationsRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
 # ListSlackChannelConfigurationsResultTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### slackChannelConfigurations
 - **Type**: typing.List[aws_resource_validator.pydantic_models.support_app_classes.SlackChannelConfigurationTypeDef]
@@ -86,18 +82,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.support_app_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListSlackWorkspaceConfigurationsRequestRequestTypeDef
+
+# ListSlackWorkspaceConfigurationsRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
 # ListSlackWorkspaceConfigurationsResultTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### slackWorkspaceConfigurations
 - **Type**: typing.List[aws_resource_validator.pydantic_models.support_app_classes.SlackWorkspaceConfigurationTypeDef]
@@ -107,15 +102,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.support_app_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# PutAccountAliasRequestRequestTypeDef
+
+# PutAccountAliasRequestTypeDef
 
 ### accountAlias
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# RegisterSlackWorkspaceForOrganizationRequestRequestTypeDef
+# RegisterSlackWorkspaceForOrganizationRequestTypeDef
 
 ### teamId
 - **Type**: <class 'str'>
@@ -147,10 +145,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -162,6 +156,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # SlackChannelConfigurationTypeDef
@@ -206,7 +203,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateSlackChannelConfigurationRequestRequestTypeDef
+# UpdateSlackChannelConfigurationRequestTypeDef
 
 ### channelId
 - **Type**: <class 'str'>

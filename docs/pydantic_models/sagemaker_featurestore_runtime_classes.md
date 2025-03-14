@@ -25,6 +25,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# BatchGetRecordIdentifierOutputTypeDef
+
+### FeatureGroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### RecordIdentifiersValueAsString
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### FeatureNames
+- **Type**: typing.Optional[typing.List[str]]
+
+
 # BatchGetRecordIdentifierTypeDef
 
 ### FeatureGroupName
@@ -39,10 +53,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# BatchGetRecordRequestRequestTypeDef
+# BatchGetRecordIdentifierUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# BatchGetRecordRequestTypeDef
 
 ### Identifiers
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.BatchGetRecordIdentifierTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.BatchGetRecordIdentifierUnionTypeDef]
 - **Required**: Yes
 
 ### ExpirationTimeResponse
@@ -60,7 +80,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UnprocessedIdentifiers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.BatchGetRecordIdentifierTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.BatchGetRecordIdentifierOutputTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -79,14 +99,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Record
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.FeatureValueTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.FeatureValueOutputTypeDef]
 - **Required**: Yes
 
 ### ExpiresAt
 - **Type**: typing.Optional[str]
 
 
-# DeleteRecordRequestRequestTypeDef
+# DeleteRecordRequestTypeDef
 
 ### FeatureGroupName
 - **Type**: <class 'str'>
@@ -114,7 +134,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# FeatureValueTypeDef
+# FeatureValueOutputTypeDef
 
 ### FeatureName
 - **Type**: <class 'str'>
@@ -127,7 +147,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# GetRecordRequestRequestTypeDef
+# FeatureValueTypeDef
+
+### FeatureName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ValueAsString
+- **Type**: typing.Optional[str]
+
+### ValueAsStringList
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# FeatureValueUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# GetRecordRequestTypeDef
 
 ### FeatureGroupName
 - **Type**: <class 'str'>
@@ -147,7 +186,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetRecordResponseTypeDef
 
 ### Record
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.FeatureValueTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.FeatureValueOutputTypeDef]
 - **Required**: Yes
 
 ### ExpiresAt
@@ -159,14 +198,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutRecordRequestRequestTypeDef
+# PutRecordRequestTypeDef
 
 ### FeatureGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Record
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.FeatureValueTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_classes.FeatureValueUnionTypeDef]
 - **Required**: Yes
 
 ### TargetStores
@@ -182,10 +221,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -197,6 +232,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # TtlDurationTypeDef

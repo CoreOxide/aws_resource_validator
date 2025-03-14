@@ -33,7 +33,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AssociatePhoneNumbersWithVoiceConnectorGroupRequestRequestTypeDef
+# AssociatePhoneNumbersWithVoiceConnectorGroupRequestTypeDef
 
 ### VoiceConnectorGroupId
 - **Type**: <class 'str'>
@@ -58,7 +58,7 @@
 - **Required**: Yes
 
 
-# AssociatePhoneNumbersWithVoiceConnectorRequestRequestTypeDef
+# AssociatePhoneNumbersWithVoiceConnectorRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -89,7 +89,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchDeletePhoneNumberRequestRequestTypeDef
+# BatchDeletePhoneNumberRequestTypeDef
 
 ### PhoneNumberIds
 - **Type**: typing.Sequence[str]
@@ -107,7 +107,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchUpdatePhoneNumberRequestRequestTypeDef
+# BatchUpdatePhoneNumberRequestTypeDef
 
 ### UpdatePhoneNumberRequestItems
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.UpdatePhoneNumberRequestItemTypeDef]
@@ -161,7 +161,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreatePhoneNumberOrderRequestRequestTypeDef
+# CreatePhoneNumberOrderRequestTypeDef
 
 ### ProductType
 - **Type**: typing.Literal['SipMediaApplicationDialIn', 'VoiceConnector']
@@ -186,7 +186,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateProxySessionRequestRequestTypeDef
+# CreateProxySessionRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -227,7 +227,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateSipMediaApplicationCallRequestRequestTypeDef
+# CreateSipMediaApplicationCallRequestTypeDef
 
 ### FromPhoneNumber
 - **Type**: <class 'str'>
@@ -259,7 +259,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateSipMediaApplicationRequestRequestTypeDef
+# CreateSipMediaApplicationRequestTypeDef
 
 ### AwsRegion
 - **Type**: <class 'str'>
@@ -288,7 +288,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateSipRuleRequestRequestTypeDef
+# CreateSipRuleRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -320,7 +320,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateVoiceConnectorGroupRequestRequestTypeDef
+# CreateVoiceConnectorGroupRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -341,7 +341,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateVoiceConnectorRequestRequestTypeDef
+# CreateVoiceConnectorRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -357,6 +357,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.TagTypeDef]]
 
+### IntegrationType
+- **Type**: typing.Optional[typing.Literal['CONNECT_ANALYTICS_CONNECTOR', 'CONNECT_CALL_TRANSFER_CONNECTOR']]
+
 
 # CreateVoiceConnectorResponseTypeDef
 
@@ -369,7 +372,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateVoiceProfileDomainRequestRequestTypeDef
+# CreateVoiceProfileDomainRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -400,7 +403,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateVoiceProfileRequestRequestTypeDef
+# CreateVoiceProfileRequestTypeDef
 
 ### SpeakerSearchTaskId
 - **Type**: <class 'str'>
@@ -441,14 +444,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeletePhoneNumberRequestRequestTypeDef
+# DeletePhoneNumberRequestTypeDef
 
 ### PhoneNumberId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteProxySessionRequestRequestTypeDef
+# DeleteProxySessionRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -459,63 +462,70 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteSipMediaApplicationRequestRequestTypeDef
+# DeleteSipMediaApplicationRequestTypeDef
 
 ### SipMediaApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSipRuleRequestRequestTypeDef
+# DeleteSipRuleRequestTypeDef
 
 ### SipRuleId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteVoiceConnectorEmergencyCallingConfigurationRequestRequestTypeDef
+# DeleteVoiceConnectorEmergencyCallingConfigurationRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteVoiceConnectorGroupRequestRequestTypeDef
+# DeleteVoiceConnectorExternalSystemsConfigurationRequestTypeDef
+
+### VoiceConnectorId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteVoiceConnectorGroupRequestTypeDef
 
 ### VoiceConnectorGroupId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteVoiceConnectorOriginationRequestRequestTypeDef
+# DeleteVoiceConnectorOriginationRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteVoiceConnectorProxyRequestRequestTypeDef
+# DeleteVoiceConnectorProxyRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteVoiceConnectorRequestRequestTypeDef
+# DeleteVoiceConnectorRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteVoiceConnectorStreamingConfigurationRequestRequestTypeDef
+# DeleteVoiceConnectorStreamingConfigurationRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteVoiceConnectorTerminationCredentialsRequestRequestTypeDef
+# DeleteVoiceConnectorTerminationCredentialsRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -526,28 +536,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteVoiceConnectorTerminationRequestRequestTypeDef
+# DeleteVoiceConnectorTerminationRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteVoiceProfileDomainRequestRequestTypeDef
+# DeleteVoiceProfileDomainRequestTypeDef
 
 ### VoiceProfileDomainId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteVoiceProfileRequestRequestTypeDef
+# DeleteVoiceProfileRequestTypeDef
 
 ### VoiceProfileId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisassociatePhoneNumbersFromVoiceConnectorGroupRequestRequestTypeDef
+# DisassociatePhoneNumbersFromVoiceConnectorGroupRequestTypeDef
 
 ### VoiceConnectorGroupId
 - **Type**: <class 'str'>
@@ -569,7 +579,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociatePhoneNumbersFromVoiceConnectorRequestRequestTypeDef
+# DisassociatePhoneNumbersFromVoiceConnectorRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -603,11 +613,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.DNISEmergencyCallingConfigurationTypeDef]]
 
 
+# EmergencyCallingConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # EmptyResponseMetadataTypeDef
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+
+# ExternalSystemsConfigurationTypeDef
+
+### SessionBorderControllerTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['AUDIOCODES_MEDIANT_SBC', 'AVAYA_SBCE', 'CISCO_UNIFIED_BORDER_ELEMENT', 'ORACLE_ACME_PACKET_SBC', 'RIBBON_SBC']]]
+
+### ContactCenterSystemTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['AVAYA_AURA_CALL_CENTER_ELITE', 'AVAYA_AURA_CONTACT_CENTER', 'CISCO_UNIFIED_CONTACT_CENTER_ENTERPRISE', 'GENESYS_ENGAGE_ON_PREMISES']]]
 
 
 # GeoMatchParamsTypeDef
@@ -632,7 +657,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPhoneNumberOrderRequestRequestTypeDef
+# GetPhoneNumberOrderRequestTypeDef
 
 ### PhoneNumberOrderId
 - **Type**: <class 'str'>
@@ -650,7 +675,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPhoneNumberRequestRequestTypeDef
+# GetPhoneNumberRequestTypeDef
 
 ### PhoneNumberId
 - **Type**: <class 'str'>
@@ -683,7 +708,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetProxySessionRequestRequestTypeDef
+# GetProxySessionRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -705,7 +730,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSipMediaApplicationAlexaSkillConfigurationRequestRequestTypeDef
+# GetSipMediaApplicationAlexaSkillConfigurationRequestTypeDef
 
 ### SipMediaApplicationId
 - **Type**: <class 'str'>
@@ -723,7 +748,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSipMediaApplicationLoggingConfigurationRequestRequestTypeDef
+# GetSipMediaApplicationLoggingConfigurationRequestTypeDef
 
 ### SipMediaApplicationId
 - **Type**: <class 'str'>
@@ -741,7 +766,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSipMediaApplicationRequestRequestTypeDef
+# GetSipMediaApplicationRequestTypeDef
 
 ### SipMediaApplicationId
 - **Type**: <class 'str'>
@@ -759,7 +784,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSipRuleRequestRequestTypeDef
+# GetSipRuleRequestTypeDef
 
 ### SipRuleId
 - **Type**: <class 'str'>
@@ -777,7 +802,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSpeakerSearchTaskRequestRequestTypeDef
+# GetSpeakerSearchTaskRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -799,7 +824,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetVoiceConnectorEmergencyCallingConfigurationRequestRequestTypeDef
+# GetVoiceConnectorEmergencyCallingConfigurationRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -817,7 +842,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetVoiceConnectorGroupRequestRequestTypeDef
+# GetVoiceConnectorExternalSystemsConfigurationRequestTypeDef
+
+### VoiceConnectorId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetVoiceConnectorExternalSystemsConfigurationResponseTypeDef
+
+### ExternalSystemsConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ExternalSystemsConfigurationTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetVoiceConnectorGroupRequestTypeDef
 
 ### VoiceConnectorGroupId
 - **Type**: <class 'str'>
@@ -835,7 +878,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetVoiceConnectorLoggingConfigurationRequestRequestTypeDef
+# GetVoiceConnectorLoggingConfigurationRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -853,7 +896,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetVoiceConnectorOriginationRequestRequestTypeDef
+# GetVoiceConnectorOriginationRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -871,7 +914,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetVoiceConnectorProxyRequestRequestTypeDef
+# GetVoiceConnectorProxyRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -889,7 +932,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetVoiceConnectorRequestRequestTypeDef
+# GetVoiceConnectorRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -907,7 +950,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetVoiceConnectorStreamingConfigurationRequestRequestTypeDef
+# GetVoiceConnectorStreamingConfigurationRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -925,7 +968,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetVoiceConnectorTerminationHealthRequestRequestTypeDef
+# GetVoiceConnectorTerminationHealthRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -943,7 +986,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetVoiceConnectorTerminationRequestRequestTypeDef
+# GetVoiceConnectorTerminationRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -961,7 +1004,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetVoiceProfileDomainRequestRequestTypeDef
+# GetVoiceProfileDomainRequestTypeDef
 
 ### VoiceProfileDomainId
 - **Type**: <class 'str'>
@@ -979,7 +1022,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetVoiceProfileRequestRequestTypeDef
+# GetVoiceProfileRequestTypeDef
 
 ### VoiceProfileId
 - **Type**: <class 'str'>
@@ -997,7 +1040,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetVoiceToneAnalysisTaskRequestRequestTypeDef
+# GetVoiceToneAnalysisTaskRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -1034,7 +1077,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListPhoneNumberOrdersRequestRequestTypeDef
+# ListPhoneNumberOrdersRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1057,7 +1100,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPhoneNumbersRequestRequestTypeDef
+# ListPhoneNumbersRequestTypeDef
 
 ### Status
 - **Type**: typing.Optional[str]
@@ -1092,7 +1135,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListProxySessionsRequestRequestTypeDef
+# ListProxySessionsRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -1122,13 +1165,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSipMediaApplicationsRequestListSipMediaApplicationsPaginateTypeDef
+# ListSipMediaApplicationsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.PaginatorConfigTypeDef]
 
 
-# ListSipMediaApplicationsRequestRequestTypeDef
+# ListSipMediaApplicationsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1151,7 +1194,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSipRulesRequestListSipRulesPaginateTypeDef
+# ListSipRulesRequestPaginateTypeDef
 
 ### SipMediaApplicationId
 - **Type**: typing.Optional[str]
@@ -1160,7 +1203,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.PaginatorConfigTypeDef]
 
 
-# ListSipRulesRequestRequestTypeDef
+# ListSipRulesRequestTypeDef
 
 ### SipMediaApplicationId
 - **Type**: typing.Optional[str]
@@ -1186,7 +1229,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSupportedPhoneNumberCountriesRequestRequestTypeDef
+# ListSupportedPhoneNumberCountriesRequestTypeDef
 
 ### ProductType
 - **Type**: typing.Literal['SipMediaApplicationDialIn', 'VoiceConnector']
@@ -1204,7 +1247,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -1222,7 +1265,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListVoiceConnectorGroupsRequestRequestTypeDef
+# ListVoiceConnectorGroupsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1245,7 +1288,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListVoiceConnectorTerminationCredentialsRequestRequestTypeDef
+# ListVoiceConnectorTerminationCredentialsRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -1263,7 +1306,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListVoiceConnectorsRequestRequestTypeDef
+# ListVoiceConnectorsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1286,7 +1329,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListVoiceProfileDomainsRequestRequestTypeDef
+# ListVoiceProfileDomainsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1309,7 +1352,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListVoiceProfilesRequestRequestTypeDef
+# ListVoiceProfilesRequestTypeDef
 
 ### VoiceProfileDomainId
 - **Type**: <class 'str'>
@@ -1374,21 +1417,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # OriginationRouteTypeDef
 
-### Host
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Port
-- **Type**: typing.Optional[int]
-
-### Protocol
-- **Type**: typing.Optional[typing.Literal['TCP', 'UDP']]
-
-### Priority
-- **Type**: typing.Optional[int]
-
-### Weight
-- **Type**: typing.Optional[int]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # OriginationTypeDef
 
@@ -1398,6 +1429,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Disabled
 - **Type**: typing.Optional[bool]
 
+
+# OriginationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PaginatorConfigTypeDef
 
@@ -1500,51 +1537,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PhoneNumberTypeDef
 
-### PhoneNumberId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### E164PhoneNumber
-- **Type**: typing.Optional[str]
-
-### Country
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['Local', 'TollFree']]
-
-### ProductType
-- **Type**: typing.Optional[typing.Literal['SipMediaApplicationDialIn', 'VoiceConnector']]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['AcquireFailed', 'AcquireInProgress', 'Assigned', 'Cancelled', 'DeleteFailed', 'DeleteInProgress', 'PortinCancelRequested', 'PortinInProgress', 'ReleaseFailed', 'ReleaseInProgress', 'Unassigned']]
-
-### Capabilities
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.PhoneNumberCapabilitiesTypeDef]
-
-### Associations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.PhoneNumberAssociationTypeDef]]
-
-### CallingName
-- **Type**: typing.Optional[str]
-
-### CallingNameStatus
-- **Type**: typing.Optional[typing.Literal['Unassigned', 'UpdateFailed', 'UpdateInProgress', 'UpdateSucceeded']]
-
-### CreatedTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-### UpdatedTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-### DeletionTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-### OrderId
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProxySessionTypeDef
 
@@ -1603,14 +1598,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# PutSipMediaApplicationAlexaSkillConfigurationRequestRequestTypeDef
+# PutSipMediaApplicationAlexaSkillConfigurationRequestTypeDef
 
 ### SipMediaApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### SipMediaApplicationAlexaSkillConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SipMediaApplicationAlexaSkillConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SipMediaApplicationAlexaSkillConfigurationUnionTypeDef]
 
 
 # PutSipMediaApplicationAlexaSkillConfigurationResponseTypeDef
@@ -1624,7 +1619,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutSipMediaApplicationLoggingConfigurationRequestRequestTypeDef
+# PutSipMediaApplicationLoggingConfigurationRequestTypeDef
 
 ### SipMediaApplicationId
 - **Type**: <class 'str'>
@@ -1645,14 +1640,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutVoiceConnectorEmergencyCallingConfigurationRequestRequestTypeDef
+# PutVoiceConnectorEmergencyCallingConfigurationRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### EmergencyCallingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.EmergencyCallingConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.EmergencyCallingConfigurationUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -1667,7 +1662,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutVoiceConnectorLoggingConfigurationRequestRequestTypeDef
+# PutVoiceConnectorExternalSystemsConfigurationRequestTypeDef
+
+### VoiceConnectorId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SessionBorderControllerTypes
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['AUDIOCODES_MEDIANT_SBC', 'AVAYA_SBCE', 'CISCO_UNIFIED_BORDER_ELEMENT', 'ORACLE_ACME_PACKET_SBC', 'RIBBON_SBC']]]
+
+### ContactCenterSystemTypes
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['AVAYA_AURA_CALL_CENTER_ELITE', 'AVAYA_AURA_CONTACT_CENTER', 'CISCO_UNIFIED_CONTACT_CENTER_ENTERPRISE', 'GENESYS_ENGAGE_ON_PREMISES']]]
+
+
+# PutVoiceConnectorExternalSystemsConfigurationResponseTypeDef
+
+### ExternalSystemsConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ExternalSystemsConfigurationTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# PutVoiceConnectorLoggingConfigurationRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -1689,14 +1708,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutVoiceConnectorOriginationRequestRequestTypeDef
+# PutVoiceConnectorOriginationRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Origination
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.OriginationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.OriginationUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -1711,7 +1730,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutVoiceConnectorProxyRequestRequestTypeDef
+# PutVoiceConnectorProxyRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -1743,14 +1762,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutVoiceConnectorStreamingConfigurationRequestRequestTypeDef
+# PutVoiceConnectorStreamingConfigurationRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### StreamingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.StreamingConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.StreamingConfigurationUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -1765,7 +1784,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutVoiceConnectorTerminationCredentialsRequestRequestTypeDef
+# PutVoiceConnectorTerminationCredentialsRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -1775,14 +1794,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.CredentialTypeDef]]
 
 
-# PutVoiceConnectorTerminationRequestRequestTypeDef
+# PutVoiceConnectorTerminationRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Termination
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.TerminationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.TerminationUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -1819,7 +1838,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RestorePhoneNumberRequestRequestTypeDef
+# RestorePhoneNumberRequestTypeDef
 
 ### PhoneNumberId
 - **Type**: <class 'str'>
@@ -1837,7 +1856,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SearchAvailablePhoneNumbersRequestRequestTypeDef
+# SearchAvailablePhoneNumbersRequestTypeDef
 
 ### AreaCode
 - **Type**: typing.Optional[str]
@@ -1906,6 +1925,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
+
+# SipMediaApplicationAlexaSkillConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SipMediaApplicationCallTypeDef
 
@@ -2033,7 +2058,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartSpeakerSearchTaskRequestRequestTypeDef
+# StartSpeakerSearchTaskRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -2065,7 +2090,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartVoiceToneAnalysisTaskRequestRequestTypeDef
+# StartVoiceToneAnalysisTaskRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -2094,7 +2119,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopSpeakerSearchTaskRequestRequestTypeDef
+# StopSpeakerSearchTaskRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -2105,7 +2130,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopVoiceToneAnalysisTaskRequestRequestTypeDef
+# StopVoiceToneAnalysisTaskRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -2150,13 +2175,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.MediaInsightsConfigurationTypeDef]
 
 
+# StreamingConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # StreamingNotificationTargetTypeDef
 
 ### NotificationTarget
 - **Type**: typing.Optional[typing.Literal['EventBridge', 'SNS', 'SQS']]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -2223,7 +2254,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UntagResourceRequestRequestTypeDef
+# TerminationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -2234,7 +2271,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateGlobalSettingsRequestRequestTypeDef
+# UpdateGlobalSettingsRequestTypeDef
 
 ### VoiceConnector
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.VoiceConnectorSettingsTypeDef]
@@ -2256,7 +2293,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdatePhoneNumberRequestRequestTypeDef
+# UpdatePhoneNumberRequestTypeDef
 
 ### PhoneNumberId
 - **Type**: <class 'str'>
@@ -2283,14 +2320,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePhoneNumberSettingsRequestRequestTypeDef
+# UpdatePhoneNumberSettingsRequestTypeDef
 
 ### CallingName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# UpdateProxySessionRequestRequestTypeDef
+# UpdateProxySessionRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -2319,7 +2356,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateSipMediaApplicationCallRequestRequestTypeDef
+# UpdateSipMediaApplicationCallRequestTypeDef
 
 ### SipMediaApplicationId
 - **Type**: <class 'str'>
@@ -2345,7 +2382,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateSipMediaApplicationRequestRequestTypeDef
+# UpdateSipMediaApplicationRequestTypeDef
 
 ### SipMediaApplicationId
 - **Type**: <class 'str'>
@@ -2369,7 +2406,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateSipRuleRequestRequestTypeDef
+# UpdateSipRuleRequestTypeDef
 
 ### SipRuleId
 - **Type**: <class 'str'>
@@ -2397,7 +2434,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateVoiceConnectorGroupRequestRequestTypeDef
+# UpdateVoiceConnectorGroupRequestTypeDef
 
 ### VoiceConnectorGroupId
 - **Type**: <class 'str'>
@@ -2423,7 +2460,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateVoiceConnectorRequestRequestTypeDef
+# UpdateVoiceConnectorRequestTypeDef
 
 ### VoiceConnectorId
 - **Type**: <class 'str'>
@@ -2449,7 +2486,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateVoiceProfileDomainRequestRequestTypeDef
+# UpdateVoiceProfileDomainRequestTypeDef
 
 ### VoiceProfileDomainId
 - **Type**: <class 'str'>
@@ -2473,7 +2510,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateVoiceProfileRequestRequestTypeDef
+# UpdateVoiceProfileRequestTypeDef
 
 ### VoiceProfileId
 - **Type**: <class 'str'>
@@ -2495,7 +2532,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ValidateE911AddressRequestRequestTypeDef
+# ValidateE911AddressRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -2612,6 +2649,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### VoiceConnectorArn
 - **Type**: typing.Optional[str]
+
+### IntegrationType
+- **Type**: typing.Optional[typing.Literal['CONNECT_ANALYTICS_CONNECTOR', 'CONNECT_CALL_TRANSFER_CONNECTOR']]
 
 
 # VoiceProfileDomainSummaryTypeDef

@@ -85,14 +85,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ColumnDefinitionTypeDef
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: <class 'str'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CommentTypeDef
 
@@ -101,7 +96,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateKeyspaceRequestRequestTypeDef
+# CreateKeyspaceRequestTypeDef
 
 ### keyspaceName
 - **Type**: <class 'str'>
@@ -125,7 +120,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTableRequestRequestTypeDef
+# CreateTableRequestTypeDef
 
 ### keyspaceName
 - **Type**: <class 'str'>
@@ -136,7 +131,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### schemaDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.SchemaDefinitionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.SchemaDefinitionUnionTypeDef'>
 - **Required**: Yes
 
 ### comment
@@ -181,14 +176,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteKeyspaceRequestRequestTypeDef
+# CreateTypeRequestTypeDef
+
+### keyspaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### typeName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### fieldDefinitions
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.keyspaces_classes.FieldDefinitionTypeDef]
+- **Required**: Yes
+
+
+# CreateTypeResponseTypeDef
+
+### keyspaceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### typeName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DeleteKeyspaceRequestTypeDef
 
 ### keyspaceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteTableRequestRequestTypeDef
+# DeleteTableRequestTypeDef
 
 ### keyspaceName
 - **Type**: <class 'str'>
@@ -199,17 +224,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EncryptionSpecificationTypeDef
+# DeleteTypeRequestTypeDef
 
-### type
-- **Type**: typing.Literal['AWS_OWNED_KMS_KEY', 'CUSTOMER_MANAGED_KMS_KEY']
+### keyspaceName
+- **Type**: <class 'str'>
 - **Required**: Yes
 
-### kmsKeyIdentifier
-- **Type**: typing.Optional[str]
+### typeName
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 
-# GetKeyspaceRequestRequestTypeDef
+# DeleteTypeResponseTypeDef
+
+### keyspaceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### typeName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# EncryptionSpecificationTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# FieldDefinitionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# GetKeyspaceRequestTypeDef
 
 ### keyspaceName
 - **Type**: <class 'str'>
@@ -234,12 +287,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
+### replicationGroupStatuses
+- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces_classes.ReplicationGroupStatusTypeDef]
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
 
-# GetTableAutoScalingSettingsRequestRequestTypeDef
+# GetTableAutoScalingSettingsRequestTypeDef
 
 ### keyspaceName
 - **Type**: <class 'str'>
@@ -277,7 +334,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTableRequestRequestTypeDef
+# GetTableRequestTypeDef
 
 ### keyspaceName
 - **Type**: <class 'str'>
@@ -311,7 +368,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### schemaDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.SchemaDefinitionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.SchemaDefinitionOutputTypeDef'>
 - **Required**: Yes
 
 ### capacitySpecification
@@ -351,6 +408,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# GetTypeRequestTypeDef
+
+### keyspaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### typeName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetTypeResponseTypeDef
+
+### keyspaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### typeName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### fieldDefinitions
+- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces_classes.FieldDefinitionTypeDef]
+- **Required**: Yes
+
+### lastModifiedTimestamp
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'RESTORING']
+- **Required**: Yes
+
+### directReferringTables
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### directParentTypes
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### maxNestingDepth
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### keyspaceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
 # KeyspaceSummaryTypeDef
 
 ### keyspaceName
@@ -369,13 +480,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# ListKeyspacesRequestListKeyspacesPaginateTypeDef
+# ListKeyspacesRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.PaginatorConfigTypeDef]
 
 
-# ListKeyspacesRequestRequestTypeDef
+# ListKeyspacesRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -386,10 +497,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListKeyspacesResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### keyspaces
 - **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces_classes.KeyspaceSummaryTypeDef]
 - **Required**: Yes
@@ -398,8 +505,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTablesRequestListTablesPaginateTypeDef
+
+# ListTablesRequestPaginateTypeDef
 
 ### keyspaceName
 - **Type**: <class 'str'>
@@ -409,7 +519,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.PaginatorConfigTypeDef]
 
 
-# ListTablesRequestRequestTypeDef
+# ListTablesRequestTypeDef
 
 ### keyspaceName
 - **Type**: <class 'str'>
@@ -424,10 +534,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListTablesResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### tables
 - **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces_classes.TableSummaryTypeDef]
 - **Required**: Yes
@@ -436,8 +542,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestListTagsForResourcePaginateTypeDef
+
+# ListTagsForResourceRequestPaginateTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -447,7 +556,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.PaginatorConfigTypeDef]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -462,10 +571,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListTagsForResourceResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### tags
 - **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces_classes.TagTypeDef]
 - **Required**: Yes
@@ -473,6 +578,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListTypesRequestPaginateTypeDef
+
+### keyspaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.PaginatorConfigTypeDef]
+
+
+# ListTypesRequestTypeDef
+
+### keyspaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
 
 
 # PaginatorConfigTypeDef
@@ -545,6 +676,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.AutoScalingSettingsTypeDef]
 
 
+# ReplicationGroupStatusTypeDef
+
+### region
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### keyspaceStatus
+- **Type**: typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'UPDATING']
+- **Required**: Yes
+
+### tablesReplicationProgress
+- **Type**: typing.Optional[str]
+
+
 # ReplicationSpecificationTypeDef
 
 ### replicationStrategy
@@ -561,10 +706,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -577,8 +718,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# RestoreTableRequestRequestTypeDef
+
+# RestoreTableRequestTypeDef
 
 ### sourceKeyspaceName
 - **Type**: <class 'str'>
@@ -597,7 +741,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### restoreTimestamp
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.TimestampTypeDef]
 
 ### capacitySpecificationOverride
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.CapacitySpecificationTypeDef]
@@ -629,6 +773,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# SchemaDefinitionOutputTypeDef
+
+### allColumns
+- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces_classes.ColumnDefinitionTypeDef]
+- **Required**: Yes
+
+### partitionKeys
+- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces_classes.PartitionKeyTypeDef]
+- **Required**: Yes
+
+### clusteringKeys
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.keyspaces_classes.ClusteringKeyTypeDef]]
+
+### staticColumns
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.keyspaces_classes.StaticColumnTypeDef]]
+
+
 # SchemaDefinitionTypeDef
 
 ### allColumns
@@ -645,6 +806,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### staticColumns
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.keyspaces_classes.StaticColumnTypeDef]]
 
+
+# SchemaDefinitionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StaticColumnTypeDef
 
@@ -668,7 +835,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -713,7 +880,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -724,7 +897,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateTableRequestRequestTypeDef
+# UpdateKeyspaceRequestTypeDef
+
+### keyspaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### replicationSpecification
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.ReplicationSpecificationTypeDef'>
+- **Required**: Yes
+
+### clientSideTimestamps
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.ClientSideTimestampsTypeDef]
+
+
+# UpdateKeyspaceResponseTypeDef
+
+### resourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateTableRequestTypeDef
 
 ### keyspaceName
 - **Type**: <class 'str'>

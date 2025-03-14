@@ -1,6 +1,6 @@
 # Servicecatalog Classes
 
-# AcceptPortfolioShareInputRequestTypeDef
+# AcceptPortfolioShareInputTypeDef
 
 ### PortfolioId
 - **Type**: <class 'str'>
@@ -22,7 +22,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AssociateBudgetWithResourceInputRequestTypeDef
+# AssociateBudgetWithResourceInputTypeDef
 
 ### BudgetName
 - **Type**: <class 'str'>
@@ -33,7 +33,7 @@
 - **Required**: Yes
 
 
-# AssociatePrincipalWithPortfolioInputRequestTypeDef
+# AssociatePrincipalWithPortfolioInputTypeDef
 
 ### PortfolioId
 - **Type**: <class 'str'>
@@ -51,7 +51,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AssociateProductWithPortfolioInputRequestTypeDef
+# AssociateProductWithPortfolioInputTypeDef
 
 ### ProductId
 - **Type**: <class 'str'>
@@ -68,7 +68,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AssociateServiceActionWithProvisioningArtifactInputRequestTypeDef
+# AssociateServiceActionWithProvisioningArtifactInputTypeDef
 
 ### ProductId
 - **Type**: <class 'str'>
@@ -89,7 +89,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AssociateTagOptionWithResourceInputRequestTypeDef
+# AssociateTagOptionWithResourceInputTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -106,7 +106,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchAssociateServiceActionWithProvisioningArtifactInputRequestTypeDef
+# BatchAssociateServiceActionWithProvisioningArtifactInputTypeDef
 
 ### ServiceActionAssociations
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.servicecatalog_classes.ServiceActionAssociationTypeDef]
@@ -127,7 +127,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchDisassociateServiceActionFromProvisioningArtifactInputRequestTypeDef
+# BatchDisassociateServiceActionFromProvisioningArtifactInputTypeDef
 
 ### ServiceActionAssociations
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.servicecatalog_classes.ServiceActionAssociationTypeDef]
@@ -181,35 +181,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ConstraintDetailTypeDef
 
-### ConstraintId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Owner
-- **Type**: typing.Optional[str]
-
-### ProductId
-- **Type**: typing.Optional[str]
-
-### PortfolioId
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ConstraintSummaryTypeDef
 
-### Type
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Description
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-
-# CopyProductInputRequestTypeDef
+# CopyProductInputTypeDef
 
 ### SourceProductArn
 - **Type**: <class 'str'>
@@ -246,35 +228,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateConstraintInputRequestTypeDef
-
-### PortfolioId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ProductId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Parameters
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### IdempotencyToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### AcceptLanguage
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-
 # CreateConstraintOutputTypeDef
 
 ### ConstraintDetail
@@ -294,7 +247,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePortfolioInputRequestTypeDef
+# CreatePortfolioInputTypeDef
 
 ### DisplayName
 - **Type**: <class 'str'>
@@ -333,7 +286,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePortfolioShareInputRequestTypeDef
+# CreatePortfolioShareInputTypeDef
 
 ### PortfolioId
 - **Type**: <class 'str'>
@@ -366,7 +319,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateProductInputRequestTypeDef
+# CreateProductInputTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -431,7 +384,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateProvisionedProductPlanInputRequestTypeDef
+# CreateProvisionedProductPlanInputTypeDef
 
 ### PlanName
 - **Type**: <class 'str'>
@@ -500,7 +453,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateProvisioningArtifactInputRequestTypeDef
+# CreateProvisioningArtifactInputTypeDef
 
 ### ProductId
 - **Type**: <class 'str'>
@@ -537,7 +490,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateServiceActionInputRequestTypeDef
+# CreateServiceActionInputTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -573,7 +526,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTagOptionInputRequestTypeDef
+# CreateTagOptionInputTypeDef
 
 ### Key
 - **Type**: <class 'str'>
@@ -595,7 +548,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteConstraintInputRequestTypeDef
+# DeleteConstraintInputTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -605,7 +558,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeletePortfolioInputRequestTypeDef
+# DeletePortfolioInputTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -615,7 +568,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeletePortfolioShareInputRequestTypeDef
+# DeletePortfolioShareInputTypeDef
 
 ### PortfolioId
 - **Type**: <class 'str'>
@@ -642,7 +595,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteProductInputRequestTypeDef
+# DeleteProductInputTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -652,7 +605,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteProvisionedProductPlanInputRequestTypeDef
+# DeleteProvisionedProductPlanInputTypeDef
 
 ### PlanId
 - **Type**: <class 'str'>
@@ -665,7 +618,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteProvisioningArtifactInputRequestTypeDef
+# DeleteProvisioningArtifactInputTypeDef
 
 ### ProductId
 - **Type**: <class 'str'>
@@ -679,7 +632,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteServiceActionInputRequestTypeDef
+# DeleteServiceActionInputTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -692,14 +645,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteTagOptionInputRequestTypeDef
+# DeleteTagOptionInputTypeDef
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeConstraintInputRequestTypeDef
+# DescribeConstraintInputTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -728,7 +681,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeCopyProductStatusInputRequestTypeDef
+# DescribeCopyProductStatusInputTypeDef
 
 ### CopyProductToken
 - **Type**: <class 'str'>
@@ -757,7 +710,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribePortfolioInputRequestTypeDef
+# DescribePortfolioInputTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -790,7 +743,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribePortfolioShareStatusInputRequestTypeDef
+# DescribePortfolioShareStatusInputTypeDef
 
 ### PortfolioShareToken
 - **Type**: <class 'str'>
@@ -824,23 +777,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribePortfolioSharesInputRequestTypeDef
-
-### PortfolioId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['ACCOUNT', 'ORGANIZATION', 'ORGANIZATIONAL_UNIT', 'ORGANIZATION_MEMBER_ACCOUNT']
-- **Required**: Yes
-
-### PageToken
-- **Type**: typing.Optional[str]
-
-### PageSize
-- **Type**: typing.Optional[int]
-
-
 # DescribePortfolioSharesOutputTypeDef
 
 ### NextPageToken
@@ -856,7 +792,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeProductAsAdminInputRequestTypeDef
+# DescribeProductAsAdminInputTypeDef
 
 ### AcceptLanguage
 - **Type**: typing.Optional[str]
@@ -898,7 +834,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeProductInputRequestTypeDef
+# DescribeProductInputTypeDef
 
 ### AcceptLanguage
 - **Type**: typing.Optional[str]
@@ -933,7 +869,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeProductViewInputRequestTypeDef
+# DescribeProductViewInputTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -958,7 +894,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeProvisionedProductInputRequestTypeDef
+# DescribeProvisionedProductInputTypeDef
 
 ### AcceptLanguage
 - **Type**: typing.Optional[str]
@@ -985,7 +921,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeProvisionedProductPlanInputRequestTypeDef
+# DescribeProvisionedProductPlanInputTypeDef
 
 ### PlanId
 - **Type**: <class 'str'>
@@ -1020,7 +956,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeProvisioningArtifactInputRequestTypeDef
+# DescribeProvisioningArtifactInputTypeDef
 
 ### AcceptLanguage
 - **Type**: typing.Optional[str]
@@ -1067,7 +1003,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeProvisioningParametersInputRequestTypeDef
+# DescribeProvisioningParametersInputTypeDef
 
 ### AcceptLanguage
 - **Type**: typing.Optional[str]
@@ -1126,7 +1062,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeRecordInputRequestTypeDef
+# DescribeRecordInputTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -1161,7 +1097,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeServiceActionExecutionParametersInputRequestTypeDef
+# DescribeServiceActionExecutionParametersInputTypeDef
 
 ### ProvisionedProductId
 - **Type**: <class 'str'>
@@ -1186,7 +1122,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeServiceActionInputRequestTypeDef
+# DescribeServiceActionInputTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -1207,7 +1143,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeTagOptionInputRequestTypeDef
+# DescribeTagOptionInputTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -1225,7 +1161,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateBudgetFromResourceInputRequestTypeDef
+# DisassociateBudgetFromResourceInputTypeDef
 
 ### BudgetName
 - **Type**: <class 'str'>
@@ -1236,7 +1172,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociatePrincipalFromPortfolioInputRequestTypeDef
+# DisassociatePrincipalFromPortfolioInputTypeDef
 
 ### PortfolioId
 - **Type**: <class 'str'>
@@ -1253,7 +1189,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['IAM', 'IAM_PATTERN']]
 
 
-# DisassociateProductFromPortfolioInputRequestTypeDef
+# DisassociateProductFromPortfolioInputTypeDef
 
 ### ProductId
 - **Type**: <class 'str'>
@@ -1267,7 +1203,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DisassociateServiceActionFromProvisioningArtifactInputRequestTypeDef
+# DisassociateServiceActionFromProvisioningArtifactInputTypeDef
 
 ### ProductId
 - **Type**: <class 'str'>
@@ -1288,7 +1224,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DisassociateTagOptionFromResourceInputRequestTypeDef
+# DisassociateTagOptionFromResourceInputTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -1305,7 +1241,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.UniqueTagResourceIdentifierTypeDef]
 
 
-# ExecuteProvisionedProductPlanInputRequestTypeDef
+# ExecuteProvisionedProductPlanInputTypeDef
 
 ### PlanId
 - **Type**: <class 'str'>
@@ -1330,7 +1266,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ExecuteProvisionedProductServiceActionInputRequestTypeDef
+# ExecuteProvisionedProductServiceActionInputTypeDef
 
 ### ProvisionedProductId
 - **Type**: <class 'str'>
@@ -1364,15 +1300,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ExecutionParameterTypeDef
 
-### Name
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[str]
-
-### DefaultValues
-- **Type**: typing.Optional[typing.List[str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FailedServiceActionAssociationTypeDef
 
@@ -1403,7 +1333,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetProvisionedProductOutputsInputRequestTypeDef
+# GetProvisionedProductOutputsInputTypeDef
 
 ### AcceptLanguage
 - **Type**: typing.Optional[str]
@@ -1439,7 +1369,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ImportAsProvisionedProductInputRequestTypeDef
+# ImportAsProvisionedProductInputTypeDef
 
 ### ProductId
 - **Type**: <class 'str'>
@@ -1518,7 +1448,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAcceptedPortfolioSharesInputListAcceptedPortfolioSharesPaginateTypeDef
+# ListAcceptedPortfolioSharesInputPaginateTypeDef
 
 ### AcceptLanguage
 - **Type**: typing.Optional[str]
@@ -1530,7 +1460,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfigTypeDef]
 
 
-# ListAcceptedPortfolioSharesInputRequestTypeDef
+# ListAcceptedPortfolioSharesInputTypeDef
 
 ### AcceptLanguage
 - **Type**: typing.Optional[str]
@@ -1560,7 +1490,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListBudgetsForResourceInputRequestTypeDef
+# ListBudgetsForResourceInputTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -1591,7 +1521,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListConstraintsForPortfolioInputListConstraintsForPortfolioPaginateTypeDef
+# ListConstraintsForPortfolioInputPaginateTypeDef
 
 ### PortfolioId
 - **Type**: <class 'str'>
@@ -1607,7 +1537,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfigTypeDef]
 
 
-# ListConstraintsForPortfolioInputRequestTypeDef
+# ListConstraintsForPortfolioInputTypeDef
 
 ### PortfolioId
 - **Type**: <class 'str'>
@@ -1641,7 +1571,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListLaunchPathsInputListLaunchPathsPaginateTypeDef
+# ListLaunchPathsInputPaginateTypeDef
 
 ### ProductId
 - **Type**: <class 'str'>
@@ -1654,7 +1584,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfigTypeDef]
 
 
-# ListLaunchPathsInputRequestTypeDef
+# ListLaunchPathsInputTypeDef
 
 ### ProductId
 - **Type**: <class 'str'>
@@ -1685,7 +1615,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListOrganizationPortfolioAccessInputListOrganizationPortfolioAccessPaginateTypeDef
+# ListOrganizationPortfolioAccessInputPaginateTypeDef
 
 ### PortfolioId
 - **Type**: <class 'str'>
@@ -1702,7 +1632,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfigTypeDef]
 
 
-# ListOrganizationPortfolioAccessInputRequestTypeDef
+# ListOrganizationPortfolioAccessInputTypeDef
 
 ### PortfolioId
 - **Type**: <class 'str'>
@@ -1737,7 +1667,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListPortfolioAccessInputRequestTypeDef
+# ListPortfolioAccessInputTypeDef
 
 ### PortfolioId
 - **Type**: <class 'str'>
@@ -1771,7 +1701,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListPortfoliosForProductInputListPortfoliosForProductPaginateTypeDef
+# ListPortfoliosForProductInputPaginateTypeDef
 
 ### ProductId
 - **Type**: <class 'str'>
@@ -1784,7 +1714,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfigTypeDef]
 
 
-# ListPortfoliosForProductInputRequestTypeDef
+# ListPortfoliosForProductInputTypeDef
 
 ### ProductId
 - **Type**: <class 'str'>
@@ -1815,7 +1745,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListPortfoliosInputListPortfoliosPaginateTypeDef
+# ListPortfoliosInputPaginateTypeDef
 
 ### AcceptLanguage
 - **Type**: typing.Optional[str]
@@ -1824,7 +1754,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfigTypeDef]
 
 
-# ListPortfoliosInputRequestTypeDef
+# ListPortfoliosInputTypeDef
 
 ### AcceptLanguage
 - **Type**: typing.Optional[str]
@@ -1851,7 +1781,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListPrincipalsForPortfolioInputListPrincipalsForPortfolioPaginateTypeDef
+# ListPrincipalsForPortfolioInputPaginateTypeDef
 
 ### PortfolioId
 - **Type**: <class 'str'>
@@ -1864,7 +1794,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfigTypeDef]
 
 
-# ListPrincipalsForPortfolioInputRequestTypeDef
+# ListPrincipalsForPortfolioInputTypeDef
 
 ### PortfolioId
 - **Type**: <class 'str'>
@@ -1895,7 +1825,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListProvisionedProductPlansInputListProvisionedProductPlansPaginateTypeDef
+# ListProvisionedProductPlansInputPaginateTypeDef
 
 ### AcceptLanguage
 - **Type**: typing.Optional[str]
@@ -1910,7 +1840,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfigTypeDef]
 
 
-# ListProvisionedProductPlansInputRequestTypeDef
+# ListProvisionedProductPlansInputTypeDef
 
 ### AcceptLanguage
 - **Type**: typing.Optional[str]
@@ -1943,7 +1873,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListProvisioningArtifactsForServiceActionInputListProvisioningArtifactsForServiceActionPaginateTypeDef
+# ListProvisioningArtifactsForServiceActionInputPaginateTypeDef
 
 ### ServiceActionId
 - **Type**: <class 'str'>
@@ -1956,7 +1886,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfigTypeDef]
 
 
-# ListProvisioningArtifactsForServiceActionInputRequestTypeDef
+# ListProvisioningArtifactsForServiceActionInputTypeDef
 
 ### ServiceActionId
 - **Type**: <class 'str'>
@@ -1987,7 +1917,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListProvisioningArtifactsInputRequestTypeDef
+# ListProvisioningArtifactsInputTypeDef
 
 ### ProductId
 - **Type**: <class 'str'>
@@ -2012,7 +1942,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListRecordHistoryInputListRecordHistoryPaginateTypeDef
+# ListRecordHistoryInputPaginateTypeDef
 
 ### AcceptLanguage
 - **Type**: typing.Optional[str]
@@ -2027,7 +1957,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfigTypeDef]
 
 
-# ListRecordHistoryInputRequestTypeDef
+# ListRecordHistoryInputTypeDef
 
 ### AcceptLanguage
 - **Type**: typing.Optional[str]
@@ -2069,7 +1999,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResourcesForTagOptionInputListResourcesForTagOptionPaginateTypeDef
+# ListResourcesForTagOptionInputPaginateTypeDef
 
 ### TagOptionId
 - **Type**: <class 'str'>
@@ -2082,7 +2012,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfigTypeDef]
 
 
-# ListResourcesForTagOptionInputRequestTypeDef
+# ListResourcesForTagOptionInputTypeDef
 
 ### TagOptionId
 - **Type**: <class 'str'>
@@ -2113,7 +2043,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListServiceActionsForProvisioningArtifactInputListServiceActionsForProvisioningArtifactPaginateTypeDef
+# ListServiceActionsForProvisioningArtifactInputPaginateTypeDef
 
 ### ProductId
 - **Type**: <class 'str'>
@@ -2130,7 +2060,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfigTypeDef]
 
 
-# ListServiceActionsForProvisioningArtifactInputRequestTypeDef
+# ListServiceActionsForProvisioningArtifactInputTypeDef
 
 ### ProductId
 - **Type**: <class 'str'>
@@ -2165,7 +2095,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListServiceActionsInputListServiceActionsPaginateTypeDef
+# ListServiceActionsInputPaginateTypeDef
 
 ### AcceptLanguage
 - **Type**: typing.Optional[str]
@@ -2174,7 +2104,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfigTypeDef]
 
 
-# ListServiceActionsInputRequestTypeDef
+# ListServiceActionsInputTypeDef
 
 ### AcceptLanguage
 - **Type**: typing.Optional[str]
@@ -2201,7 +2131,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListStackInstancesForProvisionedProductInputRequestTypeDef
+# ListStackInstancesForProvisionedProductInputTypeDef
 
 ### ProvisionedProductId
 - **Type**: <class 'str'>
@@ -2244,7 +2174,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ListTagOptionsInputListTagOptionsPaginateTypeDef
+# ListTagOptionsInputPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.ListTagOptionsFiltersTypeDef]
@@ -2253,7 +2183,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfigTypeDef]
 
 
-# ListTagOptionsInputRequestTypeDef
+# ListTagOptionsInputTypeDef
 
 ### Filters
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.ListTagOptionsFiltersTypeDef]
@@ -2280,7 +2210,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# NotifyProvisionProductEngineWorkflowResultInputRequestTypeDef
+# NotifyProvisionProductEngineWorkflowResultInputTypeDef
 
 ### WorkflowToken
 - **Type**: <class 'str'>
@@ -2308,7 +2238,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.servicecatalog_classes.RecordOutputTypeDef]]
 
 
-# NotifyTerminateProvisionedProductEngineWorkflowResultInputRequestTypeDef
+# NotifyTerminateProvisionedProductEngineWorkflowResultInputTypeDef
 
 ### WorkflowToken
 - **Type**: <class 'str'>
@@ -2330,7 +2260,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# NotifyUpdateProvisionedProductEngineWorkflowResultInputRequestTypeDef
+# NotifyUpdateProvisionedProductEngineWorkflowResultInputTypeDef
 
 ### WorkflowToken
 - **Type**: <class 'str'>
@@ -2357,12 +2287,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # OrganizationNodeTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['ACCOUNT', 'ORGANIZATION', 'ORGANIZATIONAL_UNIT']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Value
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PaginatorConfigTypeDef
 
@@ -2423,21 +2350,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PortfolioShareDetailTypeDef
 
-### PrincipalId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[typing.Literal['ACCOUNT', 'ORGANIZATION', 'ORGANIZATIONAL_UNIT', 'ORGANIZATION_MEMBER_ACCOUNT']]
-
-### Accepted
-- **Type**: typing.Optional[bool]
-
-### ShareTagOptions
-- **Type**: typing.Optional[bool]
-
-### SharePrincipals
-- **Type**: typing.Optional[bool]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PrincipalTypeDef
 
@@ -2477,41 +2392,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ProductViewSummaryTypeDef
 
-### Id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### ProductId
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Name
-- **Type**: typing.Optional[str]
-
-### Owner
-- **Type**: typing.Optional[str]
-
-### ShortDescription
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['CLOUD_FORMATION_TEMPLATE', 'EXTERNAL', 'MARKETPLACE', 'TERRAFORM_CLOUD', 'TERRAFORM_OPEN_SOURCE']]
-
-### Distributor
-- **Type**: typing.Optional[str]
-
-### HasDefaultPath
-- **Type**: typing.Optional[bool]
-
-### SupportEmail
-- **Type**: typing.Optional[str]
-
-### SupportDescription
-- **Type**: typing.Optional[str]
-
-### SupportUrl
-- **Type**: typing.Optional[str]
-
-
-# ProvisionProductInputRequestTypeDef
+# ProvisionProductInputTypeDef
 
 ### ProvisionedProductName
 - **Type**: <class 'str'>
@@ -2568,108 +2453,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ProvisionedProductAttributeTypeDef
 
-### Name
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Arn
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[str]
-
-### Id
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'ERROR', 'PLAN_IN_PROGRESS', 'TAINTED', 'UNDER_CHANGE']]
-
-### StatusMessage
-- **Type**: typing.Optional[str]
-
-### CreatedTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### IdempotencyToken
-- **Type**: typing.Optional[str]
-
-### LastRecordId
-- **Type**: typing.Optional[str]
-
-### LastProvisioningRecordId
-- **Type**: typing.Optional[str]
-
-### LastSuccessfulProvisioningRecordId
-- **Type**: typing.Optional[str]
-
-### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.TagTypeDef]]
-
-### PhysicalId
-- **Type**: typing.Optional[str]
-
-### ProductId
-- **Type**: typing.Optional[str]
-
-### ProductName
-- **Type**: typing.Optional[str]
-
-### ProvisioningArtifactId
-- **Type**: typing.Optional[str]
-
-### ProvisioningArtifactName
-- **Type**: typing.Optional[str]
-
-### UserArn
-- **Type**: typing.Optional[str]
-
-### UserArnSession
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProvisionedProductDetailTypeDef
 
-### Name
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Arn
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[str]
-
-### Id
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'ERROR', 'PLAN_IN_PROGRESS', 'TAINTED', 'UNDER_CHANGE']]
-
-### StatusMessage
-- **Type**: typing.Optional[str]
-
-### CreatedTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### IdempotencyToken
-- **Type**: typing.Optional[str]
-
-### LastRecordId
-- **Type**: typing.Optional[str]
-
-### LastProvisioningRecordId
-- **Type**: typing.Optional[str]
-
-### LastSuccessfulProvisioningRecordId
-- **Type**: typing.Optional[str]
-
-### ProductId
-- **Type**: typing.Optional[str]
-
-### ProvisioningArtifactId
-- **Type**: typing.Optional[str]
-
-### LaunchRoleArn
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProvisionedProductPlanDetailsTypeDef
 
@@ -2742,30 +2534,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ProvisioningArtifactDetailTypeDef
 
-### Id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Name
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['CLOUD_FORMATION_TEMPLATE', 'EXTERNAL', 'MARKETPLACE_AMI', 'MARKETPLACE_CAR', 'TERRAFORM_CLOUD', 'TERRAFORM_OPEN_SOURCE']]
-
-### CreatedTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### Active
-- **Type**: typing.Optional[bool]
-
-### Guidance
-- **Type**: typing.Optional[typing.Literal['DEFAULT', 'DEPRECATED']]
-
-### SourceRevision
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProvisioningArtifactOutputTypeDef
 
@@ -2808,21 +2579,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ProvisioningArtifactPropertiesTypeDef
 
-### Name
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Description
-- **Type**: typing.Optional[str]
-
-### Info
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['CLOUD_FORMATION_TEMPLATE', 'EXTERNAL', 'MARKETPLACE_AMI', 'MARKETPLACE_CAR', 'TERRAFORM_CLOUD', 'TERRAFORM_OPEN_SOURCE']]
-
-### DisableTemplateValidation
-- **Type**: typing.Optional[bool]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProvisioningArtifactSummaryTypeDef
 
@@ -2974,7 +2733,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RejectPortfolioShareInputRequestTypeDef
+# RejectPortfolioShareInputTypeDef
 
 ### PortfolioId
 - **Type**: <class 'str'>
@@ -3059,10 +2818,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -3075,8 +2830,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# ScanProvisionedProductsInputRequestTypeDef
+
+# ScanProvisionedProductsInputPaginateTypeDef
+
+### AcceptLanguage
+- **Type**: typing.Optional[str]
+
+### AccessLevelFilter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.AccessLevelFilterTypeDef]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfigTypeDef]
+
+
+# ScanProvisionedProductsInputTypeDef
 
 ### AcceptLanguage
 - **Type**: typing.Optional[str]
@@ -3089,18 +2859,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### PageToken
 - **Type**: typing.Optional[str]
-
-
-# ScanProvisionedProductsInputScanProvisionedProductsPaginateTypeDef
-
-### AcceptLanguage
-- **Type**: typing.Optional[str]
-
-### AccessLevelFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.AccessLevelFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfigTypeDef]
 
 
 # ScanProvisionedProductsOutputTypeDef
@@ -3118,7 +2876,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SearchProductsAsAdminInputRequestTypeDef
+# SearchProductsAsAdminInputPaginateTypeDef
+
+### AcceptLanguage
+- **Type**: typing.Optional[str]
+
+### PortfolioId
+- **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[typing.Mapping[typing.Literal['FullTextSearch', 'Owner', 'ProductType', 'SourceProductId'], typing.Sequence[str]]]
+
+### SortBy
+- **Type**: typing.Optional[typing.Literal['CreationDate', 'Title', 'VersionCount']]
+
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
+
+### ProductSource
+- **Type**: typing.Optional[typing.Literal['ACCOUNT']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfigTypeDef]
+
+
+# SearchProductsAsAdminInputTypeDef
 
 ### AcceptLanguage
 - **Type**: typing.Optional[str]
@@ -3145,30 +2927,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACCOUNT']]
 
 
-# SearchProductsAsAdminInputSearchProductsAsAdminPaginateTypeDef
-
-### AcceptLanguage
-- **Type**: typing.Optional[str]
-
-### PortfolioId
-- **Type**: typing.Optional[str]
-
-### Filters
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['FullTextSearch', 'Owner', 'ProductType', 'SourceProductId'], typing.Sequence[str]]]
-
-### SortBy
-- **Type**: typing.Optional[typing.Literal['CreationDate', 'Title', 'VersionCount']]
-
-### SortOrder
-- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
-
-### ProductSource
-- **Type**: typing.Optional[typing.Literal['ACCOUNT']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfigTypeDef]
-
-
 # SearchProductsAsAdminOutputTypeDef
 
 ### ProductViewDetails
@@ -3184,7 +2942,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SearchProductsInputRequestTypeDef
+# SearchProductsInputTypeDef
 
 ### AcceptLanguage
 - **Type**: typing.Optional[str]
@@ -3224,7 +2982,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SearchProvisionedProductsInputRequestTypeDef
+# SearchProvisionedProductsInputTypeDef
 
 ### AcceptLanguage
 - **Type**: typing.Optional[str]
@@ -3329,15 +3087,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SourceConnectionDetailTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['CODESTAR']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### ConnectionParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.SourceConnectionParametersTypeDef]
-
-### LastSync
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.LastSyncTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SourceConnectionParametersTypeDef
 
@@ -3347,13 +3099,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SourceConnectionTypeDef
 
-### ConnectionParameters
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.SourceConnectionParametersTypeDef'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[typing.Literal['CODESTAR']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StackInstanceTypeDef
 
@@ -3405,7 +3153,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TerminateProvisionedProductInputRequestTypeDef
+# TerminateProvisionedProductInputTypeDef
 
 ### TerminateToken
 - **Type**: <class 'str'>
@@ -3447,7 +3195,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateConstraintInputRequestTypeDef
+# UpdateConstraintInputTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -3482,7 +3230,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePortfolioInputRequestTypeDef
+# UpdatePortfolioInputTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -3522,7 +3270,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePortfolioShareInputRequestTypeDef
+# UpdatePortfolioShareInputTypeDef
 
 ### PortfolioId
 - **Type**: <class 'str'>
@@ -3559,7 +3307,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateProductInputRequestTypeDef
+# UpdateProductInputTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -3614,7 +3362,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateProvisionedProductInputRequestTypeDef
+# UpdateProvisionedProductInputTypeDef
 
 ### UpdateToken
 - **Type**: <class 'str'>
@@ -3668,7 +3416,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateProvisionedProductPropertiesInputRequestTypeDef
+# UpdateProvisionedProductPropertiesInputTypeDef
 
 ### ProvisionedProductId
 - **Type**: <class 'str'>
@@ -3709,7 +3457,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateProvisioningArtifactInputRequestTypeDef
+# UpdateProvisioningArtifactInputTypeDef
 
 ### ProductId
 - **Type**: <class 'str'>
@@ -3790,7 +3538,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CREATE', 'DELETE', 'UPDATE']]
 
 
-# UpdateServiceActionInputRequestTypeDef
+# UpdateServiceActionInputTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -3820,7 +3568,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateTagOptionInputRequestTypeDef
+# UpdateTagOptionInputTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -3846,10 +3594,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # UsageInstructionTypeDef
 
-### Type
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Value
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

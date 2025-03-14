@@ -15,7 +15,7 @@
 - **Required**: Yes
 
 
-# AcknowledgeJobInputRequestTypeDef
+# AcknowledgeJobInputTypeDef
 
 ### jobId
 - **Type**: <class 'str'>
@@ -37,7 +37,7 @@
 - **Required**: Yes
 
 
-# AcknowledgeThirdPartyJobInputRequestTypeDef
+# AcknowledgeThirdPartyJobInputTypeDef
 
 ### jobId
 - **Type**: <class 'str'>
@@ -65,31 +65,9 @@
 
 # ActionConfigurationPropertyTypeDef
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### required
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### key
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### secret
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### queryable
-- **Type**: typing.Optional[bool]
-
-### description
-- **Type**: typing.Optional[str]
-
-### type
-- **Type**: typing.Optional[typing.Literal['Boolean', 'Number', 'String']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ActionConfigurationTypeDef
 
@@ -122,11 +100,17 @@
 ### configuration
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
+### commands
+- **Type**: typing.Optional[typing.List[str]]
+
 ### outputArtifacts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codepipeline_classes.OutputArtifactTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codepipeline_classes.OutputArtifactOutputTypeDef]]
 
 ### inputArtifacts
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codepipeline_classes.InputArtifactTypeDef]]
+
+### outputVariables
+- **Type**: typing.Optional[typing.List[str]]
 
 ### roleArn
 - **Type**: typing.Optional[str]
@@ -139,6 +123,9 @@
 
 ### timeoutInMinutes
 - **Type**: typing.Optional[int]
+
+### environmentVariables
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codepipeline_classes.EnvironmentVariableTypeDef]]
 
 
 # ActionDeclarationTypeDef
@@ -157,11 +144,17 @@
 ### configuration
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
+### commands
+- **Type**: typing.Optional[typing.Sequence[str]]
+
 ### outputArtifacts
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codepipeline_classes.OutputArtifactTypeDef]]
 
 ### inputArtifacts
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codepipeline_classes.InputArtifactTypeDef]]
+
+### outputVariables
+- **Type**: typing.Optional[typing.Sequence[str]]
 
 ### roleArn
 - **Type**: typing.Optional[str]
@@ -175,42 +168,15 @@
 ### timeoutInMinutes
 - **Type**: typing.Optional[int]
 
+### environmentVariables
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codepipeline_classes.EnvironmentVariableTypeDef]]
+
 
 # ActionExecutionDetailTypeDef
 
-### pipelineExecutionId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### actionExecutionId
-- **Type**: typing.Optional[str]
-
-### pipelineVersion
-- **Type**: typing.Optional[int]
-
-### stageName
-- **Type**: typing.Optional[str]
-
-### actionName
-- **Type**: typing.Optional[str]
-
-### startTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### lastUpdateTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### updatedBy
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[typing.Literal['Abandoned', 'Failed', 'InProgress', 'Succeeded']]
-
-### input
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.ActionExecutionInputTypeDef]
-
-### output
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.ActionExecutionOutputTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ActionExecutionFilterTypeDef
 
@@ -271,6 +237,9 @@
 ### errorDetails
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.ErrorDetailsTypeDef]
 
+### logStreamARN
+- **Type**: typing.Optional[str]
+
 
 # ActionExecutionTypeDef
 
@@ -304,6 +273,9 @@
 ### errorDetails
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.ErrorDetailsTypeDef]
 
+### logStreamARN
+- **Type**: typing.Optional[str]
+
 
 # ActionRevisionOutputTypeDef
 
@@ -331,9 +303,15 @@
 - **Required**: Yes
 
 ### created
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.TimestampTypeDef'>
 - **Required**: Yes
 
+
+# ActionRevisionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ActionStateTypeDef
 
@@ -366,104 +344,20 @@
 
 # ActionTypeDeclarationOutputTypeDef
 
-### executor
-- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ActionTypeExecutorOutputTypeDef'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### id
-- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ActionTypeIdentifierTypeDef'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### inputArtifactDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ActionTypeArtifactDetailsTypeDef'>
-- **Required**: Yes
+# ActionTypeDeclarationUnionTypeDef
 
-### outputArtifactDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ActionTypeArtifactDetailsTypeDef'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### description
-- **Type**: typing.Optional[str]
-
-### permissions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.ActionTypePermissionsOutputTypeDef]
-
-### properties
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codepipeline_classes.ActionTypePropertyTypeDef]]
-
-### urls
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.ActionTypeUrlsTypeDef]
-
-
-# ActionTypeDeclarationTypeDef
-
-### executor
-- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ActionTypeExecutorTypeDef'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ActionTypeIdentifierTypeDef'>
-- **Required**: Yes
-
-### inputArtifactDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ActionTypeArtifactDetailsTypeDef'>
-- **Required**: Yes
-
-### outputArtifactDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ActionTypeArtifactDetailsTypeDef'>
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
-
-### permissions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.ActionTypePermissionsTypeDef]
-
-### properties
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codepipeline_classes.ActionTypePropertyTypeDef]]
-
-### urls
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.ActionTypeUrlsTypeDef]
-
-
-# ActionTypeExecutorOutputTypeDef
-
-### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ExecutorConfigurationOutputTypeDef'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['JobWorker', 'Lambda']
-- **Required**: Yes
-
-### policyStatementsTemplate
-- **Type**: typing.Optional[str]
-
-### jobTimeout
-- **Type**: typing.Optional[int]
-
-
-# ActionTypeExecutorTypeDef
-
-### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ExecutorConfigurationTypeDef'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['JobWorker', 'Lambda']
-- **Required**: Yes
-
-### policyStatementsTemplate
-- **Type**: typing.Optional[str]
-
-### jobTimeout
-- **Type**: typing.Optional[int]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ActionTypeIdTypeDef
 
 ### category
-- **Type**: typing.Literal['Approval', 'Build', 'Deploy', 'Invoke', 'Source', 'Test']
+- **Type**: typing.Literal['Approval', 'Build', 'Compute', 'Deploy', 'Invoke', 'Source', 'Test']
 - **Required**: Yes
 
 ### owner
@@ -482,7 +376,7 @@
 # ActionTypeIdentifierTypeDef
 
 ### category
-- **Type**: typing.Literal['Approval', 'Build', 'Deploy', 'Invoke', 'Source', 'Test']
+- **Type**: typing.Literal['Approval', 'Build', 'Compute', 'Deploy', 'Invoke', 'Source', 'Test']
 - **Required**: Yes
 
 ### owner
@@ -554,24 +448,9 @@
 
 # ActionTypeTypeDef
 
-### id
-- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ActionTypeIdTypeDef'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### inputArtifactDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ArtifactDetailsTypeDef'>
-- **Required**: Yes
-
-### outputArtifactDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ArtifactDetailsTypeDef'>
-- **Required**: Yes
-
-### settings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.ActionTypeSettingsTypeDef]
-
-### actionConfigurationProperties
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codepipeline_classes.ActionConfigurationPropertyTypeDef]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ActionTypeUrlsTypeDef
 
@@ -621,12 +500,9 @@
 
 # ArtifactLocationTypeDef
 
-### type
-- **Type**: typing.Optional[typing.Literal['S3']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### s3Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.S3ArtifactLocationTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ArtifactRevisionTypeDef
 
@@ -651,17 +527,9 @@
 
 # ArtifactStoreTypeDef
 
-### type
-- **Type**: typing.Literal['S3']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### location
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### encryptionKey
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.EncryptionKeyTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ArtifactTypeDef
 
@@ -681,21 +549,69 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
+# BeforeEntryConditionsOutputTypeDef
+
+### conditions
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codepipeline_classes.ConditionOutputTypeDef]
+- **Required**: Yes
+
+
+# BeforeEntryConditionsTypeDef
+
+### conditions
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.codepipeline_classes.ConditionTypeDef]
+- **Required**: Yes
+
+
 # BlockerDeclarationTypeDef
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: typing.Literal['Schedule']
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ConditionExecutionTypeDef
+
+### status
+- **Type**: typing.Optional[typing.Literal['Abandoned', 'Cancelled', 'Errored', 'Failed', 'InProgress', 'Overridden', 'Succeeded']]
+
+### summary
+- **Type**: typing.Optional[str]
+
+### lastStatusChange
+- **Type**: typing.Optional[datetime.datetime]
 
 
-# CreateCustomActionTypeInputRequestTypeDef
+# ConditionOutputTypeDef
+
+### result
+- **Type**: typing.Optional[typing.Literal['FAIL', 'RETRY', 'ROLLBACK', 'SKIP']]
+
+### rules
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codepipeline_classes.RuleDeclarationOutputTypeDef]]
+
+
+# ConditionStateTypeDef
+
+### latestExecution
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.ConditionExecutionTypeDef]
+
+### ruleStates
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codepipeline_classes.RuleStateTypeDef]]
+
+
+# ConditionTypeDef
+
+### result
+- **Type**: typing.Optional[typing.Literal['FAIL', 'RETRY', 'ROLLBACK', 'SKIP']]
+
+### rules
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codepipeline_classes.RuleDeclarationTypeDef]]
+
+
+# CreateCustomActionTypeInputTypeDef
 
 ### category
-- **Type**: typing.Literal['Approval', 'Build', 'Deploy', 'Invoke', 'Source', 'Test']
+- **Type**: typing.Literal['Approval', 'Build', 'Compute', 'Deploy', 'Invoke', 'Source', 'Test']
 - **Required**: Yes
 
 ### provider
@@ -739,10 +655,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePipelineInputRequestTypeDef
+# CreatePipelineInputTypeDef
 
 ### pipeline
-- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.PipelineDeclarationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.PipelineDeclarationUnionTypeDef'>
 - **Required**: Yes
 
 ### tags
@@ -775,16 +691,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### created
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.TimestampTypeDef]
 
 ### revisionSummary
 - **Type**: typing.Optional[str]
 
 
-# DeleteCustomActionTypeInputRequestTypeDef
+# DeleteCustomActionTypeInputTypeDef
 
 ### category
-- **Type**: typing.Literal['Approval', 'Build', 'Deploy', 'Invoke', 'Source', 'Test']
+- **Type**: typing.Literal['Approval', 'Build', 'Compute', 'Deploy', 'Invoke', 'Source', 'Test']
 - **Required**: Yes
 
 ### provider
@@ -796,27 +712,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeletePipelineInputRequestTypeDef
+# DeletePipelineInputTypeDef
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteWebhookInputRequestTypeDef
+# DeleteWebhookInputTypeDef
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeregisterWebhookWithThirdPartyInputRequestTypeDef
+# DeregisterWebhookWithThirdPartyInputTypeDef
 
 ### webhookName
 - **Type**: typing.Optional[str]
 
 
-# DisableStageTransitionInputRequestTypeDef
+# DisableStageTransitionInputTypeDef
 
 ### pipelineName
 - **Type**: <class 'str'>
@@ -842,7 +758,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EnableStageTransitionInputRequestTypeDef
+# EnableStageTransitionInputTypeDef
 
 ### pipelineName
 - **Type**: <class 'str'>
@@ -859,12 +775,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EncryptionKeyTypeDef
 
-### id
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# EnvironmentVariableTypeDef
+
+### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### type
-- **Type**: typing.Literal['KMS']
+### value
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 
@@ -916,30 +838,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.JobWorkerExecutorConfigurationTypeDef]
 
 
+# FailureConditionsOutputTypeDef
+
+### result
+- **Type**: typing.Optional[typing.Literal['FAIL', 'RETRY', 'ROLLBACK', 'SKIP']]
+
+### retryConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.RetryConfigurationTypeDef]
+
+### conditions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codepipeline_classes.ConditionOutputTypeDef]]
+
+
 # FailureConditionsTypeDef
 
 ### result
-- **Type**: typing.Optional[typing.Literal['ROLLBACK']]
+- **Type**: typing.Optional[typing.Literal['FAIL', 'RETRY', 'ROLLBACK', 'SKIP']]
+
+### retryConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.RetryConfigurationTypeDef]
+
+### conditions
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codepipeline_classes.ConditionTypeDef]]
 
 
 # FailureDetailsTypeDef
 
-### type
-- **Type**: typing.Literal['ConfigurationError', 'JobFailed', 'PermissionError', 'RevisionOutOfSync', 'RevisionUnavailable', 'SystemUnavailable']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### message
-- **Type**: <class 'str'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### externalExecutionId
-- **Type**: typing.Optional[str]
-
-
-# GetActionTypeInputRequestTypeDef
+# GetActionTypeInputTypeDef
 
 ### category
-- **Type**: typing.Literal['Approval', 'Build', 'Deploy', 'Invoke', 'Source', 'Test']
+- **Type**: typing.Literal['Approval', 'Build', 'Compute', 'Deploy', 'Invoke', 'Source', 'Test']
 - **Required**: Yes
 
 ### owner
@@ -966,7 +898,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetJobDetailsInputRequestTypeDef
+# GetJobDetailsInputTypeDef
 
 ### jobId
 - **Type**: <class 'str'>
@@ -984,7 +916,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPipelineExecutionInputRequestTypeDef
+# GetPipelineExecutionInputTypeDef
 
 ### pipelineName
 - **Type**: <class 'str'>
@@ -1006,7 +938,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPipelineInputRequestTypeDef
+# GetPipelineInputTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -1031,7 +963,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPipelineStateInputRequestTypeDef
+# GetPipelineStateInputTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -1065,7 +997,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetThirdPartyJobDetailsInputRequestTypeDef
+# GetThirdPartyJobDetailsInputTypeDef
 
 ### jobId
 - **Type**: <class 'str'>
@@ -1251,30 +1183,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # JobDetailsTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### data
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.JobDataTypeDef]
-
-### accountId
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # JobTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### data
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.JobDataTypeDef]
-
-### nonce
-- **Type**: typing.Optional[str]
-
-### accountId
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # JobWorkerExecutorConfigurationOutputTypeDef
 
@@ -1312,51 +1229,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListActionExecutionsInputListActionExecutionsPaginateTypeDef
-
-### pipelineName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.ActionExecutionFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.PaginatorConfigTypeDef]
-
-
-# ListActionExecutionsInputRequestTypeDef
-
-### pipelineName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.ActionExecutionFilterTypeDef]
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
 # ListActionExecutionsOutputTypeDef
 
 ### actionExecutionDetails
 - **Type**: typing.List[aws_resource_validator.pydantic_models.codepipeline_classes.ActionExecutionDetailTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListActionTypesInputListActionTypesPaginateTypeDef
+
+# ListActionTypesInputPaginateTypeDef
 
 ### actionOwnerFilter
 - **Type**: typing.Optional[typing.Literal['AWS', 'Custom', 'ThirdParty']]
@@ -1368,7 +1255,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.PaginatorConfigTypeDef]
 
 
-# ListActionTypesInputRequestTypeDef
+# ListActionTypesInputTypeDef
 
 ### actionOwnerFilter
 - **Type**: typing.Optional[typing.Literal['AWS', 'Custom', 'ThirdParty']]
@@ -1386,39 +1273,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.codepipeline_classes.ActionTypeTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
-
-
-# ListPipelineExecutionsInputListPipelineExecutionsPaginateTypeDef
-
-### pipelineName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.PipelineExecutionFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.PaginatorConfigTypeDef]
-
-
-# ListPipelineExecutionsInputRequestTypeDef
-
-### pipelineName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.PipelineExecutionFilterTypeDef]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1430,22 +1287,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.codepipeline_classes.PipelineExecutionSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListPipelinesInputListPipelinesPaginateTypeDef
+
+# ListPipelinesInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.PaginatorConfigTypeDef]
 
 
-# ListPipelinesInputRequestTypeDef
+# ListPipelinesInputTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1460,8 +1316,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.codepipeline_classes.PipelineSummaryTypeDef]
 - **Required**: Yes
 
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
 ### nextToken
-- **Type**: <class 'str'>
+- **Type**: typing.Optional[str]
+
+
+# ListRuleExecutionsOutputTypeDef
+
+### ruleExecutionDetails
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codepipeline_classes.RuleExecutionDetailTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListRuleTypesInputTypeDef
+
+### ruleOwnerFilter
+- **Type**: typing.Optional[typing.Literal['AWS']]
+
+### regionFilter
+- **Type**: typing.Optional[str]
+
+
+# ListRuleTypesOutputTypeDef
+
+### ruleTypes
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codepipeline_classes.RuleTypeTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -1469,7 +1358,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTagsForResourceInputListTagsForResourcePaginateTypeDef
+# ListTagsForResourceInputPaginateTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1479,7 +1368,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.PaginatorConfigTypeDef]
 
 
-# ListTagsForResourceInputRequestTypeDef
+# ListTagsForResourceInputTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1498,13 +1387,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.codepipeline_classes.TagTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # ListWebhookItemTypeDef
@@ -1533,13 +1421,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codepipeline_classes.TagTypeDef]]
 
 
-# ListWebhooksInputListWebhooksPaginateTypeDef
+# ListWebhooksInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.PaginatorConfigTypeDef]
 
 
-# ListWebhooksInputRequestTypeDef
+# ListWebhooksInputTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1562,10 +1450,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# OutputArtifactOutputTypeDef
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### files
+- **Type**: typing.Optional[typing.List[str]]
+
+
 # OutputArtifactTypeDef
 
 ### name
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+### files
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# OverrideStageConditionInputTypeDef
+
+### pipelineName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### stageName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### pipelineExecutionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### conditionType
+- **Type**: typing.Literal['BEFORE_ENTRY', 'ON_SUCCESS']
 - **Required**: Yes
 
 
@@ -1670,6 +1590,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### triggers
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codepipeline_classes.PipelineTriggerDeclarationTypeDef]]
 
+
+# PipelineDeclarationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PipelineExecutionFilterTypeDef
 
@@ -1837,7 +1763,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PollForJobsInputRequestTypeDef
+# PollForJobsInputTypeDef
 
 ### actionTypeId
 - **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ActionTypeIdTypeDef'>
@@ -1861,7 +1787,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PollForThirdPartyJobsInputRequestTypeDef
+# PollForThirdPartyJobsInputTypeDef
 
 ### actionTypeId
 - **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ActionTypeIdTypeDef'>
@@ -1882,7 +1808,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutActionRevisionInputRequestTypeDef
+# PutActionRevisionInputTypeDef
 
 ### pipelineName
 - **Type**: <class 'str'>
@@ -1897,7 +1823,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### actionRevision
-- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ActionRevisionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ActionRevisionUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -1916,7 +1842,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutApprovalResultInputRequestTypeDef
+# PutApprovalResultInputTypeDef
 
 ### pipelineName
 - **Type**: <class 'str'>
@@ -1950,7 +1876,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutJobFailureResultInputRequestTypeDef
+# PutJobFailureResultInputTypeDef
 
 ### jobId
 - **Type**: <class 'str'>
@@ -1961,7 +1887,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutJobSuccessResultInputRequestTypeDef
+# PutJobSuccessResultInputTypeDef
 
 ### jobId
 - **Type**: <class 'str'>
@@ -1980,7 +1906,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# PutThirdPartyJobFailureResultInputRequestTypeDef
+# PutThirdPartyJobFailureResultInputTypeDef
 
 ### jobId
 - **Type**: <class 'str'>
@@ -1995,7 +1921,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutThirdPartyJobSuccessResultInputRequestTypeDef
+# PutThirdPartyJobSuccessResultInputTypeDef
 
 ### jobId
 - **Type**: <class 'str'>
@@ -2015,10 +1941,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.ExecutionDetailsTypeDef]
 
 
-# PutWebhookInputRequestTypeDef
+# PutWebhookInputTypeDef
 
 ### webhook
-- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.WebhookDefinitionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.WebhookDefinitionUnionTypeDef'>
 - **Required**: Yes
 
 ### tags
@@ -2036,7 +1962,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RegisterWebhookWithThirdPartyInputRequestTypeDef
+# RegisterWebhookWithThirdPartyInputTypeDef
 
 ### webhookName
 - **Type**: typing.Optional[str]
@@ -2073,7 +1999,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RetryStageExecutionInputRequestTypeDef
+# RetryConfigurationTypeDef
+
+### retryMode
+- **Type**: typing.Optional[typing.Literal['ALL_ACTIONS', 'FAILED_ACTIONS']]
+
+
+# RetryStageExecutionInputTypeDef
 
 ### pipelineName
 - **Type**: <class 'str'>
@@ -2103,7 +2035,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RollbackStageInputRequestTypeDef
+# RetryStageMetadataTypeDef
+
+### autoStageRetryAttempt
+- **Type**: typing.Optional[int]
+
+### manualStageRetryAttempt
+- **Type**: typing.Optional[int]
+
+### latestRetryTrigger
+- **Type**: typing.Optional[typing.Literal['AutomatedStageRetry', 'ManualStageRetry']]
+
+
+# RollbackStageInputTypeDef
 
 ### pipelineName
 - **Type**: <class 'str'>
@@ -2128,6 +2072,222 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+
+# RuleDeclarationOutputTypeDef
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ruleTypeId
+- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.RuleTypeIdTypeDef'>
+- **Required**: Yes
+
+### configuration
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### commands
+- **Type**: typing.Optional[typing.List[str]]
+
+### inputArtifacts
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codepipeline_classes.InputArtifactTypeDef]]
+
+### roleArn
+- **Type**: typing.Optional[str]
+
+### region
+- **Type**: typing.Optional[str]
+
+### timeoutInMinutes
+- **Type**: typing.Optional[int]
+
+
+# RuleDeclarationTypeDef
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ruleTypeId
+- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.RuleTypeIdTypeDef'>
+- **Required**: Yes
+
+### configuration
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### commands
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### inputArtifacts
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codepipeline_classes.InputArtifactTypeDef]]
+
+### roleArn
+- **Type**: typing.Optional[str]
+
+### region
+- **Type**: typing.Optional[str]
+
+### timeoutInMinutes
+- **Type**: typing.Optional[int]
+
+
+# RuleExecutionDetailTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# RuleExecutionFilterTypeDef
+
+### pipelineExecutionId
+- **Type**: typing.Optional[str]
+
+### latestInPipelineExecution
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.LatestInPipelineExecutionFilterTypeDef]
+
+
+# RuleExecutionInputTypeDef
+
+### ruleTypeId
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.RuleTypeIdTypeDef]
+
+### configuration
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### resolvedConfiguration
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### roleArn
+- **Type**: typing.Optional[str]
+
+### region
+- **Type**: typing.Optional[str]
+
+### inputArtifacts
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codepipeline_classes.ArtifactDetailTypeDef]]
+
+
+# RuleExecutionOutputTypeDef
+
+### executionResult
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.RuleExecutionResultTypeDef]
+
+
+# RuleExecutionResultTypeDef
+
+### externalExecutionId
+- **Type**: typing.Optional[str]
+
+### externalExecutionSummary
+- **Type**: typing.Optional[str]
+
+### externalExecutionUrl
+- **Type**: typing.Optional[str]
+
+### errorDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.ErrorDetailsTypeDef]
+
+
+# RuleExecutionTypeDef
+
+### ruleExecutionId
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['Abandoned', 'Failed', 'InProgress', 'Succeeded']]
+
+### summary
+- **Type**: typing.Optional[str]
+
+### lastStatusChange
+- **Type**: typing.Optional[datetime.datetime]
+
+### token
+- **Type**: typing.Optional[str]
+
+### lastUpdatedBy
+- **Type**: typing.Optional[str]
+
+### externalExecutionId
+- **Type**: typing.Optional[str]
+
+### externalExecutionUrl
+- **Type**: typing.Optional[str]
+
+### errorDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.ErrorDetailsTypeDef]
+
+
+# RuleRevisionTypeDef
+
+### revisionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### revisionChangeId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### created
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+
+# RuleStateTypeDef
+
+### ruleName
+- **Type**: typing.Optional[str]
+
+### currentRevision
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.RuleRevisionTypeDef]
+
+### latestExecution
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.RuleExecutionTypeDef]
+
+### entityUrl
+- **Type**: typing.Optional[str]
+
+### revisionUrl
+- **Type**: typing.Optional[str]
+
+
+# RuleTypeIdTypeDef
+
+### category
+- **Type**: typing.Literal['Rule']
+- **Required**: Yes
+
+### provider
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### owner
+- **Type**: typing.Optional[typing.Literal['AWS']]
+
+### version
+- **Type**: typing.Optional[str]
+
+
+# RuleTypeSettingsTypeDef
+
+### thirdPartyConfigurationUrl
+- **Type**: typing.Optional[str]
+
+### entityUrlTemplate
+- **Type**: typing.Optional[str]
+
+### executionUrlTemplate
+- **Type**: typing.Optional[str]
+
+### revisionUrlTemplate
+- **Type**: typing.Optional[str]
+
+
+# RuleTypeTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # S3ArtifactLocationTypeDef
 
@@ -2180,6 +2340,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# StageConditionStateTypeDef
+
+### latestExecution
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.StageConditionsExecutionTypeDef]
+
+### conditionStates
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codepipeline_classes.ConditionStateTypeDef]]
+
+
+# StageConditionsExecutionTypeDef
+
+### status
+- **Type**: typing.Optional[typing.Literal['Abandoned', 'Cancelled', 'Errored', 'Failed', 'InProgress', 'Overridden', 'Succeeded']]
+
+### summary
+- **Type**: typing.Optional[str]
+
+
 # StageContextTypeDef
 
 ### name
@@ -2200,7 +2378,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codepipeline_classes.BlockerDeclarationTypeDef]]
 
 ### onFailure
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.FailureConditionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.FailureConditionsOutputTypeDef]
+
+### onSuccess
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.SuccessConditionsOutputTypeDef]
+
+### beforeEntry
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.BeforeEntryConditionsOutputTypeDef]
 
 
 # StageDeclarationTypeDef
@@ -2219,20 +2403,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### onFailure
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.FailureConditionsTypeDef]
 
+### onSuccess
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.SuccessConditionsTypeDef]
+
+### beforeEntry
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.BeforeEntryConditionsTypeDef]
+
 
 # StageExecutionTypeDef
 
-### pipelineExecutionId
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### status
-- **Type**: typing.Literal['Cancelled', 'Failed', 'InProgress', 'Stopped', 'Stopping', 'Succeeded']
-- **Required**: Yes
-
-### type
-- **Type**: typing.Optional[typing.Literal['ROLLBACK', 'STANDARD']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StageStateTypeDef
 
@@ -2254,8 +2436,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### latestExecution
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.StageExecutionTypeDef]
 
+### beforeEntryConditionState
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.StageConditionStateTypeDef]
 
-# StartPipelineExecutionInputRequestTypeDef
+### onSuccessConditionState
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.StageConditionStateTypeDef]
+
+### onFailureConditionState
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.StageConditionStateTypeDef]
+
+### retryStageMetadata
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.RetryStageMetadataTypeDef]
+
+
+# StartPipelineExecutionInputTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -2288,7 +2482,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StopPipelineExecutionInputRequestTypeDef
+# StopPipelineExecutionInputTypeDef
 
 ### pipelineName
 - **Type**: <class 'str'>
@@ -2322,7 +2516,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceInputRequestTypeDef
+# SuccessConditionsOutputTypeDef
+
+### conditions
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codepipeline_classes.ConditionOutputTypeDef]
+- **Required**: Yes
+
+
+# SuccessConditionsTypeDef
+
+### conditions
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.codepipeline_classes.ConditionTypeDef]
+- **Required**: Yes
+
+
+# TagResourceInputTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2373,15 +2581,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ThirdPartyJobDetailsTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### data
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codepipeline_classes.ThirdPartyJobDataTypeDef]
-
-### nonce
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ThirdPartyJobTypeDef
 
@@ -2391,6 +2593,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### jobId
 - **Type**: typing.Optional[str]
 
+
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TransitionStateTypeDef
 
@@ -2407,7 +2615,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceInputRequestTypeDef
+# UntagResourceInputTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2418,17 +2626,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateActionTypeInputRequestTypeDef
+# UpdateActionTypeInputTypeDef
 
 ### actionType
-- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ActionTypeDeclarationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.ActionTypeDeclarationUnionTypeDef'>
 - **Required**: Yes
 
 
-# UpdatePipelineInputRequestTypeDef
+# UpdatePipelineInputTypeDef
 
 ### pipeline
-- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.PipelineDeclarationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.PipelineDeclarationUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -2450,33 +2658,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SecretToken
 - **Type**: typing.Optional[str]
-
-
-# WebhookDefinitionExtraOutputTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### targetPipeline
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### targetAction
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### filters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codepipeline_classes.WebhookFilterRuleTypeDef]
-- **Required**: Yes
-
-### authentication
-- **Type**: typing.Literal['GITHUB_HMAC', 'IP', 'UNAUTHENTICATED']
-- **Required**: Yes
-
-### authenticationConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.WebhookAuthConfigurationTypeDef'>
-- **Required**: Yes
 
 
 # WebhookDefinitionOutputTypeDef
@@ -2532,6 +2713,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.codepipeline_classes.WebhookAuthConfigurationTypeDef'>
 - **Required**: Yes
 
+
+# WebhookDefinitionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # WebhookFilterRuleTypeDef
 

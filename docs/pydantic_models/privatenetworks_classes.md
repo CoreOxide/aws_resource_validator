@@ -1,6 +1,6 @@
 # Privatenetworks Classes
 
-# AcknowledgeOrderReceiptRequestRequestTypeDef
+# AcknowledgeOrderReceiptRequestTypeDef
 
 ### orderArn
 - **Type**: <class 'str'>
@@ -18,7 +18,7 @@
 - **Required**: Yes
 
 
-# ActivateDeviceIdentifierRequestRequestTypeDef
+# ActivateDeviceIdentifierRequestTypeDef
 
 ### deviceIdentifierArn
 - **Type**: <class 'str'>
@@ -43,7 +43,7 @@
 - **Required**: Yes
 
 
-# ActivateNetworkSiteRequestRequestTypeDef
+# ActivateNetworkSiteRequestTypeDef
 
 ### networkSiteArn
 - **Type**: <class 'str'>
@@ -143,7 +143,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ConfigureAccessPointRequestRequestTypeDef
+# ConfigureAccessPointRequestTypeDef
 
 ### accessPointArn
 - **Type**: <class 'str'>
@@ -176,7 +176,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateNetworkRequestRequestTypeDef
+# CreateNetworkRequestTypeDef
 
 ### networkName
 - **Type**: <class 'str'>
@@ -207,7 +207,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateNetworkSiteRequestRequestTypeDef
+# CreateNetworkSiteRequestTypeDef
 
 ### networkArn
 - **Type**: <class 'str'>
@@ -230,7 +230,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### pendingPlan
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.SitePlanTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.SitePlanUnionTypeDef]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -251,7 +251,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeactivateDeviceIdentifierRequestRequestTypeDef
+# DeactivateDeviceIdentifierRequestTypeDef
 
 ### deviceIdentifierArn
 - **Type**: <class 'str'>
@@ -272,7 +272,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteNetworkRequestRequestTypeDef
+# DeleteNetworkRequestTypeDef
 
 ### networkArn
 - **Type**: <class 'str'>
@@ -293,7 +293,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteNetworkSiteRequestRequestTypeDef
+# DeleteNetworkSiteRequestTypeDef
 
 ### networkSiteArn
 - **Type**: <class 'str'>
@@ -344,7 +344,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetDeviceIdentifierRequestRequestTypeDef
+# GetDeviceIdentifierRequestTypeDef
 
 ### deviceIdentifierArn
 - **Type**: <class 'str'>
@@ -366,14 +366,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetNetworkRequestRequestTypeDef
+# GetNetworkRequestTypeDef
 
 ### networkArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetNetworkResourceRequestRequestTypeDef
+# GetNetworkResourceRequestTypeDef
 
 ### networkResourceArn
 - **Type**: <class 'str'>
@@ -410,7 +410,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetNetworkSiteRequestRequestTypeDef
+# GetNetworkSiteRequestTypeDef
 
 ### networkSiteArn
 - **Type**: <class 'str'>
@@ -432,7 +432,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetOrderRequestRequestTypeDef
+# GetOrderRequestTypeDef
 
 ### orderArn
 - **Type**: <class 'str'>
@@ -454,7 +454,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListDeviceIdentifiersRequestListDeviceIdentifiersPaginateTypeDef
+# ListDeviceIdentifiersRequestPaginateTypeDef
 
 ### networkArn
 - **Type**: <class 'str'>
@@ -467,7 +467,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.PaginatorConfigTypeDef]
 
 
-# ListDeviceIdentifiersRequestRequestTypeDef
+# ListDeviceIdentifiersRequestTypeDef
 
 ### networkArn
 - **Type**: <class 'str'>
@@ -489,16 +489,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.DeviceIdentifierTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListNetworkResourcesRequestListNetworkResourcesPaginateTypeDef
+
+# ListNetworkResourcesRequestPaginateTypeDef
 
 ### networkArn
 - **Type**: <class 'str'>
@@ -511,7 +510,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.PaginatorConfigTypeDef]
 
 
-# ListNetworkResourcesRequestRequestTypeDef
+# ListNetworkResourcesRequestTypeDef
 
 ### networkArn
 - **Type**: <class 'str'>
@@ -533,16 +532,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkResourceTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListNetworkSitesRequestListNetworkSitesPaginateTypeDef
+
+# ListNetworkSitesRequestPaginateTypeDef
 
 ### networkArn
 - **Type**: <class 'str'>
@@ -555,7 +553,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.PaginatorConfigTypeDef]
 
 
-# ListNetworkSitesRequestRequestTypeDef
+# ListNetworkSitesRequestTypeDef
 
 ### networkArn
 - **Type**: <class 'str'>
@@ -577,16 +575,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkSiteTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListNetworksRequestListNetworksPaginateTypeDef
+
+# ListNetworksRequestPaginateTypeDef
 
 ### filters
 - **Type**: typing.Optional[typing.Mapping[typing.Literal['STATUS'], typing.Sequence[str]]]
@@ -595,7 +592,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.PaginatorConfigTypeDef]
 
 
-# ListNetworksRequestRequestTypeDef
+# ListNetworksRequestTypeDef
 
 ### filters
 - **Type**: typing.Optional[typing.Mapping[typing.Literal['STATUS'], typing.Sequence[str]]]
@@ -613,16 +610,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListOrdersRequestListOrdersPaginateTypeDef
+
+# ListOrdersRequestPaginateTypeDef
 
 ### networkArn
 - **Type**: <class 'str'>
@@ -635,7 +631,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.PaginatorConfigTypeDef]
 
 
-# ListOrdersRequestRequestTypeDef
+# ListOrdersRequestTypeDef
 
 ### networkArn
 - **Type**: <class 'str'>
@@ -653,10 +649,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListOrdersResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### orders
 - **Type**: typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.OrderTypeDef]
 - **Required**: Yes
@@ -665,8 +657,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -694,73 +689,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# NetworkResourceDefinitionOutputTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # NetworkResourceDefinitionTypeDef
 
-### count
-- **Type**: <class 'int'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: typing.Literal['DEVICE_IDENTIFIER', 'RADIO_UNIT']
-- **Required**: Yes
-
-### options
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.NameValuePairTypeDef]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # NetworkResourceTypeDef
 
-### attributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.NameValuePairTypeDef]]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### commitmentInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.CommitmentInformationTypeDef]
-
-### createdAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### description
-- **Type**: typing.Optional[str]
-
-### health
-- **Type**: typing.Optional[typing.Literal['HEALTHY', 'INITIAL', 'UNHEALTHY']]
-
-### model
-- **Type**: typing.Optional[str]
-
-### networkArn
-- **Type**: typing.Optional[str]
-
-### networkResourceArn
-- **Type**: typing.Optional[str]
-
-### networkSiteArn
-- **Type**: typing.Optional[str]
-
-### orderArn
-- **Type**: typing.Optional[str]
-
-### position
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.PositionTypeDef]
-
-### returnInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.ReturnInformationTypeDef]
-
-### serialNumber
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'CREATING_SHIPPING_LABEL', 'DELETED', 'DELETING', 'PENDING', 'PENDING_RETURN', 'PROVISIONED', 'PROVISIONING', 'SHIPPED']]
-
-### statusReason
-- **Type**: typing.Optional[str]
-
-### type
-- **Type**: typing.Optional[typing.Literal['RADIO_UNIT']]
-
-### vendor
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # NetworkSiteTypeDef
 
@@ -790,13 +735,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### currentPlan
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.SitePlanTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.SitePlanOutputTypeDef]
 
 ### description
 - **Type**: typing.Optional[str]
 
 ### pendingPlan
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.SitePlanTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.SitePlanOutputTypeDef]
 
 ### statusReason
 - **Type**: typing.Optional[str]
@@ -855,17 +800,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # OrderedResourceDefinitionTypeDef
 
-### count
-- **Type**: <class 'int'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: typing.Literal['DEVICE_IDENTIFIER', 'RADIO_UNIT']
-- **Required**: Yes
-
-### commitmentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.CommitmentConfigurationTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PaginatorConfigTypeDef
 
@@ -914,10 +851,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -929,6 +862,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # ReturnInformationTypeDef
@@ -946,16 +882,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SitePlanTypeDef
+# SitePlanOutputTypeDef
 
 ### options
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.NameValuePairTypeDef]]
 
 ### resourceDefinitions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkResourceDefinitionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkResourceDefinitionOutputTypeDef]]
 
 
-# StartNetworkResourceUpdateRequestRequestTypeDef
+# SitePlanTypeDef
+
+### options
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.privatenetworks_classes.NameValuePairTypeDef]]
+
+### resourceDefinitions
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkResourceDefinitionTypeDef]]
+
+
+# SitePlanUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# StartNetworkResourceUpdateRequestTypeDef
 
 ### networkResourceArn
 - **Type**: <class 'str'>
@@ -986,7 +937,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1003,7 +954,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1014,21 +965,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateNetworkSitePlanRequestRequestTypeDef
+# UpdateNetworkSitePlanRequestTypeDef
 
 ### networkSiteArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### pendingPlan
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.SitePlanTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.SitePlanUnionTypeDef'>
 - **Required**: Yes
 
 ### clientToken
 - **Type**: typing.Optional[str]
 
 
-# UpdateNetworkSiteRequestRequestTypeDef
+# UpdateNetworkSiteRequestTypeDef
 
 ### networkSiteArn
 - **Type**: <class 'str'>

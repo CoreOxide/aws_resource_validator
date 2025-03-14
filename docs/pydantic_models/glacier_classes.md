@@ -1,6 +1,6 @@
 # Glacier Classes
 
-# AbortMultipartUploadInputRequestTypeDef
+# AbortMultipartUploadInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -14,7 +14,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AbortVaultLockInputRequestTypeDef
+# AbortVaultLockInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -24,7 +24,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AddTagsToVaultInputRequestTypeDef
+# AddTagsToVaultInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -57,6 +57,12 @@
 
 
 # BaseValidatorModel
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# BlobTypeDef
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
@@ -110,7 +116,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CompleteMultipartUploadInputRequestTypeDef
+# CompleteMultipartUploadInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -130,7 +136,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CompleteVaultLockInputRequestTypeDef
+# CompleteVaultLockInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -151,7 +157,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateVaultInputRequestTypeDef
+# CreateVaultInputServiceResourceCreateVaultTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -161,7 +167,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateVaultInputServiceResourceCreateVaultTypeDef
+# CreateVaultInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -182,11 +188,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DataRetrievalPolicyTypeDef
+# DataRetrievalPolicyOutputTypeDef
 
 ### Rules
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glacier_classes.DataRetrievalRuleTypeDef]]
 
+
+# DataRetrievalPolicyTypeDef
+
+### Rules
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glacier_classes.DataRetrievalRuleTypeDef]]
+
+
+# DataRetrievalPolicyUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DataRetrievalRuleTypeDef
 
@@ -197,7 +215,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DeleteArchiveInputRequestTypeDef
+# DeleteArchiveInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -211,7 +229,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteVaultAccessPolicyInputRequestTypeDef
+# DeleteVaultAccessPolicyInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -221,7 +239,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteVaultInputRequestTypeDef
+# DeleteVaultInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -231,7 +249,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteVaultNotificationsInputRequestTypeDef
+# DeleteVaultNotificationsInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -241,7 +259,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeJobInputRequestTypeDef
+# DescribeJobInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -255,7 +273,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeVaultInputRequestTypeDef
+# DescribeVaultInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -265,7 +283,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeVaultInputVaultExistsWaitTypeDef
+# DescribeVaultInputWaitExtraTypeDef
 
 ### accountId
 - **Type**: <class 'str'>
@@ -279,7 +297,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.glacier_classes.WaiterConfigTypeDef]
 
 
-# DescribeVaultInputVaultNotExistsWaitTypeDef
+# DescribeVaultInputWaitTypeDef
 
 ### accountId
 - **Type**: <class 'str'>
@@ -364,7 +382,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetDataRetrievalPolicyInputRequestTypeDef
+# GetDataRetrievalPolicyInputTypeDef
 
 ### accountId
 - **Type**: typing.Optional[str]
@@ -373,35 +391,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDataRetrievalPolicyOutputTypeDef
 
 ### Policy
-- **Type**: <class 'aws_resource_validator.pydantic_models.glacier_classes.DataRetrievalPolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glacier_classes.DataRetrievalPolicyOutputTypeDef'>
 - **Required**: Yes
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.glacier_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
-
-
-# GetJobOutputInputJobGetOutputTypeDef
-
-### range
-- **Type**: typing.Optional[str]
-
-
-# GetJobOutputInputRequestTypeDef
-
-### vaultName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### jobId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### accountId
-- **Type**: typing.Optional[str]
-
-### range
-- **Type**: typing.Optional[str]
 
 
 # GetJobOutputOutputTypeDef
@@ -439,7 +434,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetVaultAccessPolicyInputRequestTypeDef
+# GetVaultAccessPolicyInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -460,7 +455,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetVaultLockInputRequestTypeDef
+# GetVaultLockInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -493,7 +488,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetVaultNotificationsInputRequestTypeDef
+# GetVaultNotificationsInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -506,7 +501,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetVaultNotificationsOutputTypeDef
 
 ### vaultNotificationConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.glacier_classes.VaultNotificationConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glacier_classes.VaultNotificationConfigOutputTypeDef'>
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -597,7 +592,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.glacier_classes.OutputLocationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glacier_classes.OutputLocationOutputTypeDef'>
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -668,7 +663,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.glacier_classes.SelectParametersTypeDef]
 
 ### OutputLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glacier_classes.OutputLocationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glacier_classes.OutputLocationOutputTypeDef]
 
 
 # GrantTypeDef
@@ -682,24 +677,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # GranteeTypeDef
 
-### Type
-- **Type**: typing.Literal['AmazonCustomerByEmail', 'CanonicalUser', 'Group']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### DisplayName
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### URI
-- **Type**: typing.Optional[str]
-
-### ID
-- **Type**: typing.Optional[str]
-
-### EmailAddress
-- **Type**: typing.Optional[str]
-
-
-# InitiateJobInputRequestTypeDef
+# InitiateJobInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -731,7 +713,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# InitiateMultipartUploadInputRequestTypeDef
+# InitiateMultipartUploadInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -771,7 +753,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# InitiateVaultLockInputRequestTypeDef
+# InitiateVaultLockInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -799,33 +781,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### csv
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.glacier_classes.CSVInputTypeDef]
-
-
-# InventoryRetrievalJobDescriptionResponseTypeDef
-
-### Format
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### StartDate
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### EndDate
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Limit
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Marker
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glacier_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
 
 
 # InventoryRetrievalJobDescriptionTypeDef
@@ -863,38 +818,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # JobParametersTypeDef
 
-### Format
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### ArchiveId
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### SNSTopic
-- **Type**: typing.Optional[str]
-
-### RetrievalByteRange
-- **Type**: typing.Optional[str]
-
-### Tier
-- **Type**: typing.Optional[str]
-
-### InventoryRetrievalParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glacier_classes.InventoryRetrievalJobInputTypeDef]
-
-### SelectParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glacier_classes.SelectParametersTypeDef]
-
-### OutputLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glacier_classes.OutputLocationTypeDef]
-
-
-# ListJobsInputListJobsPaginateTypeDef
+# ListJobsInputPaginateTypeDef
 
 ### accountId
 - **Type**: <class 'str'>
@@ -914,7 +842,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.glacier_classes.PaginatorConfigTypeDef]
 
 
-# ListJobsInputRequestTypeDef
+# ListJobsInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -951,7 +879,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListMultipartUploadsInputListMultipartUploadsPaginateTypeDef
+# ListMultipartUploadsInputPaginateTypeDef
 
 ### accountId
 - **Type**: <class 'str'>
@@ -965,7 +893,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.glacier_classes.PaginatorConfigTypeDef]
 
 
-# ListMultipartUploadsInputRequestTypeDef
+# ListMultipartUploadsInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -996,7 +924,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListPartsInputListPartsPaginateTypeDef
+# ListPartsInputMultipartUploadPartsTypeDef
+
+### marker
+- **Type**: typing.Optional[str]
+
+### limit
+- **Type**: typing.Optional[str]
+
+
+# ListPartsInputPaginateTypeDef
 
 ### accountId
 - **Type**: <class 'str'>
@@ -1014,16 +951,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.glacier_classes.PaginatorConfigTypeDef]
 
 
-# ListPartsInputMultipartUploadPartsTypeDef
-
-### marker
-- **Type**: typing.Optional[str]
-
-### limit
-- **Type**: typing.Optional[str]
-
-
-# ListPartsInputRequestTypeDef
+# ListPartsInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -1078,7 +1006,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListProvisionedCapacityInputRequestTypeDef
+# ListProvisionedCapacityInputTypeDef
 
 ### accountId
 - **Type**: typing.Optional[str]
@@ -1095,7 +1023,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTagsForVaultInputRequestTypeDef
+# ListTagsForVaultInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -1116,7 +1044,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListVaultsInputListVaultsPaginateTypeDef
+# ListVaultsInputPaginateTypeDef
 
 ### accountId
 - **Type**: <class 'str'>
@@ -1126,7 +1054,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.glacier_classes.PaginatorConfigTypeDef]
 
 
-# ListVaultsInputRequestTypeDef
+# ListVaultsInputTypeDef
 
 ### accountId
 - **Type**: typing.Optional[str]
@@ -1153,21 +1081,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# OutputLocationResponseTypeDef
+# OutputLocationOutputTypeDef
 
 ### S3
-- **Type**: <class 'aws_resource_validator.pydantic_models.glacier_classes.S3LocationTypeDef'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glacier_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glacier_classes.S3LocationOutputTypeDef]
 
 
 # OutputLocationTypeDef
 
 ### S3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glacier_classes.S3LocationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glacier_classes.S3LocationUnionTypeDef]
 
 
 # OutputSerializationTypeDef
@@ -1209,7 +1132,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PurchaseProvisionedCapacityInputRequestTypeDef
+# PurchaseProvisionedCapacityInputTypeDef
 
 ### accountId
 - **Type**: typing.Optional[str]
@@ -1226,7 +1149,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveTagsFromVaultInputRequestTypeDef
+# RemoveTagsFromVaultInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -1245,10 +1168,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -1261,8 +1180,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# S3LocationTypeDef
+
+# S3LocationOutputTypeDef
 
 ### BucketName
 - **Type**: typing.Optional[str]
@@ -1289,28 +1211,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['REDUCED_REDUNDANCY', 'STANDARD', 'STANDARD_IA']]
 
 
-# SelectParametersResponseTypeDef
+# S3LocationTypeDef
 
-### InputSerialization
-- **Type**: <class 'aws_resource_validator.pydantic_models.glacier_classes.InputSerializationTypeDef'>
-- **Required**: Yes
+### BucketName
+- **Type**: typing.Optional[str]
 
-### ExpressionType
-- **Type**: typing.Literal['SQL']
-- **Required**: Yes
+### Prefix
+- **Type**: typing.Optional[str]
 
-### Expression
-- **Type**: <class 'str'>
-- **Required**: Yes
+### Encryption
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glacier_classes.EncryptionTypeDef]
 
-### OutputSerialization
-- **Type**: <class 'aws_resource_validator.pydantic_models.glacier_classes.OutputSerializationTypeDef'>
-- **Required**: Yes
+### CannedACL
+- **Type**: typing.Optional[typing.Literal['authenticated-read', 'aws-exec-read', 'bucket-owner-full-control', 'bucket-owner-read', 'private', 'public-read', 'public-read-write']]
 
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glacier_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
+### AccessControlList
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glacier_classes.GrantTypeDef]]
 
+### Tagging
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### UserMetadata
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### StorageClass
+- **Type**: typing.Optional[typing.Literal['REDUCED_REDUNDANCY', 'STANDARD', 'STANDARD_IA']]
+
+
+# S3LocationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SelectParametersTypeDef
 
@@ -1327,16 +1259,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.glacier_classes.OutputSerializationTypeDef]
 
 
-# SetDataRetrievalPolicyInputRequestTypeDef
+# SetDataRetrievalPolicyInputTypeDef
 
 ### accountId
 - **Type**: typing.Optional[str]
 
 ### Policy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glacier_classes.DataRetrievalPolicyTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glacier_classes.DataRetrievalPolicyUnionTypeDef]
 
 
-# SetVaultAccessPolicyInputRequestTypeDef
+# SetVaultAccessPolicyInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -1352,10 +1284,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SetVaultNotificationsInputNotificationSetTypeDef
 
 ### vaultNotificationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glacier_classes.VaultNotificationConfigNotificationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glacier_classes.VaultNotificationConfigUnionTypeDef]
 
 
-# SetVaultNotificationsInputRequestTypeDef
+# SetVaultNotificationsInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -1365,10 +1297,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### vaultNotificationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glacier_classes.VaultNotificationConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glacier_classes.VaultNotificationConfigUnionTypeDef]
 
 
-# UploadArchiveInputRequestTypeDef
+# UploadArchiveInputTypeDef
 
 ### vaultName
 - **Type**: <class 'str'>
@@ -1384,7 +1316,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### body
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glacier_classes.BlobTypeDef]
 
 
 # UploadArchiveInputVaultUploadArchiveTypeDef
@@ -1396,7 +1328,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### body
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glacier_classes.BlobTypeDef]
 
 
 # UploadListElementTypeDef
@@ -1415,41 +1347,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### CreationDate
 - **Type**: typing.Optional[str]
-
-
-# UploadMultipartPartInputMultipartUploadUploadPartTypeDef
-
-### checksum
-- **Type**: typing.Optional[str]
-
-### range
-- **Type**: typing.Optional[str]
-
-### body
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
-
-
-# UploadMultipartPartInputRequestTypeDef
-
-### vaultName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### uploadId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### accountId
-- **Type**: typing.Optional[str]
-
-### checksum
-- **Type**: typing.Optional[str]
-
-### range
-- **Type**: typing.Optional[str]
-
-### body
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
 
 
 # UploadMultipartPartOutputTypeDef
@@ -1475,13 +1372,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# VaultNotificationConfigNotificationTypeDef
+# VaultNotificationConfigOutputTypeDef
 
 ### SNSTopic
 - **Type**: typing.Optional[str]
 
 ### Events
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # VaultNotificationConfigTypeDef
@@ -1490,8 +1387,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Events
-- **Type**: typing.Optional[typing.List[str]]
+- **Type**: typing.Optional[typing.Sequence[str]]
 
+
+# VaultNotificationConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # WaiterConfigTypeDef
 

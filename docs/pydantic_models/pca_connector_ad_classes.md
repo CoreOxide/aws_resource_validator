@@ -51,7 +51,7 @@
 - **Type**: typing.Optional[typing.Literal['ALLOW', 'DENY']]
 
 
-# ApplicationPoliciesPaginatorTypeDef
+# ApplicationPoliciesOutputTypeDef
 
 ### Policies
 - **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_ad_classes.ApplicationPolicyTypeDef]
@@ -97,36 +97,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ConnectorSummaryPaginatorTypeDef
-
-### Arn
-- **Type**: typing.Optional[str]
-
-### CertificateAuthorityArn
-- **Type**: typing.Optional[str]
-
-### CertificateEnrollmentPolicyServerEndpoint
-- **Type**: typing.Optional[str]
-
-### CreatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### DirectoryId
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED']]
-
-### StatusReason
-- **Type**: typing.Optional[typing.Literal['DIRECTORY_ACCESS_DENIED', 'INTERNAL_FAILURE', 'PRIVATECA_ACCESS_DENIED', 'PRIVATECA_RESOURCE_NOT_FOUND', 'SECURITY_GROUP_NOT_IN_VPC', 'VPC_ACCESS_DENIED', 'VPC_ENDPOINT_LIMIT_EXCEEDED', 'VPC_RESOURCE_NOT_FOUND']]
-
-### UpdatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### VpcInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.VpcInformationPaginatorTypeDef]
-
-
 # ConnectorSummaryTypeDef
 
 ### Arn
@@ -148,13 +118,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED']]
 
 ### StatusReason
-- **Type**: typing.Optional[typing.Literal['DIRECTORY_ACCESS_DENIED', 'INTERNAL_FAILURE', 'PRIVATECA_ACCESS_DENIED', 'PRIVATECA_RESOURCE_NOT_FOUND', 'SECURITY_GROUP_NOT_IN_VPC', 'VPC_ACCESS_DENIED', 'VPC_ENDPOINT_LIMIT_EXCEEDED', 'VPC_RESOURCE_NOT_FOUND']]
+- **Type**: typing.Optional[typing.Literal['CA_CERTIFICATE_REGISTRATION_FAILED', 'DIRECTORY_ACCESS_DENIED', 'INSUFFICIENT_FREE_ADDRESSES', 'INTERNAL_FAILURE', 'INVALID_SUBNET_IP_PROTOCOL', 'PRIVATECA_ACCESS_DENIED', 'PRIVATECA_RESOURCE_NOT_FOUND', 'SECURITY_GROUP_NOT_IN_VPC', 'VPC_ACCESS_DENIED', 'VPC_ENDPOINT_LIMIT_EXCEEDED', 'VPC_RESOURCE_NOT_FOUND']]
 
 ### UpdatedAt
 - **Type**: typing.Optional[datetime.datetime]
 
 ### VpcInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.VpcInformationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.VpcInformationOutputTypeDef]
 
 
 # ConnectorTypeDef
@@ -178,16 +148,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED']]
 
 ### StatusReason
-- **Type**: typing.Optional[typing.Literal['DIRECTORY_ACCESS_DENIED', 'INTERNAL_FAILURE', 'PRIVATECA_ACCESS_DENIED', 'PRIVATECA_RESOURCE_NOT_FOUND', 'SECURITY_GROUP_NOT_IN_VPC', 'VPC_ACCESS_DENIED', 'VPC_ENDPOINT_LIMIT_EXCEEDED', 'VPC_RESOURCE_NOT_FOUND']]
+- **Type**: typing.Optional[typing.Literal['CA_CERTIFICATE_REGISTRATION_FAILED', 'DIRECTORY_ACCESS_DENIED', 'INSUFFICIENT_FREE_ADDRESSES', 'INTERNAL_FAILURE', 'INVALID_SUBNET_IP_PROTOCOL', 'PRIVATECA_ACCESS_DENIED', 'PRIVATECA_RESOURCE_NOT_FOUND', 'SECURITY_GROUP_NOT_IN_VPC', 'VPC_ACCESS_DENIED', 'VPC_ENDPOINT_LIMIT_EXCEEDED', 'VPC_RESOURCE_NOT_FOUND']]
 
 ### UpdatedAt
 - **Type**: typing.Optional[datetime.datetime]
 
 ### VpcInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.VpcInformationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.VpcInformationOutputTypeDef]
 
 
-# CreateConnectorRequestRequestTypeDef
+# CreateConnectorRequestTypeDef
 
 ### CertificateAuthorityArn
 - **Type**: <class 'str'>
@@ -198,7 +168,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VpcInformation
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.VpcInformationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.VpcInformationUnionTypeDef'>
 - **Required**: Yes
 
 ### ClientToken
@@ -219,7 +189,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDirectoryRegistrationRequestRequestTypeDef
+# CreateDirectoryRegistrationRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -243,7 +213,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateServicePrincipalNameRequestRequestTypeDef
+# CreateServicePrincipalNameRequestTypeDef
 
 ### ConnectorArn
 - **Type**: <class 'str'>
@@ -257,7 +227,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateTemplateGroupAccessControlEntryRequestRequestTypeDef
+# CreateTemplateGroupAccessControlEntryRequestTypeDef
 
 ### AccessRights
 - **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.AccessRightsTypeDef'>
@@ -279,14 +249,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateTemplateRequestRequestTypeDef
+# CreateTemplateRequestTypeDef
 
 ### ConnectorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Definition
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateDefinitionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateDefinitionUnionTypeDef'>
 - **Required**: Yes
 
 ### Name
@@ -311,21 +281,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteConnectorRequestRequestTypeDef
+# DeleteConnectorRequestTypeDef
 
 ### ConnectorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDirectoryRegistrationRequestRequestTypeDef
+# DeleteDirectoryRegistrationRequestTypeDef
 
 ### DirectoryRegistrationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteServicePrincipalNameRequestRequestTypeDef
+# DeleteServicePrincipalNameRequestTypeDef
 
 ### ConnectorArn
 - **Type**: <class 'str'>
@@ -336,7 +306,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteTemplateGroupAccessControlEntryRequestRequestTypeDef
+# DeleteTemplateGroupAccessControlEntryRequestTypeDef
 
 ### GroupSecurityIdentifier
 - **Type**: <class 'str'>
@@ -347,7 +317,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteTemplateRequestRequestTypeDef
+# DeleteTemplateRequestTypeDef
 
 ### TemplateArn
 - **Type**: <class 'str'>
@@ -457,14 +427,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ExtensionsV2PaginatorTypeDef
+# ExtensionsV2OutputTypeDef
 
 ### KeyUsage
 - **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.KeyUsageTypeDef'>
 - **Required**: Yes
 
 ### ApplicationPolicies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.ApplicationPoliciesPaginatorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.ApplicationPoliciesOutputTypeDef]
 
 
 # ExtensionsV2TypeDef
@@ -477,14 +447,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.ApplicationPoliciesTypeDef]
 
 
-# ExtensionsV3PaginatorTypeDef
+# ExtensionsV3OutputTypeDef
 
 ### KeyUsage
 - **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.KeyUsageTypeDef'>
 - **Required**: Yes
 
 ### ApplicationPolicies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.ApplicationPoliciesPaginatorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.ApplicationPoliciesOutputTypeDef]
 
 
 # ExtensionsV3TypeDef
@@ -497,14 +467,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.ApplicationPoliciesTypeDef]
 
 
-# ExtensionsV4PaginatorTypeDef
+# ExtensionsV4OutputTypeDef
 
 ### KeyUsage
 - **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.KeyUsageTypeDef'>
 - **Required**: Yes
 
 ### ApplicationPolicies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.ApplicationPoliciesPaginatorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.ApplicationPoliciesOutputTypeDef]
 
 
 # ExtensionsV4TypeDef
@@ -544,7 +514,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# GetConnectorRequestRequestTypeDef
+# GetConnectorRequestTypeDef
 
 ### ConnectorArn
 - **Type**: <class 'str'>
@@ -562,7 +532,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDirectoryRegistrationRequestRequestTypeDef
+# GetDirectoryRegistrationRequestTypeDef
 
 ### DirectoryRegistrationArn
 - **Type**: <class 'str'>
@@ -580,7 +550,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetServicePrincipalNameRequestRequestTypeDef
+# GetServicePrincipalNameRequestTypeDef
 
 ### ConnectorArn
 - **Type**: <class 'str'>
@@ -602,7 +572,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTemplateGroupAccessControlEntryRequestRequestTypeDef
+# GetTemplateGroupAccessControlEntryRequestTypeDef
 
 ### GroupSecurityIdentifier
 - **Type**: <class 'str'>
@@ -624,7 +594,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTemplateRequestRequestTypeDef
+# GetTemplateRequestTypeDef
 
 ### TemplateArn
 - **Type**: <class 'str'>
@@ -691,13 +661,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ListConnectorsRequestListConnectorsPaginateTypeDef
+# ListConnectorsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.PaginatorConfigTypeDef]
 
 
-# ListConnectorsRequestRequestTypeDef
+# ListConnectorsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -706,43 +676,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListConnectorsResponsePaginatorTypeDef
-
-### Connectors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_ad_classes.ConnectorSummaryPaginatorTypeDef]
-- **Required**: Yes
-
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
 # ListConnectorsResponseTypeDef
 
 ### Connectors
 - **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_ad_classes.ConnectorSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListDirectoryRegistrationsRequestListDirectoryRegistrationsPaginateTypeDef
+
+# ListDirectoryRegistrationsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.PaginatorConfigTypeDef]
 
 
-# ListDirectoryRegistrationsRequestRequestTypeDef
+# ListDirectoryRegistrationsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -757,16 +711,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_ad_classes.DirectoryRegistrationSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListServicePrincipalNamesRequestListServicePrincipalNamesPaginateTypeDef
+
+# ListServicePrincipalNamesRequestPaginateTypeDef
 
 ### DirectoryRegistrationArn
 - **Type**: <class 'str'>
@@ -776,7 +729,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.PaginatorConfigTypeDef]
 
 
-# ListServicePrincipalNamesRequestRequestTypeDef
+# ListServicePrincipalNamesRequestTypeDef
 
 ### DirectoryRegistrationArn
 - **Type**: <class 'str'>
@@ -791,10 +744,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListServicePrincipalNamesResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ServicePrincipalNames
 - **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_ad_classes.ServicePrincipalNameSummaryTypeDef]
 - **Required**: Yes
@@ -803,8 +752,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -822,7 +774,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTemplateGroupAccessControlEntriesRequestListTemplateGroupAccessControlEntriesPaginateTypeDef
+# ListTemplateGroupAccessControlEntriesRequestPaginateTypeDef
 
 ### TemplateArn
 - **Type**: <class 'str'>
@@ -832,7 +784,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.PaginatorConfigTypeDef]
 
 
-# ListTemplateGroupAccessControlEntriesRequestRequestTypeDef
+# ListTemplateGroupAccessControlEntriesRequestTypeDef
 
 ### TemplateArn
 - **Type**: <class 'str'>
@@ -851,16 +803,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_ad_classes.AccessControlEntrySummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTemplatesRequestListTemplatesPaginateTypeDef
+
+# ListTemplatesRequestPaginateTypeDef
 
 ### ConnectorArn
 - **Type**: <class 'str'>
@@ -870,7 +821,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.PaginatorConfigTypeDef]
 
 
-# ListTemplatesRequestRequestTypeDef
+# ListTemplatesRequestTypeDef
 
 ### ConnectorArn
 - **Type**: <class 'str'>
@@ -883,26 +834,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTemplatesResponsePaginatorTypeDef
-
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Templates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateSummaryPaginatorTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
 # ListTemplatesResponseTypeDef
-
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### Templates
 - **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateSummaryTypeDef]
@@ -911,6 +843,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # PaginatorConfigTypeDef
@@ -925,7 +860,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PrivateKeyAttributesV2PaginatorTypeDef
+# PrivateKeyAttributesV2OutputTypeDef
 
 ### KeySpec
 - **Type**: typing.Literal['KEY_EXCHANGE', 'SIGNATURE']
@@ -953,7 +888,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# PrivateKeyAttributesV3PaginatorTypeDef
+# PrivateKeyAttributesV3OutputTypeDef
 
 ### Algorithm
 - **Type**: typing.Literal['ECDH_P256', 'ECDH_P384', 'ECDH_P521', 'RSA']
@@ -997,7 +932,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# PrivateKeyAttributesV4PaginatorTypeDef
+# PrivateKeyAttributesV4OutputTypeDef
 
 ### KeySpec
 - **Type**: typing.Literal['KEY_EXCHANGE', 'SIGNATURE']
@@ -1094,10 +1029,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -1109,6 +1040,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # ServicePrincipalNameSummaryTypeDef
@@ -1126,7 +1060,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED']]
 
 ### StatusReason
-- **Type**: typing.Optional[typing.Literal['DIRECTORY_ACCESS_DENIED', 'DIRECTORY_NOT_REACHABLE', 'DIRECTORY_RESOURCE_NOT_FOUND', 'INTERNAL_FAILURE', 'SPN_EXISTS_ON_DIFFERENT_AD_OBJECT']]
+- **Type**: typing.Optional[typing.Literal['DIRECTORY_ACCESS_DENIED', 'DIRECTORY_NOT_REACHABLE', 'DIRECTORY_RESOURCE_NOT_FOUND', 'INTERNAL_FAILURE', 'SPN_EXISTS_ON_DIFFERENT_AD_OBJECT', 'SPN_LIMIT_EXCEEDED']]
 
 ### UpdatedAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -1147,7 +1081,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED']]
 
 ### StatusReason
-- **Type**: typing.Optional[typing.Literal['DIRECTORY_ACCESS_DENIED', 'DIRECTORY_NOT_REACHABLE', 'DIRECTORY_RESOURCE_NOT_FOUND', 'INTERNAL_FAILURE', 'SPN_EXISTS_ON_DIFFERENT_AD_OBJECT']]
+- **Type**: typing.Optional[typing.Literal['DIRECTORY_ACCESS_DENIED', 'DIRECTORY_NOT_REACHABLE', 'DIRECTORY_RESOURCE_NOT_FOUND', 'INTERNAL_FAILURE', 'SPN_EXISTS_ON_DIFFERENT_AD_OBJECT', 'SPN_LIMIT_EXCEEDED']]
 
 ### UpdatedAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -1252,7 +1186,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1263,16 +1197,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TemplateDefinitionPaginatorTypeDef
+# TemplateDefinitionOutputTypeDef
 
 ### TemplateV2
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateV2PaginatorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateV2OutputTypeDef]
 
 ### TemplateV3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateV3PaginatorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateV3OutputTypeDef]
 
 ### TemplateV4
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateV4PaginatorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateV4OutputTypeDef]
 
 
 # TemplateDefinitionTypeDef
@@ -1287,6 +1221,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateV4TypeDef]
 
 
+# TemplateDefinitionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # TemplateRevisionTypeDef
 
 ### MajorRevision
@@ -1296,39 +1236,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### MinorRevision
 - **Type**: <class 'int'>
 - **Required**: Yes
-
-
-# TemplateSummaryPaginatorTypeDef
-
-### Arn
-- **Type**: typing.Optional[str]
-
-### ConnectorArn
-- **Type**: typing.Optional[str]
-
-### CreatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### Definition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateDefinitionPaginatorTypeDef]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### ObjectIdentifier
-- **Type**: typing.Optional[str]
-
-### PolicySchema
-- **Type**: typing.Optional[int]
-
-### Revision
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateRevisionTypeDef]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETING']]
-
-### UpdatedAt
-- **Type**: typing.Optional[datetime.datetime]
 
 
 # TemplateSummaryTypeDef
@@ -1343,7 +1250,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Definition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateDefinitionOutputTypeDef]
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -1376,7 +1283,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Definition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateDefinitionOutputTypeDef]
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -1397,7 +1304,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# TemplateV2PaginatorTypeDef
+# TemplateV2OutputTypeDef
 
 ### CertificateValidity
 - **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.CertificateValidityTypeDef'>
@@ -1408,7 +1315,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Extensions
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ExtensionsV2PaginatorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ExtensionsV2OutputTypeDef'>
 - **Required**: Yes
 
 ### GeneralFlags
@@ -1416,7 +1323,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PrivateKeyAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.PrivateKeyAttributesV2PaginatorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.PrivateKeyAttributesV2OutputTypeDef'>
 - **Required**: Yes
 
 ### PrivateKeyFlags
@@ -1465,7 +1372,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# TemplateV3PaginatorTypeDef
+# TemplateV3OutputTypeDef
 
 ### CertificateValidity
 - **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.CertificateValidityTypeDef'>
@@ -1476,7 +1383,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Extensions
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ExtensionsV3PaginatorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ExtensionsV3OutputTypeDef'>
 - **Required**: Yes
 
 ### GeneralFlags
@@ -1488,7 +1395,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PrivateKeyAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.PrivateKeyAttributesV3PaginatorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.PrivateKeyAttributesV3OutputTypeDef'>
 - **Required**: Yes
 
 ### PrivateKeyFlags
@@ -1541,7 +1448,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# TemplateV4PaginatorTypeDef
+# TemplateV4OutputTypeDef
 
 ### CertificateValidity
 - **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.CertificateValidityTypeDef'>
@@ -1552,7 +1459,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Extensions
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ExtensionsV4PaginatorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ExtensionsV4OutputTypeDef'>
 - **Required**: Yes
 
 ### GeneralFlags
@@ -1560,7 +1467,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PrivateKeyAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.PrivateKeyAttributesV4PaginatorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.PrivateKeyAttributesV4OutputTypeDef'>
 - **Required**: Yes
 
 ### PrivateKeyFlags
@@ -1615,7 +1522,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1626,7 +1533,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateTemplateGroupAccessControlEntryRequestRequestTypeDef
+# UpdateTemplateGroupAccessControlEntryRequestTypeDef
 
 ### GroupSecurityIdentifier
 - **Type**: <class 'str'>
@@ -1643,14 +1550,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateTemplateRequestRequestTypeDef
+# UpdateTemplateRequestTypeDef
 
 ### TemplateArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Definition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateDefinitionUnionTypeDef]
 
 ### ReenrollAllCertificateHolders
 - **Type**: typing.Optional[bool]
@@ -1667,11 +1574,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# VpcInformationPaginatorTypeDef
+# VpcInformationOutputTypeDef
 
 ### SecurityGroupIds
 - **Type**: typing.List[str]
 - **Required**: Yes
+
+### IpAddressType
+- **Type**: typing.Optional[typing.Literal['DUALSTACK', 'IPV4']]
 
 
 # VpcInformationTypeDef
@@ -1680,4 +1590,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
+### IpAddressType
+- **Type**: typing.Optional[typing.Literal['DUALSTACK', 'IPV4']]
+
+
+# VpcInformationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

@@ -12,7 +12,7 @@
 - **Type**: typing.Optional[int]
 
 ### policyType
-- **Type**: typing.Optional[typing.Literal['DATA_PROTECTION_POLICY', 'SUBSCRIPTION_FILTER_POLICY']]
+- **Type**: typing.Optional[typing.Literal['DATA_PROTECTION_POLICY', 'FIELD_INDEX_POLICY', 'SUBSCRIPTION_FILTER_POLICY', 'TRANSFORMER_POLICY']]
 
 ### scope
 - **Type**: typing.Optional[typing.Literal['ALL']]
@@ -23,6 +23,40 @@
 ### accountId
 - **Type**: typing.Optional[str]
 
+
+# AddKeyEntryTypeDef
+
+### key
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### value
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### overwriteIfExists
+- **Type**: typing.Optional[bool]
+
+
+# AddKeysOutputTypeDef
+
+### entries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.AddKeyEntryTypeDef]
+- **Required**: Yes
+
+
+# AddKeysTypeDef
+
+### entries
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.logs_classes.AddKeyEntryTypeDef]
+- **Required**: Yes
+
+
+# AddKeysUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AnomalyDetectorTypeDef
 
@@ -130,7 +164,7 @@
 - **Type**: typing.Optional[bool]
 
 
-# AssociateKmsKeyRequestRequestTypeDef
+# AssociateKmsKeyRequestTypeDef
 
 ### kmsKeyId
 - **Type**: <class 'str'>
@@ -149,14 +183,129 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelExportTaskRequestRequestTypeDef
+# CSVOutputTypeDef
+
+### quoteCharacter
+- **Type**: typing.Optional[str]
+
+### delimiter
+- **Type**: typing.Optional[str]
+
+### columns
+- **Type**: typing.Optional[typing.List[str]]
+
+### source
+- **Type**: typing.Optional[str]
+
+
+# CSVTypeDef
+
+### quoteCharacter
+- **Type**: typing.Optional[str]
+
+### delimiter
+- **Type**: typing.Optional[str]
+
+### columns
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### source
+- **Type**: typing.Optional[str]
+
+
+# CSVUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CancelExportTaskRequestTypeDef
 
 ### taskId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CreateDeliveryRequestRequestTypeDef
+# ConfigurationTemplateDeliveryConfigValuesTypeDef
+
+### recordFields
+- **Type**: typing.Optional[typing.List[str]]
+
+### fieldDelimiter
+- **Type**: typing.Optional[str]
+
+### s3DeliveryConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.S3DeliveryConfigurationTypeDef]
+
+
+# ConfigurationTemplateTypeDef
+
+### service
+- **Type**: typing.Optional[str]
+
+### logType
+- **Type**: typing.Optional[str]
+
+### resourceType
+- **Type**: typing.Optional[str]
+
+### deliveryDestinationType
+- **Type**: typing.Optional[typing.Literal['CWL', 'FH', 'S3']]
+
+### defaultDeliveryConfigValues
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.ConfigurationTemplateDeliveryConfigValuesTypeDef]
+
+### allowedFields
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.logs_classes.RecordFieldTypeDef]]
+
+### allowedOutputFormats
+- **Type**: typing.Optional[typing.List[typing.Literal['json', 'parquet', 'plain', 'raw', 'w3c']]]
+
+### allowedActionForAllowVendedLogsDeliveryForResource
+- **Type**: typing.Optional[str]
+
+### allowedFieldDelimiters
+- **Type**: typing.Optional[typing.List[str]]
+
+### allowedSuffixPathFields
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# CopyValueEntryTypeDef
+
+### source
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### target
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### overwriteIfExists
+- **Type**: typing.Optional[bool]
+
+
+# CopyValueOutputTypeDef
+
+### entries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.CopyValueEntryTypeDef]
+- **Required**: Yes
+
+
+# CopyValueTypeDef
+
+### entries
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.logs_classes.CopyValueEntryTypeDef]
+- **Required**: Yes
+
+
+# CopyValueUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CreateDeliveryRequestTypeDef
 
 ### deliverySourceName
 - **Type**: <class 'str'>
@@ -165,6 +314,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### deliveryDestinationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+### recordFields
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### fieldDelimiter
+- **Type**: typing.Optional[str]
+
+### s3DeliveryConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.S3DeliveryConfigurationTypeDef]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -181,7 +339,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateExportTaskRequestRequestTypeDef
+# CreateExportTaskRequestTypeDef
 
 ### logGroupName
 - **Type**: <class 'str'>
@@ -220,7 +378,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLogAnomalyDetectorRequestRequestTypeDef
+# CreateLogAnomalyDetectorRequestTypeDef
 
 ### logGroupArnList
 - **Type**: typing.Sequence[str]
@@ -256,7 +414,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLogGroupRequestRequestTypeDef
+# CreateLogGroupRequestTypeDef
 
 ### logGroupName
 - **Type**: <class 'str'>
@@ -272,7 +430,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['INFREQUENT_ACCESS', 'STANDARD']]
 
 
-# CreateLogStreamRequestRequestTypeDef
+# CreateLogStreamRequestTypeDef
 
 ### logGroupName
 - **Type**: <class 'str'>
@@ -283,74 +441,164 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAccountPolicyRequestRequestTypeDef
+# DateTimeConverterOutputTypeDef
+
+### source
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### target
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### matchPatterns
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### targetFormat
+- **Type**: typing.Optional[str]
+
+### sourceTimezone
+- **Type**: typing.Optional[str]
+
+### targetTimezone
+- **Type**: typing.Optional[str]
+
+### locale
+- **Type**: typing.Optional[str]
+
+
+# DateTimeConverterTypeDef
+
+### source
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### target
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### matchPatterns
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### targetFormat
+- **Type**: typing.Optional[str]
+
+### sourceTimezone
+- **Type**: typing.Optional[str]
+
+### targetTimezone
+- **Type**: typing.Optional[str]
+
+### locale
+- **Type**: typing.Optional[str]
+
+
+# DateTimeConverterUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DeleteAccountPolicyRequestTypeDef
 
 ### policyName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### policyType
-- **Type**: typing.Literal['DATA_PROTECTION_POLICY', 'SUBSCRIPTION_FILTER_POLICY']
+- **Type**: typing.Literal['DATA_PROTECTION_POLICY', 'FIELD_INDEX_POLICY', 'SUBSCRIPTION_FILTER_POLICY', 'TRANSFORMER_POLICY']
 - **Required**: Yes
 
 
-# DeleteDataProtectionPolicyRequestRequestTypeDef
+# DeleteDataProtectionPolicyRequestTypeDef
 
 ### logGroupIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDeliveryDestinationPolicyRequestRequestTypeDef
+# DeleteDeliveryDestinationPolicyRequestTypeDef
 
 ### deliveryDestinationName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDeliveryDestinationRequestRequestTypeDef
+# DeleteDeliveryDestinationRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDeliveryRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# DeleteDeliverySourceRequestRequestTypeDef
+# DeleteDeliverySourceRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDestinationRequestRequestTypeDef
+# DeleteDestinationRequestTypeDef
 
 ### destinationName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteLogAnomalyDetectorRequestRequestTypeDef
+# DeleteIndexPolicyRequestTypeDef
+
+### logGroupIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteIntegrationRequestTypeDef
+
+### integrationName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### force
+- **Type**: typing.Optional[bool]
+
+
+# DeleteKeysOutputTypeDef
+
+### withKeys
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
+# DeleteKeysTypeDef
+
+### withKeys
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+
+# DeleteKeysUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DeleteLogAnomalyDetectorRequestTypeDef
 
 ### anomalyDetectorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteLogGroupRequestRequestTypeDef
+# DeleteLogGroupRequestTypeDef
 
 ### logGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteLogStreamRequestRequestTypeDef
+# DeleteLogStreamRequestTypeDef
 
 ### logGroupName
 - **Type**: <class 'str'>
@@ -361,7 +609,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteMetricFilterRequestRequestTypeDef
+# DeleteMetricFilterRequestTypeDef
 
 ### logGroupName
 - **Type**: <class 'str'>
@@ -372,7 +620,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteQueryDefinitionRequestRequestTypeDef
+# DeleteQueryDefinitionRequestTypeDef
 
 ### queryDefinitionId
 - **Type**: <class 'str'>
@@ -390,26 +638,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteResourcePolicyRequestRequestTypeDef
+# DeleteResourcePolicyRequestTypeDef
 
 ### policyName
 - **Type**: typing.Optional[str]
 
 
-# DeleteRetentionPolicyRequestRequestTypeDef
+# DeleteRetentionPolicyRequestTypeDef
 
 ### logGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSubscriptionFilterRequestRequestTypeDef
+# DeleteSubscriptionFilterRequestTypeDef
 
 ### logGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### filterName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteTransformerRequestTypeDef
+
+### logGroupIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -465,29 +720,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DeliveryTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### deliverySourceName
-- **Type**: typing.Optional[str]
-
-### deliveryDestinationArn
-- **Type**: typing.Optional[str]
-
-### deliveryDestinationType
-- **Type**: typing.Optional[typing.Literal['CWL', 'FH', 'S3']]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# DescribeAccountPoliciesRequestRequestTypeDef
+# DescribeAccountPoliciesRequestTypeDef
 
 ### policyType
-- **Type**: typing.Literal['DATA_PROTECTION_POLICY', 'SUBSCRIPTION_FILTER_POLICY']
+- **Type**: typing.Literal['DATA_PROTECTION_POLICY', 'FIELD_INDEX_POLICY', 'SUBSCRIPTION_FILTER_POLICY', 'TRANSFORMER_POLICY']
 - **Required**: Yes
 
 ### policyName
@@ -495,6 +735,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### accountIdentifiers
 - **Type**: typing.Optional[typing.Sequence[str]]
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # DescribeAccountPoliciesResponseTypeDef
@@ -507,14 +750,70 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeDeliveriesRequestDescribeDeliveriesPaginateTypeDef
+
+# DescribeConfigurationTemplatesRequestPaginateTypeDef
+
+### service
+- **Type**: typing.Optional[str]
+
+### logTypes
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### resourceTypes
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### deliveryDestinationTypes
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['CWL', 'FH', 'S3']]]
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDeliveriesRequestRequestTypeDef
+# DescribeConfigurationTemplatesRequestTypeDef
+
+### service
+- **Type**: typing.Optional[str]
+
+### logTypes
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### resourceTypes
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### deliveryDestinationTypes
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['CWL', 'FH', 'S3']]]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### limit
+- **Type**: typing.Optional[int]
+
+
+# DescribeConfigurationTemplatesResponseTypeDef
+
+### configurationTemplates
+- **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.ConfigurationTemplateTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# DescribeDeliveriesRequestPaginateTypeDef
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.PaginatorConfigTypeDef]
+
+
+# DescribeDeliveriesRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -529,22 +828,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.DeliveryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeDeliveryDestinationsRequestDescribeDeliveryDestinationsPaginateTypeDef
+
+# DescribeDeliveryDestinationsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDeliveryDestinationsRequestRequestTypeDef
+# DescribeDeliveryDestinationsRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -559,22 +857,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.DeliveryDestinationTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeDeliverySourcesRequestDescribeDeliverySourcesPaginateTypeDef
+
+# DescribeDeliverySourcesRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDeliverySourcesRequestRequestTypeDef
+# DescribeDeliverySourcesRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -589,16 +886,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.DeliverySourceTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeDestinationsRequestDescribeDestinationsPaginateTypeDef
+
+# DescribeDestinationsRequestPaginateTypeDef
 
 ### DestinationNamePrefix
 - **Type**: typing.Optional[str]
@@ -607,7 +903,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDestinationsRequestRequestTypeDef
+# DescribeDestinationsRequestTypeDef
 
 ### DestinationNamePrefix
 - **Type**: typing.Optional[str]
@@ -625,16 +921,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.DestinationTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeExportTasksRequestDescribeExportTasksPaginateTypeDef
+
+# DescribeExportTasksRequestPaginateTypeDef
 
 ### taskId
 - **Type**: typing.Optional[str]
@@ -646,7 +941,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.PaginatorConfigTypeDef]
 
 
-# DescribeExportTasksRequestRequestTypeDef
+# DescribeExportTasksRequestTypeDef
 
 ### taskId
 - **Type**: typing.Optional[str]
@@ -667,16 +962,63 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.ExportTaskTypeDef]
 - **Required**: Yes
 
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
 ### nextToken
-- **Type**: <class 'str'>
+- **Type**: typing.Optional[str]
+
+
+# DescribeFieldIndexesRequestTypeDef
+
+### logGroupIdentifiers
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# DescribeFieldIndexesResponseTypeDef
+
+### fieldIndexes
+- **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.FieldIndexTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeLogGroupsRequestDescribeLogGroupsPaginateTypeDef
+
+# DescribeIndexPoliciesRequestTypeDef
+
+### logGroupIdentifiers
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# DescribeIndexPoliciesResponseTypeDef
+
+### indexPolicies
+- **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.IndexPolicyTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# DescribeLogGroupsRequestPaginateTypeDef
 
 ### accountIdentifiers
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -697,7 +1039,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.PaginatorConfigTypeDef]
 
 
-# DescribeLogGroupsRequestRequestTypeDef
+# DescribeLogGroupsRequestTypeDef
 
 ### accountIdentifiers
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -727,16 +1069,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.LogGroupTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeLogStreamsRequestDescribeLogStreamsPaginateTypeDef
+
+# DescribeLogStreamsRequestPaginateTypeDef
 
 ### logGroupName
 - **Type**: typing.Optional[str]
@@ -757,7 +1098,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.PaginatorConfigTypeDef]
 
 
-# DescribeLogStreamsRequestRequestTypeDef
+# DescribeLogStreamsRequestTypeDef
 
 ### logGroupName
 - **Type**: typing.Optional[str]
@@ -787,16 +1128,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.LogStreamTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeMetricFiltersRequestDescribeMetricFiltersPaginateTypeDef
+
+# DescribeMetricFiltersRequestPaginateTypeDef
 
 ### logGroupName
 - **Type**: typing.Optional[str]
@@ -814,7 +1154,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.PaginatorConfigTypeDef]
 
 
-# DescribeMetricFiltersRequestRequestTypeDef
+# DescribeMetricFiltersRequestTypeDef
 
 ### logGroupName
 - **Type**: typing.Optional[str]
@@ -841,16 +1181,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.MetricFilterTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeQueriesRequestDescribeQueriesPaginateTypeDef
+
+# DescribeQueriesRequestPaginateTypeDef
 
 ### logGroupName
 - **Type**: typing.Optional[str]
@@ -858,11 +1197,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### status
 - **Type**: typing.Optional[typing.Literal['Cancelled', 'Complete', 'Failed', 'Running', 'Scheduled', 'Timeout', 'Unknown']]
 
+### queryLanguage
+- **Type**: typing.Optional[typing.Literal['CWLI', 'PPL', 'SQL']]
+
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.PaginatorConfigTypeDef]
 
 
-# DescribeQueriesRequestRequestTypeDef
+# DescribeQueriesRequestTypeDef
 
 ### logGroupName
 - **Type**: typing.Optional[str]
@@ -876,6 +1218,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### nextToken
 - **Type**: typing.Optional[str]
 
+### queryLanguage
+- **Type**: typing.Optional[typing.Literal['CWLI', 'PPL', 'SQL']]
+
 
 # DescribeQueriesResponseTypeDef
 
@@ -883,16 +1228,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.QueryInfoTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeQueryDefinitionsRequestRequestTypeDef
+
+# DescribeQueryDefinitionsRequestTypeDef
+
+### queryLanguage
+- **Type**: typing.Optional[typing.Literal['CWLI', 'PPL', 'SQL']]
 
 ### queryDefinitionNamePrefix
 - **Type**: typing.Optional[str]
@@ -910,22 +1257,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.QueryDefinitionTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeResourcePoliciesRequestDescribeResourcePoliciesPaginateTypeDef
+
+# DescribeResourcePoliciesRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.PaginatorConfigTypeDef]
 
 
-# DescribeResourcePoliciesRequestRequestTypeDef
+# DescribeResourcePoliciesRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -940,16 +1286,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.ResourcePolicyTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeSubscriptionFiltersRequestDescribeSubscriptionFiltersPaginateTypeDef
+
+# DescribeSubscriptionFiltersRequestPaginateTypeDef
 
 ### logGroupName
 - **Type**: <class 'str'>
@@ -962,7 +1307,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.PaginatorConfigTypeDef]
 
 
-# DescribeSubscriptionFiltersRequestRequestTypeDef
+# DescribeSubscriptionFiltersRequestTypeDef
 
 ### logGroupName
 - **Type**: <class 'str'>
@@ -984,13 +1329,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.SubscriptionFilterTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # DestinationTypeDef
@@ -1014,7 +1358,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DisassociateKmsKeyRequestRequestTypeDef
+# DisassociateKmsKeyRequestTypeDef
 
 ### logGroupName
 - **Type**: typing.Optional[str]
@@ -1028,6 +1372,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+
+# EntityTypeDef
+
+### keyAttributes
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### attributes
+- **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
 # ExportTaskExecutionInfoTypeDef
@@ -1050,32 +1403,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ExportTaskTypeDef
 
-### taskId
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# FieldIndexTypeDef
+
+### logGroupIdentifier
 - **Type**: typing.Optional[str]
 
-### taskName
+### fieldIndexName
 - **Type**: typing.Optional[str]
 
-### logGroupName
-- **Type**: typing.Optional[str]
-
-### to
+### lastScanTime
 - **Type**: typing.Optional[int]
 
-### destination
-- **Type**: typing.Optional[str]
+### firstEventTime
+- **Type**: typing.Optional[int]
 
-### destinationPrefix
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.ExportTaskStatusTypeDef]
-
-### executionInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.ExportTaskExecutionInfoTypeDef]
+### lastEventTime
+- **Type**: typing.Optional[int]
 
 
-# FilterLogEventsRequestFilterLogEventsPaginateTypeDef
+# FilterLogEventsRequestPaginateTypeDef
 
 ### logGroupName
 - **Type**: typing.Optional[str]
@@ -1108,7 +1458,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.PaginatorConfigTypeDef]
 
 
-# FilterLogEventsRequestRequestTypeDef
+# FilterLogEventsRequestTypeDef
 
 ### logGroupName
 - **Type**: typing.Optional[str]
@@ -1154,13 +1504,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.SearchedLogStreamTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # FilteredLogEventTypeDef
@@ -1181,7 +1530,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetDataProtectionPolicyRequestRequestTypeDef
+# GetDataProtectionPolicyRequestTypeDef
 
 ### logGroupIdentifier
 - **Type**: <class 'str'>
@@ -1207,7 +1556,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDeliveryDestinationPolicyRequestRequestTypeDef
+# GetDeliveryDestinationPolicyRequestTypeDef
 
 ### deliveryDestinationName
 - **Type**: <class 'str'>
@@ -1225,7 +1574,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDeliveryDestinationRequestRequestTypeDef
+# GetDeliveryDestinationRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -1243,13 +1592,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDeliveryRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
 # GetDeliveryResponseTypeDef
 
 ### delivery
@@ -1261,7 +1603,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDeliverySourceRequestRequestTypeDef
+# GetDeliverySourceRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -1279,7 +1621,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetLogAnomalyDetectorRequestRequestTypeDef
+# GetIntegrationRequestTypeDef
+
+### integrationName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetIntegrationResponseTypeDef
+
+### integrationName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### integrationType
+- **Type**: typing.Literal['OPENSEARCH']
+- **Required**: Yes
+
+### integrationStatus
+- **Type**: typing.Literal['ACTIVE', 'FAILED', 'PROVISIONING']
+- **Required**: Yes
+
+### integrationDetails
+- **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.IntegrationDetailsTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetLogAnomalyDetectorRequestTypeDef
 
 ### anomalyDetectorArn
 - **Type**: <class 'str'>
@@ -1329,7 +1701,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetLogEventsRequestRequestTypeDef
+# GetLogEventsRequestTypeDef
 
 ### logStreamName
 - **Type**: <class 'str'>
@@ -1379,7 +1751,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetLogGroupFieldsRequestRequestTypeDef
+# GetLogGroupFieldsRequestTypeDef
 
 ### logGroupName
 - **Type**: typing.Optional[str]
@@ -1402,7 +1774,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetLogRecordRequestRequestTypeDef
+# GetLogRecordRequestTypeDef
 
 ### logRecordPointer
 - **Type**: <class 'str'>
@@ -1423,7 +1795,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetQueryResultsRequestRequestTypeDef
+# GetQueryResultsRequestTypeDef
 
 ### queryId
 - **Type**: <class 'str'>
@@ -1431,6 +1803,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 
 # GetQueryResultsResponseTypeDef
+
+### queryLanguage
+- **Type**: typing.Literal['CWLI', 'PPL', 'SQL']
+- **Required**: Yes
 
 ### results
 - **Type**: typing.List[typing.List[aws_resource_validator.pydantic_models.logs_classes.ResultFieldTypeDef]]
@@ -1453,6 +1829,64 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# GetTransformerRequestTypeDef
+
+### logGroupIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetTransformerResponseTypeDef
+
+### logGroupIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### creationTime
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### lastModifiedTime
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### transformerConfig
+- **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.ProcessorOutputTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GrokTypeDef
+
+### match
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### source
+- **Type**: typing.Optional[str]
+
+
+# IndexPolicyTypeDef
+
+### logGroupIdentifier
+- **Type**: typing.Optional[str]
+
+### lastUpdateTime
+- **Type**: typing.Optional[int]
+
+### policyDocument
+- **Type**: typing.Optional[str]
+
+### policyName
+- **Type**: typing.Optional[str]
+
+### source
+- **Type**: typing.Optional[typing.Literal['ACCOUNT', 'LOG_GROUP']]
+
+
 # InputLogEventTypeDef
 
 ### timestamp
@@ -1464,7 +1898,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListAnomaliesRequestListAnomaliesPaginateTypeDef
+# IntegrationDetailsTypeDef
+
+### openSearchIntegrationDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.OpenSearchIntegrationDetailsTypeDef]
+
+
+# IntegrationSummaryTypeDef
+
+### integrationName
+- **Type**: typing.Optional[str]
+
+### integrationType
+- **Type**: typing.Optional[typing.Literal['OPENSEARCH']]
+
+### integrationStatus
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'FAILED', 'PROVISIONING']]
+
+
+# ListAnomaliesRequestPaginateTypeDef
 
 ### anomalyDetectorArn
 - **Type**: typing.Optional[str]
@@ -1476,7 +1928,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.PaginatorConfigTypeDef]
 
 
-# ListAnomaliesRequestRequestTypeDef
+# ListAnomaliesRequestTypeDef
 
 ### anomalyDetectorArn
 - **Type**: typing.Optional[str]
@@ -1497,8 +1949,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.AnomalyTypeDef]
 - **Required**: Yes
 
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
 ### nextToken
-- **Type**: <class 'str'>
+- **Type**: typing.Optional[str]
+
+
+# ListIntegrationsRequestTypeDef
+
+### integrationNamePrefix
+- **Type**: typing.Optional[str]
+
+### integrationType
+- **Type**: typing.Optional[typing.Literal['OPENSEARCH']]
+
+### integrationStatus
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'FAILED', 'PROVISIONING']]
+
+
+# ListIntegrationsResponseTypeDef
+
+### integrationSummaries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.IntegrationSummaryTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -1506,7 +1980,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListLogAnomalyDetectorsRequestListLogAnomalyDetectorsPaginateTypeDef
+# ListLogAnomalyDetectorsRequestPaginateTypeDef
 
 ### filterLogGroupArn
 - **Type**: typing.Optional[str]
@@ -1515,7 +1989,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.PaginatorConfigTypeDef]
 
 
-# ListLogAnomalyDetectorsRequestRequestTypeDef
+# ListLogAnomalyDetectorsRequestTypeDef
 
 ### filterLogGroupArn
 - **Type**: typing.Optional[str]
@@ -1533,16 +2007,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.AnomalyDetectorTypeDef]
 - **Required**: Yes
 
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
 ### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListLogGroupsForQueryRequestPaginateTypeDef
+
+### queryId
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.PaginatorConfigTypeDef]
+
+
+# ListLogGroupsForQueryRequestTypeDef
+
+### queryId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+
+# ListLogGroupsForQueryResponseTypeDef
+
+### logGroupIdentifiers
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1560,7 +2070,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTagsLogGroupRequestRequestTypeDef
+# ListTagsLogGroupRequestTypeDef
 
 ### logGroupName
 - **Type**: <class 'str'>
@@ -1576,6 +2086,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+
+# ListToMapTypeDef
+
+### source
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### key
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### valueKey
+- **Type**: typing.Optional[str]
+
+### target
+- **Type**: typing.Optional[str]
+
+### flatten
+- **Type**: typing.Optional[bool]
+
+### flattenedElement
+- **Type**: typing.Optional[typing.Literal['first', 'last']]
 
 
 # LiveTailSessionLogEventTypeDef
@@ -1713,6 +2246,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
+# LowerCaseStringOutputTypeDef
+
+### withKeys
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
+# LowerCaseStringTypeDef
+
+### withKeys
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+
+# LowerCaseStringUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # MetricFilterMatchRecordTypeDef
 
 ### eventNumber
@@ -1734,7 +2287,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### metricTransformations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.logs_classes.MetricTransformationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.logs_classes.MetricTransformationOutputTypeDef]]
 
 ### creationTime
 - **Type**: typing.Optional[int]
@@ -1742,8 +2295,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### logGroupName
 - **Type**: typing.Optional[str]
 
+### applyOnTransformedLogs
+- **Type**: typing.Optional[bool]
 
-# MetricTransformationTypeDef
+
+# MetricTransformationOutputTypeDef
 
 ### metricName
 - **Type**: <class 'str'>
@@ -1765,6 +2321,208 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### unit
 - **Type**: typing.Optional[typing.Literal['Bits', 'Bits/Second', 'Bytes', 'Bytes/Second', 'Count', 'Count/Second', 'Gigabits', 'Gigabits/Second', 'Gigabytes', 'Gigabytes/Second', 'Kilobits', 'Kilobits/Second', 'Kilobytes', 'Kilobytes/Second', 'Megabits', 'Megabits/Second', 'Megabytes', 'Megabytes/Second', 'Microseconds', 'Milliseconds', 'None', 'Percent', 'Seconds', 'Terabits', 'Terabits/Second', 'Terabytes', 'Terabytes/Second']]
+
+
+# MetricTransformationTypeDef
+
+### metricName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### metricNamespace
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### metricValue
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### defaultValue
+- **Type**: typing.Optional[float]
+
+### dimensions
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### unit
+- **Type**: typing.Optional[typing.Literal['Bits', 'Bits/Second', 'Bytes', 'Bytes/Second', 'Count', 'Count/Second', 'Gigabits', 'Gigabits/Second', 'Gigabytes', 'Gigabytes/Second', 'Kilobits', 'Kilobits/Second', 'Kilobytes', 'Kilobytes/Second', 'Megabits', 'Megabits/Second', 'Megabytes', 'Megabytes/Second', 'Microseconds', 'Milliseconds', 'None', 'Percent', 'Seconds', 'Terabits', 'Terabits/Second', 'Terabytes', 'Terabytes/Second']]
+
+
+# MetricTransformationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# MoveKeyEntryTypeDef
+
+### source
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### target
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### overwriteIfExists
+- **Type**: typing.Optional[bool]
+
+
+# MoveKeysOutputTypeDef
+
+### entries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.MoveKeyEntryTypeDef]
+- **Required**: Yes
+
+
+# MoveKeysTypeDef
+
+### entries
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.logs_classes.MoveKeyEntryTypeDef]
+- **Required**: Yes
+
+
+# MoveKeysUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# OpenSearchApplicationTypeDef
+
+### applicationEndpoint
+- **Type**: typing.Optional[str]
+
+### applicationArn
+- **Type**: typing.Optional[str]
+
+### applicationId
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.OpenSearchResourceStatusTypeDef]
+
+
+# OpenSearchCollectionTypeDef
+
+### collectionEndpoint
+- **Type**: typing.Optional[str]
+
+### collectionArn
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.OpenSearchResourceStatusTypeDef]
+
+
+# OpenSearchDataAccessPolicyTypeDef
+
+### policyName
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.OpenSearchResourceStatusTypeDef]
+
+
+# OpenSearchDataSourceTypeDef
+
+### dataSourceName
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.OpenSearchResourceStatusTypeDef]
+
+
+# OpenSearchEncryptionPolicyTypeDef
+
+### policyName
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.OpenSearchResourceStatusTypeDef]
+
+
+# OpenSearchIntegrationDetailsTypeDef
+
+### dataSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.OpenSearchDataSourceTypeDef]
+
+### application
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.OpenSearchApplicationTypeDef]
+
+### collection
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.OpenSearchCollectionTypeDef]
+
+### workspace
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.OpenSearchWorkspaceTypeDef]
+
+### encryptionPolicy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.OpenSearchEncryptionPolicyTypeDef]
+
+### networkPolicy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.OpenSearchNetworkPolicyTypeDef]
+
+### accessPolicy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.OpenSearchDataAccessPolicyTypeDef]
+
+### lifecyclePolicy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.OpenSearchLifecyclePolicyTypeDef]
+
+
+# OpenSearchLifecyclePolicyTypeDef
+
+### policyName
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.OpenSearchResourceStatusTypeDef]
+
+
+# OpenSearchNetworkPolicyTypeDef
+
+### policyName
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.OpenSearchResourceStatusTypeDef]
+
+
+# OpenSearchResourceConfigTypeDef
+
+### dataSourceRoleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### dashboardViewerPrincipals
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### retentionDays
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### kmsKeyArn
+- **Type**: typing.Optional[str]
+
+### applicationArn
+- **Type**: typing.Optional[str]
+
+
+# OpenSearchResourceStatusTypeDef
+
+### status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'ERROR', 'NOT_FOUND']]
+
+### statusMessage
+- **Type**: typing.Optional[str]
+
+
+# OpenSearchWorkspaceTypeDef
+
+### workspaceId
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.OpenSearchResourceStatusTypeDef]
 
 
 # OutputLogEventTypeDef
@@ -1791,6 +2549,69 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# ParseCloudfrontTypeDef
+
+### source
+- **Type**: typing.Optional[str]
+
+
+# ParseJSONTypeDef
+
+### source
+- **Type**: typing.Optional[str]
+
+### destination
+- **Type**: typing.Optional[str]
+
+
+# ParseKeyValueTypeDef
+
+### source
+- **Type**: typing.Optional[str]
+
+### destination
+- **Type**: typing.Optional[str]
+
+### fieldDelimiter
+- **Type**: typing.Optional[str]
+
+### keyValueDelimiter
+- **Type**: typing.Optional[str]
+
+### keyPrefix
+- **Type**: typing.Optional[str]
+
+### nonMatchValue
+- **Type**: typing.Optional[str]
+
+### overwriteIfExists
+- **Type**: typing.Optional[bool]
+
+
+# ParsePostgresTypeDef
+
+### source
+- **Type**: typing.Optional[str]
+
+
+# ParseRoute53TypeDef
+
+### source
+- **Type**: typing.Optional[str]
+
+
+# ParseVPCTypeDef
+
+### source
+- **Type**: typing.Optional[str]
+
+
+# ParseWAFTypeDef
+
+### source
+- **Type**: typing.Optional[str]
+
+
 # PatternTokenTypeDef
 
 ### dynamicTokenPosition
@@ -1805,6 +2626,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### enumerations
 - **Type**: typing.Optional[typing.Dict[str, int]]
 
+### inferredTokenName
+- **Type**: typing.Optional[str]
+
 
 # PolicyTypeDef
 
@@ -1812,7 +2636,151 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutAccountPolicyRequestRequestTypeDef
+# ProcessorOutputTypeDef
+
+### addKeys
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.AddKeysOutputTypeDef]
+
+### copyValue
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.CopyValueOutputTypeDef]
+
+### csv
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.CSVOutputTypeDef]
+
+### dateTimeConverter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.DateTimeConverterOutputTypeDef]
+
+### deleteKeys
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.DeleteKeysOutputTypeDef]
+
+### grok
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.GrokTypeDef]
+
+### listToMap
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.ListToMapTypeDef]
+
+### lowerCaseString
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.LowerCaseStringOutputTypeDef]
+
+### moveKeys
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.MoveKeysOutputTypeDef]
+
+### parseCloudfront
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.ParseCloudfrontTypeDef]
+
+### parseJSON
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.ParseJSONTypeDef]
+
+### parseKeyValue
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.ParseKeyValueTypeDef]
+
+### parseRoute53
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.ParseRoute53TypeDef]
+
+### parsePostgres
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.ParsePostgresTypeDef]
+
+### parseVPC
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.ParseVPCTypeDef]
+
+### parseWAF
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.ParseWAFTypeDef]
+
+### renameKeys
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.RenameKeysOutputTypeDef]
+
+### splitString
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.SplitStringOutputTypeDef]
+
+### substituteString
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.SubstituteStringOutputTypeDef]
+
+### trimString
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.TrimStringOutputTypeDef]
+
+### typeConverter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.TypeConverterOutputTypeDef]
+
+### upperCaseString
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.UpperCaseStringOutputTypeDef]
+
+
+# ProcessorTypeDef
+
+### addKeys
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.AddKeysUnionTypeDef]
+
+### copyValue
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.CopyValueUnionTypeDef]
+
+### csv
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.CSVUnionTypeDef]
+
+### dateTimeConverter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.DateTimeConverterUnionTypeDef]
+
+### deleteKeys
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.DeleteKeysUnionTypeDef]
+
+### grok
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.GrokTypeDef]
+
+### listToMap
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.ListToMapTypeDef]
+
+### lowerCaseString
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.LowerCaseStringUnionTypeDef]
+
+### moveKeys
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.MoveKeysUnionTypeDef]
+
+### parseCloudfront
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.ParseCloudfrontTypeDef]
+
+### parseJSON
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.ParseJSONTypeDef]
+
+### parseKeyValue
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.ParseKeyValueTypeDef]
+
+### parseRoute53
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.ParseRoute53TypeDef]
+
+### parsePostgres
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.ParsePostgresTypeDef]
+
+### parseVPC
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.ParseVPCTypeDef]
+
+### parseWAF
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.ParseWAFTypeDef]
+
+### renameKeys
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.RenameKeysUnionTypeDef]
+
+### splitString
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.SplitStringUnionTypeDef]
+
+### substituteString
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.SubstituteStringUnionTypeDef]
+
+### trimString
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.TrimStringUnionTypeDef]
+
+### typeConverter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.TypeConverterUnionTypeDef]
+
+### upperCaseString
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.UpperCaseStringUnionTypeDef]
+
+
+# ProcessorUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# PutAccountPolicyRequestTypeDef
 
 ### policyName
 - **Type**: <class 'str'>
@@ -1823,7 +2791,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### policyType
-- **Type**: typing.Literal['DATA_PROTECTION_POLICY', 'SUBSCRIPTION_FILTER_POLICY']
+- **Type**: typing.Literal['DATA_PROTECTION_POLICY', 'FIELD_INDEX_POLICY', 'SUBSCRIPTION_FILTER_POLICY', 'TRANSFORMER_POLICY']
 - **Required**: Yes
 
 ### scope
@@ -1844,7 +2812,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutDataProtectionPolicyRequestRequestTypeDef
+# PutDataProtectionPolicyRequestTypeDef
 
 ### logGroupIdentifier
 - **Type**: <class 'str'>
@@ -1874,7 +2842,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutDeliveryDestinationPolicyRequestRequestTypeDef
+# PutDeliveryDestinationPolicyRequestTypeDef
 
 ### deliveryDestinationName
 - **Type**: <class 'str'>
@@ -1896,7 +2864,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutDeliveryDestinationRequestRequestTypeDef
+# PutDeliveryDestinationRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -1924,7 +2892,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutDeliverySourceRequestRequestTypeDef
+# PutDeliverySourceRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -1953,7 +2921,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutDestinationPolicyRequestRequestTypeDef
+# PutDestinationPolicyRequestTypeDef
 
 ### destinationName
 - **Type**: <class 'str'>
@@ -1967,7 +2935,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# PutDestinationRequestRequestTypeDef
+# PutDestinationRequestTypeDef
 
 ### destinationName
 - **Type**: <class 'str'>
@@ -1996,7 +2964,59 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutLogEventsRequestRequestTypeDef
+# PutIndexPolicyRequestTypeDef
+
+### logGroupIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### policyDocument
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# PutIndexPolicyResponseTypeDef
+
+### indexPolicy
+- **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.IndexPolicyTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# PutIntegrationRequestTypeDef
+
+### integrationName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### resourceConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResourceConfigTypeDef'>
+- **Required**: Yes
+
+### integrationType
+- **Type**: typing.Literal['OPENSEARCH']
+- **Required**: Yes
+
+
+# PutIntegrationResponseTypeDef
+
+### integrationName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### integrationStatus
+- **Type**: typing.Literal['ACTIVE', 'FAILED', 'PROVISIONING']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# PutLogEventsRequestTypeDef
 
 ### logGroupName
 - **Type**: <class 'str'>
@@ -2013,6 +3033,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### sequenceToken
 - **Type**: typing.Optional[str]
 
+### entity
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.EntityTypeDef]
+
 
 # PutLogEventsResponseTypeDef
 
@@ -2024,12 +3047,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.RejectedLogEventsInfoTypeDef'>
 - **Required**: Yes
 
+### rejectedEntityInfo
+- **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.RejectedEntityInfoTypeDef'>
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
 
-# PutMetricFilterRequestRequestTypeDef
+# PutMetricFilterRequestTypeDef
 
 ### logGroupName
 - **Type**: <class 'str'>
@@ -2044,11 +3071,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### metricTransformations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.logs_classes.MetricTransformationTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.logs_classes.MetricTransformationUnionTypeDef]
 - **Required**: Yes
 
+### applyOnTransformedLogs
+- **Type**: typing.Optional[bool]
 
-# PutQueryDefinitionRequestRequestTypeDef
+
+# PutQueryDefinitionRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -2057,6 +3087,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### queryString
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+### queryLanguage
+- **Type**: typing.Optional[typing.Literal['CWLI', 'PPL', 'SQL']]
 
 ### queryDefinitionId
 - **Type**: typing.Optional[str]
@@ -2079,7 +3112,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutResourcePolicyRequestRequestTypeDef
+# PutResourcePolicyRequestTypeDef
 
 ### policyName
 - **Type**: typing.Optional[str]
@@ -2099,7 +3132,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutRetentionPolicyRequestRequestTypeDef
+# PutRetentionPolicyRequestTypeDef
 
 ### logGroupName
 - **Type**: <class 'str'>
@@ -2110,7 +3143,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutSubscriptionFilterRequestRequestTypeDef
+# PutSubscriptionFilterRequestTypeDef
 
 ### logGroupName
 - **Type**: <class 'str'>
@@ -2134,8 +3167,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### distribution
 - **Type**: typing.Optional[typing.Literal['ByLogStream', 'Random']]
 
+### applyOnTransformedLogs
+- **Type**: typing.Optional[bool]
+
+
+# PutTransformerRequestTypeDef
+
+### logGroupIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### transformerConfig
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.logs_classes.ProcessorUnionTypeDef]
+- **Required**: Yes
+
 
 # QueryDefinitionTypeDef
+
+### queryLanguage
+- **Type**: typing.Optional[typing.Literal['CWLI', 'PPL', 'SQL']]
 
 ### queryDefinitionId
 - **Type**: typing.Optional[str]
@@ -2154,6 +3204,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 
 # QueryInfoTypeDef
+
+### queryLanguage
+- **Type**: typing.Optional[typing.Literal['CWLI', 'PPL', 'SQL']]
 
 ### queryId
 - **Type**: typing.Optional[str]
@@ -2179,8 +3232,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### recordsScanned
 - **Type**: typing.Optional[float]
 
+### estimatedRecordsSkipped
+- **Type**: typing.Optional[float]
+
 ### bytesScanned
 - **Type**: typing.Optional[float]
+
+### estimatedBytesSkipped
+- **Type**: typing.Optional[float]
+
+### logGroupsScanned
+- **Type**: typing.Optional[float]
+
+
+# RecordFieldTypeDef
+
+### name
+- **Type**: typing.Optional[str]
+
+### mandatory
+- **Type**: typing.Optional[bool]
+
+
+# RejectedEntityInfoTypeDef
+
+### errorType
+- **Type**: typing.Literal['EntitySizeTooLarge', 'InvalidAttributes', 'InvalidEntity', 'InvalidKeyAttributes', 'InvalidTypeValue', 'MissingRequiredFields', 'UnsupportedLogGroupType']
+- **Required**: Yes
 
 
 # RejectedLogEventsInfoTypeDef
@@ -2193,6 +3271,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### expiredLogEventEndIndex
 - **Type**: typing.Optional[int]
+
+
+# RenameKeyEntryTypeDef
+
+### key
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### renameTo
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### overwriteIfExists
+- **Type**: typing.Optional[bool]
+
+
+# RenameKeysOutputTypeDef
+
+### entries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.RenameKeyEntryTypeDef]
+- **Required**: Yes
+
+
+# RenameKeysTypeDef
+
+### entries
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.logs_classes.RenameKeyEntryTypeDef]
+- **Required**: Yes
+
+
+# RenameKeysUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ResourceConfigTypeDef
+
+### openSearchResourceConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.OpenSearchResourceConfigTypeDef]
 
 
 # ResourcePolicyTypeDef
@@ -2238,6 +3356,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# S3DeliveryConfigurationTypeDef
+
+### suffixPath
+- **Type**: typing.Optional[str]
+
+### enableHiveCompatiblePath
+- **Type**: typing.Optional[bool]
+
+
 # SearchedLogStreamTypeDef
 
 ### logStreamName
@@ -2259,7 +3386,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartLiveTailRequestRequestTypeDef
+# SplitStringEntryTypeDef
+
+### source
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### delimiter
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# SplitStringOutputTypeDef
+
+### entries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.SplitStringEntryTypeDef]
+- **Required**: Yes
+
+
+# SplitStringTypeDef
+
+### entries
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.logs_classes.SplitStringEntryTypeDef]
+- **Required**: Yes
+
+
+# SplitStringUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# StartLiveTailRequestTypeDef
 
 ### logGroupIdentifiers
 - **Type**: typing.Sequence[str]
@@ -2293,7 +3451,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartLiveTailResponseTypeDef
 
 ### responseStream
-- **Type**: ForwardRef('EventStream[StartLiveTailResponseStreamTypeDef]')
+- **Type**: aws_resource_validator.pydantic_models.base_validator_model.EventStream[aws_resource_validator.pydantic_models.logs_classes.StartLiveTailResponseStreamTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -2301,7 +3459,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartQueryRequestRequestTypeDef
+# StartQueryRequestTypeDef
 
 ### startTime
 - **Type**: <class 'int'>
@@ -2314,6 +3472,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### queryString
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+### queryLanguage
+- **Type**: typing.Optional[typing.Literal['CWLI', 'PPL', 'SQL']]
 
 ### logGroupName
 - **Type**: typing.Optional[str]
@@ -2339,7 +3500,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopQueryRequestRequestTypeDef
+# StopQueryRequestTypeDef
 
 ### queryId
 - **Type**: <class 'str'>
@@ -2377,9 +3538,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### distribution
 - **Type**: typing.Optional[typing.Literal['ByLogStream', 'Random']]
 
+### applyOnTransformedLogs
+- **Type**: typing.Optional[bool]
+
 ### creationTime
 - **Type**: typing.Optional[int]
 
+
+# SubstituteStringEntryTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# SubstituteStringOutputTypeDef
+
+### entries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.SubstituteStringEntryTypeDef]
+- **Required**: Yes
+
+
+# SubstituteStringTypeDef
+
+### entries
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.logs_classes.SubstituteStringEntryTypeDef]
+- **Required**: Yes
+
+
+# SubstituteStringUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SuppressionPeriodTypeDef
 
@@ -2390,7 +3580,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['HOURS', 'MINUTES', 'SECONDS']]
 
 
-# TagLogGroupRequestRequestTypeDef
+# TagLogGroupRequestTypeDef
 
 ### logGroupName
 - **Type**: <class 'str'>
@@ -2401,7 +3591,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2412,7 +3602,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TestMetricFilterRequestRequestTypeDef
+# TestMetricFilterRequestTypeDef
 
 ### filterPattern
 - **Type**: <class 'str'>
@@ -2434,7 +3624,87 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagLogGroupRequestRequestTypeDef
+# TestTransformerRequestTypeDef
+
+### transformerConfig
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.logs_classes.ProcessorUnionTypeDef]
+- **Required**: Yes
+
+### logEventMessages
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+
+# TestTransformerResponseTypeDef
+
+### transformedLogs
+- **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.TransformedLogRecordTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.logs_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# TransformedLogRecordTypeDef
+
+### eventNumber
+- **Type**: typing.Optional[int]
+
+### eventMessage
+- **Type**: typing.Optional[str]
+
+### transformedEventMessage
+- **Type**: typing.Optional[str]
+
+
+# TrimStringOutputTypeDef
+
+### withKeys
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
+# TrimStringTypeDef
+
+### withKeys
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+
+# TrimStringUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TypeConverterEntryTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TypeConverterOutputTypeDef
+
+### entries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.logs_classes.TypeConverterEntryTypeDef]
+- **Required**: Yes
+
+
+# TypeConverterTypeDef
+
+### entries
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.logs_classes.TypeConverterEntryTypeDef]
+- **Required**: Yes
+
+
+# TypeConverterUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagLogGroupRequestTypeDef
 
 ### logGroupName
 - **Type**: <class 'str'>
@@ -2445,7 +3715,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2456,7 +3726,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAnomalyRequestRequestTypeDef
+# UpdateAnomalyRequestTypeDef
 
 ### anomalyDetectorArn
 - **Type**: <class 'str'>
@@ -2474,8 +3744,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### suppressionPeriod
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.logs_classes.SuppressionPeriodTypeDef]
 
+### baseline
+- **Type**: typing.Optional[bool]
 
-# UpdateLogAnomalyDetectorRequestRequestTypeDef
+
+# UpdateLogAnomalyDetectorRequestTypeDef
 
 ### anomalyDetectorArn
 - **Type**: <class 'str'>
@@ -2494,4 +3767,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### anomalyVisibilityTime
 - **Type**: typing.Optional[int]
 
+
+# UpperCaseStringOutputTypeDef
+
+### withKeys
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
+# UpperCaseStringTypeDef
+
+### withKeys
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+
+# UpperCaseStringUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

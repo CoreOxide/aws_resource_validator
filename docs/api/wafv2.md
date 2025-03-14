@@ -60,6 +60,12 @@
 - **Min Length**: 1
 - **Max Length**: 64
 
+### FieldToProtectKeyName
+- **Type**: string
+- **Pattern**: `.*\S.*`
+- **Min Length**: 1
+- **Max Length**: 64
+
 ### ForwardedIPHeaderName
 - **Type**: string
 - **Pattern**: `^[a-zA-Z0-9-]+$`

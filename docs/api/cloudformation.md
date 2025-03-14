@@ -51,6 +51,12 @@
 - **Min Length**: 1
 - **Max Length**: 64
 
+### HookResultId
+- **Type**: string
+- **Pattern**: `[a-zA-Z][-a-zA-Z0-9]*|arn:[-a-zA-Z0-9:/]*|^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$`
+- **Min Length**: 1
+- **Max Length**: 1600
+
 ### HookTargetTypeName
 - **Type**: string
 - **Pattern**: `^[a-zA-Z0-9]{2,64}::[a-zA-Z0-9]{2,64}::[a-zA-Z0-9]{2,64}$`

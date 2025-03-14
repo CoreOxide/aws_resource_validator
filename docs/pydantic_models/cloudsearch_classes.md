@@ -71,7 +71,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BuildSuggestersRequestRequestTypeDef
+# BuildSuggestersRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -89,7 +89,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDomainRequestRequestTypeDef
+# CreateDomainRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -146,7 +146,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DefineAnalysisSchemeRequestRequestTypeDef
+# DefineAnalysisSchemeRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -168,7 +168,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DefineExpressionRequestRequestTypeDef
+# DefineExpressionRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -190,7 +190,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DefineIndexFieldRequestRequestTypeDef
+# DefineIndexFieldRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -212,7 +212,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DefineSuggesterRequestRequestTypeDef
+# DefineSuggesterRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -234,7 +234,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAnalysisSchemeRequestRequestTypeDef
+# DeleteAnalysisSchemeRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -256,7 +256,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDomainRequestRequestTypeDef
+# DeleteDomainRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -274,7 +274,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteExpressionRequestRequestTypeDef
+# DeleteExpressionRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -296,7 +296,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteIndexFieldRequestRequestTypeDef
+# DeleteIndexFieldRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -318,7 +318,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteSuggesterRequestRequestTypeDef
+# DeleteSuggesterRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -340,7 +340,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAnalysisSchemesRequestRequestTypeDef
+# DescribeAnalysisSchemesRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -364,7 +364,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAvailabilityOptionsRequestRequestTypeDef
+# DescribeAvailabilityOptionsRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -385,7 +385,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDomainEndpointOptionsRequestRequestTypeDef
+# DescribeDomainEndpointOptionsRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -406,7 +406,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDomainsRequestRequestTypeDef
+# DescribeDomainsRequestTypeDef
 
 ### DomainNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -423,7 +423,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeExpressionsRequestRequestTypeDef
+# DescribeExpressionsRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -447,7 +447,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeIndexFieldsRequestRequestTypeDef
+# DescribeIndexFieldsRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -471,7 +471,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeScalingParametersRequestRequestTypeDef
+# DescribeScalingParametersRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -489,7 +489,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeServiceAccessPoliciesRequestRequestTypeDef
+# DescribeServiceAccessPoliciesRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -510,7 +510,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeSuggestersRequestRequestTypeDef
+# DescribeSuggestersRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -673,7 +673,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# IndexDocumentsRequestRequestTypeDef
+# IndexDocumentsRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -894,10 +894,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -909,6 +905,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # ScalingParametersStatusTypeDef
@@ -1001,7 +1000,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateAvailabilityOptionsRequestRequestTypeDef
+# UpdateAvailabilityOptionsRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -1023,7 +1022,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDomainEndpointOptionsRequestRequestTypeDef
+# UpdateDomainEndpointOptionsRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -1045,7 +1044,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateScalingParametersRequestRequestTypeDef
+# UpdateScalingParametersRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -1067,7 +1066,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateServiceAccessPoliciesRequestRequestTypeDef
+# UpdateServiceAccessPoliciesRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>

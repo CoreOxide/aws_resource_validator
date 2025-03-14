@@ -1,6 +1,6 @@
 # Route53Profiles Classes
 
-# AssociateProfileRequestRequestTypeDef
+# AssociateProfileRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -29,7 +29,7 @@
 - **Required**: Yes
 
 
-# AssociateResourceToProfileRequestRequestTypeDef
+# AssociateResourceToProfileRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -64,7 +64,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateProfileRequestRequestTypeDef
+# CreateProfileRequestTypeDef
 
 ### ClientToken
 - **Type**: <class 'str'>
@@ -89,7 +89,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteProfileRequestRequestTypeDef
+# DeleteProfileRequestTypeDef
 
 ### ProfileId
 - **Type**: <class 'str'>
@@ -107,7 +107,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateProfileRequestRequestTypeDef
+# DisassociateProfileRequestTypeDef
 
 ### ProfileId
 - **Type**: <class 'str'>
@@ -129,7 +129,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateResourceFromProfileRequestRequestTypeDef
+# DisassociateResourceFromProfileRequestTypeDef
 
 ### ProfileId
 - **Type**: <class 'str'>
@@ -151,7 +151,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetProfileAssociationRequestRequestTypeDef
+# GetProfileAssociationRequestTypeDef
 
 ### ProfileAssociationId
 - **Type**: <class 'str'>
@@ -169,14 +169,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetProfileRequestRequestTypeDef
+# GetProfileRequestTypeDef
 
 ### ProfileId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetProfileResourceAssociationRequestRequestTypeDef
+# GetProfileResourceAssociationRequestTypeDef
 
 ### ProfileResourceAssociationId
 - **Type**: <class 'str'>
@@ -205,7 +205,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListProfileAssociationsRequestListProfileAssociationsPaginateTypeDef
+# ListProfileAssociationsRequestPaginateTypeDef
 
 ### ProfileId
 - **Type**: typing.Optional[str]
@@ -217,7 +217,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53profiles_classes.PaginatorConfigTypeDef]
 
 
-# ListProfileAssociationsRequestRequestTypeDef
+# ListProfileAssociationsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -246,7 +246,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListProfileResourceAssociationsRequestListProfileResourceAssociationsPaginateTypeDef
+# ListProfileResourceAssociationsRequestPaginateTypeDef
 
 ### ProfileId
 - **Type**: <class 'str'>
@@ -259,7 +259,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53profiles_classes.PaginatorConfigTypeDef]
 
 
-# ListProfileResourceAssociationsRequestRequestTypeDef
+# ListProfileResourceAssociationsRequestTypeDef
 
 ### ProfileId
 - **Type**: <class 'str'>
@@ -289,13 +289,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListProfilesRequestListProfilesPaginateTypeDef
+# ListProfilesRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53profiles_classes.PaginatorConfigTypeDef]
 
 
-# ListProfilesRequestRequestTypeDef
+# ListProfilesRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -318,7 +318,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -484,7 +484,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -506,7 +506,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -517,7 +517,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateProfileResourceAssociationRequestRequestTypeDef
+# UpdateProfileResourceAssociationRequestTypeDef
 
 ### ProfileResourceAssociationId
 - **Type**: <class 'str'>

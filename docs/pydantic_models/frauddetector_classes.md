@@ -99,7 +99,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchCreateVariableRequestRequestTypeDef
+# BatchCreateVariableRequestTypeDef
 
 ### variableEntries
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.frauddetector_classes.VariableEntryTypeDef]
@@ -132,7 +132,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchGetVariableRequestRequestTypeDef
+# BatchGetVariableRequestTypeDef
 
 ### names
 - **Type**: typing.Sequence[str]
@@ -244,21 +244,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CancelBatchImportJobRequestRequestTypeDef
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CancelBatchImportJobRequestTypeDef
 
 ### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CancelBatchPredictionJobRequestRequestTypeDef
+# CancelBatchPredictionJobRequestTypeDef
 
 ### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CreateBatchImportJobRequestRequestTypeDef
+# CreateBatchImportJobRequestTypeDef
 
 ### jobId
 - **Type**: <class 'str'>
@@ -284,7 +290,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.frauddetector_classes.TagTypeDef]]
 
 
-# CreateBatchPredictionJobRequestRequestTypeDef
+# CreateBatchPredictionJobRequestTypeDef
 
 ### jobId
 - **Type**: <class 'str'>
@@ -317,7 +323,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.frauddetector_classes.TagTypeDef]]
 
 
-# CreateDetectorVersionRequestRequestTypeDef
+# CreateDetectorVersionRequestTypeDef
 
 ### detectorId
 - **Type**: <class 'str'>
@@ -362,7 +368,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateListRequestRequestTypeDef
+# CreateListRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -381,7 +387,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.frauddetector_classes.TagTypeDef]]
 
 
-# CreateModelRequestRequestTypeDef
+# CreateModelRequestTypeDef
 
 ### modelId
 - **Type**: <class 'str'>
@@ -402,7 +408,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.frauddetector_classes.TagTypeDef]]
 
 
-# CreateModelVersionRequestRequestTypeDef
+# CreateModelVersionRequestTypeDef
 
 ### modelId
 - **Type**: <class 'str'>
@@ -417,7 +423,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### trainingDataSchema
-- **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.TrainingDataSchemaTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.TrainingDataSchemaUnionTypeDef'>
 - **Required**: Yes
 
 ### externalEventsDetail
@@ -453,7 +459,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateRuleRequestRequestTypeDef
+# CreateRuleRequestTypeDef
 
 ### ruleId
 - **Type**: <class 'str'>
@@ -493,7 +499,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateVariableRequestRequestTypeDef
+# CreateVariableRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -530,28 +536,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.frauddetector_classes.FieldValidationMessageTypeDef]]
 
 
-# DeleteBatchImportJobRequestRequestTypeDef
+# DeleteBatchImportJobRequestTypeDef
 
 ### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteBatchPredictionJobRequestRequestTypeDef
+# DeleteBatchPredictionJobRequestTypeDef
 
 ### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDetectorRequestRequestTypeDef
+# DeleteDetectorRequestTypeDef
 
 ### detectorId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDetectorVersionRequestRequestTypeDef
+# DeleteDetectorVersionRequestTypeDef
 
 ### detectorId
 - **Type**: <class 'str'>
@@ -562,14 +568,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteEntityTypeRequestRequestTypeDef
+# DeleteEntityTypeRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteEventRequestRequestTypeDef
+# DeleteEventRequestTypeDef
 
 ### eventId
 - **Type**: <class 'str'>
@@ -583,14 +589,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteEventTypeRequestRequestTypeDef
+# DeleteEventTypeRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteEventsByEventTypeRequestRequestTypeDef
+# DeleteEventsByEventTypeRequestTypeDef
 
 ### eventTypeName
 - **Type**: <class 'str'>
@@ -612,28 +618,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteExternalModelRequestRequestTypeDef
+# DeleteExternalModelRequestTypeDef
 
 ### modelEndpoint
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteLabelRequestRequestTypeDef
+# DeleteLabelRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteListRequestRequestTypeDef
+# DeleteListRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteModelRequestRequestTypeDef
+# DeleteModelRequestTypeDef
 
 ### modelId
 - **Type**: <class 'str'>
@@ -644,7 +650,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteModelVersionRequestRequestTypeDef
+# DeleteModelVersionRequestTypeDef
 
 ### modelId
 - **Type**: <class 'str'>
@@ -659,28 +665,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteOutcomeRequestRequestTypeDef
+# DeleteOutcomeRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteRuleRequestRequestTypeDef
+# DeleteRuleRequestTypeDef
 
 ### rule
 - **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.RuleTypeDef'>
 - **Required**: Yes
 
 
-# DeleteVariableRequestRequestTypeDef
+# DeleteVariableRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeDetectorRequestRequestTypeDef
+# DescribeDetectorRequestTypeDef
 
 ### detectorId
 - **Type**: <class 'str'>
@@ -703,10 +709,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.frauddetector_classes.DetectorVersionSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
@@ -715,8 +717,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeModelVersionsRequestRequestTypeDef
+
+# DescribeModelVersionsRequestTypeDef
 
 ### modelId
 - **Type**: typing.Optional[str]
@@ -740,13 +745,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.frauddetector_classes.ModelVersionDetailTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # DetectorTypeDef
@@ -1012,7 +1016,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.frauddetector_classes.ModelInputConfigurationTypeDef]
 
 ### outputConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.frauddetector_classes.ModelOutputConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.frauddetector_classes.ModelOutputConfigurationOutputTypeDef]
 
 ### modelEndpointStatus
 - **Type**: typing.Optional[typing.Literal['ASSOCIATED', 'DISSOCIATED']]
@@ -1029,33 +1033,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # FieldValidationMessageTypeDef
 
-### fieldName
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### identifier
-- **Type**: typing.Optional[str]
-
-### title
-- **Type**: typing.Optional[str]
-
-### content
-- **Type**: typing.Optional[str]
-
-### type
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FileValidationMessageTypeDef
 
-### title
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### content
-- **Type**: typing.Optional[str]
-
-### type
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FilterConditionTypeDef
 
@@ -1063,7 +1049,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetBatchImportJobsRequestRequestTypeDef
+# GetBatchImportJobsRequestTypeDef
 
 ### jobId
 - **Type**: typing.Optional[str]
@@ -1081,16 +1067,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.frauddetector_classes.BatchImportTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetBatchPredictionJobsRequestRequestTypeDef
+
+# GetBatchPredictionJobsRequestTypeDef
 
 ### jobId
 - **Type**: typing.Optional[str]
@@ -1108,16 +1093,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.frauddetector_classes.BatchPredictionTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetDeleteEventsByEventTypeStatusRequestRequestTypeDef
+
+# GetDeleteEventsByEventTypeStatusRequestTypeDef
 
 ### eventTypeName
 - **Type**: <class 'str'>
@@ -1139,7 +1123,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDetectorVersionRequestRequestTypeDef
+# GetDetectorVersionRequestTypeDef
 
 ### detectorId
 - **Type**: <class 'str'>
@@ -1201,7 +1185,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDetectorsRequestRequestTypeDef
+# GetDetectorsRequestTypeDef
 
 ### detectorId
 - **Type**: typing.Optional[str]
@@ -1219,16 +1203,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.frauddetector_classes.DetectorTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetEntityTypesRequestRequestTypeDef
+
+# GetEntityTypesRequestTypeDef
 
 ### name
 - **Type**: typing.Optional[str]
@@ -1246,16 +1229,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.frauddetector_classes.EntityTypeTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetEventPredictionMetadataRequestRequestTypeDef
+
+# GetEventPredictionMetadataRequestTypeDef
 
 ### eventId
 - **Type**: <class 'str'>
@@ -1345,7 +1327,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetEventPredictionRequestRequestTypeDef
+# GetEventPredictionRequestTypeDef
 
 ### detectorId
 - **Type**: <class 'str'>
@@ -1397,7 +1379,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetEventRequestRequestTypeDef
+# GetEventRequestTypeDef
 
 ### eventId
 - **Type**: <class 'str'>
@@ -1419,7 +1401,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetEventTypesRequestRequestTypeDef
+# GetEventTypesRequestTypeDef
 
 ### name
 - **Type**: typing.Optional[str]
@@ -1437,16 +1419,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.frauddetector_classes.EventTypeTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetExternalModelsRequestRequestTypeDef
+
+# GetExternalModelsRequestTypeDef
 
 ### modelEndpoint
 - **Type**: typing.Optional[str]
@@ -1464,13 +1445,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.frauddetector_classes.ExternalModelTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # GetKMSEncryptionKeyResultTypeDef
@@ -1484,7 +1464,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetLabelsRequestRequestTypeDef
+# GetLabelsRequestTypeDef
 
 ### name
 - **Type**: typing.Optional[str]
@@ -1502,16 +1482,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.frauddetector_classes.LabelTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetListElementsRequestRequestTypeDef
+
+# GetListElementsRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -1530,16 +1509,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetListsMetadataRequestRequestTypeDef
+
+# GetListsMetadataRequestTypeDef
 
 ### name
 - **Type**: typing.Optional[str]
@@ -1557,16 +1535,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.frauddetector_classes.AllowDenyListTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetModelVersionRequestRequestTypeDef
+
+# GetModelVersionRequestTypeDef
 
 ### modelId
 - **Type**: <class 'str'>
@@ -1600,7 +1577,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### trainingDataSchema
-- **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.TrainingDataSchemaTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.TrainingDataSchemaOutputTypeDef'>
 - **Required**: Yes
 
 ### externalEventsDetail
@@ -1624,7 +1601,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetModelsRequestRequestTypeDef
+# GetModelsRequestTypeDef
 
 ### modelId
 - **Type**: typing.Optional[str]
@@ -1641,10 +1618,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # GetModelsResultTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### models
 - **Type**: typing.List[aws_resource_validator.pydantic_models.frauddetector_classes.ModelTypeDef]
 - **Required**: Yes
@@ -1653,8 +1626,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetOutcomesRequestRequestTypeDef
+
+# GetOutcomesRequestTypeDef
 
 ### name
 - **Type**: typing.Optional[str]
@@ -1672,16 +1648,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.frauddetector_classes.OutcomeTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetRulesRequestRequestTypeDef
+
+# GetRulesRequestTypeDef
 
 ### detectorId
 - **Type**: <class 'str'>
@@ -1706,16 +1681,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.frauddetector_classes.RuleDetailTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetVariablesRequestRequestTypeDef
+
+# GetVariablesRequestTypeDef
 
 ### name
 - **Type**: typing.Optional[str]
@@ -1733,13 +1707,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.frauddetector_classes.VariableTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # IngestedEventStatisticsTypeDef
@@ -1784,6 +1757,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# LabelSchemaOutputTypeDef
+
+### labelMapper
+- **Type**: typing.Optional[typing.Dict[str, typing.List[str]]]
+
+### unlabeledEventsTreatment
+- **Type**: typing.Optional[typing.Literal['AUTO', 'FRAUD', 'IGNORE', 'LEGIT']]
+
+
 # LabelSchemaTypeDef
 
 ### labelMapper
@@ -1811,7 +1793,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListEventPredictionsRequestRequestTypeDef
+# ListEventPredictionsRequestTypeDef
 
 ### eventId
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.frauddetector_classes.FilterConditionTypeDef]
@@ -1841,16 +1823,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.frauddetector_classes.EventPredictionSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceARN
 - **Type**: <class 'str'>
@@ -1869,13 +1850,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.frauddetector_classes.TagTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # LogOddsMetricTypeDef
@@ -1911,7 +1891,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ModelEndpointDataBlobTypeDef
 
 ### byteBuffer
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.frauddetector_classes.BlobTypeDef]
 
 ### contentType
 - **Type**: typing.Optional[str]
@@ -1919,35 +1899,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ModelInputConfigurationTypeDef
 
-### useEventVariables
-- **Type**: <class 'bool'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### eventTypeName
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### format
-- **Type**: typing.Optional[typing.Literal['APPLICATION_JSON', 'TEXT_CSV']]
+# ModelOutputConfigurationOutputTypeDef
 
-### jsonInputTemplate
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### csvInputTemplate
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
+# ModelOutputConfigurationUnionTypeDef
 
-# ModelOutputConfigurationTypeDef
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### format
-- **Type**: typing.Literal['APPLICATION_JSONLINES', 'TEXT_CSV']
-- **Required**: Yes
-
-### jsonKeyToVariableMap
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### csvIndexToVariableMap
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ModelScoresTypeDef
 
@@ -2000,7 +1966,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EXTERNAL_EVENTS', 'INGESTED_EVENTS']]
 
 ### trainingDataSchema
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.frauddetector_classes.TrainingDataSchemaTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.frauddetector_classes.TrainingDataSchemaOutputTypeDef]
 
 ### externalEventsDetail
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.frauddetector_classes.ExternalEventsDetailTypeDef]
@@ -2125,7 +2091,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutDetectorRequestRequestTypeDef
+# PutDetectorRequestTypeDef
 
 ### detectorId
 - **Type**: <class 'str'>
@@ -2142,7 +2108,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.frauddetector_classes.TagTypeDef]]
 
 
-# PutEntityTypeRequestRequestTypeDef
+# PutEntityTypeRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -2155,7 +2121,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.frauddetector_classes.TagTypeDef]]
 
 
-# PutEventTypeRequestRequestTypeDef
+# PutEventTypeRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -2185,7 +2151,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.frauddetector_classes.EventOrchestrationTypeDef]
 
 
-# PutExternalModelRequestRequestTypeDef
+# PutExternalModelRequestTypeDef
 
 ### modelEndpoint
 - **Type**: <class 'str'>
@@ -2204,7 +2170,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### outputConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.ModelOutputConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.ModelOutputConfigurationUnionTypeDef'>
 - **Required**: Yes
 
 ### modelEndpointStatus
@@ -2215,14 +2181,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.frauddetector_classes.TagTypeDef]]
 
 
-# PutKMSEncryptionKeyRequestRequestTypeDef
+# PutKMSEncryptionKeyRequestTypeDef
 
 ### kmsEncryptionKeyArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# PutLabelRequestRequestTypeDef
+# PutLabelRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -2235,7 +2201,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.frauddetector_classes.TagTypeDef]]
 
 
-# PutOutcomeRequestRequestTypeDef
+# PutOutcomeRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -2254,10 +2220,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -2269,6 +2231,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # RuleDetailTypeDef
@@ -2328,7 +2293,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SendEventRequestRequestTypeDef
+# SendEventRequestTypeDef
 
 ### eventId
 - **Type**: <class 'str'>
@@ -2390,7 +2355,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.frauddetector_classes.TFIModelPerformanceTypeDef]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceARN
 - **Type**: <class 'str'>
@@ -2412,6 +2377,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# TrainingDataSchemaOutputTypeDef
+
+### modelVariables
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### labelSchema
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.frauddetector_classes.LabelSchemaOutputTypeDef]
+
+
 # TrainingDataSchemaTypeDef
 
 ### modelVariables
@@ -2421,6 +2396,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### labelSchema
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.frauddetector_classes.LabelSchemaTypeDef]
 
+
+# TrainingDataSchemaUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TrainingMetricsTypeDef
 
@@ -2481,7 +2462,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceARN
 - **Type**: <class 'str'>
@@ -2492,7 +2473,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDetectorVersionMetadataRequestRequestTypeDef
+# UpdateDetectorVersionMetadataRequestTypeDef
 
 ### detectorId
 - **Type**: <class 'str'>
@@ -2507,7 +2488,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDetectorVersionRequestRequestTypeDef
+# UpdateDetectorVersionRequestTypeDef
 
 ### detectorId
 - **Type**: <class 'str'>
@@ -2535,7 +2516,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ALL_MATCHED', 'FIRST_MATCHED']]
 
 
-# UpdateDetectorVersionStatusRequestRequestTypeDef
+# UpdateDetectorVersionStatusRequestTypeDef
 
 ### detectorId
 - **Type**: <class 'str'>
@@ -2550,7 +2531,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateEventLabelRequestRequestTypeDef
+# UpdateEventLabelRequestTypeDef
 
 ### eventId
 - **Type**: <class 'str'>
@@ -2569,7 +2550,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateListRequestRequestTypeDef
+# UpdateListRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -2588,7 +2569,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateModelRequestRequestTypeDef
+# UpdateModelRequestTypeDef
 
 ### modelId
 - **Type**: <class 'str'>
@@ -2602,7 +2583,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateModelVersionRequestRequestTypeDef
+# UpdateModelVersionRequestTypeDef
 
 ### modelId
 - **Type**: <class 'str'>
@@ -2649,7 +2630,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateModelVersionStatusRequestRequestTypeDef
+# UpdateModelVersionStatusRequestTypeDef
 
 ### modelId
 - **Type**: <class 'str'>
@@ -2668,7 +2649,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRuleMetadataRequestRequestTypeDef
+# UpdateRuleMetadataRequestTypeDef
 
 ### rule
 - **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.RuleTypeDef'>
@@ -2679,7 +2660,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRuleVersionRequestRequestTypeDef
+# UpdateRuleVersionRequestTypeDef
 
 ### rule
 - **Type**: <class 'aws_resource_validator.pydantic_models.frauddetector_classes.RuleTypeDef'>
@@ -2715,7 +2696,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateVariableRequestRequestTypeDef
+# UpdateVariableRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>

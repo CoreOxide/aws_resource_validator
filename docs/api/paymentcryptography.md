@@ -12,15 +12,15 @@
 - **Min Length**: 1
 - **Max Length**: 32768
 
+### EvenHexLengthBetween16And32
+- **Type**: string
+- **Pattern**: `(?:[0-9a-fA-F][0-9a-fA-F])+`
+- **Min Length**: 16
+- **Max Length**: 32
+
 ### ExportTokenId
 - **Type**: string
 - **Pattern**: `export-token-[0-9a-zA-Z]{16,64}`
-
-### HexLength16
-- **Type**: string
-- **Pattern**: `[0-9A-F]+`
-- **Min Length**: 16
-- **Max Length**: 16
 
 ### HexLength20Or24
 - **Type**: string

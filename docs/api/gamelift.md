@@ -16,7 +16,7 @@
 - **Type**: string
 - **Pattern**: `[a-zA-Z0-9:/-]+`
 - **Min Length**: 1
-- **Max Length**: 256
+- **Max Length**: 512
 
 ### AutoScalingGroupArn
 - **Type**: string
@@ -60,7 +60,7 @@
 
 ### ContainerGroupDefinitionArn
 - **Type**: string
-- **Pattern**: `^arn:.*:containergroupdefinition\/containergroupdefinition-[a-zA-Z0-9-]+$`
+- **Pattern**: `^arn:.*:containergroupdefinition\/[a-zA-Z0-9\-]+(:[0-9]+)?$`
 - **Min Length**: 1
 - **Max Length**: 512
 
@@ -72,9 +72,15 @@
 
 ### ContainerGroupDefinitionNameOrArn
 - **Type**: string
-- **Pattern**: `^[a-zA-Z0-9\-]+$|^arn:.*:containergroupdefinition\/[a-zA-Z0-9\-]+$`
+- **Pattern**: `^[a-zA-Z0-9\-]+$|^arn:.*:containergroupdefinition\/[a-zA-Z0-9\-]+(:[0-9]+)?$`
 - **Min Length**: 1
 - **Max Length**: 512
+
+### ContainerPathString
+- **Type**: string
+- **Pattern**: `^(\/+[^\/]+\/*)+$`
+- **Min Length**: 1
+- **Max Length**: 1024
 
 ### CustomInputLocationStringModel
 - **Type**: string
@@ -88,6 +94,12 @@
 - **Min Length**: 1
 - **Max Length**: 128
 
+### DeploymentId
+- **Type**: string
+- **Pattern**: `^[a-zA-Z0-9\-]+$`
+- **Min Length**: 1
+- **Max Length**: 1024
+
 ### DnsNameInput
 - **Type**: string
 - **Pattern**: `^[0-9a-zA-Z_\-\.]+`
@@ -96,15 +108,27 @@
 
 ### FleetArn
 - **Type**: string
-- **Pattern**: `^arn:.*:fleet\/fleet-\S+`
+- **Pattern**: `^arn:.*:[a-z]*fleet\/[a-z]*fleet-[a-zA-Z0-9\-]+$`
+- **Min Length**: 1
+- **Max Length**: 512
+
+### FleetBinaryArn
+- **Type**: string
+- **Pattern**: `[a-zA-Z0-9:/-]+`
+- **Min Length**: 1
+- **Max Length**: 256
 
 ### FleetId
 - **Type**: string
-- **Pattern**: `^fleet-\S+`
+- **Pattern**: `^[a-z]*fleet-[a-zA-Z0-9\-]+`
+- **Min Length**: 1
+- **Max Length**: 128
 
 ### FleetIdOrArn
 - **Type**: string
-- **Pattern**: `^fleet-\S+|^arn:.*:fleet\/fleet-\S+`
+- **Pattern**: `^[a-z]*fleet-[a-zA-Z0-9\-]+$|^arn:.*:[a-z]*fleet\/[a-z]*fleet-[a-zA-Z0-9\-]+$`
+- **Min Length**: 1
+- **Max Length**: 512
 
 ### GameServerConnectionInfo
 - **Type**: string
@@ -188,6 +212,12 @@
 - **Type**: string
 - **Pattern**: `[a-zA-Z0-9\.-]+`
 
+### InstancePathString
+- **Type**: string
+- **Pattern**: `^\/[\s\S]*$`
+- **Min Length**: 1
+- **Max Length**: 1024
+
 ### IpAddress
 - **Type**: string
 - **Pattern**: `^[0-9A-Fa-f\:\.]+`
@@ -239,6 +269,12 @@
 - **Pattern**: `^[A-Za-z0-9\-]+`
 - **Min Length**: 1
 - **Max Length**: 64
+
+### LogGroupArnStringModel
+- **Type**: string
+- **Pattern**: `[a-zA-Z0-9:/\-\*]+`
+- **Min Length**: 1
+- **Max Length**: 512
 
 ### MatchmakingConfigurationArn
 - **Type**: string

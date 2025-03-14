@@ -132,3 +132,9 @@
 - **Min Length**: 1
 - **Max Length**: 200
 
+### VolumeARN
+- **Type**: string
+- **Pattern**: `arn:(aws(|-cn|-us-gov|-iso[A-Za-z0-9_-]*)):storagegateway:[a-z\-0-9]+:[0-9]+:gateway\/(.+)\/volume\/vol-(\S+)`
+- **Min Length**: 50
+- **Max Length**: 500
+

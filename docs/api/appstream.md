@@ -41,6 +41,18 @@
 - **Min Length**: 0
 - **Max Length**: 256
 
+### ThemeFooterLinkDisplayName
+- **Type**: string
+- **Pattern**: `^[-@./#&+\w\s]*$`
+- **Min Length**: 1
+- **Max Length**: 300
+
+### ThemeTitleText
+- **Type**: string
+- **Pattern**: `^[-@./#&+\w\s]*$`
+- **Min Length**: 1
+- **Max Length**: 300
+
 ### UsbDeviceFilterString
 - **Type**: string
 - **Pattern**: `^((\w*)\s*(\w*)\s*\,\s*(\w*)\s*\,\s*\*?(\w*)\s*\,\s*\*?(\w*)\s*\,\s*\*?\d*\s*\,\s*\*?\d*\s*\,\s*[0-1]\s*\,\s*[0-1]\s*)$`

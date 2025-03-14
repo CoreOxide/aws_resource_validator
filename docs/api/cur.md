@@ -18,7 +18,7 @@
 
 ### ReportName
 - **Type**: string
-- **Pattern**: `[0-9A-Za-z!\-_.*\\'()]+`
+- **Pattern**: `^[0-9A-Za-z!\-_.*\'()]+$`
 - **Max Length**: 256
 
 ### S3Bucket
@@ -28,7 +28,7 @@
 
 ### S3Prefix
 - **Type**: string
-- **Pattern**: `[0-9A-Za-z!\-_.*\\'()/]*`
+- **Pattern**: `^[0-9A-Za-z!\-_.*\'()\/]+$`
 - **Max Length**: 256
 
 ### TagKey

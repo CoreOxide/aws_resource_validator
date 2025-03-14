@@ -44,28 +44,9 @@
 
 # AuditEventTypeDef
 
-### eventId
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### fields
-- **Type**: typing.List[aws_resource_validator.pydantic_models.connectcases_classes.AuditEventFieldTypeDef]
-- **Required**: Yes
-
-### performedTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['Case.Created', 'Case.Updated', 'RelatedItem.Created']
-- **Required**: Yes
-
-### performedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.AuditEventPerformedByTypeDef]
-
-### relatedItemType
-- **Type**: typing.Optional[typing.Literal['Comment', 'Contact', 'File']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BaseValidatorModel
 
@@ -91,7 +72,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.LayoutSectionsTypeDef]
 
 
-# BatchGetFieldRequestRequestTypeDef
+# BatchGetCaseRuleRequestTypeDef
+
+### caseRules
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.connectcases_classes.CaseRuleIdentifierTypeDef]
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# BatchGetCaseRuleResponseTypeDef
+
+### caseRules
+- **Type**: typing.List[aws_resource_validator.pydantic_models.connectcases_classes.GetCaseRuleResponseTypeDef]
+- **Required**: Yes
+
+### errors
+- **Type**: typing.List[aws_resource_validator.pydantic_models.connectcases_classes.CaseRuleErrorTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# BatchGetFieldRequestTypeDef
 
 ### domainId
 - **Type**: <class 'str'>
@@ -117,7 +124,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchPutFieldOptionsRequestRequestTypeDef
+# BatchPutFieldOptionsRequestTypeDef
 
 ### domainId
 - **Type**: <class 'str'>
@@ -143,6 +150,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# BooleanConditionOutputTypeDef
+
+### equalTo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.BooleanOperandsOutputTypeDef]
+
+### notEqualTo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.BooleanOperandsOutputTypeDef]
+
+
+# BooleanConditionTypeDef
+
+### equalTo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.BooleanOperandsTypeDef]
+
+### notEqualTo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.BooleanOperandsTypeDef]
+
+
+# BooleanOperandsOutputTypeDef
+
+### operandOne
+- **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.OperandOneTypeDef'>
+- **Required**: Yes
+
+### operandTwo
+- **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.OperandTwoOutputTypeDef'>
+- **Required**: Yes
+
+### result
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+
+# BooleanOperandsTypeDef
+
+### operandOne
+- **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.OperandOneTypeDef'>
+- **Required**: Yes
+
+### operandTwo
+- **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.OperandTwoTypeDef'>
+- **Required**: Yes
+
+### result
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+
 # CaseEventIncludedDataOutputTypeDef
 
 ### fields
@@ -157,16 +212,56 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CaseFilterTypeDef
+# CaseRuleDetailsOutputTypeDef
 
-### andAll
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+### required
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.RequiredCaseRuleOutputTypeDef]
 
-### field
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.FieldFilterTypeDef]
 
-### orAll
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+# CaseRuleDetailsTypeDef
+
+### required
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.RequiredCaseRuleTypeDef]
+
+
+# CaseRuleDetailsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CaseRuleErrorTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CaseRuleIdentifierTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CaseRuleSummaryTypeDef
+
+### caseRuleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### caseRuleId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ruleType
+- **Type**: typing.Literal['Required']
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
 
 
 # CaseSummaryTypeDef
@@ -222,14 +317,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCaseRequestRequestTypeDef
+# CreateCaseRequestTypeDef
 
 ### domainId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### fields
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.connectcases_classes.FieldValueTypeDef, aws_resource_validator.pydantic_models.connectcases_classes.FieldValueExtraOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.connectcases_classes.FieldValueUnionExtraTypeDef]
 - **Required**: Yes
 
 ### templateId
@@ -258,7 +353,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDomainRequestRequestTypeDef
+# CreateCaseRuleRequestTypeDef
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### rule
+- **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.CaseRuleDetailsUnionTypeDef'>
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+
+# CreateCaseRuleResponseTypeDef
+
+### caseRuleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### caseRuleId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateDomainRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -284,24 +412,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateFieldRequestRequestTypeDef
-
-### domainId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['Boolean', 'DateTime', 'Number', 'SingleSelect', 'Text', 'Url', 'User']
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
-
-
 # CreateFieldResponseTypeDef
 
 ### fieldArn
@@ -317,10 +427,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLayoutRequestRequestTypeDef
+# CreateLayoutRequestTypeDef
 
 ### content
-- **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.LayoutContentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.LayoutContentUnionTypeDef'>
 - **Required**: Yes
 
 ### domainId
@@ -347,28 +457,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateRelatedItemRequestRequestTypeDef
-
-### caseId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### content
-- **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.RelatedItemInputContentTypeDef'>
-- **Required**: Yes
-
-### domainId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['Comment', 'Contact', 'File']
-- **Required**: Yes
-
-### performedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.UserUnionTypeDef]
-
-
 # CreateRelatedItemResponseTypeDef
 
 ### relatedItemArn
@@ -384,7 +472,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTemplateRequestRequestTypeDef
+# CreateTemplateRequestTypeDef
 
 ### domainId
 - **Type**: <class 'str'>
@@ -402,6 +490,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### requiredFields
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connectcases_classes.RequiredFieldTypeDef]]
+
+### rules
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connectcases_classes.TemplateRuleTypeDef]]
 
 ### status
 - **Type**: typing.Optional[typing.Literal['Active', 'Inactive']]
@@ -422,14 +513,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDomainRequestRequestTypeDef
+# DeleteCaseRuleRequestTypeDef
+
+### caseRuleId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 ### domainId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteFieldRequestRequestTypeDef
+# DeleteDomainRequestTypeDef
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteFieldRequestTypeDef
 
 ### domainId
 - **Type**: <class 'str'>
@@ -440,7 +542,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteLayoutRequestRequestTypeDef
+# DeleteLayoutRequestTypeDef
 
 ### domainId
 - **Type**: <class 'str'>
@@ -451,7 +553,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteTemplateRequestRequestTypeDef
+# DeleteTemplateRequestTypeDef
 
 ### domainId
 - **Type**: <class 'str'>
@@ -504,6 +606,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.EventIncludedDataTypeDef]
 
 
+# EventBridgeConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # EventIncludedDataOutputTypeDef
 
 ### caseData
@@ -524,37 +632,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # FieldErrorTypeDef
 
-### errorCode
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### message
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FieldFilterTypeDef
 
 ### contains
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.FieldValueTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.FieldValueUnionExtraTypeDef]
 
 ### equalTo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.FieldValueTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.FieldValueUnionExtraTypeDef]
 
 ### greaterThan
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.FieldValueTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.FieldValueUnionExtraTypeDef]
 
 ### greaterThanOrEqualTo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.FieldValueTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.FieldValueUnionExtraTypeDef]
 
 ### lessThan
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.FieldValueTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.FieldValueUnionExtraTypeDef]
 
 ### lessThanOrEqualTo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.FieldValueTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.FieldValueUnionExtraTypeDef]
 
 
 # FieldGroupOutputTypeDef
@@ -579,17 +679,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # FieldIdentifierTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FieldItemTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FieldOptionErrorTypeDef
 
@@ -623,77 +721,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # FieldSummaryTypeDef
 
-### fieldArn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### fieldId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### namespace
-- **Type**: typing.Literal['Custom', 'System']
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['Boolean', 'DateTime', 'Number', 'SingleSelect', 'Text', 'Url', 'User']
-- **Required**: Yes
-
-
-# FieldValueExtraOutputTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### value
-- **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.FieldValueUnionExtraOutputTypeDef'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FieldValueOutputTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### value
-- **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.FieldValueUnionOutputTypeDef'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
+# FieldValueUnionExtraTypeDef
 
-# FieldValueTypeDef
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### value
-- **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.FieldValueUnionTypeDef'>
-- **Required**: Yes
-
-
-# FieldValueUnionExtraOutputTypeDef
-
-### booleanValue
-- **Type**: typing.Optional[bool]
-
-### doubleValue
-- **Type**: typing.Optional[float]
-
-### emptyValue
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
-
-### stringValue
-- **Type**: typing.Optional[str]
-
-### userArnValue
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FieldValueUnionOutputTypeDef
 
@@ -744,7 +786,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetCaseAuditEventsRequestRequestTypeDef
+# GetCaseAuditEventsRequestTypeDef
 
 ### caseId
 - **Type**: <class 'str'>
@@ -767,16 +809,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.connectcases_classes.AuditEventTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetCaseEventConfigurationRequestRequestTypeDef
+
+# GetCaseEventConfigurationRequestTypeDef
 
 ### domainId
 - **Type**: <class 'str'>
@@ -794,7 +835,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCaseRequestRequestTypeDef
+# GetCaseRequestTypeDef
 
 ### caseId
 - **Type**: <class 'str'>
@@ -818,10 +859,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.connectcases_classes.FieldValueOutputTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
@@ -834,8 +871,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetDomainRequestRequestTypeDef
+
+# GetCaseRuleResponseTypeDef
+
+### caseRuleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### caseRuleId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### rule
+- **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.CaseRuleDetailsOutputTypeDef'>
+- **Required**: Yes
+
+### createdTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### deleted
+- **Type**: typing.Optional[bool]
+
+### description
+- **Type**: typing.Optional[str]
+
+### lastModifiedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# GetDomainRequestTypeDef
 
 ### domainId
 - **Type**: <class 'str'>
@@ -875,43 +949,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # GetFieldResponseTypeDef
 
-### fieldArn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### fieldId
-- **Type**: <class 'str'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### namespace
-- **Type**: typing.Literal['Custom', 'System']
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['Boolean', 'DateTime', 'Number', 'SingleSelect', 'Text', 'Url', 'User']
-- **Required**: Yes
-
-### createdTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### deleted
-- **Type**: typing.Optional[bool]
-
-### description
-- **Type**: typing.Optional[str]
-
-### lastModifiedTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# GetLayoutRequestRequestTypeDef
+# GetLayoutRequestTypeDef
 
 ### domainId
 - **Type**: <class 'str'>
@@ -961,7 +1003,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTemplateRequestRequestTypeDef
+# GetTemplateRequestTypeDef
 
 ### domainId
 - **Type**: <class 'str'>
@@ -1000,6 +1042,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### requiredFields
 - **Type**: typing.List[aws_resource_validator.pydantic_models.connectcases_classes.RequiredFieldTypeDef]
+- **Required**: Yes
+
+### rules
+- **Type**: typing.List[aws_resource_validator.pydantic_models.connectcases_classes.TemplateRuleTypeDef]
 - **Required**: Yes
 
 ### status
@@ -1041,6 +1087,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.BasicLayoutTypeDef]
 
 
+# LayoutContentUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # LayoutSectionsOutputTypeDef
 
 ### sections
@@ -1068,7 +1120,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListCasesForContactRequestRequestTypeDef
+# ListCaseRulesRequestPaginateTypeDef
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.PaginatorConfigTypeDef]
+
+
+# ListCaseRulesRequestTypeDef
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListCaseRulesResponseTypeDef
+
+### caseRules
+- **Type**: typing.List[aws_resource_validator.pydantic_models.connectcases_classes.CaseRuleSummaryTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListCasesForContactRequestTypeDef
 
 ### contactArn
 - **Type**: <class 'str'>
@@ -1091,16 +1180,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.connectcases_classes.CaseSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListDomainsRequestRequestTypeDef
+
+# ListDomainsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1115,16 +1203,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.connectcases_classes.DomainSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListFieldOptionsRequestRequestTypeDef
+
+# ListFieldOptionsRequestTypeDef
 
 ### domainId
 - **Type**: <class 'str'>
@@ -1146,10 +1233,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListFieldOptionsResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### options
 - **Type**: typing.List[aws_resource_validator.pydantic_models.connectcases_classes.FieldOptionTypeDef]
 - **Required**: Yes
@@ -1158,8 +1241,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListFieldsRequestRequestTypeDef
+
+# ListFieldsRequestTypeDef
 
 ### domainId
 - **Type**: <class 'str'>
@@ -1178,16 +1264,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.connectcases_classes.FieldSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListLayoutsRequestRequestTypeDef
+
+# ListLayoutsRequestTypeDef
 
 ### domainId
 - **Type**: <class 'str'>
@@ -1206,16 +1291,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.connectcases_classes.LayoutSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### arn
 - **Type**: <class 'str'>
@@ -1233,7 +1317,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTemplatesRequestRequestTypeDef
+# ListTemplatesRequestTypeDef
 
 ### domainId
 - **Type**: <class 'str'>
@@ -1251,10 +1335,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListTemplatesResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### templates
 - **Type**: typing.List[aws_resource_validator.pydantic_models.connectcases_classes.TemplateSummaryTypeDef]
 - **Required**: Yes
@@ -1262,6 +1342,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# OperandOneTypeDef
+
+### fieldId
+- **Type**: typing.Optional[str]
+
+
+# OperandTwoOutputTypeDef
+
+### booleanValue
+- **Type**: typing.Optional[bool]
+
+### doubleValue
+- **Type**: typing.Optional[float]
+
+### emptyValue
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### stringValue
+- **Type**: typing.Optional[str]
+
+
+# OperandTwoTypeDef
+
+### booleanValue
+- **Type**: typing.Optional[bool]
+
+### doubleValue
+- **Type**: typing.Optional[float]
+
+### emptyValue
+- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+
+### stringValue
+- **Type**: typing.Optional[str]
 
 
 # PaginatorConfigTypeDef
@@ -1276,14 +1395,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutCaseEventConfigurationRequestRequestTypeDef
+# PutCaseEventConfigurationRequestTypeDef
 
 ### domainId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### eventBridge
-- **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.EventBridgeConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.EventBridgeConfigurationUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -1330,6 +1449,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.FileFilterTypeDef]
 
 
+# RequiredCaseRuleOutputTypeDef
+
+### conditions
+- **Type**: typing.List[aws_resource_validator.pydantic_models.connectcases_classes.BooleanConditionOutputTypeDef]
+- **Required**: Yes
+
+### defaultValue
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+
+# RequiredCaseRuleTypeDef
+
+### conditions
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.connectcases_classes.BooleanConditionTypeDef]
+- **Required**: Yes
+
+### defaultValue
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+
 # RequiredFieldTypeDef
 
 ### fieldId
@@ -1359,53 +1500,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchCasesRequestRequestTypeDef
-
-### domainId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### fields
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connectcases_classes.FieldIdentifierTypeDef]]
-
-### filter
-- **Type**: typing.Optional[ForwardRef('CaseFilterTypeDef')]
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-### searchTerm
-- **Type**: typing.Optional[str]
-
-### sorts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connectcases_classes.SortTypeDef]]
-
-
-# SearchCasesRequestSearchCasesPaginateTypeDef
-
-### domainId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### fields
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connectcases_classes.FieldIdentifierTypeDef]]
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.CaseFilterTypeDef]
-
-### searchTerm
-- **Type**: typing.Optional[str]
-
-### sorts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connectcases_classes.SortTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.PaginatorConfigTypeDef]
-
-
 # SearchCasesResponseItemTypeDef
 
 ### caseId
@@ -1430,16 +1524,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.connectcases_classes.SearchCasesResponseItemTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# SearchRelatedItemsRequestRequestTypeDef
+
+# SearchRelatedItemsRequestPaginateTypeDef
+
+### caseId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connectcases_classes.RelatedItemTypeFilterTypeDef]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.PaginatorConfigTypeDef]
+
+
+# SearchRelatedItemsRequestTypeDef
 
 ### caseId
 - **Type**: <class 'str'>
@@ -1459,53 +1569,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchRelatedItemsRequestSearchRelatedItemsPaginateTypeDef
-
-### caseId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### domainId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connectcases_classes.RelatedItemTypeFilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.PaginatorConfigTypeDef]
-
-
 # SearchRelatedItemsResponseItemTypeDef
 
-### associationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### content
-- **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.RelatedItemContentTypeDef'>
-- **Required**: Yes
-
-### relatedItemId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['Comment', 'Contact', 'File']
-- **Required**: Yes
-
-### performedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.UserUnionTypeDef]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SearchRelatedItemsResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### relatedItems
 - **Type**: typing.List[aws_resource_validator.pydantic_models.connectcases_classes.SearchRelatedItemsResponseItemTypeDef]
@@ -1514,6 +1584,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.connectcases_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # SectionOutputTypeDef
@@ -1539,7 +1612,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### arn
 - **Type**: <class 'str'>
@@ -1547,6 +1620,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### tags
 - **Type**: typing.Mapping[str, str]
+- **Required**: Yes
+
+
+# TemplateRuleTypeDef
+
+### caseRuleId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### fieldId
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 
@@ -1569,7 +1653,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### arn
 - **Type**: <class 'str'>
@@ -1580,7 +1664,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateCaseRequestRequestTypeDef
+# UpdateCaseRequestTypeDef
 
 ### caseId
 - **Type**: <class 'str'>
@@ -1591,14 +1675,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### fields
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.connectcases_classes.FieldValueTypeDef, aws_resource_validator.pydantic_models.connectcases_classes.FieldValueExtraOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.connectcases_classes.FieldValueUnionExtraTypeDef]
 - **Required**: Yes
 
 ### performedBy
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.UserUnionTypeDef]
 
 
-# UpdateFieldRequestRequestTypeDef
+# UpdateCaseRuleRequestTypeDef
+
+### caseRuleId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### rule
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.CaseRuleDetailsUnionTypeDef]
+
+
+# UpdateFieldRequestTypeDef
 
 ### domainId
 - **Type**: <class 'str'>
@@ -1615,7 +1719,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateLayoutRequestRequestTypeDef
+# UpdateLayoutRequestTypeDef
 
 ### domainId
 - **Type**: <class 'str'>
@@ -1626,13 +1730,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### content
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.LayoutContentTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcases_classes.LayoutContentUnionTypeDef]
 
 ### name
 - **Type**: typing.Optional[str]
 
 
-# UpdateTemplateRequestRequestTypeDef
+# UpdateTemplateRequestTypeDef
 
 ### domainId
 - **Type**: <class 'str'>
@@ -1653,6 +1757,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### requiredFields
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connectcases_classes.RequiredFieldTypeDef]]
+
+### rules
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.connectcases_classes.TemplateRuleTypeDef]]
 
 ### status
 - **Type**: typing.Optional[typing.Literal['Active', 'Inactive']]

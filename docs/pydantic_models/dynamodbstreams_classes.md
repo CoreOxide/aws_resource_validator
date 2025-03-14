@@ -39,7 +39,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DescribeStreamInputRequestTypeDef
+# DescribeStreamInputTypeDef
 
 ### StreamArn
 - **Type**: <class 'str'>
@@ -63,7 +63,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRecordsInputRequestTypeDef
+# GetRecordsInputTypeDef
 
 ### ShardIterator
 - **Type**: <class 'str'>
@@ -88,7 +88,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetShardIteratorInputRequestTypeDef
+# GetShardIteratorInputTypeDef
 
 ### StreamArn
 - **Type**: <class 'str'>
@@ -119,12 +119,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # IdentityTypeDef
 
-### PrincipalId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # KeySchemaElementTypeDef
 
@@ -137,7 +134,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListStreamsInputRequestTypeDef
+# ListStreamsInputTypeDef
 
 ### TableName
 - **Type**: typing.Optional[str]
@@ -194,10 +191,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -209,6 +202,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # SequenceNumberRangeTypeDef

@@ -6,6 +6,9 @@
 - **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_classes.EvaluationDatasetMetricConfigOutputTypeDef]
 - **Required**: Yes
 
+### evaluatorModelConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.EvaluatorModelConfigOutputTypeDef]
+
 
 # AutomatedEvaluationConfigTypeDef
 
@@ -13,12 +16,105 @@
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.bedrock_classes.EvaluationDatasetMetricConfigTypeDef]
 - **Required**: Yes
 
+### evaluatorModelConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.EvaluatorModelConfigTypeDef]
+
 
 # BaseValidatorModel
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# BatchDeleteEvaluationJobErrorTypeDef
+
+### jobIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### code
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### message
+- **Type**: typing.Optional[str]
+
+
+# BatchDeleteEvaluationJobItemTypeDef
+
+### jobIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### jobStatus
+- **Type**: typing.Literal['Completed', 'Deleting', 'Failed', 'InProgress', 'Stopped', 'Stopping']
+- **Required**: Yes
+
+
+# BatchDeleteEvaluationJobRequestTypeDef
+
+### jobIdentifiers
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+
+# BatchDeleteEvaluationJobResponseTypeDef
+
+### errors
+- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_classes.BatchDeleteEvaluationJobErrorTypeDef]
+- **Required**: Yes
+
+### evaluationJobs
+- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_classes.BatchDeleteEvaluationJobItemTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# BedrockEvaluatorModelTypeDef
+
+### modelIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ByteContentDocOutputTypeDef
+
+### identifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### contentType
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### data
+- **Type**: <class 'bytes'>
+- **Required**: Yes
+
+
+# ByteContentDocTypeDef
+
+### identifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### contentType
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### data
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.BlobTypeDef'>
+- **Required**: Yes
+
 
 # CloudWatchConfigTypeDef
 
@@ -34,7 +130,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.S3ConfigTypeDef]
 
 
-# CreateEvaluationJobRequestRequestTypeDef
+# CreateEvaluationJobRequestTypeDef
 
 ### jobName
 - **Type**: <class 'str'>
@@ -45,11 +141,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### evaluationConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.EvaluationConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.EvaluationConfigUnionTypeDef'>
 - **Required**: Yes
 
 ### inferenceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.EvaluationInferenceConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.EvaluationInferenceConfigUnionTypeDef'>
 - **Required**: Yes
 
 ### outputDataConfig
@@ -68,6 +164,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### jobTags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_classes.TagTypeDef]]
 
+### applicationType
+- **Type**: typing.Optional[typing.Literal['ModelEvaluation', 'RagEvaluation']]
+
 
 # CreateEvaluationJobResponseTypeDef
 
@@ -80,7 +179,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateGuardrailRequestRequestTypeDef
+# CreateGuardrailRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -145,7 +244,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateGuardrailVersionRequestRequestTypeDef
+# CreateGuardrailVersionRequestTypeDef
 
 ### guardrailIdentifier
 - **Type**: <class 'str'>
@@ -173,7 +272,108 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateModelCustomizationJobRequestRequestTypeDef
+# CreateInferenceProfileRequestTypeDef
+
+### inferenceProfileName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### modelSource
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.InferenceProfileModelSourceTypeDef'>
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### clientRequestToken
+- **Type**: typing.Optional[str]
+
+### tags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_classes.TagTypeDef]]
+
+
+# CreateInferenceProfileResponseTypeDef
+
+### inferenceProfileArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACTIVE']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateMarketplaceModelEndpointRequestTypeDef
+
+### modelSourceIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### endpointConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.EndpointConfigUnionTypeDef'>
+- **Required**: Yes
+
+### endpointName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### acceptEula
+- **Type**: typing.Optional[bool]
+
+### clientRequestToken
+- **Type**: typing.Optional[str]
+
+### tags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_classes.TagTypeDef]]
+
+
+# CreateMarketplaceModelEndpointResponseTypeDef
+
+### marketplaceModelEndpoint
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.MarketplaceModelEndpointTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateModelCopyJobRequestTypeDef
+
+### sourceModelArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### targetModelName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### modelKmsKeyId
+- **Type**: typing.Optional[str]
+
+### targetModelTags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_classes.TagTypeDef]]
+
+### clientRequestToken
+- **Type**: typing.Optional[str]
+
+
+# CreateModelCopyJobResponseTypeDef
+
+### jobArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateModelCustomizationJobRequestTypeDef
 
 ### jobName
 - **Type**: <class 'str'>
@@ -187,27 +387,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### BaseValidatorModelIdentifier
+### baseModelIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### trainingDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.TrainingDataConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.TrainingDataConfigUnionTypeDef'>
 - **Required**: Yes
 
 ### outputDataConfig
 - **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.OutputDataConfigTypeDef'>
 - **Required**: Yes
 
-### hyperParameters
-- **Type**: typing.Mapping[str, str]
-- **Required**: Yes
-
 ### clientRequestToken
 - **Type**: typing.Optional[str]
 
 ### customizationType
-- **Type**: typing.Optional[typing.Literal['CONTINUED_PRE_TRAINING', 'FINE_TUNING']]
+- **Type**: typing.Optional[typing.Literal['CONTINUED_PRE_TRAINING', 'DISTILLATION', 'FINE_TUNING']]
 
 ### customModelKmsKeyId
 - **Type**: typing.Optional[str]
@@ -219,10 +415,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_classes.TagTypeDef]]
 
 ### validationDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.ValidationDataConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.ValidationDataConfigUnionTypeDef]
+
+### hyperParameters
+- **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### vpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.VpcConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.VpcConfigUnionTypeDef]
+
+### customizationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.CustomizationConfigTypeDef]
 
 
 # CreateModelCustomizationJobResponseTypeDef
@@ -236,7 +438,137 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateProvisionedModelThroughputRequestRequestTypeDef
+# CreateModelImportJobRequestTypeDef
+
+### jobName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### importedModelName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### roleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### modelDataSource
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ModelDataSourceTypeDef'>
+- **Required**: Yes
+
+### jobTags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_classes.TagTypeDef]]
+
+### importedModelTags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_classes.TagTypeDef]]
+
+### clientRequestToken
+- **Type**: typing.Optional[str]
+
+### vpcConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.VpcConfigUnionTypeDef]
+
+### importedModelKmsKeyId
+- **Type**: typing.Optional[str]
+
+
+# CreateModelImportJobResponseTypeDef
+
+### jobArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateModelInvocationJobRequestTypeDef
+
+### jobName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### roleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### modelId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### inputDataConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ModelInvocationJobInputDataConfigTypeDef'>
+- **Required**: Yes
+
+### outputDataConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ModelInvocationJobOutputDataConfigTypeDef'>
+- **Required**: Yes
+
+### clientRequestToken
+- **Type**: typing.Optional[str]
+
+### vpcConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.VpcConfigUnionTypeDef]
+
+### timeoutDurationInHours
+- **Type**: typing.Optional[int]
+
+### tags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_classes.TagTypeDef]]
+
+
+# CreateModelInvocationJobResponseTypeDef
+
+### jobArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreatePromptRouterRequestTypeDef
+
+### promptRouterName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### models
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.bedrock_classes.PromptRouterTargetModelTypeDef]
+- **Required**: Yes
+
+### routingCriteria
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.RoutingCriteriaTypeDef'>
+- **Required**: Yes
+
+### fallbackModel
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.PromptRouterTargetModelTypeDef'>
+- **Required**: Yes
+
+### clientRequestToken
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### tags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_classes.TagTypeDef]]
+
+
+# CreatePromptRouterResponseTypeDef
+
+### promptRouterArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateProvisionedModelThroughputRequestTypeDef
 
 ### modelUnits
 - **Type**: <class 'int'>
@@ -285,26 +617,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
-### BaseValidatorModelArn
+### baseModelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### BaseValidatorModelName
+### baseModelName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### customizationType
-- **Type**: typing.Optional[typing.Literal['CONTINUED_PRE_TRAINING', 'FINE_TUNING']]
+- **Type**: typing.Optional[typing.Literal['CONTINUED_PRE_TRAINING', 'DISTILLATION', 'FINE_TUNING']]
+
+### ownerAccountId
+- **Type**: typing.Optional[str]
 
 
-# DeleteCustomModelRequestRequestTypeDef
+# CustomizationConfigTypeDef
+
+### distillationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.DistillationConfigTypeDef]
+
+
+# DeleteCustomModelRequestTypeDef
 
 ### modelIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteGuardrailRequestRequestTypeDef
+# DeleteGuardrailRequestTypeDef
 
 ### guardrailIdentifier
 - **Type**: <class 'str'>
@@ -314,12 +655,72 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteProvisionedModelThroughputRequestRequestTypeDef
+# DeleteImportedModelRequestTypeDef
+
+### modelIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteInferenceProfileRequestTypeDef
+
+### inferenceProfileIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteMarketplaceModelEndpointRequestTypeDef
+
+### endpointArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeletePromptRouterRequestTypeDef
+
+### promptRouterArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteProvisionedModelThroughputRequestTypeDef
 
 ### provisionedModelId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+
+# DeregisterMarketplaceModelEndpointRequestTypeDef
+
+### endpointArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DistillationConfigTypeDef
+
+### teacherModelConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.TeacherModelConfigTypeDef'>
+- **Required**: Yes
+
+
+# EndpointConfigOutputTypeDef
+
+### sageMaker
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.SageMakerEndpointOutputTypeDef]
+
+
+# EndpointConfigTypeDef
+
+### sageMaker
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.SageMakerEndpointTypeDef]
+
+
+# EndpointConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EvaluationBedrockModelTypeDef
 
@@ -328,8 +729,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### inferenceParams
-- **Type**: <class 'str'>
-- **Required**: Yes
+- **Type**: typing.Optional[str]
+
+### performanceConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.PerformanceConfigurationTypeDef]
 
 
 # EvaluationConfigOutputTypeDef
@@ -349,6 +752,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### human
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.HumanEvaluationConfigTypeDef]
 
+
+# EvaluationConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EvaluationDatasetLocationTypeDef
 
@@ -401,12 +810,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### models
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.bedrock_classes.EvaluationModelConfigTypeDef]]
 
+### ragConfigs
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.bedrock_classes.RAGConfigOutputTypeDef]]
+
 
 # EvaluationInferenceConfigTypeDef
 
 ### models
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_classes.EvaluationModelConfigTypeDef]]
 
+### ragConfigs
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_classes.RAGConfigTypeDef]]
+
+
+# EvaluationInferenceConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EvaluationModelConfigTypeDef
 
@@ -432,7 +853,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### status
-- **Type**: typing.Literal['Completed', 'Failed', 'InProgress', 'Stopped', 'Stopping']
+- **Type**: typing.Literal['Completed', 'Deleting', 'Failed', 'InProgress', 'Stopped', 'Stopping']
 - **Required**: Yes
 
 ### creationTime
@@ -448,7 +869,133 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### modelIdentifiers
-- **Type**: typing.List[str]
+- **Type**: typing.Optional[typing.List[str]]
+
+### ragIdentifiers
+- **Type**: typing.Optional[typing.List[str]]
+
+### evaluatorModelIdentifiers
+- **Type**: typing.Optional[typing.List[str]]
+
+### applicationType
+- **Type**: typing.Optional[typing.Literal['ModelEvaluation', 'RagEvaluation']]
+
+
+# EvaluatorModelConfigOutputTypeDef
+
+### bedrockEvaluatorModels
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.bedrock_classes.BedrockEvaluatorModelTypeDef]]
+
+
+# EvaluatorModelConfigTypeDef
+
+### bedrockEvaluatorModels
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_classes.BedrockEvaluatorModelTypeDef]]
+
+
+# ExternalSourceOutputTypeDef
+
+### sourceType
+- **Type**: typing.Literal['BYTE_CONTENT', 'S3']
+- **Required**: Yes
+
+### s3Location
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.S3ObjectDocTypeDef]
+
+### byteContent
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.ByteContentDocOutputTypeDef]
+
+
+# ExternalSourceTypeDef
+
+### sourceType
+- **Type**: typing.Literal['BYTE_CONTENT', 'S3']
+- **Required**: Yes
+
+### s3Location
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.S3ObjectDocTypeDef]
+
+### byteContent
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.ByteContentDocTypeDef]
+
+
+# ExternalSourcesGenerationConfigurationOutputTypeDef
+
+### promptTemplate
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.PromptTemplateTypeDef]
+
+### guardrailConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.GuardrailConfigurationTypeDef]
+
+### kbInferenceConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.KbInferenceConfigOutputTypeDef]
+
+### additionalModelRequestFields
+- **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, typing.Any]]]
+
+
+# ExternalSourcesGenerationConfigurationTypeDef
+
+### promptTemplate
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.PromptTemplateTypeDef]
+
+### guardrailConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.GuardrailConfigurationTypeDef]
+
+### kbInferenceConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.KbInferenceConfigTypeDef]
+
+### additionalModelRequestFields
+- **Type**: typing.Optional[typing.Mapping[str, typing.Mapping[str, typing.Any]]]
+
+
+# ExternalSourcesRetrieveAndGenerateConfigurationOutputTypeDef
+
+### modelArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sources
+- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_classes.ExternalSourceOutputTypeDef]
+- **Required**: Yes
+
+### generationConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.ExternalSourcesGenerationConfigurationOutputTypeDef]
+
+
+# ExternalSourcesRetrieveAndGenerateConfigurationTypeDef
+
+### modelArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sources
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.bedrock_classes.ExternalSourceTypeDef]
+- **Required**: Yes
+
+### generationConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.ExternalSourcesGenerationConfigurationTypeDef]
+
+
+# FilterAttributeOutputTypeDef
+
+### key
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### value
+- **Type**: typing.Dict[str, typing.Any]
+- **Required**: Yes
+
+
+# FilterAttributeTypeDef
+
+### key
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### value
+- **Type**: typing.Mapping[str, typing.Any]
 - **Required**: Yes
 
 
@@ -478,7 +1025,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### customizationsSupported
-- **Type**: typing.Optional[typing.List[typing.Literal['CONTINUED_PRE_TRAINING', 'FINE_TUNING']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['CONTINUED_PRE_TRAINING', 'DISTILLATION', 'FINE_TUNING']]]
 
 ### inferenceTypesSupported
 - **Type**: typing.Optional[typing.List[typing.Literal['ON_DEMAND', 'PROVISIONED']]]
@@ -520,7 +1067,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### customizationsSupported
-- **Type**: typing.Optional[typing.List[typing.Literal['CONTINUED_PRE_TRAINING', 'FINE_TUNING']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['CONTINUED_PRE_TRAINING', 'DISTILLATION', 'FINE_TUNING']]]
 
 ### inferenceTypesSupported
 - **Type**: typing.Optional[typing.List[typing.Literal['ON_DEMAND', 'PROVISIONED']]]
@@ -529,7 +1076,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.FoundationModelLifecycleTypeDef]
 
 
-# GetCustomModelRequestRequestTypeDef
+# GenerationConfigurationOutputTypeDef
+
+### promptTemplate
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.PromptTemplateTypeDef]
+
+### guardrailConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.GuardrailConfigurationTypeDef]
+
+### kbInferenceConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.KbInferenceConfigOutputTypeDef]
+
+### additionalModelRequestFields
+- **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, typing.Any]]]
+
+
+# GenerationConfigurationTypeDef
+
+### promptTemplate
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.PromptTemplateTypeDef]
+
+### guardrailConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.GuardrailConfigurationTypeDef]
+
+### kbInferenceConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.KbInferenceConfigTypeDef]
+
+### additionalModelRequestFields
+- **Type**: typing.Optional[typing.Mapping[str, typing.Mapping[str, typing.Any]]]
+
+
+# GetCustomModelRequestTypeDef
 
 ### modelIdentifier
 - **Type**: <class 'str'>
@@ -554,12 +1131,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### BaseValidatorModelArn
+### baseModelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### customizationType
-- **Type**: typing.Literal['CONTINUED_PRE_TRAINING', 'FINE_TUNING']
+- **Type**: typing.Literal['CONTINUED_PRE_TRAINING', 'DISTILLATION', 'FINE_TUNING']
 - **Required**: Yes
 
 ### modelKmsKeyArn
@@ -571,7 +1148,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### trainingDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.TrainingDataConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.TrainingDataConfigOutputTypeDef'>
 - **Required**: Yes
 
 ### validationDataConfig
@@ -594,12 +1171,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
+### customizationConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.CustomizationConfigTypeDef'>
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
 
-# GetEvaluationJobRequestRequestTypeDef
+# GetEvaluationJobRequestTypeDef
 
 ### jobIdentifier
 - **Type**: <class 'str'>
@@ -613,7 +1194,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### status
-- **Type**: typing.Literal['Completed', 'Failed', 'InProgress', 'Stopped', 'Stopping']
+- **Type**: typing.Literal['Completed', 'Deleting', 'Failed', 'InProgress', 'Stopped', 'Stopping']
 - **Required**: Yes
 
 ### jobArn
@@ -634,6 +1215,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### jobType
 - **Type**: typing.Literal['Automated', 'Human']
+- **Required**: Yes
+
+### applicationType
+- **Type**: typing.Literal['ModelEvaluation', 'RagEvaluation']
 - **Required**: Yes
 
 ### evaluationConfig
@@ -665,7 +1250,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetFoundationModelRequestRequestTypeDef
+# GetFoundationModelRequestTypeDef
 
 ### modelIdentifier
 - **Type**: <class 'str'>
@@ -683,7 +1268,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetGuardrailRequestRequestTypeDef
+# GetGuardrailRequestTypeDef
 
 ### guardrailIdentifier
 - **Type**: <class 'str'>
@@ -772,7 +1357,140 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetModelCustomizationJobRequestRequestTypeDef
+# GetImportedModelRequestTypeDef
+
+### modelIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetImportedModelResponseTypeDef
+
+### modelArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### modelName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### jobName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### jobArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### modelDataSource
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ModelDataSourceTypeDef'>
+- **Required**: Yes
+
+### creationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### modelArchitecture
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### modelKmsKeyArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### instructSupported
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetInferenceProfileRequestTypeDef
+
+### inferenceProfileIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetMarketplaceModelEndpointRequestTypeDef
+
+### endpointArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetMarketplaceModelEndpointResponseTypeDef
+
+### marketplaceModelEndpoint
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.MarketplaceModelEndpointTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetModelCopyJobRequestTypeDef
+
+### jobArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetModelCopyJobResponseTypeDef
+
+### jobArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['Completed', 'Failed', 'InProgress']
+- **Required**: Yes
+
+### creationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### targetModelArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### targetModelName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sourceAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sourceModelArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### targetModelKmsKeyArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### targetModelTags
+- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_classes.TagTypeDef]
+- **Required**: Yes
+
+### failureMessage
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sourceModelName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetModelCustomizationJobRequestTypeDef
 
 ### jobIdentifier
 - **Type**: <class 'str'>
@@ -825,7 +1543,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
-### BaseValidatorModelArn
+### baseModelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -834,7 +1552,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### trainingDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.TrainingDataConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.TrainingDataConfigOutputTypeDef'>
 - **Required**: Yes
 
 ### validationDataConfig
@@ -846,7 +1564,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### customizationType
-- **Type**: typing.Literal['CONTINUED_PRE_TRAINING', 'FINE_TUNING']
+- **Type**: typing.Literal['CONTINUED_PRE_TRAINING', 'DISTILLATION', 'FINE_TUNING']
 - **Required**: Yes
 
 ### outputModelKmsKeyArn
@@ -865,6 +1583,150 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.VpcConfigOutputTypeDef'>
 - **Required**: Yes
 
+### customizationConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.CustomizationConfigTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetModelImportJobRequestTypeDef
+
+### jobIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetModelImportJobResponseTypeDef
+
+### jobArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### jobName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### importedModelName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### importedModelArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### roleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### modelDataSource
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ModelDataSourceTypeDef'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['Completed', 'Failed', 'InProgress']
+- **Required**: Yes
+
+### failureMessage
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### creationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastModifiedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### endTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### vpcConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.VpcConfigOutputTypeDef'>
+- **Required**: Yes
+
+### importedModelKmsKeyArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetModelInvocationJobRequestTypeDef
+
+### jobIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetModelInvocationJobResponseTypeDef
+
+### jobArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### jobName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### modelId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### clientRequestToken
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### roleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['Completed', 'Expired', 'Failed', 'InProgress', 'PartiallyCompleted', 'Scheduled', 'Stopped', 'Stopping', 'Submitted', 'Validating']
+- **Required**: Yes
+
+### message
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### submitTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastModifiedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### endTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### inputDataConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ModelInvocationJobInputDataConfigTypeDef'>
+- **Required**: Yes
+
+### outputDataConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ModelInvocationJobOutputDataConfigTypeDef'>
+- **Required**: Yes
+
+### vpcConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.VpcConfigOutputTypeDef'>
+- **Required**: Yes
+
+### timeoutDurationInHours
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### jobExpirationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
@@ -881,7 +1743,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetProvisionedModelThroughputRequestRequestTypeDef
+# GetPromptRouterRequestTypeDef
+
+### promptRouterArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetProvisionedModelThroughputRequestTypeDef
 
 ### provisionedModelId
 - **Type**: <class 'str'>
@@ -947,35 +1816,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# GuardrailConfigurationTypeDef
+
+### guardrailId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### guardrailVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
 # GuardrailContentFilterConfigTypeDef
 
-### type
-- **Type**: typing.Literal['HATE', 'INSULTS', 'MISCONDUCT', 'PROMPT_ATTACK', 'SEXUAL', 'VIOLENCE']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### inputStrength
-- **Type**: typing.Literal['HIGH', 'LOW', 'MEDIUM', 'NONE']
-- **Required**: Yes
-
-### outputStrength
-- **Type**: typing.Literal['HIGH', 'LOW', 'MEDIUM', 'NONE']
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # GuardrailContentFilterTypeDef
 
-### type
-- **Type**: typing.Literal['HATE', 'INSULTS', 'MISCONDUCT', 'PROMPT_ATTACK', 'SEXUAL', 'VIOLENCE']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### inputStrength
-- **Type**: typing.Literal['HIGH', 'LOW', 'MEDIUM', 'NONE']
-- **Required**: Yes
-
-### outputStrength
-- **Type**: typing.Literal['HIGH', 'LOW', 'MEDIUM', 'NONE']
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # GuardrailContentPolicyConfigTypeDef
 
@@ -992,25 +1854,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # GuardrailContextualGroundingFilterConfigTypeDef
 
-### type
-- **Type**: typing.Literal['GROUNDING', 'RELEVANCE']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### threshold
-- **Type**: <class 'float'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # GuardrailContextualGroundingFilterTypeDef
 
-### type
-- **Type**: typing.Literal['GROUNDING', 'RELEVANCE']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### threshold
-- **Type**: <class 'float'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # GuardrailContextualGroundingPolicyConfigTypeDef
 
@@ -1028,39 +1880,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # GuardrailManagedWordsConfigTypeDef
 
-### type
-- **Type**: typing.Literal['PROFANITY']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # GuardrailManagedWordsTypeDef
 
-### type
-- **Type**: typing.Literal['PROFANITY']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # GuardrailPiiEntityConfigTypeDef
 
-### type
-- **Type**: typing.Literal['ADDRESS', 'AGE', 'AWS_ACCESS_KEY', 'AWS_SECRET_KEY', 'CA_HEALTH_NUMBER', 'CA_SOCIAL_INSURANCE_NUMBER', 'CREDIT_DEBIT_CARD_CVV', 'CREDIT_DEBIT_CARD_EXPIRY', 'CREDIT_DEBIT_CARD_NUMBER', 'DRIVER_ID', 'EMAIL', 'INTERNATIONAL_BANK_ACCOUNT_NUMBER', 'IP_ADDRESS', 'LICENSE_PLATE', 'MAC_ADDRESS', 'NAME', 'PASSWORD', 'PHONE', 'PIN', 'SWIFT_CODE', 'UK_NATIONAL_HEALTH_SERVICE_NUMBER', 'UK_NATIONAL_INSURANCE_NUMBER', 'UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER', 'URL', 'USERNAME', 'US_BANK_ACCOUNT_NUMBER', 'US_BANK_ROUTING_NUMBER', 'US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER', 'US_PASSPORT_NUMBER', 'US_SOCIAL_SECURITY_NUMBER', 'VEHICLE_IDENTIFICATION_NUMBER']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### action
-- **Type**: typing.Literal['ANONYMIZE', 'BLOCK']
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # GuardrailPiiEntityTypeDef
 
-### type
-- **Type**: typing.Literal['ADDRESS', 'AGE', 'AWS_ACCESS_KEY', 'AWS_SECRET_KEY', 'CA_HEALTH_NUMBER', 'CA_SOCIAL_INSURANCE_NUMBER', 'CREDIT_DEBIT_CARD_CVV', 'CREDIT_DEBIT_CARD_EXPIRY', 'CREDIT_DEBIT_CARD_NUMBER', 'DRIVER_ID', 'EMAIL', 'INTERNATIONAL_BANK_ACCOUNT_NUMBER', 'IP_ADDRESS', 'LICENSE_PLATE', 'MAC_ADDRESS', 'NAME', 'PASSWORD', 'PHONE', 'PIN', 'SWIFT_CODE', 'UK_NATIONAL_HEALTH_SERVICE_NUMBER', 'UK_NATIONAL_INSURANCE_NUMBER', 'UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER', 'URL', 'USERNAME', 'US_BANK_ACCOUNT_NUMBER', 'US_BANK_ROUTING_NUMBER', 'US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER', 'US_PASSPORT_NUMBER', 'US_SOCIAL_SECURITY_NUMBER', 'VEHICLE_IDENTIFICATION_NUMBER']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### action
-- **Type**: typing.Literal['ANONYMIZE', 'BLOCK']
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # GuardrailRegexConfigTypeDef
 
@@ -1118,55 +1958,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # GuardrailSummaryTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['CREATING', 'DELETING', 'FAILED', 'READY', 'UPDATING', 'VERSIONING']
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### version
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # GuardrailTopicConfigTypeDef
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### definition
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['DENY']
-- **Required**: Yes
-
-### examples
-- **Type**: typing.Optional[typing.Sequence[str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # GuardrailTopicPolicyConfigTypeDef
 
@@ -1184,20 +1984,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # GuardrailTopicTypeDef
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### definition
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### examples
-- **Type**: typing.Optional[typing.List[str]]
-
-### type
-- **Type**: typing.Optional[typing.Literal['DENY']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # GuardrailWordConfigTypeDef
 
@@ -1281,18 +2070,185 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCustomModelsRequestListCustomModelsPaginateTypeDef
+# ImportedModelSummaryTypeDef
+
+### modelArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### modelName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### creationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### instructSupported
+- **Type**: typing.Optional[bool]
+
+### modelArchitecture
+- **Type**: typing.Optional[str]
+
+
+# InferenceProfileModelSourceTypeDef
+
+### copyFrom
+- **Type**: typing.Optional[str]
+
+
+# InferenceProfileModelTypeDef
+
+### modelArn
+- **Type**: typing.Optional[str]
+
+
+# InferenceProfileSummaryTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# InvocationLogSourceTypeDef
+
+### s3Uri
+- **Type**: typing.Optional[str]
+
+
+# InvocationLogsConfigOutputTypeDef
+
+### invocationLogSource
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.InvocationLogSourceTypeDef'>
+- **Required**: Yes
+
+### usePromptResponse
+- **Type**: typing.Optional[bool]
+
+### requestMetadataFilters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.RequestMetadataFiltersOutputTypeDef]
+
+
+# InvocationLogsConfigTypeDef
+
+### invocationLogSource
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.InvocationLogSourceTypeDef'>
+- **Required**: Yes
+
+### usePromptResponse
+- **Type**: typing.Optional[bool]
+
+### requestMetadataFilters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.RequestMetadataFiltersTypeDef]
+
+
+# KbInferenceConfigOutputTypeDef
+
+### textInferenceConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TextInferenceConfigOutputTypeDef]
+
+
+# KbInferenceConfigTypeDef
+
+### textInferenceConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TextInferenceConfigTypeDef]
+
+
+# KnowledgeBaseConfigOutputTypeDef
+
+### retrieveConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.RetrieveConfigOutputTypeDef]
+
+### retrieveAndGenerateConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.RetrieveAndGenerateConfigurationOutputTypeDef]
+
+
+# KnowledgeBaseConfigTypeDef
+
+### retrieveConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.RetrieveConfigTypeDef]
+
+### retrieveAndGenerateConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.RetrieveAndGenerateConfigurationTypeDef]
+
+
+# KnowledgeBaseRetrievalConfigurationOutputTypeDef
+
+### vectorSearchConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.KnowledgeBaseVectorSearchConfigurationOutputTypeDef'>
+- **Required**: Yes
+
+
+# KnowledgeBaseRetrievalConfigurationTypeDef
+
+### vectorSearchConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.KnowledgeBaseVectorSearchConfigurationTypeDef'>
+- **Required**: Yes
+
+
+# KnowledgeBaseRetrieveAndGenerateConfigurationOutputTypeDef
+
+### knowledgeBaseId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### modelArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### retrievalConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.KnowledgeBaseRetrievalConfigurationOutputTypeDef]
+
+### generationConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.GenerationConfigurationOutputTypeDef]
+
+### orchestrationConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.OrchestrationConfigurationTypeDef]
+
+
+# KnowledgeBaseRetrieveAndGenerateConfigurationTypeDef
+
+### knowledgeBaseId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### modelArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### retrievalConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.KnowledgeBaseRetrievalConfigurationTypeDef]
+
+### generationConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.GenerationConfigurationTypeDef]
+
+### orchestrationConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.OrchestrationConfigurationTypeDef]
+
+
+# KnowledgeBaseVectorSearchConfigurationOutputTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# KnowledgeBaseVectorSearchConfigurationTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ListCustomModelsRequestPaginateTypeDef
 
 ### creationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
 
 ### creationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
 
 ### nameContains
 - **Type**: typing.Optional[str]
 
-### BaseValidatorModelArnEquals
+### baseModelArnEquals
 - **Type**: typing.Optional[str]
 
 ### foundationModelArnEquals
@@ -1304,22 +2260,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### sortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
+### isOwned
+- **Type**: typing.Optional[bool]
+
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.PaginatorConfigTypeDef]
 
 
-# ListCustomModelsRequestRequestTypeDef
+# ListCustomModelsRequestTypeDef
 
 ### creationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
 
 ### creationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
 
 ### nameContains
 - **Type**: typing.Optional[str]
 
-### BaseValidatorModelArnEquals
+### baseModelArnEquals
 - **Type**: typing.Optional[str]
 
 ### foundationModelArnEquals
@@ -1337,12 +2296,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### sortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
+### isOwned
+- **Type**: typing.Optional[bool]
+
 
 # ListCustomModelsResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### modelSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_classes.CustomModelSummaryTypeDef]
@@ -1352,17 +2310,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListEvaluationJobsRequestListEvaluationJobsPaginateTypeDef
+
+# ListEvaluationJobsRequestPaginateTypeDef
 
 ### creationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
 
 ### creationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
 
 ### statusEquals
-- **Type**: typing.Optional[typing.Literal['Completed', 'Failed', 'InProgress', 'Stopped', 'Stopping']]
+- **Type**: typing.Optional[typing.Literal['Completed', 'Deleting', 'Failed', 'InProgress', 'Stopped', 'Stopping']]
+
+### applicationTypeEquals
+- **Type**: typing.Optional[typing.Literal['ModelEvaluation', 'RagEvaluation']]
 
 ### nameContains
 - **Type**: typing.Optional[str]
@@ -1377,16 +2341,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.PaginatorConfigTypeDef]
 
 
-# ListEvaluationJobsRequestRequestTypeDef
+# ListEvaluationJobsRequestTypeDef
 
 ### creationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
 
 ### creationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
 
 ### statusEquals
-- **Type**: typing.Optional[typing.Literal['Completed', 'Failed', 'InProgress', 'Stopped', 'Stopping']]
+- **Type**: typing.Optional[typing.Literal['Completed', 'Deleting', 'Failed', 'InProgress', 'Stopped', 'Stopping']]
+
+### applicationTypeEquals
+- **Type**: typing.Optional[typing.Literal['ModelEvaluation', 'RagEvaluation']]
 
 ### nameContains
 - **Type**: typing.Optional[str]
@@ -1406,10 +2373,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListEvaluationJobsResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### jobSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_classes.EvaluationSummaryTypeDef]
 - **Required**: Yes
@@ -1418,14 +2381,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListFoundationModelsRequestRequestTypeDef
+
+# ListFoundationModelsRequestTypeDef
 
 ### byProvider
 - **Type**: typing.Optional[str]
 
 ### byCustomizationType
-- **Type**: typing.Optional[typing.Literal['CONTINUED_PRE_TRAINING', 'FINE_TUNING']]
+- **Type**: typing.Optional[typing.Literal['CONTINUED_PRE_TRAINING', 'DISTILLATION', 'FINE_TUNING']]
 
 ### byOutputModality
 - **Type**: typing.Optional[typing.Literal['EMBEDDING', 'IMAGE', 'TEXT']]
@@ -1445,7 +2411,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListGuardrailsRequestListGuardrailsPaginateTypeDef
+# ListGuardrailsRequestPaginateTypeDef
 
 ### guardrailIdentifier
 - **Type**: typing.Optional[str]
@@ -1454,7 +2420,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.PaginatorConfigTypeDef]
 
 
-# ListGuardrailsRequestRequestTypeDef
+# ListGuardrailsRequestTypeDef
 
 ### guardrailIdentifier
 - **Type**: typing.Optional[str]
@@ -1472,22 +2438,227 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_classes.GuardrailSummaryTypeDef]
 - **Required**: Yes
 
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
 ### nextToken
-- **Type**: <class 'str'>
+- **Type**: typing.Optional[str]
+
+
+# ListImportedModelsRequestPaginateTypeDef
+
+### creationTimeBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
+
+### creationTimeAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
+
+### nameContains
+- **Type**: typing.Optional[str]
+
+### sortBy
+- **Type**: typing.Optional[typing.Literal['CreationTime']]
+
+### sortOrder
+- **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.PaginatorConfigTypeDef]
+
+
+# ListImportedModelsRequestTypeDef
+
+### creationTimeBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
+
+### creationTimeAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
+
+### nameContains
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### sortBy
+- **Type**: typing.Optional[typing.Literal['CreationTime']]
+
+### sortOrder
+- **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
+
+
+# ListImportedModelsResponseTypeDef
+
+### modelSummaries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_classes.ImportedModelSummaryTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListModelCustomizationJobsRequestListModelCustomizationJobsPaginateTypeDef
+
+# ListInferenceProfilesRequestPaginateTypeDef
+
+### typeEquals
+- **Type**: typing.Optional[typing.Literal['APPLICATION', 'SYSTEM_DEFINED']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.PaginatorConfigTypeDef]
+
+
+# ListInferenceProfilesRequestTypeDef
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### typeEquals
+- **Type**: typing.Optional[typing.Literal['APPLICATION', 'SYSTEM_DEFINED']]
+
+
+# ListInferenceProfilesResponseTypeDef
+
+### inferenceProfileSummaries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_classes.InferenceProfileSummaryTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListMarketplaceModelEndpointsRequestPaginateTypeDef
+
+### modelSourceEquals
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.PaginatorConfigTypeDef]
+
+
+# ListMarketplaceModelEndpointsRequestTypeDef
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### modelSourceEquals
+- **Type**: typing.Optional[str]
+
+
+# ListMarketplaceModelEndpointsResponseTypeDef
+
+### marketplaceModelEndpoints
+- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_classes.MarketplaceModelEndpointSummaryTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListModelCopyJobsRequestPaginateTypeDef
 
 ### creationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
 
 ### creationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
+
+### statusEquals
+- **Type**: typing.Optional[typing.Literal['Completed', 'Failed', 'InProgress']]
+
+### sourceAccountEquals
+- **Type**: typing.Optional[str]
+
+### sourceModelArnEquals
+- **Type**: typing.Optional[str]
+
+### targetModelNameContains
+- **Type**: typing.Optional[str]
+
+### sortBy
+- **Type**: typing.Optional[typing.Literal['CreationTime']]
+
+### sortOrder
+- **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.PaginatorConfigTypeDef]
+
+
+# ListModelCopyJobsRequestTypeDef
+
+### creationTimeAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
+
+### creationTimeBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
+
+### statusEquals
+- **Type**: typing.Optional[typing.Literal['Completed', 'Failed', 'InProgress']]
+
+### sourceAccountEquals
+- **Type**: typing.Optional[str]
+
+### sourceModelArnEquals
+- **Type**: typing.Optional[str]
+
+### targetModelNameContains
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### sortBy
+- **Type**: typing.Optional[typing.Literal['CreationTime']]
+
+### sortOrder
+- **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
+
+
+# ListModelCopyJobsResponseTypeDef
+
+### modelCopyJobSummaries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_classes.ModelCopyJobSummaryTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListModelCustomizationJobsRequestPaginateTypeDef
+
+### creationTimeAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
+
+### creationTimeBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
 
 ### statusEquals
 - **Type**: typing.Optional[typing.Literal['Completed', 'Failed', 'InProgress', 'Stopped', 'Stopping']]
@@ -1505,13 +2676,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.PaginatorConfigTypeDef]
 
 
-# ListModelCustomizationJobsRequestRequestTypeDef
+# ListModelCustomizationJobsRequestTypeDef
 
 ### creationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
 
 ### creationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
 
 ### statusEquals
 - **Type**: typing.Optional[typing.Literal['Completed', 'Failed', 'InProgress', 'Stopped', 'Stopping']]
@@ -1534,10 +2705,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListModelCustomizationJobsResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### modelCustomizationJobSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_classes.ModelCustomizationJobSummaryTypeDef]
 - **Required**: Yes
@@ -1546,14 +2713,161 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListProvisionedModelThroughputsRequestListProvisionedModelThroughputsPaginateTypeDef
+
+# ListModelImportJobsRequestPaginateTypeDef
 
 ### creationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
 
 ### creationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
+
+### statusEquals
+- **Type**: typing.Optional[typing.Literal['Completed', 'Failed', 'InProgress']]
+
+### nameContains
+- **Type**: typing.Optional[str]
+
+### sortBy
+- **Type**: typing.Optional[typing.Literal['CreationTime']]
+
+### sortOrder
+- **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.PaginatorConfigTypeDef]
+
+
+# ListModelImportJobsRequestTypeDef
+
+### creationTimeAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
+
+### creationTimeBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
+
+### statusEquals
+- **Type**: typing.Optional[typing.Literal['Completed', 'Failed', 'InProgress']]
+
+### nameContains
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### sortBy
+- **Type**: typing.Optional[typing.Literal['CreationTime']]
+
+### sortOrder
+- **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
+
+
+# ListModelImportJobsResponseTypeDef
+
+### modelImportJobSummaries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_classes.ModelImportJobSummaryTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListModelInvocationJobsRequestPaginateTypeDef
+
+### submitTimeAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
+
+### submitTimeBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
+
+### statusEquals
+- **Type**: typing.Optional[typing.Literal['Completed', 'Expired', 'Failed', 'InProgress', 'PartiallyCompleted', 'Scheduled', 'Stopped', 'Stopping', 'Submitted', 'Validating']]
+
+### nameContains
+- **Type**: typing.Optional[str]
+
+### sortBy
+- **Type**: typing.Optional[typing.Literal['CreationTime']]
+
+### sortOrder
+- **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.PaginatorConfigTypeDef]
+
+
+# ListModelInvocationJobsRequestTypeDef
+
+### submitTimeAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
+
+### submitTimeBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
+
+### statusEquals
+- **Type**: typing.Optional[typing.Literal['Completed', 'Expired', 'Failed', 'InProgress', 'PartiallyCompleted', 'Scheduled', 'Stopped', 'Stopping', 'Submitted', 'Validating']]
+
+### nameContains
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### sortBy
+- **Type**: typing.Optional[typing.Literal['CreationTime']]
+
+### sortOrder
+- **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
+
+
+# ListModelInvocationJobsResponseTypeDef
+
+### invocationJobSummaries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_classes.ModelInvocationJobSummaryTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListPromptRoutersResponseTypeDef
+
+### promptRouterSummaries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_classes.PromptRouterSummaryTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListProvisionedModelThroughputsRequestPaginateTypeDef
+
+### creationTimeAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
+
+### creationTimeBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
 
 ### statusEquals
 - **Type**: typing.Optional[typing.Literal['Creating', 'Failed', 'InService', 'Updating']]
@@ -1574,13 +2888,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.PaginatorConfigTypeDef]
 
 
-# ListProvisionedModelThroughputsRequestRequestTypeDef
+# ListProvisionedModelThroughputsRequestTypeDef
 
 ### creationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
 
 ### creationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.TimestampTypeDef]
 
 ### statusEquals
 - **Type**: typing.Optional[typing.Literal['Creating', 'Failed', 'InService', 'Updating']]
@@ -1606,10 +2920,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListProvisionedModelThroughputsResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### provisionedModelSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.bedrock_classes.ProvisionedModelSummaryTypeDef]
 - **Required**: Yes
@@ -1618,8 +2928,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceARN
 - **Type**: <class 'str'>
@@ -1654,6 +2967,112 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### embeddingDataDeliveryEnabled
 - **Type**: typing.Optional[bool]
 
+### videoDataDeliveryEnabled
+- **Type**: typing.Optional[bool]
+
+
+# MarketplaceModelEndpointSummaryTypeDef
+
+### endpointArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### modelSourceIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Optional[typing.Literal['INCOMPATIBLE_ENDPOINT', 'REGISTERED']]
+
+### statusMessage
+- **Type**: typing.Optional[str]
+
+
+# MarketplaceModelEndpointTypeDef
+
+### endpointArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### modelSourceIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### endpointConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.EndpointConfigOutputTypeDef'>
+- **Required**: Yes
+
+### endpointStatus
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Optional[typing.Literal['INCOMPATIBLE_ENDPOINT', 'REGISTERED']]
+
+### statusMessage
+- **Type**: typing.Optional[str]
+
+### endpointStatusMessage
+- **Type**: typing.Optional[str]
+
+
+# ModelCopyJobSummaryTypeDef
+
+### jobArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['Completed', 'Failed', 'InProgress']
+- **Required**: Yes
+
+### creationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### targetModelArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sourceAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sourceModelArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### targetModelName
+- **Type**: typing.Optional[str]
+
+### targetModelKmsKeyArn
+- **Type**: typing.Optional[str]
+
+### targetModelTags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.bedrock_classes.TagTypeDef]]
+
+### failureMessage
+- **Type**: typing.Optional[str]
+
+### sourceModelName
+- **Type**: typing.Optional[str]
+
 
 # ModelCustomizationJobSummaryTypeDef
 
@@ -1661,7 +3080,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### BaseValidatorModelArn
+### baseModelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -1690,7 +3109,144 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### customizationType
-- **Type**: typing.Optional[typing.Literal['CONTINUED_PRE_TRAINING', 'FINE_TUNING']]
+- **Type**: typing.Optional[typing.Literal['CONTINUED_PRE_TRAINING', 'DISTILLATION', 'FINE_TUNING']]
+
+
+# ModelDataSourceTypeDef
+
+### s3DataSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.S3DataSourceTypeDef]
+
+
+# ModelImportJobSummaryTypeDef
+
+### jobArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### jobName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['Completed', 'Failed', 'InProgress']
+- **Required**: Yes
+
+### creationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastModifiedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### endTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### importedModelArn
+- **Type**: typing.Optional[str]
+
+### importedModelName
+- **Type**: typing.Optional[str]
+
+
+# ModelInvocationJobInputDataConfigTypeDef
+
+### s3InputDataConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.ModelInvocationJobS3InputDataConfigTypeDef]
+
+
+# ModelInvocationJobOutputDataConfigTypeDef
+
+### s3OutputDataConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.ModelInvocationJobS3OutputDataConfigTypeDef]
+
+
+# ModelInvocationJobS3InputDataConfigTypeDef
+
+### s3Uri
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### s3InputFormat
+- **Type**: typing.Optional[typing.Literal['JSONL']]
+
+### s3BucketOwner
+- **Type**: typing.Optional[str]
+
+
+# ModelInvocationJobS3OutputDataConfigTypeDef
+
+### s3Uri
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### s3EncryptionKeyId
+- **Type**: typing.Optional[str]
+
+### s3BucketOwner
+- **Type**: typing.Optional[str]
+
+
+# ModelInvocationJobSummaryTypeDef
+
+### jobArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### jobName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### modelId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### roleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### submitTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### inputDataConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ModelInvocationJobInputDataConfigTypeDef'>
+- **Required**: Yes
+
+### outputDataConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ModelInvocationJobOutputDataConfigTypeDef'>
+- **Required**: Yes
+
+### clientRequestToken
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['Completed', 'Expired', 'Failed', 'InProgress', 'PartiallyCompleted', 'Scheduled', 'Stopped', 'Stopping', 'Submitted', 'Validating']]
+
+### message
+- **Type**: typing.Optional[str]
+
+### lastModifiedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### endTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### vpcConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.VpcConfigOutputTypeDef]
+
+### timeoutDurationInHours
+- **Type**: typing.Optional[int]
+
+### jobExpirationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# OrchestrationConfigurationTypeDef
+
+### queryTransformationConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.QueryTransformationConfigurationTypeDef'>
+- **Required**: Yes
 
 
 # OutputDataConfigTypeDef
@@ -1709,6 +3265,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### StartingToken
+- **Type**: typing.Optional[str]
+
+
+# PerformanceConfigurationTypeDef
+
+### latency
+- **Type**: typing.Optional[typing.Literal['optimized', 'standard']]
+
+
+# PromptRouterSummaryTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# PromptRouterTargetModelTypeDef
+
+### modelArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# PromptTemplateTypeDef
+
+### textPromptTemplate
 - **Type**: typing.Optional[str]
 
 
@@ -1761,11 +3342,99 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# PutModelInvocationLoggingConfigurationRequestRequestTypeDef
+# PutModelInvocationLoggingConfigurationRequestTypeDef
 
 ### loggingConfig
 - **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.LoggingConfigTypeDef'>
 - **Required**: Yes
+
+
+# QueryTransformationConfigurationTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# RAGConfigOutputTypeDef
+
+### knowledgeBaseConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.KnowledgeBaseConfigOutputTypeDef]
+
+
+# RAGConfigTypeDef
+
+### knowledgeBaseConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.KnowledgeBaseConfigTypeDef]
+
+
+# RegisterMarketplaceModelEndpointRequestTypeDef
+
+### endpointIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### modelSourceIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# RegisterMarketplaceModelEndpointResponseTypeDef
+
+### marketplaceModelEndpoint
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.MarketplaceModelEndpointTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# RequestMetadataBaseFiltersOutputTypeDef
+
+### equals
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### notEquals
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# RequestMetadataBaseFiltersTypeDef
+
+### equals
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### notEquals
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+
+# RequestMetadataFiltersOutputTypeDef
+
+### equals
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### notEquals
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### andAll
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.bedrock_classes.RequestMetadataBaseFiltersOutputTypeDef]]
+
+### orAll
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.bedrock_classes.RequestMetadataBaseFiltersOutputTypeDef]]
+
+
+# RequestMetadataFiltersTypeDef
+
+### equals
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### notEquals
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### andAll
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_classes.RequestMetadataBaseFiltersTypeDef]]
+
+### orAll
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.bedrock_classes.RequestMetadataBaseFiltersTypeDef]]
 
 
 # ResponseMetadataTypeDef
@@ -1790,6 +3459,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# RetrieveAndGenerateConfigurationOutputTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# RetrieveAndGenerateConfigurationTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# RetrieveConfigOutputTypeDef
+
+### knowledgeBaseId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### knowledgeBaseRetrievalConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.KnowledgeBaseRetrievalConfigurationOutputTypeDef'>
+- **Required**: Yes
+
+
+# RetrieveConfigTypeDef
+
+### knowledgeBaseId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### knowledgeBaseRetrievalConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.KnowledgeBaseRetrievalConfigurationTypeDef'>
+- **Required**: Yes
+
+
+# RoutingCriteriaTypeDef
+
+### responseQualityDifference
+- **Type**: <class 'float'>
+- **Required**: Yes
+
+
 # S3ConfigTypeDef
 
 ### bucketName
@@ -1800,21 +3510,84 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StopEvaluationJobRequestRequestTypeDef
+# S3DataSourceTypeDef
+
+### s3Uri
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# S3ObjectDocTypeDef
+
+### uri
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# SageMakerEndpointOutputTypeDef
+
+### initialInstanceCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### instanceType
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### executionRole
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### kmsEncryptionKey
+- **Type**: typing.Optional[str]
+
+### vpc
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.VpcConfigOutputTypeDef]
+
+
+# SageMakerEndpointTypeDef
+
+### initialInstanceCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### instanceType
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### executionRole
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### kmsEncryptionKey
+- **Type**: typing.Optional[str]
+
+### vpc
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.VpcConfigTypeDef]
+
+
+# StopEvaluationJobRequestTypeDef
 
 ### jobIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopModelCustomizationJobRequestRequestTypeDef
+# StopModelCustomizationJobRequestTypeDef
 
 ### jobIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# StopModelInvocationJobRequestTypeDef
+
+### jobIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# TagResourceRequestTypeDef
 
 ### resourceARN
 - **Type**: <class 'str'>
@@ -1836,12 +3609,75 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TrainingDataConfigTypeDef
+# TeacherModelConfigTypeDef
 
-### s3Uri
+### teacherModelIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### maxResponseLengthForInference
+- **Type**: typing.Optional[int]
+
+
+# TextInferenceConfigOutputTypeDef
+
+### temperature
+- **Type**: typing.Optional[float]
+
+### topP
+- **Type**: typing.Optional[float]
+
+### maxTokens
+- **Type**: typing.Optional[int]
+
+### stopSequences
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# TextInferenceConfigTypeDef
+
+### temperature
+- **Type**: typing.Optional[float]
+
+### topP
+- **Type**: typing.Optional[float]
+
+### maxTokens
+- **Type**: typing.Optional[int]
+
+### stopSequences
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TrainingDataConfigOutputTypeDef
+
+### s3Uri
+- **Type**: typing.Optional[str]
+
+### invocationLogsConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.InvocationLogsConfigOutputTypeDef]
+
+
+# TrainingDataConfigTypeDef
+
+### s3Uri
+- **Type**: typing.Optional[str]
+
+### invocationLogsConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.bedrock_classes.InvocationLogsConfigTypeDef]
+
+
+# TrainingDataConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TrainingMetricsTypeDef
 
@@ -1849,7 +3685,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceARN
 - **Type**: <class 'str'>
@@ -1860,7 +3696,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateGuardrailRequestRequestTypeDef
+# UpdateGuardrailRequestTypeDef
 
 ### guardrailIdentifier
 - **Type**: <class 'str'>
@@ -1923,7 +3759,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateProvisionedModelThroughputRequestRequestTypeDef
+# UpdateMarketplaceModelEndpointRequestTypeDef
+
+### endpointArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### endpointConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.EndpointConfigUnionTypeDef'>
+- **Required**: Yes
+
+### clientRequestToken
+- **Type**: typing.Optional[str]
+
+
+# UpdateMarketplaceModelEndpointResponseTypeDef
+
+### marketplaceModelEndpoint
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.MarketplaceModelEndpointTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.bedrock_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateProvisionedModelThroughputRequestTypeDef
 
 ### provisionedModelId
 - **Type**: <class 'str'>
@@ -1949,6 +3810,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.bedrock_classes.ValidatorTypeDef]
 - **Required**: Yes
 
+
+# ValidationDataConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ValidatorMetricTypeDef
 
@@ -1984,4 +3851,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
+
+# VpcConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

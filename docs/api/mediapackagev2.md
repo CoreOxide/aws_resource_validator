@@ -18,6 +18,18 @@
 - **Min Length**: 1
 - **Max Length**: 256
 
+### ListHarvestJobsRequestChannelNameString
+- **Type**: string
+- **Pattern**: `[a-zA-Z0-9_-]+`
+- **Min Length**: 1
+- **Max Length**: 256
+
+### ListHarvestJobsRequestOriginEndpointNameString
+- **Type**: string
+- **Pattern**: `[a-zA-Z0-9_-]+`
+- **Min Length**: 1
+- **Max Length**: 256
+
 ### ManifestName
 - **Type**: string
 - **Pattern**: `[a-zA-Z0-9-]+`
@@ -29,6 +41,12 @@
 - **Pattern**: `[a-zA-Z0-9_-]+`
 - **Min Length**: 1
 - **Max Length**: 256
+
+### S3DestinationPath
+- **Type**: string
+- **Pattern**: `[\S]+`
+- **Min Length**: 1
+- **Max Length**: 1024
 
 ### SegmentSegmentNameString
 - **Type**: string

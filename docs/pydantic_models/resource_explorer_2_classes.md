@@ -1,6 +1,6 @@
 # Resource Explorer 2 Classes
 
-# AssociateDefaultViewInputRequestTypeDef
+# AssociateDefaultViewInputTypeDef
 
 ### ViewArn
 - **Type**: <class 'str'>
@@ -35,7 +35,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchGetViewInputRequestTypeDef
+# BatchGetViewInputTypeDef
 
 ### ViewArns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -56,7 +56,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateIndexInputRequestTypeDef
+# CreateIndexInputTypeDef
 
 ### ClientToken
 - **Type**: typing.Optional[str]
@@ -84,7 +84,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateViewInputRequestTypeDef
+# CreateViewInputTypeDef
 
 ### ViewName
 - **Type**: <class 'str'>
@@ -117,7 +117,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteIndexInputRequestTypeDef
+# DeleteIndexInputTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
@@ -143,7 +143,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteViewInputRequestTypeDef
+# DeleteViewInputTypeDef
 
 ### ViewArn
 - **Type**: <class 'str'>
@@ -190,38 +190,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetIndexOutputTypeDef
+# GetManagedViewInputTypeDef
 
-### Arn
+### ManagedViewArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### CreatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
 
-### LastUpdatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
+# GetManagedViewOutputTypeDef
 
-### ReplicatingFrom
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### ReplicatingTo
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### State
-- **Type**: typing.Literal['ACTIVE', 'CREATING', 'DELETED', 'DELETING', 'UPDATING']
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['AGGREGATOR', 'LOCAL']
+### ManagedView
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_explorer_2_classes.ManagedViewTypeDef'>
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -229,7 +208,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetViewInputRequestTypeDef
+# GetViewInputTypeDef
 
 ### ViewArn
 - **Type**: <class 'str'>
@@ -260,17 +239,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # IndexTypeDef
 
-### Arn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Region
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Type
-- **Type**: typing.Optional[typing.Literal['AGGREGATOR', 'LOCAL']]
-
-
-# ListIndexesForMembersInputListIndexesForMembersPaginateTypeDef
+# ListIndexesForMembersInputPaginateTypeDef
 
 ### AccountIdList
 - **Type**: typing.Sequence[str]
@@ -280,7 +253,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_explorer_2_classes.PaginatorConfigTypeDef]
 
 
-# ListIndexesForMembersInputRequestTypeDef
+# ListIndexesForMembersInputTypeDef
 
 ### AccountIdList
 - **Type**: typing.Sequence[str]
@@ -299,40 +272,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.resource_explorer_2_classes.MemberIndexTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.resource_explorer_2_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# ListIndexesInputListIndexesPaginateTypeDef
-
-### Regions
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['AGGREGATOR', 'LOCAL']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_explorer_2_classes.PaginatorConfigTypeDef]
-
-
-# ListIndexesInputRequestTypeDef
-
-### MaxResults
-- **Type**: typing.Optional[int]
-
 ### NextToken
 - **Type**: typing.Optional[str]
-
-### Regions
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['AGGREGATOR', 'LOCAL']]
 
 
 # ListIndexesOutputTypeDef
@@ -341,7 +286,83 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.resource_explorer_2_classes.IndexTypeDef]
 - **Required**: Yes
 
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_explorer_2_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
 ### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListManagedViewsInputPaginateTypeDef
+
+### ServicePrincipal
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_explorer_2_classes.PaginatorConfigTypeDef]
+
+
+# ListManagedViewsInputTypeDef
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### ServicePrincipal
+- **Type**: typing.Optional[str]
+
+
+# ListManagedViewsOutputTypeDef
+
+### ManagedViews
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_explorer_2_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListResourcesInputPaginateTypeDef
+
+### Filters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_explorer_2_classes.SearchFilterTypeDef]
+
+### ViewArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_explorer_2_classes.PaginatorConfigTypeDef]
+
+
+# ListResourcesInputTypeDef
+
+### Filters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_explorer_2_classes.SearchFilterTypeDef]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### ViewArn
+- **Type**: typing.Optional[str]
+
+
+# ListResourcesOutputTypeDef
+
+### Resources
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_explorer_2_classes.ResourceTypeDef]
+- **Required**: Yes
+
+### ViewArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -349,14 +370,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.resource_explorer_2_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListSupportedResourceTypesInputListSupportedResourceTypesPaginateTypeDef
+
+# ListSupportedResourceTypesInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_explorer_2_classes.PaginatorConfigTypeDef]
 
 
-# ListSupportedResourceTypesInputRequestTypeDef
+# ListSupportedResourceTypesInputTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -367,10 +391,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListSupportedResourceTypesOutputTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResourceTypes
 - **Type**: typing.List[aws_resource_validator.pydantic_models.resource_explorer_2_classes.SupportedResourceTypeTypeDef]
 - **Required**: Yes
@@ -379,8 +399,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.resource_explorer_2_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceInputRequestTypeDef
+
+# ListTagsForResourceInputTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -398,13 +421,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListViewsInputListViewsPaginateTypeDef
+# ListViewsInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_explorer_2_classes.PaginatorConfigTypeDef]
 
 
-# ListViewsInputRequestTypeDef
+# ListViewsInputTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -415,10 +438,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListViewsOutputTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### Views
 - **Type**: typing.List[str]
 - **Required**: Yes
@@ -427,21 +446,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.resource_explorer_2_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ManagedViewTypeDef
+
+### Filters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_explorer_2_classes.SearchFilterTypeDef]
+
+### IncludedProperties
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.resource_explorer_2_classes.IncludedPropertyTypeDef]]
+
+### LastUpdatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### ManagedViewArn
+- **Type**: typing.Optional[str]
+
+### ManagedViewName
+- **Type**: typing.Optional[str]
+
+### Owner
+- **Type**: typing.Optional[str]
+
+### ResourcePolicy
+- **Type**: typing.Optional[str]
+
+### Scope
+- **Type**: typing.Optional[str]
+
+### TrustedService
+- **Type**: typing.Optional[str]
+
+### Version
+- **Type**: typing.Optional[str]
+
 
 # MemberIndexTypeDef
 
-### AccountId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Arn
-- **Type**: typing.Optional[str]
-
-### Region
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['AGGREGATOR', 'LOCAL']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # OrgConfigurationTypeDef
 
@@ -516,10 +562,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -532,6 +574,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
+
 
 # SearchFilterTypeDef
 
@@ -540,7 +585,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SearchInputRequestTypeDef
+# SearchInputPaginateTypeDef
+
+### QueryString
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ViewArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_explorer_2_classes.PaginatorConfigTypeDef]
+
+
+# SearchInputTypeDef
 
 ### QueryString
 - **Type**: <class 'str'>
@@ -556,27 +614,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchInputSearchPaginateTypeDef
-
-### QueryString
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ViewArn
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_explorer_2_classes.PaginatorConfigTypeDef]
-
-
 # SearchOutputTypeDef
 
 ### Count
 - **Type**: <class 'aws_resource_validator.pydantic_models.resource_explorer_2_classes.ResourceCountTypeDef'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Resources
@@ -591,6 +632,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.resource_explorer_2_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
+
 
 # SupportedResourceTypeTypeDef
 
@@ -601,7 +645,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceInputRequestTypeDef
+# TagResourceInputTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -611,7 +655,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# UntagResourceInputRequestTypeDef
+# UntagResourceInputTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -622,41 +666,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateIndexTypeInputRequestTypeDef
-
-### Arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['AGGREGATOR', 'LOCAL']
-- **Required**: Yes
-
-
-# UpdateIndexTypeOutputTypeDef
-
-### Arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### LastUpdatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### State
-- **Type**: typing.Literal['ACTIVE', 'CREATING', 'DELETED', 'DELETING', 'UPDATING']
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['AGGREGATOR', 'LOCAL']
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_explorer_2_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# UpdateViewInputRequestTypeDef
+# UpdateViewInputTypeDef
 
 ### ViewArn
 - **Type**: <class 'str'>

@@ -18,7 +18,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchGetSecretValueRequestRequestTypeDef
+# BatchGetSecretValueRequestTypeDef
 
 ### SecretIdList
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -51,7 +51,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CancelRotateSecretRequestRequestTypeDef
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CancelRotateSecretRequestTypeDef
 
 ### SecretId
 - **Type**: <class 'str'>
@@ -77,7 +83,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateSecretRequestRequestTypeDef
+# CreateSecretRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -93,7 +99,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecretBinary
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.secretsmanager_classes.BlobTypeDef]
 
 ### SecretString
 - **Type**: typing.Optional[str]
@@ -131,7 +137,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteResourcePolicyRequestRequestTypeDef
+# DeleteResourcePolicyRequestTypeDef
 
 ### SecretId
 - **Type**: <class 'str'>
@@ -153,7 +159,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteSecretRequestRequestTypeDef
+# DeleteSecretRequestTypeDef
 
 ### SecretId
 - **Type**: <class 'str'>
@@ -185,7 +191,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeSecretRequestRequestTypeDef
+# DescribeSecretRequestTypeDef
 
 ### SecretId
 - **Type**: <class 'str'>
@@ -287,7 +293,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# GetRandomPasswordRequestRequestTypeDef
+# GetRandomPasswordRequestTypeDef
 
 ### PasswordLength
 - **Type**: typing.Optional[int]
@@ -325,7 +331,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResourcePolicyRequestRequestTypeDef
+# GetResourcePolicyRequestTypeDef
 
 ### SecretId
 - **Type**: <class 'str'>
@@ -351,7 +357,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSecretValueRequestRequestTypeDef
+# GetSecretValueRequestTypeDef
 
 ### SecretId
 - **Type**: <class 'str'>
@@ -399,7 +405,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListSecretVersionIdsRequestRequestTypeDef
+# ListSecretVersionIdsRequestTypeDef
 
 ### SecretId
 - **Type**: <class 'str'>
@@ -437,7 +443,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSecretsRequestListSecretsPaginateTypeDef
+# ListSecretsRequestPaginateTypeDef
 
 ### IncludePlannedDeletion
 - **Type**: typing.Optional[bool]
@@ -452,7 +458,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.secretsmanager_classes.PaginatorConfigTypeDef]
 
 
-# ListSecretsRequestRequestTypeDef
+# ListSecretsRequestTypeDef
 
 ### IncludePlannedDeletion
 - **Type**: typing.Optional[bool]
@@ -496,7 +502,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutResourcePolicyRequestRequestTypeDef
+# PutResourcePolicyRequestTypeDef
 
 ### SecretId
 - **Type**: <class 'str'>
@@ -525,7 +531,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutSecretValueRequestRequestTypeDef
+# PutSecretValueRequestTypeDef
 
 ### SecretId
 - **Type**: <class 'str'>
@@ -535,7 +541,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecretBinary
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.secretsmanager_classes.BlobTypeDef]
 
 ### SecretString
 - **Type**: typing.Optional[str]
@@ -570,7 +576,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveRegionsFromReplicationRequestRequestTypeDef
+# RemoveRegionsFromReplicationRequestTypeDef
 
 ### SecretId
 - **Type**: <class 'str'>
@@ -605,7 +611,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ReplicateSecretToRegionsRequestRequestTypeDef
+# ReplicateSecretToRegionsRequestTypeDef
 
 ### SecretId
 - **Type**: <class 'str'>
@@ -674,7 +680,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RestoreSecretRequestRequestTypeDef
+# RestoreSecretRequestTypeDef
 
 ### SecretId
 - **Type**: <class 'str'>
@@ -696,7 +702,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RotateSecretRequestRequestTypeDef
+# RotateSecretRequestTypeDef
 
 ### SecretId
 - **Type**: <class 'str'>
@@ -842,7 +848,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# StopReplicationToReplicaRequestRequestTypeDef
+# StopReplicationToReplicaRequestTypeDef
 
 ### SecretId
 - **Type**: <class 'str'>
@@ -860,7 +866,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### SecretId
 - **Type**: <class 'str'>
@@ -880,7 +886,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### SecretId
 - **Type**: <class 'str'>
@@ -891,7 +897,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateSecretRequestRequestTypeDef
+# UpdateSecretRequestTypeDef
 
 ### SecretId
 - **Type**: <class 'str'>
@@ -907,7 +913,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecretBinary
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.secretsmanager_classes.BlobTypeDef]
 
 ### SecretString
 - **Type**: typing.Optional[str]
@@ -932,7 +938,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateSecretVersionStageRequestRequestTypeDef
+# UpdateSecretVersionStageRequestTypeDef
 
 ### SecretId
 - **Type**: <class 'str'>
@@ -964,7 +970,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ValidateResourcePolicyRequestRequestTypeDef
+# ValidateResourcePolicyRequestTypeDef
 
 ### ResourcePolicy
 - **Type**: <class 'str'>

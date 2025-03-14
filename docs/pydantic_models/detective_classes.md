@@ -1,6 +1,6 @@
 # Detective Classes
 
-# AcceptInvitationRequestRequestTypeDef
+# AcceptInvitationRequestTypeDef
 
 ### GraphArn
 - **Type**: <class 'str'>
@@ -36,7 +36,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchGetGraphMemberDatasourcesRequestRequestTypeDef
+# BatchGetGraphMemberDatasourcesRequestTypeDef
 
 ### GraphArn
 - **Type**: <class 'str'>
@@ -62,7 +62,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchGetMembershipDatasourcesRequestRequestTypeDef
+# BatchGetMembershipDatasourcesRequestTypeDef
 
 ### GraphArns
 - **Type**: typing.Sequence[str]
@@ -84,7 +84,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateGraphRequestRequestTypeDef
+# CreateGraphRequestTypeDef
 
 ### Tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -101,7 +101,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateMembersRequestRequestTypeDef
+# CreateMembersRequestTypeDef
 
 ### GraphArn
 - **Type**: <class 'str'>
@@ -154,22 +154,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DateFilterTypeDef
 
 ### StartInclusive
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.detective_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndInclusive
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.detective_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 
-# DeleteGraphRequestRequestTypeDef
+# DeleteGraphRequestTypeDef
 
 ### GraphArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteMembersRequestRequestTypeDef
+# DeleteMembersRequestTypeDef
 
 ### GraphArn
 - **Type**: <class 'str'>
@@ -195,7 +195,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeOrganizationConfigurationRequestRequestTypeDef
+# DescribeOrganizationConfigurationRequestTypeDef
 
 ### GraphArn
 - **Type**: <class 'str'>
@@ -213,7 +213,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateMembershipRequestRequestTypeDef
+# DisassociateMembershipRequestTypeDef
 
 ### GraphArn
 - **Type**: <class 'str'>
@@ -227,7 +227,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EnableOrganizationAdminAccountRequestRequestTypeDef
+# EnableOrganizationAdminAccountRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -261,7 +261,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AWS_THREAT_INTELLIGENCE']]
 
 
-# GetInvestigationRequestRequestTypeDef
+# GetInvestigationRequestTypeDef
 
 ### GraphArn
 - **Type**: <class 'str'>
@@ -319,7 +319,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMembersRequestRequestTypeDef
+# GetMembersRequestTypeDef
 
 ### GraphArn
 - **Type**: <class 'str'>
@@ -432,7 +432,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['IAM_ROLE', 'IAM_USER']]
 
 
-# ListDatasourcePackagesRequestRequestTypeDef
+# ListDatasourcePackagesRequestTypeDef
 
 ### GraphArn
 - **Type**: <class 'str'>
@@ -451,16 +451,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Dict[typing.Literal['ASFF_SECURITYHUB_FINDING', 'DETECTIVE_CORE', 'EKS_AUDIT'], aws_resource_validator.pydantic_models.detective_classes.DatasourcePackageIngestDetailTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.detective_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListGraphsRequestRequestTypeDef
+
+# ListGraphsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -475,16 +474,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.detective_classes.GraphTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.detective_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListIndicatorsRequestRequestTypeDef
+
+# ListIndicatorsRequestTypeDef
 
 ### GraphArn
 - **Type**: <class 'str'>
@@ -514,10 +512,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### Indicators
 - **Type**: typing.List[aws_resource_validator.pydantic_models.detective_classes.IndicatorTypeDef]
 - **Required**: Yes
@@ -526,8 +520,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.detective_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListInvestigationsRequestRequestTypeDef
+
+# ListInvestigationsRequestTypeDef
 
 ### GraphArn
 - **Type**: <class 'str'>
@@ -552,16 +549,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.detective_classes.InvestigationDetailTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.detective_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListInvitationsRequestRequestTypeDef
+
+# ListInvitationsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -576,16 +572,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.detective_classes.MemberDetailTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.detective_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListMembersRequestRequestTypeDef
+
+# ListMembersRequestTypeDef
 
 ### GraphArn
 - **Type**: <class 'str'>
@@ -604,16 +599,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.detective_classes.MemberDetailTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.detective_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListOrganizationAdminAccountsRequestRequestTypeDef
+
+# ListOrganizationAdminAccountsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -628,16 +622,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.detective_classes.AdministratorTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.detective_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -715,7 +708,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DatasourcePackageIngestHistory
-- **Type**: typing.Optional[typing.List[typing.Literal['ASFF_SECURITYHUB_FINDING', 'DETECTIVE_CORE', 'EKS_AUDIT']]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['ASFF_SECURITYHUB_FINDING', 'DETECTIVE_CORE', 'EKS_AUDIT'], typing.Dict[typing.Literal['DISABLED', 'STARTED', 'STOPPED'], aws_resource_validator.pydantic_models.detective_classes.TimestampForCollectionTypeDef]]]
 
 
 # NewAsoDetailTypeDef
@@ -748,7 +741,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# RejectInvitationRequestRequestTypeDef
+# RejectInvitationRequestTypeDef
 
 ### GraphArn
 - **Type**: <class 'str'>
@@ -757,15 +750,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # RelatedFindingDetailTypeDef
 
-### Arn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[str]
-
-### IpAddress
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RelatedFindingGroupDetailTypeDef
 
@@ -776,10 +763,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ResponseMetadataTypeDef
 
 ### RequestId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### HostId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -795,6 +778,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
+
 
 # SortCriteriaTypeDef
 
@@ -805,7 +791,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASC', 'DESC']]
 
 
-# StartInvestigationRequestRequestTypeDef
+# StartInvestigationRequestTypeDef
 
 ### GraphArn
 - **Type**: <class 'str'>
@@ -816,11 +802,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ScopeStartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.detective_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### ScopeEndTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.detective_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 
@@ -835,7 +821,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartMonitoringMemberRequestRequestTypeDef
+# StartMonitoringMemberRequestTypeDef
 
 ### GraphArn
 - **Type**: <class 'str'>
@@ -877,7 +863,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -893,6 +879,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Timestamp
 - **Type**: typing.Optional[datetime.datetime]
 
+
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UnprocessedAccountTypeDef
 
@@ -912,7 +904,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -923,7 +915,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDatasourcePackagesRequestRequestTypeDef
+# UpdateDatasourcePackagesRequestTypeDef
 
 ### GraphArn
 - **Type**: <class 'str'>
@@ -934,7 +926,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateInvestigationStateRequestRequestTypeDef
+# UpdateInvestigationStateRequestTypeDef
 
 ### GraphArn
 - **Type**: <class 'str'>
@@ -949,7 +941,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateOrganizationConfigurationRequestRequestTypeDef
+# UpdateOrganizationConfigurationRequestTypeDef
 
 ### GraphArn
 - **Type**: <class 'str'>

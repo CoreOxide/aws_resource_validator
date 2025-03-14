@@ -54,6 +54,12 @@
 - **Min Length**: 0
 - **Max Length**: 256
 
+### UpdatePlacementGroupParam
+- **Type**: string
+- **Pattern**: `[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*`
+- **Min Length**: 0
+- **Max Length**: 255
+
 ### XmlString
 - **Type**: string
 - **Pattern**: `[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*`
@@ -93,6 +99,12 @@
 - **Pattern**: `[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*`
 - **Min Length**: 1
 - **Max Length**: 32
+
+### XmlStringMaxLen5000
+- **Type**: string
+- **Pattern**: `[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*`
+- **Min Length**: 1
+- **Max Length**: 5000
 
 ### XmlStringMaxLen511
 - **Type**: string

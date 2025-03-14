@@ -8,20 +8,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ColumnTypeDef
 
-### Description
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Name
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Type
-- **Type**: typing.Optional[str]
-
-
-# CreateExportRequestRequestTypeDef
+# CreateExportRequestTypeDef
 
 ### Export
-- **Type**: <class 'aws_resource_validator.pydantic_models.bcm_data_exports_classes.ExportTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.bcm_data_exports_classes.ExportUnionTypeDef'>
 - **Required**: Yes
 
 ### ResourceTags
@@ -39,6 +33,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# DataQueryOutputTypeDef
+
+### QueryStatement
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TableConfigurations
+- **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, str]]]
+
+
 # DataQueryTypeDef
 
 ### QueryStatement
@@ -49,7 +53,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, typing.Mapping[str, str]]]
 
 
-# DeleteExportRequestRequestTypeDef
+# DeleteExportRequestTypeDef
 
 ### ExportArn
 - **Type**: <class 'str'>
@@ -101,6 +105,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### StatusReason
 - **Type**: typing.Optional[typing.Literal['BILL_OWNER_CHANGED', 'INSUFFICIENT_PERMISSION', 'INTERNAL_FAILURE']]
+
+
+# ExportOutputTypeDef
+
+### DataQuery
+- **Type**: <class 'aws_resource_validator.pydantic_models.bcm_data_exports_classes.DataQueryOutputTypeDef'>
+- **Required**: Yes
+
+### DestinationConfigurations
+- **Type**: <class 'aws_resource_validator.pydantic_models.bcm_data_exports_classes.DestinationConfigurationsTypeDef'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### RefreshCadence
+- **Type**: <class 'aws_resource_validator.pydantic_models.bcm_data_exports_classes.RefreshCadenceTypeDef'>
+- **Required**: Yes
+
+### Description
+- **Type**: typing.Optional[str]
+
+### ExportArn
+- **Type**: typing.Optional[str]
 
 
 # ExportReferenceTypeDef
@@ -161,7 +190,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetExecutionRequestRequestTypeDef
+# ExportUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# GetExecutionRequestTypeDef
 
 ### ExecutionId
 - **Type**: <class 'str'>
@@ -183,7 +218,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Export
-- **Type**: <class 'aws_resource_validator.pydantic_models.bcm_data_exports_classes.ExportTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.bcm_data_exports_classes.ExportOutputTypeDef'>
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -191,7 +226,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetExportRequestRequestTypeDef
+# GetExportRequestTypeDef
 
 ### ExportArn
 - **Type**: <class 'str'>
@@ -201,7 +236,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetExportResponseTypeDef
 
 ### Export
-- **Type**: <class 'aws_resource_validator.pydantic_models.bcm_data_exports_classes.ExportTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.bcm_data_exports_classes.ExportOutputTypeDef'>
 - **Required**: Yes
 
 ### ExportStatus
@@ -213,7 +248,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTableRequestRequestTypeDef
+# GetTableRequestTypeDef
 
 ### TableName
 - **Type**: <class 'str'>
@@ -246,7 +281,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListExecutionsRequestListExecutionsPaginateTypeDef
+# ListExecutionsRequestPaginateTypeDef
 
 ### ExportArn
 - **Type**: <class 'str'>
@@ -256,7 +291,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bcm_data_exports_classes.PaginatorConfigTypeDef]
 
 
-# ListExecutionsRequestRequestTypeDef
+# ListExecutionsRequestTypeDef
 
 ### ExportArn
 - **Type**: <class 'str'>
@@ -275,22 +310,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.bcm_data_exports_classes.ExecutionReferenceTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.bcm_data_exports_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListExportsRequestListExportsPaginateTypeDef
+
+# ListExportsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bcm_data_exports_classes.PaginatorConfigTypeDef]
 
 
-# ListExportsRequestRequestTypeDef
+# ListExportsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -305,22 +339,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.bcm_data_exports_classes.ExportReferenceTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.bcm_data_exports_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTablesRequestListTablesPaginateTypeDef
+
+# ListTablesRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.bcm_data_exports_classes.PaginatorConfigTypeDef]
 
 
-# ListTablesRequestRequestTypeDef
+# ListTablesRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -331,10 +364,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListTablesResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### Tables
 - **Type**: typing.List[aws_resource_validator.pydantic_models.bcm_data_exports_classes.TableTypeDef]
 - **Required**: Yes
@@ -343,8 +372,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.bcm_data_exports_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -359,10 +391,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListTagsForResourceResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResourceTags
 - **Type**: typing.List[aws_resource_validator.pydantic_models.bcm_data_exports_classes.ResourceTagTypeDef]
 - **Required**: Yes
@@ -370,6 +398,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.bcm_data_exports_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # PaginatorConfigTypeDef
@@ -408,10 +439,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -423,6 +450,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # S3DestinationTypeDef
@@ -490,7 +520,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.bcm_data_exports_classes.TablePropertyDescriptionTypeDef]]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -501,7 +531,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -512,10 +542,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateExportRequestRequestTypeDef
+# UpdateExportRequestTypeDef
 
 ### Export
-- **Type**: <class 'aws_resource_validator.pydantic_models.bcm_data_exports_classes.ExportTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.bcm_data_exports_classes.ExportUnionTypeDef'>
 - **Required**: Yes
 
 ### ExportArn

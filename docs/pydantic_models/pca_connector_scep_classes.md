@@ -56,71 +56,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ConnectorSummaryTypeDef
 
-### Arn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### CertificateAuthorityArn
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['GENERAL_PURPOSE', 'INTUNE']]
-
-### MobileDeviceManagement
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_scep_classes.MobileDeviceManagementTypeDef]
-
-### OpenIdConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_scep_classes.OpenIdConfigurationTypeDef]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED']]
-
-### StatusReason
-- **Type**: typing.Optional[typing.Literal['INTERNAL_FAILURE', 'PRIVATECA_ACCESS_DENIED', 'PRIVATECA_INVALID_STATE', 'PRIVATECA_RESOURCE_NOT_FOUND']]
-
-### Endpoint
-- **Type**: typing.Optional[str]
-
-### CreatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### UpdatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ConnectorTypeDef
 
-### Arn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### CertificateAuthorityArn
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Type
-- **Type**: typing.Optional[typing.Literal['GENERAL_PURPOSE', 'INTUNE']]
-
-### MobileDeviceManagement
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_scep_classes.MobileDeviceManagementTypeDef]
-
-### OpenIdConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_scep_classes.OpenIdConfigurationTypeDef]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED']]
-
-### StatusReason
-- **Type**: typing.Optional[typing.Literal['INTERNAL_FAILURE', 'PRIVATECA_ACCESS_DENIED', 'PRIVATECA_INVALID_STATE', 'PRIVATECA_RESOURCE_NOT_FOUND']]
-
-### Endpoint
-- **Type**: typing.Optional[str]
-
-### CreatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### UpdatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# CreateChallengeRequestRequestTypeDef
+# CreateChallengeRequestTypeDef
 
 ### ConnectorArn
 - **Type**: <class 'str'>
@@ -144,7 +90,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateConnectorRequestRequestTypeDef
+# CreateConnectorRequestTypeDef
 
 ### CertificateAuthorityArn
 - **Type**: <class 'str'>
@@ -171,14 +117,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteChallengeRequestRequestTypeDef
+# DeleteChallengeRequestTypeDef
 
 ### ChallengeArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteConnectorRequestRequestTypeDef
+# DeleteConnectorRequestTypeDef
 
 ### ConnectorArn
 - **Type**: <class 'str'>
@@ -192,7 +138,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetChallengeMetadataRequestRequestTypeDef
+# GetChallengeMetadataRequestTypeDef
 
 ### ChallengeArn
 - **Type**: <class 'str'>
@@ -210,7 +156,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetChallengePasswordRequestRequestTypeDef
+# GetChallengePasswordRequestTypeDef
 
 ### ChallengeArn
 - **Type**: <class 'str'>
@@ -228,7 +174,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetConnectorRequestRequestTypeDef
+# GetConnectorRequestTypeDef
 
 ### ConnectorArn
 - **Type**: <class 'str'>
@@ -257,7 +203,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListChallengeMetadataRequestListChallengeMetadataPaginateTypeDef
+# ListChallengeMetadataRequestPaginateTypeDef
 
 ### ConnectorArn
 - **Type**: <class 'str'>
@@ -267,7 +213,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_scep_classes.PaginatorConfigTypeDef]
 
 
-# ListChallengeMetadataRequestRequestTypeDef
+# ListChallengeMetadataRequestTypeDef
 
 ### ConnectorArn
 - **Type**: <class 'str'>
@@ -294,13 +240,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListConnectorsRequestListConnectorsPaginateTypeDef
+# ListConnectorsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_scep_classes.PaginatorConfigTypeDef]
 
 
-# ListConnectorsRequestRequestTypeDef
+# ListConnectorsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -323,7 +269,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -393,7 +339,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -404,7 +350,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>

@@ -21,44 +21,29 @@
 - **Type**: typing.Optional[str]
 
 
-# AnomalyDetectorConfigurationTypeDef
+# AnomalyDetectorConfigurationOutputTypeDef
 
 ### ExcludedTimeRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.RangeTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.RangeOutputTypeDef]]
 
 ### MetricTimezone
 - **Type**: typing.Optional[str]
 
 
-# AnomalyDetectorPaginatorTypeDef
+# AnomalyDetectorConfigurationTypeDef
 
-### Namespace
+### ExcludedTimeRanges
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.RangeTypeDef]]
+
+### MetricTimezone
 - **Type**: typing.Optional[str]
 
-### MetricName
-- **Type**: typing.Optional[str]
 
-### Dimensions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.DimensionTypeDef]]
+# AnomalyDetectorConfigurationUnionTypeDef
 
-### Stat
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.AnomalyDetectorConfigurationTypeDef]
-
-### StateValue
-- **Type**: typing.Optional[typing.Literal['PENDING_TRAINING', 'TRAINED', 'TRAINED_INSUFFICIENT_DATA']]
-
-### MetricCharacteristics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricCharacteristicsTypeDef]
-
-### SingleMetricAnomalyDetector
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.SingleMetricAnomalyDetectorPaginatorTypeDef]
-
-### MetricMathAnomalyDetector
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricMathAnomalyDetectorPaginatorTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AnomalyDetectorTypeDef
 
@@ -75,7 +60,7 @@
 - **Type**: typing.Optional[str]
 
 ### Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.AnomalyDetectorConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.AnomalyDetectorConfigurationOutputTypeDef]
 
 ### StateValue
 - **Type**: typing.Optional[typing.Literal['PENDING_TRAINING', 'TRAINED', 'TRAINED_INSUFFICIENT_DATA']]
@@ -84,10 +69,10 @@
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricCharacteristicsTypeDef]
 
 ### SingleMetricAnomalyDetector
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.SingleMetricAnomalyDetectorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.SingleMetricAnomalyDetectorOutputTypeDef]
 
 ### MetricMathAnomalyDetector
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricMathAnomalyDetectorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricMathAnomalyDetectorOutputTypeDef]
 
 
 # BaseValidatorModel
@@ -98,57 +83,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # CloudwatchEventDetailConfigurationTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### description
-- **Type**: typing.Optional[str]
-
-### metrics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.CloudwatchEventMetricTypeDef]]
-
-### actionsSuppressor
-- **Type**: typing.Optional[str]
-
-### actionsSuppressorWaitPeriod
-- **Type**: typing.Optional[int]
-
-### actionsSuppressorExtensionPeriod
-- **Type**: typing.Optional[int]
-
-### threshold
-- **Type**: typing.Optional[int]
-
-### evaluationPeriods
-- **Type**: typing.Optional[int]
-
-### alarmRule
-- **Type**: typing.Optional[str]
-
-### alarmName
-- **Type**: typing.Optional[str]
-
-### treatMissingData
-- **Type**: typing.Optional[str]
-
-### comparisonOperator
-- **Type**: typing.Optional[str]
-
-### timestamp
-- **Type**: typing.Optional[str]
-
-### actionsEnabled
-- **Type**: typing.Optional[bool]
-
-### okActions
-- **Type**: typing.Optional[typing.List[str]]
-
-### alarmActions
-- **Type**: typing.Optional[typing.List[str]]
-
-### insufficientDataActions
-- **Type**: typing.Optional[typing.List[str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CloudwatchEventDetailTypeDef
 
@@ -202,29 +139,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.CloudwatchEventMetricStatsMetricTypeDef]
 
 
-# CloudwatchEventMetricTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### returnData
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### metricStat
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.CloudwatchEventMetricStatsTypeDef]
-
-### expression
-- **Type**: typing.Optional[str]
-
-### label
-- **Type**: typing.Optional[str]
-
-### period
-- **Type**: typing.Optional[int]
-
-
 # CloudwatchEventStateTypeDef
 
 ### timestamp
@@ -246,41 +160,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### actionsSuppressedReason
 - **Type**: typing.Optional[str]
-
-
-# CloudwatchEventTypeDef
-
-### version
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### source
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### account
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### time
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### region
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### resources
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### detail
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.CloudwatchEventDetailTypeDef'>
-- **Required**: Yes
 
 
 # CompositeAlarmTypeDef
@@ -394,14 +273,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, float]]
 
 
-# DeleteAlarmsInputRequestTypeDef
+# DeleteAlarmsInputTypeDef
 
 ### AlarmNames
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# DeleteAnomalyDetectorInputRequestTypeDef
+# DeleteAnomalyDetectorInputTypeDef
 
 ### Namespace
 - **Type**: typing.Optional[str]
@@ -416,20 +295,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SingleMetricAnomalyDetector
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.SingleMetricAnomalyDetectorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.SingleMetricAnomalyDetectorUnionTypeDef]
 
 ### MetricMathAnomalyDetector
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricMathAnomalyDetectorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricMathAnomalyDetectorUnionTypeDef]
 
 
-# DeleteDashboardsInputRequestTypeDef
+# DeleteDashboardsInputTypeDef
 
 ### DashboardNames
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# DeleteInsightRulesInputRequestTypeDef
+# DeleteInsightRulesInputTypeDef
 
 ### RuleNames
 - **Type**: typing.Sequence[str]
@@ -447,7 +326,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteMetricStreamInputRequestTypeDef
+# DeleteMetricStreamInputTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -463,10 +342,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Action', 'ConfigurationUpdate', 'StateUpdate']]
 
 ### StartDate
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.TimestampTypeDef]
 
 ### EndDate
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.TimestampTypeDef]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -478,7 +357,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['TimestampAscending', 'TimestampDescending']]
 
 
-# DescribeAlarmHistoryInputDescribeAlarmHistoryPaginateTypeDef
+# DescribeAlarmHistoryInputPaginateTypeDef
 
 ### AlarmName
 - **Type**: typing.Optional[str]
@@ -490,10 +369,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Action', 'ConfigurationUpdate', 'StateUpdate']]
 
 ### StartDate
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.TimestampTypeDef]
 
 ### EndDate
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.TimestampTypeDef]
 
 ### ScanBy
 - **Type**: typing.Optional[typing.Literal['TimestampAscending', 'TimestampDescending']]
@@ -502,7 +381,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.PaginatorConfigTypeDef]
 
 
-# DescribeAlarmHistoryInputRequestTypeDef
+# DescribeAlarmHistoryInputTypeDef
 
 ### AlarmName
 - **Type**: typing.Optional[str]
@@ -514,10 +393,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Action', 'ConfigurationUpdate', 'StateUpdate']]
 
 ### StartDate
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.TimestampTypeDef]
 
 ### EndDate
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.TimestampTypeDef]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -535,16 +414,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.AlarmHistoryItemTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# DescribeAlarmsForMetricInputRequestTypeDef
+
+# DescribeAlarmsForMetricInputTypeDef
 
 ### MetricName
 - **Type**: <class 'str'>
@@ -581,73 +459,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAlarmsInputAlarmExistsWaitTypeDef
-
-### AlarmNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### AlarmNamePrefix
-- **Type**: typing.Optional[str]
-
-### AlarmTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CompositeAlarm', 'MetricAlarm']]]
-
-### ChildrenOfAlarmName
-- **Type**: typing.Optional[str]
-
-### ParentsOfAlarmName
-- **Type**: typing.Optional[str]
-
-### StateValue
-- **Type**: typing.Optional[typing.Literal['ALARM', 'INSUFFICIENT_DATA', 'OK']]
-
-### ActionPrefix
-- **Type**: typing.Optional[str]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.WaiterConfigTypeDef]
-
-
-# DescribeAlarmsInputCompositeAlarmExistsWaitTypeDef
-
-### AlarmNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### AlarmNamePrefix
-- **Type**: typing.Optional[str]
-
-### AlarmTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CompositeAlarm', 'MetricAlarm']]]
-
-### ChildrenOfAlarmName
-- **Type**: typing.Optional[str]
-
-### ParentsOfAlarmName
-- **Type**: typing.Optional[str]
-
-### StateValue
-- **Type**: typing.Optional[typing.Literal['ALARM', 'INSUFFICIENT_DATA', 'OK']]
-
-### ActionPrefix
-- **Type**: typing.Optional[str]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.WaiterConfigTypeDef]
-
-
-# DescribeAlarmsInputDescribeAlarmsPaginateTypeDef
+# DescribeAlarmsInputPaginateTypeDef
 
 ### AlarmNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -674,7 +486,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.PaginatorConfigTypeDef]
 
 
-# DescribeAlarmsInputRequestTypeDef
+# DescribeAlarmsInputTypeDef
 
 ### AlarmNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -704,23 +516,70 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeAlarmsOutputPaginatorTypeDef
+# DescribeAlarmsInputWaitExtraTypeDef
 
-### CompositeAlarms
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.CompositeAlarmTypeDef]
-- **Required**: Yes
+### AlarmNames
+- **Type**: typing.Optional[typing.Sequence[str]]
 
-### MetricAlarms
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricAlarmPaginatorTypeDef]
-- **Required**: Yes
+### AlarmNamePrefix
+- **Type**: typing.Optional[str]
+
+### AlarmTypes
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['CompositeAlarm', 'MetricAlarm']]]
+
+### ChildrenOfAlarmName
+- **Type**: typing.Optional[str]
+
+### ParentsOfAlarmName
+- **Type**: typing.Optional[str]
+
+### StateValue
+- **Type**: typing.Optional[typing.Literal['ALARM', 'INSUFFICIENT_DATA', 'OK']]
+
+### ActionPrefix
+- **Type**: typing.Optional[str]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
 
 ### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
+- **Type**: typing.Optional[str]
 
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
+### WaiterConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.WaiterConfigTypeDef]
+
+
+# DescribeAlarmsInputWaitTypeDef
+
+### AlarmNames
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### AlarmNamePrefix
+- **Type**: typing.Optional[str]
+
+### AlarmTypes
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['CompositeAlarm', 'MetricAlarm']]]
+
+### ChildrenOfAlarmName
+- **Type**: typing.Optional[str]
+
+### ParentsOfAlarmName
+- **Type**: typing.Optional[str]
+
+### StateValue
+- **Type**: typing.Optional[typing.Literal['ALARM', 'INSUFFICIENT_DATA', 'OK']]
+
+### ActionPrefix
+- **Type**: typing.Optional[str]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### WaiterConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.WaiterConfigTypeDef]
 
 
 # DescribeAlarmsOutputTypeDef
@@ -733,16 +592,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricAlarmTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# DescribeAnomalyDetectorsInputDescribeAnomalyDetectorsPaginateTypeDef
+
+# DescribeAnomalyDetectorsInputPaginateTypeDef
 
 ### Namespace
 - **Type**: typing.Optional[str]
@@ -760,7 +618,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.PaginatorConfigTypeDef]
 
 
-# DescribeAnomalyDetectorsInputRequestTypeDef
+# DescribeAnomalyDetectorsInputTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -781,37 +639,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['METRIC_MATH', 'SINGLE_METRIC']]]
 
 
-# DescribeAnomalyDetectorsOutputPaginatorTypeDef
-
-### AnomalyDetectors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.AnomalyDetectorPaginatorTypeDef]
-- **Required**: Yes
-
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
 # DescribeAnomalyDetectorsOutputTypeDef
 
 ### AnomalyDetectors
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.AnomalyDetectorTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# DescribeInsightRulesInputRequestTypeDef
+
+# DescribeInsightRulesInputTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -822,10 +664,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DescribeInsightRulesOutputTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### InsightRules
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.InsightRuleTypeDef]
 - **Required**: Yes
@@ -833,6 +671,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # DimensionFilterTypeDef
@@ -856,14 +697,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisableAlarmActionsInputRequestTypeDef
+# DisableAlarmActionsInputTypeDef
 
 ### AlarmNames
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# DisableInsightRulesInputRequestTypeDef
+# DisableInsightRulesInputTypeDef
 
 ### RuleNames
 - **Type**: typing.Sequence[str]
@@ -888,14 +729,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EnableAlarmActionsInputRequestTypeDef
+# EnableAlarmActionsInputTypeDef
 
 ### AlarmNames
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# EnableInsightRulesInputRequestTypeDef
+# EnableInsightRulesInputTypeDef
 
 ### RuleNames
 - **Type**: typing.Sequence[str]
@@ -913,7 +754,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDashboardInputRequestTypeDef
+# EntityMetricDataTypeDef
+
+### Entity
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.EntityTypeDef]
+
+### MetricData
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricDatumTypeDef]]
+
+
+# EntityTypeDef
+
+### KeyAttributes
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### Attributes
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+
+# GetDashboardInputTypeDef
 
 ### DashboardName
 - **Type**: <class 'str'>
@@ -939,18 +798,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetInsightRuleReportInputRequestTypeDef
+# GetInsightRuleReportInputTypeDef
 
 ### RuleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### Period
@@ -998,18 +857,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMetricDataInputGetMetricDataPaginateTypeDef
+# GetMetricDataInputPaginateTypeDef
 
 ### MetricDataQueries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricDataQueryPaginatorTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricDataQueryUnionTypeDef]
 - **Required**: Yes
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### ScanBy
@@ -1022,18 +881,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.PaginatorConfigTypeDef]
 
 
-# GetMetricDataInputRequestTypeDef
+# GetMetricDataInputTypeDef
 
 ### MetricDataQueries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricDataQueryTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricDataQueryUnionTypeDef]
 - **Required**: Yes
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### NextToken
@@ -1055,10 +914,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricDataResultTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### Messages
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.MessageDataTypeDef]
 - **Required**: Yes
@@ -1067,15 +922,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
+
 
 # GetMetricStatisticsInputMetricGetStatisticsTypeDef
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### Period
@@ -1095,7 +953,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Bits', 'Bits/Second', 'Bytes', 'Bytes/Second', 'Count', 'Count/Second', 'Gigabits', 'Gigabits/Second', 'Gigabytes', 'Gigabytes/Second', 'Kilobits', 'Kilobits/Second', 'Kilobytes', 'Kilobytes/Second', 'Megabits', 'Megabits/Second', 'Megabytes', 'Megabytes/Second', 'Microseconds', 'Milliseconds', 'None', 'Percent', 'Seconds', 'Terabits', 'Terabits/Second', 'Terabytes', 'Terabytes/Second']]
 
 
-# GetMetricStatisticsInputRequestTypeDef
+# GetMetricStatisticsInputTypeDef
 
 ### Namespace
 - **Type**: <class 'str'>
@@ -1106,11 +964,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### Period
@@ -1145,7 +1003,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMetricStreamInputRequestTypeDef
+# GetMetricStreamInputTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -1163,11 +1021,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### IncludeFilters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricStreamFilterTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricStreamFilterOutputTypeDef]
 - **Required**: Yes
 
 ### ExcludeFilters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricStreamFilterTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricStreamFilterOutputTypeDef]
 - **Required**: Yes
 
 ### FirehoseArn
@@ -1195,7 +1053,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StatisticsConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricStreamStatisticsConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricStreamStatisticsConfigurationOutputTypeDef]
 - **Required**: Yes
 
 ### IncludeLinkedAccountsMetrics
@@ -1207,7 +1065,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMetricWidgetImageInputRequestTypeDef
+# GetMetricWidgetImageInputTypeDef
 
 ### MetricWidget
 - **Type**: <class 'str'>
@@ -1310,7 +1168,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDashboardsInputListDashboardsPaginateTypeDef
+# ListDashboardsInputPaginateTypeDef
 
 ### DashboardNamePrefix
 - **Type**: typing.Optional[str]
@@ -1319,7 +1177,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.PaginatorConfigTypeDef]
 
 
-# ListDashboardsInputRequestTypeDef
+# ListDashboardsInputTypeDef
 
 ### DashboardNamePrefix
 - **Type**: typing.Optional[str]
@@ -1334,16 +1192,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.DashboardEntryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListManagedInsightRulesInputRequestTypeDef
+
+# ListManagedInsightRulesInputTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -1362,16 +1219,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.ManagedRuleDescriptionTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListMetricStreamsInputRequestTypeDef
+
+# ListMetricStreamsInputTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1382,10 +1238,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListMetricStreamsOutputTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### Entries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricStreamEntryTypeDef]
 - **Required**: Yes
@@ -1394,8 +1246,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListMetricsInputListMetricsPaginateTypeDef
+
+# ListMetricsInputPaginateTypeDef
 
 ### Namespace
 - **Type**: typing.Optional[str]
@@ -1419,7 +1274,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.PaginatorConfigTypeDef]
 
 
-# ListMetricsInputRequestTypeDef
+# ListMetricsInputTypeDef
 
 ### Namespace
 - **Type**: typing.Optional[str]
@@ -1443,33 +1298,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListMetricsOutputPaginatorTypeDef
-
-### Metrics
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricPaginatorTypeDef]
-- **Required**: Yes
-
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### OwningAccounts
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
 # ListMetricsOutputTypeDef
 
 ### Metrics
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricTypeDef]
-- **Required**: Yes
-
-### NextToken
-- **Type**: <class 'str'>
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricOutputTypeDef]
 - **Required**: Yes
 
 ### OwningAccounts
@@ -1480,8 +1312,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceInputRequestTypeDef
+
+# ListTagsForResourceInputTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -1543,96 +1378,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Value
 - **Type**: typing.Optional[str]
-
-
-# MetricAlarmPaginatorTypeDef
-
-### AlarmName
-- **Type**: typing.Optional[str]
-
-### AlarmArn
-- **Type**: typing.Optional[str]
-
-### AlarmDescription
-- **Type**: typing.Optional[str]
-
-### AlarmConfigurationUpdatedTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-### ActionsEnabled
-- **Type**: typing.Optional[bool]
-
-### OKActions
-- **Type**: typing.Optional[typing.List[str]]
-
-### AlarmActions
-- **Type**: typing.Optional[typing.List[str]]
-
-### InsufficientDataActions
-- **Type**: typing.Optional[typing.List[str]]
-
-### StateValue
-- **Type**: typing.Optional[typing.Literal['ALARM', 'INSUFFICIENT_DATA', 'OK']]
-
-### StateReason
-- **Type**: typing.Optional[str]
-
-### StateReasonData
-- **Type**: typing.Optional[str]
-
-### StateUpdatedTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-### MetricName
-- **Type**: typing.Optional[str]
-
-### Namespace
-- **Type**: typing.Optional[str]
-
-### Statistic
-- **Type**: typing.Optional[typing.Literal['Average', 'Maximum', 'Minimum', 'SampleCount', 'Sum']]
-
-### ExtendedStatistic
-- **Type**: typing.Optional[str]
-
-### Dimensions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.DimensionTypeDef]]
-
-### Period
-- **Type**: typing.Optional[int]
-
-### Unit
-- **Type**: typing.Optional[typing.Literal['Bits', 'Bits/Second', 'Bytes', 'Bytes/Second', 'Count', 'Count/Second', 'Gigabits', 'Gigabits/Second', 'Gigabytes', 'Gigabytes/Second', 'Kilobits', 'Kilobits/Second', 'Kilobytes', 'Kilobytes/Second', 'Megabits', 'Megabits/Second', 'Megabytes', 'Megabytes/Second', 'Microseconds', 'Milliseconds', 'None', 'Percent', 'Seconds', 'Terabits', 'Terabits/Second', 'Terabytes', 'Terabytes/Second']]
-
-### EvaluationPeriods
-- **Type**: typing.Optional[int]
-
-### DatapointsToAlarm
-- **Type**: typing.Optional[int]
-
-### Threshold
-- **Type**: typing.Optional[float]
-
-### ComparisonOperator
-- **Type**: typing.Optional[typing.Literal['GreaterThanOrEqualToThreshold', 'GreaterThanThreshold', 'GreaterThanUpperThreshold', 'LessThanLowerOrGreaterThanUpperThreshold', 'LessThanLowerThreshold', 'LessThanOrEqualToThreshold', 'LessThanThreshold']]
-
-### TreatMissingData
-- **Type**: typing.Optional[str]
-
-### EvaluateLowSampleCountPercentile
-- **Type**: typing.Optional[str]
-
-### Metrics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricDataQueryPaginatorTypeDef]]
-
-### ThresholdMetricId
-- **Type**: typing.Optional[str]
-
-### EvaluationState
-- **Type**: typing.Optional[typing.Literal['PARTIAL_DATA']]
-
-### StateTransitionedTimestamp
-- **Type**: typing.Optional[datetime.datetime]
 
 
 # MetricAlarmTypeDef
@@ -1713,7 +1458,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Metrics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricDataQueryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricDataQueryOutputTypeDef]]
 
 ### ThresholdMetricId
 - **Type**: typing.Optional[str]
@@ -1756,14 +1501,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# MetricDataQueryPaginatorTypeDef
+# MetricDataQueryOutputTypeDef
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### MetricStat
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricStatPaginatorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricStatOutputTypeDef]
 
 ### Expression
 - **Type**: typing.Optional[str]
@@ -1788,7 +1533,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MetricStat
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricStatTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricStatUnionTypeDef]
 
 ### Expression
 - **Type**: typing.Optional[str]
@@ -1805,6 +1550,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### AccountId
 - **Type**: typing.Optional[str]
 
+
+# MetricDataQueryUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MetricDataResultTypeDef
 
@@ -1837,7 +1588,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.DimensionTypeDef]]
 
 ### Timestamp
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.TimestampTypeDef]
 
 ### Value
 - **Type**: typing.Optional[float]
@@ -1858,10 +1609,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# MetricMathAnomalyDetectorPaginatorTypeDef
+# MetricMathAnomalyDetectorOutputTypeDef
 
 ### MetricDataQueries
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricDataQueryPaginatorTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricDataQueryOutputTypeDef]]
 
 
 # MetricMathAnomalyDetectorTypeDef
@@ -1870,7 +1621,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricDataQueryTypeDef]]
 
 
-# MetricPaginatorTypeDef
+# MetricMathAnomalyDetectorUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# MetricOutputTypeDef
 
 ### Namespace
 - **Type**: typing.Optional[str]
@@ -1900,10 +1657,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Bits', 'Bits/Second', 'Bytes', 'Bytes/Second', 'Count', 'Count/Second', 'Gigabits', 'Gigabits/Second', 'Gigabytes', 'Gigabytes/Second', 'Kilobits', 'Kilobits/Second', 'Kilobytes', 'Kilobytes/Second', 'Megabits', 'Megabits/Second', 'Megabytes', 'Megabytes/Second', 'Microseconds', 'Milliseconds', 'None', 'Percent', 'Seconds', 'Terabits', 'Terabits/Second', 'Terabytes', 'Terabytes/Second']]
 
 
-# MetricStatPaginatorTypeDef
+# MetricStatOutputTypeDef
 
 ### Metric
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.MetricPaginatorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.MetricOutputTypeDef'>
 - **Required**: Yes
 
 ### Period
@@ -1921,7 +1678,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MetricStatTypeDef
 
 ### Metric
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.MetricTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.MetricUnionTypeDef'>
 - **Required**: Yes
 
 ### Period
@@ -1935,6 +1692,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Unit
 - **Type**: typing.Optional[typing.Literal['Bits', 'Bits/Second', 'Bytes', 'Bytes/Second', 'Count', 'Count/Second', 'Gigabits', 'Gigabits/Second', 'Gigabytes', 'Gigabytes/Second', 'Kilobits', 'Kilobits/Second', 'Kilobytes', 'Kilobytes/Second', 'Megabits', 'Megabits/Second', 'Megabytes', 'Megabytes/Second', 'Microseconds', 'Milliseconds', 'None', 'Percent', 'Seconds', 'Terabits', 'Terabits/Second', 'Terabytes', 'Terabytes/Second']]
 
+
+# MetricStatUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MetricStreamEntryTypeDef
 
@@ -1960,7 +1723,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['json', 'opentelemetry0.7', 'opentelemetry1.0']]
 
 
-# MetricStreamFilterTypeDef
+# MetricStreamFilterOutputTypeDef
 
 ### Namespace
 - **Type**: typing.Optional[str]
@@ -1969,7 +1732,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# MetricStreamStatisticsConfigurationTypeDef
+# MetricStreamFilterTypeDef
+
+### Namespace
+- **Type**: typing.Optional[str]
+
+### MetricNames
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# MetricStreamFilterUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# MetricStreamStatisticsConfigurationOutputTypeDef
 
 ### IncludeMetrics
 - **Type**: typing.List[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricStreamStatisticsMetricTypeDef]
@@ -1979,6 +1757,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
+
+# MetricStreamStatisticsConfigurationTypeDef
+
+### IncludeMetrics
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricStreamStatisticsMetricTypeDef]
+- **Required**: Yes
+
+### AdditionalStatistics
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+
+# MetricStreamStatisticsConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MetricStreamStatisticsMetricTypeDef
 
@@ -2002,6 +1797,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Dimensions
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.DimensionTypeDef]]
 
+
+# MetricUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PaginatorConfigTypeDef
 
@@ -2030,7 +1831,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutAnomalyDetectorInputRequestTypeDef
+# PutAnomalyDetectorInputTypeDef
 
 ### Namespace
 - **Type**: typing.Optional[str]
@@ -2045,19 +1846,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.AnomalyDetectorConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.AnomalyDetectorConfigurationUnionTypeDef]
 
 ### MetricCharacteristics
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricCharacteristicsTypeDef]
 
 ### SingleMetricAnomalyDetector
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.SingleMetricAnomalyDetectorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.SingleMetricAnomalyDetectorUnionTypeDef]
 
 ### MetricMathAnomalyDetector
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricMathAnomalyDetectorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricMathAnomalyDetectorUnionTypeDef]
 
 
-# PutCompositeAlarmInputRequestTypeDef
+# PutCompositeAlarmInputTypeDef
 
 ### AlarmName
 - **Type**: <class 'str'>
@@ -2095,7 +1896,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# PutDashboardInputRequestTypeDef
+# PutDashboardInputTypeDef
 
 ### DashboardName
 - **Type**: <class 'str'>
@@ -2117,7 +1918,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutInsightRuleInputRequestTypeDef
+# PutInsightRuleInputTypeDef
 
 ### RuleName
 - **Type**: <class 'str'>
@@ -2134,7 +1935,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.TagTypeDef]]
 
 
-# PutManagedInsightRulesInputRequestTypeDef
+# PutManagedInsightRulesInputTypeDef
 
 ### ManagedRules
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.ManagedRuleTypeDef]
@@ -2209,7 +2010,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Metrics
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricDataQueryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricDataQueryUnionTypeDef]]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.TagTypeDef]]
@@ -2218,7 +2019,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutMetricAlarmInputRequestTypeDef
+# PutMetricAlarmInputTypeDef
 
 ### AlarmName
 - **Type**: <class 'str'>
@@ -2281,7 +2082,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Metrics
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricDataQueryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricDataQueryUnionTypeDef]]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.TagTypeDef]]
@@ -2290,18 +2091,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutMetricDataInputRequestTypeDef
+# PutMetricDataInputMetricPutDataTypeDef
+
+### EntityMetricData
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.EntityMetricDataTypeDef]]
+
+### StrictEntityValidation
+- **Type**: typing.Optional[bool]
+
+
+# PutMetricDataInputTypeDef
 
 ### Namespace
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### MetricData
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricDatumTypeDef]
-- **Required**: Yes
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricDatumTypeDef]]
+
+### EntityMetricData
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.EntityMetricDataTypeDef]]
+
+### StrictEntityValidation
+- **Type**: typing.Optional[bool]
 
 
-# PutMetricStreamInputRequestTypeDef
+# PutMetricStreamInputTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -2320,16 +2135,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### IncludeFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricStreamFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricStreamFilterUnionTypeDef]]
 
 ### ExcludeFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricStreamFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricStreamFilterUnionTypeDef]]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.TagTypeDef]]
 
 ### StatisticsConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricStreamStatisticsConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudwatch_classes.MetricStreamStatisticsConfigurationUnionTypeDef]]
 
 ### IncludeLinkedAccountsMetrics
 - **Type**: typing.Optional[bool]
@@ -2346,7 +2161,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RangeTypeDef
+# RangeOutputTypeDef
 
 ### StartTime
 - **Type**: <class 'datetime.datetime'>
@@ -2354,6 +2169,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### EndTime
 - **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+
+# RangeTypeDef
+
+### StartTime
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.TimestampTypeDef'>
+- **Required**: Yes
+
+### EndTime
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudwatch_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 
@@ -2393,7 +2219,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SetAlarmStateInputRequestTypeDef
+# SetAlarmStateInputTypeDef
 
 ### AlarmName
 - **Type**: <class 'str'>
@@ -2411,7 +2237,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SingleMetricAnomalyDetectorPaginatorTypeDef
+# SingleMetricAnomalyDetectorOutputTypeDef
 
 ### AccountId
 - **Type**: typing.Optional[str]
@@ -2447,7 +2273,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartMetricStreamsInputRequestTypeDef
+# SingleMetricAnomalyDetectorUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# StartMetricStreamsInputTypeDef
 
 ### Names
 - **Type**: typing.Sequence[str]
@@ -2473,14 +2305,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopMetricStreamsInputRequestTypeDef
+# StopMetricStreamsInputTypeDef
 
 ### Names
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# TagResourceInputRequestTypeDef
+# TagResourceInputTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -2502,7 +2334,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceInputRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceInputTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>

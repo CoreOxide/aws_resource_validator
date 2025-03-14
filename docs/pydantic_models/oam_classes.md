@@ -6,14 +6,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateLinkInputRequestTypeDef
+# CreateLinkInputTypeDef
 
 ### LabelTemplate
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResourceTypes
-- **Type**: typing.Sequence[typing.Literal['AWS::ApplicationInsights::Application', 'AWS::CloudWatch::Metric', 'AWS::InternetMonitor::Monitor', 'AWS::Logs::LogGroup', 'AWS::XRay::Trace']]
+- **Type**: typing.Sequence[typing.Literal['AWS::ApplicationInsights::Application', 'AWS::ApplicationSignals::Service', 'AWS::ApplicationSignals::ServiceLevelObjective', 'AWS::CloudWatch::Metric', 'AWS::InternetMonitor::Monitor', 'AWS::Logs::LogGroup', 'AWS::XRay::Trace']]
 - **Required**: Yes
 
 ### SinkIdentifier
@@ -66,7 +66,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateSinkInputRequestTypeDef
+# CreateSinkInputTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -99,21 +99,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteLinkInputRequestTypeDef
+# DeleteLinkInputTypeDef
 
 ### Identifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSinkInputRequestTypeDef
+# DeleteSinkInputTypeDef
 
 ### Identifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetLinkInputRequestTypeDef
+# GetLinkInputTypeDef
 
 ### Identifier
 - **Type**: <class 'str'>
@@ -159,7 +159,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSinkInputRequestTypeDef
+# GetSinkInputTypeDef
 
 ### Identifier
 - **Type**: <class 'str'>
@@ -189,7 +189,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSinkPolicyInputRequestTypeDef
+# GetSinkPolicyInputTypeDef
 
 ### SinkIdentifier
 - **Type**: <class 'str'>
@@ -224,7 +224,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.oam_classes.MetricConfigurationTypeDef]
 
 
-# ListAttachedLinksInputListAttachedLinksPaginateTypeDef
+# ListAttachedLinksInputPaginateTypeDef
 
 ### SinkIdentifier
 - **Type**: <class 'str'>
@@ -234,7 +234,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.oam_classes.PaginatorConfigTypeDef]
 
 
-# ListAttachedLinksInputRequestTypeDef
+# ListAttachedLinksInputTypeDef
 
 ### SinkIdentifier
 - **Type**: <class 'str'>
@@ -273,13 +273,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListLinksInputListLinksPaginateTypeDef
+# ListLinksInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.oam_classes.PaginatorConfigTypeDef]
 
 
-# ListLinksInputRequestTypeDef
+# ListLinksInputTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -320,13 +320,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSinksInputListSinksPaginateTypeDef
+# ListSinksInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.oam_classes.PaginatorConfigTypeDef]
 
 
-# ListSinksInputRequestTypeDef
+# ListSinksInputTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -361,7 +361,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceInputRequestTypeDef
+# ListTagsForResourceInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -405,7 +405,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutSinkPolicyInputRequestTypeDef
+# PutSinkPolicyInputTypeDef
 
 ### Policy
 - **Type**: <class 'str'>
@@ -457,7 +457,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceInputRequestTypeDef
+# TagResourceInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -468,7 +468,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceInputRequestTypeDef
+# UntagResourceInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -479,14 +479,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateLinkInputRequestTypeDef
+# UpdateLinkInputTypeDef
 
 ### Identifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResourceTypes
-- **Type**: typing.Sequence[typing.Literal['AWS::ApplicationInsights::Application', 'AWS::CloudWatch::Metric', 'AWS::InternetMonitor::Monitor', 'AWS::Logs::LogGroup', 'AWS::XRay::Trace']]
+- **Type**: typing.Sequence[typing.Literal['AWS::ApplicationInsights::Application', 'AWS::ApplicationSignals::Service', 'AWS::ApplicationSignals::ServiceLevelObjective', 'AWS::CloudWatch::Metric', 'AWS::InternetMonitor::Monitor', 'AWS::Logs::LogGroup', 'AWS::XRay::Trace']]
 - **Required**: Yes
 
 ### LinkConfiguration

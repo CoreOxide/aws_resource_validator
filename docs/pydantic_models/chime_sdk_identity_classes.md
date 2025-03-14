@@ -89,57 +89,15 @@
 
 # AppInstanceUserEndpointSummaryTypeDef
 
-### AppInstanceUserArn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### EndpointId
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['APNS', 'APNS_SANDBOX', 'GCM']]
-
-### AllowMessages
-- **Type**: typing.Optional[typing.Literal['ALL', 'NONE']]
-
-### EndpointState
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_identity_classes.EndpointStateTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AppInstanceUserEndpointTypeDef
 
-### AppInstanceUserArn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### EndpointId
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['APNS', 'APNS_SANDBOX', 'GCM']]
-
-### ResourceArn
-- **Type**: typing.Optional[str]
-
-### EndpointAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_identity_classes.EndpointAttributesTypeDef]
-
-### CreatedTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-### LastUpdatedTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-### AllowMessages
-- **Type**: typing.Optional[typing.Literal['ALL', 'NONE']]
-
-### EndpointState
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_identity_classes.EndpointStateTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AppInstanceUserSummaryTypeDef
 
@@ -193,7 +151,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAppInstanceAdminRequestRequestTypeDef
+# CreateAppInstanceAdminRequestTypeDef
 
 ### AppInstanceAdminArn
 - **Type**: <class 'str'>
@@ -219,7 +177,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAppInstanceBotRequestRequestTypeDef
+# CreateAppInstanceBotRequestTypeDef
 
 ### AppInstanceArn
 - **Type**: <class 'str'>
@@ -254,7 +212,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAppInstanceRequestRequestTypeDef
+# CreateAppInstanceRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -282,7 +240,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAppInstanceUserRequestRequestTypeDef
+# CreateAppInstanceUserRequestTypeDef
 
 ### AppInstanceArn
 - **Type**: <class 'str'>
@@ -321,7 +279,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAppInstanceAdminRequestRequestTypeDef
+# DeleteAppInstanceAdminRequestTypeDef
 
 ### AppInstanceAdminArn
 - **Type**: <class 'str'>
@@ -332,28 +290,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAppInstanceBotRequestRequestTypeDef
+# DeleteAppInstanceBotRequestTypeDef
 
 ### AppInstanceBotArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteAppInstanceRequestRequestTypeDef
+# DeleteAppInstanceRequestTypeDef
 
 ### AppInstanceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteAppInstanceUserRequestRequestTypeDef
+# DeleteAppInstanceUserRequestTypeDef
 
 ### AppInstanceUserArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeregisterAppInstanceUserEndpointRequestRequestTypeDef
+# DeregisterAppInstanceUserEndpointRequestTypeDef
 
 ### AppInstanceUserArn
 - **Type**: <class 'str'>
@@ -364,7 +322,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAppInstanceAdminRequestRequestTypeDef
+# DescribeAppInstanceAdminRequestTypeDef
 
 ### AppInstanceAdminArn
 - **Type**: <class 'str'>
@@ -386,7 +344,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAppInstanceBotRequestRequestTypeDef
+# DescribeAppInstanceBotRequestTypeDef
 
 ### AppInstanceBotArn
 - **Type**: <class 'str'>
@@ -404,7 +362,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAppInstanceRequestRequestTypeDef
+# DescribeAppInstanceRequestTypeDef
 
 ### AppInstanceArn
 - **Type**: <class 'str'>
@@ -422,7 +380,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAppInstanceUserEndpointRequestRequestTypeDef
+# DescribeAppInstanceUserEndpointRequestTypeDef
 
 ### AppInstanceUserArn
 - **Type**: <class 'str'>
@@ -444,7 +402,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAppInstanceUserRequestRequestTypeDef
+# DescribeAppInstanceUserRequestTypeDef
 
 ### AppInstanceUserArn
 - **Type**: <class 'str'>
@@ -500,7 +458,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAppInstanceRetentionSettingsRequestRequestTypeDef
+# GetAppInstanceRetentionSettingsRequestTypeDef
 
 ### AppInstanceArn
 - **Type**: <class 'str'>
@@ -562,7 +520,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAppInstanceAdminsRequestRequestTypeDef
+# ListAppInstanceAdminsRequestTypeDef
 
 ### AppInstanceArn
 - **Type**: <class 'str'>
@@ -585,16 +543,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_identity_classes.AppInstanceAdminSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListAppInstanceBotsRequestRequestTypeDef
+
+# ListAppInstanceBotsRequestTypeDef
 
 ### AppInstanceArn
 - **Type**: <class 'str'>
@@ -617,16 +574,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_identity_classes.AppInstanceBotSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListAppInstanceUserEndpointsRequestRequestTypeDef
+
+# ListAppInstanceUserEndpointsRequestTypeDef
 
 ### AppInstanceUserArn
 - **Type**: <class 'str'>
@@ -645,16 +601,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_identity_classes.AppInstanceUserEndpointSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListAppInstanceUsersRequestRequestTypeDef
+
+# ListAppInstanceUsersRequestTypeDef
 
 ### AppInstanceArn
 - **Type**: <class 'str'>
@@ -677,16 +632,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_identity_classes.AppInstanceUserSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListAppInstancesRequestRequestTypeDef
+
+# ListAppInstancesRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -701,16 +655,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_identity_classes.AppInstanceSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -728,7 +681,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutAppInstanceRetentionSettingsRequestRequestTypeDef
+# PutAppInstanceRetentionSettingsRequestTypeDef
 
 ### AppInstanceArn
 - **Type**: <class 'str'>
@@ -754,7 +707,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutAppInstanceUserExpirationSettingsRequestRequestTypeDef
+# PutAppInstanceUserExpirationSettingsRequestTypeDef
 
 ### AppInstanceUserArn
 - **Type**: <class 'str'>
@@ -779,35 +732,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RegisterAppInstanceUserEndpointRequestRequestTypeDef
-
-### AppInstanceUserArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['APNS', 'APNS_SANDBOX', 'GCM']
-- **Required**: Yes
-
-### ResourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### EndpointAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.EndpointAttributesTypeDef'>
-- **Required**: Yes
-
-### ClientRequestToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Name
-- **Type**: typing.Optional[str]
-
-### AllowMessages
-- **Type**: typing.Optional[typing.Literal['ALL', 'NONE']]
-
-
 # RegisterAppInstanceUserEndpointResponseTypeDef
 
 ### AppInstanceUserArn
@@ -829,10 +753,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -845,8 +765,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# TagResourceRequestRequestTypeDef
+
+# TagResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -868,7 +791,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -879,7 +802,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAppInstanceBotRequestRequestTypeDef
+# UpdateAppInstanceBotRequestTypeDef
 
 ### AppInstanceBotArn
 - **Type**: <class 'str'>
@@ -908,7 +831,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAppInstanceRequestRequestTypeDef
+# UpdateAppInstanceRequestTypeDef
 
 ### AppInstanceArn
 - **Type**: <class 'str'>
@@ -934,7 +857,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAppInstanceUserEndpointRequestRequestTypeDef
+# UpdateAppInstanceUserEndpointRequestTypeDef
 
 ### AppInstanceUserArn
 - **Type**: <class 'str'>
@@ -966,7 +889,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAppInstanceUserRequestRequestTypeDef
+# UpdateAppInstanceUserRequestTypeDef
 
 ### AppInstanceUserArn
 - **Type**: <class 'str'>

@@ -158,7 +158,7 @@
 
 ### KxCommandLineArgumentValue
 - **Type**: string
-- **Pattern**: `^[a-zA-Z0-9_:./,]+$`
+- **Pattern**: `^[a-zA-Z0-9_:./,; ]+$`
 - **Min Length**: 1
 - **Max Length**: 1024
 

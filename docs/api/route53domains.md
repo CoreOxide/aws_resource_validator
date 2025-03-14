@@ -11,3 +11,7 @@
 - **Pattern**: `[a-zA-Z0-9_\-.]*`
 - **Max Length**: 255
 
+### LangCode
+- **Type**: string
+- **Pattern**: `|[A-Za-z]{2,3}`
+

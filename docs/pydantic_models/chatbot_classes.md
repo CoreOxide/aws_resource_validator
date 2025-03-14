@@ -9,6 +9,24 @@
 - **Type**: typing.Optional[bool]
 
 
+# AssociateToConfigurationRequestTypeDef
+
+### Resource
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ChatConfiguration
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# AssociationListingTypeDef
+
+### Resource
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
 # BaseValidatorModel
 
 Oops! This Pydantic model is currently empty. Stay tuned!
@@ -42,6 +60,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Tags
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chatbot_classes.TagTypeDef]]
 
+### State
+- **Type**: typing.Optional[str]
+
+### StateReason
+- **Type**: typing.Optional[str]
+
 
 # ConfiguredTeamTypeDef
 
@@ -56,8 +80,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### TeamName
 - **Type**: typing.Optional[str]
 
+### State
+- **Type**: typing.Optional[str]
 
-# CreateChimeWebhookConfigurationRequestRequestTypeDef
+### StateReason
+- **Type**: typing.Optional[str]
+
+
+# CreateChimeWebhookConfigurationRequestTypeDef
 
 ### WebhookDescription
 - **Type**: <class 'str'>
@@ -97,7 +127,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateSlackChannelConfigurationRequestRequestTypeDef
+# CreateCustomActionRequestTypeDef
+
+### Definition
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.CustomActionDefinitionTypeDef'>
+- **Required**: Yes
+
+### ActionName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AliasName
+- **Type**: typing.Optional[str]
+
+### Attachments
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chatbot_classes.CustomActionAttachmentUnionTypeDef]]
+
+### Tags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chatbot_classes.TagTypeDef]]
+
+### ClientToken
+- **Type**: typing.Optional[str]
+
+
+# CreateCustomActionResultTypeDef
+
+### CustomActionArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateSlackChannelConfigurationRequestTypeDef
 
 ### SlackTeamId
 - **Type**: <class 'str'>
@@ -145,7 +209,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTeamsChannelConfigurationRequestRequestTypeDef
+# CreateTeamsChannelConfigurationRequestTypeDef
 
 ### ChannelId
 - **Type**: <class 'str'>
@@ -200,14 +264,98 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteChimeWebhookConfigurationRequestRequestTypeDef
+# CustomActionAttachmentCriteriaTypeDef
+
+### Operator
+- **Type**: typing.Literal['EQUALS', 'HAS_VALUE']
+- **Required**: Yes
+
+### VariableName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Value
+- **Type**: typing.Optional[str]
+
+
+# CustomActionAttachmentOutputTypeDef
+
+### NotificationType
+- **Type**: typing.Optional[str]
+
+### ButtonText
+- **Type**: typing.Optional[str]
+
+### Criteria
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chatbot_classes.CustomActionAttachmentCriteriaTypeDef]]
+
+### Variables
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# CustomActionAttachmentTypeDef
+
+### NotificationType
+- **Type**: typing.Optional[str]
+
+### ButtonText
+- **Type**: typing.Optional[str]
+
+### Criteria
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chatbot_classes.CustomActionAttachmentCriteriaTypeDef]]
+
+### Variables
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+
+# CustomActionAttachmentUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CustomActionDefinitionTypeDef
+
+### CommandText
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# CustomActionTypeDef
+
+### CustomActionArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Definition
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.CustomActionDefinitionTypeDef'>
+- **Required**: Yes
+
+### AliasName
+- **Type**: typing.Optional[str]
+
+### Attachments
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chatbot_classes.CustomActionAttachmentOutputTypeDef]]
+
+### ActionName
+- **Type**: typing.Optional[str]
+
+
+# DeleteChimeWebhookConfigurationRequestTypeDef
 
 ### ChatConfigurationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteMicrosoftTeamsUserIdentityRequestRequestTypeDef
+# DeleteCustomActionRequestTypeDef
+
+### CustomActionArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteMicrosoftTeamsUserIdentityRequestTypeDef
 
 ### ChatConfigurationArn
 - **Type**: <class 'str'>
@@ -218,14 +366,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteSlackChannelConfigurationRequestRequestTypeDef
+# DeleteSlackChannelConfigurationRequestTypeDef
 
 ### ChatConfigurationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSlackUserIdentityRequestRequestTypeDef
+# DeleteSlackUserIdentityRequestTypeDef
 
 ### ChatConfigurationArn
 - **Type**: <class 'str'>
@@ -240,28 +388,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteSlackWorkspaceAuthorizationRequestRequestTypeDef
+# DeleteSlackWorkspaceAuthorizationRequestTypeDef
 
 ### SlackTeamId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteTeamsChannelConfigurationRequestRequestTypeDef
+# DeleteTeamsChannelConfigurationRequestTypeDef
 
 ### ChatConfigurationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteTeamsConfiguredTeamRequestRequestTypeDef
+# DeleteTeamsConfiguredTeamRequestTypeDef
 
 ### TeamId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeChimeWebhookConfigurationsRequestRequestTypeDef
+# DescribeChimeWebhookConfigurationsRequestPaginateTypeDef
+
+### ChatConfigurationArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot_classes.PaginatorConfigTypeDef]
+
+
+# DescribeChimeWebhookConfigurationsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -287,7 +444,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeSlackChannelConfigurationsRequestRequestTypeDef
+# DescribeSlackChannelConfigurationsRequestPaginateTypeDef
+
+### ChatConfigurationArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot_classes.PaginatorConfigTypeDef]
+
+
+# DescribeSlackChannelConfigurationsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -313,7 +479,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeSlackUserIdentitiesRequestRequestTypeDef
+# DescribeSlackUserIdentitiesRequestPaginateTypeDef
+
+### ChatConfigurationArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot_classes.PaginatorConfigTypeDef]
+
+
+# DescribeSlackUserIdentitiesRequestTypeDef
 
 ### ChatConfigurationArn
 - **Type**: typing.Optional[str]
@@ -339,7 +514,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeSlackWorkspacesRequestRequestTypeDef
+# DescribeSlackWorkspacesRequestPaginateTypeDef
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot_classes.PaginatorConfigTypeDef]
+
+
+# DescribeSlackWorkspacesRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -362,6 +543,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# DisassociateFromConfigurationRequestTypeDef
+
+### Resource
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ChatConfiguration
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
 # GetAccountPreferencesResultTypeDef
 
 ### AccountPreferences
@@ -373,7 +565,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTeamsChannelConfigurationRequestRequestTypeDef
+# GetCustomActionRequestTypeDef
+
+### CustomActionArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetCustomActionResultTypeDef
+
+### CustomAction
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.CustomActionTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetTeamsChannelConfigurationRequestTypeDef
 
 ### ChatConfigurationArn
 - **Type**: <class 'str'>
@@ -391,7 +601,79 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListMicrosoftTeamsConfiguredTeamsRequestRequestTypeDef
+# ListAssociationsRequestPaginateTypeDef
+
+### ChatConfiguration
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot_classes.PaginatorConfigTypeDef]
+
+
+# ListAssociationsRequestTypeDef
+
+### ChatConfiguration
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListAssociationsResultTypeDef
+
+### Associations
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chatbot_classes.AssociationListingTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListCustomActionsRequestPaginateTypeDef
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot_classes.PaginatorConfigTypeDef]
+
+
+# ListCustomActionsRequestTypeDef
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListCustomActionsResultTypeDef
+
+### CustomActions
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListMicrosoftTeamsConfiguredTeamsRequestPaginateTypeDef
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot_classes.PaginatorConfigTypeDef]
+
+
+# ListMicrosoftTeamsConfiguredTeamsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -414,7 +696,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListMicrosoftTeamsUserIdentitiesRequestRequestTypeDef
+# ListMicrosoftTeamsUserIdentitiesRequestPaginateTypeDef
+
+### ChatConfigurationArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot_classes.PaginatorConfigTypeDef]
+
+
+# ListMicrosoftTeamsUserIdentitiesRequestTypeDef
 
 ### ChatConfigurationArn
 - **Type**: typing.Optional[str]
@@ -440,7 +731,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -458,7 +749,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTeamsChannelConfigurationsRequestRequestTypeDef
+# ListTeamsChannelConfigurationsRequestPaginateTypeDef
+
+### TeamId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot_classes.PaginatorConfigTypeDef]
+
+
+# ListTeamsChannelConfigurationsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -481,6 +781,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### NextToken
+- **Type**: typing.Optional[str]
+
+
+# PaginatorConfigTypeDef
+
+### MaxItems
+- **Type**: typing.Optional[int]
+
+### PageSize
+- **Type**: typing.Optional[int]
+
+### StartingToken
 - **Type**: typing.Optional[str]
 
 
@@ -551,6 +863,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Tags
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chatbot_classes.TagTypeDef]]
 
+### State
+- **Type**: typing.Optional[str]
+
+### StateReason
+- **Type**: typing.Optional[str]
+
 
 # SlackUserIdentityTypeDef
 
@@ -584,8 +902,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### State
+- **Type**: typing.Optional[str]
 
-# TagResourceRequestRequestTypeDef
+### StateReason
+- **Type**: typing.Optional[str]
+
+
+# TagResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -654,6 +978,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Tags
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chatbot_classes.TagTypeDef]]
 
+### State
+- **Type**: typing.Optional[str]
+
+### StateReason
+- **Type**: typing.Optional[str]
+
 
 # TeamsUserIdentityTypeDef
 
@@ -682,7 +1012,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -693,7 +1023,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAccountPreferencesRequestRequestTypeDef
+# UpdateAccountPreferencesRequestTypeDef
 
 ### UserAuthorizationRequired
 - **Type**: typing.Optional[bool]
@@ -713,7 +1043,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateChimeWebhookConfigurationRequestRequestTypeDef
+# UpdateChimeWebhookConfigurationRequestTypeDef
 
 ### ChatConfigurationArn
 - **Type**: <class 'str'>
@@ -746,7 +1076,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateSlackChannelConfigurationRequestRequestTypeDef
+# UpdateCustomActionRequestTypeDef
+
+### CustomActionArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Definition
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.CustomActionDefinitionTypeDef'>
+- **Required**: Yes
+
+### AliasName
+- **Type**: typing.Optional[str]
+
+### Attachments
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chatbot_classes.CustomActionAttachmentUnionTypeDef]]
+
+
+# UpdateCustomActionResultTypeDef
+
+### CustomActionArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateSlackChannelConfigurationRequestTypeDef
 
 ### ChatConfigurationArn
 - **Type**: <class 'str'>
@@ -786,7 +1144,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateTeamsChannelConfigurationRequestRequestTypeDef
+# UpdateTeamsChannelConfigurationRequestTypeDef
 
 ### ChatConfigurationArn
 - **Type**: <class 'str'>

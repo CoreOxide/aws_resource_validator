@@ -66,6 +66,42 @@
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
+# AggFunctionOutputTypeDef
+
+### Aggregation
+- **Type**: typing.Optional[typing.Literal['AVERAGE', 'COLUMN', 'COUNT', 'CUSTOM', 'DISTINCT_COUNT', 'MAX', 'MEDIAN', 'MIN', 'PERCENTILE', 'PTD_AVERAGE', 'PTD_COUNT', 'PTD_DISTINCT_COUNT', 'PTD_MAX', 'PTD_MIN', 'PTD_SUM', 'STDEV', 'STDEVP', 'SUM', 'VAR', 'VARP']]
+
+### AggregationFunctionParameters
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### Period
+- **Type**: typing.Optional[typing.Literal['DAY', 'HOUR', 'MINUTE', 'MONTH', 'QUARTER', 'SECOND', 'WEEK', 'YEAR']]
+
+### PeriodField
+- **Type**: typing.Optional[str]
+
+
+# AggFunctionTypeDef
+
+### Aggregation
+- **Type**: typing.Optional[typing.Literal['AVERAGE', 'COLUMN', 'COUNT', 'CUSTOM', 'DISTINCT_COUNT', 'MAX', 'MEDIAN', 'MIN', 'PERCENTILE', 'PTD_AVERAGE', 'PTD_COUNT', 'PTD_DISTINCT_COUNT', 'PTD_MAX', 'PTD_MIN', 'PTD_SUM', 'STDEV', 'STDEVP', 'SUM', 'VAR', 'VARP']]
+
+### AggregationFunctionParameters
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### Period
+- **Type**: typing.Optional[typing.Literal['DAY', 'HOUR', 'MINUTE', 'MONTH', 'QUARTER', 'SECOND', 'WEEK', 'YEAR']]
+
+### PeriodField
+- **Type**: typing.Optional[str]
+
+
+# AggFunctionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # AggregationFunctionTypeDef
 
 ### NumericalAggregationFunction
@@ -79,6 +115,15 @@
 
 ### AttributeAggregationFunction
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AttributeAggregationFunctionTypeDef]
+
+
+# AggregationPartitionByTypeDef
+
+### FieldName
+- **Type**: typing.Optional[str]
+
+### TimeGranularity
+- **Type**: typing.Optional[typing.Literal['DAY', 'HOUR', 'MILLISECOND', 'MINUTE', 'MONTH', 'QUARTER', 'SECOND', 'WEEK', 'YEAR']]
 
 
 # AggregationSortConfigurationTypeDef
@@ -143,6 +188,12 @@
 ### Options
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AssetOptionsTypeDef]
 
+### QueryExecutionOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.QueryExecutionOptionsTypeDef]
+
+### StaticFiles
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.StaticFileTypeDef]]
+
 
 # AnalysisDefinitionTypeDef
 
@@ -171,18 +222,24 @@
 ### Options
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AssetOptionsTypeDef]
 
+### QueryExecutionOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.QueryExecutionOptionsTypeDef]
+
+### StaticFiles
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.StaticFileTypeDef]]
+
+
+# AnalysisDefinitionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AnalysisErrorTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['ACCESS_DENIED', 'COLUMN_GEOGRAPHIC_ROLE_MISMATCH', 'COLUMN_REPLACEMENT_MISSING', 'COLUMN_TYPE_MISMATCH', 'DATA_SET_NOT_FOUND', 'INTERNAL_FAILURE', 'PARAMETER_NOT_FOUND', 'PARAMETER_TYPE_INVALID', 'PARAMETER_VALUE_INCOMPATIBLE', 'SOURCE_NOT_FOUND']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Message
-- **Type**: typing.Optional[str]
-
-### ViolatedEntities
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.EntityTypeDef]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AnalysisSearchFilterTypeDef
 
@@ -276,11 +333,38 @@
 - **Type**: typing.Optional[str]
 
 
+# AnchorTypeDef
+
+### AnchorType
+- **Type**: typing.Optional[typing.Literal['TODAY']]
+
+### TimeGranularity
+- **Type**: typing.Optional[typing.Literal['DAY', 'HOUR', 'MILLISECOND', 'MINUTE', 'MONTH', 'QUARTER', 'SECOND', 'WEEK', 'YEAR']]
+
+### Offset
+- **Type**: typing.Optional[int]
+
+
 # AnonymousUserDashboardEmbeddingConfigurationTypeDef
 
 ### InitialDashboardId
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+### EnabledFeatures
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['SHARED_VIEW']]]
+
+### DisabledFeatures
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['SHARED_VIEW']]]
+
+### FeatureConfigurations
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AnonymousUserDashboardFeatureConfigurationsTypeDef]
+
+
+# AnonymousUserDashboardFeatureConfigurationsTypeDef
+
+### SharedView
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.SharedViewConfigurationsTypeDef]
 
 
 # AnonymousUserDashboardVisualEmbeddingConfigurationTypeDef
@@ -323,6 +407,15 @@
 
 ### FileGroups
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.SnapshotJobResultFileGroupTypeDef]]
+
+
+# ApplicationThemeTypeDef
+
+### BrandColorPalette
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.BrandColorPaletteTypeDef]
+
+### BrandElementStyle
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.BrandElementStyleTypeDef]
 
 
 # ArcAxisConfigurationTypeDef
@@ -384,6 +477,9 @@
 ### Dashboards
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleExportJobDashboardOverridePropertiesOutputTypeDef]]
 
+### Folders
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleExportJobFolderOverridePropertiesOutputTypeDef]]
+
 
 # AssetBundleCloudFormationOverridePropertyConfigurationTypeDef
 
@@ -411,6 +507,15 @@
 ### Dashboards
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleExportJobDashboardOverridePropertiesTypeDef]]
 
+### Folders
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleExportJobFolderOverridePropertiesTypeDef]]
+
+
+# AssetBundleCloudFormationOverridePropertyConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AssetBundleExportJobAnalysisOverridePropertiesOutputTypeDef
 
@@ -502,14 +607,30 @@
 
 # AssetBundleExportJobErrorTypeDef
 
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AssetBundleExportJobFolderOverridePropertiesOutputTypeDef
+
 ### Arn
-- **Type**: typing.Optional[str]
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-### Type
-- **Type**: typing.Optional[str]
+### Properties
+- **Type**: typing.List[typing.Literal['Name', 'ParentFolderArn']]
+- **Required**: Yes
 
-### Message
-- **Type**: typing.Optional[str]
+
+# AssetBundleExportJobFolderOverridePropertiesTypeDef
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Properties
+- **Type**: typing.Sequence[typing.Literal['Name', 'ParentFolderArn']]
+- **Required**: Yes
 
 
 # AssetBundleExportJobRefreshScheduleOverridePropertiesOutputTypeDef
@@ -902,14 +1023,63 @@
 
 # AssetBundleImportJobErrorTypeDef
 
-### Arn
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AssetBundleImportJobFolderOverrideParametersTypeDef
+
+### FolderId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
 - **Type**: typing.Optional[str]
 
-### Type
+### ParentFolderArn
 - **Type**: typing.Optional[str]
 
-### Message
-- **Type**: typing.Optional[str]
+
+# AssetBundleImportJobFolderOverridePermissionsOutputTypeDef
+
+### FolderIds
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### Permissions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleResourcePermissionsOutputTypeDef]
+
+
+# AssetBundleImportJobFolderOverridePermissionsTypeDef
+
+### FolderIds
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### Permissions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleResourcePermissionsTypeDef]
+
+
+# AssetBundleImportJobFolderOverrideTagsOutputTypeDef
+
+### FolderIds
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.List[aws_resource_validator.pydantic_models.quicksight_classes.TagTypeDef]
+- **Required**: Yes
+
+
+# AssetBundleImportJobFolderOverrideTagsTypeDef
+
+### FolderIds
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.TagTypeDef]
+- **Required**: Yes
 
 
 # AssetBundleImportJobOverrideParametersOutputTypeDef
@@ -938,6 +1108,9 @@
 ### Dashboards
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleImportJobDashboardOverrideParametersTypeDef]]
 
+### Folders
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleImportJobFolderOverrideParametersTypeDef]]
+
 
 # AssetBundleImportJobOverrideParametersTypeDef
 
@@ -965,6 +1138,15 @@
 ### Dashboards
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleImportJobDashboardOverrideParametersTypeDef]]
 
+### Folders
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleImportJobFolderOverrideParametersTypeDef]]
+
+
+# AssetBundleImportJobOverrideParametersUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AssetBundleImportJobOverridePermissionsOutputTypeDef
 
@@ -982,6 +1164,9 @@
 
 ### Dashboards
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleImportJobDashboardOverridePermissionsOutputTypeDef]]
+
+### Folders
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleImportJobFolderOverridePermissionsOutputTypeDef]]
 
 
 # AssetBundleImportJobOverridePermissionsTypeDef
@@ -1001,6 +1186,15 @@
 ### Dashboards
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleImportJobDashboardOverridePermissionsTypeDef]]
 
+### Folders
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleImportJobFolderOverridePermissionsTypeDef]]
+
+
+# AssetBundleImportJobOverridePermissionsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AssetBundleImportJobOverrideTagsOutputTypeDef
 
@@ -1021,6 +1215,9 @@
 
 ### Dashboards
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleImportJobDashboardOverrideTagsOutputTypeDef]]
+
+### Folders
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleImportJobFolderOverrideTagsOutputTypeDef]]
 
 
 # AssetBundleImportJobOverrideTagsTypeDef
@@ -1043,6 +1240,15 @@
 ### Dashboards
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleImportJobDashboardOverrideTagsTypeDef]]
 
+### Folders
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleImportJobFolderOverrideTagsTypeDef]]
+
+
+# AssetBundleImportJobOverrideTagsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AssetBundleImportJobOverrideValidationStrategyTypeDef
 
@@ -1075,7 +1281,7 @@
 - **Required**: Yes
 
 ### StartAfterDateTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TimestampTypeDef]
 
 
 # AssetBundleImportJobResourceIdOverrideConfigurationTypeDef
@@ -1243,7 +1449,7 @@
 # AssetBundleImportSourceTypeDef
 
 ### Body
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.BlobTypeDef]
 
 ### S3Uri
 - **Type**: typing.Optional[str]
@@ -1343,7 +1549,7 @@
 # AuthorizedTargetsByServiceTypeDef
 
 ### Service
-- **Type**: typing.Optional[typing.Literal['REDSHIFT']]
+- **Type**: typing.Optional[typing.Literal['QBUSINESS', 'REDSHIFT']]
 
 ### AuthorizedTargets
 - **Type**: typing.Optional[typing.List[str]]
@@ -1712,6 +1918,9 @@
 ### ColumnHierarchies
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.ColumnHierarchyOutputTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # BarChartVisualTypeDef
 
@@ -1734,12 +1943,106 @@
 ### ColumnHierarchies
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ColumnHierarchyTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # BaseValidatorModel
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# BatchCreateTopicReviewedAnswerRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TopicId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Answers
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.CreateTopicReviewedAnswerTypeDef]
+- **Required**: Yes
+
+
+# BatchCreateTopicReviewedAnswerResponseTypeDef
+
+### TopicId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TopicArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SucceededAnswers
+- **Type**: typing.List[aws_resource_validator.pydantic_models.quicksight_classes.SucceededTopicReviewedAnswerTypeDef]
+- **Required**: Yes
+
+### InvalidAnswers
+- **Type**: typing.List[aws_resource_validator.pydantic_models.quicksight_classes.InvalidTopicReviewedAnswerTypeDef]
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# BatchDeleteTopicReviewedAnswerRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TopicId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AnswerIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# BatchDeleteTopicReviewedAnswerResponseTypeDef
+
+### TopicId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TopicArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SucceededAnswers
+- **Type**: typing.List[aws_resource_validator.pydantic_models.quicksight_classes.SucceededTopicReviewedAnswerTypeDef]
+- **Required**: Yes
+
+### InvalidAnswers
+- **Type**: typing.List[aws_resource_validator.pydantic_models.quicksight_classes.InvalidTopicReviewedAnswerTypeDef]
+- **Required**: Yes
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
 
 # BigQueryParametersTypeDef
 
@@ -1765,6 +2068,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### BinCountLimit
 - **Type**: typing.Optional[int]
 
+
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BodySectionConfigurationOutputTypeDef
 
@@ -2096,6 +2405,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ColumnHierarchies
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.ColumnHierarchyOutputTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # BoxPlotVisualTypeDef
 
@@ -2117,6 +2429,92 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ColumnHierarchies
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ColumnHierarchyTypeDef]]
+
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
+
+# BrandColorPaletteTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# BrandDefinitionTypeDef
+
+### BrandName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Description
+- **Type**: typing.Optional[str]
+
+### ApplicationTheme
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ApplicationThemeTypeDef]
+
+### LogoConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.LogoConfigurationTypeDef]
+
+
+# BrandDetailTypeDef
+
+### BrandId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Arn
+- **Type**: typing.Optional[str]
+
+### BrandStatus
+- **Type**: typing.Optional[typing.Literal['CREATE_FAILED', 'CREATE_IN_PROGRESS', 'CREATE_SUCCEEDED', 'DELETE_FAILED', 'DELETE_IN_PROGRESS']]
+
+### CreatedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### LastUpdatedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### VersionId
+- **Type**: typing.Optional[str]
+
+### VersionStatus
+- **Type**: typing.Optional[typing.Literal['CREATE_FAILED', 'CREATE_IN_PROGRESS', 'CREATE_SUCCEEDED']]
+
+### Errors
+- **Type**: typing.Optional[typing.List[str]]
+
+### Logo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.LogoTypeDef]
+
+
+# BrandElementStyleTypeDef
+
+### NavbarStyle
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.NavbarStyleTypeDef]
+
+
+# BrandSummaryTypeDef
+
+### Arn
+- **Type**: typing.Optional[str]
+
+### BrandId
+- **Type**: typing.Optional[str]
+
+### BrandName
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### BrandStatus
+- **Type**: typing.Optional[typing.Literal['CREATE_FAILED', 'CREATE_IN_PROGRESS', 'CREATE_SUCCEEDED', 'DELETE_FAILED', 'DELETE_IN_PROGRESS']]
+
+### CreatedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### LastUpdatedTime
+- **Type**: typing.Optional[datetime.datetime]
 
 
 # CalculatedColumnTypeDef
@@ -2160,7 +2558,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CancelIngestionRequestRequestTypeDef
+# CancelIngestionRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -2196,6 +2594,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+
+# CapabilitiesTypeDef
+
+### ExportToCsv
+- **Type**: typing.Optional[typing.Literal['DENY']]
+
+### ExportToExcel
+- **Type**: typing.Optional[typing.Literal['DENY']]
+
+### CreateAndUpdateThemes
+- **Type**: typing.Optional[typing.Literal['DENY']]
+
+### AddOrRunAnomalyDetectionForAnalyses
+- **Type**: typing.Optional[typing.Literal['DENY']]
+
+### ShareAnalyses
+- **Type**: typing.Optional[typing.Literal['DENY']]
+
+### CreateAndUpdateDatasets
+- **Type**: typing.Optional[typing.Literal['DENY']]
+
+### ShareDatasets
+- **Type**: typing.Optional[typing.Literal['DENY']]
+
+### SubscribeDashboardEmailReports
+- **Type**: typing.Optional[typing.Literal['DENY']]
+
+### CreateAndUpdateDashboardEmailReports
+- **Type**: typing.Optional[typing.Literal['DENY']]
+
+### ShareDashboards
+- **Type**: typing.Optional[typing.Literal['DENY']]
+
+### CreateAndUpdateThresholdAlerts
+- **Type**: typing.Optional[typing.Literal['DENY']]
+
+### RenameSharedFolders
+- **Type**: typing.Optional[typing.Literal['DENY']]
+
+### CreateSharedFolders
+- **Type**: typing.Optional[typing.Literal['DENY']]
+
+### CreateAndUpdateDataSources
+- **Type**: typing.Optional[typing.Literal['DENY']]
+
+### ShareDataSources
+- **Type**: typing.Optional[typing.Literal['DENY']]
+
+### ViewAccountSPICECapacity
+- **Type**: typing.Optional[typing.Literal['DENY']]
+
+### CreateSPICEDataset
+- **Type**: typing.Optional[typing.Literal['DENY']]
 
 
 # CascadingControlConfigurationOutputTypeDef
@@ -2434,6 +2886,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.SimpleClusterMarkerTypeDef]
 
 
+# CollectiveConstantEntryTypeDef
+
+### ConstantType
+- **Type**: typing.Optional[typing.Literal['COLLECTIVE', 'RANGE', 'SINGULAR']]
+
+### Value
+- **Type**: typing.Optional[str]
+
+
 # CollectiveConstantOutputTypeDef
 
 ### ValueList
@@ -2520,9 +2981,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ColumnDescriptionTypeDef
 
-### Text
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ColumnGroupColumnSchemaTypeDef
 
@@ -2557,8 +3018,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ColumnGroupTypeDef
 
 ### GeoSpatialColumnGroup
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeoSpatialColumnGroupTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeoSpatialColumnGroupUnionTypeDef]
 
+
+# ColumnGroupUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ColumnHierarchyOutputTypeDef
 
@@ -2612,6 +3079,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ColumnNames
 - **Type**: typing.Optional[typing.Sequence[str]]
 
+
+# ColumnLevelPermissionRuleUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ColumnSchemaTypeDef
 
@@ -2874,6 +3347,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ColumnHierarchies
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.ColumnHierarchyOutputTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # ComboChartVisualTypeDef
 
@@ -2895,6 +3371,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ColumnHierarchies
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ColumnHierarchyTypeDef]]
+
+### VisualContentAltText
+- **Type**: typing.Optional[str]
 
 
 # ComparativeOrderOutputTypeDef
@@ -3101,7 +3580,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAccountCustomizationRequestRequestTypeDef
+# ContributionAnalysisFactorTypeDef
+
+### FieldName
+- **Type**: typing.Optional[str]
+
+
+# ContributionAnalysisTimeRangesOutputTypeDef
+
+### StartRange
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicIRFilterOptionOutputTypeDef]
+
+### EndRange
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicIRFilterOptionOutputTypeDef]
+
+
+# ContributionAnalysisTimeRangesTypeDef
+
+### StartRange
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicIRFilterOptionUnionTypeDef]
+
+### EndRange
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicIRFilterOptionUnionTypeDef]
+
+
+# ContributionAnalysisTimeRangesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CreateAccountCustomizationRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -3149,7 +3658,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAccountSubscriptionRequestRequestTypeDef
+# CreateAccountSubscriptionRequestTypeDef
 
 ### AuthenticationMethod
 - **Type**: typing.Literal['ACTIVE_DIRECTORY', 'IAM_AND_QUICKSIGHT', 'IAM_IDENTITY_CENTER', 'IAM_ONLY']
@@ -3232,7 +3741,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAnalysisRequestRequestTypeDef
+# CreateAnalysisRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -3247,10 +3756,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ParametersUnionTypeDef]
 
 ### Permissions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionUnionTypeDef]]
 
 ### SourceEntity
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AnalysisSourceEntityTypeDef]
@@ -3262,7 +3771,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.TagTypeDef]]
 
 ### Definition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AnalysisDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AnalysisDefinitionUnionTypeDef]
 
 ### ValidationStrategy
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ValidationStrategyTypeDef]
@@ -3298,6 +3807,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# CreateBrandRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### BrandId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### BrandDefinition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.BrandDefinitionTypeDef]
+
+### Tags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.TagTypeDef]]
+
+
+# CreateBrandResponseTypeDef
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### BrandDetail
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.BrandDetailTypeDef'>
+- **Required**: Yes
+
+### BrandDefinition
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.BrandDefinitionTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
 # CreateColumnsOperationOutputTypeDef
 
 ### Columns
@@ -3312,7 +3857,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDashboardRequestRequestTypeDef
+# CreateColumnsOperationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CreateCustomPermissionsRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CustomPermissionsName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Capabilities
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CapabilitiesTypeDef]
+
+### Tags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.TagTypeDef]]
+
+
+# CreateCustomPermissionsResponseTypeDef
+
+### Status
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateDashboardRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -3327,10 +3914,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ParametersUnionTypeDef]
 
 ### Permissions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionUnionTypeDef]]
 
 ### SourceEntity
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DashboardSourceEntityTypeDef]
@@ -3348,7 +3935,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Definition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DashboardVersionDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DashboardVersionDefinitionUnionTypeDef]
 
 ### ValidationStrategy
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ValidationStrategyTypeDef]
@@ -3357,7 +3944,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### LinkSharingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.LinkSharingConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.LinkSharingConfigurationUnionTypeDef]
 
 ### LinkEntities
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -3394,7 +3981,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDataSetRequestRequestTypeDef
+# CreateDataSetRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -3409,7 +3996,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PhysicalTableMap
-- **Type**: typing.Mapping[str, typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.PhysicalTableTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.PhysicalTableOutputTypeDef]]
+- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.quicksight_classes.PhysicalTableUnionTypeDef]
 - **Required**: Yes
 
 ### ImportMode
@@ -3417,25 +4004,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LogicalTableMap
-- **Type**: typing.Optional[typing.Mapping[str, typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.LogicalTableTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.LogicalTableOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.quicksight_classes.LogicalTableUnionTypeDef]]
 
 ### ColumnGroups
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ColumnGroupTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ColumnGroupOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ColumnGroupUnionTypeDef]]
 
 ### FieldFolders
-- **Type**: typing.Optional[typing.Mapping[str, typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.FieldFolderTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.FieldFolderOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.quicksight_classes.FieldFolderUnionTypeDef]]
 
 ### Permissions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionUnionTypeDef]]
 
 ### RowLevelPermissionDataSet
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.RowLevelPermissionDataSetTypeDef]
 
 ### RowLevelPermissionTagConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.RowLevelPermissionTagConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.RowLevelPermissionTagConfigurationUnionTypeDef]
 
 ### ColumnLevelPermissionRules
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ColumnLevelPermissionRuleTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ColumnLevelPermissionRuleOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ColumnLevelPermissionRuleUnionTypeDef]]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.TagTypeDef]]
@@ -3444,10 +4031,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DataSetUsageConfigurationTypeDef]
 
 ### DatasetParameters
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.DatasetParameterTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.DatasetParameterOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.DatasetParameterUnionTypeDef]]
 
 ### FolderArns
 - **Type**: typing.Optional[typing.Sequence[str]]
+
+### PerformanceConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PerformanceConfigurationUnionTypeDef]
 
 
 # CreateDataSetResponseTypeDef
@@ -3481,46 +4071,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDataSourceRequestRequestTypeDef
-
-### AwsAccountId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DataSourceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['ADOBE_ANALYTICS', 'AMAZON_ELASTICSEARCH', 'AMAZON_OPENSEARCH', 'ATHENA', 'AURORA', 'AURORA_POSTGRESQL', 'AWS_IOT_ANALYTICS', 'BIGQUERY', 'DATABRICKS', 'EXASOL', 'GITHUB', 'JIRA', 'MARIADB', 'MYSQL', 'ORACLE', 'POSTGRESQL', 'PRESTO', 'REDSHIFT', 'S3', 'SALESFORCE', 'SERVICENOW', 'SNOWFLAKE', 'SPARK', 'SQLSERVER', 'STARBURST', 'TERADATA', 'TIMESTREAM', 'TRINO', 'TWITTER']
-- **Required**: Yes
-
-### DataSourceParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DataSourceParametersTypeDef]
-
-### Credentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DataSourceCredentialsTypeDef]
-
-### Permissions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]]]
-
-### VpcConnectionProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.VpcConnectionPropertiesTypeDef]
-
-### SslProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.SslPropertiesTypeDef]
-
-### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.TagTypeDef]]
-
-### FolderArns
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
 # CreateDataSourceResponseTypeDef
 
 ### Arn
@@ -3548,7 +4098,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateFolderMembershipRequestRequestTypeDef
+# CreateFolderMembershipRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -3586,7 +4136,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateFolderRequestRequestTypeDef
+# CreateFolderRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -3606,7 +4156,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Permissions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionUnionTypeDef]]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.TagTypeDef]]
@@ -3638,7 +4188,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateGroupMembershipRequestRequestTypeDef
+# CreateGroupMembershipRequestTypeDef
 
 ### MemberName
 - **Type**: <class 'str'>
@@ -3676,7 +4226,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateGroupRequestRequestTypeDef
+# CreateGroupRequestTypeDef
 
 ### GroupName
 - **Type**: <class 'str'>
@@ -3713,7 +4263,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateIAMPolicyAssignmentRequestRequestTypeDef
+# CreateIAMPolicyAssignmentRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -3773,7 +4323,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateIngestionRequestRequestTypeDef
+# CreateIngestionRequestTypeDef
 
 ### DataSetId
 - **Type**: <class 'str'>
@@ -3818,7 +4368,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateNamespaceRequestRequestTypeDef
+# CreateNamespaceRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -3871,7 +4421,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateRefreshScheduleRequestRequestTypeDef
+# CreateRefreshScheduleRequestTypeDef
 
 ### DataSetId
 - **Type**: <class 'str'>
@@ -3882,7 +4432,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Schedule
-- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.RefreshScheduleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.RefreshScheduleUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -3909,7 +4459,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateRoleMembershipRequestRequestTypeDef
+# CreateRoleMembershipRequestTypeDef
 
 ### MemberName
 - **Type**: <class 'str'>
@@ -3943,7 +4493,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTemplateAliasRequestRequestTypeDef
+# CreateTemplateAliasRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -3981,7 +4531,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTemplateRequestRequestTypeDef
+# CreateTemplateRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -3995,7 +4545,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Permissions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionUnionTypeDef]]
 
 ### SourceEntity
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TemplateSourceEntityTypeDef]
@@ -4007,7 +4557,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Definition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TemplateVersionDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TemplateVersionDefinitionUnionTypeDef]
 
 ### ValidationStrategy
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ValidationStrategyTypeDef]
@@ -4044,7 +4594,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateThemeAliasRequestRequestTypeDef
+# CreateThemeAliasRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -4082,7 +4632,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateThemeRequestRequestTypeDef
+# CreateThemeRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -4101,14 +4651,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ThemeConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ThemeConfigurationUnionTypeDef'>
 - **Required**: Yes
 
 ### VersionDescription
 - **Type**: typing.Optional[str]
 
 ### Permissions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionUnionTypeDef]]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.TagTypeDef]]
@@ -4145,7 +4695,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTopicRefreshScheduleRequestRequestTypeDef
+# CreateTopicRefreshScheduleRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -4160,7 +4710,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RefreshSchedule
-- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.TopicRefreshScheduleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.TopicRefreshScheduleUnionTypeDef'>
 - **Required**: Yes
 
 ### DatasetName
@@ -4194,7 +4744,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTopicRequestRequestTypeDef
+# CreateTopicRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -4205,11 +4755,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Topic
-- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.TopicDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.TopicDetailsUnionTypeDef'>
 - **Required**: Yes
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.TagTypeDef]]
+
+### FolderArns
+- **Type**: typing.Optional[typing.Sequence[str]]
 
 
 # CreateTopicResponseTypeDef
@@ -4239,7 +4792,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateVPCConnectionRequestRequestTypeDef
+# CreateTopicReviewedAnswerTypeDef
+
+### AnswerId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DatasetArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Question
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Mir
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicIRUnionTypeDef]
+
+### PrimaryVisual
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicVisualUnionTypeDef]
+
+### Template
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicTemplateUnionTypeDef]
+
+
+# CreateVPCConnectionRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -4314,7 +4891,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AlternateDataSourceParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.DataSourceParametersTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.DataSourceParametersUnionTypeDef]]
 
 
 # CurrencyDisplayFormatConfigurationTypeDef
@@ -4335,7 +4912,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DecimalPlacesConfigurationTypeDef]
 
 ### NumberScale
-- **Type**: typing.Optional[typing.Literal['AUTO', 'BILLIONS', 'MILLIONS', 'NONE', 'THOUSANDS', 'TRILLIONS']]
+- **Type**: typing.Optional[typing.Literal['AUTO', 'BILLIONS', 'CRORES', 'LAKHS', 'MILLIONS', 'NONE', 'THOUSANDS', 'TRILLIONS']]
 
 ### NegativeValueConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.NegativeValueConfigurationTypeDef]
@@ -4447,6 +5024,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Actions
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.VisualCustomActionOutputTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # CustomContentVisualTypeDef
 
@@ -4469,6 +5049,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Actions
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.VisualCustomActionTypeDef]]
+
+### VisualContentAltText
+- **Type**: typing.Optional[str]
 
 
 # CustomFilterConfigurationTypeDef
@@ -4559,7 +5142,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[float]]
 
 ### DateTimeValues
-- **Type**: typing.Optional[typing.Sequence[typing.Union[datetime.datetime, str]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.TimestampTypeDef]]
+
+
+# CustomPermissionsTypeDef
+
+### Arn
+- **Type**: typing.Optional[str]
+
+### CustomPermissionsName
+- **Type**: typing.Optional[str]
+
+### Capabilities
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CapabilitiesTypeDef]
 
 
 # CustomSqlOutputTypeDef
@@ -4598,6 +5193,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.InputColumnTypeDef]]
 
 
+# CustomSqlUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # CustomValuesConfigurationOutputTypeDef
 
 ### CustomValues
@@ -4620,15 +5221,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DashboardErrorTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['ACCESS_DENIED', 'COLUMN_GEOGRAPHIC_ROLE_MISMATCH', 'COLUMN_REPLACEMENT_MISSING', 'COLUMN_TYPE_MISMATCH', 'DATA_SET_NOT_FOUND', 'INTERNAL_FAILURE', 'PARAMETER_NOT_FOUND', 'PARAMETER_TYPE_INVALID', 'PARAMETER_VALUE_INCOMPATIBLE', 'SOURCE_NOT_FOUND']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Message
-- **Type**: typing.Optional[str]
-
-### ViolatedEntities
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.EntityTypeDef]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DashboardPublishOptionsTypeDef
 
@@ -4774,6 +5369,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Options
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AssetOptionsTypeDef]
 
+### StaticFiles
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.StaticFileTypeDef]]
+
 
 # DashboardVersionDefinitionTypeDef
 
@@ -4802,6 +5400,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Options
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AssetOptionsTypeDef]
 
+### StaticFiles
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.StaticFileTypeDef]]
+
+
+# DashboardVersionDefinitionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DashboardVersionSummaryTypeDef
 
@@ -4876,6 +5483,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ExportHiddenFieldsOption
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ExportHiddenFieldsOptionTypeDef]
+
+
+# DashboardVisualResultTypeDef
+
+### DashboardId
+- **Type**: typing.Optional[str]
+
+### DashboardName
+- **Type**: typing.Optional[str]
+
+### SheetId
+- **Type**: typing.Optional[str]
+
+### SheetName
+- **Type**: typing.Optional[str]
+
+### VisualId
+- **Type**: typing.Optional[str]
+
+### VisualTitle
+- **Type**: typing.Optional[str]
+
+### VisualSubtitle
+- **Type**: typing.Optional[str]
+
+### DashboardUrl
+- **Type**: typing.Optional[str]
 
 
 # DataAggregationTypeDef
@@ -5281,6 +5915,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### DatasetParameters
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.DatasetParameterOutputTypeDef]]
 
+### PerformanceConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PerformanceConfigurationOutputTypeDef]
+
 
 # DataSetUsageConfigurationTypeDef
 
@@ -5301,96 +5938,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SecretArn
 - **Type**: typing.Optional[str]
-
-
-# DataSourceErrorInfoTypeDef
-
-### Type
-- **Type**: typing.Optional[typing.Literal['ACCESS_DENIED', 'CONFLICT', 'COPY_SOURCE_NOT_FOUND', 'ENGINE_VERSION_NOT_SUPPORTED', 'GENERIC_SQL_FAILURE', 'TIMEOUT', 'UNKNOWN', 'UNKNOWN_HOST']]
-
-### Message
-- **Type**: typing.Optional[str]
-
-
-# DataSourceParametersExtraOutputTypeDef
-
-### AmazonElasticsearchParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AmazonElasticsearchParametersTypeDef]
-
-### AthenaParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AthenaParametersTypeDef]
-
-### AuroraParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AuroraParametersTypeDef]
-
-### AuroraPostgreSqlParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AuroraPostgreSqlParametersTypeDef]
-
-### AwsIotAnalyticsParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AwsIotAnalyticsParametersTypeDef]
-
-### JiraParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.JiraParametersTypeDef]
-
-### MariaDbParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.MariaDbParametersTypeDef]
-
-### MySqlParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.MySqlParametersTypeDef]
-
-### OracleParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.OracleParametersTypeDef]
-
-### PostgreSqlParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PostgreSqlParametersTypeDef]
-
-### PrestoParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PrestoParametersTypeDef]
-
-### RdsParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.RdsParametersTypeDef]
-
-### RedshiftParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.RedshiftParametersExtraOutputTypeDef]
-
-### S3Parameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.S3ParametersTypeDef]
-
-### ServiceNowParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ServiceNowParametersTypeDef]
-
-### SnowflakeParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.SnowflakeParametersTypeDef]
-
-### SparkParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.SparkParametersTypeDef]
-
-### SqlServerParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.SqlServerParametersTypeDef]
-
-### TeradataParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TeradataParametersTypeDef]
-
-### TwitterParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TwitterParametersTypeDef]
-
-### AmazonOpenSearchParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AmazonOpenSearchParametersTypeDef]
-
-### ExasolParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ExasolParametersTypeDef]
-
-### DatabricksParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DatabricksParametersTypeDef]
-
-### StarburstParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.StarburstParametersTypeDef]
-
-### TrinoParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TrinoParametersTypeDef]
-
-### BigQueryParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.BigQueryParametersTypeDef]
 
 
 # DataSourceParametersOutputTypeDef
@@ -5513,7 +6060,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.RdsParametersTypeDef]
 
 ### RedshiftParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.RedshiftParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.RedshiftParametersUnionTypeDef]
 
 ### S3Parameters
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.S3ParametersTypeDef]
@@ -5555,6 +6102,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.BigQueryParametersTypeDef]
 
 
+# DataSourceParametersUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # DataSourceSearchFilterTypeDef
 
 ### Operator
@@ -5572,66 +6125,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DataSourceSummaryTypeDef
 
-### Arn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### DataSourceId
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['ADOBE_ANALYTICS', 'AMAZON_ELASTICSEARCH', 'AMAZON_OPENSEARCH', 'ATHENA', 'AURORA', 'AURORA_POSTGRESQL', 'AWS_IOT_ANALYTICS', 'BIGQUERY', 'DATABRICKS', 'EXASOL', 'GITHUB', 'JIRA', 'MARIADB', 'MYSQL', 'ORACLE', 'POSTGRESQL', 'PRESTO', 'REDSHIFT', 'S3', 'SALESFORCE', 'SERVICENOW', 'SNOWFLAKE', 'SPARK', 'SQLSERVER', 'STARBURST', 'TERADATA', 'TIMESTREAM', 'TRINO', 'TWITTER']]
-
-### CreatedTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### LastUpdatedTime
-- **Type**: typing.Optional[datetime.datetime]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DataSourceTypeDef
 
-### Arn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### DataSourceId
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['ADOBE_ANALYTICS', 'AMAZON_ELASTICSEARCH', 'AMAZON_OPENSEARCH', 'ATHENA', 'AURORA', 'AURORA_POSTGRESQL', 'AWS_IOT_ANALYTICS', 'BIGQUERY', 'DATABRICKS', 'EXASOL', 'GITHUB', 'JIRA', 'MARIADB', 'MYSQL', 'ORACLE', 'POSTGRESQL', 'PRESTO', 'REDSHIFT', 'S3', 'SALESFORCE', 'SERVICENOW', 'SNOWFLAKE', 'SPARK', 'SQLSERVER', 'STARBURST', 'TERADATA', 'TIMESTREAM', 'TRINO', 'TWITTER']]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['CREATION_FAILED', 'CREATION_IN_PROGRESS', 'CREATION_SUCCESSFUL', 'DELETED', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS', 'UPDATE_SUCCESSFUL']]
-
-### CreatedTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### LastUpdatedTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### DataSourceParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DataSourceParametersOutputTypeDef]
-
-### AlternateDataSourceParameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.DataSourceParametersOutputTypeDef]]
-
-### VpcConnectionProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.VpcConnectionPropertiesTypeDef]
-
-### SslProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.SslPropertiesTypeDef]
-
-### ErrorInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DataSourceErrorInfoTypeDef]
-
-### SecretArn
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DatabricksParametersTypeDef
 
@@ -5722,17 +6224,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DatasetParameterTypeDef
 
 ### StringDatasetParameter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.StringDatasetParameterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.StringDatasetParameterUnionTypeDef]
 
 ### DecimalDatasetParameter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DecimalDatasetParameterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DecimalDatasetParameterUnionTypeDef]
 
 ### IntegerDatasetParameter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.IntegerDatasetParameterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.IntegerDatasetParameterUnionTypeDef]
 
 ### DateTimeDatasetParameter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DateTimeDatasetParameterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DateTimeDatasetParameterUnionTypeDef]
 
+
+# DatasetParameterUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DateAxisOptionsTypeDef
 
@@ -5786,8 +6294,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DateTimeDatasetParameterDefaultValuesTypeDef
 
 ### StaticValues
-- **Type**: typing.Optional[typing.Sequence[typing.Union[datetime.datetime, str]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.TimestampTypeDef]]
 
+
+# DateTimeDatasetParameterDefaultValuesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DateTimeDatasetParameterOutputTypeDef
 
@@ -5828,8 +6342,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DAY', 'HOUR', 'MILLISECOND', 'MINUTE', 'MONTH', 'QUARTER', 'SECOND', 'WEEK', 'YEAR']]
 
 ### DefaultValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DateTimeDatasetParameterDefaultValuesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DateTimeDatasetParameterDefaultValuesUnionTypeDef]
 
+
+# DateTimeDatasetParameterUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DateTimeDefaultValuesOutputTypeDef
 
@@ -5849,7 +6369,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DynamicDefaultValueTypeDef]
 
 ### StaticValues
-- **Type**: typing.Optional[typing.Sequence[typing.Union[datetime.datetime, str]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.TimestampTypeDef]]
 
 ### RollingDate
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.RollingDateConfigurationTypeDef]
@@ -5943,7 +6463,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[typing.Union[datetime.datetime, str]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.TimestampTypeDef]
 - **Required**: Yes
 
 
@@ -5957,6 +6477,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### InfoIconLabelOptions
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.SheetControlInfoIconLabelOptionsTypeDef]
+
+### HelperTextVisibility
+- **Type**: typing.Optional[typing.Literal['HIDDEN', 'VISIBLE']]
+
+### DateIconVisibility
+- **Type**: typing.Optional[typing.Literal['HIDDEN', 'VISIBLE']]
 
 
 # DateTimeValueWhenUnsetConfigurationOutputTypeDef
@@ -5974,7 +6500,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NULL', 'RECOMMENDED_VALUE']]
 
 ### CustomValue
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TimestampTypeDef]
 
 
 # DecimalDatasetParameterDefaultValuesOutputTypeDef
@@ -5988,6 +6514,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### StaticValues
 - **Type**: typing.Optional[typing.Sequence[float]]
 
+
+# DecimalDatasetParameterDefaultValuesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DecimalDatasetParameterOutputTypeDef
 
@@ -6022,8 +6554,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DefaultValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DecimalDatasetParameterDefaultValuesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DecimalDatasetParameterDefaultValuesUnionTypeDef]
 
+
+# DecimalDatasetParameterUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DecimalDefaultValuesOutputTypeDef
 
@@ -6123,12 +6661,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DefaultDateTimePickerControlOptionsTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['DATE_RANGE', 'SINGLE_VALUED']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### DisplayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DateTimePickerControlDisplayOptionsTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DefaultFilterControlConfigurationOutputTypeDef
 
@@ -6202,51 +6737,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DefaultFilterDropDownControlOptionsOutputTypeDef
 
-### DisplayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DropDownControlDisplayOptionsTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[typing.Literal['MULTI_SELECT', 'SINGLE_SELECT']]
-
-### SelectableValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilterSelectableValuesOutputTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DefaultFilterDropDownControlOptionsTypeDef
 
-### DisplayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DropDownControlDisplayOptionsTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[typing.Literal['MULTI_SELECT', 'SINGLE_SELECT']]
-
-### SelectableValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilterSelectableValuesTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DefaultFilterListControlOptionsOutputTypeDef
 
-### DisplayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ListControlDisplayOptionsTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[typing.Literal['MULTI_SELECT', 'SINGLE_SELECT']]
-
-### SelectableValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilterSelectableValuesOutputTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DefaultFilterListControlOptionsTypeDef
 
-### DisplayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ListControlDisplayOptionsTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[typing.Literal['MULTI_SELECT', 'SINGLE_SELECT']]
-
-### SelectableValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilterSelectableValuesTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DefaultFormattingTypeDef
 
@@ -6303,6 +6814,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### DisplayOptions
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.RelativeDateTimeControlDisplayOptionsTypeDef]
 
+### CommitMode
+- **Type**: typing.Optional[typing.Literal['AUTO', 'MANUAL']]
+
 
 # DefaultSectionBasedLayoutConfigurationTypeDef
 
@@ -6313,24 +6827,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DefaultSliderControlOptionsTypeDef
 
-### MaximumValue
-- **Type**: <class 'float'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### MinimumValue
-- **Type**: <class 'float'>
-- **Required**: Yes
-
-### StepSize
-- **Type**: <class 'float'>
-- **Required**: Yes
-
-### DisplayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.SliderControlDisplayOptionsTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['RANGE', 'SINGLE_POINT']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DefaultTextAreaControlOptionsTypeDef
 
@@ -6347,7 +6846,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TextFieldControlDisplayOptionsTypeDef]
 
 
-# DeleteAccountCustomizationRequestRequestTypeDef
+# DeleteAccountCustomizationRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -6372,7 +6871,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAccountSubscriptionRequestRequestTypeDef
+# DeleteAccountSubscriptionRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -6394,7 +6893,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAnalysisRequestRequestTypeDef
+# DeleteAnalysisRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -6438,7 +6937,77 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDashboardRequestRequestTypeDef
+# DeleteBrandAssignmentRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteBrandAssignmentResponseTypeDef
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DeleteBrandRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### BrandId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteBrandResponseTypeDef
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DeleteCustomPermissionsRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CustomPermissionsName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteCustomPermissionsResponseTypeDef
+
+### Status
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DeleteDashboardRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -6475,7 +7044,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDataSetRefreshPropertiesRequestRequestTypeDef
+# DeleteDataSetRefreshPropertiesRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -6501,7 +7070,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDataSetRequestRequestTypeDef
+# DeleteDataSetRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -6535,7 +7104,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDataSourceRequestRequestTypeDef
+# DeleteDataSourceRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -6569,7 +7138,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteFolderMembershipRequestRequestTypeDef
+# DeleteDefaultQBusinessApplicationRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Namespace
+- **Type**: typing.Optional[str]
+
+
+# DeleteDefaultQBusinessApplicationResponseTypeDef
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DeleteFolderMembershipRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -6603,7 +7197,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteFolderRequestRequestTypeDef
+# DeleteFolderRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -6637,7 +7231,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteGroupMembershipRequestRequestTypeDef
+# DeleteGroupMembershipRequestTypeDef
 
 ### MemberName
 - **Type**: <class 'str'>
@@ -6671,7 +7265,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteGroupRequestRequestTypeDef
+# DeleteGroupRequestTypeDef
 
 ### GroupName
 - **Type**: <class 'str'>
@@ -6701,7 +7295,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteIAMPolicyAssignmentRequestRequestTypeDef
+# DeleteIAMPolicyAssignmentRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -6735,14 +7329,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteIdentityPropagationConfigRequestRequestTypeDef
+# DeleteIdentityPropagationConfigRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Service
-- **Type**: typing.Literal['REDSHIFT']
+- **Type**: typing.Literal['QBUSINESS', 'REDSHIFT']
 - **Required**: Yes
 
 
@@ -6761,7 +7355,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteNamespaceRequestRequestTypeDef
+# DeleteNamespaceRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -6787,7 +7381,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteRefreshScheduleRequestRequestTypeDef
+# DeleteRefreshScheduleRequestTypeDef
 
 ### DataSetId
 - **Type**: <class 'str'>
@@ -6825,7 +7419,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteRoleCustomPermissionRequestRequestTypeDef
+# DeleteRoleCustomPermissionRequestTypeDef
 
 ### Role
 - **Type**: typing.Literal['ADMIN', 'ADMIN_PRO', 'AUTHOR', 'AUTHOR_PRO', 'READER', 'READER_PRO']
@@ -6855,7 +7449,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteRoleMembershipRequestRequestTypeDef
+# DeleteRoleMembershipRequestTypeDef
 
 ### MemberName
 - **Type**: <class 'str'>
@@ -6889,7 +7483,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteTemplateAliasRequestRequestTypeDef
+# DeleteTemplateAliasRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -6931,7 +7525,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteTemplateRequestRequestTypeDef
+# DeleteTemplateRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -6968,7 +7562,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteThemeAliasRequestRequestTypeDef
+# DeleteThemeAliasRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -7010,7 +7604,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteThemeRequestRequestTypeDef
+# DeleteThemeRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -7047,7 +7641,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteTopicRefreshScheduleRequestRequestTypeDef
+# DeleteTopicRefreshScheduleRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -7089,7 +7683,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteTopicRequestRequestTypeDef
+# DeleteTopicRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -7123,7 +7717,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteUserByPrincipalIdRequestRequestTypeDef
+# DeleteUserByPrincipalIdRequestTypeDef
 
 ### PrincipalId
 - **Type**: <class 'str'>
@@ -7153,7 +7747,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteUserRequestRequestTypeDef
+# DeleteUserCustomPermissionRequestTypeDef
+
+### UserName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Namespace
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteUserCustomPermissionResponseTypeDef
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DeleteUserRequestTypeDef
 
 ### UserName
 - **Type**: <class 'str'>
@@ -7183,7 +7807,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteVPCConnectionRequestRequestTypeDef
+# DeleteVPCConnectionRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -7225,7 +7849,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAccountCustomizationRequestRequestTypeDef
+# DescribeAccountCustomizationRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -7269,7 +7893,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAccountSettingsRequestRequestTypeDef
+# DescribeAccountSettingsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -7295,7 +7919,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAccountSubscriptionRequestRequestTypeDef
+# DescribeAccountSubscriptionRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -7321,7 +7945,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAnalysisDefinitionRequestRequestTypeDef
+# DescribeAnalysisDefinitionRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -7371,7 +7995,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAnalysisPermissionsRequestRequestTypeDef
+# DescribeAnalysisPermissionsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -7409,7 +8033,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAnalysisRequestRequestTypeDef
+# DescribeAnalysisRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -7439,7 +8063,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAssetBundleExportJobRequestRequestTypeDef
+# DescribeAssetBundleExportJobRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -7520,12 +8144,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleExportJobWarningTypeDef]
 - **Required**: Yes
 
+### IncludeFolderMemberships
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### IncludeFolderMembers
+- **Type**: typing.Literal['NONE', 'ONE_LEVEL', 'RECURSE']
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
 
-# DescribeAssetBundleImportJobRequestRequestTypeDef
+# DescribeAssetBundleImportJobRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -7607,7 +8239,122 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDashboardDefinitionRequestRequestTypeDef
+# DescribeBrandAssignmentRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeBrandAssignmentResponseTypeDef
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### BrandArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DescribeBrandPublishedVersionRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### BrandId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeBrandPublishedVersionResponseTypeDef
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### BrandDetail
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.BrandDetailTypeDef'>
+- **Required**: Yes
+
+### BrandDefinition
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.BrandDefinitionTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DescribeBrandRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### BrandId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### VersionId
+- **Type**: typing.Optional[str]
+
+
+# DescribeBrandResponseTypeDef
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### BrandDetail
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.BrandDetailTypeDef'>
+- **Required**: Yes
+
+### BrandDefinition
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.BrandDefinitionTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DescribeCustomPermissionsRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CustomPermissionsName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeCustomPermissionsResponseTypeDef
+
+### Status
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### CustomPermissions
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.CustomPermissionsTypeDef'>
+- **Required**: Yes
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DescribeDashboardDefinitionRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -7667,7 +8414,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDashboardPermissionsRequestRequestTypeDef
+# DescribeDashboardPermissionsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -7709,7 +8456,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDashboardRequestRequestTypeDef
+# DescribeDashboardRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -7745,7 +8492,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDashboardSnapshotJobRequestRequestTypeDef
+# DescribeDashboardSnapshotJobRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -7811,7 +8558,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDashboardSnapshotJobResultRequestRequestTypeDef
+# DescribeDashboardSnapshotJobResultRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -7865,7 +8612,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDataSetPermissionsRequestRequestTypeDef
+# DescribeDashboardsQAConfigurationRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeDashboardsQAConfigurationResponseTypeDef
+
+### DashboardsQAStatus
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DescribeDataSetPermissionsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -7903,7 +8676,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDataSetRefreshPropertiesRequestRequestTypeDef
+# DescribeDataSetRefreshPropertiesRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -7933,7 +8706,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDataSetRequestRequestTypeDef
+# DescribeDataSetRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -7963,7 +8736,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDataSourcePermissionsRequestRequestTypeDef
+# DescribeDataSourcePermissionsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -8001,7 +8774,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDataSourceRequestRequestTypeDef
+# DescribeDataSourceRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -8031,7 +8804,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeFolderPermissionsRequestDescribeFolderPermissionsPaginateTypeDef
+# DescribeDefaultQBusinessApplicationRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Namespace
+- **Type**: typing.Optional[str]
+
+
+# DescribeDefaultQBusinessApplicationResponseTypeDef
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### ApplicationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DescribeFolderPermissionsRequestPaginateTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -8048,7 +8850,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
-# DescribeFolderPermissionsRequestRequestTypeDef
+# DescribeFolderPermissionsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -8083,7 +8885,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Permissions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionOutputTypeDef]
 - **Required**: Yes
 
 ### RequestId
@@ -8098,7 +8900,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeFolderRequestRequestTypeDef
+# DescribeFolderRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -8109,7 +8911,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeFolderResolvedPermissionsRequestRequestTypeDef
+# DescribeFolderResolvedPermissionsRequestPaginateTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### FolderId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Namespace
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
+
+
+# DescribeFolderResolvedPermissionsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -8144,7 +8963,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Permissions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionOutputTypeDef]
 - **Required**: Yes
 
 ### RequestId
@@ -8178,7 +8997,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeGroupMembershipRequestRequestTypeDef
+# DescribeGroupMembershipRequestTypeDef
 
 ### MemberName
 - **Type**: <class 'str'>
@@ -8216,7 +9035,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeGroupRequestRequestTypeDef
+# DescribeGroupRequestTypeDef
 
 ### GroupName
 - **Type**: <class 'str'>
@@ -8250,7 +9069,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeIAMPolicyAssignmentRequestRequestTypeDef
+# DescribeIAMPolicyAssignmentRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -8284,7 +9103,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeIngestionRequestRequestTypeDef
+# DescribeIngestionRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -8318,7 +9137,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeIpRestrictionRequestRequestTypeDef
+# DescribeIpRestrictionRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -8360,7 +9179,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeKeyRegistrationRequestRequestTypeDef
+# DescribeKeyRegistrationRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -8393,7 +9212,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeNamespaceRequestRequestTypeDef
+# DescribeNamespaceRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -8423,7 +9242,59 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeRefreshScheduleRequestRequestTypeDef
+# DescribeQPersonalizationConfigurationRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeQPersonalizationConfigurationResponseTypeDef
+
+### PersonalizationMode
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DescribeQuickSightQSearchConfigurationRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeQuickSightQSearchConfigurationResponseTypeDef
+
+### QSearchStatus
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DescribeRefreshScheduleRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -8461,7 +9332,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeRoleCustomPermissionRequestRequestTypeDef
+# DescribeRoleCustomPermissionRequestTypeDef
 
 ### Role
 - **Type**: typing.Literal['ADMIN', 'ADMIN_PRO', 'AUTHOR', 'AUTHOR_PRO', 'READER', 'READER_PRO']
@@ -8495,7 +9366,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeTemplateAliasRequestRequestTypeDef
+# DescribeTemplateAliasRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -8529,7 +9400,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeTemplateDefinitionRequestRequestTypeDef
+# DescribeTemplateDefinitionRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -8585,7 +9456,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeTemplatePermissionsRequestRequestTypeDef
+# DescribeTemplatePermissionsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -8623,7 +9494,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeTemplateRequestRequestTypeDef
+# DescribeTemplateRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -8659,7 +9530,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeThemeAliasRequestRequestTypeDef
+# DescribeThemeAliasRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -8693,7 +9564,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeThemePermissionsRequestRequestTypeDef
+# DescribeThemePermissionsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -8731,7 +9602,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeThemeRequestRequestTypeDef
+# DescribeThemeRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -8767,7 +9638,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeTopicPermissionsRequestRequestTypeDef
+# DescribeTopicPermissionsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -8805,7 +9676,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeTopicRefreshRequestRequestTypeDef
+# DescribeTopicRefreshRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -8839,7 +9710,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeTopicRefreshScheduleRequestRequestTypeDef
+# DescribeTopicRefreshScheduleRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -8885,7 +9756,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeTopicRequestRequestTypeDef
+# DescribeTopicRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -8923,7 +9794,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeUserRequestRequestTypeDef
+# DescribeUserRequestTypeDef
 
 ### UserName
 - **Type**: <class 'str'>
@@ -8957,7 +9828,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeVPCConnectionRequestRequestTypeDef
+# DescribeVPCConnectionRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -9065,7 +9936,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### UnitScaler
-- **Type**: typing.Optional[typing.Literal['AUTO', 'BILLIONS', 'MILLIONS', 'NONE', 'THOUSANDS', 'TRILLIONS']]
+- **Type**: typing.Optional[typing.Literal['AUTO', 'BILLIONS', 'CRORES', 'LAKHS', 'MILLIONS', 'NONE', 'THOUSANDS', 'TRILLIONS']]
 
 ### NegativeFormat
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.NegativeFormatTypeDef]
@@ -9174,12 +10045,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ErrorInfoTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['ACCOUNT_CAPACITY_LIMIT_EXCEEDED', 'CONNECTION_FAILURE', 'CURSOR_NOT_ENABLED', 'CUSTOMER_ERROR', 'DATA_SET_DELETED', 'DATA_SET_NOT_SPICE', 'DATA_SET_SIZE_LIMIT_EXCEEDED', 'DATA_SOURCE_AUTH_FAILED', 'DATA_SOURCE_CONNECTION_FAILED', 'DATA_SOURCE_NOT_FOUND', 'DATA_TOLERANCE_EXCEPTION', 'DUPLICATE_COLUMN_NAMES_FOUND', 'ELASTICSEARCH_CURSOR_NOT_ENABLED', 'FAILURE_TO_ASSUME_ROLE', 'FAILURE_TO_PROCESS_JSON_FILE', 'IAM_ROLE_NOT_AVAILABLE', 'INGESTION_CANCELED', 'INGESTION_SUPERSEDED', 'INTERNAL_SERVICE_ERROR', 'INVALID_DATAPREP_SYNTAX', 'INVALID_DATA_SOURCE_CONFIG', 'INVALID_DATE_FORMAT', 'IOT_DATA_SET_FILE_EMPTY', 'IOT_FILE_NOT_FOUND', 'OAUTH_TOKEN_FAILURE', 'PASSWORD_AUTHENTICATION_FAILURE', 'PERMISSION_DENIED', 'PERMISSION_NOT_FOUND', 'QUERY_TIMEOUT', 'REFRESH_SUPPRESSED_BY_EDIT', 'ROW_SIZE_LIMIT_EXCEEDED', 'S3_FILE_INACCESSIBLE', 'S3_MANIFEST_ERROR', 'S3_UPLOADED_FILE_DELETED', 'SOURCE_API_LIMIT_EXCEEDED_FAILURE', 'SOURCE_RESOURCE_LIMIT_EXCEEDED', 'SPICE_TABLE_NOT_FOUND', 'SQL_EXCEPTION', 'SQL_INVALID_PARAMETER_VALUE', 'SQL_NUMERIC_OVERFLOW', 'SQL_SCHEMA_MISMATCH_ERROR', 'SQL_TABLE_NOT_FOUND', 'SSL_CERTIFICATE_VALIDATION_FAILURE', 'UNRESOLVABLE_HOST', 'UNROUTABLE_HOST']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Message
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ExasolParametersTypeDef
 
@@ -9311,6 +10179,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### columns
 - **Type**: typing.Optional[typing.Sequence[str]]
 
+
+# FieldFolderUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FieldLabelTypeTypeDef
 
@@ -9533,6 +10407,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Actions
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.VisualCustomActionOutputTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # FilledMapVisualTypeDef
 
@@ -9558,60 +10435,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Actions
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.VisualCustomActionTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
+
+# FilterAggMetricsTypeDef
+
+### MetricOperand
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.IdentifierTypeDef]
+
+### Function
+- **Type**: typing.Optional[typing.Literal['AVERAGE', 'COLUMN', 'COUNT', 'CUSTOM', 'DISTINCT_COUNT', 'MAX', 'MEDIAN', 'MIN', 'PERCENTILE', 'PTD_AVERAGE', 'PTD_COUNT', 'PTD_DISTINCT_COUNT', 'PTD_MAX', 'PTD_MIN', 'PTD_SUM', 'STDEV', 'STDEVP', 'SUM', 'VAR', 'VARP']]
+
+### SortDirection
+- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
+
 
 # FilterControlOutputTypeDef
 
-### DateTimePicker
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilterDateTimePickerControlTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### List
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilterListControlOutputTypeDef]
-
-### Dropdown
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilterDropDownControlOutputTypeDef]
-
-### TextField
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilterTextFieldControlTypeDef]
-
-### TextArea
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilterTextAreaControlTypeDef]
-
-### Slider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilterSliderControlTypeDef]
-
-### RelativeDateTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilterRelativeDateTimeControlTypeDef]
-
-### CrossSheet
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilterCrossSheetControlOutputTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FilterControlTypeDef
 
-### DateTimePicker
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilterDateTimePickerControlTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### List
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilterListControlTypeDef]
-
-### Dropdown
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilterDropDownControlTypeDef]
-
-### TextField
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilterTextFieldControlTypeDef]
-
-### TextArea
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilterTextAreaControlTypeDef]
-
-### Slider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilterSliderControlTypeDef]
-
-### RelativeDateTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilterRelativeDateTimeControlTypeDef]
-
-### CrossSheet
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilterCrossSheetControlTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FilterCrossSheetControlOutputTypeDef
 
@@ -9636,81 +10486,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### SourceFilterId
 - **Type**: <class 'str'>
 - **Required**: Yes
-
-### CascadingControlConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CascadingControlConfigurationTypeDef]
-
-
-# FilterDateTimePickerControlTypeDef
-
-### FilterControlId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Title
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SourceFilterId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DisplayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DateTimePickerControlDisplayOptionsTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['DATE_RANGE', 'SINGLE_VALUED']]
-
-
-# FilterDropDownControlOutputTypeDef
-
-### FilterControlId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Title
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SourceFilterId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DisplayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DropDownControlDisplayOptionsTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['MULTI_SELECT', 'SINGLE_SELECT']]
-
-### SelectableValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilterSelectableValuesOutputTypeDef]
-
-### CascadingControlConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CascadingControlConfigurationOutputTypeDef]
-
-
-# FilterDropDownControlTypeDef
-
-### FilterControlId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Title
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SourceFilterId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DisplayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DropDownControlDisplayOptionsTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['MULTI_SELECT', 'SINGLE_SELECT']]
-
-### SelectableValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilterSelectableValuesTypeDef]
 
 ### CascadingControlConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CascadingControlConfigurationTypeDef]
@@ -9790,60 +10565,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### NullOption
 - **Type**: typing.Optional[typing.Literal['ALL_VALUES', 'NON_NULLS_ONLY', 'NULLS_ONLY']]
-
-
-# FilterListControlOutputTypeDef
-
-### FilterControlId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Title
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SourceFilterId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DisplayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ListControlDisplayOptionsTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['MULTI_SELECT', 'SINGLE_SELECT']]
-
-### SelectableValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilterSelectableValuesOutputTypeDef]
-
-### CascadingControlConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CascadingControlConfigurationOutputTypeDef]
-
-
-# FilterListControlTypeDef
-
-### FilterControlId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Title
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SourceFilterId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DisplayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ListControlDisplayOptionsTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['MULTI_SELECT', 'SINGLE_SELECT']]
-
-### SelectableValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilterSelectableValuesTypeDef]
-
-### CascadingControlConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CascadingControlConfigurationTypeDef]
 
 
 # FilterOperationSelectedFieldsConfigurationOutputTypeDef
@@ -9933,6 +10654,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### DisplayOptions
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.RelativeDateTimeControlDisplayOptionsTypeDef]
 
+### CommitMode
+- **Type**: typing.Optional[typing.Literal['AUTO', 'MANUAL']]
+
 
 # FilterScopeConfigurationOutputTypeDef
 
@@ -9962,39 +10686,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Values
 - **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# FilterSliderControlTypeDef
-
-### FilterControlId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Title
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SourceFilterId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### MaximumValue
-- **Type**: <class 'float'>
-- **Required**: Yes
-
-### MinimumValue
-- **Type**: <class 'float'>
-- **Required**: Yes
-
-### StepSize
-- **Type**: <class 'float'>
-- **Required**: Yes
-
-### DisplayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.SliderControlDisplayOptionsTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['RANGE', 'SINGLE_POINT']]
 
 
 # FilterTextAreaControlTypeDef
@@ -10152,11 +10843,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### FontStyle
 - **Type**: typing.Optional[typing.Literal['ITALIC', 'NORMAL']]
 
+### FontFamily
+- **Type**: typing.Optional[str]
+
 
 # FontSizeTypeDef
 
 ### Relative
 - **Type**: typing.Optional[typing.Literal['EXTRA_LARGE', 'EXTRA_SMALL', 'LARGE', 'MEDIUM', 'SMALL']]
+
+### Absolute
+- **Type**: typing.Optional[str]
 
 
 # FontTypeDef
@@ -10307,7 +11004,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ElementType
-- **Type**: typing.Literal['FILTER_CONTROL', 'PARAMETER_CONTROL', 'TEXT_BOX', 'VISUAL']
+- **Type**: typing.Literal['FILTER_CONTROL', 'IMAGE', 'PARAMETER_CONTROL', 'TEXT_BOX', 'VISUAL']
 - **Required**: Yes
 
 ### XAxisLocation
@@ -10352,7 +11049,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ElementType
-- **Type**: typing.Literal['FILTER_CONTROL', 'PARAMETER_CONTROL', 'TEXT_BOX', 'VISUAL']
+- **Type**: typing.Literal['FILTER_CONTROL', 'IMAGE', 'PARAMETER_CONTROL', 'TEXT_BOX', 'VISUAL']
 - **Required**: Yes
 
 ### XAxisLocation
@@ -10558,6 +11255,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ColumnHierarchies
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.ColumnHierarchyOutputTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # FunnelChartVisualTypeDef
 
@@ -10579,6 +11279,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ColumnHierarchies
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ColumnHierarchyTypeDef]]
+
+### VisualContentAltText
+- **Type**: typing.Optional[str]
 
 
 # GaugeChartArcConditionalFormattingOutputTypeDef
@@ -10755,6 +11458,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Actions
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.VisualCustomActionOutputTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # GaugeChartVisualTypeDef
 
@@ -10777,8 +11483,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Actions
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.VisualCustomActionTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
 
-# GenerateEmbedUrlForAnonymousUserRequestRequestTypeDef
+
+# GenerateEmbedUrlForAnonymousUserRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -10829,7 +11538,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GenerateEmbedUrlForRegisteredUserRequestRequestTypeDef
+# GenerateEmbedUrlForRegisteredUserRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -10869,6 +11578,69 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# GenerateEmbedUrlForRegisteredUserWithIdentityRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ExperienceConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.RegisteredUserEmbeddingExperienceConfigurationTypeDef'>
+- **Required**: Yes
+
+### SessionLifetimeInMinutes
+- **Type**: typing.Optional[int]
+
+### AllowedDomains
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# GenerateEmbedUrlForRegisteredUserWithIdentityResponseTypeDef
+
+### EmbedUrl
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GeneratedAnswerResultTypeDef
+
+### QuestionText
+- **Type**: typing.Optional[str]
+
+### AnswerStatus
+- **Type**: typing.Optional[typing.Literal['ANSWER_DOWNGRADE', 'ANSWER_GENERATED', 'ANSWER_RETRIEVED']]
+
+### TopicId
+- **Type**: typing.Optional[str]
+
+### TopicName
+- **Type**: typing.Optional[str]
+
+### Restatement
+- **Type**: typing.Optional[str]
+
+### QuestionId
+- **Type**: typing.Optional[str]
+
+### AnswerId
+- **Type**: typing.Optional[str]
+
+### QuestionUrl
+- **Type**: typing.Optional[str]
+
+
 # GeoSpatialColumnGroupOutputTypeDef
 
 ### Name
@@ -10897,6 +11669,115 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['US']]
 
 
+# GeoSpatialColumnGroupUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# GeospatialCategoricalColorOutputTypeDef
+
+### CategoryDataColors
+- **Type**: typing.List[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialCategoricalDataColorTypeDef]
+- **Required**: Yes
+
+### NullDataVisibility
+- **Type**: typing.Optional[typing.Literal['HIDDEN', 'VISIBLE']]
+
+### NullDataSettings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialNullDataSettingsTypeDef]
+
+### DefaultOpacity
+- **Type**: typing.Optional[float]
+
+
+# GeospatialCategoricalColorTypeDef
+
+### CategoryDataColors
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialCategoricalDataColorTypeDef]
+- **Required**: Yes
+
+### NullDataVisibility
+- **Type**: typing.Optional[typing.Literal['HIDDEN', 'VISIBLE']]
+
+### NullDataSettings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialNullDataSettingsTypeDef]
+
+### DefaultOpacity
+- **Type**: typing.Optional[float]
+
+
+# GeospatialCategoricalDataColorTypeDef
+
+### Color
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DataValue
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GeospatialCircleRadiusTypeDef
+
+### Radius
+- **Type**: typing.Optional[float]
+
+
+# GeospatialCircleSymbolStyleOutputTypeDef
+
+### FillColor
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialColorOutputTypeDef]
+
+### StrokeColor
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialColorOutputTypeDef]
+
+### StrokeWidth
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialLineWidthTypeDef]
+
+### CircleRadius
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialCircleRadiusTypeDef]
+
+
+# GeospatialCircleSymbolStyleTypeDef
+
+### FillColor
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialColorTypeDef]
+
+### StrokeColor
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialColorTypeDef]
+
+### StrokeWidth
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialLineWidthTypeDef]
+
+### CircleRadius
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialCircleRadiusTypeDef]
+
+
+# GeospatialColorOutputTypeDef
+
+### Solid
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialSolidColorTypeDef]
+
+### Gradient
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialGradientColorOutputTypeDef]
+
+### Categorical
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialCategoricalColorOutputTypeDef]
+
+
+# GeospatialColorTypeDef
+
+### Solid
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialSolidColorTypeDef]
+
+### Gradient
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialGradientColorTypeDef]
+
+### Categorical
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialCategoricalColorTypeDef]
+
+
 # GeospatialCoordinateBoundsTypeDef
 
 ### North
@@ -10912,6 +11793,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### East
+- **Type**: <class 'float'>
+- **Required**: Yes
+
+
+# GeospatialDataSourceItemTypeDef
+
+### StaticFileDataSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialStaticFileSourceTypeDef]
+
+
+# GeospatialGradientColorOutputTypeDef
+
+### StepColors
+- **Type**: typing.List[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialGradientStepColorTypeDef]
+- **Required**: Yes
+
+### NullDataVisibility
+- **Type**: typing.Optional[typing.Literal['HIDDEN', 'VISIBLE']]
+
+### NullDataSettings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialNullDataSettingsTypeDef]
+
+### DefaultOpacity
+- **Type**: typing.Optional[float]
+
+
+# GeospatialGradientColorTypeDef
+
+### StepColors
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialGradientStepColorTypeDef]
+- **Required**: Yes
+
+### NullDataVisibility
+- **Type**: typing.Optional[typing.Literal['HIDDEN', 'VISIBLE']]
+
+### NullDataSettings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialNullDataSettingsTypeDef]
+
+### DefaultOpacity
+- **Type**: typing.Optional[float]
+
+
+# GeospatialGradientStepColorTypeDef
+
+### Color
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DataValue
 - **Type**: <class 'float'>
 - **Required**: Yes
 
@@ -10945,6 +11875,220 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Color
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+
+# GeospatialLayerColorFieldOutputTypeDef
+
+### ColorDimensionsFields
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.DimensionFieldTypeDef]]
+
+### ColorValuesFields
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.MeasureFieldTypeDef]]
+
+
+# GeospatialLayerColorFieldTypeDef
+
+### ColorDimensionsFields
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.DimensionFieldTypeDef]]
+
+### ColorValuesFields
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.MeasureFieldTypeDef]]
+
+
+# GeospatialLayerDefinitionOutputTypeDef
+
+### PointLayer
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialPointLayerOutputTypeDef]
+
+### LineLayer
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialLineLayerOutputTypeDef]
+
+### PolygonLayer
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialPolygonLayerOutputTypeDef]
+
+
+# GeospatialLayerDefinitionTypeDef
+
+### PointLayer
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialPointLayerTypeDef]
+
+### LineLayer
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialLineLayerTypeDef]
+
+### PolygonLayer
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialPolygonLayerTypeDef]
+
+
+# GeospatialLayerItemOutputTypeDef
+
+### LayerId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### LayerType
+- **Type**: typing.Optional[typing.Literal['LINE', 'POINT', 'POLYGON']]
+
+### DataSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialDataSourceItemTypeDef]
+
+### Label
+- **Type**: typing.Optional[str]
+
+### Visibility
+- **Type**: typing.Optional[typing.Literal['HIDDEN', 'VISIBLE']]
+
+### LayerDefinition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialLayerDefinitionOutputTypeDef]
+
+### Tooltip
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TooltipOptionsOutputTypeDef]
+
+### JoinDefinition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialLayerJoinDefinitionOutputTypeDef]
+
+### Actions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.LayerCustomActionOutputTypeDef]]
+
+
+# GeospatialLayerItemTypeDef
+
+### LayerId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### LayerType
+- **Type**: typing.Optional[typing.Literal['LINE', 'POINT', 'POLYGON']]
+
+### DataSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialDataSourceItemTypeDef]
+
+### Label
+- **Type**: typing.Optional[str]
+
+### Visibility
+- **Type**: typing.Optional[typing.Literal['HIDDEN', 'VISIBLE']]
+
+### LayerDefinition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialLayerDefinitionTypeDef]
+
+### Tooltip
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TooltipOptionsTypeDef]
+
+### JoinDefinition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialLayerJoinDefinitionTypeDef]
+
+### Actions
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.LayerCustomActionTypeDef]]
+
+
+# GeospatialLayerJoinDefinitionOutputTypeDef
+
+### ShapeKeyField
+- **Type**: typing.Optional[str]
+
+### DatasetKeyField
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.UnaggregatedFieldTypeDef]
+
+### ColorField
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialLayerColorFieldOutputTypeDef]
+
+
+# GeospatialLayerJoinDefinitionTypeDef
+
+### ShapeKeyField
+- **Type**: typing.Optional[str]
+
+### DatasetKeyField
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.UnaggregatedFieldTypeDef]
+
+### ColorField
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialLayerColorFieldTypeDef]
+
+
+# GeospatialLayerMapConfigurationOutputTypeDef
+
+### Legend
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.LegendOptionsTypeDef]
+
+### MapLayers
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialLayerItemOutputTypeDef]]
+
+### MapState
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialMapStateTypeDef]
+
+### MapStyle
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialMapStyleTypeDef]
+
+### Interactions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.VisualInteractionOptionsTypeDef]
+
+
+# GeospatialLayerMapConfigurationTypeDef
+
+### Legend
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.LegendOptionsTypeDef]
+
+### MapLayers
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialLayerItemTypeDef]]
+
+### MapState
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialMapStateTypeDef]
+
+### MapStyle
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialMapStyleTypeDef]
+
+### Interactions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.VisualInteractionOptionsTypeDef]
+
+
+# GeospatialLineLayerOutputTypeDef
+
+### Style
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.GeospatialLineStyleOutputTypeDef'>
+- **Required**: Yes
+
+
+# GeospatialLineLayerTypeDef
+
+### Style
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.GeospatialLineStyleTypeDef'>
+- **Required**: Yes
+
+
+# GeospatialLineStyleOutputTypeDef
+
+### LineSymbolStyle
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialLineSymbolStyleOutputTypeDef]
+
+
+# GeospatialLineStyleTypeDef
+
+### LineSymbolStyle
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialLineSymbolStyleTypeDef]
+
+
+# GeospatialLineSymbolStyleOutputTypeDef
+
+### FillColor
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialColorOutputTypeDef]
+
+### LineWidth
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialLineWidthTypeDef]
+
+
+# GeospatialLineSymbolStyleTypeDef
+
+### FillColor
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialColorTypeDef]
+
+### LineWidth
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialLineWidthTypeDef]
+
+
+# GeospatialLineWidthTypeDef
+
+### LineWidth
+- **Type**: typing.Optional[float]
 
 
 # GeospatialMapAggregatedFieldWellsOutputTypeDef
@@ -11037,10 +12181,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialMapAggregatedFieldWellsTypeDef]
 
 
+# GeospatialMapStateTypeDef
+
+### Bounds
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialCoordinateBoundsTypeDef]
+
+### MapNavigation
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+
 # GeospatialMapStyleOptionsTypeDef
 
 ### BaseMapStyle
 - **Type**: typing.Optional[typing.Literal['DARK_GRAY', 'IMAGERY', 'LIGHT_GRAY', 'STREET']]
+
+
+# GeospatialMapStyleTypeDef
+
+### BaseMapStyle
+- **Type**: typing.Optional[typing.Literal['DARK_GRAY', 'IMAGERY', 'LIGHT_GRAY', 'STREET']]
+
+### BackgroundColor
+- **Type**: typing.Optional[str]
+
+### BaseMapVisibility
+- **Type**: typing.Optional[typing.Literal['HIDDEN', 'VISIBLE']]
 
 
 # GeospatialMapVisualOutputTypeDef
@@ -11064,6 +12229,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Actions
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.VisualCustomActionOutputTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # GeospatialMapVisualTypeDef
 
@@ -11085,6 +12253,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Actions
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.VisualCustomActionTypeDef]]
+
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
+
+# GeospatialNullDataSettingsTypeDef
+
+### SymbolStyle
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.GeospatialNullSymbolStyleTypeDef'>
+- **Required**: Yes
+
+
+# GeospatialNullSymbolStyleTypeDef
+
+### FillColor
+- **Type**: typing.Optional[str]
+
+### StrokeColor
+- **Type**: typing.Optional[str]
+
+### StrokeWidth
+- **Type**: typing.Optional[float]
+
+
+# GeospatialPointLayerOutputTypeDef
+
+### Style
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.GeospatialPointStyleOutputTypeDef'>
+- **Required**: Yes
+
+
+# GeospatialPointLayerTypeDef
+
+### Style
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.GeospatialPointStyleTypeDef'>
+- **Required**: Yes
 
 
 # GeospatialPointStyleOptionsOutputTypeDef
@@ -11111,6 +12315,85 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialHeatmapConfigurationTypeDef]
 
 
+# GeospatialPointStyleOutputTypeDef
+
+### CircleSymbolStyle
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialCircleSymbolStyleOutputTypeDef]
+
+
+# GeospatialPointStyleTypeDef
+
+### CircleSymbolStyle
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialCircleSymbolStyleTypeDef]
+
+
+# GeospatialPolygonLayerOutputTypeDef
+
+### Style
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.GeospatialPolygonStyleOutputTypeDef'>
+- **Required**: Yes
+
+
+# GeospatialPolygonLayerTypeDef
+
+### Style
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.GeospatialPolygonStyleTypeDef'>
+- **Required**: Yes
+
+
+# GeospatialPolygonStyleOutputTypeDef
+
+### PolygonSymbolStyle
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialPolygonSymbolStyleOutputTypeDef]
+
+
+# GeospatialPolygonStyleTypeDef
+
+### PolygonSymbolStyle
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialPolygonSymbolStyleTypeDef]
+
+
+# GeospatialPolygonSymbolStyleOutputTypeDef
+
+### FillColor
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialColorOutputTypeDef]
+
+### StrokeColor
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialColorOutputTypeDef]
+
+### StrokeWidth
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialLineWidthTypeDef]
+
+
+# GeospatialPolygonSymbolStyleTypeDef
+
+### FillColor
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialColorTypeDef]
+
+### StrokeColor
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialColorTypeDef]
+
+### StrokeWidth
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialLineWidthTypeDef]
+
+
+# GeospatialSolidColorTypeDef
+
+### Color
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### State
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+
+# GeospatialStaticFileSourceTypeDef
+
+### StaticFileId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
 # GeospatialWindowOptionsTypeDef
 
 ### Bounds
@@ -11120,7 +12403,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AUTO', 'MANUAL']]
 
 
-# GetDashboardEmbedUrlRequestRequestTypeDef
+# GetDashboardEmbedUrlRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -11175,7 +12458,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSessionEmbedUrlRequestRequestTypeDef
+# GetSessionEmbedUrlRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -11277,7 +12560,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ElementType
-- **Type**: typing.Literal['FILTER_CONTROL', 'PARAMETER_CONTROL', 'TEXT_BOX', 'VISUAL']
+- **Type**: typing.Literal['FILTER_CONTROL', 'IMAGE', 'PARAMETER_CONTROL', 'TEXT_BOX', 'VISUAL']
 - **Required**: Yes
 
 ### ColumnSpan
@@ -11544,6 +12827,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Actions
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.VisualCustomActionOutputTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # HeatMapVisualTypeDef
 
@@ -11565,6 +12851,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Actions
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.VisualCustomActionTypeDef]]
+
+### VisualContentAltText
+- **Type**: typing.Optional[str]
 
 
 # HistogramAggregatedFieldWellsOutputTypeDef
@@ -11684,6 +12973,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Actions
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.VisualCustomActionOutputTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # HistogramVisualTypeDef
 
@@ -11702,6 +12994,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Actions
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.VisualCustomActionTypeDef]]
+
+### VisualContentAltText
+- **Type**: typing.Optional[str]
 
 
 # IAMPolicyAssignmentSummaryTypeDef
@@ -11734,10 +13029,151 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'DRAFT', 'ENABLED']]
 
 
+# IdentifierTypeDef
+
+### Identity
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
 # IdentityCenterConfigurationTypeDef
 
 ### EnableIdentityPropagation
 - **Type**: typing.Optional[bool]
+
+
+# ImageConfigurationTypeDef
+
+### Source
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ImageSourceTypeDef]
+
+
+# ImageCustomActionOperationOutputTypeDef
+
+### NavigationOperation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CustomActionNavigationOperationTypeDef]
+
+### URLOperation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CustomActionURLOperationTypeDef]
+
+### SetParametersOperation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CustomActionSetParametersOperationOutputTypeDef]
+
+
+# ImageCustomActionOperationTypeDef
+
+### NavigationOperation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CustomActionNavigationOperationTypeDef]
+
+### URLOperation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CustomActionURLOperationTypeDef]
+
+### SetParametersOperation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CustomActionSetParametersOperationTypeDef]
+
+
+# ImageCustomActionOutputTypeDef
+
+### CustomActionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Trigger
+- **Type**: typing.Literal['CLICK', 'MENU']
+- **Required**: Yes
+
+### ActionOperations
+- **Type**: typing.List[aws_resource_validator.pydantic_models.quicksight_classes.ImageCustomActionOperationOutputTypeDef]
+- **Required**: Yes
+
+### Status
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+
+# ImageCustomActionTypeDef
+
+### CustomActionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Trigger
+- **Type**: typing.Literal['CLICK', 'MENU']
+- **Required**: Yes
+
+### ActionOperations
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ImageCustomActionOperationTypeDef]
+- **Required**: Yes
+
+### Status
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+
+# ImageInteractionOptionsTypeDef
+
+### ImageMenuOption
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ImageMenuOptionTypeDef]
+
+
+# ImageMenuOptionTypeDef
+
+### AvailabilityStatus
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+
+# ImageSetConfigurationTypeDef
+
+### Original
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ImageConfigurationTypeDef'>
+- **Required**: Yes
+
+
+# ImageSetTypeDef
+
+### Original
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ImageTypeDef'>
+- **Required**: Yes
+
+### Height64
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ImageTypeDef]
+
+### Height32
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ImageTypeDef]
+
+
+# ImageSourceTypeDef
+
+### PublicUrl
+- **Type**: typing.Optional[str]
+
+### S3Uri
+- **Type**: typing.Optional[str]
+
+
+# ImageStaticFileTypeDef
+
+### StaticFileId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Source
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.StaticFileSourceTypeDef]
+
+
+# ImageTypeDef
+
+### Source
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ImageSourceTypeDef]
+
+### GeneratedImageUrl
+- **Type**: typing.Optional[str]
 
 
 # IncrementalRefreshTypeDef
@@ -11800,17 +13236,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # InputColumnTypeDef
 
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Literal['BIT', 'BOOLEAN', 'DATETIME', 'DECIMAL', 'INTEGER', 'JSON', 'STRING']
-- **Required**: Yes
-
-### SubType
-- **Type**: typing.Optional[typing.Literal['FIXED', 'FLOAT']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # InsightConfigurationOutputTypeDef
 
@@ -11858,6 +13286,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Actions
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.VisualCustomActionOutputTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # InsightVisualTypeDef
 
@@ -11881,6 +13312,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Actions
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.VisualCustomActionTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # IntegerDatasetParameterDefaultValuesOutputTypeDef
 
@@ -11893,6 +13327,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### StaticValues
 - **Type**: typing.Optional[typing.Sequence[int]]
 
+
+# IntegerDatasetParameterDefaultValuesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # IntegerDatasetParameterOutputTypeDef
 
@@ -11927,8 +13367,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DefaultValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.IntegerDatasetParameterDefaultValuesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.IntegerDatasetParameterDefaultValuesUnionTypeDef]
 
+
+# IntegerDatasetParameterUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # IntegerDefaultValuesOutputTypeDef
 
@@ -12019,6 +13465,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
+# InvalidTopicReviewedAnswerTypeDef
+
+### AnswerId
+- **Type**: typing.Optional[str]
+
+### Error
+- **Type**: typing.Optional[typing.Literal['DATASET_DOES_NOT_EXIST', 'DUPLICATED_ANSWER', 'INTERNAL_ERROR', 'INVALID_DATA', 'INVALID_DATASET_ARN', 'MISSING_ANSWER', 'MISSING_REQUIRED_FIELDS']]
+
+
 # ItemsLimitConfigurationTypeDef
 
 ### ItemsLimit
@@ -12037,28 +13492,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # JoinInstructionTypeDef
 
-### LeftOperand
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### RightOperand
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['INNER', 'LEFT', 'OUTER', 'RIGHT']
-- **Required**: Yes
-
-### OnClause
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### LeftJoinKeyProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.JoinKeyPropertiesTypeDef]
-
-### RightJoinKeyProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.JoinKeyPropertiesTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # JoinKeyPropertiesTypeDef
 
@@ -12272,19 +13708,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # KPISparklineOptionsTypeDef
 
-### Type
-- **Type**: typing.Literal['AREA', 'LINE']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Visibility
-- **Type**: typing.Optional[typing.Literal['HIDDEN', 'VISIBLE']]
-
-### Color
-- **Type**: typing.Optional[str]
-
-### TooltipVisibility
-- **Type**: typing.Optional[typing.Literal['HIDDEN', 'VISIBLE']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # KPIVisualLayoutOptionsTypeDef
 
@@ -12316,13 +13742,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ColumnHierarchies
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.ColumnHierarchyOutputTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # KPIVisualStandardLayoutTypeDef
 
-### Type
-- **Type**: typing.Literal['CLASSIC', 'VERTICAL']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # KPIVisualTypeDef
 
@@ -12348,6 +13776,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ColumnHierarchies
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ColumnHierarchyTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # LabelOptionsTypeDef
 
@@ -12358,6 +13789,126 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FontConfigurationTypeDef]
 
 ### CustomLabel
+- **Type**: typing.Optional[str]
+
+
+# LayerCustomActionOperationOutputTypeDef
+
+### FilterOperation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CustomActionFilterOperationOutputTypeDef]
+
+### NavigationOperation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CustomActionNavigationOperationTypeDef]
+
+### URLOperation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CustomActionURLOperationTypeDef]
+
+### SetParametersOperation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CustomActionSetParametersOperationOutputTypeDef]
+
+
+# LayerCustomActionOperationTypeDef
+
+### FilterOperation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CustomActionFilterOperationTypeDef]
+
+### NavigationOperation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CustomActionNavigationOperationTypeDef]
+
+### URLOperation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CustomActionURLOperationTypeDef]
+
+### SetParametersOperation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CustomActionSetParametersOperationTypeDef]
+
+
+# LayerCustomActionOutputTypeDef
+
+### CustomActionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Trigger
+- **Type**: typing.Literal['DATA_POINT_CLICK', 'DATA_POINT_MENU']
+- **Required**: Yes
+
+### ActionOperations
+- **Type**: typing.List[aws_resource_validator.pydantic_models.quicksight_classes.LayerCustomActionOperationOutputTypeDef]
+- **Required**: Yes
+
+### Status
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+
+# LayerCustomActionTypeDef
+
+### CustomActionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Trigger
+- **Type**: typing.Literal['DATA_POINT_CLICK', 'DATA_POINT_MENU']
+- **Required**: Yes
+
+### ActionOperations
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.LayerCustomActionOperationTypeDef]
+- **Required**: Yes
+
+### Status
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+
+# LayerMapVisualOutputTypeDef
+
+### VisualId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DataSetIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Title
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.VisualTitleLabelOptionsTypeDef]
+
+### Subtitle
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.VisualSubtitleLabelOptionsTypeDef]
+
+### ChartConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialLayerMapConfigurationOutputTypeDef]
+
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
+
+# LayerMapVisualTypeDef
+
+### VisualId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DataSetIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Title
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.VisualTitleLabelOptionsTypeDef]
+
+### Subtitle
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.VisualSubtitleLabelOptionsTypeDef]
+
+### ChartConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeospatialLayerMapConfigurationTypeDef]
+
+### VisualContentAltText
 - **Type**: typing.Optional[str]
 
 
@@ -12416,6 +13967,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Height
 - **Type**: typing.Optional[str]
 
+### ValueFontConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FontConfigurationTypeDef]
+
 
 # LineChartAggregatedFieldWellsOutputTypeDef
 
@@ -12449,135 +14003,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # LineChartConfigurationOutputTypeDef
 
-### FieldWells
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.LineChartFieldWellsOutputTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### SortConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.LineChartSortConfigurationOutputTypeDef]
-
-### ForecastConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.ForecastConfigurationOutputTypeDef]]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['AREA', 'LINE', 'STACKED_AREA']]
-
-### SmallMultiplesOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.SmallMultiplesOptionsTypeDef]
-
-### XAxisDisplayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AxisDisplayOptionsOutputTypeDef]
-
-### XAxisLabelOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ChartAxisLabelOptionsOutputTypeDef]
-
-### PrimaryYAxisDisplayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.LineSeriesAxisDisplayOptionsOutputTypeDef]
-
-### PrimaryYAxisLabelOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ChartAxisLabelOptionsOutputTypeDef]
-
-### SecondaryYAxisDisplayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.LineSeriesAxisDisplayOptionsOutputTypeDef]
-
-### SecondaryYAxisLabelOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ChartAxisLabelOptionsOutputTypeDef]
-
-### SingleAxisOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.SingleAxisOptionsTypeDef]
-
-### DefaultSeriesSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.LineChartDefaultSeriesSettingsTypeDef]
-
-### Series
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.SeriesItemTypeDef]]
-
-### Legend
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.LegendOptionsTypeDef]
-
-### DataLabels
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DataLabelOptionsOutputTypeDef]
-
-### ReferenceLines
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.ReferenceLineTypeDef]]
-
-### Tooltip
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TooltipOptionsOutputTypeDef]
-
-### ContributionAnalysisDefaults
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.ContributionAnalysisDefaultOutputTypeDef]]
-
-### VisualPalette
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.VisualPaletteOutputTypeDef]
-
-### Interactions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.VisualInteractionOptionsTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LineChartConfigurationTypeDef
 
-### FieldWells
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.LineChartFieldWellsTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### SortConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.LineChartSortConfigurationTypeDef]
-
-### ForecastConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ForecastConfigurationTypeDef]]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['AREA', 'LINE', 'STACKED_AREA']]
-
-### SmallMultiplesOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.SmallMultiplesOptionsTypeDef]
-
-### XAxisDisplayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AxisDisplayOptionsTypeDef]
-
-### XAxisLabelOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ChartAxisLabelOptionsTypeDef]
-
-### PrimaryYAxisDisplayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.LineSeriesAxisDisplayOptionsTypeDef]
-
-### PrimaryYAxisLabelOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ChartAxisLabelOptionsTypeDef]
-
-### SecondaryYAxisDisplayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.LineSeriesAxisDisplayOptionsTypeDef]
-
-### SecondaryYAxisLabelOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ChartAxisLabelOptionsTypeDef]
-
-### SingleAxisOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.SingleAxisOptionsTypeDef]
-
-### DefaultSeriesSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.LineChartDefaultSeriesSettingsTypeDef]
-
-### Series
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.SeriesItemTypeDef]]
-
-### Legend
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.LegendOptionsTypeDef]
-
-### DataLabels
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DataLabelOptionsTypeDef]
-
-### ReferenceLines
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ReferenceLineTypeDef]]
-
-### Tooltip
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TooltipOptionsTypeDef]
-
-### ContributionAnalysisDefaults
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ContributionAnalysisDefaultTypeDef]]
-
-### VisualPalette
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.VisualPaletteTypeDef]
-
-### Interactions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.VisualInteractionOptionsTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LineChartDefaultSeriesSettingsTypeDef
 
@@ -12699,6 +14133,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ColumnHierarchies
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.ColumnHierarchyOutputTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # LineChartVisualTypeDef
 
@@ -12720,6 +14157,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ColumnHierarchies
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ColumnHierarchyTypeDef]]
+
+### VisualContentAltText
+- **Type**: typing.Optional[str]
 
 
 # LineSeriesAxisDisplayOptionsOutputTypeDef
@@ -12752,7 +14192,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef]]
 
 
-# ListAnalysesRequestListAnalysesPaginateTypeDef
+# LinkSharingConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ListAnalysesRequestPaginateTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -12762,7 +14208,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
-# ListAnalysesRequestRequestTypeDef
+# ListAnalysesRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -12797,7 +14243,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAssetBundleExportJobsRequestListAssetBundleExportJobsPaginateTypeDef
+# ListAssetBundleExportJobsRequestPaginateTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -12807,7 +14253,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
-# ListAssetBundleExportJobsRequestRequestTypeDef
+# ListAssetBundleExportJobsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -12842,7 +14288,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAssetBundleImportJobsRequestListAssetBundleImportJobsPaginateTypeDef
+# ListAssetBundleImportJobsRequestPaginateTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -12852,7 +14298,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
-# ListAssetBundleImportJobsRequestRequestTypeDef
+# ListAssetBundleImportJobsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -12877,6 +14323,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Status
 - **Type**: <class 'int'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListBrandsRequestPaginateTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
+
+
+# ListBrandsRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListBrandsResponseTypeDef
+
+### Brands
+- **Type**: typing.List[aws_resource_validator.pydantic_models.quicksight_classes.BrandSummaryTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -12914,7 +14397,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['HIDDEN', 'VISIBLE']]
 
 
-# ListDashboardVersionsRequestListDashboardVersionsPaginateTypeDef
+# ListCustomPermissionsRequestPaginateTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
+
+
+# ListCustomPermissionsRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListCustomPermissionsResponseTypeDef
+
+### Status
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### CustomPermissionsList
+- **Type**: typing.List[aws_resource_validator.pydantic_models.quicksight_classes.CustomPermissionsTypeDef]
+- **Required**: Yes
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListDashboardVersionsRequestPaginateTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -12928,7 +14456,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
-# ListDashboardVersionsRequestRequestTypeDef
+# ListDashboardVersionsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -12967,7 +14495,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDashboardsRequestListDashboardsPaginateTypeDef
+# ListDashboardsRequestPaginateTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -12977,7 +14505,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
-# ListDashboardsRequestRequestTypeDef
+# ListDashboardsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13012,7 +14540,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDataSetsRequestListDataSetsPaginateTypeDef
+# ListDataSetsRequestPaginateTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13022,7 +14550,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
-# ListDataSetsRequestRequestTypeDef
+# ListDataSetsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13057,7 +14585,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDataSourcesRequestListDataSourcesPaginateTypeDef
+# ListDataSourcesRequestPaginateTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13067,7 +14595,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
-# ListDataSourcesRequestRequestTypeDef
+# ListDataSourcesRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13102,7 +14630,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFolderMembersRequestListFolderMembersPaginateTypeDef
+# ListFolderMembersRequestPaginateTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13116,7 +14644,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
-# ListFolderMembersRequestRequestTypeDef
+# ListFolderMembersRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13155,7 +14683,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFoldersRequestListFoldersPaginateTypeDef
+# ListFoldersForResourceRequestPaginateTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
+
+
+# ListFoldersForResourceRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+
+# ListFoldersForResourceResponseTypeDef
+
+### Status
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Folders
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListFoldersRequestPaginateTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13165,7 +14746,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
-# ListFoldersRequestRequestTypeDef
+# ListFoldersRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13200,7 +14781,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListGroupMembershipsRequestListGroupMembershipsPaginateTypeDef
+# ListGroupMembershipsRequestPaginateTypeDef
 
 ### GroupName
 - **Type**: <class 'str'>
@@ -13218,7 +14799,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
-# ListGroupMembershipsRequestRequestTypeDef
+# ListGroupMembershipsRequestTypeDef
 
 ### GroupName
 - **Type**: <class 'str'>
@@ -13261,7 +14842,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListGroupsRequestListGroupsPaginateTypeDef
+# ListGroupsRequestPaginateTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13275,7 +14856,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
-# ListGroupsRequestRequestTypeDef
+# ListGroupsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13314,7 +14895,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListIAMPolicyAssignmentsForUserRequestListIAMPolicyAssignmentsForUserPaginateTypeDef
+# ListIAMPolicyAssignmentsForUserRequestPaginateTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13332,7 +14913,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
-# ListIAMPolicyAssignmentsForUserRequestRequestTypeDef
+# ListIAMPolicyAssignmentsForUserRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13375,7 +14956,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListIAMPolicyAssignmentsRequestListIAMPolicyAssignmentsPaginateTypeDef
+# ListIAMPolicyAssignmentsRequestPaginateTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13392,7 +14973,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
-# ListIAMPolicyAssignmentsRequestRequestTypeDef
+# ListIAMPolicyAssignmentsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13434,7 +15015,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListIdentityPropagationConfigsRequestRequestTypeDef
+# ListIdentityPropagationConfigsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13469,7 +15050,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListIngestionsRequestListIngestionsPaginateTypeDef
+# ListIngestionsRequestPaginateTypeDef
 
 ### DataSetId
 - **Type**: <class 'str'>
@@ -13483,7 +15064,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
-# ListIngestionsRequestRequestTypeDef
+# ListIngestionsRequestTypeDef
 
 ### DataSetId
 - **Type**: <class 'str'>
@@ -13522,7 +15103,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListNamespacesRequestListNamespacesPaginateTypeDef
+# ListNamespacesRequestPaginateTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13532,7 +15113,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
-# ListNamespacesRequestRequestTypeDef
+# ListNamespacesRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13567,7 +15148,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListRefreshSchedulesRequestRequestTypeDef
+# ListRefreshSchedulesRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13597,7 +15178,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListRoleMembershipsRequestListRoleMembershipsPaginateTypeDef
+# ListRoleMembershipsRequestPaginateTypeDef
 
 ### Role
 - **Type**: typing.Literal['ADMIN', 'ADMIN_PRO', 'AUTHOR', 'AUTHOR_PRO', 'READER', 'READER_PRO']
@@ -13615,7 +15196,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
-# ListRoleMembershipsRequestRequestTypeDef
+# ListRoleMembershipsRequestTypeDef
 
 ### Role
 - **Type**: typing.Literal['ADMIN', 'ADMIN_PRO', 'AUTHOR', 'AUTHOR_PRO', 'READER', 'READER_PRO']
@@ -13658,7 +15239,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -13684,7 +15265,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTemplateAliasesRequestListTemplateAliasesPaginateTypeDef
+# ListTemplateAliasesRequestPaginateTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13698,7 +15279,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
-# ListTemplateAliasesRequestRequestTypeDef
+# ListTemplateAliasesRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13737,7 +15318,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTemplateVersionsRequestListTemplateVersionsPaginateTypeDef
+# ListTemplateVersionsRequestPaginateTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13751,7 +15332,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
-# ListTemplateVersionsRequestRequestTypeDef
+# ListTemplateVersionsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13790,7 +15371,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTemplatesRequestListTemplatesPaginateTypeDef
+# ListTemplatesRequestPaginateTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13800,7 +15381,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
-# ListTemplatesRequestRequestTypeDef
+# ListTemplatesRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13835,7 +15416,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListThemeAliasesRequestRequestTypeDef
+# ListThemeAliasesRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13874,7 +15455,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListThemeVersionsRequestListThemeVersionsPaginateTypeDef
+# ListThemeVersionsRequestPaginateTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13888,7 +15469,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
-# ListThemeVersionsRequestRequestTypeDef
+# ListThemeVersionsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -13927,35 +15508,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListThemesRequestListThemesPaginateTypeDef
-
-### AwsAccountId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Optional[typing.Literal['ALL', 'CUSTOM', 'QUICKSIGHT']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
-
-
-# ListThemesRequestRequestTypeDef
-
-### AwsAccountId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### MaxResults
-- **Type**: typing.Optional[int]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['ALL', 'CUSTOM', 'QUICKSIGHT']]
-
-
 # ListThemesResponseTypeDef
 
 ### ThemeSummaryList
@@ -13978,7 +15530,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTopicRefreshSchedulesRequestRequestTypeDef
+# ListTopicRefreshSchedulesRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -14016,7 +15568,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTopicsRequestRequestTypeDef
+# ListTopicReviewedAnswersRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TopicId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# ListTopicReviewedAnswersResponseTypeDef
+
+### TopicId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TopicArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Answers
+- **Type**: typing.List[aws_resource_validator.pydantic_models.quicksight_classes.TopicReviewedAnswerTypeDef]
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# ListTopicsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -14051,7 +15641,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListUserGroupsRequestListUserGroupsPaginateTypeDef
+# ListUserGroupsRequestPaginateTypeDef
 
 ### UserName
 - **Type**: <class 'str'>
@@ -14069,7 +15659,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
-# ListUserGroupsRequestRequestTypeDef
+# ListUserGroupsRequestTypeDef
 
 ### UserName
 - **Type**: <class 'str'>
@@ -14112,7 +15702,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListUsersRequestListUsersPaginateTypeDef
+# ListUsersRequestPaginateTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -14126,7 +15716,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
-# ListUsersRequestRequestTypeDef
+# ListUsersRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -14165,7 +15755,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListVPCConnectionsRequestRequestTypeDef
+# ListVPCConnectionsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -14250,7 +15840,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DataTransforms
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.TransformOperationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.TransformOperationUnionTypeDef]]
+
+
+# LogicalTableUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# LogoConfigurationTypeDef
+
+### AltText
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### LogoSet
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.LogoSetConfigurationTypeDef'>
+- **Required**: Yes
+
+
+# LogoSetConfigurationTypeDef
+
+### Primary
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ImageSetConfigurationTypeDef'>
+- **Required**: Yes
+
+### Favicon
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ImageSetConfigurationTypeDef]
+
+
+# LogoSetTypeDef
+
+### Primary
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ImageSetTypeDef'>
+- **Required**: Yes
+
+### Favicon
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ImageSetTypeDef]
+
+
+# LogoTypeDef
+
+### AltText
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### LogoSet
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.LogoSetTypeDef'>
+- **Required**: Yes
 
 
 # LongFormatTextTypeDef
@@ -14328,23 +15966,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # MaximumMinimumComputationTypeDef
 
-### ComputationId
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Literal['MAXIMUM', 'MINIMUM']
-- **Required**: Yes
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Time
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DimensionFieldTypeDef]
-
-### Value
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.MeasureFieldTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MeasureFieldTypeDef
 
@@ -14470,14 +16094,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.NamedEntityDefinitionMetricTypeDef]
 
 
-# NamespaceErrorTypeDef
+# NamedEntityRefTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['INTERNAL_SERVICE_ERROR', 'PERMISSION_DENIED']]
-
-### Message
+### NamedEntityName
 - **Type**: typing.Optional[str]
 
+
+# NamespaceErrorTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # NamespaceInfoV2TypeDef
 
@@ -14498,6 +16125,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### NamespaceError
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.NamespaceErrorTypeDef]
+
+### IamIdentityCenterApplicationArn
+- **Type**: typing.Optional[str]
+
+### IamIdentityCenterInstanceArn
+- **Type**: typing.Optional[str]
+
+
+# NavbarStyleTypeDef
+
+### GlobalNavbar
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaletteTypeDef]
+
+### ContextualNavbar
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaletteTypeDef]
 
 
 # NegativeFormatTypeDef
@@ -14596,11 +16238,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[float]]
 
 ### DateTimeStaticValues
-- **Type**: typing.Optional[typing.Sequence[typing.Union[datetime.datetime, str]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.TimestampTypeDef]]
 
 ### IntegerStaticValues
 - **Type**: typing.Optional[typing.Sequence[int]]
 
+
+# NewDefaultValuesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # NullValueFormatConfigurationTypeDef
 
@@ -14624,7 +16272,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DecimalPlacesConfigurationTypeDef]
 
 ### NumberScale
-- **Type**: typing.Optional[typing.Literal['AUTO', 'BILLIONS', 'MILLIONS', 'NONE', 'THOUSANDS', 'TRILLIONS']]
+- **Type**: typing.Optional[typing.Literal['AUTO', 'BILLIONS', 'CRORES', 'LAKHS', 'MILLIONS', 'NONE', 'THOUSANDS', 'TRILLIONS']]
 
 ### NegativeValueConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.NegativeValueConfigurationTypeDef]
@@ -14881,6 +16529,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.NumberFormatConfigurationTypeDef]
 
 
+# OAuthParametersTypeDef
+
+### TokenProviderUrl
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### OAuthScope
+- **Type**: typing.Optional[str]
+
+### IdentityProviderVpcConnectionProperties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.VpcConnectionPropertiesTypeDef]
+
+### IdentityProviderResourceUri
+- **Type**: typing.Optional[str]
+
+
 # OracleParametersTypeDef
 
 ### Host
@@ -14898,18 +16562,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # OutputColumnTypeDef
 
-### Name
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Description
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['DATETIME', 'DECIMAL', 'INTEGER', 'STRING']]
-
-### SubType
-- **Type**: typing.Optional[typing.Literal['FIXED', 'FLOAT']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # OverrideDatasetParameterOperationOutputTypeDef
 
@@ -14934,8 +16589,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### NewDefaultValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.NewDefaultValuesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.NewDefaultValuesUnionTypeDef]
 
+
+# OverrideDatasetParameterOperationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PaginationConfigurationTypeDef
 
@@ -14957,6 +16618,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### StartingToken
+- **Type**: typing.Optional[str]
+
+
+# PaletteTypeDef
+
+### Foreground
+- **Type**: typing.Optional[str]
+
+### Background
 - **Type**: typing.Optional[str]
 
 
@@ -15004,45 +16674,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ParameterControlOutputTypeDef
 
-### DateTimePicker
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ParameterDateTimePickerControlTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### List
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ParameterListControlOutputTypeDef]
-
-### Dropdown
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ParameterDropDownControlOutputTypeDef]
-
-### TextField
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ParameterTextFieldControlTypeDef]
-
-### TextArea
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ParameterTextAreaControlTypeDef]
-
-### Slider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ParameterSliderControlTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ParameterControlTypeDef
 
-### DateTimePicker
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ParameterDateTimePickerControlTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### List
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ParameterListControlTypeDef]
-
-### Dropdown
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ParameterDropDownControlTypeDef]
-
-### TextField
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ParameterTextFieldControlTypeDef]
-
-### TextArea
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ParameterTextAreaControlTypeDef]
-
-### Slider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ParameterSliderControlTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ParameterDateTimePickerControlTypeDef
 
@@ -15090,114 +16730,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### DateTimeParameterDeclaration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DateTimeParameterDeclarationTypeDef]
-
-
-# ParameterDropDownControlOutputTypeDef
-
-### ParameterControlId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Title
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SourceParameterName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DisplayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DropDownControlDisplayOptionsTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['MULTI_SELECT', 'SINGLE_SELECT']]
-
-### SelectableValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ParameterSelectableValuesOutputTypeDef]
-
-### CascadingControlConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CascadingControlConfigurationOutputTypeDef]
-
-
-# ParameterDropDownControlTypeDef
-
-### ParameterControlId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Title
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SourceParameterName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DisplayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DropDownControlDisplayOptionsTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['MULTI_SELECT', 'SINGLE_SELECT']]
-
-### SelectableValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ParameterSelectableValuesTypeDef]
-
-### CascadingControlConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CascadingControlConfigurationTypeDef]
-
-
-# ParameterListControlOutputTypeDef
-
-### ParameterControlId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Title
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SourceParameterName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DisplayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ListControlDisplayOptionsTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['MULTI_SELECT', 'SINGLE_SELECT']]
-
-### SelectableValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ParameterSelectableValuesOutputTypeDef]
-
-### CascadingControlConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CascadingControlConfigurationOutputTypeDef]
-
-
-# ParameterListControlTypeDef
-
-### ParameterControlId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Title
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SourceParameterName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DisplayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ListControlDisplayOptionsTypeDef]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['MULTI_SELECT', 'SINGLE_SELECT']]
-
-### SelectableValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ParameterSelectableValuesTypeDef]
-
-### CascadingControlConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CascadingControlConfigurationTypeDef]
 
 
 # ParameterSelectableValuesOutputTypeDef
@@ -15317,6 +16849,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.DateTimeParameterTypeDef]]
 
 
+# ParametersUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # PercentVisibleRangeTypeDef
 
 ### From
@@ -15352,6 +16890,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### PercentileValue
 - **Type**: typing.Optional[float]
 
+
+# PerformanceConfigurationOutputTypeDef
+
+### UniqueKeys
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.UniqueKeyOutputTypeDef]]
+
+
+# PerformanceConfigurationTypeDef
+
+### UniqueKeys
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.UniqueKeyTypeDef]]
+
+
+# PerformanceConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PeriodOverPeriodComputationTypeDef
 
@@ -15403,14 +16959,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PhysicalTableTypeDef
 
 ### RelationalTable
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.RelationalTableTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.RelationalTableUnionTypeDef]
 
 ### CustomSql
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CustomSqlTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CustomSqlUnionTypeDef]
 
 ### S3Source
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.S3SourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.S3SourceUnionTypeDef]
 
+
+# PhysicalTableUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PieChartAggregatedFieldWellsOutputTypeDef
 
@@ -15577,6 +17139,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ColumnHierarchies
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.ColumnHierarchyOutputTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # PieChartVisualTypeDef
 
@@ -15598,6 +17163,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ColumnHierarchies
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ColumnHierarchyTypeDef]]
+
+### VisualContentAltText
+- **Type**: typing.Optional[str]
 
 
 # PivotFieldSortOptionsOutputTypeDef
@@ -16058,6 +17626,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Actions
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.VisualCustomActionOutputTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # PivotTableVisualTypeDef
 
@@ -16079,6 +17650,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Actions
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.VisualCustomActionTypeDef]]
+
+### VisualContentAltText
+- **Type**: typing.Optional[str]
 
 
 # PivotTotalOptionsOutputTypeDef
@@ -16135,6 +17709,163 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.TotalAggregationOptionTypeDef]]
 
 
+# PluginVisualConfigurationOutputTypeDef
+
+### FieldWells
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.PluginVisualFieldWellOutputTypeDef]]
+
+### VisualOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PluginVisualOptionsOutputTypeDef]
+
+### SortConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PluginVisualSortConfigurationOutputTypeDef]
+
+
+# PluginVisualConfigurationTypeDef
+
+### FieldWells
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.PluginVisualFieldWellTypeDef]]
+
+### VisualOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PluginVisualOptionsTypeDef]
+
+### SortConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PluginVisualSortConfigurationTypeDef]
+
+
+# PluginVisualFieldWellOutputTypeDef
+
+### AxisName
+- **Type**: typing.Optional[typing.Literal['GROUP_BY', 'VALUE']]
+
+### Dimensions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.DimensionFieldTypeDef]]
+
+### Measures
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.MeasureFieldTypeDef]]
+
+### Unaggregated
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.UnaggregatedFieldTypeDef]]
+
+
+# PluginVisualFieldWellTypeDef
+
+### AxisName
+- **Type**: typing.Optional[typing.Literal['GROUP_BY', 'VALUE']]
+
+### Dimensions
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.DimensionFieldTypeDef]]
+
+### Measures
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.MeasureFieldTypeDef]]
+
+### Unaggregated
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.UnaggregatedFieldTypeDef]]
+
+
+# PluginVisualItemsLimitConfigurationTypeDef
+
+### ItemsLimit
+- **Type**: typing.Optional[int]
+
+
+# PluginVisualOptionsOutputTypeDef
+
+### VisualProperties
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.PluginVisualPropertyTypeDef]]
+
+
+# PluginVisualOptionsTypeDef
+
+### VisualProperties
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.PluginVisualPropertyTypeDef]]
+
+
+# PluginVisualOutputTypeDef
+
+### VisualId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PluginArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Title
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.VisualTitleLabelOptionsTypeDef]
+
+### Subtitle
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.VisualSubtitleLabelOptionsTypeDef]
+
+### ChartConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PluginVisualConfigurationOutputTypeDef]
+
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
+
+# PluginVisualPropertyTypeDef
+
+### Name
+- **Type**: typing.Optional[str]
+
+### Value
+- **Type**: typing.Optional[str]
+
+
+# PluginVisualSortConfigurationOutputTypeDef
+
+### PluginVisualTableQuerySort
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PluginVisualTableQuerySortOutputTypeDef]
+
+
+# PluginVisualSortConfigurationTypeDef
+
+### PluginVisualTableQuerySort
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PluginVisualTableQuerySortTypeDef]
+
+
+# PluginVisualTableQuerySortOutputTypeDef
+
+### RowSort
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.FieldSortOptionsTypeDef]]
+
+### ItemsLimitConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PluginVisualItemsLimitConfigurationTypeDef]
+
+
+# PluginVisualTableQuerySortTypeDef
+
+### RowSort
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.FieldSortOptionsTypeDef]]
+
+### ItemsLimitConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PluginVisualItemsLimitConfigurationTypeDef]
+
+
+# PluginVisualTypeDef
+
+### VisualId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PluginArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Title
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.VisualTitleLabelOptionsTypeDef]
+
+### Subtitle
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.VisualSubtitleLabelOptionsTypeDef]
+
+### ChartConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PluginVisualConfigurationTypeDef]
+
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
+
 # PostgreSqlParametersTypeDef
 
 ### Host
@@ -16178,6 +17909,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.DrillDownFilterTypeDef]]
 
 
+# PredictQAResultsRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### QueryText
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### IncludeQuickSightQIndex
+- **Type**: typing.Optional[typing.Literal['EXCLUDE', 'INCLUDE']]
+
+### IncludeGeneratedAnswer
+- **Type**: typing.Optional[typing.Literal['EXCLUDE', 'INCLUDE']]
+
+### MaxTopicsToConsider
+- **Type**: typing.Optional[int]
+
+
+# PredictQAResultsResponseTypeDef
+
+### PrimaryResult
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.QAResultTypeDef'>
+- **Required**: Yes
+
+### AdditionalResults
+- **Type**: typing.List[aws_resource_validator.pydantic_models.quicksight_classes.QAResultTypeDef]
+- **Required**: Yes
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
 # PrestoParametersTypeDef
 
 ### Host
@@ -16213,7 +17987,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutDataSetRefreshPropertiesRequestRequestTypeDef
+# ProjectOperationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# PutDataSetRefreshPropertiesRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -16241,6 +18021,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+
+# QAResultTypeDef
+
+### ResultType
+- **Type**: typing.Optional[typing.Literal['DASHBOARD_VISUAL', 'GENERATED_ANSWER', 'NO_ANSWER']]
+
+### DashboardVisual
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DashboardVisualResultTypeDef]
+
+### GeneratedAnswer
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.GeneratedAnswerResultTypeDef]
+
+
+# QueryExecutionOptionsTypeDef
+
+### QueryExecutionMode
+- **Type**: typing.Optional[typing.Literal['AUTO', 'MANUAL']]
 
 
 # QueueInfoTypeDef
@@ -16455,6 +18253,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ColumnHierarchies
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.ColumnHierarchyOutputTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # RadarChartVisualTypeDef
 
@@ -16476,6 +18277,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ColumnHierarchies
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ColumnHierarchyTypeDef]]
+
+### VisualContentAltText
+- **Type**: typing.Optional[str]
 
 
 # RangeConstantTypeDef
@@ -16502,22 +18306,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Database
 - **Type**: <class 'str'>
 - **Required**: Yes
-
-
-# RedshiftIAMParametersExtraOutputTypeDef
-
-### RoleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DatabaseUser
-- **Type**: typing.Optional[str]
-
-### DatabaseGroups
-- **Type**: typing.Optional[typing.List[str]]
-
-### AutoCreateDatabaseUser
-- **Type**: typing.Optional[bool]
 
 
 # RedshiftIAMParametersOutputTypeDef
@@ -16552,27 +18340,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# RedshiftParametersExtraOutputTypeDef
+# RedshiftIAMParametersUnionTypeDef
 
-### Database
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Host
-- **Type**: typing.Optional[str]
-
-### Port
-- **Type**: typing.Optional[int]
-
-### ClusterId
-- **Type**: typing.Optional[str]
-
-### IAMParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.RedshiftIAMParametersExtraOutputTypeDef]
-
-### IdentityCenterConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.IdentityCenterConfigurationTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RedshiftParametersOutputTypeDef
 
@@ -16612,11 +18384,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### IAMParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.RedshiftIAMParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.RedshiftIAMParametersUnionTypeDef]
 
 ### IdentityCenterConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.IdentityCenterConfigurationTypeDef]
 
+
+# RedshiftParametersUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ReferenceLineCustomLabelConfigurationTypeDef
 
@@ -16684,12 +18462,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ReferenceLineStyleConfigurationTypeDef
 
-### Pattern
-- **Type**: typing.Optional[typing.Literal['DASHED', 'DOTTED', 'SOLID']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Color
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ReferenceLineTypeDef
 
@@ -16775,13 +18550,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StartAfterDateTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TimestampTypeDef]
 
 ### Arn
 - **Type**: typing.Optional[str]
 
 
-# RegisterUserRequestRequestTypeDef
+# RefreshScheduleUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# RegisterUserRequestTypeDef
 
 ### IdentityType
 - **Type**: typing.Literal['IAM', 'IAM_IDENTITY_CENTER', 'QUICKSIGHT']
@@ -16865,6 +18646,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### StatePersistence
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.StatePersistenceConfigurationsTypeDef]
 
+### SharedView
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.SharedViewConfigurationsTypeDef]
+
 
 # RegisteredUserDashboardEmbeddingConfigurationTypeDef
 
@@ -16880,6 +18664,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### StatePersistence
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.StatePersistenceConfigurationsTypeDef]
+
+### SharedView
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.SharedViewConfigurationsTypeDef]
 
 ### Bookmarks
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.BookmarksConfigurationsTypeDef]
@@ -16972,6 +18759,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Schema
 - **Type**: typing.Optional[str]
 
+
+# RelationalTableUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RelativeDateTimeControlDisplayOptionsTypeDef
 
@@ -17080,17 +18873,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResourcePermissionExtraOutputTypeDef
-
-### Principal
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Actions
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-
 # ResourcePermissionOutputTypeDef
 
 ### Principal
@@ -17112,6 +18894,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
+
+# ResourcePermissionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResponseMetadataTypeDef
 
@@ -17135,7 +18923,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RestoreAnalysisRequestRequestTypeDef
+# RestoreAnalysisRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -17144,6 +18932,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### AnalysisId
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+### RestoreToFolders
+- **Type**: typing.Optional[bool]
 
 
 # RestoreAnalysisResponseTypeDef
@@ -17162,6 +18953,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### RequestId
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+### RestorationFailedFolderArns
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -17261,6 +19056,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Sequence[str]]]
 
 
+# RowLevelPermissionTagConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # RowLevelPermissionTagRuleTypeDef
 
 ### TagKey
@@ -17330,6 +19131,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### UploadSettings
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.UploadSettingsTypeDef]
 
+
+# S3SourceUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SameSheetTargetVisualConfigurationOutputTypeDef
 
@@ -17457,6 +19264,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Actions
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.VisualCustomActionOutputTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # SankeyDiagramVisualTypeDef
 
@@ -17475,6 +19285,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Actions
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.VisualCustomActionTypeDef]]
+
+### VisualContentAltText
+- **Type**: typing.Optional[str]
 
 
 # ScatterPlotCategoricallyAggregatedFieldWellsOutputTypeDef
@@ -17666,6 +19479,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ColumnHierarchies
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.ColumnHierarchyOutputTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # ScatterPlotVisualTypeDef
 
@@ -17688,6 +19504,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ColumnHierarchies
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ColumnHierarchyTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # ScheduleRefreshOnEntityTypeDef
 
@@ -17707,7 +19526,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.VisibleRangeOptionsTypeDef]
 
 
-# SearchAnalysesRequestRequestTypeDef
+# SearchAnalysesRequestPaginateTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Filters
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.AnalysisSearchFilterTypeDef]
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
+
+
+# SearchAnalysesRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -17722,20 +19555,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### MaxResults
 - **Type**: typing.Optional[int]
-
-
-# SearchAnalysesRequestSearchAnalysesPaginateTypeDef
-
-### AwsAccountId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Filters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.AnalysisSearchFilterTypeDef]
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
 # SearchAnalysesResponseTypeDef
@@ -17760,7 +19579,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchDashboardsRequestRequestTypeDef
+# SearchDashboardsRequestPaginateTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Filters
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.DashboardSearchFilterTypeDef]
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
+
+
+# SearchDashboardsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -17775,20 +19608,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### MaxResults
 - **Type**: typing.Optional[int]
-
-
-# SearchDashboardsRequestSearchDashboardsPaginateTypeDef
-
-### AwsAccountId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Filters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.DashboardSearchFilterTypeDef]
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
 # SearchDashboardsResponseTypeDef
@@ -17813,7 +19632,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchDataSetsRequestRequestTypeDef
+# SearchDataSetsRequestPaginateTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Filters
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.DataSetSearchFilterTypeDef]
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
+
+
+# SearchDataSetsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -17828,20 +19661,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### MaxResults
 - **Type**: typing.Optional[int]
-
-
-# SearchDataSetsRequestSearchDataSetsPaginateTypeDef
-
-### AwsAccountId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Filters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.DataSetSearchFilterTypeDef]
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
 # SearchDataSetsResponseTypeDef
@@ -17866,7 +19685,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchDataSourcesRequestRequestTypeDef
+# SearchDataSourcesRequestPaginateTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Filters
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.DataSourceSearchFilterTypeDef]
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
+
+
+# SearchDataSourcesRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -17881,20 +19714,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### MaxResults
 - **Type**: typing.Optional[int]
-
-
-# SearchDataSourcesRequestSearchDataSourcesPaginateTypeDef
-
-### AwsAccountId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Filters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.DataSourceSearchFilterTypeDef]
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
 # SearchDataSourcesResponseTypeDef
@@ -17919,7 +19738,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchFoldersRequestRequestTypeDef
+# SearchFoldersRequestPaginateTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Filters
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.FolderSearchFilterTypeDef]
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
+
+
+# SearchFoldersRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -17934,20 +19767,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### MaxResults
 - **Type**: typing.Optional[int]
-
-
-# SearchFoldersRequestSearchFoldersPaginateTypeDef
-
-### AwsAccountId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Filters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.FolderSearchFilterTypeDef]
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
 
 
 # SearchFoldersResponseTypeDef
@@ -17972,7 +19791,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchGroupsRequestRequestTypeDef
+# SearchGroupsRequestPaginateTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Namespace
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Filters
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.GroupSearchFilterTypeDef]
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
+
+
+# SearchGroupsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -17993,24 +19830,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# SearchGroupsRequestSearchGroupsPaginateTypeDef
-
-### AwsAccountId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Namespace
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Filters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.GroupSearchFilterTypeDef]
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
-
-
 # SearchGroupsResponseTypeDef
 
 ### GroupList
@@ -18023,6 +19842,59 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Status
 - **Type**: <class 'int'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# SearchTopicsRequestPaginateTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Filters
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.TopicSearchFilterTypeDef]
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PaginatorConfigTypeDef]
+
+
+# SearchTopicsRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Filters
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.TopicSearchFilterTypeDef]
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+
+# SearchTopicsResponseTypeDef
+
+### TopicSummaryList
+- **Type**: typing.List[aws_resource_validator.pydantic_models.quicksight_classes.TopicSummaryTypeDef]
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### RequestId
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -18277,6 +20149,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# SharedViewConfigurationsTypeDef
+
+### Enabled
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+
 # SheetControlInfoIconLabelOptionsTypeDef
 
 ### Visibility
@@ -18345,6 +20224,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### TextBoxes
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.SheetTextBoxTypeDef]]
 
+### Images
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.SheetImageOutputTypeDef]]
+
 ### Layouts
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.LayoutOutputTypeDef]]
 
@@ -18382,6 +20264,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### TextBoxes
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.SheetTextBoxTypeDef]]
 
+### Images
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.SheetImageTypeDef]]
+
 ### Layouts
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.LayoutTypeDef]]
 
@@ -18407,6 +20292,92 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ConfigurationOverrides
 - **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.SheetElementConfigurationOverridesTypeDef'>
 - **Required**: Yes
+
+
+# SheetImageOutputTypeDef
+
+### SheetImageId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Source
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.SheetImageSourceTypeDef'>
+- **Required**: Yes
+
+### Scaling
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.SheetImageScalingConfigurationTypeDef]
+
+### Tooltip
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.SheetImageTooltipConfigurationTypeDef]
+
+### ImageContentAltText
+- **Type**: typing.Optional[str]
+
+### Interactions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ImageInteractionOptionsTypeDef]
+
+### Actions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.ImageCustomActionOutputTypeDef]]
+
+
+# SheetImageScalingConfigurationTypeDef
+
+### ScalingType
+- **Type**: typing.Optional[typing.Literal['SCALE_NONE', 'SCALE_TO_CONTAINER', 'SCALE_TO_HEIGHT', 'SCALE_TO_WIDTH']]
+
+
+# SheetImageSourceTypeDef
+
+### SheetImageStaticFileSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.SheetImageStaticFileSourceTypeDef]
+
+
+# SheetImageStaticFileSourceTypeDef
+
+### StaticFileId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# SheetImageTooltipConfigurationTypeDef
+
+### TooltipText
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.SheetImageTooltipTextTypeDef]
+
+### Visibility
+- **Type**: typing.Optional[typing.Literal['HIDDEN', 'VISIBLE']]
+
+
+# SheetImageTooltipTextTypeDef
+
+### PlainText
+- **Type**: typing.Optional[str]
+
+
+# SheetImageTypeDef
+
+### SheetImageId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Source
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.SheetImageSourceTypeDef'>
+- **Required**: Yes
+
+### Scaling
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.SheetImageScalingConfigurationTypeDef]
+
+### Tooltip
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.SheetImageTooltipConfigurationTypeDef]
+
+### ImageContentAltText
+- **Type**: typing.Optional[str]
+
+### Interactions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ImageInteractionOptionsTypeDef]
+
+### Actions
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ImageCustomActionTypeDef]]
 
 
 # SheetLayoutElementMaximizationOptionTypeDef
@@ -18441,6 +20412,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Name
 - **Type**: typing.Optional[str]
+
+### Images
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.SheetImageOutputTypeDef]]
 
 
 # SheetVisualScopingConfigurationOutputTypeDef
@@ -18516,6 +20490,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.SheetControlInfoIconLabelOptionsTypeDef]
 
 
+# SlotTypeDef
+
+### SlotId
+- **Type**: typing.Optional[str]
+
+### VisualId
+- **Type**: typing.Optional[str]
+
+
 # SmallMultiplesAxisPropertiesTypeDef
 
 ### Scale
@@ -18580,6 +20563,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Parameters
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ParametersTypeDef]
 
+
+# SnapshotConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SnapshotDestinationConfigurationOutputTypeDef
 
@@ -18733,6 +20722,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### AuthenticationType
+- **Type**: typing.Optional[typing.Literal['PASSWORD', 'TOKEN', 'X509']]
+
+### DatabaseAccessControlRole
+- **Type**: typing.Optional[str]
+
+### OAuthParameters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.OAuthParametersTypeDef]
+
 
 # SpacingTypeDef
 
@@ -18758,6 +20756,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Port
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+
+# SpatialStaticFileTypeDef
+
+### StaticFileId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Source
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.StaticFileSourceTypeDef]
 
 
 # SqlServerParametersTypeDef
@@ -18798,8 +20806,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ProductType
 - **Type**: typing.Optional[typing.Literal['ENTERPRISE', 'GALAXY']]
 
+### DatabaseAccessControlRole
+- **Type**: typing.Optional[str]
 
-# StartAssetBundleExportJobRequestRequestTypeDef
+### AuthenticationType
+- **Type**: typing.Optional[typing.Literal['PASSWORD', 'TOKEN', 'X509']]
+
+### OAuthParameters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.OAuthParametersTypeDef]
+
+
+# StartAssetBundleExportJobRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -18821,7 +20838,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### CloudFormationOverridePropertyConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleCloudFormationOverridePropertyConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleCloudFormationOverridePropertyConfigurationUnionTypeDef]
 
 ### IncludePermissions
 - **Type**: typing.Optional[bool]
@@ -18831,6 +20848,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ValidationStrategy
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleExportJobValidationStrategyTypeDef]
+
+### IncludeFolderMemberships
+- **Type**: typing.Optional[bool]
+
+### IncludeFolderMembers
+- **Type**: typing.Optional[typing.Literal['NONE', 'ONE_LEVEL', 'RECURSE']]
 
 
 # StartAssetBundleExportJobResponseTypeDef
@@ -18856,7 +20879,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartAssetBundleImportJobRequestRequestTypeDef
+# StartAssetBundleImportJobRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -18871,16 +20894,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OverrideParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleImportJobOverrideParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleImportJobOverrideParametersUnionTypeDef]
 
 ### FailureAction
 - **Type**: typing.Optional[typing.Literal['DO_NOTHING', 'ROLLBACK']]
 
 ### OverridePermissions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleImportJobOverridePermissionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleImportJobOverridePermissionsUnionTypeDef]
 
 ### OverrideTags
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleImportJobOverrideTagsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleImportJobOverrideTagsUnionTypeDef]
 
 ### OverrideValidationStrategy
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AssetBundleImportJobOverrideValidationStrategyTypeDef]
@@ -18909,7 +20932,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartDashboardSnapshotJobRequestRequestTypeDef
+# StartDashboardSnapshotJobRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -18928,7 +20951,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SnapshotConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.SnapshotConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.SnapshotConfigurationUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -18955,10 +20978,80 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# StartDashboardSnapshotJobScheduleRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DashboardId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ScheduleId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# StartDashboardSnapshotJobScheduleResponseTypeDef
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
 # StatePersistenceConfigurationsTypeDef
 
 ### Enabled
 - **Type**: <class 'bool'>
+- **Required**: Yes
+
+
+# StaticFileS3SourceOptionsTypeDef
+
+### BucketName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ObjectKey
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Region
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# StaticFileSourceTypeDef
+
+### UrlOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.StaticFileUrlSourceOptionsTypeDef]
+
+### S3Options
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.StaticFileS3SourceOptionsTypeDef]
+
+
+# StaticFileTypeDef
+
+### ImageStaticFile
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ImageStaticFileTypeDef]
+
+### SpatialStaticFile
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.SpatialStaticFileTypeDef]
+
+
+# StaticFileUrlSourceOptionsTypeDef
+
+### Url
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 
@@ -18973,6 +21066,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### StaticValues
 - **Type**: typing.Optional[typing.Sequence[str]]
 
+
+# StringDatasetParameterDefaultValuesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StringDatasetParameterOutputTypeDef
 
@@ -19007,8 +21106,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DefaultValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.StringDatasetParameterDefaultValuesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.StringDatasetParameterDefaultValuesUnionTypeDef]
 
+
+# StringDatasetParameterUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StringDefaultValuesOutputTypeDef
 
@@ -19160,6 +21265,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### StyleTargets
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.TableStyleTargetTypeDef]]
+
+
+# SucceededTopicReviewedAnswerTypeDef
+
+### AnswerId
+- **Type**: typing.Optional[str]
 
 
 # SuccessfulKeyRegistrationEntryTypeDef
@@ -19606,6 +21717,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Actions
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.VisualCustomActionOutputTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # TableVisualTypeDef
 
@@ -19627,6 +21741,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Actions
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.VisualCustomActionTypeDef]]
+
+### VisualContentAltText
+- **Type**: typing.Optional[str]
 
 
 # TagColumnOperationOutputTypeDef
@@ -19651,7 +21768,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagColumnOperationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -19702,15 +21825,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # TemplateErrorTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['ACCESS_DENIED', 'DATA_SET_NOT_FOUND', 'INTERNAL_FAILURE', 'SOURCE_NOT_FOUND']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Message
-- **Type**: typing.Optional[str]
-
-### ViolatedEntities
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.EntityTypeDef]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TemplateSourceAnalysisTypeDef
 
@@ -19808,6 +21925,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Options
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AssetOptionsTypeDef]
 
+### QueryExecutionOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.QueryExecutionOptionsTypeDef]
+
+### StaticFiles
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.StaticFileTypeDef]]
+
 
 # TemplateVersionDefinitionTypeDef
 
@@ -19836,6 +21959,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Options
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AssetOptionsTypeDef]
 
+### QueryExecutionOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.QueryExecutionOptionsTypeDef]
+
+### StaticFiles
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.StaticFileTypeDef]]
+
+
+# TemplateVersionDefinitionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TemplateVersionSummaryTypeDef
 
@@ -19996,14 +22131,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TypographyTypeDef]
 
 
+# ThemeConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ThemeErrorTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['INTERNAL_FAILURE']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Message
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ThemeSummaryTypeDef
 
@@ -20028,27 +22166,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ThemeTypeDef
 
-### Arn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Name
-- **Type**: typing.Optional[str]
-
-### ThemeId
-- **Type**: typing.Optional[str]
-
-### Version
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ThemeVersionTypeDef]
-
-### CreatedTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### LastUpdatedTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['ALL', 'CUSTOM', 'QUICKSIGHT']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ThemeVersionSummaryTypeDef
 
@@ -20102,6 +22222,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Visibility
 - **Type**: typing.Optional[typing.Literal['HIDDEN', 'VISIBLE']]
+
+### GroupingStyle
+- **Type**: typing.Optional[typing.Literal['DEFAULT', 'LAKHS']]
 
 
 # TileLayoutStyleTypeDef
@@ -20177,7 +22300,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Value
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TimestampTypeDef]
 
 ### ParameterName
 - **Type**: typing.Optional[str]
@@ -20218,11 +22341,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RangeMinimum
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### RangeMaximum
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### TimeGranularity
@@ -20317,7 +22440,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TimeRangeFilterValueTypeDef
 
 ### StaticValue
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TimestampTypeDef]
 
 ### RollingDate
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.RollingDateConfigurationTypeDef]
@@ -20325,6 +22448,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Parameter
 - **Type**: typing.Optional[str]
 
+
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TooltipItemTypeDef
 
@@ -20415,55 +22544,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # TopBottomMoversComputationTypeDef
 
-### ComputationId
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Literal['BOTTOM', 'TOP']
-- **Required**: Yes
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Time
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DimensionFieldTypeDef]
-
-### Category
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DimensionFieldTypeDef]
-
-### Value
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.MeasureFieldTypeDef]
-
-### MoverSize
-- **Type**: typing.Optional[int]
-
-### SortOrder
-- **Type**: typing.Optional[typing.Literal['ABSOLUTE_DIFFERENCE', 'PERCENT_DIFFERENCE']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TopBottomRankedComputationTypeDef
 
-### ComputationId
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Literal['BOTTOM', 'TOP']
-- **Required**: Yes
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Category
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DimensionFieldTypeDef]
-
-### Value
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.MeasureFieldTypeDef]
-
-### ResultSize
-- **Type**: typing.Optional[int]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TopicCalculatedFieldOutputTypeDef
 
@@ -20741,6 +22830,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
+# TopicConfigOptionsTypeDef
+
+### QBusinessInsightsEnabled
+- **Type**: typing.Optional[bool]
+
+
+# TopicConstantValueOutputTypeDef
+
+### ConstantType
+- **Type**: typing.Optional[typing.Literal['COLLECTIVE', 'RANGE', 'SINGULAR']]
+
+### Value
+- **Type**: typing.Optional[str]
+
+### Minimum
+- **Type**: typing.Optional[str]
+
+### Maximum
+- **Type**: typing.Optional[str]
+
+### ValueList
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.CollectiveConstantEntryTypeDef]]
+
+
+# TopicConstantValueTypeDef
+
+### ConstantType
+- **Type**: typing.Optional[typing.Literal['COLLECTIVE', 'RANGE', 'SINGULAR']]
+
+### Value
+- **Type**: typing.Optional[str]
+
+### Minimum
+- **Type**: typing.Optional[str]
+
+### Maximum
+- **Type**: typing.Optional[str]
+
+### ValueList
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.CollectiveConstantEntryTypeDef]]
+
+
+# TopicConstantValueUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # TopicDateRangeFilterTypeDef
 
 ### Inclusive
@@ -20764,6 +22901,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### DataSets
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.DatasetMetadataOutputTypeDef]]
 
+### ConfigOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicConfigOptionsTypeDef]
+
 
 # TopicDetailsTypeDef
 
@@ -20779,6 +22919,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### DataSets
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.DatasetMetadataTypeDef]]
 
+### ConfigOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicConfigOptionsTypeDef]
+
+
+# TopicDetailsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TopicFilterOutputTypeDef
 
@@ -20855,6 +23004,303 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RelativeDateFilter
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicRelativeDateFilterTypeDef]
 
+
+# TopicIRComparisonMethodTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TopicIRContributionAnalysisOutputTypeDef
+
+### Factors
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.ContributionAnalysisFactorTypeDef]]
+
+### TimeRanges
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ContributionAnalysisTimeRangesOutputTypeDef]
+
+### Direction
+- **Type**: typing.Optional[typing.Literal['DECREASE', 'INCREASE', 'NEUTRAL']]
+
+### SortType
+- **Type**: typing.Optional[typing.Literal['ABSOLUTE_DIFFERENCE', 'CONTRIBUTION_PERCENTAGE', 'DEVIATION_FROM_EXPECTED', 'PERCENTAGE_DIFFERENCE']]
+
+
+# TopicIRContributionAnalysisTypeDef
+
+### Factors
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ContributionAnalysisFactorTypeDef]]
+
+### TimeRanges
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ContributionAnalysisTimeRangesUnionTypeDef]
+
+### Direction
+- **Type**: typing.Optional[typing.Literal['DECREASE', 'INCREASE', 'NEUTRAL']]
+
+### SortType
+- **Type**: typing.Optional[typing.Literal['ABSOLUTE_DIFFERENCE', 'CONTRIBUTION_PERCENTAGE', 'DEVIATION_FROM_EXPECTED', 'PERCENTAGE_DIFFERENCE']]
+
+
+# TopicIRContributionAnalysisUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TopicIRFilterOptionOutputTypeDef
+
+### FilterType
+- **Type**: typing.Optional[typing.Literal['ACCEPT_ALL_FILTER', 'CATEGORY_FILTER', 'DATE_RANGE_FILTER', 'EQUALS', 'NUMERIC_EQUALITY_FILTER', 'NUMERIC_RANGE_FILTER', 'RANK_LIMIT_FILTER', 'RELATIVE_DATE_FILTER', 'TOP_BOTTOM_FILTER']]
+
+### FilterClass
+- **Type**: typing.Optional[typing.Literal['CONDITIONAL_VALUE_FILTER', 'ENFORCED_VALUE_FILTER', 'NAMED_VALUE_FILTER']]
+
+### OperandField
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.IdentifierTypeDef]
+
+### Function
+- **Type**: typing.Optional[typing.Literal['CONTAINS', 'CONTAINS_STRING', 'ENDS_WITH', 'EXACT', 'LAST', 'NEXT', 'NOW', 'PREVIOUS', 'STARTS_WITH', 'THIS']]
+
+### Constant
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicConstantValueOutputTypeDef]
+
+### Inverse
+- **Type**: typing.Optional[bool]
+
+### NullFilter
+- **Type**: typing.Optional[typing.Literal['ALL_VALUES', 'NON_NULLS_ONLY', 'NULLS_ONLY']]
+
+### Aggregation
+- **Type**: typing.Optional[typing.Literal['AVERAGE', 'COLUMN', 'COUNT', 'CUSTOM', 'DISTINCT_COUNT', 'MAX', 'MEDIAN', 'MIN', 'PERCENTILE', 'PTD_AVERAGE', 'PTD_COUNT', 'PTD_DISTINCT_COUNT', 'PTD_MAX', 'PTD_MIN', 'PTD_SUM', 'STDEV', 'STDEVP', 'SUM', 'VAR', 'VARP']]
+
+### AggregationFunctionParameters
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### AggregationPartitionBy
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.AggregationPartitionByTypeDef]]
+
+### Range
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicConstantValueOutputTypeDef]
+
+### Inclusive
+- **Type**: typing.Optional[bool]
+
+### TimeGranularity
+- **Type**: typing.Optional[typing.Literal['DAY', 'HOUR', 'MILLISECOND', 'MINUTE', 'MONTH', 'QUARTER', 'SECOND', 'WEEK', 'YEAR']]
+
+### LastNextOffset
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicConstantValueOutputTypeDef]
+
+### AggMetrics
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.FilterAggMetricsTypeDef]]
+
+### TopBottomLimit
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicConstantValueOutputTypeDef]
+
+### SortDirection
+- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
+
+### Anchor
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AnchorTypeDef]
+
+
+# TopicIRFilterOptionTypeDef
+
+### FilterType
+- **Type**: typing.Optional[typing.Literal['ACCEPT_ALL_FILTER', 'CATEGORY_FILTER', 'DATE_RANGE_FILTER', 'EQUALS', 'NUMERIC_EQUALITY_FILTER', 'NUMERIC_RANGE_FILTER', 'RANK_LIMIT_FILTER', 'RELATIVE_DATE_FILTER', 'TOP_BOTTOM_FILTER']]
+
+### FilterClass
+- **Type**: typing.Optional[typing.Literal['CONDITIONAL_VALUE_FILTER', 'ENFORCED_VALUE_FILTER', 'NAMED_VALUE_FILTER']]
+
+### OperandField
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.IdentifierTypeDef]
+
+### Function
+- **Type**: typing.Optional[typing.Literal['CONTAINS', 'CONTAINS_STRING', 'ENDS_WITH', 'EXACT', 'LAST', 'NEXT', 'NOW', 'PREVIOUS', 'STARTS_WITH', 'THIS']]
+
+### Constant
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicConstantValueUnionTypeDef]
+
+### Inverse
+- **Type**: typing.Optional[bool]
+
+### NullFilter
+- **Type**: typing.Optional[typing.Literal['ALL_VALUES', 'NON_NULLS_ONLY', 'NULLS_ONLY']]
+
+### Aggregation
+- **Type**: typing.Optional[typing.Literal['AVERAGE', 'COLUMN', 'COUNT', 'CUSTOM', 'DISTINCT_COUNT', 'MAX', 'MEDIAN', 'MIN', 'PERCENTILE', 'PTD_AVERAGE', 'PTD_COUNT', 'PTD_DISTINCT_COUNT', 'PTD_MAX', 'PTD_MIN', 'PTD_SUM', 'STDEV', 'STDEVP', 'SUM', 'VAR', 'VARP']]
+
+### AggregationFunctionParameters
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### AggregationPartitionBy
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.AggregationPartitionByTypeDef]]
+
+### Range
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicConstantValueUnionTypeDef]
+
+### Inclusive
+- **Type**: typing.Optional[bool]
+
+### TimeGranularity
+- **Type**: typing.Optional[typing.Literal['DAY', 'HOUR', 'MILLISECOND', 'MINUTE', 'MONTH', 'QUARTER', 'SECOND', 'WEEK', 'YEAR']]
+
+### LastNextOffset
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicConstantValueUnionTypeDef]
+
+### AggMetrics
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.FilterAggMetricsTypeDef]]
+
+### TopBottomLimit
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicConstantValueUnionTypeDef]
+
+### SortDirection
+- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
+
+### Anchor
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AnchorTypeDef]
+
+
+# TopicIRFilterOptionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TopicIRGroupByTypeDef
+
+### FieldName
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.IdentifierTypeDef]
+
+### TimeGranularity
+- **Type**: typing.Optional[typing.Literal['DAY', 'HOUR', 'MINUTE', 'MONTH', 'QUARTER', 'SECOND', 'WEEK', 'YEAR']]
+
+### Sort
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicSortClauseTypeDef]
+
+### DisplayFormat
+- **Type**: typing.Optional[typing.Literal['AUTO', 'CURRENCY', 'DATE', 'NUMBER', 'PERCENT', 'STRING']]
+
+### DisplayFormatOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DisplayFormatOptionsTypeDef]
+
+### NamedEntity
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.NamedEntityRefTypeDef]
+
+
+# TopicIRMetricOutputTypeDef
+
+### MetricId
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.IdentifierTypeDef]
+
+### Function
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AggFunctionOutputTypeDef]
+
+### Operands
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.IdentifierTypeDef]]
+
+### ComparisonMethod
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicIRComparisonMethodTypeDef]
+
+### Expression
+- **Type**: typing.Optional[str]
+
+### CalculatedFieldReferences
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.IdentifierTypeDef]]
+
+### DisplayFormat
+- **Type**: typing.Optional[typing.Literal['AUTO', 'CURRENCY', 'DATE', 'NUMBER', 'PERCENT', 'STRING']]
+
+### DisplayFormatOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DisplayFormatOptionsTypeDef]
+
+### NamedEntity
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.NamedEntityRefTypeDef]
+
+
+# TopicIRMetricTypeDef
+
+### MetricId
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.IdentifierTypeDef]
+
+### Function
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AggFunctionUnionTypeDef]
+
+### Operands
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.IdentifierTypeDef]]
+
+### ComparisonMethod
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicIRComparisonMethodTypeDef]
+
+### Expression
+- **Type**: typing.Optional[str]
+
+### CalculatedFieldReferences
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.IdentifierTypeDef]]
+
+### DisplayFormat
+- **Type**: typing.Optional[typing.Literal['AUTO', 'CURRENCY', 'DATE', 'NUMBER', 'PERCENT', 'STRING']]
+
+### DisplayFormatOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DisplayFormatOptionsTypeDef]
+
+### NamedEntity
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.NamedEntityRefTypeDef]
+
+
+# TopicIRMetricUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TopicIROutputTypeDef
+
+### Metrics
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.TopicIRMetricOutputTypeDef]]
+
+### GroupByList
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.TopicIRGroupByTypeDef]]
+
+### Filters
+- **Type**: typing.Optional[typing.List[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.TopicIRFilterOptionOutputTypeDef]]]
+
+### Sort
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicSortClauseTypeDef]
+
+### ContributionAnalysis
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicIRContributionAnalysisOutputTypeDef]
+
+### Visual
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.VisualOptionsTypeDef]
+
+
+# TopicIRTypeDef
+
+### Metrics
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.TopicIRMetricUnionTypeDef]]
+
+### GroupByList
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.TopicIRGroupByTypeDef]]
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.TopicIRFilterOptionUnionTypeDef]]]
+
+### Sort
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicSortClauseTypeDef]
+
+### ContributionAnalysis
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicIRContributionAnalysisUnionTypeDef]
+
+### Visual
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.VisualOptionsTypeDef]
+
+
+# TopicIRUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TopicNamedEntityOutputTypeDef
 
@@ -20985,7 +23431,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StartingAt
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TimestampTypeDef]
 
 ### Timezone
 - **Type**: typing.Optional[str]
@@ -20996,6 +23442,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### TopicScheduleType
 - **Type**: typing.Optional[typing.Literal['DAILY', 'HOURLY', 'MONTHLY', 'WEEKLY']]
 
+
+# TopicRefreshScheduleUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TopicRelativeDateFilterTypeDef
 
@@ -21009,6 +23461,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicSingularFilterConstantTypeDef]
 
 
+# TopicReviewedAnswerTypeDef
+
+### AnswerId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DatasetArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Question
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Arn
+- **Type**: typing.Optional[str]
+
+### Mir
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicIROutputTypeDef]
+
+### PrimaryVisual
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicVisualOutputTypeDef]
+
+### Template
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicTemplateOutputTypeDef]
+
+
+# TopicSearchFilterTypeDef
+
+### Operator
+- **Type**: typing.Literal['StringEquals', 'StringLike']
+- **Required**: Yes
+
+### Name
+- **Type**: typing.Literal['DIRECT_QUICKSIGHT_OWNER', 'DIRECT_QUICKSIGHT_SOLE_OWNER', 'DIRECT_QUICKSIGHT_VIEWER_OR_OWNER', 'QUICKSIGHT_OWNER', 'QUICKSIGHT_USER', 'QUICKSIGHT_VIEWER_OR_OWNER', 'TOPIC_NAME']
+- **Required**: Yes
+
+### Value
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
 # TopicSingularFilterConstantTypeDef
 
 ### ConstantType
@@ -21016,6 +23510,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SingularConstant
 - **Type**: typing.Optional[str]
+
+
+# TopicSortClauseTypeDef
+
+### Operand
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.IdentifierTypeDef]
+
+### SortDirection
+- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 
 # TopicSummaryTypeDef
@@ -21032,6 +23535,66 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### UserExperienceVersion
 - **Type**: typing.Optional[typing.Literal['LEGACY', 'NEW_READER_EXPERIENCE']]
 
+
+# TopicTemplateOutputTypeDef
+
+### TemplateType
+- **Type**: typing.Optional[str]
+
+### Slots
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.SlotTypeDef]]
+
+
+# TopicTemplateTypeDef
+
+### TemplateType
+- **Type**: typing.Optional[str]
+
+### Slots
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.SlotTypeDef]]
+
+
+# TopicTemplateUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TopicVisualOutputTypeDef
+
+### VisualId
+- **Type**: typing.Optional[str]
+
+### Role
+- **Type**: typing.Optional[typing.Literal['COMPLIMENTARY', 'FALLBACK', 'FRAGMENT', 'MULTI_INTENT', 'PRIMARY']]
+
+### Ir
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicIROutputTypeDef]
+
+### SupportingVisuals
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
+
+
+# TopicVisualTypeDef
+
+### VisualId
+- **Type**: typing.Optional[str]
+
+### Role
+- **Type**: typing.Optional[typing.Literal['COMPLIMENTARY', 'FALLBACK', 'FRAGMENT', 'MULTI_INTENT', 'PRIMARY']]
+
+### Ir
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TopicIRUnionTypeDef]
+
+### SupportingVisuals
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+
+
+# TopicVisualUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TotalAggregationComputationTypeDef
 
@@ -21135,13 +23698,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TransformOperationTypeDef
 
 ### ProjectOperation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ProjectOperationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ProjectOperationUnionTypeDef]
 
 ### FilterOperation
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilterOperationTypeDef]
 
 ### CreateColumnsOperation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CreateColumnsOperationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CreateColumnsOperationUnionTypeDef]
 
 ### RenameColumnOperation
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.RenameColumnOperationTypeDef]
@@ -21150,14 +23713,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CastColumnTypeOperationTypeDef]
 
 ### TagColumnOperation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TagColumnOperationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TagColumnOperationUnionTypeDef]
 
 ### UntagColumnOperation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.UntagColumnOperationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.UntagColumnOperationUnionTypeDef]
 
 ### OverrideDatasetParameterOperation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.OverrideDatasetParameterOperationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.OverrideDatasetParameterOperationUnionTypeDef]
 
+
+# TransformOperationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TreeMapAggregatedFieldWellsOutputTypeDef
 
@@ -21300,6 +23869,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ColumnHierarchies
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.ColumnHierarchyOutputTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # TreeMapVisualTypeDef
 
@@ -21321,6 +23893,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ColumnHierarchies
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ColumnHierarchyTypeDef]]
+
+### VisualContentAltText
+- **Type**: typing.Optional[str]
 
 
 # TrendArrowOptionsTypeDef
@@ -21369,54 +23944,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # UIColorPaletteTypeDef
 
-### PrimaryForeground
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### PrimaryBackground
-- **Type**: typing.Optional[str]
-
-### SecondaryForeground
-- **Type**: typing.Optional[str]
-
-### SecondaryBackground
-- **Type**: typing.Optional[str]
-
-### Accent
-- **Type**: typing.Optional[str]
-
-### AccentForeground
-- **Type**: typing.Optional[str]
-
-### Danger
-- **Type**: typing.Optional[str]
-
-### DangerForeground
-- **Type**: typing.Optional[str]
-
-### Warning
-- **Type**: typing.Optional[str]
-
-### WarningForeground
-- **Type**: typing.Optional[str]
-
-### Success
-- **Type**: typing.Optional[str]
-
-### SuccessForeground
-- **Type**: typing.Optional[str]
-
-### Dimension
-- **Type**: typing.Optional[str]
-
-### DimensionForeground
-- **Type**: typing.Optional[str]
-
-### Measure
-- **Type**: typing.Optional[str]
-
-### MeasureForeground
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UnaggregatedFieldTypeDef
 
@@ -21430,6 +23960,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### FormatConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FormatConfigurationTypeDef]
+
+
+# UniqueKeyOutputTypeDef
+
+### ColumnNames
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
+# UniqueKeyTypeDef
+
+### ColumnNames
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
 
 
 # UniqueValuesComputationTypeDef
@@ -21467,7 +24011,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagColumnOperationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -21493,7 +24043,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAccountCustomizationRequestRequestTypeDef
+# UpdateAccountCustomizationRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -21538,7 +24088,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAccountSettingsRequestRequestTypeDef
+# UpdateAccountSettingsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -21570,7 +24120,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAnalysisPermissionsRequestRequestTypeDef
+# UpdateAnalysisPermissionsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -21581,10 +24131,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GrantPermissions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionUnionTypeDef]]
 
 ### RevokePermissions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionUnionTypeDef]]
 
 
 # UpdateAnalysisPermissionsResponseTypeDef
@@ -21614,7 +24164,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAnalysisRequestRequestTypeDef
+# UpdateAnalysisRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -21629,7 +24179,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ParametersUnionTypeDef]
 
 ### SourceEntity
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AnalysisSourceEntityTypeDef]
@@ -21638,7 +24188,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Definition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AnalysisDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.AnalysisDefinitionUnionTypeDef]
 
 ### ValidationStrategy
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ValidationStrategyTypeDef]
@@ -21671,7 +24221,155 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDashboardLinksRequestRequestTypeDef
+# UpdateApplicationWithTokenExchangeGrantRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Namespace
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# UpdateApplicationWithTokenExchangeGrantResponseTypeDef
+
+### Status
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateBrandAssignmentRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### BrandArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# UpdateBrandAssignmentResponseTypeDef
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### BrandArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateBrandPublishedVersionRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### BrandId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### VersionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# UpdateBrandPublishedVersionResponseTypeDef
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### VersionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateBrandRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### BrandId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### BrandDefinition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.BrandDefinitionTypeDef]
+
+
+# UpdateBrandResponseTypeDef
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### BrandDetail
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.BrandDetailTypeDef'>
+- **Required**: Yes
+
+### BrandDefinition
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.BrandDefinitionTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateCustomPermissionsRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CustomPermissionsName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Capabilities
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.CapabilitiesTypeDef]
+
+
+# UpdateCustomPermissionsResponseTypeDef
+
+### Status
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateDashboardLinksRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -21709,7 +24407,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDashboardPermissionsRequestRequestTypeDef
+# UpdateDashboardPermissionsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -21720,16 +24418,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GrantPermissions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionUnionTypeDef]]
 
 ### RevokePermissions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionUnionTypeDef]]
 
 ### GrantLinkPermissions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionUnionTypeDef]]
 
 ### RevokeLinkPermissions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionUnionTypeDef]]
 
 
 # UpdateDashboardPermissionsResponseTypeDef
@@ -21763,7 +24461,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDashboardPublishedVersionRequestRequestTypeDef
+# UpdateDashboardPublishedVersionRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -21801,7 +24499,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDashboardRequestRequestTypeDef
+# UpdateDashboardRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -21819,7 +24517,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DashboardSourceEntityTypeDef]
 
 ### Parameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ParametersUnionTypeDef]
 
 ### VersionDescription
 - **Type**: typing.Optional[str]
@@ -21831,7 +24529,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Definition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DashboardVersionDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DashboardVersionDefinitionUnionTypeDef]
 
 ### ValidationStrategy
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ValidationStrategyTypeDef]
@@ -21868,7 +24566,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDataSetPermissionsRequestRequestTypeDef
+# UpdateDashboardsQAConfigurationRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DashboardsQAStatus
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+
+# UpdateDashboardsQAConfigurationResponseTypeDef
+
+### DashboardsQAStatus
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateDataSetPermissionsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -21879,10 +24607,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GrantPermissions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionUnionTypeDef]]
 
 ### RevokePermissions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionUnionTypeDef]]
 
 
 # UpdateDataSetPermissionsResponseTypeDef
@@ -21908,7 +24636,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDataSetRequestRequestTypeDef
+# UpdateDataSetRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -21923,7 +24651,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PhysicalTableMap
-- **Type**: typing.Mapping[str, typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.PhysicalTableTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.PhysicalTableOutputTypeDef]]
+- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.quicksight_classes.PhysicalTableUnionTypeDef]
 - **Required**: Yes
 
 ### ImportMode
@@ -21931,28 +24659,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LogicalTableMap
-- **Type**: typing.Optional[typing.Mapping[str, typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.LogicalTableTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.LogicalTableOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.quicksight_classes.LogicalTableUnionTypeDef]]
 
 ### ColumnGroups
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ColumnGroupTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ColumnGroupOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ColumnGroupUnionTypeDef]]
 
 ### FieldFolders
-- **Type**: typing.Optional[typing.Mapping[str, typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.FieldFolderTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.FieldFolderOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.quicksight_classes.FieldFolderUnionTypeDef]]
 
 ### RowLevelPermissionDataSet
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.RowLevelPermissionDataSetTypeDef]
 
 ### RowLevelPermissionTagConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.RowLevelPermissionTagConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.RowLevelPermissionTagConfigurationUnionTypeDef]
 
 ### ColumnLevelPermissionRules
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ColumnLevelPermissionRuleTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ColumnLevelPermissionRuleOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ColumnLevelPermissionRuleUnionTypeDef]]
 
 ### DataSetUsageConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DataSetUsageConfigurationTypeDef]
 
 ### DatasetParameters
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.DatasetParameterTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.DatasetParameterOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.DatasetParameterUnionTypeDef]]
+
+### PerformanceConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PerformanceConfigurationUnionTypeDef]
 
 
 # UpdateDataSetResponseTypeDef
@@ -21986,7 +24717,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDataSourcePermissionsRequestRequestTypeDef
+# UpdateDataSourcePermissionsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -21997,10 +24728,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GrantPermissions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionUnionTypeDef]]
 
 ### RevokePermissions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionUnionTypeDef]]
 
 
 # UpdateDataSourcePermissionsResponseTypeDef
@@ -22026,7 +24757,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDataSourceRequestRequestTypeDef
+# UpdateDataSourceRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -22041,7 +24772,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DataSourceParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DataSourceParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DataSourceParametersUnionTypeDef]
 
 ### Credentials
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.DataSourceCredentialsTypeDef]
@@ -22080,7 +24811,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateFolderPermissionsRequestRequestTypeDef
+# UpdateDefaultQBusinessApplicationRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ApplicationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Namespace
+- **Type**: typing.Optional[str]
+
+
+# UpdateDefaultQBusinessApplicationResponseTypeDef
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateFolderPermissionsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -22091,10 +24851,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GrantPermissions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionUnionTypeDef]]
 
 ### RevokePermissions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionUnionTypeDef]]
 
 
 # UpdateFolderPermissionsResponseTypeDef
@@ -22124,7 +24884,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateFolderRequestRequestTypeDef
+# UpdateFolderRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -22162,7 +24922,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateGroupRequestRequestTypeDef
+# UpdateGroupRequestTypeDef
 
 ### GroupName
 - **Type**: <class 'str'>
@@ -22199,7 +24959,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateIAMPolicyAssignmentRequestRequestTypeDef
+# UpdateIAMPolicyAssignmentRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -22258,14 +25018,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateIdentityPropagationConfigRequestRequestTypeDef
+# UpdateIdentityPropagationConfigRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Service
-- **Type**: typing.Literal['REDSHIFT']
+- **Type**: typing.Literal['QBUSINESS', 'REDSHIFT']
 - **Required**: Yes
 
 ### AuthorizedTargets
@@ -22287,7 +25047,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateIpRestrictionRequestRequestTypeDef
+# UpdateIpRestrictionRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -22325,7 +25085,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateKeyRegistrationRequestRequestTypeDef
+# UpdateKeyRegistrationRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -22355,7 +25115,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePublicSharingSettingsRequestRequestTypeDef
+# UpdatePublicSharingSettingsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -22380,7 +25140,67 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRefreshScheduleRequestRequestTypeDef
+# UpdateQPersonalizationConfigurationRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PersonalizationMode
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+
+# UpdateQPersonalizationConfigurationResponseTypeDef
+
+### PersonalizationMode
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateQuickSightQSearchConfigurationRequestTypeDef
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### QSearchStatus
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+
+# UpdateQuickSightQSearchConfigurationResponseTypeDef
+
+### QSearchStatus
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateRefreshScheduleRequestTypeDef
 
 ### DataSetId
 - **Type**: <class 'str'>
@@ -22391,7 +25211,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Schedule
-- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.RefreshScheduleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.RefreshScheduleUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -22418,7 +25238,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRoleCustomPermissionRequestRequestTypeDef
+# UpdateRoleCustomPermissionRequestTypeDef
 
 ### CustomPermissionsName
 - **Type**: <class 'str'>
@@ -22452,7 +25272,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateSPICECapacityConfigurationRequestRequestTypeDef
+# UpdateSPICECapacityConfigurationRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -22478,7 +25298,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateTemplateAliasRequestRequestTypeDef
+# UpdateTemplateAliasRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -22516,7 +25336,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateTemplatePermissionsRequestRequestTypeDef
+# UpdateTemplatePermissionsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -22527,10 +25347,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GrantPermissions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionUnionTypeDef]]
 
 ### RevokePermissions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionUnionTypeDef]]
 
 
 # UpdateTemplatePermissionsResponseTypeDef
@@ -22560,7 +25380,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateTemplateRequestRequestTypeDef
+# UpdateTemplateRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -22580,7 +25400,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Definition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TemplateVersionDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.TemplateVersionDefinitionUnionTypeDef]
 
 ### ValidationStrategy
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ValidationStrategyTypeDef]
@@ -22617,7 +25437,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateThemeAliasRequestRequestTypeDef
+# UpdateThemeAliasRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -22655,7 +25475,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateThemePermissionsRequestRequestTypeDef
+# UpdateThemePermissionsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -22666,10 +25486,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GrantPermissions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionUnionTypeDef]]
 
 ### RevokePermissions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionUnionTypeDef]]
 
 
 # UpdateThemePermissionsResponseTypeDef
@@ -22699,7 +25519,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateThemeRequestRequestTypeDef
+# UpdateThemeRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -22720,7 +25540,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ThemeConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.ThemeConfigurationUnionTypeDef]
 
 
 # UpdateThemeResponseTypeDef
@@ -22754,7 +25574,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateTopicPermissionsRequestRequestTypeDef
+# UpdateTopicPermissionsRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -22765,10 +25585,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GrantPermissions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionUnionTypeDef]]
 
 ### RevokePermissions
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionTypeDef, aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionExtraOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ResourcePermissionUnionTypeDef]]
 
 
 # UpdateTopicPermissionsResponseTypeDef
@@ -22798,7 +25618,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateTopicRefreshScheduleRequestRequestTypeDef
+# UpdateTopicRefreshScheduleRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -22813,7 +25633,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RefreshSchedule
-- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.TopicRefreshScheduleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.TopicRefreshScheduleUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -22844,7 +25664,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateTopicRequestRequestTypeDef
+# UpdateTopicRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -22855,7 +25675,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Topic
-- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.TopicDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.TopicDetailsUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -22886,7 +25706,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateUserRequestRequestTypeDef
+# UpdateUserCustomPermissionRequestTypeDef
+
+### UserName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Namespace
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CustomPermissionsName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# UpdateUserCustomPermissionResponseTypeDef
+
+### RequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateUserRequestTypeDef
 
 ### UserName
 - **Type**: <class 'str'>
@@ -22943,7 +25797,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateVPCConnectionRequestRequestTypeDef
+# UpdateVPCConnectionRequestTypeDef
 
 ### AwsAccountId
 - **Type**: <class 'str'>
@@ -23244,6 +26098,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
+# VisualOptionsTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # VisualOutputTypeDef
 
 ### TableVisual
@@ -23278,6 +26138,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### FilledMapVisual
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilledMapVisualOutputTypeDef]
+
+### LayerMapVisual
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.LayerMapVisualOutputTypeDef]
 
 ### FunnelChartVisual
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FunnelChartVisualOutputTypeDef]
@@ -23314,6 +26177,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### RadarChartVisual
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.RadarChartVisualOutputTypeDef]
+
+### PluginVisual
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PluginVisualOutputTypeDef]
 
 
 # VisualPaletteOutputTypeDef
@@ -23387,6 +26253,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### FilledMapVisual
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FilledMapVisualTypeDef]
 
+### LayerMapVisual
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.LayerMapVisualTypeDef]
+
 ### FunnelChartVisual
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.FunnelChartVisualTypeDef]
 
@@ -23422,6 +26291,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### RadarChartVisual
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.RadarChartVisualTypeDef]
+
+### PluginVisual
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.quicksight_classes.PluginVisualTypeDef]
 
 
 # VpcConnectionPropertiesTypeDef
@@ -23608,6 +26480,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ColumnHierarchies
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.ColumnHierarchyOutputTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # WaterfallVisualTypeDef
 
@@ -23630,6 +26505,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ColumnHierarchies
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ColumnHierarchyTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # WhatIfPointScenarioOutputTypeDef
 
@@ -23645,7 +26523,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # WhatIfPointScenarioTypeDef
 
 ### Date
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### Value
@@ -23671,11 +26549,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # WhatIfRangeScenarioTypeDef
 
 ### StartDate
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndDate
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.quicksight_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### Value
@@ -23809,6 +26687,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ColumnHierarchies
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.quicksight_classes.ColumnHierarchyOutputTypeDef]]
 
+### VisualContentAltText
+- **Type**: typing.Optional[str]
+
 
 # WordCloudVisualTypeDef
 
@@ -23830,6 +26711,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ColumnHierarchies
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.quicksight_classes.ColumnHierarchyTypeDef]]
+
+### VisualContentAltText
+- **Type**: typing.Optional[str]
 
 
 # YAxisOptionsTypeDef

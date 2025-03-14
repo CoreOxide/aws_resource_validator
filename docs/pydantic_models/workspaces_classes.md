@@ -1,6 +1,6 @@
 # Workspaces Classes
 
-# AcceptAccountLinkInvitationRequestRequestTypeDef
+# AcceptAccountLinkInvitationRequestTypeDef
 
 ### LinkId
 - **Type**: <class 'str'>
@@ -115,7 +115,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AssociateConnectionAliasRequestRequestTypeDef
+# AssociateConnectionAliasRequestTypeDef
 
 ### AliasId
 - **Type**: <class 'str'>
@@ -137,7 +137,7 @@
 - **Required**: Yes
 
 
-# AssociateIpGroupsRequestRequestTypeDef
+# AssociateIpGroupsRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -148,7 +148,7 @@
 - **Required**: Yes
 
 
-# AssociateWorkspaceApplicationRequestRequestTypeDef
+# AssociateWorkspaceApplicationRequestTypeDef
 
 ### WorkspaceId
 - **Type**: <class 'str'>
@@ -179,7 +179,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AuthorizeIpRulesRequestRequestTypeDef
+# AuthorizeIpRulesRequestTypeDef
 
 ### GroupId
 - **Type**: <class 'str'>
@@ -191,6 +191,12 @@
 
 
 # BaseValidatorModel
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# BlobTypeDef
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
@@ -276,7 +282,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ComputeTypeTypeDef
 
 ### Name
-- **Type**: typing.Optional[typing.Literal['GRAPHICS', 'GRAPHICSPRO', 'GRAPHICSPRO_G4DN', 'GRAPHICS_G4DN', 'PERFORMANCE', 'POWER', 'POWERPRO', 'STANDARD', 'VALUE']]
+- **Type**: typing.Optional[typing.Literal['GENERALPURPOSE_4XLARGE', 'GENERALPURPOSE_8XLARGE', 'GRAPHICS', 'GRAPHICSPRO', 'GRAPHICSPRO_G4DN', 'GRAPHICS_G4DN', 'PERFORMANCE', 'POWER', 'POWERPRO', 'STANDARD', 'VALUE']]
 
 
 # ConnectClientAddInTypeDef
@@ -338,7 +344,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces_classes.ConnectionAliasAssociationTypeDef]]
 
 
-# CopyWorkspaceImageRequestRequestTypeDef
+# CopyWorkspaceImageRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -370,7 +376,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAccountLinkInvitationRequestRequestTypeDef
+# CreateAccountLinkInvitationRequestTypeDef
 
 ### TargetAccountId
 - **Type**: <class 'str'>
@@ -391,7 +397,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateConnectClientAddInRequestRequestTypeDef
+# CreateConnectClientAddInRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -417,7 +423,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateConnectionAliasRequestRequestTypeDef
+# CreateConnectionAliasRequestTypeDef
 
 ### ConnectionString
 - **Type**: <class 'str'>
@@ -438,7 +444,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateIpGroupRequestRequestTypeDef
+# CreateIpGroupRequestTypeDef
 
 ### GroupName
 - **Type**: <class 'str'>
@@ -465,14 +471,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateStandbyWorkspacesRequestRequestTypeDef
+# CreateStandbyWorkspacesRequestTypeDef
 
 ### PrimaryRegion
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### StandbyWorkspaces
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.workspaces_classes.StandbyWorkspaceTypeDef, aws_resource_validator.pydantic_models.workspaces_classes.StandbyWorkspaceOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.StandbyWorkspaceUnionTypeDef]
 - **Required**: Yes
 
 
@@ -491,7 +497,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTagsRequestRequestTypeDef
+# CreateTagsRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -502,7 +508,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateUpdatedWorkspaceImageRequestRequestTypeDef
+# CreateUpdatedWorkspaceImageRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -531,35 +537,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateWorkspaceBundleRequestRequestTypeDef
-
-### BundleName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### BundleDescription
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ImageId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ComputeType
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ComputeTypeTypeDef'>
-- **Required**: Yes
-
-### UserStorage
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.UserStorageTypeDef'>
-- **Required**: Yes
-
-### RootStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.RootStorageTypeDef]
-
-### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.TagTypeDef]]
-
-
 # CreateWorkspaceBundleResultTypeDef
 
 ### WorkspaceBundle
@@ -571,7 +548,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateWorkspaceImageRequestRequestTypeDef
+# CreateWorkspaceImageRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -628,7 +605,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateWorkspacesPoolRequestRequestTypeDef
+# CreateWorkspacesPoolRequestTypeDef
 
 ### PoolName
 - **Type**: <class 'str'>
@@ -671,10 +648,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateWorkspacesRequestRequestTypeDef
+# CreateWorkspacesRequestTypeDef
 
 ### Workspaces
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.workspaces_classes.WorkspaceRequestTypeDef, aws_resource_validator.pydantic_models.workspaces_classes.WorkspaceRequestOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.WorkspaceRequestUnionTypeDef]
 - **Required**: Yes
 
 
@@ -723,7 +700,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DefaultImportClientBrandingAttributesTypeDef
 
 ### Logo
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.BlobTypeDef]
 
 ### SupportEmail
 - **Type**: typing.Optional[str]
@@ -762,7 +739,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteAccountLinkInvitationRequestRequestTypeDef
+# DeleteAccountLinkInvitationRequestTypeDef
 
 ### LinkId
 - **Type**: <class 'str'>
@@ -783,7 +760,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteClientBrandingRequestRequestTypeDef
+# DeleteClientBrandingRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -794,7 +771,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteConnectClientAddInRequestRequestTypeDef
+# DeleteConnectClientAddInRequestTypeDef
 
 ### AddInId
 - **Type**: <class 'str'>
@@ -805,21 +782,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteConnectionAliasRequestRequestTypeDef
+# DeleteConnectionAliasRequestTypeDef
 
 ### AliasId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteIpGroupRequestRequestTypeDef
+# DeleteIpGroupRequestTypeDef
 
 ### GroupId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteTagsRequestRequestTypeDef
+# DeleteTagsRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -830,20 +807,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteWorkspaceBundleRequestRequestTypeDef
+# DeleteWorkspaceBundleRequestTypeDef
 
 ### BundleId
 - **Type**: typing.Optional[str]
 
 
-# DeleteWorkspaceImageRequestRequestTypeDef
+# DeleteWorkspaceImageRequestTypeDef
 
 ### ImageId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeployWorkspaceApplicationsRequestRequestTypeDef
+# DeployWorkspaceApplicationsRequestTypeDef
 
 ### WorkspaceId
 - **Type**: <class 'str'>
@@ -864,20 +841,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeregisterWorkspaceDirectoryRequestRequestTypeDef
+# DeregisterWorkspaceDirectoryRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeAccountModificationsRequestDescribeAccountModificationsPaginateTypeDef
+# DescribeAccountModificationsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.PaginatorConfigTypeDef]
 
 
-# DescribeAccountModificationsRequestRequestTypeDef
+# DescribeAccountModificationsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -916,7 +893,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeApplicationAssociationsRequestRequestTypeDef
+# DescribeApplicationAssociationsRequestTypeDef
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -947,19 +924,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeApplicationsRequestRequestTypeDef
+# DescribeApplicationsRequestTypeDef
 
 ### ApplicationIds
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### ComputeTypeNames
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['GRAPHICS', 'GRAPHICSPRO', 'GRAPHICSPRO_G4DN', 'GRAPHICS_G4DN', 'PERFORMANCE', 'POWER', 'POWERPRO', 'STANDARD', 'VALUE']]]
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['GENERALPURPOSE_4XLARGE', 'GENERALPURPOSE_8XLARGE', 'GRAPHICS', 'GRAPHICSPRO', 'GRAPHICSPRO_G4DN', 'GRAPHICS_G4DN', 'PERFORMANCE', 'POWER', 'POWERPRO', 'STANDARD', 'VALUE']]]
 
 ### LicenseType
 - **Type**: typing.Optional[typing.Literal['LICENSED', 'UNLICENSED']]
 
 ### OperatingSystemNames
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['AMAZON_LINUX_2', 'RHEL_8', 'UBUNTU_18_04', 'UBUNTU_20_04', 'UBUNTU_22_04', 'UNKNOWN', 'WINDOWS_10', 'WINDOWS_11', 'WINDOWS_7', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]]
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['AMAZON_LINUX_2', 'RHEL_8', 'ROCKY_8', 'UBUNTU_18_04', 'UBUNTU_20_04', 'UBUNTU_22_04', 'UNKNOWN', 'WINDOWS_10', 'WINDOWS_11', 'WINDOWS_7', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]]
 
 ### Owner
 - **Type**: typing.Optional[str]
@@ -985,7 +962,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeBundleAssociationsRequestRequestTypeDef
+# DescribeBundleAssociationsRequestTypeDef
 
 ### BundleId
 - **Type**: <class 'str'>
@@ -1007,7 +984,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeClientBrandingRequestRequestTypeDef
+# DescribeClientBrandingRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -1045,7 +1022,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeClientPropertiesRequestRequestTypeDef
+# DescribeClientPropertiesRequestTypeDef
 
 ### ResourceIds
 - **Type**: typing.Sequence[str]
@@ -1063,7 +1040,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeConnectClientAddInsRequestRequestTypeDef
+# DescribeConnectClientAddInsRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -1090,7 +1067,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeConnectionAliasPermissionsRequestRequestTypeDef
+# DescribeConnectionAliasPermissionsRequestTypeDef
 
 ### AliasId
 - **Type**: <class 'str'>
@@ -1121,7 +1098,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeConnectionAliasesRequestRequestTypeDef
+# DescribeConnectionAliasesRequestTypeDef
 
 ### AliasIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1150,7 +1127,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeImageAssociationsRequestRequestTypeDef
+# DescribeImageAssociationsRequestTypeDef
 
 ### ImageId
 - **Type**: <class 'str'>
@@ -1172,7 +1149,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeIpGroupsRequestDescribeIpGroupsPaginateTypeDef
+# DescribeIpGroupsRequestPaginateTypeDef
 
 ### GroupIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1181,7 +1158,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.PaginatorConfigTypeDef]
 
 
-# DescribeIpGroupsRequestRequestTypeDef
+# DescribeIpGroupsRequestTypeDef
 
 ### GroupIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1207,7 +1184,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeTagsRequestRequestTypeDef
+# DescribeTagsRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -1225,7 +1202,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeWorkspaceAssociationsRequestRequestTypeDef
+# DescribeWorkspaceAssociationsRequestTypeDef
 
 ### WorkspaceId
 - **Type**: <class 'str'>
@@ -1247,7 +1224,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeWorkspaceBundlesRequestDescribeWorkspaceBundlesPaginateTypeDef
+# DescribeWorkspaceBundlesRequestPaginateTypeDef
 
 ### BundleIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1259,7 +1236,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.PaginatorConfigTypeDef]
 
 
-# DescribeWorkspaceBundlesRequestRequestTypeDef
+# DescribeWorkspaceBundlesRequestTypeDef
 
 ### BundleIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1285,7 +1262,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeWorkspaceDirectoriesRequestDescribeWorkspaceDirectoriesPaginateTypeDef
+# DescribeWorkspaceDirectoriesFilterTypeDef
+
+### Name
+- **Type**: typing.Literal['USER_IDENTITY_TYPE', 'WORKSPACE_TYPE']
+- **Required**: Yes
+
+### Values
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+
+# DescribeWorkspaceDirectoriesRequestPaginateTypeDef
 
 ### DirectoryIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1296,11 +1284,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Limit
 - **Type**: typing.Optional[int]
 
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.DescribeWorkspaceDirectoriesFilterTypeDef]]
+
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.PaginatorConfigTypeDef]
 
 
-# DescribeWorkspaceDirectoriesRequestRequestTypeDef
+# DescribeWorkspaceDirectoriesRequestTypeDef
 
 ### DirectoryIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1313,6 +1304,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### NextToken
 - **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.DescribeWorkspaceDirectoriesFilterTypeDef]]
 
 
 # DescribeWorkspaceDirectoriesResultTypeDef
@@ -1329,7 +1323,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeWorkspaceImagePermissionsRequestRequestTypeDef
+# DescribeWorkspaceImagePermissionsRequestTypeDef
 
 ### ImageId
 - **Type**: <class 'str'>
@@ -1360,7 +1354,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeWorkspaceImagesRequestDescribeWorkspaceImagesPaginateTypeDef
+# DescribeWorkspaceImagesRequestPaginateTypeDef
 
 ### ImageIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1372,7 +1366,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.PaginatorConfigTypeDef]
 
 
-# DescribeWorkspaceImagesRequestRequestTypeDef
+# DescribeWorkspaceImagesRequestTypeDef
 
 ### ImageIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1401,7 +1395,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeWorkspaceSnapshotsRequestRequestTypeDef
+# DescribeWorkspaceSnapshotsRequestTypeDef
 
 ### WorkspaceId
 - **Type**: <class 'str'>
@@ -1423,7 +1417,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeWorkspacesConnectionStatusRequestDescribeWorkspacesConnectionStatusPaginateTypeDef
+# DescribeWorkspacesConnectionStatusRequestPaginateTypeDef
 
 ### WorkspaceIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1432,7 +1426,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.PaginatorConfigTypeDef]
 
 
-# DescribeWorkspacesConnectionStatusRequestRequestTypeDef
+# DescribeWorkspacesConnectionStatusRequestTypeDef
 
 ### WorkspaceIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1455,7 +1449,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeWorkspacesPoolSessionsRequestRequestTypeDef
+# DescribeWorkspacesPoolSessionsRequestTypeDef
 
 ### PoolId
 - **Type**: <class 'str'>
@@ -1500,7 +1494,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeWorkspacesPoolsRequestRequestTypeDef
+# DescribeWorkspacesPoolsRequestTypeDef
 
 ### PoolIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1529,7 +1523,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeWorkspacesRequestDescribeWorkspacesPaginateTypeDef
+# DescribeWorkspacesRequestPaginateTypeDef
 
 ### WorkspaceIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1550,7 +1544,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.PaginatorConfigTypeDef]
 
 
-# DescribeWorkspacesRequestRequestTypeDef
+# DescribeWorkspacesRequestTypeDef
 
 ### WorkspaceIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1588,14 +1582,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DisassociateConnectionAliasRequestRequestTypeDef
+# DisassociateConnectionAliasRequestTypeDef
 
 ### AliasId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisassociateIpGroupsRequestRequestTypeDef
+# DisassociateIpGroupsRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -1606,7 +1600,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateWorkspaceApplicationRequestRequestTypeDef
+# DisassociateWorkspaceApplicationRequestTypeDef
 
 ### WorkspaceId
 - **Type**: <class 'str'>
@@ -1631,7 +1625,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ErrorDetailsTypeDef
 
 ### ErrorCode
-- **Type**: typing.Optional[typing.Literal['AdditionalDrivesAttached', 'AntiVirusInstalled', 'AutoLogonEnabled', 'AutoMountDisabled', 'AzureDomainJoined', 'DHCPDisabled', 'DiskFreeSpace', 'DiskSizeExceeded', 'DomainJoined', 'FirewallEnabled', 'InPlaceUpgrade', 'IncompatiblePartitioning', 'MultipleBootPartition', 'OSNotSupported', 'OfficeInstalled', 'OutdatedPowershellVersion', 'PCoIPAgentInstalled', 'PendingReboot', 'RealTimeUniversalDisabled', 'Requires64BitOS', 'UEFINotSupported', 'VMWareToolsInstalled', 'WindowsUpdatesEnabled', 'WorkspacesBYOLAccountDisabled', 'WorkspacesBYOLAccountNotFound', 'ZeroRearmCount']]
+- **Type**: typing.Optional[typing.Literal['AdditionalDrivesAttached', 'AdditionalDrivesPresent', 'AmazonSsmAgentEnabled', 'AntiVirusInstalled', 'AppXPackagesInstalled', 'AutoLogonEnabled', 'AutoMountDisabled', 'AzureDomainJoined', 'DHCPDisabled', 'DiskFreeSpace', 'DiskSizeExceeded', 'DomainAccountServicesFound', 'DomainJoined', 'EnvironmentVariablesPathMissingEntries', 'FirewallEnabled', 'InPlaceUpgrade', 'IncompatiblePartitioning', 'InsufficientDiskSpace', 'InsufficientRearmCount', 'InvalidIp', 'MultipleBootPartition', 'MultipleUserProfiles', 'OSNotSupported', 'OfficeInstalled', 'OutdatedPowershellVersion', 'PCoIPAgentInstalled', 'PendingReboot', 'RealTimeUniversalDisabled', 'RemoteDesktopServicesDisabled', 'Requires64BitOS', 'ReservedStorageInUse', 'StagedAppxPackage', 'SysPrepFileMissing', 'UEFINotSupported', 'UnknownError', 'UnsupportedOsUpgrade', 'UnsupportedSecurityProtocol', 'UserProfileMissing', 'VMWareToolsInstalled', 'WindowsModulesInstallerDisabled', 'WindowsUpdatesEnabled', 'WindowsUpdatesRequired', 'WorkspacesBYOLAccountDisabled', 'WorkspacesBYOLAccountNotFound', 'ZeroRearmCount']]
 
 ### ErrorMessage
 - **Type**: typing.Optional[str]
@@ -1673,7 +1667,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetAccountLinkRequestRequestTypeDef
+# GetAccountLinkRequestTypeDef
 
 ### LinkId
 - **Type**: typing.Optional[str]
@@ -1691,6 +1685,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+
+# GlobalAcceleratorForDirectoryTypeDef
+
+### Mode
+- **Type**: typing.Literal['DISABLED', 'ENABLED_AUTO']
+- **Required**: Yes
+
+### PreferredProtocol
+- **Type**: typing.Optional[typing.Literal['NONE', 'TCP']]
+
+
+# GlobalAcceleratorForWorkSpaceTypeDef
+
+### Mode
+- **Type**: typing.Literal['DISABLED', 'ENABLED_AUTO', 'INHERITED']
+- **Required**: Yes
+
+### PreferredProtocol
+- **Type**: typing.Optional[typing.Literal['INHERITED', 'NONE', 'TCP']]
+
+
+# IDCConfigTypeDef
+
+### InstanceArn
+- **Type**: typing.Optional[str]
+
+### ApplicationArn
+- **Type**: typing.Optional[str]
 
 
 # ImagePermissionTypeDef
@@ -1723,7 +1746,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.AssociationStateReasonTypeDef]
 
 
-# ImportClientBrandingRequestRequestTypeDef
+# ImportClientBrandingRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -1779,14 +1802,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ImportWorkspaceImageRequestRequestTypeDef
+# ImportWorkspaceImageRequestTypeDef
 
 ### Ec2ImageId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### IngestionProcess
-- **Type**: typing.Literal['BYOL_GRAPHICS', 'BYOL_GRAPHICSPRO', 'BYOL_GRAPHICS_G4DN', 'BYOL_GRAPHICS_G4DN_BYOP', 'BYOL_REGULAR', 'BYOL_REGULAR_BYOP', 'BYOL_REGULAR_WSP']
+- **Type**: typing.Literal['BYOL_GRAPHICS', 'BYOL_GRAPHICSPRO', 'BYOL_GRAPHICS_G4DN', 'BYOL_GRAPHICS_G4DN_BYOP', 'BYOL_GRAPHICS_G4DN_WSP', 'BYOL_REGULAR', 'BYOL_REGULAR_BYOP', 'BYOL_REGULAR_WSP']
 - **Required**: Yes
 
 ### ImageName
@@ -1842,13 +1865,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # IosImportClientBrandingAttributesTypeDef
 
 ### Logo
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.BlobTypeDef]
 
 ### Logo2x
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.BlobTypeDef]
 
 ### Logo3x
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.BlobTypeDef]
 
 ### SupportEmail
 - **Type**: typing.Optional[str]
@@ -1872,7 +1895,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAccountLinksRequestListAccountLinksPaginateTypeDef
+# ListAccountLinksRequestPaginateTypeDef
 
 ### LinkStatusFilter
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['LINKED', 'LINKING_FAILED', 'LINK_NOT_FOUND', 'PENDING_ACCEPTANCE_BY_TARGET_ACCOUNT', 'REJECTED']]]
@@ -1881,7 +1904,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.PaginatorConfigTypeDef]
 
 
-# ListAccountLinksRequestRequestTypeDef
+# ListAccountLinksRequestTypeDef
 
 ### LinkStatusFilter
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['LINKED', 'LINKING_FAILED', 'LINK_NOT_FOUND', 'PENDING_ACCEPTANCE_BY_TARGET_ACCOUNT', 'REJECTED']]]
@@ -1907,7 +1930,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAvailableManagementCidrRangesRequestRequestTypeDef
+# ListAvailableManagementCidrRangesRequestPaginateTypeDef
+
+### ManagementCidrRangeConstraint
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.PaginatorConfigTypeDef]
+
+
+# ListAvailableManagementCidrRangesRequestTypeDef
 
 ### ManagementCidrRangeConstraint
 - **Type**: <class 'str'>
@@ -1934,7 +1967,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# MigrateWorkspaceRequestRequestTypeDef
+# MicrosoftEntraConfigTypeDef
+
+### TenantId
+- **Type**: typing.Optional[str]
+
+### ApplicationConfigSecretArn
+- **Type**: typing.Optional[str]
+
+
+# MigrateWorkspaceRequestTypeDef
 
 ### SourceWorkspaceId
 - **Type**: <class 'str'>
@@ -1969,7 +2011,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['UPDATE_INITIATED', 'UPDATE_IN_PROGRESS']]
 
 
-# ModifyAccountRequestRequestTypeDef
+# ModifyAccountRequestTypeDef
 
 ### DedicatedTenancySupport
 - **Type**: typing.Optional[typing.Literal['ENABLED']]
@@ -1978,7 +2020,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ModifyCertificateBasedAuthPropertiesRequestRequestTypeDef
+# ModifyCertificateBasedAuthPropertiesRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -1991,7 +2033,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN']]]
 
 
-# ModifyClientPropertiesRequestRequestTypeDef
+# ModifyClientPropertiesRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -2002,7 +2044,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifySamlPropertiesRequestRequestTypeDef
+# ModifyEndpointEncryptionModeRequestTypeDef
+
+### DirectoryId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EndpointEncryptionMode
+- **Type**: typing.Literal['FIPS_VALIDATED', 'STANDARD_TLS']
+- **Required**: Yes
+
+
+# ModifySamlPropertiesRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -2015,7 +2068,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME', 'SAML_PROPERTIES_USER_ACCESS_URL']]]
 
 
-# ModifySelfservicePermissionsRequestRequestTypeDef
+# ModifySelfservicePermissionsRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -2026,17 +2079,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyStreamingPropertiesRequestRequestTypeDef
+# ModifyStreamingPropertiesRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### StreamingProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.StreamingPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.StreamingPropertiesUnionTypeDef]
 
 
-# ModifyWorkspaceAccessPropertiesRequestRequestTypeDef
+# ModifyWorkspaceAccessPropertiesRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -2047,7 +2100,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyWorkspaceCreationPropertiesRequestRequestTypeDef
+# ModifyWorkspaceCreationPropertiesRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -2058,20 +2111,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyWorkspacePropertiesRequestRequestTypeDef
+# ModifyWorkspacePropertiesRequestTypeDef
 
 ### WorkspaceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WorkspaceProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.WorkspacePropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.WorkspacePropertiesUnionTypeDef]
 
 ### DataReplication
 - **Type**: typing.Optional[typing.Literal['NO_REPLICATION', 'PRIMARY_AS_SOURCE']]
 
 
-# ModifyWorkspaceStateRequestRequestTypeDef
+# ModifyWorkspaceStateRequestTypeDef
 
 ### WorkspaceId
 - **Type**: <class 'str'>
@@ -2093,9 +2146,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # OperatingSystemTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['LINUX', 'WINDOWS']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PaginatorConfigTypeDef
 
@@ -2131,7 +2184,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RebootWorkspacesRequestRequestTypeDef
+# RebootWorkspacesRequestTypeDef
 
 ### RebootWorkspaceRequests
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.RebootRequestTypeDef]
@@ -2156,7 +2209,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RebuildWorkspacesRequestRequestTypeDef
+# RebuildWorkspacesRequestTypeDef
 
 ### RebuildWorkspaceRequests
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.RebuildRequestTypeDef]
@@ -2174,7 +2227,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RegisterWorkspaceDirectoryRequestRequestTypeDef
+# RegisterWorkspaceDirectoryRequestTypeDef
 
 ### DirectoryId
 - **Type**: typing.Optional[str]
@@ -2201,7 +2254,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### UserIdentityType
-- **Type**: typing.Optional[typing.Literal['AWS_DIRECTORY_SERVICE', 'CUSTOMER_MANAGED']]
+- **Type**: typing.Optional[typing.Literal['AWS_DIRECTORY_SERVICE', 'AWS_IAM_IDENTITY_CENTER', 'CUSTOMER_MANAGED']]
+
+### IdcInstanceArn
+- **Type**: typing.Optional[str]
+
+### MicrosoftEntraConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.MicrosoftEntraConfigTypeDef]
 
 ### WorkspaceType
 - **Type**: typing.Optional[typing.Literal['PERSONAL', 'POOLS']]
@@ -2225,7 +2284,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RejectAccountLinkInvitationRequestRequestTypeDef
+# RejectAccountLinkInvitationRequestTypeDef
 
 ### LinkId
 - **Type**: <class 'str'>
@@ -2248,18 +2307,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # RelatedWorkspacePropertiesTypeDef
 
-### WorkspaceId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Region
-- **Type**: typing.Optional[str]
-
-### State
-- **Type**: typing.Optional[typing.Literal['ADMIN_MAINTENANCE', 'AVAILABLE', 'ERROR', 'IMPAIRED', 'MAINTENANCE', 'PENDING', 'REBOOTING', 'REBUILDING', 'RESTORING', 'STARTING', 'STOPPED', 'STOPPING', 'SUSPENDED', 'TERMINATED', 'TERMINATING', 'UNHEALTHY', 'UPDATING']]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['PRIMARY', 'STANDBY']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResponseMetadataTypeDef
 
@@ -2283,14 +2333,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RestoreWorkspaceRequestRequestTypeDef
+# RestoreWorkspaceRequestTypeDef
 
 ### WorkspaceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# RevokeIpRulesRequestRequestTypeDef
+# RevokeIpRulesRequestTypeDef
 
 ### GroupId
 - **Type**: <class 'str'>
@@ -2384,6 +2434,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NO_REPLICATION', 'PRIMARY_AS_SOURCE']]
 
 
+# StandbyWorkspaceUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # StandbyWorkspacesPropertiesTypeDef
 
 ### StandbyWorkspaceId
@@ -2402,14 +2458,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartWorkspacesPoolRequestRequestTypeDef
+# StartWorkspacesPoolRequestTypeDef
 
 ### PoolId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StartWorkspacesRequestRequestTypeDef
+# StartWorkspacesRequestTypeDef
 
 ### StartWorkspaceRequests
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.StartRequestTypeDef]
@@ -2433,14 +2489,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StopWorkspacesPoolRequestRequestTypeDef
+# StopWorkspacesPoolRequestTypeDef
 
 ### PoolId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopWorkspacesRequestRequestTypeDef
+# StopWorkspacesRequestTypeDef
 
 ### StopWorkspaceRequests
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.StopRequestTypeDef]
@@ -2469,18 +2525,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StreamingPropertiesExtraOutputTypeDef
-
-### StreamingExperiencePreferredProtocol
-- **Type**: typing.Optional[typing.Literal['TCP', 'UDP']]
-
-### UserSettings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces_classes.UserSettingTypeDef]]
-
-### StorageConnectors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces_classes.StorageConnectorTypeDef]]
-
-
 # StreamingPropertiesOutputTypeDef
 
 ### StreamingExperiencePreferredProtocol
@@ -2491,6 +2535,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### StorageConnectors
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces_classes.StorageConnectorTypeDef]]
+
+### GlobalAccelerator
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.GlobalAcceleratorForDirectoryTypeDef]
 
 
 # StreamingPropertiesTypeDef
@@ -2504,6 +2551,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### StorageConnectors
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.StorageConnectorTypeDef]]
 
+### GlobalAccelerator
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.GlobalAcceleratorForDirectoryTypeDef]
+
+
+# StreamingPropertiesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TagTypeDef
 
@@ -2522,21 +2578,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TerminateWorkspacesPoolRequestRequestTypeDef
+# TerminateWorkspacesPoolRequestTypeDef
 
 ### PoolId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# TerminateWorkspacesPoolSessionRequestRequestTypeDef
+# TerminateWorkspacesPoolSessionRequestTypeDef
 
 ### SessionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# TerminateWorkspacesRequestRequestTypeDef
+# TerminateWorkspacesRequestTypeDef
 
 ### TerminateWorkspaceRequests
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.TerminateRequestTypeDef]
@@ -2566,7 +2622,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# UpdateConnectClientAddInRequestRequestTypeDef
+# UpdateConnectClientAddInRequestTypeDef
 
 ### AddInId
 - **Type**: <class 'str'>
@@ -2583,7 +2639,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateConnectionAliasPermissionRequestRequestTypeDef
+# UpdateConnectionAliasPermissionRequestTypeDef
 
 ### AliasId
 - **Type**: <class 'str'>
@@ -2603,7 +2659,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateRulesOfIpGroupRequestRequestTypeDef
+# UpdateRulesOfIpGroupRequestTypeDef
 
 ### GroupId
 - **Type**: <class 'str'>
@@ -2614,7 +2670,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateWorkspaceBundleRequestRequestTypeDef
+# UpdateWorkspaceBundleRequestTypeDef
 
 ### BundleId
 - **Type**: typing.Optional[str]
@@ -2623,7 +2679,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateWorkspaceImagePermissionRequestRequestTypeDef
+# UpdateWorkspaceImagePermissionRequestTypeDef
 
 ### ImageId
 - **Type**: <class 'str'>
@@ -2638,7 +2694,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateWorkspacesPoolRequestRequestTypeDef
+# UpdateWorkspacesPoolRequestTypeDef
 
 ### PoolId
 - **Type**: <class 'str'>
@@ -2725,10 +2781,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AVAILABLE', 'ERROR', 'PENDING', 'UNINSTALL_ONLY']]
 
 ### SupportedComputeTypeNames
-- **Type**: typing.Optional[typing.List[typing.Literal['GRAPHICS', 'GRAPHICSPRO', 'GRAPHICSPRO_G4DN', 'GRAPHICS_G4DN', 'PERFORMANCE', 'POWER', 'POWERPRO', 'STANDARD', 'VALUE']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['GENERALPURPOSE_4XLARGE', 'GENERALPURPOSE_8XLARGE', 'GRAPHICS', 'GRAPHICSPRO', 'GRAPHICSPRO_G4DN', 'GRAPHICS_G4DN', 'PERFORMANCE', 'POWER', 'POWERPRO', 'STANDARD', 'VALUE']]]
 
 ### SupportedOperatingSystemNames
-- **Type**: typing.Optional[typing.List[typing.Literal['AMAZON_LINUX_2', 'RHEL_8', 'UBUNTU_18_04', 'UBUNTU_20_04', 'UBUNTU_22_04', 'UNKNOWN', 'WINDOWS_10', 'WINDOWS_11', 'WINDOWS_7', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['AMAZON_LINUX_2', 'RHEL_8', 'ROCKY_8', 'UBUNTU_18_04', 'UBUNTU_20_04', 'UBUNTU_22_04', 'UNKNOWN', 'WINDOWS_10', 'WINDOWS_11', 'WINDOWS_7', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]]
 
 
 # WorkspaceAccessPropertiesTypeDef
@@ -2757,45 +2813,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### DeviceTypeLinux
 - **Type**: typing.Optional[typing.Literal['ALLOW', 'DENY']]
 
+### DeviceTypeWorkSpacesThinClient
+- **Type**: typing.Optional[typing.Literal['ALLOW', 'DENY']]
+
 
 # WorkspaceBundleTypeDef
 
-### BundleId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Name
-- **Type**: typing.Optional[str]
-
-### Owner
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### ImageId
-- **Type**: typing.Optional[str]
-
-### RootStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.RootStorageTypeDef]
-
-### UserStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.UserStorageTypeDef]
-
-### ComputeType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.ComputeTypeTypeDef]
-
-### LastUpdatedTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### CreationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### State
-- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'ERROR', 'PENDING']]
-
-### BundleType
-- **Type**: typing.Optional[typing.Literal['REGULAR', 'STANDBY']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # WorkspaceConnectionStatusTypeDef
 
@@ -2863,7 +2889,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DirectoryType
-- **Type**: typing.Optional[typing.Literal['AD_CONNECTOR', 'CUSTOMER_MANAGED', 'SIMPLE_AD']]
+- **Type**: typing.Optional[typing.Literal['AD_CONNECTOR', 'AWS_IAM_IDENTITY_CENTER', 'CUSTOMER_MANAGED', 'SIMPLE_AD']]
 
 ### WorkspaceSecurityGroupId
 - **Type**: typing.Optional[str]
@@ -2892,6 +2918,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### CertificateBasedAuthProperties
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.CertificateBasedAuthPropertiesTypeDef]
 
+### EndpointEncryptionMode
+- **Type**: typing.Optional[typing.Literal['FIPS_VALIDATED', 'STANDARD_TLS']]
+
+### MicrosoftEntraConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.MicrosoftEntraConfigTypeDef]
+
 ### WorkspaceDirectoryName
 - **Type**: typing.Optional[str]
 
@@ -2899,10 +2931,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### UserIdentityType
-- **Type**: typing.Optional[typing.Literal['AWS_DIRECTORY_SERVICE', 'CUSTOMER_MANAGED']]
+- **Type**: typing.Optional[typing.Literal['AWS_DIRECTORY_SERVICE', 'AWS_IAM_IDENTITY_CENTER', 'CUSTOMER_MANAGED']]
 
 ### WorkspaceType
 - **Type**: typing.Optional[typing.Literal['PERSONAL', 'POOLS']]
+
+### IDCConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.IDCConfigTypeDef]
 
 ### ActiveDirectoryConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.ActiveDirectoryConfigTypeDef]
@@ -2953,30 +2988,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces_classes.ErrorDetailsTypeDef]]
 
 
-# WorkspacePropertiesExtraOutputTypeDef
-
-### RunningMode
-- **Type**: typing.Optional[typing.Literal['ALWAYS_ON', 'AUTO_STOP', 'MANUAL']]
-
-### RunningModeAutoStopTimeoutInMinutes
-- **Type**: typing.Optional[int]
-
-### RootVolumeSizeGib
-- **Type**: typing.Optional[int]
-
-### UserVolumeSizeGib
-- **Type**: typing.Optional[int]
-
-### ComputeTypeName
-- **Type**: typing.Optional[typing.Literal['GRAPHICS', 'GRAPHICSPRO', 'GRAPHICSPRO_G4DN', 'GRAPHICS_G4DN', 'PERFORMANCE', 'POWER', 'POWERPRO', 'STANDARD', 'VALUE']]
-
-### Protocols
-- **Type**: typing.Optional[typing.List[typing.Literal['PCOIP', 'WSP']]]
-
-### OperatingSystemName
-- **Type**: typing.Optional[typing.Literal['AMAZON_LINUX_2', 'RHEL_8', 'UBUNTU_18_04', 'UBUNTU_20_04', 'UBUNTU_22_04', 'UNKNOWN', 'WINDOWS_10', 'WINDOWS_11', 'WINDOWS_7', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]
-
-
 # WorkspacePropertiesOutputTypeDef
 
 ### RunningMode
@@ -2992,13 +3003,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ComputeTypeName
-- **Type**: typing.Optional[typing.Literal['GRAPHICS', 'GRAPHICSPRO', 'GRAPHICSPRO_G4DN', 'GRAPHICS_G4DN', 'PERFORMANCE', 'POWER', 'POWERPRO', 'STANDARD', 'VALUE']]
+- **Type**: typing.Optional[typing.Literal['GENERALPURPOSE_4XLARGE', 'GENERALPURPOSE_8XLARGE', 'GRAPHICS', 'GRAPHICSPRO', 'GRAPHICSPRO_G4DN', 'GRAPHICS_G4DN', 'PERFORMANCE', 'POWER', 'POWERPRO', 'STANDARD', 'VALUE']]
 
 ### Protocols
 - **Type**: typing.Optional[typing.List[typing.Literal['PCOIP', 'WSP']]]
 
 ### OperatingSystemName
-- **Type**: typing.Optional[typing.Literal['AMAZON_LINUX_2', 'RHEL_8', 'UBUNTU_18_04', 'UBUNTU_20_04', 'UBUNTU_22_04', 'UNKNOWN', 'WINDOWS_10', 'WINDOWS_11', 'WINDOWS_7', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]
+- **Type**: typing.Optional[typing.Literal['AMAZON_LINUX_2', 'RHEL_8', 'ROCKY_8', 'UBUNTU_18_04', 'UBUNTU_20_04', 'UBUNTU_22_04', 'UNKNOWN', 'WINDOWS_10', 'WINDOWS_11', 'WINDOWS_7', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]
+
+### GlobalAccelerator
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.GlobalAcceleratorForWorkSpaceTypeDef]
 
 
 # WorkspacePropertiesTypeDef
@@ -3016,14 +3030,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ComputeTypeName
-- **Type**: typing.Optional[typing.Literal['GRAPHICS', 'GRAPHICSPRO', 'GRAPHICSPRO_G4DN', 'GRAPHICS_G4DN', 'PERFORMANCE', 'POWER', 'POWERPRO', 'STANDARD', 'VALUE']]
+- **Type**: typing.Optional[typing.Literal['GENERALPURPOSE_4XLARGE', 'GENERALPURPOSE_8XLARGE', 'GRAPHICS', 'GRAPHICSPRO', 'GRAPHICSPRO_G4DN', 'GRAPHICS_G4DN', 'PERFORMANCE', 'POWER', 'POWERPRO', 'STANDARD', 'VALUE']]
 
 ### Protocols
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['PCOIP', 'WSP']]]
 
 ### OperatingSystemName
-- **Type**: typing.Optional[typing.Literal['AMAZON_LINUX_2', 'RHEL_8', 'UBUNTU_18_04', 'UBUNTU_20_04', 'UBUNTU_22_04', 'UNKNOWN', 'WINDOWS_10', 'WINDOWS_11', 'WINDOWS_7', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]
+- **Type**: typing.Optional[typing.Literal['AMAZON_LINUX_2', 'RHEL_8', 'ROCKY_8', 'UBUNTU_18_04', 'UBUNTU_20_04', 'UBUNTU_22_04', 'UNKNOWN', 'WINDOWS_10', 'WINDOWS_11', 'WINDOWS_7', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]
 
+### GlobalAccelerator
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.GlobalAcceleratorForWorkSpaceTypeDef]
+
+
+# WorkspacePropertiesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # WorkspaceRequestOutputTypeDef
 
@@ -3082,7 +3105,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### WorkspaceProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.WorkspacePropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.WorkspacePropertiesUnionTypeDef]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.TagTypeDef]]
@@ -3090,6 +3113,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### WorkspaceName
 - **Type**: typing.Optional[str]
 
+
+# WorkspaceRequestUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # WorkspaceResourceAssociationTypeDef
 

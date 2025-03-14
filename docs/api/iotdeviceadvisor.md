@@ -1,5 +1,8 @@
 # Iotdeviceadvisor Service
 
-Oops! This boto3 class is currently empty. Stay tuned!
+### ClientToken
+- **Type**: string
+- **Pattern**: `^[\u0021-\u007E]+$`
+- **Min Length**: 1
+- **Max Length**: 64
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">

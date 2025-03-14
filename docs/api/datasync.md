@@ -202,7 +202,7 @@
 
 ### ObjectStorageBucketName
 - **Type**: string
-- **Pattern**: `^[a-zA-Z0-9_\-\+\./\(\)\$\p{Zs}]+$`
+- **Pattern**: `^[a-zA-Z0-9_\-\+\.\(\)\$\p{Zs}]+$`
 - **Min Length**: 3
 - **Max Length**: 63
 
@@ -237,8 +237,8 @@
 
 ### S3BucketArn
 - **Type**: string
-- **Pattern**: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):(s3|s3-outposts):[a-z\-0-9]*:[0-9]*:.*$`
-- **Max Length**: 156
+- **Pattern**: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):s3:[a-z\-0-9]*:[0-9]{12}:accesspoint[/:][a-zA-Z0-9\-.]{1,63}$|^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):s3-outposts:[a-z\-0-9]+:[0-9]{12}:outpost[/:][a-zA-Z0-9\-]{1,63}[/:]accesspoint[/:][a-zA-Z0-9\-]{1,63}$|^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):s3:::[a-zA-Z0-9.\-_]{1,255}$`
+- **Max Length**: 268
 
 ### S3ObjectVersionId
 - **Type**: string
@@ -271,6 +271,12 @@
 - **Pattern**: `^(([a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9\-]*[A-Za-z0-9])$`
 - **Max Length**: 255
 
+### ServerIpAddress
+- **Type**: string
+- **Pattern**: `\A(25[0-5]|2[0-4]\d|[0-1]?\d?\d)(\.(25[0-5]|2[0-4]\d|[0-1]?\d?\d)){3}\z`
+- **Min Length**: 7
+- **Max Length**: 15
+
 ### SmbDomain
 - **Type**: string
 - **Pattern**: `^[A-Za-z0-9]((\.|-+)?[A-Za-z0-9]){0,252}$`
@@ -288,7 +294,7 @@
 
 ### SmbUser
 - **Type**: string
-- **Pattern**: `^[^\x5B\x5D\\/:;|=,+*?]{1,104}$`
+- **Pattern**: `^[^\x22\x5B\x5D/\\:;|=,+*?\x3C\x3E]{1,104}$`
 - **Max Length**: 104
 
 ### StorageSystemArn
@@ -327,6 +333,21 @@
 - **Type**: string
 - **Pattern**: `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]*:[0-9]{12}:task/task-[0-9a-f]{17}/execution/exec-[0-9a-f]{17}$`
 - **Max Length**: 128
+
+### UpdateSmbDomain
+- **Type**: string
+- **Pattern**: `^([A-Za-z0-9]((\.|-+)?[A-Za-z0-9]){0,252})?$`
+- **Max Length**: 253
+
+### UpdatedEfsAccessPointArn
+- **Type**: string
+- **Pattern**: `(^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):elasticfilesystem:[a-z\-0-9]+:[0-9]{12}:access-point/fsap-[0-9a-f]{8,40}$)|(^$)`
+- **Max Length**: 128
+
+### UpdatedEfsIamRoleArn
+- **Type**: string
+- **Pattern**: `(^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):iam::[0-9]{12}:role/.*$)|(^$)`
+- **Max Length**: 2048
 
 ### VpcEndpointId
 - **Type**: string

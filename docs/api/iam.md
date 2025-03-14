@@ -12,6 +12,11 @@
 - **Min Length**: 1
 - **Max Length**: 32
 
+### OrganizationIdType
+- **Type**: string
+- **Pattern**: `^o-[a-z0-9]{10,32}$`
+- **Max Length**: 34
+
 ### SAMLProviderNameType
 - **Type**: string
 - **Pattern**: `[\w._-]+`
@@ -145,6 +150,12 @@
 ### policyVersionIdType
 - **Type**: string
 - **Pattern**: `v[1-9][0-9]*(\.[A-Za-z0-9-]*)?`
+
+### privateKeyIdType
+- **Type**: string
+- **Pattern**: `[A-Z0-9]+`
+- **Min Length**: 22
+- **Max Length**: 64
 
 ### privateKeyType
 - **Type**: string

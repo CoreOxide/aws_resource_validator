@@ -75,20 +75,17 @@
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.PolicyTypeScopeTypeDef]
 
 
+# AdminScopeUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # AppTypeDef
 
-### AppName
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Protocol
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Port
-- **Type**: <class 'int'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AppsListDataOutputTypeDef
 
@@ -148,23 +145,29 @@
 - **Type**: typing.Optional[str]
 
 ### CreateTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.TimestampTypeDef]
 
 ### LastUpdateTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.TimestampTypeDef]
 
 ### PreviousAppsList
 - **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[aws_resource_validator.pydantic_models.fms_classes.AppTypeDef]]]
 
 
-# AssociateAdminAccountRequestRequestTypeDef
+# AppsListDataUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AssociateAdminAccountRequestTypeDef
 
 ### AdminAccount
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# AssociateThirdPartyFirewallRequestRequestTypeDef
+# AssociateThirdPartyFirewallRequestTypeDef
 
 ### ThirdPartyFirewall
 - **Type**: typing.Literal['FORTIGATE_CLOUD_NATIVE_FIREWALL', 'PALO_ALTO_NETWORKS_CLOUD_NGFW']
@@ -221,7 +224,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchAssociateResourceRequestRequestTypeDef
+# BatchAssociateResourceRequestTypeDef
 
 ### ResourceSetIdentifier
 - **Type**: <class 'str'>
@@ -247,7 +250,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchDisassociateResourceRequestRequestTypeDef
+# BatchDisassociateResourceRequestTypeDef
 
 ### ResourceSetIdentifier
 - **Type**: <class 'str'>
@@ -279,7 +282,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ViolationReason
-- **Type**: typing.Optional[typing.Literal['BLACK_HOLE_ROUTE_DETECTED', 'BLACK_HOLE_ROUTE_DETECTED_IN_FIREWALL_SUBNET', 'FIREWALL_SUBNET_IS_OUT_OF_SCOPE', 'FIREWALL_SUBNET_MISSING_EXPECTED_ROUTE', 'FIREWALL_SUBNET_MISSING_VPCE_ENDPOINT', 'FMS_CREATED_SECURITY_GROUP_EDITED', 'INTERNET_GATEWAY_MISSING_EXPECTED_ROUTE', 'INTERNET_TRAFFIC_NOT_INSPECTED', 'INVALID_NETWORK_ACL_ENTRY', 'INVALID_ROUTE_CONFIGURATION', 'MISSING_EXPECTED_ROUTE_TABLE', 'MISSING_FIREWALL', 'MISSING_FIREWALL_SUBNET_IN_AZ', 'MISSING_TARGET_GATEWAY', 'NETWORK_FIREWALL_POLICY_MODIFIED', 'RESOURCE_INCORRECT_WEB_ACL', 'RESOURCE_MISSING_DNS_FIREWALL', 'RESOURCE_MISSING_SECURITY_GROUP', 'RESOURCE_MISSING_SHIELD_PROTECTION', 'RESOURCE_MISSING_WEB_ACL', 'RESOURCE_MISSING_WEB_ACL_OR_SHIELD_PROTECTION', 'RESOURCE_VIOLATES_AUDIT_SECURITY_GROUP', 'ROUTE_HAS_OUT_OF_SCOPE_ENDPOINT', 'SECURITY_GROUP_REDUNDANT', 'SECURITY_GROUP_UNUSED', 'TRAFFIC_INSPECTION_CROSSES_AZ_BOUNDARY', 'UNEXPECTED_FIREWALL_ROUTES', 'UNEXPECTED_TARGET_GATEWAY_ROUTES', 'WEB_ACL_MISSING_RULE_GROUP']]
+- **Type**: typing.Optional[typing.Literal['BLACK_HOLE_ROUTE_DETECTED', 'BLACK_HOLE_ROUTE_DETECTED_IN_FIREWALL_SUBNET', 'FIREWALL_SUBNET_IS_OUT_OF_SCOPE', 'FIREWALL_SUBNET_MISSING_EXPECTED_ROUTE', 'FIREWALL_SUBNET_MISSING_VPCE_ENDPOINT', 'FMS_CREATED_SECURITY_GROUP_EDITED', 'INTERNET_GATEWAY_MISSING_EXPECTED_ROUTE', 'INTERNET_TRAFFIC_NOT_INSPECTED', 'INVALID_NETWORK_ACL_ENTRY', 'INVALID_ROUTE_CONFIGURATION', 'MISSING_EXPECTED_ROUTE_TABLE', 'MISSING_FIREWALL', 'MISSING_FIREWALL_SUBNET_IN_AZ', 'MISSING_TARGET_GATEWAY', 'NETWORK_FIREWALL_POLICY_MODIFIED', 'RESOURCE_INCORRECT_WEB_ACL', 'RESOURCE_MISSING_DNS_FIREWALL', 'RESOURCE_MISSING_SECURITY_GROUP', 'RESOURCE_MISSING_SHIELD_PROTECTION', 'RESOURCE_MISSING_WEB_ACL', 'RESOURCE_MISSING_WEB_ACL_OR_SHIELD_PROTECTION', 'RESOURCE_VIOLATES_AUDIT_SECURITY_GROUP', 'ROUTE_HAS_OUT_OF_SCOPE_ENDPOINT', 'SECURITY_GROUP_REDUNDANT', 'SECURITY_GROUP_UNUSED', 'TRAFFIC_INSPECTION_CROSSES_AZ_BOUNDARY', 'UNEXPECTED_FIREWALL_ROUTES', 'UNEXPECTED_TARGET_GATEWAY_ROUTES', 'WEB_ACL_CONFIGURATION_OR_SCOPE_OF_USE', 'WEB_ACL_MISSING_RULE_GROUP']]
 
 ### ResourceType
 - **Type**: typing.Optional[str]
@@ -315,7 +318,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteAppsListRequestRequestTypeDef
+# DeleteAppsListRequestTypeDef
 
 ### ListId
 - **Type**: <class 'str'>
@@ -337,7 +340,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeletePolicyRequestRequestTypeDef
+# DeletePolicyRequestTypeDef
 
 ### PolicyId
 - **Type**: <class 'str'>
@@ -347,21 +350,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteProtocolsListRequestRequestTypeDef
+# DeleteProtocolsListRequestTypeDef
 
 ### ListId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteResourceSetRequestRequestTypeDef
+# DeleteResourceSetRequestTypeDef
 
 ### Identifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisassociateThirdPartyFirewallRequestRequestTypeDef
+# DisassociateThirdPartyFirewallRequestTypeDef
 
 ### ThirdPartyFirewall
 - **Type**: typing.Literal['FORTIGATE_CLOUD_NATIVE_FIREWALL', 'PALO_ALTO_NETWORKS_CLOUD_NGFW']
@@ -381,18 +384,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DiscoveredResourceTypeDef
 
-### URI
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### AccountId
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DnsDuplicateRuleGroupViolationTypeDef
 
@@ -692,7 +686,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAdminScopeRequestRequestTypeDef
+# GetAdminScopeRequestTypeDef
 
 ### AdminAccount
 - **Type**: <class 'str'>
@@ -714,7 +708,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAppsListRequestRequestTypeDef
+# GetAppsListRequestTypeDef
 
 ### ListId
 - **Type**: <class 'str'>
@@ -739,7 +733,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetComplianceDetailRequestRequestTypeDef
+# GetComplianceDetailRequestTypeDef
 
 ### PolicyId
 - **Type**: <class 'str'>
@@ -776,7 +770,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPolicyRequestRequestTypeDef
+# GetPolicyRequestTypeDef
 
 ### PolicyId
 - **Type**: <class 'str'>
@@ -798,7 +792,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetProtectionStatusRequestRequestTypeDef
+# GetProtectionStatusRequestTypeDef
 
 ### PolicyId
 - **Type**: <class 'str'>
@@ -808,10 +802,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.TimestampTypeDef]
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.TimestampTypeDef]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -842,7 +836,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetProtocolsListRequestRequestTypeDef
+# GetProtocolsListRequestTypeDef
 
 ### ListId
 - **Type**: <class 'str'>
@@ -867,7 +861,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResourceSetRequestRequestTypeDef
+# GetResourceSetRequestTypeDef
 
 ### Identifier
 - **Type**: <class 'str'>
@@ -889,7 +883,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetThirdPartyFirewallAssociationStatusRequestRequestTypeDef
+# GetThirdPartyFirewallAssociationStatusRequestTypeDef
 
 ### ThirdPartyFirewall
 - **Type**: typing.Literal['FORTIGATE_CLOUD_NATIVE_FIREWALL', 'PALO_ALTO_NETWORKS_CLOUD_NGFW']
@@ -911,7 +905,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetViolationDetailsRequestRequestTypeDef
+# GetViolationDetailsRequestTypeDef
 
 ### PolicyId
 - **Type**: <class 'str'>
@@ -959,13 +953,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.EntryViolationTypeDef]]
 
 
-# ListAdminAccountsForOrganizationRequestListAdminAccountsForOrganizationPaginateTypeDef
+# ListAdminAccountsForOrganizationRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.PaginatorConfigTypeDef]
 
 
-# ListAdminAccountsForOrganizationRequestRequestTypeDef
+# ListAdminAccountsForOrganizationRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -988,13 +982,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAdminsManagingAccountRequestListAdminsManagingAccountPaginateTypeDef
+# ListAdminsManagingAccountRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.PaginatorConfigTypeDef]
 
 
-# ListAdminsManagingAccountRequestRequestTypeDef
+# ListAdminsManagingAccountRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1017,7 +1011,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAppsListsRequestListAppsListsPaginateTypeDef
+# ListAppsListsRequestPaginateTypeDef
 
 ### DefaultLists
 - **Type**: typing.Optional[bool]
@@ -1026,7 +1020,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.PaginatorConfigTypeDef]
 
 
-# ListAppsListsRequestRequestTypeDef
+# ListAppsListsRequestTypeDef
 
 ### MaxResults
 - **Type**: <class 'int'>
@@ -1053,7 +1047,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListComplianceStatusRequestListComplianceStatusPaginateTypeDef
+# ListComplianceStatusRequestPaginateTypeDef
 
 ### PolicyId
 - **Type**: <class 'str'>
@@ -1063,7 +1057,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.PaginatorConfigTypeDef]
 
 
-# ListComplianceStatusRequestRequestTypeDef
+# ListComplianceStatusRequestTypeDef
 
 ### PolicyId
 - **Type**: <class 'str'>
@@ -1090,7 +1084,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDiscoveredResourcesRequestRequestTypeDef
+# ListDiscoveredResourcesRequestTypeDef
 
 ### MemberAccountIds
 - **Type**: typing.Sequence[str]
@@ -1121,13 +1115,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListMemberAccountsRequestListMemberAccountsPaginateTypeDef
+# ListMemberAccountsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.PaginatorConfigTypeDef]
 
 
-# ListMemberAccountsRequestRequestTypeDef
+# ListMemberAccountsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1150,13 +1144,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPoliciesRequestListPoliciesPaginateTypeDef
+# ListPoliciesRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.PaginatorConfigTypeDef]
 
 
-# ListPoliciesRequestRequestTypeDef
+# ListPoliciesRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1179,7 +1173,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListProtocolsListsRequestListProtocolsListsPaginateTypeDef
+# ListProtocolsListsRequestPaginateTypeDef
 
 ### DefaultLists
 - **Type**: typing.Optional[bool]
@@ -1188,7 +1182,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.PaginatorConfigTypeDef]
 
 
-# ListProtocolsListsRequestRequestTypeDef
+# ListProtocolsListsRequestTypeDef
 
 ### MaxResults
 - **Type**: <class 'int'>
@@ -1215,7 +1209,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResourceSetResourcesRequestRequestTypeDef
+# ListResourceSetResourcesRequestTypeDef
 
 ### Identifier
 - **Type**: <class 'str'>
@@ -1242,7 +1236,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResourceSetsRequestRequestTypeDef
+# ListResourceSetsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1265,7 +1259,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1283,7 +1277,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListThirdPartyFirewallFirewallPoliciesRequestListThirdPartyFirewallFirewallPoliciesPaginateTypeDef
+# ListThirdPartyFirewallFirewallPoliciesRequestPaginateTypeDef
 
 ### ThirdPartyFirewall
 - **Type**: typing.Literal['FORTIGATE_CLOUD_NATIVE_FIREWALL', 'PALO_ALTO_NETWORKS_CLOUD_NGFW']
@@ -1293,7 +1287,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.PaginatorConfigTypeDef]
 
 
-# ListThirdPartyFirewallFirewallPoliciesRequestRequestTypeDef
+# ListThirdPartyFirewallFirewallPoliciesRequestTypeDef
 
 ### ThirdPartyFirewall
 - **Type**: typing.Literal['FORTIGATE_CLOUD_NATIVE_FIREWALL', 'PALO_ALTO_NETWORKS_CLOUD_NGFW']
@@ -1371,39 +1365,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # NetworkAclEntryTypeDef
 
-### Protocol
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### RuleAction
-- **Type**: typing.Literal['allow', 'deny']
-- **Required**: Yes
-
-### Egress
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### IcmpTypeCode
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.NetworkAclIcmpTypeCodeTypeDef]
-
-### PortRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.NetworkAclPortRangeTypeDef]
-
-### CidrBlock
-- **Type**: typing.Optional[str]
-
-### Ipv6CidrBlock
-- **Type**: typing.Optional[str]
-
-
-# NetworkAclIcmpTypeCodeTypeDef
-
-### Code
-- **Type**: typing.Optional[int]
-
-### Type
-- **Type**: typing.Optional[int]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # NetworkAclPortRangeTypeDef
 
@@ -1838,6 +1802,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### PolicyStatus
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'OUT_OF_ADMIN_SCOPE']]
 
+### ResourceTagLogicalOperator
+- **Type**: typing.Optional[typing.Literal['AND', 'OR']]
+
 
 # PolicySummaryTypeDef
 
@@ -1918,6 +1885,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### PolicyStatus
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'OUT_OF_ADMIN_SCOPE']]
 
+### ResourceTagLogicalOperator
+- **Type**: typing.Optional[typing.Literal['AND', 'OR']]
+
 
 # PolicyTypeScopeOutputTypeDef
 
@@ -1936,6 +1906,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### AllPolicyTypesEnabled
 - **Type**: typing.Optional[bool]
 
+
+# PolicyUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PossibleRemediationActionTypeDef
 
@@ -2017,29 +1993,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreateTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.TimestampTypeDef]
 
 ### LastUpdateTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.TimestampTypeDef]
 
 ### PreviousProtocolsList
 - **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
 
 
-# PutAdminAccountRequestRequestTypeDef
+# ProtocolsListDataUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# PutAdminAccountRequestTypeDef
 
 ### AdminAccount
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### AdminScope
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.AdminScopeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.AdminScopeUnionTypeDef]
 
 
-# PutAppsListRequestRequestTypeDef
+# PutAppsListRequestTypeDef
 
 ### AppsList
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.AppsListDataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.AppsListDataUnionTypeDef'>
 - **Required**: Yes
 
 ### TagList
@@ -2061,7 +2043,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutNotificationChannelRequestRequestTypeDef
+# PutNotificationChannelRequestTypeDef
 
 ### SnsTopicArn
 - **Type**: <class 'str'>
@@ -2072,10 +2054,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutPolicyRequestRequestTypeDef
+# PutPolicyRequestTypeDef
 
 ### Policy
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.PolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.PolicyUnionTypeDef'>
 - **Required**: Yes
 
 ### TagList
@@ -2097,10 +2079,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutProtocolsListRequestRequestTypeDef
+# PutProtocolsListRequestTypeDef
 
 ### ProtocolsList
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ProtocolsListDataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ProtocolsListDataUnionTypeDef'>
 - **Required**: Yes
 
 ### TagList
@@ -2122,10 +2104,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutResourceSetRequestRequestTypeDef
+# PutResourceSetRequestTypeDef
 
 ### ResourceSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResourceSetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResourceSetUnionTypeDef'>
 - **Required**: Yes
 
 ### TagList
@@ -2295,11 +2277,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LastUpdateTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.TimestampTypeDef]
 
 ### ResourceSetStatus
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'OUT_OF_ADMIN_SCOPE']]
 
+
+# ResourceSetUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResourceTagTypeDef
 
@@ -2395,6 +2383,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### PossibleRemediationActions
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.PossibleRemediationActionsTypeDef]
 
+### WebACLHasIncompatibleConfigurationViolation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.WebACLHasIncompatibleConfigurationViolationTypeDef]
+
+### WebACLHasOutOfScopeResourcesViolation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.WebACLHasOutOfScopeResourcesViolationTypeDef]
+
 
 # ResponseMetadataTypeDef
 
@@ -2489,50 +2483,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SecurityGroupRuleDescriptionTypeDef
 
-### IPV4Range
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### IPV6Range
-- **Type**: typing.Optional[str]
-
-### PrefixListId
-- **Type**: typing.Optional[str]
-
-### Protocol
-- **Type**: typing.Optional[str]
-
-### FromPort
-- **Type**: typing.Optional[int]
-
-### ToPort
-- **Type**: typing.Optional[int]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SecurityServicePolicyDataOutputTypeDef
 
-### Type
-- **Type**: typing.Literal['DNS_FIREWALL', 'IMPORT_NETWORK_FIREWALL', 'NETWORK_ACL_COMMON', 'NETWORK_FIREWALL', 'SECURITY_GROUPS_COMMON', 'SECURITY_GROUPS_CONTENT_AUDIT', 'SECURITY_GROUPS_USAGE_AUDIT', 'SHIELD_ADVANCED', 'THIRD_PARTY_FIREWALL', 'WAF', 'WAFV2']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### ManagedServiceData
-- **Type**: typing.Optional[str]
-
-### PolicyOption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.PolicyOptionOutputTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SecurityServicePolicyDataTypeDef
 
-### Type
-- **Type**: typing.Literal['DNS_FIREWALL', 'IMPORT_NETWORK_FIREWALL', 'NETWORK_ACL_COMMON', 'NETWORK_FIREWALL', 'SECURITY_GROUPS_COMMON', 'SECURITY_GROUPS_CONTENT_AUDIT', 'SECURITY_GROUPS_USAGE_AUDIT', 'SHIELD_ADVANCED', 'THIRD_PARTY_FIREWALL', 'WAF', 'WAFV2']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### ManagedServiceData
-- **Type**: typing.Optional[str]
-
-### PolicyOption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.PolicyOptionTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StatefulEngineOptionsTypeDef
 
@@ -2570,7 +2535,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2655,7 +2620,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CENTRALIZED', 'DISTRIBUTED']]
 
 
-# UntagResourceRequestRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2693,5 +2664,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ResourceDescription
 - **Type**: typing.Optional[str]
+
+
+# WebACLHasIncompatibleConfigurationViolationTypeDef
+
+### WebACLArn
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+
+# WebACLHasOutOfScopeResourcesViolationTypeDef
+
+### WebACLArn
+- **Type**: typing.Optional[str]
+
+### OutOfScopeResourceList
+- **Type**: typing.Optional[typing.List[str]]
 
 

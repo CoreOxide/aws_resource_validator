@@ -14,13 +14,13 @@
 
 ### ChannelPlaybackRestrictionPolicyArn
 - **Type**: string
-- **Pattern**: `^$|^arn:aws:ivs:[a-z0-9-]+:[0-9]+:playback-restriction-policy/[a-zA-Z0-9-]+$`
+- **Pattern**: `^^$|^arn:aws:ivs:[a-z0-9-]+:[0-9]+:playback-restriction-policy/[a-zA-Z0-9-]+$$`
 - **Min Length**: 0
 - **Max Length**: 128
 
 ### ChannelRecordingConfigurationArn
 - **Type**: string
-- **Pattern**: `^$|^arn:aws:ivs:[a-z0-9-]+:[0-9]+:recording-configuration/[a-zA-Z0-9-]+$`
+- **Pattern**: `^^$|^arn:aws:ivs:[a-z0-9-]+:[0-9]+:recording-configuration/[a-zA-Z0-9-]+$$`
 - **Min Length**: 0
 - **Max Length**: 128
 

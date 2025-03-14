@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateSavingsPlanRequestRequestTypeDef
+# CreateSavingsPlanRequestTypeDef
 
 ### savingsPlanOfferingId
 - **Type**: <class 'str'>
@@ -20,7 +20,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### purchaseTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.savingsplans_classes.TimestampTypeDef]
 
 ### clientToken
 - **Type**: typing.Optional[str]
@@ -40,14 +40,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteQueuedSavingsPlanRequestRequestTypeDef
+# DeleteQueuedSavingsPlanRequestTypeDef
 
 ### savingsPlanId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeSavingsPlanRatesRequestRequestTypeDef
+# DescribeSavingsPlanRatesRequestTypeDef
 
 ### savingsPlanId
 - **Type**: <class 'str'>
@@ -73,16 +73,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlanRateTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.savingsplans_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeSavingsPlansOfferingRatesRequestRequestTypeDef
+
+# DescribeSavingsPlansOfferingRatesRequestTypeDef
 
 ### savingsPlanOfferingIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -121,16 +120,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlanOfferingRateTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.savingsplans_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeSavingsPlansOfferingsRequestRequestTypeDef
+
+# DescribeSavingsPlansOfferingsRequestTypeDef
 
 ### offeringIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -178,16 +176,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlanOfferingTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.savingsplans_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeSavingsPlansRequestRequestTypeDef
+
+# DescribeSavingsPlansRequestTypeDef
 
 ### savingsPlanArns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -214,16 +211,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlanTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.savingsplans_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -284,7 +280,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ReturnSavingsPlanRequestRequestTypeDef
+# ReturnSavingsPlanRequestTypeDef
 
 ### savingsPlanId
 - **Type**: <class 'str'>
@@ -518,7 +514,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -529,7 +525,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>

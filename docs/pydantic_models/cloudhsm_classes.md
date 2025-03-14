@@ -1,6 +1,6 @@
 # Cloudhsm Classes
 
-# AddTagsToResourceRequestRequestTypeDef
+# AddTagsToResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -28,7 +28,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateHapgRequestRequestTypeDef
+# CreateHapgRequestTypeDef
 
 ### Label
 - **Type**: <class 'str'>
@@ -46,7 +46,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateHsmRequestRequestTypeDef
+# CreateHsmRequestTypeDef
 
 ### SubnetId
 - **Type**: <class 'str'>
@@ -88,7 +88,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLunaClientRequestRequestTypeDef
+# CreateLunaClientRequestTypeDef
 
 ### Certificate
 - **Type**: <class 'str'>
@@ -109,7 +109,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteHapgRequestRequestTypeDef
+# DeleteHapgRequestTypeDef
 
 ### HapgArn
 - **Type**: <class 'str'>
@@ -127,7 +127,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteHsmRequestRequestTypeDef
+# DeleteHsmRequestTypeDef
 
 ### HsmArn
 - **Type**: <class 'str'>
@@ -145,7 +145,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteLunaClientRequestRequestTypeDef
+# DeleteLunaClientRequestTypeDef
 
 ### ClientArn
 - **Type**: <class 'str'>
@@ -163,7 +163,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeHapgRequestRequestTypeDef
+# DescribeHapgRequestTypeDef
 
 ### HapgArn
 - **Type**: <class 'str'>
@@ -213,7 +213,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeHsmRequestRequestTypeDef
+# DescribeHsmRequestTypeDef
 
 ### HsmArn
 - **Type**: typing.Optional[str]
@@ -313,7 +313,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeLunaClientRequestRequestTypeDef
+# DescribeLunaClientRequestTypeDef
 
 ### ClientArn
 - **Type**: typing.Optional[str]
@@ -349,7 +349,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetConfigRequestRequestTypeDef
+# GetConfigRequestTypeDef
 
 ### ClientArn
 - **Type**: <class 'str'>
@@ -394,13 +394,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListHapgsRequestListHapgsPaginateTypeDef
+# ListHapgsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudhsm_classes.PaginatorConfigTypeDef]
 
 
-# ListHapgsRequestRequestTypeDef
+# ListHapgsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -412,22 +412,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListHsmsRequestListHsmsPaginateTypeDef
+
+# ListHsmsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudhsm_classes.PaginatorConfigTypeDef]
 
 
-# ListHsmsRequestRequestTypeDef
+# ListHsmsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -439,22 +438,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListLunaClientsRequestListLunaClientsPaginateTypeDef
+
+# ListLunaClientsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudhsm_classes.PaginatorConfigTypeDef]
 
 
-# ListLunaClientsRequestRequestTypeDef
+# ListLunaClientsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -466,16 +464,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -493,7 +490,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyHapgRequestRequestTypeDef
+# ModifyHapgRequestTypeDef
 
 ### HapgArn
 - **Type**: <class 'str'>
@@ -517,7 +514,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyHsmRequestRequestTypeDef
+# ModifyHsmRequestTypeDef
 
 ### HsmArn
 - **Type**: <class 'str'>
@@ -550,7 +547,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyLunaClientRequestRequestTypeDef
+# ModifyLunaClientRequestTypeDef
 
 ### ClientArn
 - **Type**: <class 'str'>
@@ -584,7 +581,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RemoveTagsFromResourceRequestRequestTypeDef
+# RemoveTagsFromResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -612,10 +609,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -627,6 +620,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # TagTypeDef

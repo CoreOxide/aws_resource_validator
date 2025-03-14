@@ -46,7 +46,7 @@
 - **Type**: typing.Optional[typing.Literal['FAILED', 'RUNNING', 'SUCCEEDED']]
 
 ### Insights
-- **Type**: typing.Optional[typing.List[ForwardRef('InsightTypeDef')]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pi_classes.InsightTypeDef]]
 
 
 # BaseValidatorModel
@@ -55,7 +55,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreatePerformanceAnalysisReportRequestRequestTypeDef
+# CreatePerformanceAnalysisReportRequestTypeDef
 
 ### ServiceType
 - **Type**: typing.Literal['DOCDB', 'RDS']
@@ -66,11 +66,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.pi_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.pi_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### Tags
@@ -105,7 +105,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.pi_classes.PerformanceInsightsMetricTypeDef]
 
 
-# DeletePerformanceAnalysisReportRequestRequestTypeDef
+# DeletePerformanceAnalysisReportRequestTypeDef
 
 ### ServiceType
 - **Type**: typing.Literal['DOCDB', 'RDS']
@@ -120,7 +120,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDimensionKeysRequestRequestTypeDef
+# DescribeDimensionKeysRequestTypeDef
 
 ### ServiceType
 - **Type**: typing.Literal['DOCDB', 'RDS']
@@ -131,11 +131,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.pi_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.pi_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### Metric
@@ -252,7 +252,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'DISABLED_PENDING_REBOOT', 'ENABLED', 'ENABLED_PENDING_REBOOT', 'UNKNOWN', 'UNSUPPORTED']]
 
 
-# GetDimensionKeyDetailsRequestRequestTypeDef
+# GetDimensionKeyDetailsRequestTypeDef
 
 ### ServiceType
 - **Type**: typing.Literal['DOCDB', 'RDS']
@@ -285,7 +285,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPerformanceAnalysisReportRequestRequestTypeDef
+# GetPerformanceAnalysisReportRequestTypeDef
 
 ### ServiceType
 - **Type**: typing.Literal['DOCDB', 'RDS']
@@ -317,7 +317,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResourceMetadataRequestRequestTypeDef
+# GetResourceMetadataRequestTypeDef
 
 ### ServiceType
 - **Type**: typing.Literal['DOCDB', 'RDS']
@@ -343,7 +343,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResourceMetricsRequestRequestTypeDef
+# GetResourceMetricsRequestTypeDef
 
 ### ServiceType
 - **Type**: typing.Literal['DOCDB', 'RDS']
@@ -358,11 +358,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.pi_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.pi_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### PeriodInSeconds
@@ -441,7 +441,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pi_classes.DataTypeDef]]
 
 
-# ListAvailableResourceDimensionsRequestRequestTypeDef
+# ListAvailableResourceDimensionsRequestTypeDef
 
 ### ServiceType
 - **Type**: typing.Literal['DOCDB', 'RDS']
@@ -479,7 +479,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAvailableResourceMetricsRequestRequestTypeDef
+# ListAvailableResourceMetricsRequestTypeDef
 
 ### ServiceType
 - **Type**: typing.Literal['DOCDB', 'RDS']
@@ -514,7 +514,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPerformanceAnalysisReportsRequestRequestTypeDef
+# ListPerformanceAnalysisReportsRequestTypeDef
 
 ### ServiceType
 - **Type**: typing.Literal['DOCDB', 'RDS']
@@ -548,7 +548,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ServiceType
 - **Type**: typing.Literal['DOCDB', 'RDS']
@@ -610,6 +610,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Dimensions
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### Filter
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Value
@@ -676,7 +679,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ServiceType
 - **Type**: typing.Literal['DOCDB', 'RDS']
@@ -702,7 +705,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceRequestTypeDef
 
 ### ServiceType
 - **Type**: typing.Literal['DOCDB', 'RDS']

@@ -2,7 +2,7 @@
 
 ### AWSKMSKeyARN
 - **Type**: string
-- **Pattern**: `arn:.*`
+- **Pattern**: `arn:.*:kms:[a-zA-Z0-9\-]+:\d{12}:(key|alias)/[a-zA-Z_0-9+=,.@\-_/]+`
 - **Min Length**: 1
 - **Max Length**: 512
 
@@ -26,7 +26,7 @@
 
 ### AmazonopensearchserviceDomainARN
 - **Type**: string
-- **Pattern**: `arn:.*`
+- **Pattern**: `arn:.*:es:[a-zA-Z0-9\-]+:\d{12}:domain/[a-z][-0-9a-z]{2,27}`
 - **Min Length**: 1
 - **Max Length**: 512
 
@@ -44,13 +44,13 @@
 
 ### BucketARN
 - **Type**: string
-- **Pattern**: `arn:.*`
+- **Pattern**: `arn:.*:s3:::[\w\.\-]{1,255}`
 - **Min Length**: 1
 - **Max Length**: 2048
 
 ### ClusterJDBCURL
 - **Type**: string
-- **Pattern**: `jdbc:(redshift|postgresql)://((?!-)[A-Za-z0-9-]{1,63}(?<!-)\.)+(redshift(-serverless)?)\.([a-zA-Z0-9\.]+):\d{1,5}/[a-zA-Z0-9_$-]+`
+- **Pattern**: `jdbc:(redshift|postgresql)://((?!-)[A-Za-z0-9-]{1,63}(?<!-)\.)+(redshift(-serverless)?)\.([a-zA-Z0-9\.\-]+):\d{1,5}/[a-zA-Z0-9_$-]+`
 - **Min Length**: 1
 - **Max Length**: 512
 
@@ -58,13 +58,19 @@
 - **Type**: string
 - **Pattern**: `.*`
 - **Min Length**: 0
-- **Max Length**: 204800
+- **Max Length**: 10240
+
+### CustomTimeZone
+- **Type**: string
+- **Pattern**: `^$|[a-zA-Z/_]+`
+- **Min Length**: 0
+- **Max Length**: 50
 
 ### DataTableColumns
 - **Type**: string
 - **Pattern**: `.*`
 - **Min Length**: 0
-- **Max Length**: 204800
+- **Max Length**: 10240
 
 ### DataTableName
 - **Type**: string
@@ -72,9 +78,33 @@
 - **Min Length**: 1
 - **Max Length**: 512
 
+### DatabaseColumnName
+- **Type**: string
+- **Pattern**: `[\u0001-\uFFFF]*`
+- **Min Length**: 1
+- **Max Length**: 194
+
+### DatabaseEndpoint
+- **Type**: string
+- **Pattern**: `^(?!\s*$).+`
+- **Min Length**: 1
+- **Max Length**: 255
+
+### DatabaseName
+- **Type**: string
+- **Pattern**: `[\u0001-\uFFFF]*`
+- **Min Length**: 1
+- **Max Length**: 64
+
+### DatabaseTableName
+- **Type**: string
+- **Pattern**: `[\u0001-\uFFFF]*`
+- **Min Length**: 1
+- **Max Length**: 129
+
 ### DeliveryStreamARN
 - **Type**: string
-- **Pattern**: `arn:.*`
+- **Pattern**: `arn:.*:firehose:[a-zA-Z0-9\-]+:\d{12}:deliverystream/[a-zA-Z0-9._-]+`
 - **Min Length**: 1
 - **Max Length**: 512
 
@@ -104,7 +134,7 @@
 
 ### ElasticsearchDomainARN
 - **Type**: string
-- **Pattern**: `arn:.*`
+- **Pattern**: `arn:.*:es:[a-zA-Z0-9\-]+:\d{12}:domain/[a-z][-0-9a-z]{2,27}`
 - **Min Length**: 1
 - **Max Length**: 512
 
@@ -131,6 +161,12 @@
 - **Pattern**: `^$|\.[0-9a-z!\-_.*\'()]+`
 - **Min Length**: 0
 - **Max Length**: 128
+
+### GlueDataCatalogARN
+- **Type**: string
+- **Pattern**: `arn:.*:glue:.*:\d{12}:catalog`
+- **Min Length**: 1
+- **Max Length**: 512
 
 ### HECEndpoint
 - **Type**: string
@@ -176,7 +212,7 @@
 
 ### KinesisStreamARN
 - **Type**: string
-- **Pattern**: `arn:.*`
+- **Pattern**: `arn:.*:kinesis:[a-zA-Z0-9\-]+:\d{12}:stream/[a-zA-Z0-9_.-]+`
 - **Min Length**: 1
 - **Max Length**: 512
 
@@ -230,9 +266,15 @@
 
 ### RoleARN
 - **Type**: string
-- **Pattern**: `arn:.*`
+- **Pattern**: `arn:.*:iam::\d{12}:role/[a-zA-Z_0-9+=,.@\-_/]+`
 - **Min Length**: 1
 - **Max Length**: 512
+
+### SecretARN
+- **Type**: string
+- **Pattern**: `arn:.*:secretsmanager:[a-zA-Z0-9\-]+:\d{12}:secret:[a-zA-Z0-9\-/_+=.@]+`
+- **Min Length**: 1
+- **Max Length**: 2048
 
 ### SnowflakeAccountUrl
 - **Type**: string
@@ -250,6 +292,12 @@
 - **Type**: string
 - **Pattern**: `([a-zA-Z0-9\-\_]+\.){2,3}vpce\.[a-zA-Z0-9\-]*\.vpce-svc\-[a-zA-Z0-9\-]{17}$`
 - **Min Length**: 47
+- **Max Length**: 255
+
+### StringWithLettersDigitsUnderscoresDots
+- **Type**: string
+- **Pattern**: `[a-zA-Z0-9\.\_]+`
+- **Min Length**: 1
 - **Max Length**: 255
 
 ### TagKey
@@ -275,4 +323,16 @@
 - **Pattern**: `.*`
 - **Min Length**: 1
 - **Max Length**: 512
+
+### VpcEndpointServiceName
+- **Type**: string
+- **Pattern**: `([a-zA-Z0-9\-\_]+\.){2,3}vpce\.[a-zA-Z0-9\-]*\.vpce-svc\-[a-zA-Z0-9\-]{17}$`
+- **Min Length**: 47
+- **Max Length**: 255
+
+### WarehouseLocation
+- **Type**: string
+- **Pattern**: `s3:\/\/.*`
+- **Min Length**: 1
+- **Max Length**: 2048
 

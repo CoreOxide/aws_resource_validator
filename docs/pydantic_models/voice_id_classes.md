@@ -1,6 +1,6 @@
 # Voice Id Classes
 
-# AssociateFraudsterRequestRequestTypeDef
+# AssociateFraudsterRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -66,7 +66,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateDomainRequestRequestTypeDef
+# CreateDomainRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -97,7 +97,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateWatchlistRequestRequestTypeDef
+# CreateWatchlistRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -125,14 +125,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDomainRequestRequestTypeDef
+# DeleteDomainRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteFraudsterRequestRequestTypeDef
+# DeleteFraudsterRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -143,7 +143,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteSpeakerRequestRequestTypeDef
+# DeleteSpeakerRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -154,7 +154,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteWatchlistRequestRequestTypeDef
+# DeleteWatchlistRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -165,7 +165,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDomainRequestRequestTypeDef
+# DescribeDomainRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -183,7 +183,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeFraudsterRegistrationJobRequestRequestTypeDef
+# DescribeFraudsterRegistrationJobRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -205,7 +205,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeFraudsterRequestRequestTypeDef
+# DescribeFraudsterRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -227,7 +227,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeSpeakerEnrollmentJobRequestRequestTypeDef
+# DescribeSpeakerEnrollmentJobRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -249,7 +249,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeSpeakerRequestRequestTypeDef
+# DescribeSpeakerRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -271,7 +271,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeWatchlistRequestRequestTypeDef
+# DescribeWatchlistRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -293,7 +293,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateFraudsterRequestRequestTypeDef
+# DisassociateFraudsterRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -392,6 +392,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# EnrollmentConfigOutputTypeDef
+
+### ExistingEnrollmentAction
+- **Type**: typing.Optional[typing.Literal['OVERWRITE', 'SKIP']]
+
+### FraudDetectionConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.EnrollmentJobFraudDetectionConfigOutputTypeDef]
+
+
 # EnrollmentConfigTypeDef
 
 ### ExistingEnrollmentAction
@@ -401,7 +410,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.EnrollmentJobFraudDetectionConfigTypeDef]
 
 
-# EnrollmentJobFraudDetectionConfigTypeDef
+# EnrollmentConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# EnrollmentJobFraudDetectionConfigOutputTypeDef
 
 ### FraudDetectionAction
 - **Type**: typing.Optional[typing.Literal['FAIL', 'IGNORE']]
@@ -413,7 +428,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# EvaluateSessionRequestRequestTypeDef
+# EnrollmentJobFraudDetectionConfigTypeDef
+
+### FraudDetectionAction
+- **Type**: typing.Optional[typing.Literal['FAIL', 'IGNORE']]
+
+### RiskThreshold
+- **Type**: typing.Optional[int]
+
+### WatchlistIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# EvaluateSessionRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -571,7 +598,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.OutputDataConfigTypeDef]
 
 ### RegistrationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.RegistrationConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.RegistrationConfigOutputTypeDef]
 
 
 # FraudsterSummaryTypeDef
@@ -627,13 +654,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDomainsRequestListDomainsPaginateTypeDef
+# ListDomainsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.PaginatorConfigTypeDef]
 
 
-# ListDomainsRequestRequestTypeDef
+# ListDomainsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -648,16 +675,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.voice_id_classes.DomainSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListFraudsterRegistrationJobsRequestListFraudsterRegistrationJobsPaginateTypeDef
+
+# ListFraudsterRegistrationJobsRequestPaginateTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -670,7 +696,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.PaginatorConfigTypeDef]
 
 
-# ListFraudsterRegistrationJobsRequestRequestTypeDef
+# ListFraudsterRegistrationJobsRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -692,16 +718,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.voice_id_classes.FraudsterRegistrationJobSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListFraudstersRequestListFraudstersPaginateTypeDef
+
+# ListFraudstersRequestPaginateTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -714,7 +739,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.PaginatorConfigTypeDef]
 
 
-# ListFraudstersRequestRequestTypeDef
+# ListFraudstersRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -736,16 +761,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.voice_id_classes.FraudsterSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListSpeakerEnrollmentJobsRequestListSpeakerEnrollmentJobsPaginateTypeDef
+
+# ListSpeakerEnrollmentJobsRequestPaginateTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -758,7 +782,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.PaginatorConfigTypeDef]
 
 
-# ListSpeakerEnrollmentJobsRequestRequestTypeDef
+# ListSpeakerEnrollmentJobsRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -780,16 +804,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.voice_id_classes.SpeakerEnrollmentJobSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListSpeakersRequestListSpeakersPaginateTypeDef
+
+# ListSpeakersRequestPaginateTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -799,7 +822,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.PaginatorConfigTypeDef]
 
 
-# ListSpeakersRequestRequestTypeDef
+# ListSpeakersRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -814,10 +837,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListSpeakersResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### SpeakerSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.voice_id_classes.SpeakerSummaryTypeDef]
 - **Required**: Yes
@@ -826,8 +845,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -845,7 +867,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListWatchlistsRequestListWatchlistsPaginateTypeDef
+# ListWatchlistsRequestPaginateTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -855,7 +877,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.PaginatorConfigTypeDef]
 
 
-# ListWatchlistsRequestRequestTypeDef
+# ListWatchlistsRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -870,10 +892,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListWatchlistsResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### WatchlistSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.voice_id_classes.WatchlistSummaryTypeDef]
 - **Required**: Yes
@@ -882,8 +900,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# OptOutSpeakerRequestRequestTypeDef
+
+# OptOutSpeakerRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -927,7 +948,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RegistrationConfigTypeDef
+# RegistrationConfigOutputTypeDef
 
 ### DuplicateRegistrationAction
 - **Type**: typing.Optional[typing.Literal['REGISTER_AS_NEW', 'SKIP']]
@@ -939,13 +960,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
+# RegistrationConfigTypeDef
+
+### DuplicateRegistrationAction
+- **Type**: typing.Optional[typing.Literal['REGISTER_AS_NEW', 'SKIP']]
+
+### FraudsterSimilarityThreshold
+- **Type**: typing.Optional[int]
+
+### WatchlistIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# RegistrationConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ResponseMetadataTypeDef
 
 ### RequestId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### HostId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -960,6 +995,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # ServerSideEncryptionConfigurationTypeDef
@@ -1023,7 +1061,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### EnrollmentConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.EnrollmentConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.EnrollmentConfigOutputTypeDef]
 
 ### FailureDetails
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.FailureDetailsTypeDef]
@@ -1095,7 +1133,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# StartFraudsterRegistrationJobRequestRequestTypeDef
+# StartFraudsterRegistrationJobRequestTypeDef
 
 ### DataAccessRoleArn
 - **Type**: <class 'str'>
@@ -1120,7 +1158,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RegistrationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.RegistrationConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.RegistrationConfigUnionTypeDef]
 
 
 # StartFraudsterRegistrationJobResponseTypeDef
@@ -1134,7 +1172,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartSpeakerEnrollmentJobRequestRequestTypeDef
+# StartSpeakerEnrollmentJobRequestTypeDef
 
 ### DataAccessRoleArn
 - **Type**: <class 'str'>
@@ -1156,7 +1194,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EnrollmentConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.EnrollmentConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.EnrollmentConfigUnionTypeDef]
 
 ### JobName
 - **Type**: typing.Optional[str]
@@ -1173,7 +1211,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1195,7 +1233,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1206,7 +1244,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDomainRequestRequestTypeDef
+# UpdateDomainRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -1235,7 +1273,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateWatchlistRequestRequestTypeDef
+# UpdateWatchlistRequestTypeDef
 
 ### DomainId
 - **Type**: <class 'str'>

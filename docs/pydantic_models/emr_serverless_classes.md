@@ -2,116 +2,15 @@
 
 # ApplicationSummaryTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### releaseLabel
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### state
-- **Type**: typing.Literal['CREATED', 'CREATING', 'STARTED', 'STARTING', 'STOPPED', 'STOPPING', 'TERMINATED']
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### name
-- **Type**: typing.Optional[str]
-
-### stateDetails
-- **Type**: typing.Optional[str]
-
-### architecture
-- **Type**: typing.Optional[typing.Literal['ARM64', 'X86_64']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ApplicationTypeDef
 
-### applicationId
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### releaseLabel
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### state
-- **Type**: typing.Literal['CREATED', 'CREATING', 'STARTED', 'STARTING', 'STOPPED', 'STOPPING', 'TERMINATED']
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### name
-- **Type**: typing.Optional[str]
-
-### stateDetails
-- **Type**: typing.Optional[str]
-
-### initialCapacity
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.emr_serverless_classes.InitialCapacityConfigTypeDef]]
-
-### maximumCapacity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.MaximumAllowedResourcesTypeDef]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### autoStartConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.AutoStartConfigTypeDef]
-
-### autoStopConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.AutoStopConfigTypeDef]
-
-### networkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.NetworkConfigurationOutputTypeDef]
-
-### architecture
-- **Type**: typing.Optional[typing.Literal['ARM64', 'X86_64']]
-
-### imageConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.ImageConfigurationTypeDef]
-
-### workerTypeSpecifications
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.emr_serverless_classes.WorkerTypeSpecificationTypeDef]]
-
-### runtimeConfiguration
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_serverless_classes.ConfigurationOutputTypeDef]]
-
-### monitoringConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.MonitoringConfigurationOutputTypeDef]
-
-### interactiveConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.InteractiveConfigurationTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AutoStartConfigTypeDef
 
@@ -134,7 +33,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelJobRunRequestRequestTypeDef
+# CancelJobRunRequestTypeDef
 
 ### applicationId
 - **Type**: <class 'str'>
@@ -229,6 +128,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.MonitoringConfigurationTypeDef]
 
 
+# ConfigurationOverridesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ConfigurationTypeDef
 
 ### classification
@@ -239,62 +144,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### configurations
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 
-# CreateApplicationRequestRequestTypeDef
+# ConfigurationUnionTypeDef
 
-### releaseLabel
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### clientToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: typing.Optional[str]
-
-### initialCapacity
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.emr_serverless_classes.InitialCapacityConfigTypeDef]]
-
-### maximumCapacity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.MaximumAllowedResourcesTypeDef]
-
-### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### autoStartConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.AutoStartConfigTypeDef]
-
-### autoStopConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.AutoStopConfigTypeDef]
-
-### networkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.NetworkConfigurationTypeDef]
-
-### architecture
-- **Type**: typing.Optional[typing.Literal['ARM64', 'X86_64']]
-
-### imageConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.ImageConfigurationInputTypeDef]
-
-### workerTypeSpecifications
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.emr_serverless_classes.WorkerTypeSpecificationInputTypeDef]]
-
-### runtimeConfiguration
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.emr_serverless_classes.ConfigurationTypeDef, aws_resource_validator.pydantic_models.emr_serverless_classes.ConfigurationOutputTypeDef]]]
-
-### monitoringConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.MonitoringConfigurationTypeDef]
-
-### interactiveConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.InteractiveConfigurationTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CreateApplicationResponseTypeDef
 
@@ -315,14 +172,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteApplicationRequestRequestTypeDef
+# DeleteApplicationRequestTypeDef
 
 ### applicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetApplicationRequestRequestTypeDef
+# GetApplicationRequestTypeDef
 
 ### applicationId
 - **Type**: <class 'str'>
@@ -340,7 +197,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDashboardForJobRunRequestRequestTypeDef
+# GetDashboardForJobRunRequestTypeDef
 
 ### applicationId
 - **Type**: <class 'str'>
@@ -352,6 +209,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### attempt
 - **Type**: typing.Optional[int]
+
+### accessSystemProfileLogs
+- **Type**: typing.Optional[bool]
 
 
 # GetDashboardForJobRunResponseTypeDef
@@ -365,7 +225,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetJobRunRequestRequestTypeDef
+# GetJobRunRequestTypeDef
 
 ### applicationId
 - **Type**: <class 'str'>
@@ -456,125 +316,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.HiveTypeDef]
 
 
+# JobDriverUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # JobRunAttemptSummaryTypeDef
 
-### applicationId
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createdBy
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### jobCreatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### executionRole
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### state
-- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'FAILED', 'PENDING', 'RUNNING', 'SCHEDULED', 'SUBMITTED', 'SUCCESS']
-- **Required**: Yes
-
-### stateDetails
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### releaseLabel
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: typing.Optional[str]
-
-### mode
-- **Type**: typing.Optional[typing.Literal['BATCH', 'STREAMING']]
-
-### type
-- **Type**: typing.Optional[str]
-
-### attempt
-- **Type**: typing.Optional[int]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # JobRunSummaryTypeDef
 
-### applicationId
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createdBy
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### updatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### executionRole
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### state
-- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'FAILED', 'PENDING', 'RUNNING', 'SCHEDULED', 'SUBMITTED', 'SUCCESS']
-- **Required**: Yes
-
-### stateDetails
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### releaseLabel
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: typing.Optional[str]
-
-### mode
-- **Type**: typing.Optional[typing.Literal['BATCH', 'STREAMING']]
-
-### type
-- **Type**: typing.Optional[str]
-
-### attempt
-- **Type**: typing.Optional[int]
-
-### attemptCreatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### attemptUpdatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # JobRunTypeDef
 
@@ -607,7 +365,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### state
-- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'FAILED', 'PENDING', 'RUNNING', 'SCHEDULED', 'SUBMITTED', 'SUCCESS']
+- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'FAILED', 'PENDING', 'QUEUED', 'RUNNING', 'SCHEDULED', 'SUBMITTED', 'SUCCESS']
 - **Required**: Yes
 
 ### stateDetails
@@ -661,8 +419,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### attemptUpdatedAt
 - **Type**: typing.Optional[datetime.datetime]
 
+### startedAt
+- **Type**: typing.Optional[datetime.datetime]
 
-# ListApplicationsRequestListApplicationsPaginateTypeDef
+### endedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### queuedDurationMilliseconds
+- **Type**: typing.Optional[int]
+
+
+# ListApplicationsRequestPaginateTypeDef
 
 ### states
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['CREATED', 'CREATING', 'STARTED', 'STARTING', 'STOPPED', 'STOPPING', 'TERMINATED']]]
@@ -671,7 +438,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.PaginatorConfigTypeDef]
 
 
-# ListApplicationsRequestRequestTypeDef
+# ListApplicationsRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -689,16 +456,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.emr_serverless_classes.ApplicationSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.emr_serverless_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListJobRunAttemptsRequestListJobRunAttemptsPaginateTypeDef
+
+# ListJobRunAttemptsRequestPaginateTypeDef
 
 ### applicationId
 - **Type**: <class 'str'>
@@ -712,7 +478,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.PaginatorConfigTypeDef]
 
 
-# ListJobRunAttemptsRequestRequestTypeDef
+# ListJobRunAttemptsRequestTypeDef
 
 ### applicationId
 - **Type**: <class 'str'>
@@ -735,29 +501,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.emr_serverless_classes.JobRunAttemptSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.emr_serverless_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListJobRunsRequestListJobRunsPaginateTypeDef
+
+# ListJobRunsRequestPaginateTypeDef
 
 ### applicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### createdAtAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.TimestampTypeDef]
 
 ### createdAtBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.TimestampTypeDef]
 
 ### states
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CANCELLED', 'CANCELLING', 'FAILED', 'PENDING', 'RUNNING', 'SCHEDULED', 'SUBMITTED', 'SUCCESS']]]
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['CANCELLED', 'CANCELLING', 'FAILED', 'PENDING', 'QUEUED', 'RUNNING', 'SCHEDULED', 'SUBMITTED', 'SUCCESS']]]
 
 ### mode
 - **Type**: typing.Optional[typing.Literal['BATCH', 'STREAMING']]
@@ -766,7 +531,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.PaginatorConfigTypeDef]
 
 
-# ListJobRunsRequestRequestTypeDef
+# ListJobRunsRequestTypeDef
 
 ### applicationId
 - **Type**: <class 'str'>
@@ -779,13 +544,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### createdAtAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.TimestampTypeDef]
 
 ### createdAtBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.TimestampTypeDef]
 
 ### states
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CANCELLED', 'CANCELLING', 'FAILED', 'PENDING', 'RUNNING', 'SCHEDULED', 'SUBMITTED', 'SUCCESS']]]
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['CANCELLED', 'CANCELLING', 'FAILED', 'PENDING', 'QUEUED', 'RUNNING', 'SCHEDULED', 'SUBMITTED', 'SUCCESS']]]
 
 ### mode
 - **Type**: typing.Optional[typing.Literal['BATCH', 'STREAMING']]
@@ -797,16 +562,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.emr_serverless_classes.JobRunSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.emr_serverless_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -877,6 +641,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.PrometheusMonitoringConfigurationTypeDef]
 
 
+# MonitoringConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # NetworkConfigurationOutputTypeDef
 
 ### subnetIds
@@ -894,6 +664,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### securityGroupIds
 - **Type**: typing.Optional[typing.Sequence[str]]
 
+
+# NetworkConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PaginatorConfigTypeDef
 
@@ -965,6 +741,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# SchedulerConfigurationTypeDef
+
+### queueTimeoutMinutes
+- **Type**: typing.Optional[int]
+
+### maxConcurrentRuns
+- **Type**: typing.Optional[int]
+
+
 # SparkSubmitOutputTypeDef
 
 ### entryPoint
@@ -991,14 +776,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartApplicationRequestRequestTypeDef
+# StartApplicationRequestTypeDef
 
 ### applicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StartJobRunRequestRequestTypeDef
+# StartJobRunRequestTypeDef
 
 ### applicationId
 - **Type**: <class 'str'>
@@ -1013,10 +798,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### jobDriver
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.JobDriverTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.JobDriverUnionTypeDef]
 
 ### configurationOverrides
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.ConfigurationOverridesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.ConfigurationOverridesUnionTypeDef]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -1053,14 +838,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopApplicationRequestRequestTypeDef
+# StopApplicationRequestTypeDef
 
 ### applicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1070,6 +855,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Mapping[str, str]
 - **Required**: Yes
 
+
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TotalResourceUtilizationTypeDef
 
@@ -1083,7 +874,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1094,7 +885,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateApplicationRequestRequestTypeDef
+# UpdateApplicationRequestTypeDef
 
 ### applicationId
 - **Type**: <class 'str'>
@@ -1117,7 +908,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.AutoStopConfigTypeDef]
 
 ### networkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.NetworkConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.NetworkConfigurationUnionTypeDef]
 
 ### architecture
 - **Type**: typing.Optional[typing.Literal['ARM64', 'X86_64']]
@@ -1135,10 +926,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### runtimeConfiguration
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.emr_serverless_classes.ConfigurationTypeDef, aws_resource_validator.pydantic_models.emr_serverless_classes.ConfigurationOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_serverless_classes.ConfigurationUnionTypeDef]]
 
 ### monitoringConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.MonitoringConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.MonitoringConfigurationUnionTypeDef]
+
+### schedulerConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_serverless_classes.SchedulerConfigurationTypeDef]
 
 
 # UpdateApplicationResponseTypeDef

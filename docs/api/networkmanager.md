@@ -78,6 +78,12 @@
 - **Min Length**: 0
 - **Max Length**: 50
 
+### DirectConnectGatewayArn
+- **Type**: string
+- **Pattern**: `^arn:[^:]{1,63}:directconnect::[^:]{0,63}:dx-gateway\/[0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]{12}$`
+- **Min Length**: 0
+- **Max Length**: 500
+
 ### ExternalRegionCode
 - **Type**: string
 - **Pattern**: `[\s\S]*`
@@ -123,6 +129,10 @@
 - **Pattern**: `[\s\S]*`
 - **Min Length**: 0
 - **Max Length**: 50
+
+### NetworkFunctionGroupName
+- **Type**: string
+- **Pattern**: `[\s\S]*`
 
 ### NextToken
 - **Type**: string

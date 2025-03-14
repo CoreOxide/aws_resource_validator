@@ -28,6 +28,12 @@
 - **Type**: string
 - **Pattern**: `^[a-zA-Z_0-9-=+/]*$|^arn:(aws|aws-us-gov|aws-cn):entityresolution:[a-z]{2}-[a-z]{1,10}-[0-9]:[0-9]{12}:(idnamespace/[a-zA-Z_0-9-]{1,255})$`
 
+### IdMappingRoleArn
+- **Type**: string
+- **Pattern**: `^$|^arn:aws:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+$`
+- **Min Length**: 0
+- **Max Length**: 512
+
 ### IdMappingWorkflowArn
 - **Type**: string
 - **Pattern**: `^arn:(aws|aws-us-gov|aws-cn):entityresolution:[a-z]{2}-[a-z]{1,10}-[0-9]:[0-9]{12}:(idmappingworkflow/[a-zA-Z_0-9-]{1,255})$`
@@ -132,7 +138,7 @@
 
 ### UniqueId
 - **Type**: string
-- **Pattern**: `^[a-zA-Z_0-9-,]*$`
+- **Pattern**: `^[a-zA-Z_0-9-+=/,]*$`
 - **Min Length**: 1
 - **Max Length**: 760
 

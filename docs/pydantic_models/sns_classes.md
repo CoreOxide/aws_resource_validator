@@ -1,10 +1,6 @@
 # Sns Classes
 
-# AddPermissionInputRequestTypeDef
-
-### TopicArn
-- **Type**: <class 'str'>
-- **Required**: Yes
+# AddPermissionInputTopicAddPermissionTypeDef
 
 ### Label
 - **Type**: <class 'str'>
@@ -19,7 +15,11 @@
 - **Required**: Yes
 
 
-# AddPermissionInputTopicAddPermissionTypeDef
+# AddPermissionInputTypeDef
+
+### TopicArn
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 ### Label
 - **Type**: <class 'str'>
@@ -58,7 +58,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CheckIfPhoneNumberIsOptedOutInputRequestTypeDef
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CheckIfPhoneNumberIsOptedOutInputTypeDef
 
 ### phoneNumber
 - **Type**: <class 'str'>
@@ -76,11 +82,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ConfirmSubscriptionInputRequestTypeDef
-
-### TopicArn
-- **Type**: <class 'str'>
-- **Required**: Yes
+# ConfirmSubscriptionInputTopicConfirmSubscriptionTypeDef
 
 ### Token
 - **Type**: <class 'str'>
@@ -90,7 +92,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ConfirmSubscriptionInputTopicConfirmSubscriptionTypeDef
+# ConfirmSubscriptionInputTypeDef
+
+### TopicArn
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 ### Token
 - **Type**: <class 'str'>
@@ -122,7 +128,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePlatformApplicationInputRequestTypeDef
+# CreatePlatformApplicationInputServiceResourceCreatePlatformApplicationTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -137,7 +143,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePlatformApplicationInputServiceResourceCreatePlatformApplicationTypeDef
+# CreatePlatformApplicationInputTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -176,7 +182,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreatePlatformEndpointInputRequestTypeDef
+# CreatePlatformEndpointInputTypeDef
 
 ### PlatformApplicationArn
 - **Type**: <class 'str'>
@@ -193,7 +199,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateSMSSandboxPhoneNumberInputRequestTypeDef
+# CreateSMSSandboxPhoneNumberInputTypeDef
 
 ### PhoneNumber
 - **Type**: <class 'str'>
@@ -203,7 +209,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['de-DE', 'en-GB', 'en-US', 'es-419', 'es-ES', 'fr-CA', 'fr-FR', 'it-IT', 'ja-JP', 'kr-KR', 'pt-BR', 'zh-CN', 'zh-TW']]
 
 
-# CreateTopicInputRequestTypeDef
+# CreateTopicInputServiceResourceCreateTopicTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -219,7 +225,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateTopicInputServiceResourceCreateTopicTypeDef
+# CreateTopicInputTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -246,28 +252,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteEndpointInputRequestTypeDef
+# DeleteEndpointInputTypeDef
 
 ### EndpointArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePlatformApplicationInputRequestTypeDef
+# DeletePlatformApplicationInputTypeDef
 
 ### PlatformApplicationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSMSSandboxPhoneNumberInputRequestTypeDef
+# DeleteSMSSandboxPhoneNumberInputTypeDef
 
 ### PhoneNumber
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteTopicInputRequestTypeDef
+# DeleteTopicInputTypeDef
 
 ### TopicArn
 - **Type**: <class 'str'>
@@ -290,7 +296,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# GetDataProtectionPolicyInputRequestTypeDef
+# GetDataProtectionPolicyInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -308,7 +314,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetEndpointAttributesInputRequestTypeDef
+# GetEndpointAttributesInputTypeDef
 
 ### EndpointArn
 - **Type**: <class 'str'>
@@ -326,7 +332,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPlatformApplicationAttributesInputRequestTypeDef
+# GetPlatformApplicationAttributesInputTypeDef
 
 ### PlatformApplicationArn
 - **Type**: <class 'str'>
@@ -344,7 +350,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSMSAttributesInputRequestTypeDef
+# GetSMSAttributesInputTypeDef
 
 ### attributes
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -372,7 +378,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSubscriptionAttributesInputRequestTypeDef
+# GetSubscriptionAttributesInputTypeDef
 
 ### SubscriptionArn
 - **Type**: <class 'str'>
@@ -390,7 +396,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTopicAttributesInputRequestTypeDef
+# GetTopicAttributesInputTypeDef
 
 ### TopicArn
 - **Type**: <class 'str'>
@@ -408,7 +414,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListEndpointsByPlatformApplicationInputRequestTypeDef
+# ListEndpointsByPlatformApplicationInputPaginateTypeDef
+
+### PlatformApplicationArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfigTypeDef]
+
+
+# ListEndpointsByPlatformApplicationInputTypeDef
 
 ### PlatformApplicationArn
 - **Type**: <class 'str'>
@@ -432,13 +448,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListOriginationNumbersRequestListOriginationNumbersPaginateTypeDef
+# ListOriginationNumbersRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfigTypeDef]
 
 
-# ListOriginationNumbersRequestRequestTypeDef
+# ListOriginationNumbersRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -461,13 +477,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPhoneNumbersOptedOutInputListPhoneNumbersOptedOutPaginateTypeDef
+# ListPhoneNumbersOptedOutInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfigTypeDef]
 
 
-# ListPhoneNumbersOptedOutInputRequestTypeDef
+# ListPhoneNumbersOptedOutInputTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -479,22 +495,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListPlatformApplicationsInputListPlatformApplicationsPaginateTypeDef
+
+# ListPlatformApplicationsInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfigTypeDef]
 
 
-# ListPlatformApplicationsInputRequestTypeDef
+# ListPlatformApplicationsInputTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -514,13 +529,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSMSSandboxPhoneNumbersInputListSMSSandboxPhoneNumbersPaginateTypeDef
+# ListSMSSandboxPhoneNumbersInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfigTypeDef]
 
 
-# ListSMSSandboxPhoneNumbersInputRequestTypeDef
+# ListSMSSandboxPhoneNumbersInputTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -543,7 +558,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSubscriptionsByTopicInputListSubscriptionsByTopicPaginateTypeDef
+# ListSubscriptionsByTopicInputPaginateTypeDef
 
 ### TopicArn
 - **Type**: <class 'str'>
@@ -553,7 +568,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfigTypeDef]
 
 
-# ListSubscriptionsByTopicInputRequestTypeDef
+# ListSubscriptionsByTopicInputTypeDef
 
 ### TopicArn
 - **Type**: <class 'str'>
@@ -577,13 +592,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSubscriptionsInputListSubscriptionsPaginateTypeDef
+# ListSubscriptionsInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfigTypeDef]
 
 
-# ListSubscriptionsInputRequestTypeDef
+# ListSubscriptionsInputTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -603,7 +618,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -621,13 +636,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTopicsInputListTopicsPaginateTypeDef
+# ListTopicsInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfigTypeDef]
 
 
-# ListTopicsInputRequestTypeDef
+# ListTopicsInputTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -657,10 +672,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### BinaryValue
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.BlobTypeDef]
 
 
-# OptInPhoneNumberInputRequestTypeDef
+# OptInPhoneNumberInputTypeDef
 
 ### phoneNumber
 - **Type**: <class 'str'>
@@ -709,7 +724,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# PublishBatchInputRequestTypeDef
+# PublishBatchInputTypeDef
 
 ### TopicArn
 - **Type**: <class 'str'>
@@ -801,14 +816,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PublishInputRequestTypeDef
+# PublishInputTopicPublishTypeDef
 
 ### Message
 - **Type**: <class 'str'>
 - **Required**: Yes
-
-### TopicArn
-- **Type**: typing.Optional[str]
 
 ### TargetArn
 - **Type**: typing.Optional[str]
@@ -832,11 +844,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PublishInputTopicPublishTypeDef
+# PublishInputTypeDef
 
 ### Message
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+### TopicArn
+- **Type**: typing.Optional[str]
 
 ### TargetArn
 - **Type**: typing.Optional[str]
@@ -875,7 +890,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutDataProtectionPolicyInputRequestTypeDef
+# PutDataProtectionPolicyInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -886,18 +901,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemovePermissionInputRequestTypeDef
-
-### TopicArn
-- **Type**: <class 'str'>
-- **Required**: Yes
+# RemovePermissionInputTopicRemovePermissionTypeDef
 
 ### Label
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# RemovePermissionInputTopicRemovePermissionTypeDef
+# RemovePermissionInputTypeDef
+
+### TopicArn
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 ### Label
 - **Type**: <class 'str'>
@@ -942,7 +957,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetEndpointAttributesInputRequestTypeDef
+# SetEndpointAttributesInputTypeDef
 
 ### EndpointArn
 - **Type**: <class 'str'>
@@ -960,7 +975,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetPlatformApplicationAttributesInputRequestTypeDef
+# SetPlatformApplicationAttributesInputTypeDef
 
 ### PlatformApplicationArn
 - **Type**: <class 'str'>
@@ -971,25 +986,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetSMSAttributesInputRequestTypeDef
+# SetSMSAttributesInputTypeDef
 
 ### attributes
 - **Type**: typing.Mapping[str, str]
 - **Required**: Yes
-
-
-# SetSubscriptionAttributesInputRequestTypeDef
-
-### SubscriptionArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### AttributeName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### AttributeValue
-- **Type**: typing.Optional[str]
 
 
 # SetSubscriptionAttributesInputSubscriptionSetAttributesTypeDef
@@ -1002,9 +1003,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SetTopicAttributesInputRequestTypeDef
+# SetSubscriptionAttributesInputTypeDef
 
-### TopicArn
+### SubscriptionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -1026,40 +1027,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SubscribeInputRequestTypeDef
+# SetTopicAttributesInputTypeDef
 
 ### TopicArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### Protocol
+### AttributeName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### Endpoint
+### AttributeValue
 - **Type**: typing.Optional[str]
-
-### Attributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### ReturnSubscriptionArn
-- **Type**: typing.Optional[bool]
-
-
-# SubscribeInputTopicSubscribeTypeDef
-
-### Protocol
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Endpoint
-- **Type**: typing.Optional[str]
-
-### Attributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### ReturnSubscriptionArn
-- **Type**: typing.Optional[bool]
 
 
 # SubscribeResponseTypeDef
@@ -1075,23 +1054,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SubscriptionTypeDef
 
-### SubscriptionArn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Owner
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Protocol
-- **Type**: typing.Optional[str]
-
-### Endpoint
-- **Type**: typing.Optional[str]
-
-### TopicArn
-- **Type**: typing.Optional[str]
-
-
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1119,14 +1086,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UnsubscribeInputRequestTypeDef
+# UnsubscribeInputTypeDef
 
 ### SubscriptionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1137,7 +1104,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# VerifySMSSandboxPhoneNumberInputRequestTypeDef
+# VerifySMSSandboxPhoneNumberInputTypeDef
 
 ### PhoneNumber
 - **Type**: <class 'str'>

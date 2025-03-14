@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DeregisterSubscriptionProviderRequestRequestTypeDef
+# DeregisterSubscriptionProviderRequestTypeDef
 
 ### SubscriptionProviderArn
 - **Type**: <class 'str'>
@@ -25,7 +25,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# GetRegisteredSubscriptionProviderRequestRequestTypeDef
+# GetRegisteredSubscriptionProviderRequestTypeDef
 
 ### SubscriptionProviderArn
 - **Type**: <class 'str'>
@@ -160,7 +160,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListLinuxSubscriptionInstancesRequestListLinuxSubscriptionInstancesPaginateTypeDef
+# LinuxSubscriptionsDiscoverySettingsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ListLinuxSubscriptionInstancesRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.FilterTypeDef]]
@@ -169,7 +175,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.PaginatorConfigTypeDef]
 
 
-# ListLinuxSubscriptionInstancesRequestRequestTypeDef
+# ListLinuxSubscriptionInstancesRequestTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.FilterTypeDef]]
@@ -195,7 +201,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListLinuxSubscriptionsRequestListLinuxSubscriptionsPaginateTypeDef
+# ListLinuxSubscriptionsRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.FilterTypeDef]]
@@ -204,7 +210,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.PaginatorConfigTypeDef]
 
 
-# ListLinuxSubscriptionsRequestRequestTypeDef
+# ListLinuxSubscriptionsRequestTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.FilterTypeDef]]
@@ -230,7 +236,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListRegisteredSubscriptionProvidersRequestListRegisteredSubscriptionProvidersPaginateTypeDef
+# ListRegisteredSubscriptionProvidersRequestPaginateTypeDef
 
 ### SubscriptionProviderSources
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['RedHat']]]
@@ -239,7 +245,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.PaginatorConfigTypeDef]
 
 
-# ListRegisteredSubscriptionProvidersRequestRequestTypeDef
+# ListRegisteredSubscriptionProvidersRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -265,7 +271,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -295,7 +301,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RegisterSubscriptionProviderRequestRequestTypeDef
+# RegisterSubscriptionProviderRequestTypeDef
 
 ### SecretArn
 - **Type**: <class 'str'>
@@ -373,17 +379,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SubscriptionTypeDef
 
-### InstanceCount
-- **Type**: typing.Optional[int]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Name
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Type
-- **Type**: typing.Optional[str]
-
-
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -394,7 +394,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -405,14 +405,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateServiceSettingsRequestRequestTypeDef
+# UpdateServiceSettingsRequestTypeDef
 
 ### LinuxSubscriptionsDiscovery
 - **Type**: typing.Literal['Disabled', 'Enabled']
 - **Required**: Yes
 
 ### LinuxSubscriptionsDiscoverySettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.LinuxSubscriptionsDiscoverySettingsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.LinuxSubscriptionsDiscoverySettingsUnionTypeDef'>
 - **Required**: Yes
 
 ### AllowUpdate

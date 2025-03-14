@@ -1,6 +1,6 @@
 # Ds Classes
 
-# AcceptSharedDirectoryRequestRequestTypeDef
+# AcceptSharedDirectoryRequestTypeDef
 
 ### SharedDirectoryId
 - **Type**: <class 'str'>
@@ -18,7 +18,7 @@
 - **Required**: Yes
 
 
-# AddIpRoutesRequestRequestTypeDef
+# AddIpRoutesRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -32,22 +32,7 @@
 - **Type**: typing.Optional[bool]
 
 
-# AddRegionRequestRequestTypeDef
-
-### DirectoryId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### RegionName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### VPCSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.DirectoryVpcSettingsTypeDef'>
-- **Required**: Yes
-
-
-# AddTagsToResourceRequestRequestTypeDef
+# AddTagsToResourceRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -73,7 +58,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelSchemaExtensionRequestRequestTypeDef
+# CancelSchemaExtensionRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -86,60 +71,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # CertificateInfoTypeDef
 
-### CertificateId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### CommonName
-- **Type**: typing.Optional[str]
-
-### State
-- **Type**: typing.Optional[typing.Literal['DeregisterFailed', 'Deregistered', 'Deregistering', 'RegisterFailed', 'Registered', 'Registering']]
-
-### ExpiryDateTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['ClientCertAuth', 'ClientLDAPS']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CertificateTypeDef
 
-### CertificateId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### State
-- **Type**: typing.Optional[typing.Literal['DeregisterFailed', 'Deregistered', 'Deregistering', 'RegisterFailed', 'Registered', 'Registering']]
-
-### StateReason
-- **Type**: typing.Optional[str]
-
-### CommonName
-- **Type**: typing.Optional[str]
-
-### RegisteredDateTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### ExpiryDateTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['ClientCertAuth', 'ClientLDAPS']]
-
-### ClientCertAuthSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.ClientCertAuthSettingsTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ClientAuthenticationSettingInfoTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['SmartCard', 'SmartCardOrPassword']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Status
-- **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
-
-### LastUpdatedDateTime
-- **Type**: typing.Optional[datetime.datetime]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ClientCertAuthSettingsTypeDef
 
@@ -171,7 +117,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Domain']]
 
 
-# ConnectDirectoryRequestRequestTypeDef
+# ConnectDirectoryRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -210,7 +156,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAliasRequestRequestTypeDef
+# CreateAliasRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -236,7 +182,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateComputerRequestRequestTypeDef
+# CreateComputerRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -268,7 +214,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateConditionalForwarderRequestRequestTypeDef
+# CreateConditionalForwarderRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -283,7 +229,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDirectoryRequestRequestTypeDef
+# CreateDirectoryRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -304,7 +250,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.DirectoryVpcSettingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.DirectoryVpcSettingsUnionTypeDef]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ds_classes.TagTypeDef]]
@@ -321,7 +267,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLogSubscriptionRequestRequestTypeDef
+# CreateLogSubscriptionRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -332,7 +278,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateMicrosoftADRequestRequestTypeDef
+# CreateMicrosoftADRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -343,7 +289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VpcSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.DirectoryVpcSettingsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.DirectoryVpcSettingsUnionTypeDef'>
 - **Required**: Yes
 
 ### ShortName
@@ -370,7 +316,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateSnapshotRequestRequestTypeDef
+# CreateSnapshotRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -391,7 +337,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTrustRequestRequestTypeDef
+# CreateTrustRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -430,7 +376,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteConditionalForwarderRequestRequestTypeDef
+# DeleteConditionalForwarderRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -441,7 +387,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDirectoryRequestRequestTypeDef
+# DeleteDirectoryRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -459,14 +405,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteLogSubscriptionRequestRequestTypeDef
+# DeleteLogSubscriptionRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSnapshotRequestRequestTypeDef
+# DeleteSnapshotRequestTypeDef
 
 ### SnapshotId
 - **Type**: <class 'str'>
@@ -484,7 +430,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteTrustRequestRequestTypeDef
+# DeleteTrustRequestTypeDef
 
 ### TrustId
 - **Type**: <class 'str'>
@@ -505,7 +451,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeregisterCertificateRequestRequestTypeDef
+# DeregisterCertificateRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -516,7 +462,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeregisterEventTopicRequestRequestTypeDef
+# DeregisterEventTopicRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -527,7 +473,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeCertificateRequestRequestTypeDef
+# DescribeCertificateRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -549,35 +495,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeClientAuthenticationSettingsRequestDescribeClientAuthenticationSettingsPaginateTypeDef
-
-### DirectoryId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Optional[typing.Literal['SmartCard', 'SmartCardOrPassword']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.PaginatorConfigTypeDef]
-
-
-# DescribeClientAuthenticationSettingsRequestRequestTypeDef
-
-### DirectoryId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Optional[typing.Literal['SmartCard', 'SmartCardOrPassword']]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### Limit
-- **Type**: typing.Optional[int]
-
-
 # DescribeClientAuthenticationSettingsResultTypeDef
 
 ### ClientAuthenticationSettingsInfo
@@ -592,7 +509,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeConditionalForwardersRequestRequestTypeDef
+# DescribeConditionalForwardersRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -613,7 +530,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDirectoriesRequestDescribeDirectoriesPaginateTypeDef
+# DescribeDirectoriesRequestPaginateTypeDef
 
 ### DirectoryIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -622,7 +539,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDirectoriesRequestRequestTypeDef
+# DescribeDirectoriesRequestTypeDef
 
 ### DirectoryIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -648,7 +565,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDomainControllersRequestDescribeDomainControllersPaginateTypeDef
+# DescribeDirectoryDataAccessRequestTypeDef
+
+### DirectoryId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeDirectoryDataAccessResultTypeDef
+
+### DataAccessStatus
+- **Type**: typing.Literal['Disabled', 'Disabling', 'Enabled', 'Enabling', 'Failed']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DescribeDomainControllersRequestPaginateTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -661,7 +596,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDomainControllersRequestRequestTypeDef
+# DescribeDomainControllersRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -691,7 +626,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeEventTopicsRequestRequestTypeDef
+# DescribeEventTopicsRequestTypeDef
 
 ### DirectoryId
 - **Type**: typing.Optional[str]
@@ -711,35 +646,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeLDAPSSettingsRequestDescribeLDAPSSettingsPaginateTypeDef
-
-### DirectoryId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Optional[typing.Literal['Client']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.PaginatorConfigTypeDef]
-
-
-# DescribeLDAPSSettingsRequestRequestTypeDef
-
-### DirectoryId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Optional[typing.Literal['Client']]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### Limit
-- **Type**: typing.Optional[int]
-
-
 # DescribeLDAPSSettingsResultTypeDef
 
 ### LDAPSSettingsInfo
@@ -749,32 +655,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# DescribeRegionsRequestDescribeRegionsPaginateTypeDef
-
-### DirectoryId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### RegionName
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.PaginatorConfigTypeDef]
-
-
-# DescribeRegionsRequestRequestTypeDef
-
-### DirectoryId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### RegionName
-- **Type**: typing.Optional[str]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -794,7 +674,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeSettingsRequestRequestTypeDef
+# DescribeSettingsRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -825,7 +705,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeSharedDirectoriesRequestDescribeSharedDirectoriesPaginateTypeDef
+# DescribeSharedDirectoriesRequestPaginateTypeDef
 
 ### OwnerDirectoryId
 - **Type**: <class 'str'>
@@ -838,7 +718,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeSharedDirectoriesRequestRequestTypeDef
+# DescribeSharedDirectoriesRequestTypeDef
 
 ### OwnerDirectoryId
 - **Type**: <class 'str'>
@@ -868,7 +748,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeSnapshotsRequestDescribeSnapshotsPaginateTypeDef
+# DescribeSnapshotsRequestPaginateTypeDef
 
 ### DirectoryId
 - **Type**: typing.Optional[str]
@@ -880,7 +760,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeSnapshotsRequestRequestTypeDef
+# DescribeSnapshotsRequestTypeDef
 
 ### DirectoryId
 - **Type**: typing.Optional[str]
@@ -909,7 +789,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeTrustsRequestDescribeTrustsPaginateTypeDef
+# DescribeTrustsRequestPaginateTypeDef
 
 ### DirectoryId
 - **Type**: typing.Optional[str]
@@ -921,7 +801,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.PaginatorConfigTypeDef]
 
 
-# DescribeTrustsRequestRequestTypeDef
+# DescribeTrustsRequestTypeDef
 
 ### DirectoryId
 - **Type**: typing.Optional[str]
@@ -945,40 +825,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# DescribeUpdateDirectoryRequestDescribeUpdateDirectoryPaginateTypeDef
-
-### DirectoryId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### UpdateType
-- **Type**: typing.Literal['OS']
-- **Required**: Yes
-
-### RegionName
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.PaginatorConfigTypeDef]
-
-
-# DescribeUpdateDirectoryRequestRequestTypeDef
-
-### DirectoryId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### UpdateType
-- **Type**: typing.Literal['OS']
-- **Required**: Yes
-
-### RegionName
-- **Type**: typing.Optional[str]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1040,84 +886,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DirectoryDescriptionTypeDef
 
-### DirectoryId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Name
-- **Type**: typing.Optional[str]
-
-### ShortName
-- **Type**: typing.Optional[str]
-
-### Size
-- **Type**: typing.Optional[typing.Literal['Large', 'Small']]
-
-### Edition
-- **Type**: typing.Optional[typing.Literal['Enterprise', 'Standard']]
-
-### Alias
-- **Type**: typing.Optional[str]
-
-### AccessUrl
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### DnsIpAddrs
-- **Type**: typing.Optional[typing.List[str]]
-
-### Stage
-- **Type**: typing.Optional[typing.Literal['Active', 'Created', 'Creating', 'Deleted', 'Deleting', 'Failed', 'Impaired', 'Inoperable', 'Requested', 'RestoreFailed', 'Restoring']]
-
-### ShareStatus
-- **Type**: typing.Optional[typing.Literal['Deleted', 'Deleting', 'PendingAcceptance', 'RejectFailed', 'Rejected', 'Rejecting', 'ShareFailed', 'Shared', 'Sharing']]
-
-### ShareMethod
-- **Type**: typing.Optional[typing.Literal['HANDSHAKE', 'ORGANIZATIONS']]
-
-### ShareNotes
-- **Type**: typing.Optional[str]
-
-### LaunchTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### StageLastUpdatedDateTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['ADConnector', 'MicrosoftAD', 'SharedMicrosoftAD', 'SimpleAD']]
-
-### VpcSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.DirectoryVpcSettingsDescriptionTypeDef]
-
-### ConnectSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.DirectoryConnectSettingsDescriptionTypeDef]
-
-### RadiusSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.RadiusSettingsOutputTypeDef]
-
-### RadiusStatus
-- **Type**: typing.Optional[typing.Literal['Completed', 'Creating', 'Failed']]
-
-### StageReason
-- **Type**: typing.Optional[str]
-
-### SsoEnabled
-- **Type**: typing.Optional[bool]
-
-### DesiredNumberOfDomainControllers
-- **Type**: typing.Optional[int]
-
-### OwnerDirectoryDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.OwnerDirectoryDescriptionTypeDef]
-
-### RegionsInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.RegionsInfoTypeDef]
-
-### OsVersion
-- **Type**: typing.Optional[typing.Literal['SERVER_2012', 'SERVER_2019']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DirectoryLimitsTypeDef
 
@@ -1164,17 +935,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# DirectoryVpcSettingsExtraOutputTypeDef
-
-### VpcId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SubnetIds
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-
 # DirectoryVpcSettingsOutputTypeDef
 
 ### VpcId
@@ -1197,36 +957,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisableClientAuthenticationRequestRequestTypeDef
+# DirectoryVpcSettingsUnionTypeDef
 
-### DirectoryId
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Literal['SmartCard', 'SmartCardOrPassword']
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-
-# DisableLDAPSRequestRequestTypeDef
-
-### DirectoryId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['Client']
-- **Required**: Yes
-
-
-# DisableRadiusRequestRequestTypeDef
+# DisableDirectoryDataAccessRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisableSsoRequestRequestTypeDef
+# DisableRadiusRequestTypeDef
+
+### DirectoryId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DisableSsoRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -1260,7 +1011,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Status
-- **Type**: typing.Optional[typing.Literal['Active', 'Creating', 'Deleted', 'Deleting', 'Failed', 'Impaired', 'Restoring']]
+- **Type**: typing.Optional[typing.Literal['Active', 'Creating', 'Deleted', 'Deleting', 'Failed', 'Impaired', 'Restoring', 'Updating']]
 
 ### StatusReason
 - **Type**: typing.Optional[str]
@@ -1272,40 +1023,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# EnableClientAuthenticationRequestRequestTypeDef
+# EnableDirectoryDataAccessRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### Type
-- **Type**: typing.Literal['SmartCard', 'SmartCardOrPassword']
-- **Required**: Yes
 
-
-# EnableLDAPSRequestRequestTypeDef
-
-### DirectoryId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['Client']
-- **Required**: Yes
-
-
-# EnableRadiusRequestRequestTypeDef
+# EnableRadiusRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### RadiusSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.RadiusSettingsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.RadiusSettingsUnionTypeDef'>
 - **Required**: Yes
 
 
-# EnableSsoRequestRequestTypeDef
+# EnableSsoRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -1347,7 +1083,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSnapshotLimitsRequestRequestTypeDef
+# GetSnapshotLimitsRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -1407,7 +1143,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ListCertificatesRequestListCertificatesPaginateTypeDef
+# ListCertificatesRequestPaginateTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -1417,7 +1153,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.PaginatorConfigTypeDef]
 
 
-# ListCertificatesRequestRequestTypeDef
+# ListCertificatesRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -1444,7 +1180,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListIpRoutesRequestListIpRoutesPaginateTypeDef
+# ListIpRoutesRequestPaginateTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -1454,7 +1190,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.PaginatorConfigTypeDef]
 
 
-# ListIpRoutesRequestRequestTypeDef
+# ListIpRoutesRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -1481,7 +1217,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListLogSubscriptionsRequestListLogSubscriptionsPaginateTypeDef
+# ListLogSubscriptionsRequestPaginateTypeDef
 
 ### DirectoryId
 - **Type**: typing.Optional[str]
@@ -1490,7 +1226,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.PaginatorConfigTypeDef]
 
 
-# ListLogSubscriptionsRequestRequestTypeDef
+# ListLogSubscriptionsRequestTypeDef
 
 ### DirectoryId
 - **Type**: typing.Optional[str]
@@ -1516,7 +1252,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSchemaExtensionsRequestListSchemaExtensionsPaginateTypeDef
+# ListSchemaExtensionsRequestPaginateTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -1526,7 +1262,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.PaginatorConfigTypeDef]
 
 
-# ListSchemaExtensionsRequestRequestTypeDef
+# ListSchemaExtensionsRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -1553,7 +1289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestListTagsForResourcePaginateTypeDef
+# ListTagsForResourceRequestPaginateTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -1563,7 +1299,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.PaginatorConfigTypeDef]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -1641,33 +1377,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RadiusSettingsExtraOutputTypeDef
-
-### RadiusServers
-- **Type**: typing.Optional[typing.List[str]]
-
-### RadiusPort
-- **Type**: typing.Optional[int]
-
-### RadiusTimeout
-- **Type**: typing.Optional[int]
-
-### RadiusRetries
-- **Type**: typing.Optional[int]
-
-### SharedSecret
-- **Type**: typing.Optional[str]
-
-### AuthenticationProtocol
-- **Type**: typing.Optional[typing.Literal['CHAP', 'MS-CHAPv1', 'MS-CHAPv2', 'PAP']]
-
-### DisplayLabel
-- **Type**: typing.Optional[str]
-
-### UseSameUsername
-- **Type**: typing.Optional[bool]
-
-
 # RadiusSettingsOutputTypeDef
 
 ### RadiusServers
@@ -1722,35 +1431,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
+# RadiusSettingsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # RegionDescriptionTypeDef
 
-### DirectoryId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### RegionName
-- **Type**: typing.Optional[str]
-
-### RegionType
-- **Type**: typing.Optional[typing.Literal['Additional', 'Primary']]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['Active', 'Created', 'Creating', 'Deleted', 'Deleting', 'Failed', 'Impaired', 'Inoperable', 'Requested', 'RestoreFailed', 'Restoring']]
-
-### VpcSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.DirectoryVpcSettingsOutputTypeDef]
-
-### DesiredNumberOfDomainControllers
-- **Type**: typing.Optional[int]
-
-### LaunchTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### StatusLastUpdatedDateTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### LastUpdatedDateTime
-- **Type**: typing.Optional[datetime.datetime]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RegionsInfoTypeDef
 
@@ -1759,23 +1450,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### AdditionalRegions
 - **Type**: typing.Optional[typing.List[str]]
-
-
-# RegisterCertificateRequestRequestTypeDef
-
-### DirectoryId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CertificateData
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Optional[typing.Literal['ClientCertAuth', 'ClientLDAPS']]
-
-### ClientCertAuthSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.ClientCertAuthSettingsTypeDef]
 
 
 # RegisterCertificateResultTypeDef
@@ -1789,7 +1463,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RegisterEventTopicRequestRequestTypeDef
+# RegisterEventTopicRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -1800,7 +1474,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RejectSharedDirectoryRequestRequestTypeDef
+# RejectSharedDirectoryRequestTypeDef
 
 ### SharedDirectoryId
 - **Type**: <class 'str'>
@@ -1818,7 +1492,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveIpRoutesRequestRequestTypeDef
+# RemoveIpRoutesRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -1829,14 +1503,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveRegionRequestRequestTypeDef
+# RemoveRegionRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# RemoveTagsFromResourceRequestRequestTypeDef
+# RemoveTagsFromResourceRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -1847,7 +1521,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResetUserPasswordRequestRequestTypeDef
+# ResetUserPasswordRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -1884,7 +1558,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RestoreFromSnapshotRequestRequestTypeDef
+# RestoreFromSnapshotRequestTypeDef
 
 ### SnapshotId
 - **Type**: <class 'str'>
@@ -1917,39 +1591,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SettingEntryTypeDef
 
-### Type
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Name
-- **Type**: typing.Optional[str]
-
-### AllowedValues
-- **Type**: typing.Optional[str]
-
-### AppliedValue
-- **Type**: typing.Optional[str]
-
-### RequestedValue
-- **Type**: typing.Optional[str]
-
-### RequestStatus
-- **Type**: typing.Optional[typing.Literal['Default', 'Failed', 'Requested', 'Updated', 'Updating']]
-
-### RequestDetailedStatus
-- **Type**: typing.Optional[typing.Dict[str, typing.Literal['Default', 'Failed', 'Requested', 'Updated', 'Updating']]]
-
-### RequestStatusMessage
-- **Type**: typing.Optional[str]
-
-### LastUpdatedDateTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### LastRequestedDateTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### DataType
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SettingTypeDef
 
@@ -1962,7 +1606,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ShareDirectoryRequestRequestTypeDef
+# ShareDirectoryRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -1993,14 +1637,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ShareTargetTypeDef
 
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Literal['ACCOUNT']
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SharedDirectoryTypeDef
 
@@ -2046,26 +1685,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SnapshotTypeDef
 
-### DirectoryId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### SnapshotId
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Type
-- **Type**: typing.Optional[typing.Literal['Auto', 'Manual']]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['Completed', 'Creating', 'Failed']]
-
-### StartTime
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# StartSchemaExtensionRequestRequestTypeDef
+# StartSchemaExtensionRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -2142,7 +1766,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
 
 
-# UnshareDirectoryRequestRequestTypeDef
+# UnshareDirectoryRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -2166,16 +1790,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # UnshareTargetTypeDef
 
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Literal['ACCOUNT']
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-
-# UpdateConditionalForwarderRequestRequestTypeDef
+# UpdateConditionalForwarderRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -2190,7 +1809,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDirectorySetupRequestRequestTypeDef
+# UpdateDirectorySetupRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -2234,7 +1853,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# UpdateNumberOfDomainControllersRequestRequestTypeDef
+# UpdateNumberOfDomainControllersRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -2245,18 +1864,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRadiusRequestRequestTypeDef
+# UpdateRadiusRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### RadiusSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.RadiusSettingsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.RadiusSettingsUnionTypeDef'>
 - **Required**: Yes
 
 
-# UpdateSettingsRequestRequestTypeDef
+# UpdateSettingsRequestTypeDef
 
 ### DirectoryId
 - **Type**: <class 'str'>
@@ -2278,7 +1897,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateTrustRequestRequestTypeDef
+# UpdateTrustRequestTypeDef
 
 ### TrustId
 - **Type**: <class 'str'>
@@ -2309,7 +1928,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.OSUpdateSettingsTypeDef]
 
 
-# VerifyTrustRequestRequestTypeDef
+# VerifyTrustRequestTypeDef
 
 ### TrustId
 - **Type**: <class 'str'>

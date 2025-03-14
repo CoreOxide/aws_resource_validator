@@ -29,12 +29,38 @@
 ### BasicAuthSecretId
 - **Type**: typing.Optional[str]
 
+### PreserveContentType
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
 
 # BaseValidatorModel
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ConnectorFileTransferResultTypeDef
+
+### FilePath
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### StatusCode
+- **Type**: typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS', 'QUEUED']
+- **Required**: Yes
+
+### FailureCode
+- **Type**: typing.Optional[str]
+
+### FailureMessage
+- **Type**: typing.Optional[str]
+
 
 # CopyStepDetailsTypeDef
 
@@ -51,7 +77,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateAccessRequestRequestTypeDef
+# CreateAccessRequestTypeDef
 
 ### Role
 - **Type**: <class 'str'>
@@ -78,7 +104,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PosixProfile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.PosixProfileTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.PosixProfileUnionTypeDef]
 
 
 # CreateAccessResponseTypeDef
@@ -96,7 +122,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAgreementRequestRequestTypeDef
+# CreateAgreementRequestTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
@@ -110,10 +136,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### BaseDirectory
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### AccessRole
 - **Type**: <class 'str'>
 - **Required**: Yes
@@ -121,11 +143,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Description
 - **Type**: typing.Optional[str]
 
+### BaseDirectory
+- **Type**: typing.Optional[str]
+
 ### Status
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.transfer_classes.TagTypeDef]]
+
+### PreserveFilename
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### EnforceMessageSigning
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### CustomDirectories
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.CustomDirectoriesTypeTypeDef]
 
 
 # CreateAgreementResponseTypeDef
@@ -139,7 +173,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateConnectorRequestRequestTypeDef
+# CreateConnectorRequestTypeDef
 
 ### Url
 - **Type**: <class 'str'>
@@ -159,7 +193,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.transfer_classes.TagTypeDef]]
 
 ### SftpConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.SftpConnectorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.SftpConnectorConfigUnionTypeDef]
 
 ### SecurityPolicyName
 - **Type**: typing.Optional[str]
@@ -176,7 +210,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateProfileRequestRequestTypeDef
+# CreateProfileRequestTypeDef
 
 ### As2Id
 - **Type**: <class 'str'>
@@ -204,7 +238,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateServerRequestRequestTypeDef
+# CreateServerRequestTypeDef
 
 ### Certificate
 - **Type**: typing.Optional[str]
@@ -213,7 +247,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EFS', 'S3']]
 
 ### EndpointDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.EndpointDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.EndpointDetailsUnionTypeDef]
 
 ### EndpointType
 - **Type**: typing.Optional[typing.Literal['PUBLIC', 'VPC', 'VPC_ENDPOINT']]
@@ -240,7 +274,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['AS2', 'FTP', 'FTPS', 'SFTP']]]
 
 ### ProtocolDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.ProtocolDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.ProtocolDetailsUnionTypeDef]
 
 ### SecurityPolicyName
 - **Type**: typing.Optional[str]
@@ -249,7 +283,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.transfer_classes.TagTypeDef]]
 
 ### WorkflowDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.WorkflowDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.WorkflowDetailsUnionTypeDef]
 
 ### StructuredLogDestinations
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -269,7 +303,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateUserRequestRequestTypeDef
+# CreateUserRequestTypeDef
 
 ### Role
 - **Type**: <class 'str'>
@@ -296,7 +330,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PosixProfile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.PosixProfileTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.PosixProfileUnionTypeDef]
 
 ### SshPublicKeyBody
 - **Type**: typing.Optional[str]
@@ -320,17 +354,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateWorkflowRequestRequestTypeDef
+# CreateWebAppRequestTypeDef
+
+### IdentityProviderDetails
+- **Type**: <class 'aws_resource_validator.pydantic_models.transfer_classes.WebAppIdentityProviderDetailsTypeDef'>
+- **Required**: Yes
+
+### AccessEndpoint
+- **Type**: typing.Optional[str]
+
+### WebAppUnits
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.WebAppUnitsTypeDef]
+
+### Tags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.transfer_classes.TagTypeDef]]
+
+
+# CreateWebAppResponseTypeDef
+
+### WebAppId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.transfer_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateWorkflowRequestTypeDef
 
 ### Steps
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.transfer_classes.WorkflowStepTypeDef, aws_resource_validator.pydantic_models.transfer_classes.WorkflowStepOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.transfer_classes.WorkflowStepUnionTypeDef]
 - **Required**: Yes
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### OnExceptionSteps
-- **Type**: typing.Optional[typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.transfer_classes.WorkflowStepTypeDef, aws_resource_validator.pydantic_models.transfer_classes.WorkflowStepOutputTypeDef]]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.transfer_classes.WorkflowStepUnionTypeDef]]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.transfer_classes.TagTypeDef]]
@@ -344,6 +405,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.transfer_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CustomDirectoriesTypeTypeDef
+
+### FailedFilesDirectory
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### MdnFilesDirectory
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PayloadFilesDirectory
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### StatusFilesDirectory
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TemporaryFilesDirectory
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 
@@ -362,27 +446,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DecryptStepDetailsTypeDef
-
-### Type
-- **Type**: typing.Literal['PGP']
-- **Required**: Yes
-
-### DestinationFileLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.transfer_classes.InputFileLocationTypeDef'>
-- **Required**: Yes
-
-### Name
-- **Type**: typing.Optional[str]
-
-### SourceFileLocation
-- **Type**: typing.Optional[str]
-
-### OverwriteExisting
-- **Type**: typing.Optional[typing.Literal['FALSE', 'TRUE']]
-
-
-# DeleteAccessRequestRequestTypeDef
+# DeleteAccessRequestTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
@@ -393,7 +457,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAgreementRequestRequestTypeDef
+# DeleteAgreementRequestTypeDef
 
 ### AgreementId
 - **Type**: <class 'str'>
@@ -404,21 +468,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteCertificateRequestRequestTypeDef
+# DeleteCertificateRequestTypeDef
 
 ### CertificateId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteConnectorRequestRequestTypeDef
+# DeleteConnectorRequestTypeDef
 
 ### ConnectorId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteHostKeyRequestRequestTypeDef
+# DeleteHostKeyRequestTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
@@ -429,21 +493,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteProfileRequestRequestTypeDef
+# DeleteProfileRequestTypeDef
 
 ### ProfileId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteServerRequestRequestTypeDef
+# DeleteServerRequestTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSshPublicKeyRequestRequestTypeDef
+# DeleteSshPublicKeyRequestTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
@@ -467,7 +531,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteUserRequestRequestTypeDef
+# DeleteUserRequestTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
@@ -478,14 +542,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteWorkflowRequestRequestTypeDef
+# DeleteWebAppCustomizationRequestTypeDef
+
+### WebAppId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteWebAppRequestTypeDef
+
+### WebAppId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteWorkflowRequestTypeDef
 
 ### WorkflowId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeAccessRequestRequestTypeDef
+# DescribeAccessRequestTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
@@ -511,7 +589,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAgreementRequestRequestTypeDef
+# DescribeAgreementRequestTypeDef
 
 ### AgreementId
 - **Type**: <class 'str'>
@@ -533,7 +611,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeCertificateRequestRequestTypeDef
+# DescribeCertificateRequestTypeDef
 
 ### CertificateId
 - **Type**: <class 'str'>
@@ -551,7 +629,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeConnectorRequestRequestTypeDef
+# DescribeConnectorRequestTypeDef
 
 ### ConnectorId
 - **Type**: <class 'str'>
@@ -569,7 +647,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeExecutionRequestRequestTypeDef
+# DescribeExecutionRequestTypeDef
 
 ### ExecutionId
 - **Type**: <class 'str'>
@@ -595,7 +673,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeHostKeyRequestRequestTypeDef
+# DescribeHostKeyRequestTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
@@ -617,7 +695,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeProfileRequestRequestTypeDef
+# DescribeProfileRequestTypeDef
 
 ### ProfileId
 - **Type**: <class 'str'>
@@ -635,7 +713,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeSecurityPolicyRequestRequestTypeDef
+# DescribeSecurityPolicyRequestTypeDef
 
 ### SecurityPolicyName
 - **Type**: <class 'str'>
@@ -653,14 +731,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeServerRequestRequestTypeDef
+# DescribeServerRequestTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeServerRequestServerOfflineWaitTypeDef
+# DescribeServerRequestWaitExtraTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
@@ -670,7 +748,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.WaiterConfigTypeDef]
 
 
-# DescribeServerRequestServerOnlineWaitTypeDef
+# DescribeServerRequestWaitTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
@@ -691,7 +769,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeUserRequestRequestTypeDef
+# DescribeUserRequestTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
@@ -717,7 +795,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeWorkflowRequestRequestTypeDef
+# DescribeWebAppCustomizationRequestTypeDef
+
+### WebAppId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeWebAppCustomizationResponseTypeDef
+
+### WebAppCustomization
+- **Type**: <class 'aws_resource_validator.pydantic_models.transfer_classes.DescribedWebAppCustomizationTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.transfer_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DescribeWebAppRequestTypeDef
+
+### WebAppId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeWebAppResponseTypeDef
+
+### WebApp
+- **Type**: <class 'aws_resource_validator.pydantic_models.transfer_classes.DescribedWebAppTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.transfer_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DescribeWorkflowRequestTypeDef
 
 ### WorkflowId
 - **Type**: <class 'str'>
@@ -792,52 +906,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Tags
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transfer_classes.TagTypeDef]]
 
+### PreserveFilename
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### EnforceMessageSigning
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### CustomDirectories
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.CustomDirectoriesTypeTypeDef]
+
 
 # DescribedCertificateTypeDef
 
-### Arn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### CertificateId
-- **Type**: typing.Optional[str]
-
-### Usage
-- **Type**: typing.Optional[typing.Literal['ENCRYPTION', 'SIGNING', 'TLS']]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE', 'PENDING_ROTATION']]
-
-### Certificate
-- **Type**: typing.Optional[str]
-
-### CertificateChain
-- **Type**: typing.Optional[str]
-
-### ActiveDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### InactiveDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### Serial
-- **Type**: typing.Optional[str]
-
-### NotBeforeDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### NotAfterDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['CERTIFICATE', 'CERTIFICATE_WITH_PRIVATE_KEY']]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transfer_classes.TagTypeDef]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DescribedConnectorTypeDef
 
@@ -902,27 +985,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DescribedHostKeyTypeDef
 
-### Arn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### HostKeyId
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DescribedIdentityCenterConfigTypeDef
+
+### ApplicationArn
 - **Type**: typing.Optional[str]
 
-### HostKeyFingerprint
+### InstanceArn
 - **Type**: typing.Optional[str]
 
-### Description
+### Role
 - **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[str]
-
-### DateImported
-- **Type**: typing.Optional[datetime.datetime]
-
-### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transfer_classes.TagTypeDef]]
 
 
 # DescribedProfileTypeDef
@@ -949,34 +1025,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DescribedSecurityPolicyTypeDef
 
-### SecurityPolicyName
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Fips
-- **Type**: typing.Optional[bool]
-
-### SshCiphers
-- **Type**: typing.Optional[typing.List[str]]
-
-### SshKexs
-- **Type**: typing.Optional[typing.List[str]]
-
-### SshMacs
-- **Type**: typing.Optional[typing.List[str]]
-
-### TlsCiphers
-- **Type**: typing.Optional[typing.List[str]]
-
-### SshHostKeyAlgorithms
-- **Type**: typing.Optional[typing.List[str]]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['CONNECTOR', 'SERVER']]
-
-### Protocols
-- **Type**: typing.Optional[typing.List[typing.Literal['FTPS', 'SFTP']]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DescribedServerTypeDef
 
@@ -1082,6 +1133,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# DescribedWebAppCustomizationTypeDef
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### WebAppId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Title
+- **Type**: typing.Optional[str]
+
+### LogoFile
+- **Type**: typing.Optional[bytes]
+
+### FaviconFile
+- **Type**: typing.Optional[bytes]
+
+
+# DescribedWebAppIdentityProviderDetailsTypeDef
+
+### IdentityCenterConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.DescribedIdentityCenterConfigTypeDef]
+
+
+# DescribedWebAppTypeDef
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### WebAppId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DescribedIdentityProviderDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.DescribedWebAppIdentityProviderDetailsTypeDef]
+
+### AccessEndpoint
+- **Type**: typing.Optional[str]
+
+### WebAppEndpoint
+- **Type**: typing.Optional[str]
+
+### WebAppUnits
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.WebAppUnitsTypeDef]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transfer_classes.TagTypeDef]]
+
+
 # DescribedWorkflowTypeDef
 
 ### Arn
@@ -1156,16 +1259,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
+# EndpointDetailsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ExecutionErrorTypeDef
 
-### Type
-- **Type**: typing.Literal['ALREADY_EXISTS', 'BAD_REQUEST', 'CUSTOM_STEP_FAILED', 'INTERNAL_SERVER_ERROR', 'NOT_FOUND', 'PERMISSION_DENIED', 'THROTTLED', 'TIMEOUT']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Message
-- **Type**: <class 'str'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ExecutionResultsTypeDef
 
@@ -1199,16 +1303,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # HomeDirectoryMapEntryTypeDef
 
-### Entry
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Target
-- **Type**: <class 'str'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Type
-- **Type**: typing.Optional[typing.Literal['DIRECTORY', 'FILE']]
+# IdentityCenterConfigTypeDef
+
+### InstanceArn
+- **Type**: typing.Optional[str]
+
+### Role
+- **Type**: typing.Optional[str]
 
 
 # IdentityProviderDetailsTypeDef
@@ -1229,7 +1334,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['PASSWORD', 'PUBLIC_KEY', 'PUBLIC_KEY_AND_PASSWORD', 'PUBLIC_KEY_OR_PASSWORD']]
 
 
-# ImportCertificateRequestRequestTypeDef
+# ImportCertificateRequestTypeDef
 
 ### Usage
 - **Type**: typing.Literal['ENCRYPTION', 'SIGNING', 'TLS']
@@ -1246,10 +1351,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ActiveDate
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.TimestampTypeDef]
 
 ### InactiveDate
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.TimestampTypeDef]
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -1269,7 +1374,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ImportHostKeyRequestRequestTypeDef
+# ImportHostKeyRequestTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
@@ -1301,7 +1406,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ImportSshPublicKeyRequestRequestTypeDef
+# ImportSshPublicKeyRequestTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
@@ -1344,7 +1449,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.EfsFileLocationTypeDef]
 
 
-# ListAccessesRequestListAccessesPaginateTypeDef
+# ListAccessesRequestPaginateTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
@@ -1354,7 +1459,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.PaginatorConfigTypeDef]
 
 
-# ListAccessesRequestRequestTypeDef
+# ListAccessesRequestTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
@@ -1385,7 +1490,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAgreementsRequestListAgreementsPaginateTypeDef
+# ListAgreementsRequestPaginateTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
@@ -1395,7 +1500,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.PaginatorConfigTypeDef]
 
 
-# ListAgreementsRequestRequestTypeDef
+# ListAgreementsRequestTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
@@ -1422,13 +1527,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCertificatesRequestListCertificatesPaginateTypeDef
+# ListCertificatesRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.PaginatorConfigTypeDef]
 
 
-# ListCertificatesRequestRequestTypeDef
+# ListCertificatesRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1451,13 +1556,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListConnectorsRequestListConnectorsPaginateTypeDef
+# ListConnectorsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.PaginatorConfigTypeDef]
 
 
-# ListConnectorsRequestRequestTypeDef
+# ListConnectorsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1480,7 +1585,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListExecutionsRequestListExecutionsPaginateTypeDef
+# ListExecutionsRequestPaginateTypeDef
 
 ### WorkflowId
 - **Type**: <class 'str'>
@@ -1490,7 +1595,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.PaginatorConfigTypeDef]
 
 
-# ListExecutionsRequestRequestTypeDef
+# ListExecutionsRequestTypeDef
 
 ### WorkflowId
 - **Type**: <class 'str'>
@@ -1521,7 +1626,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListHostKeysRequestRequestTypeDef
+# ListFileTransferResultsRequestPaginateTypeDef
+
+### ConnectorId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TransferId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.PaginatorConfigTypeDef]
+
+
+# ListFileTransferResultsRequestTypeDef
+
+### ConnectorId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TransferId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+
+# ListFileTransferResultsResponseTypeDef
+
+### FileTransferResults
+- **Type**: typing.List[aws_resource_validator.pydantic_models.transfer_classes.ConnectorFileTransferResultTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.transfer_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListHostKeysRequestTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
@@ -1552,7 +1702,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListProfilesRequestListProfilesPaginateTypeDef
+# ListProfilesRequestPaginateTypeDef
 
 ### ProfileType
 - **Type**: typing.Optional[typing.Literal['LOCAL', 'PARTNER']]
@@ -1561,7 +1711,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.PaginatorConfigTypeDef]
 
 
-# ListProfilesRequestRequestTypeDef
+# ListProfilesRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1587,13 +1737,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSecurityPoliciesRequestListSecurityPoliciesPaginateTypeDef
+# ListSecurityPoliciesRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.PaginatorConfigTypeDef]
 
 
-# ListSecurityPoliciesRequestRequestTypeDef
+# ListSecurityPoliciesRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1616,13 +1766,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListServersRequestListServersPaginateTypeDef
+# ListServersRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.PaginatorConfigTypeDef]
 
 
-# ListServersRequestRequestTypeDef
+# ListServersRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1645,7 +1795,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestListTagsForResourcePaginateTypeDef
+# ListTagsForResourceRequestPaginateTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1655,7 +1805,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.PaginatorConfigTypeDef]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1686,7 +1836,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListUsersRequestListUsersPaginateTypeDef
+# ListUsersRequestPaginateTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
@@ -1696,7 +1846,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.PaginatorConfigTypeDef]
 
 
-# ListUsersRequestRequestTypeDef
+# ListUsersRequestTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
@@ -1727,13 +1877,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListWorkflowsRequestListWorkflowsPaginateTypeDef
+# ListWebAppsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.PaginatorConfigTypeDef]
 
 
-# ListWorkflowsRequestRequestTypeDef
+# ListWebAppsRequestTypeDef
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListWebAppsResponseTypeDef
+
+### WebApps
+- **Type**: typing.List[aws_resource_validator.pydantic_models.transfer_classes.ListedWebAppTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.transfer_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListWorkflowsRequestPaginateTypeDef
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.PaginatorConfigTypeDef]
+
+
+# ListWorkflowsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1797,30 +1976,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListedCertificateTypeDef
 
-### Arn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### CertificateId
-- **Type**: typing.Optional[str]
-
-### Usage
-- **Type**: typing.Optional[typing.Literal['ENCRYPTION', 'SIGNING', 'TLS']]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE', 'PENDING_ROTATION']]
-
-### ActiveDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### InactiveDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['CERTIFICATE', 'CERTIFICATE_WITH_PRIVATE_KEY']]
-
-### Description
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ListedConnectorTypeDef
 
@@ -1851,25 +2009,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListedHostKeyTypeDef
 
-### Arn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### HostKeyId
-- **Type**: typing.Optional[str]
-
-### Fingerprint
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[str]
-
-### DateImported
-- **Type**: typing.Optional[datetime.datetime]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ListedProfileTypeDef
 
@@ -1936,6 +2078,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# ListedWebAppTypeDef
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### WebAppId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AccessEndpoint
+- **Type**: typing.Optional[str]
+
+### WebAppEndpoint
+- **Type**: typing.Optional[str]
+
+
 # ListedWorkflowTypeDef
 
 ### WorkflowId
@@ -1997,6 +2156,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[int]]
 
 
+# PosixProfileUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ProtocolDetailsOutputTypeDef
 
 ### PassiveIp
@@ -2026,6 +2191,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### As2Transports
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['HTTP']]]
 
+
+# ProtocolDetailsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResponseMetadataTypeDef
 
@@ -2090,7 +2261,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SendWorkflowStepStateRequestRequestTypeDef
+# SendWorkflowStepStateRequestTypeDef
 
 ### WorkflowId
 - **Type**: <class 'str'>
@@ -2134,6 +2305,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
+# SftpConnectorConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # SshPublicKeyTypeDef
 
 ### DateImported
@@ -2149,7 +2326,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartDirectoryListingRequestRequestTypeDef
+# StartDirectoryListingRequestTypeDef
 
 ### ConnectorId
 - **Type**: <class 'str'>
@@ -2182,7 +2359,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartFileTransferRequestRequestTypeDef
+# StartFileTransferRequestTypeDef
 
 ### ConnectorId
 - **Type**: <class 'str'>
@@ -2212,21 +2389,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartServerRequestRequestTypeDef
+# StartServerRequestTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopServerRequestRequestTypeDef
+# StopServerRequestTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
@@ -2272,7 +2449,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TestConnectionRequestRequestTypeDef
+# TestConnectionRequestTypeDef
 
 ### ConnectorId
 - **Type**: <class 'str'>
@@ -2298,7 +2475,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TestIdentityProviderRequestRequestTypeDef
+# TestIdentityProviderRequestTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
@@ -2341,7 +2518,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceRequestTypeDef
 
 ### Arn
 - **Type**: <class 'str'>
@@ -2352,7 +2535,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAccessRequestRequestTypeDef
+# UpdateAccessRequestTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
@@ -2375,7 +2558,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PosixProfile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.PosixProfileTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.PosixProfileUnionTypeDef]
 
 ### Role
 - **Type**: typing.Optional[str]
@@ -2396,7 +2579,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAgreementRequestRequestTypeDef
+# UpdateAgreementRequestTypeDef
 
 ### AgreementId
 - **Type**: <class 'str'>
@@ -2424,6 +2607,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### AccessRole
 - **Type**: typing.Optional[str]
 
+### PreserveFilename
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### EnforceMessageSigning
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### CustomDirectories
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.CustomDirectoriesTypeTypeDef]
+
 
 # UpdateAgreementResponseTypeDef
 
@@ -2436,17 +2628,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateCertificateRequestRequestTypeDef
+# UpdateCertificateRequestTypeDef
 
 ### CertificateId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ActiveDate
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.TimestampTypeDef]
 
 ### InactiveDate
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.TimestampTypeDef]
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -2463,7 +2655,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateConnectorRequestRequestTypeDef
+# UpdateConnectorRequestTypeDef
 
 ### ConnectorId
 - **Type**: <class 'str'>
@@ -2482,7 +2674,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SftpConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.SftpConnectorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.SftpConnectorConfigUnionTypeDef]
 
 ### SecurityPolicyName
 - **Type**: typing.Optional[str]
@@ -2499,7 +2691,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateHostKeyRequestRequestTypeDef
+# UpdateHostKeyRequestTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
@@ -2529,7 +2721,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateProfileRequestRequestTypeDef
+# UpdateProfileRequestTypeDef
 
 ### ProfileId
 - **Type**: <class 'str'>
@@ -2550,7 +2742,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateServerRequestRequestTypeDef
+# UpdateServerRequestTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
@@ -2560,10 +2752,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ProtocolDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.ProtocolDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.ProtocolDetailsUnionTypeDef]
 
 ### EndpointDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.EndpointDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.EndpointDetailsUnionTypeDef]
 
 ### EndpointType
 - **Type**: typing.Optional[typing.Literal['PUBLIC', 'VPC', 'VPC_ENDPOINT']]
@@ -2590,7 +2782,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### WorkflowDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.WorkflowDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.WorkflowDetailsUnionTypeDef]
 
 ### StructuredLogDestinations
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -2610,7 +2802,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateUserRequestRequestTypeDef
+# UpdateUserRequestTypeDef
 
 ### ServerId
 - **Type**: <class 'str'>
@@ -2633,7 +2825,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PosixProfile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.PosixProfileTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.PosixProfileUnionTypeDef]
 
 ### Role
 - **Type**: typing.Optional[str]
@@ -2646,6 +2838,72 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UserName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.transfer_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateWebAppCustomizationRequestTypeDef
+
+### WebAppId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Title
+- **Type**: typing.Optional[str]
+
+### LogoFile
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.BlobTypeDef]
+
+### FaviconFile
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.BlobTypeDef]
+
+
+# UpdateWebAppCustomizationResponseTypeDef
+
+### WebAppId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.transfer_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateWebAppIdentityCenterConfigTypeDef
+
+### Role
+- **Type**: typing.Optional[str]
+
+
+# UpdateWebAppIdentityProviderDetailsTypeDef
+
+### IdentityCenterConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.UpdateWebAppIdentityCenterConfigTypeDef]
+
+
+# UpdateWebAppRequestTypeDef
+
+### WebAppId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### IdentityProviderDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.UpdateWebAppIdentityProviderDetailsTypeDef]
+
+### AccessEndpoint
+- **Type**: typing.Optional[str]
+
+### WebAppUnits
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.WebAppUnitsTypeDef]
+
+
+# UpdateWebAppResponseTypeDef
+
+### WebAppId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -2674,6 +2932,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### MaxAttempts
+- **Type**: typing.Optional[int]
+
+
+# WebAppIdentityProviderDetailsTypeDef
+
+### IdentityCenterConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.IdentityCenterConfigTypeDef]
+
+
+# WebAppUnitsTypeDef
+
+### Provisioned
 - **Type**: typing.Optional[int]
 
 
@@ -2706,45 +2976,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.transfer_classes.WorkflowDetailTypeDef]]
 
 
+# WorkflowDetailsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # WorkflowStepOutputTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['COPY', 'CUSTOM', 'DECRYPT', 'DELETE', 'TAG']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### CopyStepDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.CopyStepDetailsTypeDef]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### CustomStepDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.CustomStepDetailsTypeDef]
+# WorkflowStepUnionTypeDef
 
-### DeleteStepDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.DeleteStepDetailsTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### TagStepDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.TagStepDetailsOutputTypeDef]
-
-### DecryptStepDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.DecryptStepDetailsTypeDef]
-
-
-# WorkflowStepTypeDef
-
-### Type
-- **Type**: typing.Optional[typing.Literal['COPY', 'CUSTOM', 'DECRYPT', 'DELETE', 'TAG']]
-
-### CopyStepDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.CopyStepDetailsTypeDef]
-
-### CustomStepDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.CustomStepDetailsTypeDef]
-
-### DeleteStepDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.DeleteStepDetailsTypeDef]
-
-### TagStepDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.TagStepDetailsTypeDef]
-
-### DecryptStepDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transfer_classes.DecryptStepDetailsTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

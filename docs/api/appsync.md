@@ -1,5 +1,11 @@
 # Appsync Service
 
+### ApiName
+- **Type**: string
+- **Pattern**: `[A-Za-z0-9_\-\ ]+`
+- **Min Length**: 1
+- **Max Length**: 50
+
 ### CertificateArn
 - **Type**: string
 - **Pattern**: `^arn:[a-z-]*:(acm|iam):[a-z0-9-]*:\d{12}:(certificate|server-certificate)/[0-9A-Za-z_/-]*$`
@@ -42,9 +48,25 @@
 - **Min Length**: 1
 - **Max Length**: 65536
 
+### Namespace
+- **Type**: string
+- **Pattern**: `([A-Za-z0-9](?:[A-Za-z0-9\-]{0,48}[A-Za-z0-9])?)`
+- **Min Length**: 1
+- **Max Length**: 50
+
+### OutErrors
+- **Type**: string
+- **Pattern**: `^[\s\S]*$`
+
+### OwnerContact
+- **Type**: string
+- **Pattern**: `[A-Za-z0-9_\-\ \.]+`
+- **Min Length**: 0
+- **Max Length**: 250
+
 ### PaginationToken
 - **Type**: string
-- **Pattern**: `[\\S]+`
+- **Pattern**: `[\S]+`
 - **Min Length**: 1
 - **Max Length**: 65536
 
@@ -71,6 +93,10 @@
 - **Pattern**: `[_A-Za-z][_0-9A-Za-z]*`
 - **Min Length**: 1
 - **Max Length**: 65536
+
+### Stash
+- **Type**: string
+- **Pattern**: `^[\s\S]*$`
 
 ### TagKey
 - **Type**: string

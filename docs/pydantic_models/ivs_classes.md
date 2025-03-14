@@ -14,6 +14,9 @@
 ### targetBitrate
 - **Type**: typing.Optional[int]
 
+### track
+- **Type**: typing.Optional[str]
+
 
 # BaseValidatorModel
 
@@ -33,7 +36,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchGetChannelRequestRequestTypeDef
+# BatchGetChannelRequestTypeDef
 
 ### arns
 - **Type**: typing.Sequence[str]
@@ -55,7 +58,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchGetStreamKeyRequestRequestTypeDef
+# BatchGetStreamKeyRequestTypeDef
 
 ### arns
 - **Type**: typing.Sequence[str]
@@ -94,7 +97,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchStartViewerSessionRevocationRequestRequestTypeDef
+# BatchStartViewerSessionRevocationRequestTypeDef
 
 ### viewerSessions
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ivs_classes.BatchStartViewerSessionRevocationViewerSessionTypeDef]
@@ -128,108 +131,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ChannelSummaryTypeDef
 
-### arn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### authorized
-- **Type**: typing.Optional[bool]
-
-### insecureIngest
-- **Type**: typing.Optional[bool]
-
-### latencyMode
-- **Type**: typing.Optional[typing.Literal['LOW', 'NORMAL']]
-
-### name
-- **Type**: typing.Optional[str]
-
-### playbackRestrictionPolicyArn
-- **Type**: typing.Optional[str]
-
-### preset
-- **Type**: typing.Optional[typing.Literal['CONSTRAINED_BANDWIDTH_DELIVERY', 'HIGHER_BANDWIDTH_DELIVERY']]
-
-### recordingConfigurationArn
-- **Type**: typing.Optional[str]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### type
-- **Type**: typing.Optional[typing.Literal['ADVANCED_HD', 'ADVANCED_SD', 'BASIC', 'STANDARD']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ChannelTypeDef
 
-### arn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### authorized
-- **Type**: typing.Optional[bool]
-
-### ingestEndpoint
-- **Type**: typing.Optional[str]
-
-### insecureIngest
-- **Type**: typing.Optional[bool]
-
-### latencyMode
-- **Type**: typing.Optional[typing.Literal['LOW', 'NORMAL']]
-
-### name
-- **Type**: typing.Optional[str]
-
-### playbackRestrictionPolicyArn
-- **Type**: typing.Optional[str]
-
-### playbackUrl
-- **Type**: typing.Optional[str]
-
-### preset
-- **Type**: typing.Optional[typing.Literal['CONSTRAINED_BANDWIDTH_DELIVERY', 'HIGHER_BANDWIDTH_DELIVERY']]
-
-### recordingConfigurationArn
-- **Type**: typing.Optional[str]
-
-### srt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.SrtTypeDef]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### type
-- **Type**: typing.Optional[typing.Literal['ADVANCED_HD', 'ADVANCED_SD', 'BASIC', 'STANDARD']]
-
-
-# CreateChannelRequestRequestTypeDef
-
-### authorized
-- **Type**: typing.Optional[bool]
-
-### insecureIngest
-- **Type**: typing.Optional[bool]
-
-### latencyMode
-- **Type**: typing.Optional[typing.Literal['LOW', 'NORMAL']]
-
-### name
-- **Type**: typing.Optional[str]
-
-### playbackRestrictionPolicyArn
-- **Type**: typing.Optional[str]
-
-### preset
-- **Type**: typing.Optional[typing.Literal['CONSTRAINED_BANDWIDTH_DELIVERY', 'HIGHER_BANDWIDTH_DELIVERY']]
-
-### recordingConfigurationArn
-- **Type**: typing.Optional[str]
-
-### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### type
-- **Type**: typing.Optional[typing.Literal['ADVANCED_HD', 'ADVANCED_SD', 'BASIC', 'STANDARD']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CreateChannelResponseTypeDef
 
@@ -246,7 +156,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePlaybackRestrictionPolicyRequestRequestTypeDef
+# CreatePlaybackRestrictionPolicyRequestTypeDef
 
 ### allowedCountries
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -275,7 +185,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateRecordingConfigurationRequestRequestTypeDef
+# CreateRecordingConfigurationRequestTypeDef
 
 ### destinationConfiguration
 - **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.DestinationConfigurationTypeDef'>
@@ -288,13 +198,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### renditionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.RenditionConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.RenditionConfigurationUnionTypeDef]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### thumbnailConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.ThumbnailConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.ThumbnailConfigurationUnionTypeDef]
 
 
 # CreateRecordingConfigurationResponseTypeDef
@@ -308,7 +218,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateStreamKeyRequestRequestTypeDef
+# CreateStreamKeyRequestTypeDef
 
 ### channelArn
 - **Type**: <class 'str'>
@@ -329,35 +239,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteChannelRequestRequestTypeDef
+# DeleteChannelRequestTypeDef
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePlaybackKeyPairRequestRequestTypeDef
+# DeletePlaybackKeyPairRequestTypeDef
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePlaybackRestrictionPolicyRequestRequestTypeDef
+# DeletePlaybackRestrictionPolicyRequestTypeDef
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteRecordingConfigurationRequestRequestTypeDef
+# DeleteRecordingConfigurationRequestTypeDef
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteStreamKeyRequestRequestTypeDef
+# DeleteStreamKeyRequestTypeDef
 
 ### arn
 - **Type**: <class 'str'>
@@ -377,7 +287,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetChannelRequestRequestTypeDef
+# GetChannelRequestTypeDef
 
 ### arn
 - **Type**: <class 'str'>
@@ -395,7 +305,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPlaybackKeyPairRequestRequestTypeDef
+# GetPlaybackKeyPairRequestTypeDef
 
 ### arn
 - **Type**: <class 'str'>
@@ -413,7 +323,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPlaybackRestrictionPolicyRequestRequestTypeDef
+# GetPlaybackRestrictionPolicyRequestTypeDef
 
 ### arn
 - **Type**: <class 'str'>
@@ -431,7 +341,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRecordingConfigurationRequestRequestTypeDef
+# GetRecordingConfigurationRequestTypeDef
 
 ### arn
 - **Type**: <class 'str'>
@@ -449,7 +359,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetStreamKeyRequestRequestTypeDef
+# GetStreamKeyRequestTypeDef
 
 ### arn
 - **Type**: <class 'str'>
@@ -467,7 +377,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetStreamRequestRequestTypeDef
+# GetStreamRequestTypeDef
 
 ### channelArn
 - **Type**: <class 'str'>
@@ -485,7 +395,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetStreamSessionRequestRequestTypeDef
+# GetStreamSessionRequestTypeDef
 
 ### channelArn
 - **Type**: <class 'str'>
@@ -506,7 +416,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ImportPlaybackKeyPairRequestRequestTypeDef
+# ImportPlaybackKeyPairRequestTypeDef
 
 ### publicKeyMaterial
 - **Type**: <class 'str'>
@@ -539,7 +449,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.VideoConfigurationTypeDef]
 
 
-# ListChannelsRequestListChannelsPaginateTypeDef
+# IngestConfigurationsTypeDef
+
+### audioConfigurations
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_classes.AudioConfigurationTypeDef]
+- **Required**: Yes
+
+### videoConfigurations
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_classes.VideoConfigurationTypeDef]
+- **Required**: Yes
+
+
+# ListChannelsRequestPaginateTypeDef
 
 ### filterByName
 - **Type**: typing.Optional[str]
@@ -554,7 +475,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.PaginatorConfigTypeDef]
 
 
-# ListChannelsRequestRequestTypeDef
+# ListChannelsRequestTypeDef
 
 ### filterByName
 - **Type**: typing.Optional[str]
@@ -578,22 +499,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_classes.ChannelSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListPlaybackKeyPairsRequestListPlaybackKeyPairsPaginateTypeDef
+
+# ListPlaybackKeyPairsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.PaginatorConfigTypeDef]
 
 
-# ListPlaybackKeyPairsRequestRequestTypeDef
+# ListPlaybackKeyPairsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -608,16 +528,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_classes.PlaybackKeyPairSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListPlaybackRestrictionPoliciesRequestRequestTypeDef
+
+# ListPlaybackRestrictionPoliciesRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -628,10 +547,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListPlaybackRestrictionPoliciesResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### playbackRestrictionPolicies
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_classes.PlaybackRestrictionPolicySummaryTypeDef]
 - **Required**: Yes
@@ -640,14 +555,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListRecordingConfigurationsRequestListRecordingConfigurationsPaginateTypeDef
+
+# ListRecordingConfigurationsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.PaginatorConfigTypeDef]
 
 
-# ListRecordingConfigurationsRequestRequestTypeDef
+# ListRecordingConfigurationsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -658,10 +576,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListRecordingConfigurationsResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### recordingConfigurations
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_classes.RecordingConfigurationSummaryTypeDef]
 - **Required**: Yes
@@ -670,8 +584,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListStreamKeysRequestListStreamKeysPaginateTypeDef
+
+# ListStreamKeysRequestPaginateTypeDef
 
 ### channelArn
 - **Type**: <class 'str'>
@@ -681,7 +598,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.PaginatorConfigTypeDef]
 
 
-# ListStreamKeysRequestRequestTypeDef
+# ListStreamKeysRequestTypeDef
 
 ### channelArn
 - **Type**: <class 'str'>
@@ -696,10 +613,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListStreamKeysResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### streamKeys
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_classes.StreamKeySummaryTypeDef]
 - **Required**: Yes
@@ -708,8 +621,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListStreamSessionsRequestRequestTypeDef
+
+# ListStreamSessionsRequestTypeDef
 
 ### channelArn
 - **Type**: <class 'str'>
@@ -724,10 +640,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListStreamSessionsResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### streamSessions
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_classes.StreamSessionSummaryTypeDef]
 - **Required**: Yes
@@ -736,8 +648,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListStreamsRequestListStreamsPaginateTypeDef
+
+# ListStreamsRequestPaginateTypeDef
 
 ### filterBy
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.StreamFiltersTypeDef]
@@ -746,7 +661,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.PaginatorConfigTypeDef]
 
 
-# ListStreamsRequestRequestTypeDef
+# ListStreamsRequestTypeDef
 
 ### filterBy
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.StreamFiltersTypeDef]
@@ -760,10 +675,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListStreamsResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### streams
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_classes.StreamSummaryTypeDef]
 - **Required**: Yes
@@ -772,8 +683,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -789,6 +703,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+
+# MultitrackInputConfigurationTypeDef
+
+### enabled
+- **Type**: typing.Optional[bool]
+
+### maximumResolution
+- **Type**: typing.Optional[typing.Literal['FULL_HD', 'HD', 'SD']]
+
+### policy
+- **Type**: typing.Optional[typing.Literal['ALLOW', 'REQUIRE']]
 
 
 # PaginatorConfigTypeDef
@@ -878,7 +804,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# PutMetadataRequestRequestTypeDef
+# PutMetadataRequestTypeDef
 
 ### channelArn
 - **Type**: <class 'str'>
@@ -958,6 +884,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['FULL_HD', 'HD', 'LOWEST_RESOLUTION', 'SD']]]
 
 
+# RenditionConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ResponseMetadataTypeDef
 
 ### RequestId
@@ -996,7 +928,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartViewerSessionRevocationRequestRequestTypeDef
+# StartViewerSessionRevocationRequestTypeDef
 
 ### channelArn
 - **Type**: <class 'str'>
@@ -1010,7 +942,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# StopStreamRequestRequestTypeDef
+# StopStreamRequestTypeDef
 
 ### channelArn
 - **Type**: <class 'str'>
@@ -1019,15 +951,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # StreamEventTypeDef
 
-### eventTime
-- **Type**: typing.Optional[datetime.datetime]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### name
-- **Type**: typing.Optional[str]
-
-### type
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StreamFiltersTypeDef
 
@@ -1088,6 +1014,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ingestConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.IngestConfigurationTypeDef]
 
+### ingestConfigurations
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.IngestConfigurationsTypeDef]
+
 ### recordingConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.RecordingConfigurationTypeDef]
 
@@ -1146,7 +1075,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1187,7 +1116,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# UntagResourceRequestRequestTypeDef
+# ThumbnailConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1196,37 +1131,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### tagKeys
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
-
-
-# UpdateChannelRequestRequestTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### authorized
-- **Type**: typing.Optional[bool]
-
-### insecureIngest
-- **Type**: typing.Optional[bool]
-
-### latencyMode
-- **Type**: typing.Optional[typing.Literal['LOW', 'NORMAL']]
-
-### name
-- **Type**: typing.Optional[str]
-
-### playbackRestrictionPolicyArn
-- **Type**: typing.Optional[str]
-
-### preset
-- **Type**: typing.Optional[typing.Literal['CONSTRAINED_BANDWIDTH_DELIVERY', 'HIGHER_BANDWIDTH_DELIVERY']]
-
-### recordingConfigurationArn
-- **Type**: typing.Optional[str]
-
-### type
-- **Type**: typing.Optional[typing.Literal['ADVANCED_HD', 'ADVANCED_SD', 'BASIC', 'STANDARD']]
 
 
 # UpdateChannelResponseTypeDef
@@ -1240,7 +1144,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePlaybackRestrictionPolicyRequestRequestTypeDef
+# UpdatePlaybackRestrictionPolicyRequestTypeDef
 
 ### arn
 - **Type**: <class 'str'>
@@ -1284,11 +1188,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### encoder
 - **Type**: typing.Optional[str]
 
+### level
+- **Type**: typing.Optional[str]
+
+### profile
+- **Type**: typing.Optional[str]
+
 ### targetBitrate
 - **Type**: typing.Optional[int]
 
 ### targetFramerate
 - **Type**: typing.Optional[int]
+
+### track
+- **Type**: typing.Optional[str]
 
 ### videoHeight
 - **Type**: typing.Optional[int]

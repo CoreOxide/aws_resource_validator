@@ -16,53 +16,15 @@
 
 # AddBridgeNetworkOutputRequestTypeDef
 
-### IpAddress
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### NetworkName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Port
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Protocol
-- **Type**: typing.Literal['cdi', 'fujitsu-qos', 'rist', 'rtp', 'rtp-fec', 'srt-caller', 'srt-listener', 'st2110-jpegxs', 'udp', 'zixi-pull', 'zixi-push']
-- **Required**: Yes
-
-### Ttl
-- **Type**: <class 'int'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AddBridgeNetworkSourceRequestTypeDef
 
-### MulticastIp
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### NetworkName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Port
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Protocol
-- **Type**: typing.Literal['cdi', 'fujitsu-qos', 'rist', 'rtp', 'rtp-fec', 'srt-caller', 'srt-listener', 'st2110-jpegxs', 'udp', 'zixi-pull', 'zixi-push']
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AddBridgeOutputRequestTypeDef
 
@@ -70,7 +32,7 @@
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.AddBridgeNetworkOutputRequestTypeDef]
 
 
-# AddBridgeOutputsRequestRequestTypeDef
+# AddBridgeOutputsRequestTypeDef
 
 ### BridgeArn
 - **Type**: <class 'str'>
@@ -105,7 +67,7 @@
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.AddBridgeNetworkSourceRequestTypeDef]
 
 
-# AddBridgeSourcesRequestRequestTypeDef
+# AddBridgeSourcesRequestTypeDef
 
 ### BridgeArn
 - **Type**: <class 'str'>
@@ -138,7 +100,7 @@
 - **Required**: Yes
 
 
-# AddFlowMediaStreamsRequestRequestTypeDef
+# AddFlowMediaStreamsRequestTypeDef
 
 ### FlowArn
 - **Type**: <class 'str'>
@@ -164,7 +126,7 @@
 - **Required**: Yes
 
 
-# AddFlowOutputsRequestRequestTypeDef
+# AddFlowOutputsRequestTypeDef
 
 ### FlowArn
 - **Type**: <class 'str'>
@@ -190,7 +152,7 @@
 - **Required**: Yes
 
 
-# AddFlowSourcesRequestRequestTypeDef
+# AddFlowSourcesRequestTypeDef
 
 ### FlowArn
 - **Type**: <class 'str'>
@@ -216,7 +178,7 @@
 - **Required**: Yes
 
 
-# AddFlowVpcInterfacesRequestRequestTypeDef
+# AddFlowVpcInterfacesRequestTypeDef
 
 ### FlowArn
 - **Type**: <class 'str'>
@@ -293,54 +255,14 @@
 
 # AddOutputRequestTypeDef
 
-### Protocol
-- **Type**: typing.Literal['cdi', 'fujitsu-qos', 'rist', 'rtp', 'rtp-fec', 'srt-caller', 'srt-listener', 'st2110-jpegxs', 'udp', 'zixi-pull', 'zixi-push']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### CidrAllowList
-- **Type**: typing.Optional[typing.Sequence[str]]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Description
-- **Type**: typing.Optional[str]
+# AudioMonitoringSettingTypeDef
 
-### Destination
-- **Type**: typing.Optional[str]
-
-### Encryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.EncryptionTypeDef]
-
-### MaxLatency
-- **Type**: typing.Optional[int]
-
-### MediaStreamOutputConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediaconnect_classes.MediaStreamOutputConfigurationRequestTypeDef]]
-
-### MinLatency
-- **Type**: typing.Optional[int]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Port
-- **Type**: typing.Optional[int]
-
-### RemoteId
-- **Type**: typing.Optional[str]
-
-### SenderControlPort
-- **Type**: typing.Optional[int]
-
-### SmoothingLatency
-- **Type**: typing.Optional[int]
-
-### StreamId
-- **Type**: typing.Optional[str]
-
-### VpcInterfaceAttachment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.VpcInterfaceAttachmentTypeDef]
-
-### OutputStatus
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+### SilentAudio
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.SilentAudioTypeDef]
 
 
 # BaseValidatorModel
@@ -348,6 +270,15 @@
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# BlackFramesTypeDef
+
+### State
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### ThresholdSeconds
+- **Type**: typing.Optional[int]
+
 
 # BridgeFlowOutputTypeDef
 
@@ -383,53 +314,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # BridgeNetworkOutputTypeDef
 
-### IpAddress
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### NetworkName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Port
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Protocol
-- **Type**: typing.Literal['cdi', 'fujitsu-qos', 'rist', 'rtp', 'rtp-fec', 'srt-caller', 'srt-listener', 'st2110-jpegxs', 'udp', 'zixi-pull', 'zixi-push']
-- **Required**: Yes
-
-### Ttl
-- **Type**: <class 'int'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BridgeNetworkSourceTypeDef
 
-### MulticastIp
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### NetworkName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Port
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Protocol
-- **Type**: typing.Literal['cdi', 'fujitsu-qos', 'rist', 'rtp', 'rtp-fec', 'srt-caller', 'srt-listener', 'st2110-jpegxs', 'udp', 'zixi-pull', 'zixi-push']
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BridgeOutputTypeDef
 
@@ -486,7 +379,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconnect_classes.BridgeSourceTypeDef]]
 
 
-# CreateBridgeRequestRequestTypeDef
+# CreateBridgeRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -524,7 +417,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateFlowRequestRequestTypeDef
+# CreateFlowRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -557,6 +450,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Maintenance
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.AddMaintenanceTypeDef]
 
+### SourceMonitoringConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.MonitoringConfigUnionTypeDef]
+
 
 # CreateFlowResponseTypeDef
 
@@ -569,7 +465,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateGatewayRequestRequestTypeDef
+# CreateGatewayRequestTypeDef
 
 ### EgressCidrBlocks
 - **Type**: typing.Sequence[str]
@@ -595,7 +491,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteBridgeRequestRequestTypeDef
+# DeleteBridgeRequestTypeDef
 
 ### BridgeArn
 - **Type**: <class 'str'>
@@ -613,7 +509,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteFlowRequestRequestTypeDef
+# DeleteFlowRequestTypeDef
 
 ### FlowArn
 - **Type**: <class 'str'>
@@ -635,7 +531,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteGatewayRequestRequestTypeDef
+# DeleteGatewayRequestTypeDef
 
 ### GatewayArn
 - **Type**: <class 'str'>
@@ -653,7 +549,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeregisterGatewayInstanceRequestRequestTypeDef
+# DeregisterGatewayInstanceRequestTypeDef
 
 ### GatewayInstanceArn
 - **Type**: <class 'str'>
@@ -678,7 +574,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeBridgeRequestRequestTypeDef
+# DescribeBridgeRequestTypeDef
 
 ### BridgeArn
 - **Type**: <class 'str'>
@@ -696,7 +592,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeFlowRequestFlowActiveWaitTypeDef
+# DescribeFlowRequestTypeDef
+
+### FlowArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeFlowRequestWaitExtraExtraTypeDef
 
 ### FlowArn
 - **Type**: <class 'str'>
@@ -706,7 +609,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.WaiterConfigTypeDef]
 
 
-# DescribeFlowRequestFlowDeletedWaitTypeDef
+# DescribeFlowRequestWaitExtraTypeDef
 
 ### FlowArn
 - **Type**: <class 'str'>
@@ -716,7 +619,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.WaiterConfigTypeDef]
 
 
-# DescribeFlowRequestFlowStandbyWaitTypeDef
+# DescribeFlowRequestWaitTypeDef
 
 ### FlowArn
 - **Type**: <class 'str'>
@@ -724,13 +627,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### WaiterConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.WaiterConfigTypeDef]
-
-
-# DescribeFlowRequestRequestTypeDef
-
-### FlowArn
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 
 # DescribeFlowResponseTypeDef
@@ -748,7 +644,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeFlowSourceMetadataRequestRequestTypeDef
+# DescribeFlowSourceMetadataRequestTypeDef
 
 ### FlowArn
 - **Type**: <class 'str'>
@@ -778,7 +674,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeGatewayInstanceRequestRequestTypeDef
+# DescribeFlowSourceThumbnailRequestTypeDef
+
+### FlowArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeFlowSourceThumbnailResponseTypeDef
+
+### ThumbnailDetails
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediaconnect_classes.ThumbnailDetailsTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediaconnect_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DescribeGatewayInstanceRequestTypeDef
 
 ### GatewayInstanceArn
 - **Type**: <class 'str'>
@@ -796,7 +710,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeGatewayRequestRequestTypeDef
+# DescribeGatewayRequestTypeDef
 
 ### GatewayArn
 - **Type**: <class 'str'>
@@ -814,7 +728,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeOfferingRequestRequestTypeDef
+# DescribeOfferingRequestTypeDef
 
 ### OfferingArn
 - **Type**: <class 'str'>
@@ -832,7 +746,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeReservationRequestRequestTypeDef
+# DescribeReservationRequestTypeDef
 
 ### ReservationArn
 - **Type**: <class 'str'>
@@ -1047,6 +961,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Maintenance
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.MaintenanceTypeDef]
 
+### SourceMonitoringConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.MonitoringConfigOutputTypeDef]
+
 
 # FmtpRequestTypeDef
 
@@ -1105,6 +1022,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### FrameWidth
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+
+# FrozenFramesTypeDef
+
+### State
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### ThresholdSeconds
+- **Type**: typing.Optional[int]
 
 
 # GatewayBridgeSourceTypeDef
@@ -1209,7 +1135,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GrantFlowEntitlementsRequestRequestTypeDef
+# GrantFlowEntitlementsRequestTypeDef
 
 ### Entitlements
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mediaconnect_classes.GrantEntitlementRequestTypeDef]
@@ -1289,7 +1215,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListBridgesRequestListBridgesPaginateTypeDef
+# ListBridgesRequestPaginateTypeDef
 
 ### FilterArn
 - **Type**: typing.Optional[str]
@@ -1298,7 +1224,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.PaginatorConfigTypeDef]
 
 
-# ListBridgesRequestRequestTypeDef
+# ListBridgesRequestTypeDef
 
 ### FilterArn
 - **Type**: typing.Optional[str]
@@ -1324,13 +1250,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListEntitlementsRequestListEntitlementsPaginateTypeDef
+# ListEntitlementsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.PaginatorConfigTypeDef]
 
 
-# ListEntitlementsRequestRequestTypeDef
+# ListEntitlementsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1353,13 +1279,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFlowsRequestListFlowsPaginateTypeDef
+# ListFlowsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.PaginatorConfigTypeDef]
 
 
-# ListFlowsRequestRequestTypeDef
+# ListFlowsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1382,7 +1308,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListGatewayInstancesRequestListGatewayInstancesPaginateTypeDef
+# ListGatewayInstancesRequestPaginateTypeDef
 
 ### FilterArn
 - **Type**: typing.Optional[str]
@@ -1391,7 +1317,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.PaginatorConfigTypeDef]
 
 
-# ListGatewayInstancesRequestRequestTypeDef
+# ListGatewayInstancesRequestTypeDef
 
 ### FilterArn
 - **Type**: typing.Optional[str]
@@ -1417,13 +1343,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListGatewaysRequestListGatewaysPaginateTypeDef
+# ListGatewaysRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.PaginatorConfigTypeDef]
 
 
-# ListGatewaysRequestRequestTypeDef
+# ListGatewaysRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1446,13 +1372,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListOfferingsRequestListOfferingsPaginateTypeDef
+# ListOfferingsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.PaginatorConfigTypeDef]
 
 
-# ListOfferingsRequestRequestTypeDef
+# ListOfferingsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1475,13 +1401,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListReservationsRequestListReservationsPaginateTypeDef
+# ListReservationsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.PaginatorConfigTypeDef]
 
 
-# ListReservationsRequestRequestTypeDef
+# ListReservationsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1504,7 +1430,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1770,6 +1696,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# MonitoringConfigOutputTypeDef
+
+### ThumbnailState
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### AudioMonitoringSettings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconnect_classes.AudioMonitoringSettingTypeDef]]
+
+### ContentQualityAnalysisState
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### VideoMonitoringSettings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediaconnect_classes.VideoMonitoringSettingTypeDef]]
+
+
+# MonitoringConfigTypeDef
+
+### ThumbnailState
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### AudioMonitoringSettings
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediaconnect_classes.AudioMonitoringSettingTypeDef]]
+
+### ContentQualityAnalysisState
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### VideoMonitoringSettings
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediaconnect_classes.VideoMonitoringSettingTypeDef]]
+
+
+# MonitoringConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# MulticastSourceSettingsTypeDef
+
+### MulticastSourceIp
+- **Type**: typing.Optional[str]
+
+
 # OfferingTypeDef
 
 ### CurrencyCode
@@ -1870,7 +1838,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PurchaseOfferingRequestRequestTypeDef
+# PurchaseOfferingRequestTypeDef
 
 ### OfferingArn
 - **Type**: <class 'str'>
@@ -1896,7 +1864,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveBridgeOutputRequestRequestTypeDef
+# RemoveBridgeOutputRequestTypeDef
 
 ### BridgeArn
 - **Type**: <class 'str'>
@@ -1922,7 +1890,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveBridgeSourceRequestRequestTypeDef
+# RemoveBridgeSourceRequestTypeDef
 
 ### BridgeArn
 - **Type**: <class 'str'>
@@ -1948,7 +1916,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveFlowMediaStreamRequestRequestTypeDef
+# RemoveFlowMediaStreamRequestTypeDef
 
 ### FlowArn
 - **Type**: <class 'str'>
@@ -1974,7 +1942,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveFlowOutputRequestRequestTypeDef
+# RemoveFlowOutputRequestTypeDef
 
 ### FlowArn
 - **Type**: <class 'str'>
@@ -2000,7 +1968,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveFlowSourceRequestRequestTypeDef
+# RemoveFlowSourceRequestTypeDef
 
 ### FlowArn
 - **Type**: <class 'str'>
@@ -2026,7 +1994,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveFlowVpcInterfaceRequestRequestTypeDef
+# RemoveFlowVpcInterfaceRequestTypeDef
 
 ### FlowArn
 - **Type**: <class 'str'>
@@ -2143,7 +2111,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RevokeFlowEntitlementRequestRequestTypeDef
+# RevokeFlowEntitlementRequestTypeDef
 
 ### EntitlementArn
 - **Type**: <class 'str'>
@@ -2181,62 +2149,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SetSourceRequestTypeDef
 
-### Decryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.EncryptionTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Description
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### EntitlementArn
-- **Type**: typing.Optional[str]
+# SilentAudioTypeDef
 
-### IngestPort
+### State
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### ThresholdSeconds
 - **Type**: typing.Optional[int]
-
-### MaxBitrate
-- **Type**: typing.Optional[int]
-
-### MaxLatency
-- **Type**: typing.Optional[int]
-
-### MaxSyncBuffer
-- **Type**: typing.Optional[int]
-
-### MediaStreamSourceConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediaconnect_classes.MediaStreamSourceConfigurationRequestTypeDef]]
-
-### MinLatency
-- **Type**: typing.Optional[int]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Protocol
-- **Type**: typing.Optional[typing.Literal['cdi', 'fujitsu-qos', 'rist', 'rtp', 'rtp-fec', 'srt-caller', 'srt-listener', 'st2110-jpegxs', 'udp', 'zixi-pull', 'zixi-push']]
-
-### SenderControlPort
-- **Type**: typing.Optional[int]
-
-### SenderIpAddress
-- **Type**: typing.Optional[str]
-
-### SourceListenerAddress
-- **Type**: typing.Optional[str]
-
-### SourceListenerPort
-- **Type**: typing.Optional[int]
-
-### StreamId
-- **Type**: typing.Optional[str]
-
-### VpcInterfaceName
-- **Type**: typing.Optional[str]
-
-### WhitelistCidr
-- **Type**: typing.Optional[str]
-
-### GatewayBridgeSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.SetGatewayBridgeSourceRequestTypeDef]
 
 
 # SourcePriorityTypeDef
@@ -2295,7 +2218,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.GatewayBridgeSourceTypeDef]
 
 
-# StartFlowRequestRequestTypeDef
+# StartFlowRequestTypeDef
 
 ### FlowArn
 - **Type**: <class 'str'>
@@ -2317,7 +2240,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopFlowRequestRequestTypeDef
+# StopFlowRequestTypeDef
 
 ### FlowArn
 - **Type**: <class 'str'>
@@ -2339,7 +2262,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2348,6 +2271,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Tags
 - **Type**: typing.Mapping[str, str]
 - **Required**: Yes
+
+
+# ThumbnailDetailsTypeDef
+
+### FlowArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ThumbnailMessages
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediaconnect_classes.MessageDetailTypeDef]
+- **Required**: Yes
+
+### Thumbnail
+- **Type**: typing.Optional[str]
+
+### Timecode
+- **Type**: typing.Optional[str]
+
+### Timestamp
+- **Type**: typing.Optional[datetime.datetime]
 
 
 # TransportMediaInfoTypeDef
@@ -2410,48 +2353,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # TransportTypeDef
 
-### Protocol
-- **Type**: typing.Literal['cdi', 'fujitsu-qos', 'rist', 'rtp', 'rtp-fec', 'srt-caller', 'srt-listener', 'st2110-jpegxs', 'udp', 'zixi-pull', 'zixi-push']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### CidrAllowList
-- **Type**: typing.Optional[typing.List[str]]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### MaxBitrate
-- **Type**: typing.Optional[int]
-
-### MaxLatency
-- **Type**: typing.Optional[int]
-
-### MaxSyncBuffer
-- **Type**: typing.Optional[int]
-
-### MinLatency
-- **Type**: typing.Optional[int]
-
-### RemoteId
-- **Type**: typing.Optional[str]
-
-### SenderControlPort
-- **Type**: typing.Optional[int]
-
-### SenderIpAddress
-- **Type**: typing.Optional[str]
-
-### SmoothingLatency
-- **Type**: typing.Optional[int]
-
-### SourceListenerAddress
-- **Type**: typing.Optional[str]
-
-### SourceListenerPort
-- **Type**: typing.Optional[int]
-
-### StreamId
-- **Type**: typing.Optional[str]
-
-
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2473,38 +2379,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # UpdateBridgeNetworkOutputRequestTypeDef
 
-### IpAddress
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### NetworkName
-- **Type**: typing.Optional[str]
-
-### Port
-- **Type**: typing.Optional[int]
-
-### Protocol
-- **Type**: typing.Optional[typing.Literal['cdi', 'fujitsu-qos', 'rist', 'rtp', 'rtp-fec', 'srt-caller', 'srt-listener', 'st2110-jpegxs', 'udp', 'zixi-pull', 'zixi-push']]
-
-### Ttl
-- **Type**: typing.Optional[int]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UpdateBridgeNetworkSourceRequestTypeDef
 
-### MulticastIp
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### NetworkName
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Port
-- **Type**: typing.Optional[int]
-
-### Protocol
-- **Type**: typing.Optional[typing.Literal['cdi', 'fujitsu-qos', 'rist', 'rtp', 'rtp-fec', 'srt-caller', 'srt-listener', 'st2110-jpegxs', 'udp', 'zixi-pull', 'zixi-push']]
-
-
-# UpdateBridgeOutputRequestRequestTypeDef
+# UpdateBridgeOutputRequestTypeDef
 
 ### BridgeArn
 - **Type**: <class 'str'>
@@ -2533,7 +2418,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateBridgeRequestRequestTypeDef
+# UpdateBridgeRequestTypeDef
 
 ### BridgeArn
 - **Type**: <class 'str'>
@@ -2560,7 +2445,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateBridgeSourceRequestRequestTypeDef
+# UpdateBridgeSourceRequestTypeDef
 
 ### BridgeArn
 - **Type**: <class 'str'>
@@ -2592,7 +2477,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateBridgeStateRequestRequestTypeDef
+# UpdateBridgeStateRequestTypeDef
 
 ### BridgeArn
 - **Type**: <class 'str'>
@@ -2669,7 +2554,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
-# UpdateFlowEntitlementRequestRequestTypeDef
+# UpdateFlowEntitlementRequestTypeDef
 
 ### EntitlementArn
 - **Type**: <class 'str'>
@@ -2707,7 +2592,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateFlowMediaStreamRequestRequestTypeDef
+# UpdateFlowMediaStreamRequestTypeDef
 
 ### FlowArn
 - **Type**: <class 'str'>
@@ -2748,65 +2633,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateFlowOutputRequestRequestTypeDef
-
-### FlowArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### OutputArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CidrAllowList
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Destination
-- **Type**: typing.Optional[str]
-
-### Encryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.UpdateEncryptionTypeDef]
-
-### MaxLatency
-- **Type**: typing.Optional[int]
-
-### MediaStreamOutputConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediaconnect_classes.MediaStreamOutputConfigurationRequestTypeDef]]
-
-### MinLatency
-- **Type**: typing.Optional[int]
-
-### Port
-- **Type**: typing.Optional[int]
-
-### Protocol
-- **Type**: typing.Optional[typing.Literal['cdi', 'fujitsu-qos', 'rist', 'rtp', 'rtp-fec', 'srt-caller', 'srt-listener', 'st2110-jpegxs', 'udp', 'zixi-pull', 'zixi-push']]
-
-### RemoteId
-- **Type**: typing.Optional[str]
-
-### SenderControlPort
-- **Type**: typing.Optional[int]
-
-### SenderIpAddress
-- **Type**: typing.Optional[str]
-
-### SmoothingLatency
-- **Type**: typing.Optional[int]
-
-### StreamId
-- **Type**: typing.Optional[str]
-
-### VpcInterfaceAttachment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.VpcInterfaceAttachmentTypeDef]
-
-### OutputStatus
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-
 # UpdateFlowOutputResponseTypeDef
 
 ### FlowArn
@@ -2822,7 +2648,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateFlowRequestRequestTypeDef
+# UpdateFlowRequestTypeDef
 
 ### FlowArn
 - **Type**: <class 'str'>
@@ -2834,6 +2660,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Maintenance
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.UpdateMaintenanceTypeDef]
 
+### SourceMonitoringConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.MonitoringConfigUnionTypeDef]
+
 
 # UpdateFlowResponseTypeDef
 
@@ -2844,71 +2673,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.mediaconnect_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
-
-
-# UpdateFlowSourceRequestRequestTypeDef
-
-### FlowArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Decryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.UpdateEncryptionTypeDef]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### EntitlementArn
-- **Type**: typing.Optional[str]
-
-### IngestPort
-- **Type**: typing.Optional[int]
-
-### MaxBitrate
-- **Type**: typing.Optional[int]
-
-### MaxLatency
-- **Type**: typing.Optional[int]
-
-### MaxSyncBuffer
-- **Type**: typing.Optional[int]
-
-### MediaStreamSourceConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediaconnect_classes.MediaStreamSourceConfigurationRequestTypeDef]]
-
-### MinLatency
-- **Type**: typing.Optional[int]
-
-### Protocol
-- **Type**: typing.Optional[typing.Literal['cdi', 'fujitsu-qos', 'rist', 'rtp', 'rtp-fec', 'srt-caller', 'srt-listener', 'st2110-jpegxs', 'udp', 'zixi-pull', 'zixi-push']]
-
-### SenderControlPort
-- **Type**: typing.Optional[int]
-
-### SenderIpAddress
-- **Type**: typing.Optional[str]
-
-### SourceListenerAddress
-- **Type**: typing.Optional[str]
-
-### SourceListenerPort
-- **Type**: typing.Optional[int]
-
-### StreamId
-- **Type**: typing.Optional[str]
-
-### VpcInterfaceName
-- **Type**: typing.Optional[str]
-
-### WhitelistCidr
-- **Type**: typing.Optional[str]
-
-### GatewayBridgeSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.UpdateGatewayBridgeSourceRequestTypeDef]
 
 
 # UpdateFlowSourceResponseTypeDef
@@ -2935,7 +2699,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.VpcInterfaceAttachmentTypeDef]
 
 
-# UpdateGatewayInstanceRequestRequestTypeDef
+# UpdateGatewayInstanceRequestTypeDef
 
 ### GatewayInstanceArn
 - **Type**: <class 'str'>
@@ -2979,6 +2743,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### MaintenanceStartHour
 - **Type**: typing.Optional[str]
+
+
+# VideoMonitoringSettingTypeDef
+
+### BlackFrames
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.BlackFramesTypeDef]
+
+### FrozenFrames
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediaconnect_classes.FrozenFramesTypeDef]
 
 
 # VpcInterfaceAttachmentTypeDef

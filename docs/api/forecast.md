@@ -99,7 +99,7 @@
 
 ### TimestampFormat
 - **Type**: string
-- **Pattern**: `^[a-zA-Z0-9\-\:\.\,\\'\s]+$`
+- **Pattern**: `^[a-zA-Z0-9\-:.,\s]+$`
 - **Max Length**: 256
 
 ### Value

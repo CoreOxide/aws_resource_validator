@@ -1,6 +1,6 @@
 # Application Insights Classes
 
-# AddWorkloadRequestRequestTypeDef
+# AddWorkloadRequestTypeDef
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -45,13 +45,13 @@
 - **Type**: typing.Optional[typing.Literal['LINUX', 'WINDOWS']]
 
 ### Tier
-- **Type**: typing.Optional[typing.Literal['ACTIVE_DIRECTORY', 'CUSTOM', 'DEFAULT', 'DOT_NET_CORE', 'DOT_NET_WEB', 'DOT_NET_WEB_TIER', 'DOT_NET_WORKER', 'JAVA_JMX', 'MYSQL', 'ORACLE', 'POSTGRESQL', 'SAP_HANA_HIGH_AVAILABILITY', 'SAP_HANA_MULTI_NODE', 'SAP_HANA_SINGLE_NODE', 'SAP_NETWEAVER_DISTRIBUTED', 'SAP_NETWEAVER_HIGH_AVAILABILITY', 'SAP_NETWEAVER_STANDARD', 'SHAREPOINT', 'SQL_SERVER', 'SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP', 'SQL_SERVER_FAILOVER_CLUSTER_INSTANCE']]
+- **Type**: typing.Optional[typing.Literal['ACTIVE_DIRECTORY', 'CUSTOM', 'DEFAULT', 'DOT_NET_CORE', 'DOT_NET_WEB', 'DOT_NET_WEB_TIER', 'DOT_NET_WORKER', 'JAVA_JMX', 'MYSQL', 'ORACLE', 'POSTGRESQL', 'SAP_ASE_HIGH_AVAILABILITY', 'SAP_ASE_SINGLE_NODE', 'SAP_HANA_HIGH_AVAILABILITY', 'SAP_HANA_MULTI_NODE', 'SAP_HANA_SINGLE_NODE', 'SAP_NETWEAVER_DISTRIBUTED', 'SAP_NETWEAVER_HIGH_AVAILABILITY', 'SAP_NETWEAVER_STANDARD', 'SHAREPOINT', 'SQL_SERVER', 'SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP', 'SQL_SERVER_FAILOVER_CLUSTER_INSTANCE']]
 
 ### Monitor
 - **Type**: typing.Optional[bool]
 
 ### DetectedWorkload
-- **Type**: typing.Optional[typing.Dict[typing.Literal['ACTIVE_DIRECTORY', 'CUSTOM', 'DEFAULT', 'DOT_NET_CORE', 'DOT_NET_WEB', 'DOT_NET_WEB_TIER', 'DOT_NET_WORKER', 'JAVA_JMX', 'MYSQL', 'ORACLE', 'POSTGRESQL', 'SAP_HANA_HIGH_AVAILABILITY', 'SAP_HANA_MULTI_NODE', 'SAP_HANA_SINGLE_NODE', 'SAP_NETWEAVER_DISTRIBUTED', 'SAP_NETWEAVER_HIGH_AVAILABILITY', 'SAP_NETWEAVER_STANDARD', 'SHAREPOINT', 'SQL_SERVER', 'SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP', 'SQL_SERVER_FAILOVER_CLUSTER_INSTANCE'], typing.Dict[str, str]]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['ACTIVE_DIRECTORY', 'CUSTOM', 'DEFAULT', 'DOT_NET_CORE', 'DOT_NET_WEB', 'DOT_NET_WEB_TIER', 'DOT_NET_WORKER', 'JAVA_JMX', 'MYSQL', 'ORACLE', 'POSTGRESQL', 'SAP_ASE_HIGH_AVAILABILITY', 'SAP_ASE_SINGLE_NODE', 'SAP_HANA_HIGH_AVAILABILITY', 'SAP_HANA_MULTI_NODE', 'SAP_HANA_SINGLE_NODE', 'SAP_NETWEAVER_DISTRIBUTED', 'SAP_NETWEAVER_HIGH_AVAILABILITY', 'SAP_NETWEAVER_STANDARD', 'SHAREPOINT', 'SQL_SERVER', 'SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP', 'SQL_SERVER_FAILOVER_CLUSTER_INSTANCE'], typing.Dict[str, str]]]
 
 
 # ApplicationInfoTypeDef
@@ -66,6 +66,9 @@
 - **Type**: typing.Optional[str]
 
 ### OpsItemSNSTopicArn
+- **Type**: typing.Optional[str]
+
+### SNSNotificationArn
 - **Type**: typing.Optional[str]
 
 ### OpsCenterEnabled
@@ -120,7 +123,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateApplicationRequestRequestTypeDef
+# CreateApplicationRequestTypeDef
 
 ### ResourceGroupName
 - **Type**: typing.Optional[str]
@@ -132,6 +135,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### OpsItemSNSTopicArn
+- **Type**: typing.Optional[str]
+
+### SNSNotificationArn
 - **Type**: typing.Optional[str]
 
 ### Tags
@@ -161,7 +167,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateComponentRequestRequestTypeDef
+# CreateComponentRequestTypeDef
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -173,29 +179,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ResourceList
 - **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-
-# CreateLogPatternRequestRequestTypeDef
-
-### ResourceGroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PatternSetName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PatternName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Pattern
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Rank
-- **Type**: <class 'int'>
 - **Required**: Yes
 
 
@@ -214,14 +197,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteApplicationRequestRequestTypeDef
+# DeleteApplicationRequestTypeDef
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteComponentRequestRequestTypeDef
+# DeleteComponentRequestTypeDef
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -232,7 +215,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteLogPatternRequestRequestTypeDef
+# DeleteLogPatternRequestTypeDef
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -247,7 +230,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeApplicationRequestRequestTypeDef
+# DescribeApplicationRequestTypeDef
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -268,7 +251,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeComponentConfigurationRecommendationRequestRequestTypeDef
+# DescribeComponentConfigurationRecommendationRequestTypeDef
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -279,7 +262,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tier
-- **Type**: typing.Literal['ACTIVE_DIRECTORY', 'CUSTOM', 'DEFAULT', 'DOT_NET_CORE', 'DOT_NET_WEB', 'DOT_NET_WEB_TIER', 'DOT_NET_WORKER', 'JAVA_JMX', 'MYSQL', 'ORACLE', 'POSTGRESQL', 'SAP_HANA_HIGH_AVAILABILITY', 'SAP_HANA_MULTI_NODE', 'SAP_HANA_SINGLE_NODE', 'SAP_NETWEAVER_DISTRIBUTED', 'SAP_NETWEAVER_HIGH_AVAILABILITY', 'SAP_NETWEAVER_STANDARD', 'SHAREPOINT', 'SQL_SERVER', 'SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP', 'SQL_SERVER_FAILOVER_CLUSTER_INSTANCE']
+- **Type**: typing.Literal['ACTIVE_DIRECTORY', 'CUSTOM', 'DEFAULT', 'DOT_NET_CORE', 'DOT_NET_WEB', 'DOT_NET_WEB_TIER', 'DOT_NET_WORKER', 'JAVA_JMX', 'MYSQL', 'ORACLE', 'POSTGRESQL', 'SAP_ASE_HIGH_AVAILABILITY', 'SAP_ASE_SINGLE_NODE', 'SAP_HANA_HIGH_AVAILABILITY', 'SAP_HANA_MULTI_NODE', 'SAP_HANA_SINGLE_NODE', 'SAP_NETWEAVER_DISTRIBUTED', 'SAP_NETWEAVER_HIGH_AVAILABILITY', 'SAP_NETWEAVER_STANDARD', 'SHAREPOINT', 'SQL_SERVER', 'SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP', 'SQL_SERVER_FAILOVER_CLUSTER_INSTANCE']
 - **Required**: Yes
 
 ### WorkloadName
@@ -300,7 +283,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeComponentConfigurationRequestRequestTypeDef
+# DescribeComponentConfigurationRequestTypeDef
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -321,7 +304,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tier
-- **Type**: typing.Literal['ACTIVE_DIRECTORY', 'CUSTOM', 'DEFAULT', 'DOT_NET_CORE', 'DOT_NET_WEB', 'DOT_NET_WEB_TIER', 'DOT_NET_WORKER', 'JAVA_JMX', 'MYSQL', 'ORACLE', 'POSTGRESQL', 'SAP_HANA_HIGH_AVAILABILITY', 'SAP_HANA_MULTI_NODE', 'SAP_HANA_SINGLE_NODE', 'SAP_NETWEAVER_DISTRIBUTED', 'SAP_NETWEAVER_HIGH_AVAILABILITY', 'SAP_NETWEAVER_STANDARD', 'SHAREPOINT', 'SQL_SERVER', 'SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP', 'SQL_SERVER_FAILOVER_CLUSTER_INSTANCE']
+- **Type**: typing.Literal['ACTIVE_DIRECTORY', 'CUSTOM', 'DEFAULT', 'DOT_NET_CORE', 'DOT_NET_WEB', 'DOT_NET_WEB_TIER', 'DOT_NET_WORKER', 'JAVA_JMX', 'MYSQL', 'ORACLE', 'POSTGRESQL', 'SAP_ASE_HIGH_AVAILABILITY', 'SAP_ASE_SINGLE_NODE', 'SAP_HANA_HIGH_AVAILABILITY', 'SAP_HANA_MULTI_NODE', 'SAP_HANA_SINGLE_NODE', 'SAP_NETWEAVER_DISTRIBUTED', 'SAP_NETWEAVER_HIGH_AVAILABILITY', 'SAP_NETWEAVER_STANDARD', 'SHAREPOINT', 'SQL_SERVER', 'SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP', 'SQL_SERVER_FAILOVER_CLUSTER_INSTANCE']
 - **Required**: Yes
 
 ### ComponentConfiguration
@@ -333,7 +316,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeComponentRequestRequestTypeDef
+# DescribeComponentRequestTypeDef
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -362,7 +345,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeLogPatternRequestRequestTypeDef
+# DescribeLogPatternRequestTypeDef
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -399,7 +382,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeObservationRequestRequestTypeDef
+# DescribeObservationRequestTypeDef
 
 ### ObservationId
 - **Type**: <class 'str'>
@@ -420,7 +403,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeProblemObservationsRequestRequestTypeDef
+# DescribeProblemObservationsRequestTypeDef
 
 ### ProblemId
 - **Type**: <class 'str'>
@@ -441,7 +424,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeProblemRequestRequestTypeDef
+# DescribeProblemRequestTypeDef
 
 ### ProblemId
 - **Type**: <class 'str'>
@@ -457,12 +440,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ProblemTypeDef'>
 - **Required**: Yes
 
+### SNSNotificationArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
 
-# DescribeWorkloadRequestRequestTypeDef
+# DescribeWorkloadRequestTypeDef
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -499,7 +486,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListApplicationsRequestRequestTypeDef
+# ListApplicationsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -517,16 +504,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.application_insights_classes.ApplicationInfoTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListComponentsRequestRequestTypeDef
+
+# ListComponentsRequestTypeDef
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -548,25 +534,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.application_insights_classes.ApplicationComponentTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListConfigurationHistoryRequestRequestTypeDef
+
+# ListConfigurationHistoryRequestTypeDef
 
 ### ResourceGroupName
 - **Type**: typing.Optional[str]
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_insights_classes.TimestampTypeDef]
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_insights_classes.TimestampTypeDef]
 
 ### EventStatus
 - **Type**: typing.Optional[typing.Literal['ERROR', 'INFO', 'WARN']]
@@ -587,16 +572,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.application_insights_classes.ConfigurationEventTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListLogPatternSetsRequestRequestTypeDef
+
+# ListLogPatternSetsRequestTypeDef
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -626,16 +610,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListLogPatternsRequestRequestTypeDef
+
+# ListLogPatternsRequestTypeDef
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -668,16 +651,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.application_insights_classes.LogPatternTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListProblemsRequestRequestTypeDef
+
+# ListProblemsRequestTypeDef
 
 ### AccountId
 - **Type**: typing.Optional[str]
@@ -686,10 +668,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_insights_classes.TimestampTypeDef]
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_insights_classes.TimestampTypeDef]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -710,10 +692,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.application_insights_classes.ProblemTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResourceGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
@@ -726,8 +704,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -745,7 +726,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListWorkloadsRequestRequestTypeDef
+# ListWorkloadsRequestTypeDef
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -771,29 +752,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.application_insights_classes.WorkloadTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
+
 
 # LogPatternTypeDef
 
-### PatternSetName
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### PatternName
-- **Type**: typing.Optional[str]
-
-### Pattern
-- **Type**: typing.Optional[str]
-
-### Rank
-- **Type**: typing.Optional[int]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ObservationTypeDef
 
@@ -941,6 +912,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Title
 - **Type**: typing.Optional[str]
 
+### ShortName
+- **Type**: typing.Optional[str]
+
 ### Insights
 - **Type**: typing.Optional[str]
 
@@ -987,7 +961,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_insights_classes.ObservationTypeDef]]
 
 
-# RemoveWorkloadRequestRequestTypeDef
+# RemoveWorkloadRequestTypeDef
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -1008,10 +982,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -1024,8 +994,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# TagResourceRequestRequestTypeDef
+
+# TagResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -1047,7 +1020,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -1058,7 +1037,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateApplicationRequestRequestTypeDef
+# UpdateApplicationRequestTypeDef
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -1071,6 +1050,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### OpsItemSNSTopicArn
+- **Type**: typing.Optional[str]
+
+### SNSNotificationArn
 - **Type**: typing.Optional[str]
 
 ### RemoveSNSTopic
@@ -1094,7 +1076,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateComponentConfigurationRequestRequestTypeDef
+# UpdateComponentConfigurationRequestTypeDef
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -1108,7 +1090,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tier
-- **Type**: typing.Optional[typing.Literal['ACTIVE_DIRECTORY', 'CUSTOM', 'DEFAULT', 'DOT_NET_CORE', 'DOT_NET_WEB', 'DOT_NET_WEB_TIER', 'DOT_NET_WORKER', 'JAVA_JMX', 'MYSQL', 'ORACLE', 'POSTGRESQL', 'SAP_HANA_HIGH_AVAILABILITY', 'SAP_HANA_MULTI_NODE', 'SAP_HANA_SINGLE_NODE', 'SAP_NETWEAVER_DISTRIBUTED', 'SAP_NETWEAVER_HIGH_AVAILABILITY', 'SAP_NETWEAVER_STANDARD', 'SHAREPOINT', 'SQL_SERVER', 'SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP', 'SQL_SERVER_FAILOVER_CLUSTER_INSTANCE']]
+- **Type**: typing.Optional[typing.Literal['ACTIVE_DIRECTORY', 'CUSTOM', 'DEFAULT', 'DOT_NET_CORE', 'DOT_NET_WEB', 'DOT_NET_WEB_TIER', 'DOT_NET_WORKER', 'JAVA_JMX', 'MYSQL', 'ORACLE', 'POSTGRESQL', 'SAP_ASE_HIGH_AVAILABILITY', 'SAP_ASE_SINGLE_NODE', 'SAP_HANA_HIGH_AVAILABILITY', 'SAP_HANA_MULTI_NODE', 'SAP_HANA_SINGLE_NODE', 'SAP_NETWEAVER_DISTRIBUTED', 'SAP_NETWEAVER_HIGH_AVAILABILITY', 'SAP_NETWEAVER_STANDARD', 'SHAREPOINT', 'SQL_SERVER', 'SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP', 'SQL_SERVER_FAILOVER_CLUSTER_INSTANCE']]
 
 ### ComponentConfiguration
 - **Type**: typing.Optional[str]
@@ -1117,7 +1099,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpdateComponentRequestRequestTypeDef
+# UpdateComponentRequestTypeDef
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -1132,27 +1114,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ResourceList
 - **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# UpdateLogPatternRequestRequestTypeDef
-
-### ResourceGroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PatternSetName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PatternName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Pattern
-- **Type**: typing.Optional[str]
-
-### Rank
-- **Type**: typing.Optional[int]
 
 
 # UpdateLogPatternResponseTypeDef
@@ -1170,7 +1131,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateProblemRequestRequestTypeDef
+# UpdateProblemRequestTypeDef
 
 ### ProblemId
 - **Type**: <class 'str'>
@@ -1183,7 +1144,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['IGNORED', 'VISIBLE']]
 
 
-# UpdateWorkloadRequestRequestTypeDef
+# UpdateWorkloadRequestTypeDef
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -1222,7 +1183,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tier
-- **Type**: typing.Optional[typing.Literal['ACTIVE_DIRECTORY', 'CUSTOM', 'DEFAULT', 'DOT_NET_CORE', 'DOT_NET_WEB', 'DOT_NET_WEB_TIER', 'DOT_NET_WORKER', 'JAVA_JMX', 'MYSQL', 'ORACLE', 'POSTGRESQL', 'SAP_HANA_HIGH_AVAILABILITY', 'SAP_HANA_MULTI_NODE', 'SAP_HANA_SINGLE_NODE', 'SAP_NETWEAVER_DISTRIBUTED', 'SAP_NETWEAVER_HIGH_AVAILABILITY', 'SAP_NETWEAVER_STANDARD', 'SHAREPOINT', 'SQL_SERVER', 'SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP', 'SQL_SERVER_FAILOVER_CLUSTER_INSTANCE']]
+- **Type**: typing.Optional[typing.Literal['ACTIVE_DIRECTORY', 'CUSTOM', 'DEFAULT', 'DOT_NET_CORE', 'DOT_NET_WEB', 'DOT_NET_WEB_TIER', 'DOT_NET_WORKER', 'JAVA_JMX', 'MYSQL', 'ORACLE', 'POSTGRESQL', 'SAP_ASE_HIGH_AVAILABILITY', 'SAP_ASE_SINGLE_NODE', 'SAP_HANA_HIGH_AVAILABILITY', 'SAP_HANA_MULTI_NODE', 'SAP_HANA_SINGLE_NODE', 'SAP_NETWEAVER_DISTRIBUTED', 'SAP_NETWEAVER_HIGH_AVAILABILITY', 'SAP_NETWEAVER_STANDARD', 'SHAREPOINT', 'SQL_SERVER', 'SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP', 'SQL_SERVER_FAILOVER_CLUSTER_INSTANCE']]
 
 ### Configuration
 - **Type**: typing.Optional[str]
@@ -1240,9 +1201,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tier
-- **Type**: typing.Optional[typing.Literal['ACTIVE_DIRECTORY', 'CUSTOM', 'DEFAULT', 'DOT_NET_CORE', 'DOT_NET_WEB', 'DOT_NET_WEB_TIER', 'DOT_NET_WORKER', 'JAVA_JMX', 'MYSQL', 'ORACLE', 'POSTGRESQL', 'SAP_HANA_HIGH_AVAILABILITY', 'SAP_HANA_MULTI_NODE', 'SAP_HANA_SINGLE_NODE', 'SAP_NETWEAVER_DISTRIBUTED', 'SAP_NETWEAVER_HIGH_AVAILABILITY', 'SAP_NETWEAVER_STANDARD', 'SHAREPOINT', 'SQL_SERVER', 'SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP', 'SQL_SERVER_FAILOVER_CLUSTER_INSTANCE']]
+- **Type**: typing.Optional[typing.Literal['ACTIVE_DIRECTORY', 'CUSTOM', 'DEFAULT', 'DOT_NET_CORE', 'DOT_NET_WEB', 'DOT_NET_WEB_TIER', 'DOT_NET_WORKER', 'JAVA_JMX', 'MYSQL', 'ORACLE', 'POSTGRESQL', 'SAP_ASE_HIGH_AVAILABILITY', 'SAP_ASE_SINGLE_NODE', 'SAP_HANA_HIGH_AVAILABILITY', 'SAP_HANA_MULTI_NODE', 'SAP_HANA_SINGLE_NODE', 'SAP_NETWEAVER_DISTRIBUTED', 'SAP_NETWEAVER_HIGH_AVAILABILITY', 'SAP_NETWEAVER_STANDARD', 'SHAREPOINT', 'SQL_SERVER', 'SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP', 'SQL_SERVER_FAILOVER_CLUSTER_INSTANCE']]
 
 ### WorkloadRemarks
 - **Type**: typing.Optional[str]
+
+### MissingWorkloadConfig
+- **Type**: typing.Optional[bool]
 
 

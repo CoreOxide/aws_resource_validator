@@ -13,51 +13,100 @@
 
 # AttributeValueOutputTypeDef
 
-### boolean
-- **Type**: typing.Optional[bool]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### entityIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.verifiedpermissions_classes.EntityIdentifierTypeDef]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### long
-- **Type**: typing.Optional[int]
+# AttributeValueUnionTypeDef
 
-### string
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### set
-- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
-
-### record
-- **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, typing.Any]]]
-
-
-# AttributeValueTypeDef
-
-### boolean
-- **Type**: typing.Optional[bool]
-
-### entityIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.verifiedpermissions_classes.EntityIdentifierTypeDef]
-
-### long
-- **Type**: typing.Optional[int]
-
-### string
-- **Type**: typing.Optional[str]
-
-### set
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
-
-### record
-- **Type**: typing.Optional[typing.Mapping[str, typing.Dict[str, typing.Any]]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BaseValidatorModel
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# BatchGetPolicyErrorItemTypeDef
+
+### code
+- **Type**: typing.Literal['POLICY_NOT_FOUND', 'POLICY_STORE_NOT_FOUND']
+- **Required**: Yes
+
+### policyStoreId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### policyId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### message
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# BatchGetPolicyInputItemTypeDef
+
+### policyStoreId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### policyId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# BatchGetPolicyInputTypeDef
+
+### requests
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.verifiedpermissions_classes.BatchGetPolicyInputItemTypeDef]
+- **Required**: Yes
+
+
+# BatchGetPolicyOutputItemTypeDef
+
+### policyStoreId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### policyId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### policyType
+- **Type**: typing.Literal['STATIC', 'TEMPLATE_LINKED']
+- **Required**: Yes
+
+### definition
+- **Type**: <class 'aws_resource_validator.pydantic_models.verifiedpermissions_classes.PolicyDefinitionDetailTypeDef'>
+- **Required**: Yes
+
+### createdDate
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastUpdatedDate
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+
+# BatchGetPolicyOutputTypeDef
+
+### results
+- **Type**: typing.List[aws_resource_validator.pydantic_models.verifiedpermissions_classes.BatchGetPolicyOutputItemTypeDef]
+- **Required**: Yes
+
+### errors
+- **Type**: typing.List[aws_resource_validator.pydantic_models.verifiedpermissions_classes.BatchGetPolicyErrorItemTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.verifiedpermissions_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
 
 # BatchIsAuthorizedInputItemOutputTypeDef
 
@@ -86,17 +135,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.verifiedpermissions_classes.EntityIdentifierTypeDef]
 
 ### context
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.verifiedpermissions_classes.ContextDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.verifiedpermissions_classes.ContextDefinitionUnionTypeDef]
 
 
-# BatchIsAuthorizedInputRequestTypeDef
+# BatchIsAuthorizedInputItemUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# BatchIsAuthorizedInputTypeDef
 
 ### policyStoreId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### requests
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.verifiedpermissions_classes.BatchIsAuthorizedInputItemTypeDef, aws_resource_validator.pydantic_models.verifiedpermissions_classes.BatchIsAuthorizedInputItemOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.verifiedpermissions_classes.BatchIsAuthorizedInputItemUnionTypeDef]
 - **Required**: Yes
 
 ### entities
@@ -154,17 +209,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.verifiedpermissions_classes.EntityIdentifierTypeDef]
 
 ### context
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.verifiedpermissions_classes.ContextDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.verifiedpermissions_classes.ContextDefinitionUnionTypeDef]
 
 
-# BatchIsAuthorizedWithTokenInputRequestTypeDef
+# BatchIsAuthorizedWithTokenInputItemUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# BatchIsAuthorizedWithTokenInputTypeDef
 
 ### policyStoreId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### requests
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.verifiedpermissions_classes.BatchIsAuthorizedWithTokenInputItemTypeDef, aws_resource_validator.pydantic_models.verifiedpermissions_classes.BatchIsAuthorizedWithTokenInputItemOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.verifiedpermissions_classes.BatchIsAuthorizedWithTokenInputItemUnionTypeDef]
 - **Required**: Yes
 
 ### identityToken
@@ -311,14 +372,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### contextMap
 - **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.verifiedpermissions_classes.AttributeValueOutputTypeDef]]
 
+### cedarJson
+- **Type**: typing.Optional[str]
+
 
 # ContextDefinitionTypeDef
 
 ### contextMap
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.verifiedpermissions_classes.AttributeValueTypeDef]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.verifiedpermissions_classes.AttributeValueUnionTypeDef]]
+
+### cedarJson
+- **Type**: typing.Optional[str]
 
 
-# CreateIdentitySourceInputRequestTypeDef
+# ContextDefinitionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CreateIdentitySourceInputTypeDef
 
 ### policyStoreId
 - **Type**: <class 'str'>
@@ -358,7 +431,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePolicyInputRequestTypeDef
+# CreatePolicyInputTypeDef
 
 ### policyStoreId
 - **Type**: <class 'str'>
@@ -415,7 +488,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePolicyStoreInputRequestTypeDef
+# CreatePolicyStoreInputTypeDef
 
 ### validationSettings
 - **Type**: <class 'aws_resource_validator.pydantic_models.verifiedpermissions_classes.ValidationSettingsTypeDef'>
@@ -451,7 +524,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePolicyTemplateInputRequestTypeDef
+# CreatePolicyTemplateInputTypeDef
 
 ### policyStoreId
 - **Type**: <class 'str'>
@@ -491,7 +564,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteIdentitySourceInputRequestTypeDef
+# DeleteIdentitySourceInputTypeDef
 
 ### policyStoreId
 - **Type**: <class 'str'>
@@ -502,7 +575,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeletePolicyInputRequestTypeDef
+# DeletePolicyInputTypeDef
 
 ### policyStoreId
 - **Type**: <class 'str'>
@@ -513,14 +586,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeletePolicyStoreInputRequestTypeDef
+# DeletePolicyStoreInputTypeDef
 
 ### policyStoreId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePolicyTemplateInputRequestTypeDef
+# DeletePolicyTemplateInputTypeDef
 
 ### policyStoreId
 - **Type**: <class 'str'>
@@ -543,6 +616,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### entityList
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.verifiedpermissions_classes.EntityItemTypeDef]]
 
+### cedarJson
+- **Type**: typing.Optional[str]
+
 
 # EntityIdentifierTypeDef
 
@@ -562,7 +638,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### attributes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.verifiedpermissions_classes.AttributeValueTypeDef]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.verifiedpermissions_classes.AttributeValueUnionTypeDef]]
 
 ### parents
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.verifiedpermissions_classes.EntityIdentifierTypeDef]]
@@ -584,7 +660,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetIdentitySourceInputRequestTypeDef
+# GetIdentitySourceInputTypeDef
 
 ### policyStoreId
 - **Type**: <class 'str'>
@@ -630,7 +706,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPolicyInputRequestTypeDef
+# GetPolicyInputTypeDef
 
 ### policyStoreId
 - **Type**: <class 'str'>
@@ -688,7 +764,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPolicyStoreInputRequestTypeDef
+# GetPolicyStoreInputTypeDef
 
 ### policyStoreId
 - **Type**: <class 'str'>
@@ -726,7 +802,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPolicyTemplateInputRequestTypeDef
+# GetPolicyTemplateInputTypeDef
 
 ### policyStoreId
 - **Type**: <class 'str'>
@@ -768,7 +844,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSchemaInputRequestTypeDef
+# GetSchemaInputTypeDef
 
 ### policyStoreId
 - **Type**: <class 'str'>
@@ -867,7 +943,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.verifiedpermissions_classes.ConfigurationItemTypeDef]
 
 
-# IsAuthorizedInputRequestTypeDef
+# IsAuthorizedInputTypeDef
 
 ### policyStoreId
 - **Type**: <class 'str'>
@@ -883,7 +959,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.verifiedpermissions_classes.EntityIdentifierTypeDef]
 
 ### context
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.verifiedpermissions_classes.ContextDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.verifiedpermissions_classes.ContextDefinitionUnionTypeDef]
 
 ### entities
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.verifiedpermissions_classes.EntitiesDefinitionTypeDef]
@@ -908,7 +984,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# IsAuthorizedWithTokenInputRequestTypeDef
+# IsAuthorizedWithTokenInputTypeDef
 
 ### policyStoreId
 - **Type**: <class 'str'>
@@ -927,7 +1003,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.verifiedpermissions_classes.EntityIdentifierTypeDef]
 
 ### context
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.verifiedpermissions_classes.ContextDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.verifiedpermissions_classes.ContextDefinitionUnionTypeDef]
 
 ### entities
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.verifiedpermissions_classes.EntitiesDefinitionTypeDef]
@@ -956,7 +1032,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListIdentitySourcesInputListIdentitySourcesPaginateTypeDef
+# ListIdentitySourcesInputPaginateTypeDef
 
 ### policyStoreId
 - **Type**: <class 'str'>
@@ -969,7 +1045,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.verifiedpermissions_classes.PaginatorConfigTypeDef]
 
 
-# ListIdentitySourcesInputRequestTypeDef
+# ListIdentitySourcesInputTypeDef
 
 ### policyStoreId
 - **Type**: <class 'str'>
@@ -987,10 +1063,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListIdentitySourcesOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### identitySources
 - **Type**: typing.List[aws_resource_validator.pydantic_models.verifiedpermissions_classes.IdentitySourceItemTypeDef]
 - **Required**: Yes
@@ -999,41 +1071,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.verifiedpermissions_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# ListPoliciesInputListPoliciesPaginateTypeDef
-
-### policyStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.verifiedpermissions_classes.PolicyFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.verifiedpermissions_classes.PaginatorConfigTypeDef]
-
-
-# ListPoliciesInputRequestTypeDef
-
-### policyStoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### nextToken
 - **Type**: typing.Optional[str]
 
-### maxResults
-- **Type**: typing.Optional[int]
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.verifiedpermissions_classes.PolicyFilterTypeDef]
-
 
 # ListPoliciesOutputTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### policies
 - **Type**: typing.List[aws_resource_validator.pydantic_models.verifiedpermissions_classes.PolicyItemTypeDef]
@@ -1043,14 +1085,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.verifiedpermissions_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListPolicyStoresInputListPolicyStoresPaginateTypeDef
+
+# ListPolicyStoresInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.verifiedpermissions_classes.PaginatorConfigTypeDef]
 
 
-# ListPolicyStoresInputRequestTypeDef
+# ListPolicyStoresInputTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1061,10 +1106,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListPolicyStoresOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### policyStores
 - **Type**: typing.List[aws_resource_validator.pydantic_models.verifiedpermissions_classes.PolicyStoreItemTypeDef]
 - **Required**: Yes
@@ -1073,8 +1114,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.verifiedpermissions_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListPolicyTemplatesInputListPolicyTemplatesPaginateTypeDef
+
+# ListPolicyTemplatesInputPaginateTypeDef
 
 ### policyStoreId
 - **Type**: <class 'str'>
@@ -1084,7 +1128,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.verifiedpermissions_classes.PaginatorConfigTypeDef]
 
 
-# ListPolicyTemplatesInputRequestTypeDef
+# ListPolicyTemplatesInputTypeDef
 
 ### policyStoreId
 - **Type**: <class 'str'>
@@ -1099,10 +1143,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListPolicyTemplatesOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### policyTemplates
 - **Type**: typing.List[aws_resource_validator.pydantic_models.verifiedpermissions_classes.PolicyTemplateItemTypeDef]
 - **Required**: Yes
@@ -1110,6 +1150,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.verifiedpermissions_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # OpenIdConnectAccessTokenConfigurationDetailTypeDef
@@ -1413,7 +1456,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutSchemaInputRequestTypeDef
+# PutSchemaInputTypeDef
 
 ### policyStoreId
 - **Type**: <class 'str'>
@@ -1569,7 +1612,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.verifiedpermissions_classes.UpdateOpenIdConnectConfigurationTypeDef]
 
 
-# UpdateIdentitySourceInputRequestTypeDef
+# UpdateIdentitySourceInputTypeDef
 
 ### policyStoreId
 - **Type**: <class 'str'>
@@ -1671,7 +1714,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.verifiedpermissions_classes.UpdateStaticPolicyDefinitionTypeDef]
 
 
-# UpdatePolicyInputRequestTypeDef
+# UpdatePolicyInputTypeDef
 
 ### policyStoreId
 - **Type**: <class 'str'>
@@ -1729,7 +1772,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePolicyStoreInputRequestTypeDef
+# UpdatePolicyStoreInputTypeDef
 
 ### policyStoreId
 - **Type**: <class 'str'>
@@ -1766,7 +1809,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePolicyTemplateInputRequestTypeDef
+# UpdatePolicyTemplateInputTypeDef
 
 ### policyStoreId
 - **Type**: <class 'str'>

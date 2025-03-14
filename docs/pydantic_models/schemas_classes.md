@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateDiscovererRequestRequestTypeDef
+# CreateDiscovererRequestTypeDef
 
 ### SourceArn
 - **Type**: <class 'str'>
@@ -57,7 +57,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateRegistryRequestRequestTypeDef
+# CreateRegistryRequestTypeDef
 
 ### RegistryName
 - **Type**: <class 'str'>
@@ -93,91 +93,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateSchemaRequestRequestTypeDef
-
-### Content
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### RegistryName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SchemaName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['JSONSchemaDraft4', 'OpenApi3']
-- **Required**: Yes
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-
-# CreateSchemaResponseTypeDef
-
-### Description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### LastModified
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### SchemaArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SchemaName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SchemaVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### Type
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### VersionCreatedDate
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# DeleteDiscovererRequestRequestTypeDef
+# DeleteDiscovererRequestTypeDef
 
 ### DiscovererId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteRegistryRequestRequestTypeDef
+# DeleteRegistryRequestTypeDef
 
 ### RegistryName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteResourcePolicyRequestRequestTypeDef
+# DeleteResourcePolicyRequestTypeDef
 
 ### RegistryName
 - **Type**: typing.Optional[str]
 
 
-# DeleteSchemaRequestRequestTypeDef
+# DeleteSchemaRequestTypeDef
 
 ### RegistryName
 - **Type**: <class 'str'>
@@ -188,7 +124,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteSchemaVersionRequestRequestTypeDef
+# DeleteSchemaVersionRequestTypeDef
 
 ### RegistryName
 - **Type**: <class 'str'>
@@ -203,7 +139,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeCodeBindingRequestCodeBindingExistsWaitTypeDef
+# DescribeCodeBindingRequestTypeDef
+
+### Language
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### RegistryName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SchemaName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SchemaVersion
+- **Type**: typing.Optional[str]
+
+
+# DescribeCodeBindingRequestWaitTypeDef
 
 ### Language
 - **Type**: <class 'str'>
@@ -222,24 +176,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### WaiterConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.schemas_classes.WaiterConfigTypeDef]
-
-
-# DescribeCodeBindingRequestRequestTypeDef
-
-### Language
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### RegistryName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SchemaName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SchemaVersion
-- **Type**: typing.Optional[str]
 
 
 # DescribeCodeBindingResponseTypeDef
@@ -265,7 +201,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDiscovererRequestRequestTypeDef
+# DescribeDiscovererRequestTypeDef
 
 ### DiscovererId
 - **Type**: <class 'str'>
@@ -307,7 +243,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeRegistryRequestRequestTypeDef
+# DescribeRegistryRequestTypeDef
 
 ### RegistryName
 - **Type**: <class 'str'>
@@ -337,7 +273,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeSchemaRequestRequestTypeDef
+# DescribeSchemaRequestTypeDef
 
 ### RegistryName
 - **Type**: <class 'str'>
@@ -349,49 +285,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SchemaVersion
 - **Type**: typing.Optional[str]
-
-
-# DescribeSchemaResponseTypeDef
-
-### Content
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### LastModified
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### SchemaArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SchemaName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SchemaVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### Type
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### VersionCreatedDate
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
 
 
 # DiscovererSummaryTypeDef
@@ -422,52 +315,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ExportSchemaRequestRequestTypeDef
-
-### RegistryName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SchemaName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SchemaVersion
-- **Type**: typing.Optional[str]
-
-
-# ExportSchemaResponseTypeDef
-
-### Content
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SchemaArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SchemaName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SchemaVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetCodeBindingSourceRequestRequestTypeDef
+# GetCodeBindingSourceRequestTypeDef
 
 ### Language
 - **Type**: <class 'str'>
@@ -496,17 +344,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDiscoveredSchemaRequestRequestTypeDef
-
-### Events
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['JSONSchemaDraft4', 'OpenApi3']
-- **Required**: Yes
-
-
 # GetDiscoveredSchemaResponseTypeDef
 
 ### Content
@@ -518,7 +355,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResourcePolicyRequestRequestTypeDef
+# GetResourcePolicyRequestTypeDef
 
 ### RegistryName
 - **Type**: typing.Optional[str]
@@ -539,7 +376,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListDiscoverersRequestListDiscoverersPaginateTypeDef
+# ListDiscoverersRequestPaginateTypeDef
 
 ### DiscovererIdPrefix
 - **Type**: typing.Optional[str]
@@ -551,7 +388,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.schemas_classes.PaginatorConfigTypeDef]
 
 
-# ListDiscoverersRequestRequestTypeDef
+# ListDiscoverersRequestTypeDef
 
 ### DiscovererIdPrefix
 - **Type**: typing.Optional[str]
@@ -572,16 +409,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.schemas_classes.DiscovererSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListRegistriesRequestListRegistriesPaginateTypeDef
+
+# ListRegistriesRequestPaginateTypeDef
 
 ### RegistryNamePrefix
 - **Type**: typing.Optional[str]
@@ -593,7 +429,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.schemas_classes.PaginatorConfigTypeDef]
 
 
-# ListRegistriesRequestRequestTypeDef
+# ListRegistriesRequestTypeDef
 
 ### Limit
 - **Type**: typing.Optional[int]
@@ -610,10 +446,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListRegistriesResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### Registries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.schemas_classes.RegistrySummaryTypeDef]
 - **Required**: Yes
@@ -622,8 +454,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListSchemaVersionsRequestListSchemaVersionsPaginateTypeDef
+
+# ListSchemaVersionsRequestPaginateTypeDef
 
 ### RegistryName
 - **Type**: <class 'str'>
@@ -637,7 +472,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.schemas_classes.PaginatorConfigTypeDef]
 
 
-# ListSchemaVersionsRequestRequestTypeDef
+# ListSchemaVersionsRequestTypeDef
 
 ### RegistryName
 - **Type**: <class 'str'>
@@ -656,10 +491,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListSchemaVersionsResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### SchemaVersions
 - **Type**: typing.List[aws_resource_validator.pydantic_models.schemas_classes.SchemaVersionSummaryTypeDef]
 - **Required**: Yes
@@ -668,8 +499,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListSchemasRequestListSchemasPaginateTypeDef
+
+# ListSchemasRequestPaginateTypeDef
 
 ### RegistryName
 - **Type**: <class 'str'>
@@ -682,7 +516,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.schemas_classes.PaginatorConfigTypeDef]
 
 
-# ListSchemasRequestRequestTypeDef
+# ListSchemasRequestTypeDef
 
 ### RegistryName
 - **Type**: <class 'str'>
@@ -700,10 +534,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListSchemasResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### Schemas
 - **Type**: typing.List[aws_resource_validator.pydantic_models.schemas_classes.SchemaSummaryTypeDef]
 - **Required**: Yes
@@ -712,8 +542,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -743,7 +576,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutCodeBindingRequestRequestTypeDef
+# PutCodeBindingRequestTypeDef
 
 ### Language
 - **Type**: <class 'str'>
@@ -784,7 +617,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutResourcePolicyRequestRequestTypeDef
+# PutResourcePolicyRequestTypeDef
 
 ### Policy
 - **Type**: <class 'str'>
@@ -830,10 +663,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -845,6 +674,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # SchemaSummaryTypeDef
@@ -867,18 +699,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SchemaVersionSummaryTypeDef
 
-### SchemaArn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### SchemaName
-- **Type**: typing.Optional[str]
-
-### SchemaVersion
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['JSONSchemaDraft4', 'OpenApi3']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SearchSchemaSummaryTypeDef
 
@@ -897,17 +720,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SearchSchemaVersionSummaryTypeDef
 
-### CreatedDate
-- **Type**: typing.Optional[datetime.datetime]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### SchemaVersion
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Type
-- **Type**: typing.Optional[typing.Literal['JSONSchemaDraft4', 'OpenApi3']]
+# SearchSchemasRequestPaginateTypeDef
+
+### Keywords
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### RegistryName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.schemas_classes.PaginatorConfigTypeDef]
 
 
-# SearchSchemasRequestRequestTypeDef
+# SearchSchemasRequestTypeDef
 
 ### Keywords
 - **Type**: <class 'str'>
@@ -924,25 +755,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchSchemasRequestSearchSchemasPaginateTypeDef
-
-### Keywords
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### RegistryName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.schemas_classes.PaginatorConfigTypeDef]
-
-
 # SearchSchemasResponseTypeDef
-
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### Schemas
 - **Type**: typing.List[aws_resource_validator.pydantic_models.schemas_classes.SearchSchemaSummaryTypeDef]
@@ -952,8 +765,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# StartDiscovererRequestRequestTypeDef
+
+# StartDiscovererRequestTypeDef
 
 ### DiscovererId
 - **Type**: <class 'str'>
@@ -975,7 +791,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopDiscovererRequestRequestTypeDef
+# StopDiscovererRequestTypeDef
 
 ### DiscovererId
 - **Type**: <class 'str'>
@@ -997,7 +813,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1008,7 +824,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1019,7 +835,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDiscovererRequestRequestTypeDef
+# UpdateDiscovererRequestTypeDef
 
 ### DiscovererId
 - **Type**: <class 'str'>
@@ -1067,7 +883,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRegistryRequestRequestTypeDef
+# UpdateRegistryRequestTypeDef
 
 ### RegistryName
 - **Type**: <class 'str'>
@@ -1093,68 +909,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Tags
 - **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# UpdateSchemaRequestRequestTypeDef
-
-### RegistryName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SchemaName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ClientTokenId
-- **Type**: typing.Optional[str]
-
-### Content
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['JSONSchemaDraft4', 'OpenApi3']]
-
-
-# UpdateSchemaResponseTypeDef
-
-### Description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### LastModified
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### SchemaArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SchemaName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SchemaVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### Type
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### VersionCreatedDate
-- **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### ResponseMetadata

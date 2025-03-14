@@ -6,7 +6,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AssociateSourceNetworkStackRequestRequestTypeDef
+# AssociateSourceNetworkStackRequestTypeDef
 
 ### cfnStackName
 - **Type**: <class 'str'>
@@ -64,7 +64,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, int]]
 
 
-# CreateExtendedSourceServerRequestRequestTypeDef
+# CreateExtendedSourceServerRequestTypeDef
 
 ### sourceServerArn
 - **Type**: <class 'str'>
@@ -85,7 +85,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLaunchConfigurationTemplateRequestRequestTypeDef
+# CreateLaunchConfigurationTemplateRequestTypeDef
 
 ### copyPrivateIp
 - **Type**: typing.Optional[bool]
@@ -126,7 +126,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateReplicationConfigurationTemplateRequestRequestTypeDef
+# CreateReplicationConfigurationTemplateRequestTypeDef
 
 ### associateDefaultSecurityGroup
 - **Type**: <class 'bool'>
@@ -186,7 +186,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateSourceNetworkRequestRequestTypeDef
+# CreateSourceNetworkRequestTypeDef
 
 ### originAccountID
 - **Type**: <class 'str'>
@@ -293,14 +293,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.drs_classes.DataReplicationInitiationStepTypeDef]]
 
 
-# DeleteJobRequestRequestTypeDef
+# DeleteJobRequestTypeDef
 
 ### jobID
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteLaunchActionRequestRequestTypeDef
+# DeleteLaunchActionRequestTypeDef
 
 ### actionId
 - **Type**: <class 'str'>
@@ -311,42 +311,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteLaunchConfigurationTemplateRequestRequestTypeDef
+# DeleteLaunchConfigurationTemplateRequestTypeDef
 
 ### launchConfigurationTemplateID
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteRecoveryInstanceRequestRequestTypeDef
+# DeleteRecoveryInstanceRequestTypeDef
 
 ### recoveryInstanceID
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteReplicationConfigurationTemplateRequestRequestTypeDef
+# DeleteReplicationConfigurationTemplateRequestTypeDef
 
 ### replicationConfigurationTemplateID
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSourceNetworkRequestRequestTypeDef
+# DeleteSourceNetworkRequestTypeDef
 
 ### sourceNetworkID
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSourceServerRequestRequestTypeDef
+# DeleteSourceServerRequestTypeDef
 
 ### sourceServerID
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeJobLogItemsRequestDescribeJobLogItemsPaginateTypeDef
+# DescribeJobLogItemsRequestPaginateTypeDef
 
 ### jobID
 - **Type**: <class 'str'>
@@ -356,7 +356,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.PaginatorConfigTypeDef]
 
 
-# DescribeJobLogItemsRequestRequestTypeDef
+# DescribeJobLogItemsRequestTypeDef
 
 ### jobID
 - **Type**: <class 'str'>
@@ -375,22 +375,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.drs_classes.JobLogTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.drs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# DescribeJobsRequestDescribeJobsPaginateTypeDef
-
-### filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.DescribeJobsRequestFiltersTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.PaginatorConfigTypeDef]
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # DescribeJobsRequestFiltersTypeDef
@@ -405,7 +395,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeJobsRequestRequestTypeDef
+# DescribeJobsRequestPaginateTypeDef
+
+### filters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.DescribeJobsRequestFiltersTypeDef]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.PaginatorConfigTypeDef]
+
+
+# DescribeJobsRequestTypeDef
 
 ### filters
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.DescribeJobsRequestFiltersTypeDef]
@@ -423,16 +422,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.drs_classes.JobTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.drs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeLaunchConfigurationTemplatesRequestDescribeLaunchConfigurationTemplatesPaginateTypeDef
+
+# DescribeLaunchConfigurationTemplatesRequestPaginateTypeDef
 
 ### launchConfigurationTemplateIDs
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -441,7 +439,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.PaginatorConfigTypeDef]
 
 
-# DescribeLaunchConfigurationTemplatesRequestRequestTypeDef
+# DescribeLaunchConfigurationTemplatesRequestTypeDef
 
 ### launchConfigurationTemplateIDs
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -459,22 +457,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.drs_classes.LaunchConfigurationTemplateTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.drs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# DescribeRecoveryInstancesRequestDescribeRecoveryInstancesPaginateTypeDef
-
-### filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.DescribeRecoveryInstancesRequestFiltersTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.PaginatorConfigTypeDef]
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # DescribeRecoveryInstancesRequestFiltersTypeDef
@@ -486,7 +474,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DescribeRecoveryInstancesRequestRequestTypeDef
+# DescribeRecoveryInstancesRequestPaginateTypeDef
+
+### filters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.DescribeRecoveryInstancesRequestFiltersTypeDef]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.PaginatorConfigTypeDef]
+
+
+# DescribeRecoveryInstancesRequestTypeDef
 
 ### filters
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.DescribeRecoveryInstancesRequestFiltersTypeDef]
@@ -504,16 +501,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.drs_classes.RecoveryInstanceTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.drs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeRecoverySnapshotsRequestDescribeRecoverySnapshotsPaginateTypeDef
+
+# DescribeRecoverySnapshotsRequestFiltersTypeDef
+
+### fromDateTime
+- **Type**: typing.Optional[str]
+
+### toDateTime
+- **Type**: typing.Optional[str]
+
+
+# DescribeRecoverySnapshotsRequestPaginateTypeDef
 
 ### sourceServerID
 - **Type**: <class 'str'>
@@ -529,16 +534,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.PaginatorConfigTypeDef]
 
 
-# DescribeRecoverySnapshotsRequestFiltersTypeDef
-
-### fromDateTime
-- **Type**: typing.Optional[str]
-
-### toDateTime
-- **Type**: typing.Optional[str]
-
-
-# DescribeRecoverySnapshotsRequestRequestTypeDef
+# DescribeRecoverySnapshotsRequestTypeDef
 
 ### sourceServerID
 - **Type**: <class 'str'>
@@ -563,16 +559,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.drs_classes.RecoverySnapshotTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.drs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeReplicationConfigurationTemplatesRequestDescribeReplicationConfigurationTemplatesPaginateTypeDef
+
+# DescribeReplicationConfigurationTemplatesRequestPaginateTypeDef
 
 ### replicationConfigurationTemplateIDs
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -581,7 +576,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.PaginatorConfigTypeDef]
 
 
-# DescribeReplicationConfigurationTemplatesRequestRequestTypeDef
+# DescribeReplicationConfigurationTemplatesRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -599,22 +594,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.drs_classes.ReplicationConfigurationTemplateTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.drs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# DescribeSourceNetworksRequestDescribeSourceNetworksPaginateTypeDef
-
-### filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.DescribeSourceNetworksRequestFiltersTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.PaginatorConfigTypeDef]
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # DescribeSourceNetworksRequestFiltersTypeDef
@@ -629,7 +614,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DescribeSourceNetworksRequestRequestTypeDef
+# DescribeSourceNetworksRequestPaginateTypeDef
+
+### filters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.DescribeSourceNetworksRequestFiltersTypeDef]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.PaginatorConfigTypeDef]
+
+
+# DescribeSourceNetworksRequestTypeDef
 
 ### filters
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.DescribeSourceNetworksRequestFiltersTypeDef]
@@ -647,22 +641,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.drs_classes.SourceNetworkTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.drs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# DescribeSourceServersRequestDescribeSourceServersPaginateTypeDef
-
-### filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.DescribeSourceServersRequestFiltersTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.PaginatorConfigTypeDef]
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # DescribeSourceServersRequestFiltersTypeDef
@@ -677,7 +661,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DescribeSourceServersRequestRequestTypeDef
+# DescribeSourceServersRequestPaginateTypeDef
+
+### filters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.DescribeSourceServersRequestFiltersTypeDef]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.PaginatorConfigTypeDef]
+
+
+# DescribeSourceServersRequestTypeDef
 
 ### filters
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.DescribeSourceServersRequestFiltersTypeDef]
@@ -695,23 +688,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.drs_classes.SourceServerTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.drs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DisconnectRecoveryInstanceRequestRequestTypeDef
+
+# DisconnectRecoveryInstanceRequestTypeDef
 
 ### recoveryInstanceID
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisconnectSourceServerRequestRequestTypeDef
+# DisconnectSourceServerRequestTypeDef
 
 ### sourceServerID
 - **Type**: <class 'str'>
@@ -720,12 +712,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DiskTypeDef
 
-### bytes
-- **Type**: typing.Optional[int]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### deviceName
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EmptyResponseMetadataTypeDef
 
@@ -740,7 +729,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.SourceNetworkDataTypeDef]
 
 
-# ExportSourceNetworkCfnTemplateRequestRequestTypeDef
+# ExportSourceNetworkCfnTemplateRequestTypeDef
 
 ### sourceNetworkID
 - **Type**: <class 'str'>
@@ -758,7 +747,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetFailbackReplicationConfigurationRequestRequestTypeDef
+# GetFailbackReplicationConfigurationRequestTypeDef
 
 ### recoveryInstanceID
 - **Type**: <class 'str'>
@@ -788,14 +777,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetLaunchConfigurationRequestRequestTypeDef
+# GetLaunchConfigurationRequestTypeDef
 
 ### sourceServerID
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetReplicationConfigurationRequestRequestTypeDef
+# GetReplicationConfigurationRequestTypeDef
 
 ### sourceServerID
 - **Type**: <class 'str'>
@@ -852,46 +841,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # JobTypeDef
 
-### jobID
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: typing.Optional[str]
-
-### creationDateTime
-- **Type**: typing.Optional[str]
-
-### endDateTime
-- **Type**: typing.Optional[str]
-
-### initiatedBy
-- **Type**: typing.Optional[typing.Literal['ASSOCIATE_NETWORK_RECOVERY', 'CREATE_NETWORK_RECOVERY', 'DIAGNOSTIC', 'FAILBACK', 'START_DRILL', 'START_RECOVERY', 'TARGET_ACCOUNT', 'TERMINATE_RECOVERY_INSTANCES', 'UPDATE_NETWORK_RECOVERY']]
-
-### participatingResources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.drs_classes.ParticipatingResourceTypeDef]]
-
-### participatingServers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.drs_classes.ParticipatingServerTypeDef]]
-
-### status
-- **Type**: typing.Optional[typing.Literal['COMPLETED', 'PENDING', 'STARTED']]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### type
-- **Type**: typing.Optional[typing.Literal['CREATE_CONVERTED_SNAPSHOT', 'LAUNCH', 'TERMINATE']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LaunchActionParameterTypeDef
 
-### type
-- **Type**: typing.Optional[typing.Literal['DYNAMIC', 'SSM_STORE']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### value
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LaunchActionRunTypeDef
 
@@ -910,39 +868,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # LaunchActionTypeDef
 
-### actionCode
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### actionId
-- **Type**: typing.Optional[str]
-
-### actionVersion
-- **Type**: typing.Optional[str]
-
-### active
-- **Type**: typing.Optional[bool]
-
-### category
-- **Type**: typing.Optional[typing.Literal['CONFIGURATION', 'MONITORING', 'OTHER', 'SECURITY', 'VALIDATION']]
-
-### description
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### optional
-- **Type**: typing.Optional[bool]
-
-### order
-- **Type**: typing.Optional[int]
-
-### parameters
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.drs_classes.LaunchActionParameterTypeDef]]
-
-### type
-- **Type**: typing.Optional[typing.Literal['SSM_AUTOMATION', 'SSM_COMMAND']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LaunchActionsRequestFiltersTypeDef
 
@@ -1056,15 +984,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # LifeCycleLastLaunchInitiatedTypeDef
 
-### apiCallDateTime
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### jobID
-- **Type**: typing.Optional[str]
-
-### type
-- **Type**: typing.Optional[typing.Literal['DRILL', 'RECOVERY']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LifeCycleLastLaunchTypeDef
 
@@ -1093,7 +1015,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListExtensibleSourceServersRequestListExtensibleSourceServersPaginateTypeDef
+# ListExtensibleSourceServersRequestPaginateTypeDef
 
 ### stagingAccountID
 - **Type**: <class 'str'>
@@ -1103,7 +1025,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.PaginatorConfigTypeDef]
 
 
-# ListExtensibleSourceServersRequestRequestTypeDef
+# ListExtensibleSourceServersRequestTypeDef
 
 ### stagingAccountID
 - **Type**: <class 'str'>
@@ -1122,16 +1044,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.drs_classes.StagingSourceServerTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.drs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListLaunchActionsRequestListLaunchActionsPaginateTypeDef
+
+# ListLaunchActionsRequestPaginateTypeDef
 
 ### resourceId
 - **Type**: <class 'str'>
@@ -1144,7 +1065,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.PaginatorConfigTypeDef]
 
 
-# ListLaunchActionsRequestRequestTypeDef
+# ListLaunchActionsRequestTypeDef
 
 ### resourceId
 - **Type**: <class 'str'>
@@ -1166,22 +1087,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.drs_classes.LaunchActionTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.drs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListStagingAccountsRequestListStagingAccountsPaginateTypeDef
+
+# ListStagingAccountsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.drs_classes.PaginatorConfigTypeDef]
 
 
-# ListStagingAccountsRequestRequestTypeDef
+# ListStagingAccountsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1196,16 +1116,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.drs_classes.AccountTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.drs_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1313,7 +1232,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
-# PutLaunchActionRequestRequestTypeDef
+# PutLaunchActionRequestTypeDef
 
 ### actionCode
 - **Type**: <class 'str'>
@@ -1357,61 +1276,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### parameters
 - **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.drs_classes.LaunchActionParameterTypeDef]]
-
-
-# PutLaunchActionResponseTypeDef
-
-### actionCode
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### actionId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### actionVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### active
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### category
-- **Type**: typing.Literal['CONFIGURATION', 'MONITORING', 'OTHER', 'SECURITY', 'VALIDATION']
-- **Required**: Yes
-
-### description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### optional
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### order
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### parameters
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.drs_classes.LaunchActionParameterTypeDef]
-- **Required**: Yes
-
-### resourceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['SSM_AUTOMATION', 'SSM_COMMAND']
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.drs_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
 
 
 # RecoveryInstanceDataReplicationErrorTypeDef
@@ -1488,15 +1352,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # RecoveryInstanceDiskTypeDef
 
-### bytes
-- **Type**: typing.Optional[int]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### ebsVolumeID
-- **Type**: typing.Optional[str]
-
-### internalDeviceName
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RecoveryInstanceFailbackTypeDef
 
@@ -1887,14 +1745,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RetryDataReplicationRequestRequestTypeDef
+# RetryDataReplicationRequestTypeDef
 
 ### sourceServerID
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ReverseReplicationRequestRequestTypeDef
+# ReverseReplicationRequestTypeDef
 
 ### recoveryInstanceID
 - **Type**: <class 'str'>
@@ -2143,7 +2001,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# StartFailbackLaunchRequestRequestTypeDef
+# StartFailbackLaunchRequestTypeDef
 
 ### recoveryInstanceIDs
 - **Type**: typing.Sequence[str]
@@ -2164,7 +2022,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartRecoveryRequestRequestTypeDef
+# StartRecoveryRequestSourceServerTypeDef
+
+### sourceServerID
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### recoverySnapshotID
+- **Type**: typing.Optional[str]
+
+
+# StartRecoveryRequestTypeDef
 
 ### sourceServers
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.drs_classes.StartRecoveryRequestSourceServerTypeDef]
@@ -2175,16 +2043,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
-
-
-# StartRecoveryRequestSourceServerTypeDef
-
-### sourceServerID
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### recoverySnapshotID
-- **Type**: typing.Optional[str]
 
 
 # StartRecoveryResponseTypeDef
@@ -2198,7 +2056,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartReplicationRequestRequestTypeDef
+# StartReplicationRequestTypeDef
 
 ### sourceServerID
 - **Type**: <class 'str'>
@@ -2226,7 +2084,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartSourceNetworkRecoveryRequestRequestTypeDef
+# StartSourceNetworkRecoveryRequestTypeDef
 
 ### sourceNetworks
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.drs_classes.StartSourceNetworkRecoveryRequestNetworkEntryTypeDef]
@@ -2250,7 +2108,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartSourceNetworkReplicationRequestRequestTypeDef
+# StartSourceNetworkReplicationRequestTypeDef
 
 ### sourceNetworkID
 - **Type**: <class 'str'>
@@ -2268,14 +2126,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopFailbackRequestRequestTypeDef
+# StopFailbackRequestTypeDef
 
 ### recoveryInstanceID
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopReplicationRequestRequestTypeDef
+# StopReplicationRequestTypeDef
 
 ### sourceServerID
 - **Type**: <class 'str'>
@@ -2293,7 +2151,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopSourceNetworkReplicationRequestRequestTypeDef
+# StopSourceNetworkReplicationRequestTypeDef
 
 ### sourceNetworkID
 - **Type**: <class 'str'>
@@ -2311,7 +2169,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2322,7 +2180,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TerminateRecoveryInstancesRequestRequestTypeDef
+# TerminateRecoveryInstancesRequestTypeDef
 
 ### recoveryInstanceIDs
 - **Type**: typing.Sequence[str]
@@ -2340,7 +2198,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2351,7 +2209,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateFailbackReplicationConfigurationRequestRequestTypeDef
+# UpdateFailbackReplicationConfigurationRequestTypeDef
 
 ### recoveryInstanceID
 - **Type**: <class 'str'>
@@ -2367,7 +2225,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpdateLaunchConfigurationRequestRequestTypeDef
+# UpdateLaunchConfigurationRequestTypeDef
 
 ### sourceServerID
 - **Type**: <class 'str'>
@@ -2398,7 +2256,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BASIC', 'IN_AWS', 'NONE']]
 
 
-# UpdateLaunchConfigurationTemplateRequestRequestTypeDef
+# UpdateLaunchConfigurationTemplateRequestTypeDef
 
 ### launchConfigurationTemplateID
 - **Type**: <class 'str'>
@@ -2440,7 +2298,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateReplicationConfigurationRequestRequestTypeDef
+# UpdateReplicationConfigurationRequestTypeDef
 
 ### sourceServerID
 - **Type**: <class 'str'>
@@ -2495,7 +2353,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpdateReplicationConfigurationTemplateRequestRequestTypeDef
+# UpdateReplicationConfigurationTemplateRequestTypeDef
 
 ### replicationConfigurationTemplateID
 - **Type**: <class 'str'>

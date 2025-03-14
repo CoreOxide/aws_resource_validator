@@ -1,6 +1,6 @@
 # Es Classes
 
-# AcceptInboundCrossClusterSearchConnectionRequestRequestTypeDef
+# AcceptInboundCrossClusterSearchConnectionRequestTypeDef
 
 ### CrossClusterSearchConnectionId
 - **Type**: <class 'str'>
@@ -29,7 +29,7 @@
 - **Required**: Yes
 
 
-# AddTagsRequestRequestTypeDef
+# AddTagsRequestTypeDef
 
 ### ARN
 - **Type**: <class 'str'>
@@ -107,7 +107,7 @@
 - **Type**: typing.Optional[bool]
 
 
-# AssociatePackageRequestRequestTypeDef
+# AssociatePackageRequestTypeDef
 
 ### PackageID
 - **Type**: <class 'str'>
@@ -129,7 +129,7 @@
 - **Required**: Yes
 
 
-# AuthorizeVpcEndpointAccessRequestRequestTypeDef
+# AuthorizeVpcEndpointAccessRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -181,7 +181,7 @@
 # AutoTuneMaintenanceScheduleTypeDef
 
 ### StartAt
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.es_classes.TimestampTypeDef]
 
 ### Duration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.es_classes.DurationTypeDef]
@@ -190,7 +190,13 @@
 - **Type**: typing.Optional[str]
 
 
-# AutoTuneOptionsExtraOutputTypeDef
+# AutoTuneMaintenanceScheduleUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AutoTuneOptionsExtraTypeDef
 
 ### DesiredState
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
@@ -208,7 +214,7 @@
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### MaintenanceSchedules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.es_classes.AutoTuneMaintenanceScheduleTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.es_classes.AutoTuneMaintenanceScheduleUnionTypeDef]]
 
 
 # AutoTuneOptionsOutputTypeDef
@@ -223,7 +229,7 @@
 # AutoTuneOptionsStatusTypeDef
 
 ### Options
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.es_classes.AutoTuneOptionsExtraOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.es_classes.AutoTuneOptionsExtraTypeDef]
 
 ### Status
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.es_classes.AutoTuneStatusTypeDef]
@@ -240,6 +246,12 @@
 ### MaintenanceSchedules
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.es_classes.AutoTuneMaintenanceScheduleTypeDef]]
 
+
+# AutoTuneOptionsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AutoTuneStatusTypeDef
 
@@ -280,7 +292,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelDomainConfigChangeRequestRequestTypeDef
+# CancelDomainConfigChangeRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -309,7 +321,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CancelElasticsearchServiceSoftwareUpdateRequestRequestTypeDef
+# CancelElasticsearchServiceSoftwareUpdateRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -450,7 +462,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# CreateElasticsearchDomainRequestRequestTypeDef
+# CreateElasticsearchDomainRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -513,7 +525,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateOutboundCrossClusterSearchConnectionRequestRequestTypeDef
+# CreateOutboundCrossClusterSearchConnectionRequestTypeDef
 
 ### SourceDomainInfo
 - **Type**: <class 'aws_resource_validator.pydantic_models.es_classes.DomainInformationTypeDef'>
@@ -555,7 +567,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePackageRequestRequestTypeDef
+# CreatePackageRequestTypeDef
 
 ### PackageName
 - **Type**: <class 'str'>
@@ -584,7 +596,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateVpcEndpointRequestRequestTypeDef
+# CreateVpcEndpointRequestTypeDef
 
 ### DomainArn
 - **Type**: <class 'str'>
@@ -609,7 +621,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteElasticsearchDomainRequestRequestTypeDef
+# DeleteElasticsearchDomainRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -627,7 +639,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteInboundCrossClusterSearchConnectionRequestRequestTypeDef
+# DeleteInboundCrossClusterSearchConnectionRequestTypeDef
 
 ### CrossClusterSearchConnectionId
 - **Type**: <class 'str'>
@@ -645,7 +657,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteOutboundCrossClusterSearchConnectionRequestRequestTypeDef
+# DeleteOutboundCrossClusterSearchConnectionRequestTypeDef
 
 ### CrossClusterSearchConnectionId
 - **Type**: <class 'str'>
@@ -663,7 +675,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeletePackageRequestRequestTypeDef
+# DeletePackageRequestTypeDef
 
 ### PackageID
 - **Type**: <class 'str'>
@@ -681,7 +693,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteVpcEndpointRequestRequestTypeDef
+# DeleteVpcEndpointRequestTypeDef
 
 ### VpcEndpointId
 - **Type**: <class 'str'>
@@ -699,7 +711,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDomainAutoTunesRequestRequestTypeDef
+# DescribeDomainAutoTunesRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -726,7 +738,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDomainChangeProgressRequestRequestTypeDef
+# DescribeDomainChangeProgressRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -747,7 +759,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeElasticsearchDomainConfigRequestRequestTypeDef
+# DescribeElasticsearchDomainConfigRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -765,7 +777,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeElasticsearchDomainRequestRequestTypeDef
+# DescribeElasticsearchDomainRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -783,7 +795,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeElasticsearchDomainsRequestRequestTypeDef
+# DescribeElasticsearchDomainsRequestTypeDef
 
 ### DomainNames
 - **Type**: typing.Sequence[str]
@@ -801,7 +813,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeElasticsearchInstanceTypeLimitsRequestRequestTypeDef
+# DescribeElasticsearchInstanceTypeLimitsRequestTypeDef
 
 ### InstanceType
 - **Type**: typing.Literal['c4.2xlarge.elasticsearch', 'c4.4xlarge.elasticsearch', 'c4.8xlarge.elasticsearch', 'c4.large.elasticsearch', 'c4.xlarge.elasticsearch', 'c5.18xlarge.elasticsearch', 'c5.2xlarge.elasticsearch', 'c5.4xlarge.elasticsearch', 'c5.9xlarge.elasticsearch', 'c5.large.elasticsearch', 'c5.xlarge.elasticsearch', 'd2.2xlarge.elasticsearch', 'd2.4xlarge.elasticsearch', 'd2.8xlarge.elasticsearch', 'd2.xlarge.elasticsearch', 'i2.2xlarge.elasticsearch', 'i2.xlarge.elasticsearch', 'i3.16xlarge.elasticsearch', 'i3.2xlarge.elasticsearch', 'i3.4xlarge.elasticsearch', 'i3.8xlarge.elasticsearch', 'i3.large.elasticsearch', 'i3.xlarge.elasticsearch', 'm3.2xlarge.elasticsearch', 'm3.large.elasticsearch', 'm3.medium.elasticsearch', 'm3.xlarge.elasticsearch', 'm4.10xlarge.elasticsearch', 'm4.2xlarge.elasticsearch', 'm4.4xlarge.elasticsearch', 'm4.large.elasticsearch', 'm4.xlarge.elasticsearch', 'm5.12xlarge.elasticsearch', 'm5.2xlarge.elasticsearch', 'm5.4xlarge.elasticsearch', 'm5.large.elasticsearch', 'm5.xlarge.elasticsearch', 'r3.2xlarge.elasticsearch', 'r3.4xlarge.elasticsearch', 'r3.8xlarge.elasticsearch', 'r3.large.elasticsearch', 'r3.xlarge.elasticsearch', 'r4.16xlarge.elasticsearch', 'r4.2xlarge.elasticsearch', 'r4.4xlarge.elasticsearch', 'r4.8xlarge.elasticsearch', 'r4.large.elasticsearch', 'r4.xlarge.elasticsearch', 'r5.12xlarge.elasticsearch', 'r5.2xlarge.elasticsearch', 'r5.4xlarge.elasticsearch', 'r5.large.elasticsearch', 'r5.xlarge.elasticsearch', 't2.medium.elasticsearch', 't2.micro.elasticsearch', 't2.small.elasticsearch', 'ultrawarm1.large.elasticsearch', 'ultrawarm1.medium.elasticsearch']
@@ -826,7 +838,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeInboundCrossClusterSearchConnectionsRequestRequestTypeDef
+# DescribeInboundCrossClusterSearchConnectionsRequestTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.es_classes.FilterTypeDef]]
@@ -852,7 +864,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeOutboundCrossClusterSearchConnectionsRequestRequestTypeDef
+# DescribeOutboundCrossClusterSearchConnectionsRequestTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.es_classes.FilterTypeDef]]
@@ -887,7 +899,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DescribePackagesRequestRequestTypeDef
+# DescribePackagesRequestTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.es_classes.DescribePackagesFilterTypeDef]]
@@ -913,7 +925,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeReservedElasticsearchInstanceOfferingsRequestDescribeReservedElasticsearchInstanceOfferingsPaginateTypeDef
+# DescribeReservedElasticsearchInstanceOfferingsRequestPaginateTypeDef
 
 ### ReservedElasticsearchInstanceOfferingId
 - **Type**: typing.Optional[str]
@@ -922,7 +934,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.es_classes.PaginatorConfigTypeDef]
 
 
-# DescribeReservedElasticsearchInstanceOfferingsRequestRequestTypeDef
+# DescribeReservedElasticsearchInstanceOfferingsRequestTypeDef
 
 ### ReservedElasticsearchInstanceOfferingId
 - **Type**: typing.Optional[str]
@@ -948,7 +960,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeReservedElasticsearchInstancesRequestDescribeReservedElasticsearchInstancesPaginateTypeDef
+# DescribeReservedElasticsearchInstancesRequestPaginateTypeDef
 
 ### ReservedElasticsearchInstanceId
 - **Type**: typing.Optional[str]
@@ -957,7 +969,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.es_classes.PaginatorConfigTypeDef]
 
 
-# DescribeReservedElasticsearchInstancesRequestRequestTypeDef
+# DescribeReservedElasticsearchInstancesRequestTypeDef
 
 ### ReservedElasticsearchInstanceId
 - **Type**: typing.Optional[str]
@@ -983,7 +995,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeVpcEndpointsRequestRequestTypeDef
+# DescribeVpcEndpointsRequestTypeDef
 
 ### VpcEndpointIds
 - **Type**: typing.Sequence[str]
@@ -1005,7 +1017,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DissociatePackageRequestRequestTypeDef
+# DissociatePackageRequestTypeDef
 
 ### PackageID
 - **Type**: <class 'str'>
@@ -1397,7 +1409,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# GetCompatibleElasticsearchVersionsRequestRequestTypeDef
+# GetCompatibleElasticsearchVersionsRequestTypeDef
 
 ### DomainName
 - **Type**: typing.Optional[str]
@@ -1414,7 +1426,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPackageVersionHistoryRequestRequestTypeDef
+# GetPackageVersionHistoryRequestTypeDef
 
 ### PackageID
 - **Type**: <class 'str'>
@@ -1445,7 +1457,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetUpgradeHistoryRequestGetUpgradeHistoryPaginateTypeDef
+# GetUpgradeHistoryRequestPaginateTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -1455,7 +1467,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.es_classes.PaginatorConfigTypeDef]
 
 
-# GetUpgradeHistoryRequestRequestTypeDef
+# GetUpgradeHistoryRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -1482,7 +1494,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetUpgradeStatusRequestRequestTypeDef
+# GetUpgradeStatusRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -1559,7 +1571,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.es_classes.AdditionalLimitTypeDef]]
 
 
-# ListDomainNamesRequestRequestTypeDef
+# ListDomainNamesRequestTypeDef
 
 ### EngineType
 - **Type**: typing.Optional[typing.Literal['Elasticsearch', 'OpenSearch']]
@@ -1576,7 +1588,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListDomainsForPackageRequestRequestTypeDef
+# ListDomainsForPackageRequestTypeDef
 
 ### PackageID
 - **Type**: <class 'str'>
@@ -1603,7 +1615,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListElasticsearchInstanceTypesRequestListElasticsearchInstanceTypesPaginateTypeDef
+# ListElasticsearchInstanceTypesRequestPaginateTypeDef
 
 ### ElasticsearchVersion
 - **Type**: <class 'str'>
@@ -1616,7 +1628,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.es_classes.PaginatorConfigTypeDef]
 
 
-# ListElasticsearchInstanceTypesRequestRequestTypeDef
+# ListElasticsearchInstanceTypesRequestTypeDef
 
 ### ElasticsearchVersion
 - **Type**: <class 'str'>
@@ -1646,13 +1658,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListElasticsearchVersionsRequestListElasticsearchVersionsPaginateTypeDef
+# ListElasticsearchVersionsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.es_classes.PaginatorConfigTypeDef]
 
 
-# ListElasticsearchVersionsRequestRequestTypeDef
+# ListElasticsearchVersionsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1675,7 +1687,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPackagesForDomainRequestRequestTypeDef
+# ListPackagesForDomainRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -1702,7 +1714,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsRequestRequestTypeDef
+# ListTagsRequestTypeDef
 
 ### ARN
 - **Type**: <class 'str'>
@@ -1720,7 +1732,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListVpcEndpointAccessRequestRequestTypeDef
+# ListVpcEndpointAccessRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -1745,7 +1757,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListVpcEndpointsForDomainRequestRequestTypeDef
+# ListVpcEndpointsForDomainRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -1770,7 +1782,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListVpcEndpointsRequestRequestTypeDef
+# ListVpcEndpointsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1964,7 +1976,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PurchaseReservedElasticsearchInstanceOfferingRequestRequestTypeDef
+# PurchaseReservedElasticsearchInstanceOfferingRequestTypeDef
 
 ### ReservedElasticsearchInstanceOfferingId
 - **Type**: <class 'str'>
@@ -2002,7 +2014,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RejectInboundCrossClusterSearchConnectionRequestRequestTypeDef
+# RejectInboundCrossClusterSearchConnectionRequestTypeDef
 
 ### CrossClusterSearchConnectionId
 - **Type**: <class 'str'>
@@ -2020,7 +2032,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveTagsRequestRequestTypeDef
+# RemoveTagsRequestTypeDef
 
 ### ARN
 - **Type**: <class 'str'>
@@ -2122,7 +2134,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RevokeVpcEndpointAccessRequestRequestTypeDef
+# RevokeVpcEndpointAccessRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -2245,7 +2257,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# StartElasticsearchServiceSoftwareUpdateRequestRequestTypeDef
+# StartElasticsearchServiceSoftwareUpdateRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -2295,7 +2307,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateElasticsearchDomainConfigRequestRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UpdateElasticsearchDomainConfigRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -2338,7 +2356,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.es_classes.EncryptionAtRestOptionsTypeDef]
 
 ### AutoTuneOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.es_classes.AutoTuneOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.es_classes.AutoTuneOptionsUnionTypeDef]
 
 ### DryRun
 - **Type**: typing.Optional[bool]
@@ -2359,7 +2377,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePackageRequestRequestTypeDef
+# UpdatePackageRequestTypeDef
 
 ### PackageID
 - **Type**: <class 'str'>
@@ -2387,7 +2405,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateVpcEndpointRequestRequestTypeDef
+# UpdateVpcEndpointRequestTypeDef
 
 ### VpcEndpointId
 - **Type**: <class 'str'>
@@ -2409,7 +2427,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpgradeElasticsearchDomainRequestRequestTypeDef
+# UpgradeElasticsearchDomainRequestTypeDef
 
 ### DomainName
 - **Type**: <class 'str'>

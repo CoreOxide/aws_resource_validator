@@ -13,7 +13,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# JoinStorageSessionInputRequestTypeDef
+# JoinStorageSessionAsViewerInputTypeDef
+
+### channelArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### clientId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# JoinStorageSessionInputTypeDef
 
 ### channelArn
 - **Type**: <class 'str'>
@@ -23,10 +34,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ResponseMetadataTypeDef
 
 ### RequestId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### HostId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -41,5 +48,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 

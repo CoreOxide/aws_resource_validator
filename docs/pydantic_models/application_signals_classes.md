@@ -6,10 +6,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchGetServiceLevelObjectiveBudgetReportInputRequestTypeDef
+# BatchGetServiceLevelObjectiveBudgetReportInputTypeDef
 
 ### Timestamp
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### SloIds
@@ -36,6 +36,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# BurnRateConfigurationTypeDef
+
+### LookBackWindowMinutes
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+
 # CalendarIntervalOutputTypeDef
 
 ### StartTime
@@ -43,7 +50,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DurationUnit
-- **Type**: typing.Literal['DAY', 'MONTH']
+- **Type**: typing.Literal['DAY', 'HOUR', 'MINUTE', 'MONTH']
 - **Required**: Yes
 
 ### Duration
@@ -54,11 +61,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CalendarIntervalTypeDef
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### DurationUnit
-- **Type**: typing.Literal['DAY', 'MONTH']
+- **Type**: typing.Literal['DAY', 'HOUR', 'MINUTE', 'MONTH']
 - **Required**: Yes
 
 ### Duration
@@ -66,24 +73,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateServiceLevelObjectiveInputRequestTypeDef
+# CreateServiceLevelObjectiveInputTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### SliConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.ServiceLevelIndicatorConfigTypeDef'>
-- **Required**: Yes
-
 ### Description
 - **Type**: typing.Optional[str]
 
+### SliConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_signals_classes.ServiceLevelIndicatorConfigTypeDef]
+
+### RequestBasedSliConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_signals_classes.RequestBasedServiceLevelIndicatorConfigTypeDef]
+
 ### Goal
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_signals_classes.GoalTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_signals_classes.GoalUnionTypeDef]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.application_signals_classes.TagTypeDef]]
+
+### BurnRateConfigurations
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.application_signals_classes.BurnRateConfigurationTypeDef]]
 
 
 # CreateServiceLevelObjectiveOutputTypeDef
@@ -97,7 +109,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteServiceLevelObjectiveInputRequestTypeDef
+# DeleteServiceLevelObjectiveInputTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -115,14 +127,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetServiceInputRequestTypeDef
+# GetServiceInputTypeDef
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### KeyAttributes
@@ -130,7 +142,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetServiceLevelObjectiveInputRequestTypeDef
+# GetServiceLevelObjectiveInputTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -162,6 +174,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
+### LogGroupReferences
+- **Type**: typing.List[typing.Dict[str, str]]
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
@@ -191,6 +207,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
+# GoalUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # IntervalOutputTypeDef
 
 ### RollingInterval
@@ -209,14 +231,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_signals_classes.CalendarIntervalTypeDef]
 
 
-# ListServiceDependenciesInputListServiceDependenciesPaginateTypeDef
+# ListServiceDependenciesInputPaginateTypeDef
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### KeyAttributes
@@ -227,14 +249,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_signals_classes.PaginatorConfigTypeDef]
 
 
-# ListServiceDependenciesInputRequestTypeDef
+# ListServiceDependenciesInputTypeDef
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### KeyAttributes
@@ -270,14 +292,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListServiceDependentsInputListServiceDependentsPaginateTypeDef
+# ListServiceDependentsInputPaginateTypeDef
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### KeyAttributes
@@ -288,14 +310,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_signals_classes.PaginatorConfigTypeDef]
 
 
-# ListServiceDependentsInputRequestTypeDef
+# ListServiceDependentsInputTypeDef
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### KeyAttributes
@@ -331,7 +353,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListServiceLevelObjectivesInputListServiceLevelObjectivesPaginateTypeDef
+# ListServiceLevelObjectivesInputPaginateTypeDef
 
 ### KeyAttributes
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -339,11 +361,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### OperationName
 - **Type**: typing.Optional[str]
 
+### IncludeLinkedAccounts
+- **Type**: typing.Optional[bool]
+
+### SloOwnerAwsAccountId
+- **Type**: typing.Optional[str]
+
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_signals_classes.PaginatorConfigTypeDef]
 
 
-# ListServiceLevelObjectivesInputRequestTypeDef
+# ListServiceLevelObjectivesInputTypeDef
 
 ### KeyAttributes
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -355,6 +383,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### NextToken
+- **Type**: typing.Optional[str]
+
+### IncludeLinkedAccounts
+- **Type**: typing.Optional[bool]
+
+### SloOwnerAwsAccountId
 - **Type**: typing.Optional[str]
 
 
@@ -372,14 +406,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListServiceOperationsInputListServiceOperationsPaginateTypeDef
+# ListServiceOperationsInputPaginateTypeDef
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### KeyAttributes
@@ -390,14 +424,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_signals_classes.PaginatorConfigTypeDef]
 
 
-# ListServiceOperationsInputRequestTypeDef
+# ListServiceOperationsInputTypeDef
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### KeyAttributes
@@ -433,34 +467,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListServicesInputListServicesPaginateTypeDef
+# ListServicesInputPaginateTypeDef
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.TimestampTypeDef'>
 - **Required**: Yes
+
+### IncludeLinkedAccounts
+- **Type**: typing.Optional[bool]
+
+### AwsAccountId
+- **Type**: typing.Optional[str]
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_signals_classes.PaginatorConfigTypeDef]
 
 
-# ListServicesInputRequestTypeDef
+# ListServicesInputTypeDef
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### MaxResults
 - **Type**: typing.Optional[int]
 
 ### NextToken
+- **Type**: typing.Optional[str]
+
+### IncludeLinkedAccounts
+- **Type**: typing.Optional[bool]
+
+### AwsAccountId
 - **Type**: typing.Optional[str]
 
 
@@ -486,7 +532,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -536,7 +582,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MetricStat
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_signals_classes.MetricStatTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_signals_classes.MetricStatUnionTypeDef]
 
 ### Expression
 - **Type**: typing.Optional[str]
@@ -553,6 +599,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### AccountId
 - **Type**: typing.Optional[str]
 
+
+# MetricDataQueryUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MetricOutputTypeDef
 
@@ -583,6 +635,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Dimensions
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_signals_classes.DimensionTypeDef]]
 
+### AccountId
+- **Type**: typing.Optional[str]
+
 
 # MetricStatOutputTypeDef
 
@@ -605,7 +660,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MetricStatTypeDef
 
 ### Metric
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.MetricTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.MetricUnionTypeDef'>
 - **Required**: Yes
 
 ### Period
@@ -620,6 +675,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Bits', 'Bits/Second', 'Bytes', 'Bytes/Second', 'Count', 'Count/Second', 'Gigabits', 'Gigabits/Second', 'Gigabytes', 'Gigabytes/Second', 'Kilobits', 'Kilobits/Second', 'Kilobytes', 'Kilobytes/Second', 'Megabits', 'Megabits/Second', 'Megabytes', 'Megabytes/Second', 'Microseconds', 'Milliseconds', 'None', 'Percent', 'Seconds', 'Terabits', 'Terabits/Second', 'Terabytes', 'Terabytes/Second']]
 
 
+# MetricStatUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # MetricTypeDef
 
 ### Namespace
@@ -632,6 +693,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.application_signals_classes.DimensionTypeDef]]
 
 
+# MetricUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# MonitoredRequestCountMetricDataQueriesOutputTypeDef
+
+### GoodCountMetric
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_signals_classes.MetricDataQueryOutputTypeDef]]
+
+### BadCountMetric
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_signals_classes.MetricDataQueryOutputTypeDef]]
+
+
+# MonitoredRequestCountMetricDataQueriesTypeDef
+
+### GoodCountMetric
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.application_signals_classes.MetricDataQueryUnionTypeDef]]
+
+### BadCountMetric
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.application_signals_classes.MetricDataQueryTypeDef]]
+
+
+# MonitoredRequestCountMetricDataQueriesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # PaginatorConfigTypeDef
 
 ### MaxItems
@@ -642,6 +733,70 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### StartingToken
 - **Type**: typing.Optional[str]
+
+
+# RequestBasedServiceLevelIndicatorConfigTypeDef
+
+### RequestBasedSliMetricConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.RequestBasedServiceLevelIndicatorMetricConfigTypeDef'>
+- **Required**: Yes
+
+### MetricThreshold
+- **Type**: typing.Optional[float]
+
+### ComparisonOperator
+- **Type**: typing.Optional[typing.Literal['GreaterThan', 'GreaterThanOrEqualTo', 'LessThan', 'LessThanOrEqualTo']]
+
+
+# RequestBasedServiceLevelIndicatorMetricConfigTypeDef
+
+### KeyAttributes
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### OperationName
+- **Type**: typing.Optional[str]
+
+### MetricType
+- **Type**: typing.Optional[typing.Literal['AVAILABILITY', 'LATENCY']]
+
+### TotalRequestCountMetric
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.application_signals_classes.MetricDataQueryUnionTypeDef]]
+
+### MonitoredRequestCountMetric
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_signals_classes.MonitoredRequestCountMetricDataQueriesUnionTypeDef]
+
+
+# RequestBasedServiceLevelIndicatorMetricTypeDef
+
+### TotalRequestCountMetric
+- **Type**: typing.List[aws_resource_validator.pydantic_models.application_signals_classes.MetricDataQueryOutputTypeDef]
+- **Required**: Yes
+
+### MonitoredRequestCountMetric
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.MonitoredRequestCountMetricDataQueriesOutputTypeDef'>
+- **Required**: Yes
+
+### KeyAttributes
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### OperationName
+- **Type**: typing.Optional[str]
+
+### MetricType
+- **Type**: typing.Optional[typing.Literal['AVAILABILITY', 'LATENCY']]
+
+
+# RequestBasedServiceLevelIndicatorTypeDef
+
+### RequestBasedSliMetric
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.RequestBasedServiceLevelIndicatorMetricTypeDef'>
+- **Required**: Yes
+
+### MetricThreshold
+- **Type**: typing.Optional[float]
+
+### ComparisonOperator
+- **Type**: typing.Optional[typing.Literal['GreaterThan', 'GreaterThanOrEqualTo', 'LessThan', 'LessThanOrEqualTo']]
 
 
 # ResponseMetadataTypeDef
@@ -669,7 +824,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RollingIntervalTypeDef
 
 ### DurationUnit
-- **Type**: typing.Literal['DAY', 'MONTH']
+- **Type**: typing.Literal['DAY', 'HOUR', 'MINUTE', 'MONTH']
 - **Required**: Yes
 
 ### Duration
@@ -746,7 +901,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### MetricDataQueries
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.application_signals_classes.MetricDataQueryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.application_signals_classes.MetricDataQueryUnionTypeDef]]
 
 
 # ServiceLevelIndicatorMetricTypeDef
@@ -813,6 +968,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Literal['BREACHED', 'INSUFFICIENT_DATA', 'OK', 'WARNING']
 - **Required**: Yes
 
+### EvaluationType
+- **Type**: typing.Optional[typing.Literal['PeriodBased', 'RequestBased']]
+
 ### Attainment
 - **Type**: typing.Optional[float]
 
@@ -822,8 +980,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### BudgetSecondsRemaining
 - **Type**: typing.Optional[int]
 
+### TotalBudgetRequests
+- **Type**: typing.Optional[int]
+
+### BudgetRequestsRemaining
+- **Type**: typing.Optional[int]
+
 ### Sli
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_signals_classes.ServiceLevelIndicatorTypeDef]
+
+### RequestBasedSli
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_signals_classes.RequestBasedServiceLevelIndicatorTypeDef]
 
 ### Goal
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_signals_classes.GoalOutputTypeDef]
@@ -867,16 +1034,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
-### Sli
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.ServiceLevelIndicatorTypeDef'>
-- **Required**: Yes
-
 ### Goal
 - **Type**: <class 'aws_resource_validator.pydantic_models.application_signals_classes.GoalOutputTypeDef'>
 - **Required**: Yes
 
 ### Description
 - **Type**: typing.Optional[str]
+
+### Sli
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_signals_classes.ServiceLevelIndicatorTypeDef]
+
+### RequestBasedSli
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_signals_classes.RequestBasedServiceLevelIndicatorTypeDef]
+
+### EvaluationType
+- **Type**: typing.Optional[typing.Literal['PeriodBased', 'RequestBased']]
+
+### BurnRateConfigurations
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_signals_classes.BurnRateConfigurationTypeDef]]
 
 
 # ServiceOperationTypeDef
@@ -917,8 +1092,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### AttributeMaps
 - **Type**: typing.Optional[typing.List[typing.Dict[str, str]]]
 
+### LogGroupReferences
+- **Type**: typing.Optional[typing.List[typing.Dict[str, str]]]
 
-# TagResourceRequestRequestTypeDef
+
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -940,7 +1118,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -951,7 +1135,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateServiceLevelObjectiveInputRequestTypeDef
+# UpdateServiceLevelObjectiveInputTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -963,8 +1147,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### SliConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_signals_classes.ServiceLevelIndicatorConfigTypeDef]
 
+### RequestBasedSliConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_signals_classes.RequestBasedServiceLevelIndicatorConfigTypeDef]
+
 ### Goal
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_signals_classes.GoalTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_signals_classes.GoalUnionTypeDef]
+
+### BurnRateConfigurations
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.application_signals_classes.BurnRateConfigurationTypeDef]]
 
 
 # UpdateServiceLevelObjectiveOutputTypeDef

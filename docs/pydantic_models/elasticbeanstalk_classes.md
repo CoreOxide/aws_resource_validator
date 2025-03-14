@@ -1,6 +1,6 @@
 # Elasticbeanstalk Classes
 
-# AbortEnvironmentUpdateMessageRequestTypeDef
+# AbortEnvironmentUpdateMessageTypeDef
 
 ### EnvironmentId
 - **Type**: typing.Optional[str]
@@ -164,7 +164,7 @@
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.MaxAgeRuleTypeDef]
 
 
-# ApplyEnvironmentManagedActionRequestRequestTypeDef
+# ApplyEnvironmentManagedActionRequestTypeDef
 
 ### ActionId
 - **Type**: <class 'str'>
@@ -200,7 +200,7 @@
 - **Required**: Yes
 
 
-# AssociateEnvironmentOperationsRoleMessageRequestTypeDef
+# AssociateEnvironmentOperationsRoleMessageTypeDef
 
 ### EnvironmentName
 - **Type**: <class 'str'>
@@ -276,7 +276,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# CheckDNSAvailabilityMessageRequestTypeDef
+# CheckDNSAvailabilityMessageTypeDef
 
 ### CNAMEPrefix
 - **Type**: <class 'str'>
@@ -298,7 +298,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ComposeEnvironmentsMessageRequestTypeDef
+# ComposeEnvironmentsMessageTypeDef
 
 ### ApplicationName
 - **Type**: typing.Optional[str]
@@ -482,7 +482,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateApplicationMessageRequestTypeDef
+# CreateApplicationMessageTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -498,7 +498,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.TagTypeDef]]
 
 
-# CreateApplicationVersionMessageRequestTypeDef
+# CreateApplicationVersionMessageTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -530,7 +530,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.TagTypeDef]]
 
 
-# CreateConfigurationTemplateMessageRequestTypeDef
+# CreateConfigurationTemplateMessageTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -562,7 +562,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.TagTypeDef]]
 
 
-# CreateEnvironmentMessageRequestTypeDef
+# CreateEnvironmentMessageTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -608,7 +608,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreatePlatformVersionRequestRequestTypeDef
+# CreatePlatformVersionRequestTypeDef
 
 ### PlatformName
 - **Type**: <class 'str'>
@@ -667,7 +667,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteApplicationMessageRequestTypeDef
+# DeleteApplicationMessageTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -677,7 +677,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteApplicationVersionMessageRequestTypeDef
+# DeleteApplicationVersionMessageTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -691,7 +691,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteConfigurationTemplateMessageRequestTypeDef
+# DeleteConfigurationTemplateMessageTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -702,7 +702,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteEnvironmentConfigurationMessageRequestTypeDef
+# DeleteEnvironmentConfigurationMessageTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -713,7 +713,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeletePlatformVersionRequestRequestTypeDef
+# DeletePlatformVersionRequestTypeDef
 
 ### PlatformArn
 - **Type**: typing.Optional[str]
@@ -756,7 +756,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeApplicationVersionsMessageDescribeApplicationVersionsPaginateTypeDef
+# DescribeApplicationVersionsMessagePaginateTypeDef
 
 ### ApplicationName
 - **Type**: typing.Optional[str]
@@ -768,7 +768,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.PaginatorConfigTypeDef]
 
 
-# DescribeApplicationVersionsMessageRequestTypeDef
+# DescribeApplicationVersionsMessageTypeDef
 
 ### ApplicationName
 - **Type**: typing.Optional[str]
@@ -783,13 +783,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeApplicationsMessageRequestTypeDef
+# DescribeApplicationsMessageTypeDef
 
 ### ApplicationNames
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DescribeConfigurationOptionsMessageRequestTypeDef
+# DescribeConfigurationOptionsMessageTypeDef
 
 ### ApplicationName
 - **Type**: typing.Optional[str]
@@ -810,7 +810,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.OptionSpecificationTypeDef]]
 
 
-# DescribeConfigurationSettingsMessageRequestTypeDef
+# DescribeConfigurationSettingsMessageTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -823,7 +823,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeEnvironmentHealthRequestRequestTypeDef
+# DescribeEnvironmentHealthRequestTypeDef
 
 ### EnvironmentName
 - **Type**: typing.Optional[str]
@@ -874,7 +874,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEnvironmentManagedActionHistoryRequestDescribeEnvironmentManagedActionHistoryPaginateTypeDef
+# DescribeEnvironmentManagedActionHistoryRequestPaginateTypeDef
 
 ### EnvironmentId
 - **Type**: typing.Optional[str]
@@ -886,7 +886,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.PaginatorConfigTypeDef]
 
 
-# DescribeEnvironmentManagedActionHistoryRequestRequestTypeDef
+# DescribeEnvironmentManagedActionHistoryRequestTypeDef
 
 ### EnvironmentId
 - **Type**: typing.Optional[str]
@@ -915,7 +915,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeEnvironmentManagedActionsRequestRequestTypeDef
+# DescribeEnvironmentManagedActionsRequestTypeDef
 
 ### EnvironmentName
 - **Type**: typing.Optional[str]
@@ -938,7 +938,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEnvironmentResourcesMessageRequestTypeDef
+# DescribeEnvironmentResourcesMessageTypeDef
 
 ### EnvironmentId
 - **Type**: typing.Optional[str]
@@ -947,7 +947,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeEnvironmentsMessageDescribeEnvironmentsPaginateTypeDef
+# DescribeEnvironmentsMessagePaginateTypeDef
 
 ### ApplicationName
 - **Type**: typing.Optional[str]
@@ -965,13 +965,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### IncludedDeletedBackTo
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.TimestampTypeDef]
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.PaginatorConfigTypeDef]
 
 
-# DescribeEnvironmentsMessageEnvironmentExistsWaitTypeDef
+# DescribeEnvironmentsMessageTypeDef
 
 ### ApplicationName
 - **Type**: typing.Optional[str]
@@ -989,7 +989,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### IncludedDeletedBackTo
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.TimestampTypeDef]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# DescribeEnvironmentsMessageWaitExtraExtraTypeDef
+
+### ApplicationName
+- **Type**: typing.Optional[str]
+
+### VersionLabel
+- **Type**: typing.Optional[str]
+
+### EnvironmentIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### EnvironmentNames
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### IncludeDeleted
+- **Type**: typing.Optional[bool]
+
+### IncludedDeletedBackTo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.TimestampTypeDef]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -1001,7 +1028,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.WaiterConfigTypeDef]
 
 
-# DescribeEnvironmentsMessageEnvironmentTerminatedWaitTypeDef
+# DescribeEnvironmentsMessageWaitExtraTypeDef
 
 ### ApplicationName
 - **Type**: typing.Optional[str]
@@ -1019,7 +1046,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### IncludedDeletedBackTo
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.TimestampTypeDef]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -1031,7 +1058,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.WaiterConfigTypeDef]
 
 
-# DescribeEnvironmentsMessageEnvironmentUpdatedWaitTypeDef
+# DescribeEnvironmentsMessageWaitTypeDef
 
 ### ApplicationName
 - **Type**: typing.Optional[str]
@@ -1049,7 +1076,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### IncludedDeletedBackTo
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.TimestampTypeDef]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -1061,34 +1088,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.WaiterConfigTypeDef]
 
 
-# DescribeEnvironmentsMessageRequestTypeDef
-
-### ApplicationName
-- **Type**: typing.Optional[str]
-
-### VersionLabel
-- **Type**: typing.Optional[str]
-
-### EnvironmentIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### EnvironmentNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### IncludeDeleted
-- **Type**: typing.Optional[bool]
-
-### IncludedDeletedBackTo
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# DescribeEventsMessageDescribeEventsPaginateTypeDef
+# DescribeEventsMessagePaginateTypeDef
 
 ### ApplicationName
 - **Type**: typing.Optional[str]
@@ -1115,16 +1115,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DEBUG', 'ERROR', 'FATAL', 'INFO', 'TRACE', 'WARN']]
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.TimestampTypeDef]
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.TimestampTypeDef]
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.PaginatorConfigTypeDef]
 
 
-# DescribeEventsMessageRequestTypeDef
+# DescribeEventsMessageTypeDef
 
 ### ApplicationName
 - **Type**: typing.Optional[str]
@@ -1151,10 +1151,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DEBUG', 'ERROR', 'FATAL', 'INFO', 'TRACE', 'WARN']]
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.TimestampTypeDef]
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.TimestampTypeDef]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -1163,7 +1163,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeInstancesHealthRequestRequestTypeDef
+# DescribeInstancesHealthRequestTypeDef
 
 ### EnvironmentName
 - **Type**: typing.Optional[str]
@@ -1196,7 +1196,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribePlatformVersionRequestRequestTypeDef
+# DescribePlatformVersionRequestTypeDef
 
 ### PlatformArn
 - **Type**: typing.Optional[str]
@@ -1213,7 +1213,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateEnvironmentOperationsRoleMessageRequestTypeDef
+# DisassociateEnvironmentOperationsRoleMessageTypeDef
 
 ### EnvironmentName
 - **Type**: <class 'str'>
@@ -1468,15 +1468,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EnvironmentTierTypeDef
 
-### Name
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[str]
-
-### Version
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EventDescriptionTypeDef
 
@@ -1524,30 +1518,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # InstanceHealthSummaryTypeDef
 
-### NoData
-- **Type**: typing.Optional[int]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Unknown
-- **Type**: typing.Optional[int]
-
-### Pending
-- **Type**: typing.Optional[int]
-
-### Ok
-- **Type**: typing.Optional[int]
-
-### Info
-- **Type**: typing.Optional[int]
-
-### Warning
-- **Type**: typing.Optional[int]
-
-### Degraded
-- **Type**: typing.Optional[int]
-
-### Severe
-- **Type**: typing.Optional[int]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # InstanceTypeDef
 
@@ -1609,7 +1582,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListPlatformBranchesRequestRequestTypeDef
+# ListPlatformBranchesRequestTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.SearchFilterTypeDef]]
@@ -1635,7 +1608,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPlatformVersionsRequestListPlatformVersionsPaginateTypeDef
+# ListPlatformVersionsRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.PlatformFilterTypeDef]]
@@ -1644,7 +1617,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.PaginatorConfigTypeDef]
 
 
-# ListPlatformVersionsRequestRequestTypeDef
+# ListPlatformVersionsRequestTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.PlatformFilterTypeDef]]
@@ -1670,7 +1643,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceMessageRequestTypeDef
+# ListTagsForResourceMessageTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1679,12 +1652,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListenerTypeDef
 
-### Protocol
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Port
-- **Type**: typing.Optional[int]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LoadBalancerDescriptionTypeDef
 
@@ -1777,12 +1747,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # OptionRestrictionRegexTypeDef
 
-### Pattern
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Label
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # OptionSpecificationTypeDef
 
@@ -1894,15 +1861,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PlatformFilterTypeDef
 
-### Type
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Operator
-- **Type**: typing.Optional[str]
-
-### Values
-- **Type**: typing.Optional[typing.Sequence[str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PlatformFrameworkTypeDef
 
@@ -1970,7 +1931,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RebuildEnvironmentMessageRequestTypeDef
+# RebuildEnvironmentMessageTypeDef
 
 ### EnvironmentId
 - **Type**: typing.Optional[str]
@@ -1979,7 +1940,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RequestEnvironmentInfoMessageRequestTypeDef
+# RequestEnvironmentInfoMessageTypeDef
 
 ### InfoType
 - **Type**: typing.Literal['bundle', 'tail']
@@ -2053,7 +2014,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RestartAppServerMessageRequestTypeDef
+# RestartAppServerMessageTypeDef
 
 ### EnvironmentId
 - **Type**: typing.Optional[str]
@@ -2062,7 +2023,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RetrieveEnvironmentInfoMessageRequestTypeDef
+# RetrieveEnvironmentInfoMessageTypeDef
 
 ### InfoType
 - **Type**: typing.Literal['bundle', 'tail']
@@ -2188,7 +2149,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# SwapEnvironmentCNAMEsMessageRequestTypeDef
+# SwapEnvironmentCNAMEsMessageTypeDef
 
 ### SourceEnvironmentId
 - **Type**: typing.Optional[str]
@@ -2221,7 +2182,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TerminateEnvironmentMessageRequestTypeDef
+# TerminateEnvironmentMessageTypeDef
 
 ### EnvironmentId
 - **Type**: typing.Optional[str]
@@ -2236,13 +2197,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # TriggerTypeDef
 
 ### Name
 - **Type**: typing.Optional[str]
 
 
-# UpdateApplicationMessageRequestTypeDef
+# UpdateApplicationMessageTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -2252,7 +2219,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateApplicationResourceLifecycleMessageRequestTypeDef
+# UpdateApplicationResourceLifecycleMessageTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -2263,7 +2230,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateApplicationVersionMessageRequestTypeDef
+# UpdateApplicationVersionMessageTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -2277,7 +2244,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateConfigurationTemplateMessageRequestTypeDef
+# UpdateConfigurationTemplateMessageTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>
@@ -2297,7 +2264,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.OptionSpecificationTypeDef]]
 
 
-# UpdateEnvironmentMessageRequestTypeDef
+# UpdateEnvironmentMessageTypeDef
 
 ### ApplicationName
 - **Type**: typing.Optional[str]
@@ -2336,7 +2303,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.OptionSpecificationTypeDef]]
 
 
-# UpdateTagsForResourceMessageRequestTypeDef
+# UpdateTagsForResourceMessageTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2349,7 +2316,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ValidateConfigurationSettingsMessageRequestTypeDef
+# ValidateConfigurationSettingsMessageTypeDef
 
 ### ApplicationName
 - **Type**: <class 'str'>

@@ -45,7 +45,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.ReportConfigurationTypeDef]
 
 ### DataModelConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.DataModelConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.DataModelConfigurationOutputTypeDef]
 
 ### TargetDatabaseName
 - **Type**: typing.Optional[str]
@@ -93,7 +93,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# CreateBatchLoadTaskRequestRequestTypeDef
+# CreateBatchLoadTaskRequestTypeDef
 
 ### DataSourceConfiguration
 - **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.DataSourceConfigurationTypeDef'>
@@ -115,7 +115,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DataModelConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.DataModelConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.DataModelConfigurationUnionTypeDef]
 
 ### RecordVersion
 - **Type**: typing.Optional[int]
@@ -132,7 +132,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDatabaseRequestRequestTypeDef
+# CreateDatabaseRequestTypeDef
 
 ### DatabaseName
 - **Type**: <class 'str'>
@@ -156,7 +156,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTableRequestRequestTypeDef
+# CreateTableRequestTypeDef
 
 ### DatabaseName
 - **Type**: <class 'str'>
@@ -176,7 +176,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.MagneticStoreWritePropertiesTypeDef]
 
 ### Schema
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.SchemaTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.SchemaUnionTypeDef]
 
 
 # CreateTableResponseTypeDef
@@ -208,6 +208,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
+# DataModelConfigurationOutputTypeDef
+
+### DataModel
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.DataModelOutputTypeDef]
+
+### DataModelS3Configuration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.DataModelS3ConfigurationTypeDef]
+
+
 # DataModelConfigurationTypeDef
 
 ### DataModel
@@ -215,6 +224,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### DataModelS3Configuration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.DataModelS3ConfigurationTypeDef]
+
+
+# DataModelConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DataModelOutputTypeDef
+
+### DimensionMappings
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_write_classes.DimensionMappingTypeDef]
+- **Required**: Yes
+
+### TimeColumn
+- **Type**: typing.Optional[str]
+
+### TimeUnit
+- **Type**: typing.Optional[typing.Literal['MICROSECONDS', 'MILLISECONDS', 'NANOSECONDS', 'SECONDS']]
+
+### MultiMeasureMappings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.MultiMeasureMappingsOutputTypeDef]
+
+### MixedMeasureMappings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_write_classes.MixedMeasureMappingOutputTypeDef]]
+
+### MeasureNameColumn
+- **Type**: typing.Optional[str]
 
 
 # DataModelS3ConfigurationTypeDef
@@ -293,14 +330,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# DeleteDatabaseRequestRequestTypeDef
+# DeleteDatabaseRequestTypeDef
 
 ### DatabaseName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteTableRequestRequestTypeDef
+# DeleteTableRequestTypeDef
 
 ### DatabaseName
 - **Type**: <class 'str'>
@@ -311,7 +348,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeBatchLoadTaskRequestRequestTypeDef
+# DescribeBatchLoadTaskRequestTypeDef
 
 ### TaskId
 - **Type**: <class 'str'>
@@ -329,7 +366,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDatabaseRequestRequestTypeDef
+# DescribeDatabaseRequestTypeDef
 
 ### DatabaseName
 - **Type**: <class 'str'>
@@ -358,7 +395,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeTableRequestRequestTypeDef
+# DescribeTableRequestTypeDef
 
 ### DatabaseName
 - **Type**: <class 'str'>
@@ -421,7 +458,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListBatchLoadTasksRequestRequestTypeDef
+# ListBatchLoadTasksRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -435,10 +472,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListBatchLoadTasksResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### BatchLoadTasks
 - **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_write_classes.BatchLoadTaskTypeDef]
 - **Required**: Yes
@@ -447,8 +480,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListDatabasesRequestRequestTypeDef
+
+# ListDatabasesRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -463,16 +499,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_write_classes.DatabaseTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTablesRequestRequestTypeDef
+
+# ListTablesRequestTypeDef
 
 ### DatabaseName
 - **Type**: typing.Optional[str]
@@ -490,16 +525,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_write_classes.TableTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -535,17 +569,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # MeasureValueTypeDef
 
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Value
-- **Type**: <class 'str'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Type
+# MixedMeasureMappingOutputTypeDef
+
+### MeasureValueType
 - **Type**: typing.Literal['BIGINT', 'BOOLEAN', 'DOUBLE', 'MULTI', 'TIMESTAMP', 'VARCHAR']
 - **Required**: Yes
+
+### MeasureName
+- **Type**: typing.Optional[str]
+
+### SourceColumn
+- **Type**: typing.Optional[str]
+
+### TargetMeasureName
+- **Type**: typing.Optional[str]
+
+### MultiMeasureAttributeMappings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_write_classes.MultiMeasureAttributeMappingTypeDef]]
 
 
 # MixedMeasureMappingTypeDef
@@ -580,6 +624,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BIGINT', 'BOOLEAN', 'DOUBLE', 'TIMESTAMP', 'VARCHAR']]
 
 
+# MultiMeasureMappingsOutputTypeDef
+
+### MultiMeasureAttributeMappings
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_write_classes.MultiMeasureAttributeMappingTypeDef]
+- **Required**: Yes
+
+### TargetMultiMeasureName
+- **Type**: typing.Optional[str]
+
+
 # MultiMeasureMappingsTypeDef
 
 ### MultiMeasureAttributeMappings
@@ -592,16 +646,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PartitionKeyTypeDef
 
-### Type
-- **Type**: typing.Literal['DIMENSION', 'MEASURE']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Name
-- **Type**: typing.Optional[str]
-
-### EnforcementInRecord
-- **Type**: typing.Optional[typing.Literal['OPTIONAL', 'REQUIRED']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RecordTypeDef
 
@@ -670,10 +717,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -686,8 +729,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# ResumeBatchLoadTaskRequestRequestTypeDef
+
+# ResumeBatchLoadTaskRequestTypeDef
 
 ### TaskId
 - **Type**: <class 'str'>
@@ -720,11 +766,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# SchemaOutputTypeDef
+
+### CompositePartitionKey
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_write_classes.PartitionKeyTypeDef]]
+
+
 # SchemaTypeDef
 
 ### CompositePartitionKey
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.timestream_write_classes.PartitionKeyTypeDef]]
 
+
+# SchemaUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TableTypeDef
 
@@ -753,10 +811,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.MagneticStoreWritePropertiesTypeDef]
 
 ### Schema
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.SchemaTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.SchemaOutputTypeDef]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -778,7 +836,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -789,7 +847,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDatabaseRequestRequestTypeDef
+# UpdateDatabaseRequestTypeDef
 
 ### DatabaseName
 - **Type**: <class 'str'>
@@ -811,7 +869,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateTableRequestRequestTypeDef
+# UpdateTableRequestTypeDef
 
 ### DatabaseName
 - **Type**: <class 'str'>
@@ -828,7 +886,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.MagneticStoreWritePropertiesTypeDef]
 
 ### Schema
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.SchemaTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.SchemaUnionTypeDef]
 
 
 # UpdateTableResponseTypeDef
@@ -842,7 +900,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# WriteRecordsRequestRequestTypeDef
+# WriteRecordsRequestTypeDef
 
 ### DatabaseName
 - **Type**: <class 'str'>

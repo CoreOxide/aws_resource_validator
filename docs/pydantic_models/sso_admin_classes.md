@@ -1,5 +1,16 @@
 # Sso Admin Classes
 
+# AccessControlAttributeOutputTypeDef
+
+### Key
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Value
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.AccessControlAttributeValueOutputTypeDef'>
+- **Required**: Yes
+
+
 # AccessControlAttributeTypeDef
 
 ### Key
@@ -8,6 +19,13 @@
 
 ### Value
 - **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.AccessControlAttributeValueTypeDef'>
+- **Required**: Yes
+
+
+# AccessControlAttributeValueOutputTypeDef
+
+### Source
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -163,7 +181,7 @@
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
-# AttachCustomerManagedPolicyReferenceToPermissionSetRequestRequestTypeDef
+# AttachCustomerManagedPolicyReferenceToPermissionSetRequestTypeDef
 
 ### CustomerManagedPolicyReference
 - **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.CustomerManagedPolicyReferenceTypeDef'>
@@ -178,7 +196,7 @@
 - **Required**: Yes
 
 
-# AttachManagedPolicyToPermissionSetRequestRequestTypeDef
+# AttachManagedPolicyToPermissionSetRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -205,10 +223,16 @@
 # AuthenticationMethodItemTypeDef
 
 ### AuthenticationMethod
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.AuthenticationMethodTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.AuthenticationMethodOutputTypeDef]
 
 ### AuthenticationMethodType
 - **Type**: typing.Optional[typing.Literal['IAM']]
+
+
+# AuthenticationMethodOutputTypeDef
+
+### Iam
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.IamAuthenticationMethodOutputTypeDef]
 
 
 # AuthenticationMethodTypeDef
@@ -217,16 +241,37 @@
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.IamAuthenticationMethodTypeDef]
 
 
-# AuthorizationCodeGrantTypeDef
+# AuthenticationMethodUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AuthorizationCodeGrantOutputTypeDef
 
 ### RedirectUris
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# AuthorizedTokenIssuerTypeDef
+# AuthorizationCodeGrantTypeDef
+
+### RedirectUris
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# AuthorizedTokenIssuerOutputTypeDef
 
 ### AuthorizedAudiences
 - **Type**: typing.Optional[typing.List[str]]
+
+### TrustedTokenIssuerArn
+- **Type**: typing.Optional[str]
+
+
+# AuthorizedTokenIssuerTypeDef
+
+### AuthorizedAudiences
+- **Type**: typing.Optional[typing.Sequence[str]]
 
 ### TrustedTokenIssuerArn
 - **Type**: typing.Optional[str]
@@ -238,7 +283,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateAccountAssignmentRequestRequestTypeDef
+# CreateAccountAssignmentRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -276,7 +321,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateApplicationAssignmentRequestRequestTypeDef
+# CreateApplicationAssignmentRequestTypeDef
 
 ### ApplicationArn
 - **Type**: <class 'str'>
@@ -291,7 +336,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateApplicationRequestRequestTypeDef
+# CreateApplicationRequestTypeDef
 
 ### ApplicationProviderArn
 - **Type**: <class 'str'>
@@ -332,10 +377,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateInstanceAccessControlAttributeConfigurationRequestRequestTypeDef
+# CreateInstanceAccessControlAttributeConfigurationRequestTypeDef
 
 ### InstanceAccessControlAttributeConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.InstanceAccessControlAttributeConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.InstanceAccessControlAttributeConfigurationUnionTypeDef'>
 - **Required**: Yes
 
 ### InstanceArn
@@ -343,7 +388,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateInstanceRequestRequestTypeDef
+# CreateInstanceRequestTypeDef
 
 ### ClientToken
 - **Type**: typing.Optional[str]
@@ -366,7 +411,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePermissionSetRequestRequestTypeDef
+# CreatePermissionSetRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -400,7 +445,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTrustedTokenIssuerRequestRequestTypeDef
+# CreateTrustedTokenIssuerRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -446,7 +491,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteAccountAssignmentRequestRequestTypeDef
+# DeleteAccountAssignmentRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -484,7 +529,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteApplicationAccessScopeRequestRequestTypeDef
+# DeleteApplicationAccessScopeRequestTypeDef
 
 ### ApplicationArn
 - **Type**: <class 'str'>
@@ -495,7 +540,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteApplicationAssignmentRequestRequestTypeDef
+# DeleteApplicationAssignmentRequestTypeDef
 
 ### ApplicationArn
 - **Type**: <class 'str'>
@@ -510,7 +555,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteApplicationAuthenticationMethodRequestRequestTypeDef
+# DeleteApplicationAuthenticationMethodRequestTypeDef
 
 ### ApplicationArn
 - **Type**: <class 'str'>
@@ -521,7 +566,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteApplicationGrantRequestRequestTypeDef
+# DeleteApplicationGrantRequestTypeDef
 
 ### ApplicationArn
 - **Type**: <class 'str'>
@@ -532,14 +577,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteApplicationRequestRequestTypeDef
+# DeleteApplicationRequestTypeDef
 
 ### ApplicationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteInlinePolicyFromPermissionSetRequestRequestTypeDef
+# DeleteInlinePolicyFromPermissionSetRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -550,32 +595,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteInstanceAccessControlAttributeConfigurationRequestRequestTypeDef
+# DeleteInstanceAccessControlAttributeConfigurationRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteInstanceRequestRequestTypeDef
+# DeleteInstanceRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePermissionSetRequestRequestTypeDef
-
-### InstanceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PermissionSetArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# DeletePermissionsBoundaryFromPermissionSetRequestRequestTypeDef
+# DeletePermissionSetRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -586,14 +620,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteTrustedTokenIssuerRequestRequestTypeDef
+# DeletePermissionsBoundaryFromPermissionSetRequestTypeDef
+
+### InstanceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PermissionSetArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteTrustedTokenIssuerRequestTypeDef
 
 ### TrustedTokenIssuerArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeAccountAssignmentCreationStatusRequestRequestTypeDef
+# DescribeAccountAssignmentCreationStatusRequestTypeDef
 
 ### AccountAssignmentCreationRequestId
 - **Type**: <class 'str'>
@@ -615,7 +660,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAccountAssignmentDeletionStatusRequestRequestTypeDef
+# DescribeAccountAssignmentDeletionStatusRequestTypeDef
 
 ### AccountAssignmentDeletionRequestId
 - **Type**: <class 'str'>
@@ -637,7 +682,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeApplicationAssignmentRequestRequestTypeDef
+# DescribeApplicationAssignmentRequestTypeDef
 
 ### ApplicationArn
 - **Type**: <class 'str'>
@@ -671,7 +716,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeApplicationProviderRequestRequestTypeDef
+# DescribeApplicationProviderRequestTypeDef
 
 ### ApplicationProviderArn
 - **Type**: <class 'str'>
@@ -701,7 +746,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeApplicationRequestRequestTypeDef
+# DescribeApplicationRequestTypeDef
 
 ### ApplicationArn
 - **Type**: <class 'str'>
@@ -751,7 +796,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeInstanceAccessControlAttributeConfigurationRequestRequestTypeDef
+# DescribeInstanceAccessControlAttributeConfigurationRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -761,7 +806,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeInstanceAccessControlAttributeConfigurationResponseTypeDef
 
 ### InstanceAccessControlAttributeConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.InstanceAccessControlAttributeConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.InstanceAccessControlAttributeConfigurationOutputTypeDef'>
 - **Required**: Yes
 
 ### Status
@@ -777,7 +822,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeInstanceRequestRequestTypeDef
+# DescribeInstanceRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -815,7 +860,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribePermissionSetProvisioningStatusRequestRequestTypeDef
+# DescribePermissionSetProvisioningStatusRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -837,7 +882,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribePermissionSetRequestRequestTypeDef
+# DescribePermissionSetRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -859,7 +904,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeTrustedTokenIssuerRequestRequestTypeDef
+# DescribeTrustedTokenIssuerRequestTypeDef
 
 ### TrustedTokenIssuerArn
 - **Type**: <class 'str'>
@@ -889,7 +934,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DetachCustomerManagedPolicyReferenceFromPermissionSetRequestRequestTypeDef
+# DetachCustomerManagedPolicyReferenceFromPermissionSetRequestTypeDef
 
 ### CustomerManagedPolicyReference
 - **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.CustomerManagedPolicyReferenceTypeDef'>
@@ -904,7 +949,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DetachManagedPolicyFromPermissionSetRequestRequestTypeDef
+# DetachManagedPolicyFromPermissionSetRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -938,7 +983,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetApplicationAccessScopeRequestRequestTypeDef
+# GetApplicationAccessScopeRequestTypeDef
 
 ### ApplicationArn
 - **Type**: <class 'str'>
@@ -964,7 +1009,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetApplicationAssignmentConfigurationRequestRequestTypeDef
+# GetApplicationAssignmentConfigurationRequestTypeDef
 
 ### ApplicationArn
 - **Type**: <class 'str'>
@@ -982,7 +1027,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetApplicationAuthenticationMethodRequestRequestTypeDef
+# GetApplicationAuthenticationMethodRequestTypeDef
 
 ### ApplicationArn
 - **Type**: <class 'str'>
@@ -996,7 +1041,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetApplicationAuthenticationMethodResponseTypeDef
 
 ### AuthenticationMethod
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.AuthenticationMethodTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.AuthenticationMethodOutputTypeDef'>
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -1004,7 +1049,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetApplicationGrantRequestRequestTypeDef
+# GetApplicationGrantRequestTypeDef
 
 ### ApplicationArn
 - **Type**: <class 'str'>
@@ -1018,7 +1063,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetApplicationGrantResponseTypeDef
 
 ### Grant
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.GrantTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.GrantOutputTypeDef'>
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -1026,7 +1071,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetInlinePolicyForPermissionSetRequestRequestTypeDef
+# GetInlinePolicyForPermissionSetRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -1048,7 +1093,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPermissionsBoundaryForPermissionSetRequestRequestTypeDef
+# GetPermissionsBoundaryForPermissionSetRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -1073,12 +1118,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GrantItemTypeDef
 
 ### Grant
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.GrantTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.GrantOutputTypeDef'>
 - **Required**: Yes
 
 ### GrantType
 - **Type**: typing.Literal['authorization_code', 'refresh_token', 'urn:ietf:params:oauth:grant-type:jwt-bearer', 'urn:ietf:params:oauth:grant-type:token-exchange']
 - **Required**: Yes
+
+
+# GrantOutputTypeDef
+
+### AuthorizationCode
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.AuthorizationCodeGrantOutputTypeDef]
+
+### JwtBearer
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.JwtBearerGrantOutputTypeDef]
+
+### RefreshToken
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### TokenExchange
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 
 # GrantTypeDef
@@ -1090,16 +1150,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.JwtBearerGrantTypeDef]
 
 ### RefreshToken
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
 
 ### TokenExchange
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+
+
+# GrantUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# IamAuthenticationMethodOutputTypeDef
+
+### ActorPolicy
+- **Type**: typing.Dict[str, typing.Any]
+- **Required**: Yes
 
 
 # IamAuthenticationMethodTypeDef
 
 ### ActorPolicy
-- **Type**: typing.Dict[str, typing.Any]
+- **Type**: typing.Mapping[str, typing.Any]
+- **Required**: Yes
+
+
+# InstanceAccessControlAttributeConfigurationOutputTypeDef
+
+### AccessControlAttributes
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.AccessControlAttributeOutputTypeDef]
 - **Required**: Yes
 
 
@@ -1109,6 +1189,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sso_admin_classes.AccessControlAttributeTypeDef]
 - **Required**: Yes
 
+
+# InstanceAccessControlAttributeConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # InstanceMetadataTypeDef
 
@@ -1131,13 +1217,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_IN_PROGRESS', 'DELETE_IN_PROGRESS']]
 
 
+# JwtBearerGrantOutputTypeDef
+
+### AuthorizedTokenIssuers
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.AuthorizedTokenIssuerOutputTypeDef]]
+
+
 # JwtBearerGrantTypeDef
 
 ### AuthorizedTokenIssuers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.AuthorizedTokenIssuerTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sso_admin_classes.AuthorizedTokenIssuerTypeDef]]
 
 
-# ListAccountAssignmentCreationStatusRequestListAccountAssignmentCreationStatusPaginateTypeDef
+# ListAccountAssignmentCreationStatusRequestPaginateTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -1150,7 +1242,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfigTypeDef]
 
 
-# ListAccountAssignmentCreationStatusRequestRequestTypeDef
+# ListAccountAssignmentCreationStatusRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -1172,16 +1264,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.AccountAssignmentOperationStatusMetadataTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListAccountAssignmentDeletionStatusRequestListAccountAssignmentDeletionStatusPaginateTypeDef
+
+# ListAccountAssignmentDeletionStatusRequestPaginateTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -1194,7 +1285,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfigTypeDef]
 
 
-# ListAccountAssignmentDeletionStatusRequestRequestTypeDef
+# ListAccountAssignmentDeletionStatusRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -1216,13 +1307,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.AccountAssignmentOperationStatusMetadataTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # ListAccountAssignmentsFilterTypeDef
@@ -1231,7 +1321,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAccountAssignmentsForPrincipalRequestListAccountAssignmentsForPrincipalPaginateTypeDef
+# ListAccountAssignmentsForPrincipalRequestPaginateTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -1252,7 +1342,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfigTypeDef]
 
 
-# ListAccountAssignmentsForPrincipalRequestRequestTypeDef
+# ListAccountAssignmentsForPrincipalRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -1282,16 +1372,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.AccountAssignmentForPrincipalTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListAccountAssignmentsRequestListAccountAssignmentsPaginateTypeDef
+
+# ListAccountAssignmentsRequestPaginateTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1309,7 +1398,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfigTypeDef]
 
 
-# ListAccountAssignmentsRequestRequestTypeDef
+# ListAccountAssignmentsRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1336,16 +1425,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.AccountAssignmentTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListAccountsForProvisionedPermissionSetRequestListAccountsForProvisionedPermissionSetPaginateTypeDef
+
+# ListAccountsForProvisionedPermissionSetRequestPaginateTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -1362,7 +1450,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfigTypeDef]
 
 
-# ListAccountsForProvisionedPermissionSetRequestRequestTypeDef
+# ListAccountsForProvisionedPermissionSetRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -1388,16 +1476,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListApplicationAccessScopesRequestListApplicationAccessScopesPaginateTypeDef
+
+# ListApplicationAccessScopesRequestPaginateTypeDef
 
 ### ApplicationArn
 - **Type**: <class 'str'>
@@ -1407,7 +1494,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfigTypeDef]
 
 
-# ListApplicationAccessScopesRequestRequestTypeDef
+# ListApplicationAccessScopesRequestTypeDef
 
 ### ApplicationArn
 - **Type**: <class 'str'>
@@ -1422,10 +1509,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListApplicationAccessScopesResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### Scopes
 - **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.ScopeDetailsTypeDef]
 - **Required**: Yes
@@ -1434,6 +1517,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
+
 
 # ListApplicationAssignmentsFilterTypeDef
 
@@ -1441,7 +1527,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListApplicationAssignmentsForPrincipalRequestListApplicationAssignmentsForPrincipalPaginateTypeDef
+# ListApplicationAssignmentsForPrincipalRequestPaginateTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -1462,7 +1548,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfigTypeDef]
 
 
-# ListApplicationAssignmentsForPrincipalRequestRequestTypeDef
+# ListApplicationAssignmentsForPrincipalRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -1492,16 +1578,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.ApplicationAssignmentForPrincipalTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListApplicationAssignmentsRequestListApplicationAssignmentsPaginateTypeDef
+
+# ListApplicationAssignmentsRequestPaginateTypeDef
 
 ### ApplicationArn
 - **Type**: <class 'str'>
@@ -1511,7 +1596,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfigTypeDef]
 
 
-# ListApplicationAssignmentsRequestRequestTypeDef
+# ListApplicationAssignmentsRequestTypeDef
 
 ### ApplicationArn
 - **Type**: <class 'str'>
@@ -1530,16 +1615,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.ApplicationAssignmentTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListApplicationAuthenticationMethodsRequestListApplicationAuthenticationMethodsPaginateTypeDef
+
+# ListApplicationAuthenticationMethodsRequestPaginateTypeDef
 
 ### ApplicationArn
 - **Type**: <class 'str'>
@@ -1549,7 +1633,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfigTypeDef]
 
 
-# ListApplicationAuthenticationMethodsRequestRequestTypeDef
+# ListApplicationAuthenticationMethodsRequestTypeDef
 
 ### ApplicationArn
 - **Type**: <class 'str'>
@@ -1565,16 +1649,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.AuthenticationMethodItemTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListApplicationGrantsRequestListApplicationGrantsPaginateTypeDef
+
+# ListApplicationGrantsRequestPaginateTypeDef
 
 ### ApplicationArn
 - **Type**: <class 'str'>
@@ -1584,7 +1667,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfigTypeDef]
 
 
-# ListApplicationGrantsRequestRequestTypeDef
+# ListApplicationGrantsRequestTypeDef
 
 ### ApplicationArn
 - **Type**: <class 'str'>
@@ -1600,22 +1683,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.GrantItemTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListApplicationProvidersRequestListApplicationProvidersPaginateTypeDef
+
+# ListApplicationProvidersRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfigTypeDef]
 
 
-# ListApplicationProvidersRequestRequestTypeDef
+# ListApplicationProvidersRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1630,13 +1712,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.ApplicationProviderTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # ListApplicationsFilterTypeDef
@@ -1648,7 +1729,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListApplicationsRequestListApplicationsPaginateTypeDef
+# ListApplicationsRequestPaginateTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -1661,7 +1742,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfigTypeDef]
 
 
-# ListApplicationsRequestRequestTypeDef
+# ListApplicationsRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -1683,16 +1764,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.ApplicationTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListCustomerManagedPolicyReferencesInPermissionSetRequestListCustomerManagedPolicyReferencesInPermissionSetPaginateTypeDef
+
+# ListCustomerManagedPolicyReferencesInPermissionSetRequestPaginateTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -1706,7 +1786,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfigTypeDef]
 
 
-# ListCustomerManagedPolicyReferencesInPermissionSetRequestRequestTypeDef
+# ListCustomerManagedPolicyReferencesInPermissionSetRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -1729,22 +1809,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.CustomerManagedPolicyReferenceTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListInstancesRequestListInstancesPaginateTypeDef
+
+# ListInstancesRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfigTypeDef]
 
 
-# ListInstancesRequestRequestTypeDef
+# ListInstancesRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1759,16 +1838,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.InstanceMetadataTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListManagedPoliciesInPermissionSetRequestListManagedPoliciesInPermissionSetPaginateTypeDef
+
+# ListManagedPoliciesInPermissionSetRequestPaginateTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -1782,7 +1860,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfigTypeDef]
 
 
-# ListManagedPoliciesInPermissionSetRequestRequestTypeDef
+# ListManagedPoliciesInPermissionSetRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -1805,16 +1883,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.AttachedManagedPolicyTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListPermissionSetProvisioningStatusRequestListPermissionSetProvisioningStatusPaginateTypeDef
+
+# ListPermissionSetProvisioningStatusRequestPaginateTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -1827,7 +1904,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfigTypeDef]
 
 
-# ListPermissionSetProvisioningStatusRequestRequestTypeDef
+# ListPermissionSetProvisioningStatusRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -1845,10 +1922,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListPermissionSetProvisioningStatusResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### PermissionSetsProvisioningStatus
 - **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.PermissionSetProvisioningStatusMetadataTypeDef]
 - **Required**: Yes
@@ -1857,8 +1930,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListPermissionSetsProvisionedToAccountRequestListPermissionSetsProvisionedToAccountPaginateTypeDef
+
+# ListPermissionSetsProvisionedToAccountRequestPaginateTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1875,7 +1951,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfigTypeDef]
 
 
-# ListPermissionSetsProvisionedToAccountRequestRequestTypeDef
+# ListPermissionSetsProvisionedToAccountRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1897,10 +1973,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListPermissionSetsProvisionedToAccountResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### PermissionSets
 - **Type**: typing.List[str]
 - **Required**: Yes
@@ -1909,8 +1981,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListPermissionSetsRequestListPermissionSetsPaginateTypeDef
+
+# ListPermissionSetsRequestPaginateTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -1920,7 +1995,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfigTypeDef]
 
 
-# ListPermissionSetsRequestRequestTypeDef
+# ListPermissionSetsRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -1935,10 +2010,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListPermissionSetsResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### PermissionSets
 - **Type**: typing.List[str]
 - **Required**: Yes
@@ -1947,8 +2018,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestListTagsForResourcePaginateTypeDef
+
+# ListTagsForResourceRequestPaginateTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1961,7 +2035,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfigTypeDef]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1976,10 +2050,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListTagsForResourceResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### Tags
 - **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.TagTypeDef]
 - **Required**: Yes
@@ -1988,8 +2058,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTrustedTokenIssuersRequestListTrustedTokenIssuersPaginateTypeDef
+
+# ListTrustedTokenIssuersRequestPaginateTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -1999,7 +2072,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfigTypeDef]
 
 
-# ListTrustedTokenIssuersRequestRequestTypeDef
+# ListTrustedTokenIssuersRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -2014,10 +2087,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListTrustedTokenIssuersResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### TrustedTokenIssuers
 - **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.TrustedTokenIssuerMetadataTypeDef]
 - **Required**: Yes
@@ -2025,6 +2094,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # OidcJwtConfigurationTypeDef
@@ -2148,7 +2220,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
-# ProvisionPermissionSetRequestRequestTypeDef
+# ProvisionPermissionSetRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -2177,7 +2249,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutApplicationAccessScopeRequestRequestTypeDef
+# PutApplicationAccessScopeRequestTypeDef
 
 ### ApplicationArn
 - **Type**: <class 'str'>
@@ -2191,7 +2263,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# PutApplicationAssignmentConfigurationRequestRequestTypeDef
+# PutApplicationAssignmentConfigurationRequestTypeDef
 
 ### ApplicationArn
 - **Type**: <class 'str'>
@@ -2202,14 +2274,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutApplicationAuthenticationMethodRequestRequestTypeDef
+# PutApplicationAuthenticationMethodRequestTypeDef
 
 ### ApplicationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### AuthenticationMethod
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.AuthenticationMethodTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.AuthenticationMethodUnionTypeDef'>
 - **Required**: Yes
 
 ### AuthenticationMethodType
@@ -2217,14 +2289,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutApplicationGrantRequestRequestTypeDef
+# PutApplicationGrantRequestTypeDef
 
 ### ApplicationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Grant
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.GrantTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.GrantUnionTypeDef'>
 - **Required**: Yes
 
 ### GrantType
@@ -2232,7 +2304,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutInlinePolicyToPermissionSetRequestRequestTypeDef
+# PutInlinePolicyToPermissionSetRequestTypeDef
 
 ### InlinePolicy
 - **Type**: <class 'str'>
@@ -2247,7 +2319,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutPermissionsBoundaryToPermissionSetRequestRequestTypeDef
+# PutPermissionsBoundaryToPermissionSetRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -2283,10 +2355,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -2298,6 +2366,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # ScopeDetailsTypeDef
@@ -2320,7 +2391,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2369,7 +2440,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.OidcJwtUpdateConfigurationTypeDef]
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2389,7 +2460,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.SignInOptionsTypeDef]
 
 
-# UpdateApplicationRequestRequestTypeDef
+# UpdateApplicationRequestTypeDef
 
 ### ApplicationArn
 - **Type**: <class 'str'>
@@ -2408,10 +2479,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
-# UpdateInstanceAccessControlAttributeConfigurationRequestRequestTypeDef
+# UpdateInstanceAccessControlAttributeConfigurationRequestTypeDef
 
 ### InstanceAccessControlAttributeConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.InstanceAccessControlAttributeConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.InstanceAccessControlAttributeConfigurationUnionTypeDef'>
 - **Required**: Yes
 
 ### InstanceArn
@@ -2419,7 +2490,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateInstanceRequestRequestTypeDef
+# UpdateInstanceRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -2430,7 +2501,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePermissionSetRequestRequestTypeDef
+# UpdatePermissionSetRequestTypeDef
 
 ### InstanceArn
 - **Type**: <class 'str'>
@@ -2450,7 +2521,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateTrustedTokenIssuerRequestRequestTypeDef
+# UpdateTrustedTokenIssuerRequestTypeDef
 
 ### TrustedTokenIssuerArn
 - **Type**: <class 'str'>

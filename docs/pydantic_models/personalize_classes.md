@@ -91,6 +91,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
+# BatchInferenceJobConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # BatchInferenceJobInputTypeDef
 
 ### s3DataSource
@@ -281,6 +287,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
+# CampaignConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # CampaignSummaryTypeDef
 
 ### name
@@ -389,7 +401,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# CreateBatchInferenceJobRequestRequestTypeDef
+# CreateBatchInferenceJobRequestTypeDef
 
 ### jobName
 - **Type**: <class 'str'>
@@ -418,7 +430,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### batchInferenceJobConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.BatchInferenceJobConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.BatchInferenceJobConfigUnionTypeDef]
 
 ### tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.personalize_classes.TagTypeDef]]
@@ -441,7 +453,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateBatchSegmentJobRequestRequestTypeDef
+# CreateBatchSegmentJobRequestTypeDef
 
 ### jobName
 - **Type**: <class 'str'>
@@ -484,7 +496,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCampaignRequestRequestTypeDef
+# CreateCampaignRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -498,7 +510,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### campaignConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.CampaignConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.CampaignConfigUnionTypeDef]
 
 ### tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.personalize_classes.TagTypeDef]]
@@ -515,7 +527,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDataDeletionJobRequestRequestTypeDef
+# CreateDataDeletionJobRequestTypeDef
 
 ### jobName
 - **Type**: <class 'str'>
@@ -548,7 +560,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDatasetExportJobRequestRequestTypeDef
+# CreateDatasetExportJobRequestTypeDef
 
 ### jobName
 - **Type**: <class 'str'>
@@ -584,7 +596,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDatasetGroupRequestRequestTypeDef
+# CreateDatasetGroupRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -618,7 +630,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDatasetImportJobRequestRequestTypeDef
+# CreateDatasetImportJobRequestTypeDef
 
 ### jobName
 - **Type**: <class 'str'>
@@ -657,7 +669,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDatasetRequestRequestTypeDef
+# CreateDatasetRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -690,7 +702,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateEventTrackerRequestRequestTypeDef
+# CreateEventTrackerRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -719,7 +731,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateFilterRequestRequestTypeDef
+# CreateFilterRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -748,7 +760,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateMetricAttributionRequestRequestTypeDef
+# CreateMetricAttributionRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -778,7 +790,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateRecommenderRequestRequestTypeDef
+# CreateRecommenderRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -793,7 +805,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### recommenderConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.RecommenderConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.RecommenderConfigUnionTypeDef]
 
 ### tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.personalize_classes.TagTypeDef]]
@@ -810,7 +822,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateSchemaRequestRequestTypeDef
+# CreateSchemaRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -818,7 +830,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### schema
 - **Type**: <class 'str'>
-- **Default**: <bound method BaseModel.schema of <class 'aws_resource_validator.pydantic_models.personalize_classes.CreateSchemaRequestRequestTypeDef'>>
+- **Default**: <bound method BaseModel.schema of <class 'aws_resource_validator.pydantic_models.personalize_classes.CreateSchemaRequestTypeDef'>>
 
 ### domain
 - **Type**: typing.Optional[typing.Literal['ECOMMERCE', 'VIDEO_ON_DEMAND']]
@@ -835,7 +847,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateSolutionRequestRequestTypeDef
+# CreateSolutionRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -861,7 +873,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### solutionConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.SolutionConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.SolutionConfigUnionTypeDef]
 
 ### tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.personalize_classes.TagTypeDef]]
@@ -878,7 +890,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateSolutionVersionRequestRequestTypeDef
+# CreateSolutionVersionRequestTypeDef
 
 ### solutionArn
 - **Type**: <class 'str'>
@@ -1308,70 +1320,70 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteCampaignRequestRequestTypeDef
+# DeleteCampaignRequestTypeDef
 
 ### campaignArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDatasetGroupRequestRequestTypeDef
+# DeleteDatasetGroupRequestTypeDef
 
 ### datasetGroupArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDatasetRequestRequestTypeDef
+# DeleteDatasetRequestTypeDef
 
 ### datasetArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteEventTrackerRequestRequestTypeDef
+# DeleteEventTrackerRequestTypeDef
 
 ### eventTrackerArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteFilterRequestRequestTypeDef
+# DeleteFilterRequestTypeDef
 
 ### filterArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteMetricAttributionRequestRequestTypeDef
+# DeleteMetricAttributionRequestTypeDef
 
 ### metricAttributionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteRecommenderRequestRequestTypeDef
+# DeleteRecommenderRequestTypeDef
 
 ### recommenderArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSchemaRequestRequestTypeDef
+# DeleteSchemaRequestTypeDef
 
 ### schemaArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSolutionRequestRequestTypeDef
+# DeleteSolutionRequestTypeDef
 
 ### solutionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeAlgorithmRequestRequestTypeDef
+# DescribeAlgorithmRequestTypeDef
 
 ### algorithmArn
 - **Type**: <class 'str'>
@@ -1389,7 +1401,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeBatchInferenceJobRequestRequestTypeDef
+# DescribeBatchInferenceJobRequestTypeDef
 
 ### batchInferenceJobArn
 - **Type**: <class 'str'>
@@ -1407,7 +1419,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeBatchSegmentJobRequestRequestTypeDef
+# DescribeBatchSegmentJobRequestTypeDef
 
 ### batchSegmentJobArn
 - **Type**: <class 'str'>
@@ -1425,7 +1437,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeCampaignRequestRequestTypeDef
+# DescribeCampaignRequestTypeDef
 
 ### campaignArn
 - **Type**: <class 'str'>
@@ -1443,7 +1455,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDataDeletionJobRequestRequestTypeDef
+# DescribeDataDeletionJobRequestTypeDef
 
 ### dataDeletionJobArn
 - **Type**: <class 'str'>
@@ -1461,7 +1473,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDatasetExportJobRequestRequestTypeDef
+# DescribeDatasetExportJobRequestTypeDef
 
 ### datasetExportJobArn
 - **Type**: <class 'str'>
@@ -1479,7 +1491,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDatasetGroupRequestRequestTypeDef
+# DescribeDatasetGroupRequestTypeDef
 
 ### datasetGroupArn
 - **Type**: <class 'str'>
@@ -1497,7 +1509,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDatasetImportJobRequestRequestTypeDef
+# DescribeDatasetImportJobRequestTypeDef
 
 ### datasetImportJobArn
 - **Type**: <class 'str'>
@@ -1515,7 +1527,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDatasetRequestRequestTypeDef
+# DescribeDatasetRequestTypeDef
 
 ### datasetArn
 - **Type**: <class 'str'>
@@ -1533,7 +1545,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEventTrackerRequestRequestTypeDef
+# DescribeEventTrackerRequestTypeDef
 
 ### eventTrackerArn
 - **Type**: <class 'str'>
@@ -1551,7 +1563,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeFeatureTransformationRequestRequestTypeDef
+# DescribeFeatureTransformationRequestTypeDef
 
 ### featureTransformationArn
 - **Type**: <class 'str'>
@@ -1569,25 +1581,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeFilterRequestRequestTypeDef
+# DescribeFilterRequestTypeDef
 
 ### filterArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeFilterResponseTypeDef
-
-### filter
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.FilterTypeDef'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# DescribeMetricAttributionRequestRequestTypeDef
+# DescribeMetricAttributionRequestTypeDef
 
 ### metricAttributionArn
 - **Type**: <class 'str'>
@@ -1605,7 +1606,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeRecipeRequestRequestTypeDef
+# DescribeRecipeRequestTypeDef
 
 ### recipeArn
 - **Type**: <class 'str'>
@@ -1623,7 +1624,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeRecommenderRequestRequestTypeDef
+# DescribeRecommenderRequestTypeDef
 
 ### recommenderArn
 - **Type**: <class 'str'>
@@ -1641,7 +1642,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeSchemaRequestRequestTypeDef
+# DescribeSchemaRequestTypeDef
 
 ### schemaArn
 - **Type**: <class 'str'>
@@ -1659,7 +1660,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeSolutionRequestRequestTypeDef
+# DescribeSolutionRequestTypeDef
 
 ### solutionArn
 - **Type**: <class 'str'>
@@ -1677,7 +1678,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeSolutionVersionRequestRequestTypeDef
+# DescribeSolutionVersionRequestTypeDef
 
 ### solutionVersionArn
 - **Type**: <class 'str'>
@@ -1826,7 +1827,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetSolutionMetricsRequestRequestTypeDef
+# GetSolutionMetricsRequestTypeDef
 
 ### solutionVersionArn
 - **Type**: <class 'str'>
@@ -1874,15 +1875,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # HPOObjectiveTypeDef
 
-### type
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### metricName
-- **Type**: typing.Optional[str]
-
-### metricRegex
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HPOResourceConfigTypeDef
 
@@ -1929,7 +1924,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListBatchInferenceJobsRequestListBatchInferenceJobsPaginateTypeDef
+# ListBatchInferenceJobsRequestPaginateTypeDef
 
 ### solutionVersionArn
 - **Type**: typing.Optional[str]
@@ -1938,7 +1933,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfigTypeDef]
 
 
-# ListBatchInferenceJobsRequestRequestTypeDef
+# ListBatchInferenceJobsRequestTypeDef
 
 ### solutionVersionArn
 - **Type**: typing.Optional[str]
@@ -1956,16 +1951,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.BatchInferenceJobSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListBatchSegmentJobsRequestListBatchSegmentJobsPaginateTypeDef
+
+# ListBatchSegmentJobsRequestPaginateTypeDef
 
 ### solutionVersionArn
 - **Type**: typing.Optional[str]
@@ -1974,7 +1968,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfigTypeDef]
 
 
-# ListBatchSegmentJobsRequestRequestTypeDef
+# ListBatchSegmentJobsRequestTypeDef
 
 ### solutionVersionArn
 - **Type**: typing.Optional[str]
@@ -1992,16 +1986,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.BatchSegmentJobSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListCampaignsRequestListCampaignsPaginateTypeDef
+
+# ListCampaignsRequestPaginateTypeDef
 
 ### solutionArn
 - **Type**: typing.Optional[str]
@@ -2010,7 +2003,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfigTypeDef]
 
 
-# ListCampaignsRequestRequestTypeDef
+# ListCampaignsRequestTypeDef
 
 ### solutionArn
 - **Type**: typing.Optional[str]
@@ -2028,16 +2021,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.CampaignSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListDataDeletionJobsRequestRequestTypeDef
+
+# ListDataDeletionJobsRequestTypeDef
 
 ### datasetGroupArn
 - **Type**: typing.Optional[str]
@@ -2055,16 +2047,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.DataDeletionJobSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListDatasetExportJobsRequestListDatasetExportJobsPaginateTypeDef
+
+# ListDatasetExportJobsRequestPaginateTypeDef
 
 ### datasetArn
 - **Type**: typing.Optional[str]
@@ -2073,7 +2064,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfigTypeDef]
 
 
-# ListDatasetExportJobsRequestRequestTypeDef
+# ListDatasetExportJobsRequestTypeDef
 
 ### datasetArn
 - **Type**: typing.Optional[str]
@@ -2091,22 +2082,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.DatasetExportJobSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListDatasetGroupsRequestListDatasetGroupsPaginateTypeDef
+
+# ListDatasetGroupsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfigTypeDef]
 
 
-# ListDatasetGroupsRequestRequestTypeDef
+# ListDatasetGroupsRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -2121,16 +2111,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.DatasetGroupSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListDatasetImportJobsRequestListDatasetImportJobsPaginateTypeDef
+
+# ListDatasetImportJobsRequestPaginateTypeDef
 
 ### datasetArn
 - **Type**: typing.Optional[str]
@@ -2139,7 +2128,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfigTypeDef]
 
 
-# ListDatasetImportJobsRequestRequestTypeDef
+# ListDatasetImportJobsRequestTypeDef
 
 ### datasetArn
 - **Type**: typing.Optional[str]
@@ -2157,16 +2146,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.DatasetImportJobSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListDatasetsRequestListDatasetsPaginateTypeDef
+
+# ListDatasetsRequestPaginateTypeDef
 
 ### datasetGroupArn
 - **Type**: typing.Optional[str]
@@ -2175,7 +2163,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfigTypeDef]
 
 
-# ListDatasetsRequestRequestTypeDef
+# ListDatasetsRequestTypeDef
 
 ### datasetGroupArn
 - **Type**: typing.Optional[str]
@@ -2193,16 +2181,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.DatasetSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListEventTrackersRequestListEventTrackersPaginateTypeDef
+
+# ListEventTrackersRequestPaginateTypeDef
 
 ### datasetGroupArn
 - **Type**: typing.Optional[str]
@@ -2211,7 +2198,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfigTypeDef]
 
 
-# ListEventTrackersRequestRequestTypeDef
+# ListEventTrackersRequestTypeDef
 
 ### datasetGroupArn
 - **Type**: typing.Optional[str]
@@ -2229,16 +2216,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.EventTrackerSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListFiltersRequestListFiltersPaginateTypeDef
+
+# ListFiltersRequestPaginateTypeDef
 
 ### datasetGroupArn
 - **Type**: typing.Optional[str]
@@ -2247,7 +2233,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfigTypeDef]
 
 
-# ListFiltersRequestRequestTypeDef
+# ListFiltersRequestTypeDef
 
 ### datasetGroupArn
 - **Type**: typing.Optional[str]
@@ -2265,16 +2251,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.FilterSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListMetricAttributionMetricsRequestListMetricAttributionMetricsPaginateTypeDef
+
+# ListMetricAttributionMetricsRequestPaginateTypeDef
 
 ### metricAttributionArn
 - **Type**: typing.Optional[str]
@@ -2283,7 +2268,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfigTypeDef]
 
 
-# ListMetricAttributionMetricsRequestRequestTypeDef
+# ListMetricAttributionMetricsRequestTypeDef
 
 ### metricAttributionArn
 - **Type**: typing.Optional[str]
@@ -2301,16 +2286,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.MetricAttributeTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListMetricAttributionsRequestListMetricAttributionsPaginateTypeDef
+
+# ListMetricAttributionsRequestPaginateTypeDef
 
 ### datasetGroupArn
 - **Type**: typing.Optional[str]
@@ -2319,7 +2303,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfigTypeDef]
 
 
-# ListMetricAttributionsRequestRequestTypeDef
+# ListMetricAttributionsRequestTypeDef
 
 ### datasetGroupArn
 - **Type**: typing.Optional[str]
@@ -2337,16 +2321,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.MetricAttributionSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListRecipesRequestListRecipesPaginateTypeDef
+
+# ListRecipesRequestPaginateTypeDef
 
 ### recipeProvider
 - **Type**: typing.Optional[typing.Literal['SERVICE']]
@@ -2358,7 +2341,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfigTypeDef]
 
 
-# ListRecipesRequestRequestTypeDef
+# ListRecipesRequestTypeDef
 
 ### recipeProvider
 - **Type**: typing.Optional[typing.Literal['SERVICE']]
@@ -2379,16 +2362,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.RecipeSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListRecommendersRequestListRecommendersPaginateTypeDef
+
+# ListRecommendersRequestPaginateTypeDef
 
 ### datasetGroupArn
 - **Type**: typing.Optional[str]
@@ -2397,7 +2379,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfigTypeDef]
 
 
-# ListRecommendersRequestRequestTypeDef
+# ListRecommendersRequestTypeDef
 
 ### datasetGroupArn
 - **Type**: typing.Optional[str]
@@ -2415,22 +2397,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.RecommenderSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListSchemasRequestListSchemasPaginateTypeDef
+
+# ListSchemasRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfigTypeDef]
 
 
-# ListSchemasRequestRequestTypeDef
+# ListSchemasRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -2445,16 +2426,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.DatasetSchemaSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListSolutionVersionsRequestListSolutionVersionsPaginateTypeDef
+
+# ListSolutionVersionsRequestPaginateTypeDef
 
 ### solutionArn
 - **Type**: typing.Optional[str]
@@ -2463,7 +2443,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfigTypeDef]
 
 
-# ListSolutionVersionsRequestRequestTypeDef
+# ListSolutionVersionsRequestTypeDef
 
 ### solutionArn
 - **Type**: typing.Optional[str]
@@ -2481,16 +2461,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.SolutionVersionSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListSolutionsRequestListSolutionsPaginateTypeDef
+
+# ListSolutionsRequestPaginateTypeDef
 
 ### datasetGroupArn
 - **Type**: typing.Optional[str]
@@ -2499,7 +2478,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfigTypeDef]
 
 
-# ListSolutionsRequestRequestTypeDef
+# ListSolutionsRequestTypeDef
 
 ### datasetGroupArn
 - **Type**: typing.Optional[str]
@@ -2517,16 +2496,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.SolutionSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2689,21 +2667,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# RecommenderConfigExtraOutputTypeDef
-
-### itemExplorationConfig
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### minRecommendationRequestsPerSecond
-- **Type**: typing.Optional[int]
-
-### trainingDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.TrainingDataConfigExtraOutputTypeDef]
-
-### enableMetadataWithRecommendations
-- **Type**: typing.Optional[bool]
-
-
 # RecommenderConfigOutputTypeDef
 
 ### itemExplorationConfig
@@ -2733,6 +2696,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### enableMetadataWithRecommendations
 - **Type**: typing.Optional[bool]
 
+
+# RecommenderConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RecommenderSummaryTypeDef
 
@@ -2901,6 +2870,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.AutoTrainingConfigTypeDef]
 
 
+# SolutionConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # SolutionSummaryTypeDef
 
 ### name
@@ -2965,6 +2940,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### latestSolutionVersion
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.SolutionVersionSummaryTypeDef]
+
+### latestSolutionUpdate
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.SolutionUpdateSummaryTypeDef]
+
+
+# SolutionUpdateConfigTypeDef
+
+### autoTrainingConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.AutoTrainingConfigTypeDef]
+
+
+# SolutionUpdateSummaryTypeDef
+
+### solutionUpdateConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.SolutionUpdateConfigTypeDef]
+
+### status
+- **Type**: typing.Optional[str]
+
+### performAutoTraining
+- **Type**: typing.Optional[bool]
+
+### creationDateTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### lastUpdatedDateTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### failureReason
+- **Type**: typing.Optional[str]
 
 
 # SolutionVersionSummaryTypeDef
@@ -3045,7 +3050,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AUTOMATIC', 'MANUAL']]
 
 
-# StartRecommenderRequestRequestTypeDef
+# StartRecommenderRequestTypeDef
 
 ### recommenderArn
 - **Type**: <class 'str'>
@@ -3063,7 +3068,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopRecommenderRequestRequestTypeDef
+# StopRecommenderRequestTypeDef
 
 ### recommenderArn
 - **Type**: <class 'str'>
@@ -3081,14 +3086,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopSolutionVersionCreationRequestRequestTypeDef
+# StopSolutionVersionCreationRequestTypeDef
 
 ### solutionVersionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -3117,12 +3122,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TrainingDataConfigExtraOutputTypeDef
-
-### excludedDatasetColumns
-- **Type**: typing.Optional[typing.Dict[str, typing.List[str]]]
-
-
 # TrainingDataConfigOutputTypeDef
 
 ### excludedDatasetColumns
@@ -3141,7 +3140,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -3152,7 +3151,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateCampaignRequestRequestTypeDef
+# UpdateCampaignRequestTypeDef
 
 ### campaignArn
 - **Type**: <class 'str'>
@@ -3165,7 +3164,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### campaignConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.CampaignConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.CampaignConfigUnionTypeDef]
 
 
 # UpdateCampaignResponseTypeDef
@@ -3179,7 +3178,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDatasetRequestRequestTypeDef
+# UpdateDatasetRequestTypeDef
 
 ### datasetArn
 - **Type**: <class 'str'>
@@ -3201,7 +3200,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateMetricAttributionRequestRequestTypeDef
+# UpdateMetricAttributionRequestTypeDef
 
 ### addMetrics
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.personalize_classes.MetricAttributeTypeDef]]
@@ -3227,20 +3226,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRecommenderRequestRequestTypeDef
+# UpdateRecommenderRequestTypeDef
 
 ### recommenderArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### recommenderConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.RecommenderConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.RecommenderConfigUnionTypeDef'>
 - **Required**: Yes
 
 
 # UpdateRecommenderResponseTypeDef
 
 ### recommenderArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# UpdateSolutionRequestTypeDef
+
+### solutionArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### performAutoTraining
+- **Type**: typing.Optional[bool]
+
+### solutionUpdateConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.SolutionUpdateConfigTypeDef]
+
+
+# UpdateSolutionResponseTypeDef
+
+### solutionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 

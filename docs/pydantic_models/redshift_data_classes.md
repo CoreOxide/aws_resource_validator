@@ -6,11 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchExecuteStatementInputRequestTypeDef
-
-### Database
-- **Type**: <class 'str'>
-- **Required**: Yes
+# BatchExecuteStatementInputTypeDef
 
 ### Sqls
 - **Type**: typing.Sequence[str]
@@ -22,11 +18,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ClusterIdentifier
 - **Type**: typing.Optional[str]
 
+### Database
+- **Type**: typing.Optional[str]
+
 ### DbUser
 - **Type**: typing.Optional[str]
 
+### ResultFormat
+- **Type**: typing.Optional[typing.Literal['CSV', 'JSON']]
+
 ### SecretArn
 - **Type**: typing.Optional[str]
+
+### SessionId
+- **Type**: typing.Optional[str]
+
+### SessionKeepAliveSeconds
+- **Type**: typing.Optional[int]
 
 ### StatementName
 - **Type**: typing.Optional[str]
@@ -52,6 +60,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### DbGroups
+- **Type**: typing.List[str]
+- **Required**: Yes
+
 ### DbUser
 - **Type**: <class 'str'>
 - **Required**: Yes
@@ -64,6 +76,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### SessionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### WorkgroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
@@ -73,7 +89,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CancelStatementRequestRequestTypeDef
+# CancelStatementRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -133,7 +149,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeStatementRequestRequestTypeDef
+# DescribeStatementRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -190,6 +206,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### ResultFormat
+- **Type**: typing.Literal['CSV', 'JSON']
+- **Required**: Yes
+
 ### ResultRows
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -199,6 +219,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SecretArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SessionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -223,7 +247,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeTableRequestDescribeTablePaginateTypeDef
+# DescribeTableRequestPaginateTypeDef
 
 ### Database
 - **Type**: <class 'str'>
@@ -254,7 +278,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_data_classes.PaginatorConfigTypeDef]
 
 
-# DescribeTableRequestRequestTypeDef
+# DescribeTableRequestTypeDef
 
 ### Database
 - **Type**: <class 'str'>
@@ -294,10 +318,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_data_classes.ColumnMetadataTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### TableName
 - **Type**: <class 'str'>
 - **Required**: Yes
@@ -306,12 +326,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ExecuteStatementInputRequestTypeDef
 
-### Database
-- **Type**: <class 'str'>
-- **Required**: Yes
+# ExecuteStatementInputTypeDef
 
 ### Sql
 - **Type**: <class 'str'>
@@ -323,14 +342,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ClusterIdentifier
 - **Type**: typing.Optional[str]
 
+### Database
+- **Type**: typing.Optional[str]
+
 ### DbUser
 - **Type**: typing.Optional[str]
 
 ### Parameters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_data_classes.SqlParameterTypeDef]]
 
+### ResultFormat
+- **Type**: typing.Optional[typing.Literal['CSV', 'JSON']]
+
 ### SecretArn
 - **Type**: typing.Optional[str]
+
+### SessionId
+- **Type**: typing.Optional[str]
+
+### SessionKeepAliveSeconds
+- **Type**: typing.Optional[int]
 
 ### StatementName
 - **Type**: typing.Optional[str]
@@ -356,6 +387,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### DbGroups
+- **Type**: typing.List[str]
+- **Required**: Yes
+
 ### DbUser
 - **Type**: <class 'str'>
 - **Required**: Yes
@@ -365,6 +400,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SecretArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SessionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -398,7 +437,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetStatementResultRequestGetStatementResultPaginateTypeDef
+# GetStatementResultRequestPaginateTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -408,7 +447,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_data_classes.PaginatorConfigTypeDef]
 
 
-# GetStatementResultRequestRequestTypeDef
+# GetStatementResultRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -424,10 +463,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_data_classes.ColumnMetadataTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### Records
 - **Type**: typing.List[typing.List[aws_resource_validator.pydantic_models.redshift_data_classes.FieldTypeDef]]
 - **Required**: Yes
@@ -440,8 +475,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListDatabasesRequestListDatabasesPaginateTypeDef
+
+# GetStatementResultV2RequestPaginateTypeDef
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_data_classes.PaginatorConfigTypeDef]
+
+
+# GetStatementResultV2RequestTypeDef
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# GetStatementResultV2ResponseTypeDef
+
+### ColumnMetadata
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_data_classes.ColumnMetadataTypeDef]
+- **Required**: Yes
+
+### Records
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_data_classes.QueryRecordsTypeDef]
+- **Required**: Yes
+
+### ResultFormat
+- **Type**: typing.Literal['CSV', 'JSON']
+- **Required**: Yes
+
+### TotalNumRows
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListDatabasesRequestPaginateTypeDef
 
 ### Database
 - **Type**: <class 'str'>
@@ -463,7 +547,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_data_classes.PaginatorConfigTypeDef]
 
 
-# ListDatabasesRequestRequestTypeDef
+# ListDatabasesRequestTypeDef
 
 ### Database
 - **Type**: <class 'str'>
@@ -494,16 +578,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListSchemasRequestListSchemasPaginateTypeDef
+
+# ListSchemasRequestPaginateTypeDef
 
 ### Database
 - **Type**: <class 'str'>
@@ -531,7 +614,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_data_classes.PaginatorConfigTypeDef]
 
 
-# ListSchemasRequestRequestTypeDef
+# ListSchemasRequestTypeDef
 
 ### Database
 - **Type**: <class 'str'>
@@ -564,10 +647,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListSchemasResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### Schemas
 - **Type**: typing.List[str]
 - **Required**: Yes
@@ -576,8 +655,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListStatementsRequestListStatementsPaginateTypeDef
+
+# ListStatementsRequestPaginateTypeDef
+
+### ClusterIdentifier
+- **Type**: typing.Optional[str]
+
+### Database
+- **Type**: typing.Optional[str]
 
 ### RoleLevel
 - **Type**: typing.Optional[bool]
@@ -588,11 +676,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Status
 - **Type**: typing.Optional[typing.Literal['ABORTED', 'ALL', 'FAILED', 'FINISHED', 'PICKED', 'STARTED', 'SUBMITTED']]
 
+### WorkgroupName
+- **Type**: typing.Optional[str]
+
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_data_classes.PaginatorConfigTypeDef]
 
 
-# ListStatementsRequestRequestTypeDef
+# ListStatementsRequestTypeDef
+
+### ClusterIdentifier
+- **Type**: typing.Optional[str]
+
+### Database
+- **Type**: typing.Optional[str]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -609,12 +706,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Status
 - **Type**: typing.Optional[typing.Literal['ABORTED', 'ALL', 'FAILED', 'FINISHED', 'PICKED', 'STARTED', 'SUBMITTED']]
 
+### WorkgroupName
+- **Type**: typing.Optional[str]
+
 
 # ListStatementsResponseTypeDef
-
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### Statements
 - **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_data_classes.StatementDataTypeDef]
@@ -624,8 +720,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTablesRequestListTablesPaginateTypeDef
+
+# ListTablesRequestPaginateTypeDef
 
 ### Database
 - **Type**: <class 'str'>
@@ -656,7 +755,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_data_classes.PaginatorConfigTypeDef]
 
 
-# ListTablesRequestRequestTypeDef
+# ListTablesRequestTypeDef
 
 ### Database
 - **Type**: <class 'str'>
@@ -692,10 +791,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListTablesResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### Tables
 - **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_data_classes.TableMemberTypeDef]
 - **Required**: Yes
@@ -703,6 +798,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # PaginatorConfigTypeDef
@@ -717,13 +815,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# QueryRecordsTypeDef
+
+### CSVRecords
+- **Type**: typing.Optional[str]
+
+
 # ResponseMetadataTypeDef
 
 ### RequestId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### HostId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -738,6 +838,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # SqlParameterTypeDef
@@ -772,7 +875,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### QueryStrings
 - **Type**: typing.Optional[typing.List[str]]
 
+### ResultFormat
+- **Type**: typing.Optional[typing.Literal['CSV', 'JSON']]
+
 ### SecretArn
+- **Type**: typing.Optional[str]
+
+### SessionId
 - **Type**: typing.Optional[str]
 
 ### StatementName
@@ -824,13 +933,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # TableMemberTypeDef
 
-### name
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### schema
-- **Type**: typing.Optional[str]
-
-### type
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

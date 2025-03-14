@@ -27,7 +27,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CorsRuleTypeDef
+# CorsRuleOutputTypeDef
 
 ### AllowedOrigins
 - **Type**: typing.List[str]
@@ -47,7 +47,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# CreateContainerInputRequestTypeDef
+# CorsRuleTypeDef
+
+### AllowedOrigins
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### AllowedHeaders
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### AllowedMethods
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['DELETE', 'GET', 'HEAD', 'PUT']]]
+
+### MaxAgeSeconds
+- **Type**: typing.Optional[int]
+
+### ExposeHeaders
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# CorsRuleUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CreateContainerInputTypeDef
 
 ### ContainerName
 - **Type**: <class 'str'>
@@ -57,70 +83,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediastore_classes.TagTypeDef]]
 
 
-# CreateContainerOutputTypeDef
-
-### Container
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_classes.ContainerTypeDef'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# DeleteContainerInputRequestTypeDef
+# DeleteContainerInputTypeDef
 
 ### ContainerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteContainerPolicyInputRequestTypeDef
+# DeleteContainerPolicyInputTypeDef
 
 ### ContainerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteCorsPolicyInputRequestTypeDef
+# DeleteCorsPolicyInputTypeDef
 
 ### ContainerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteLifecyclePolicyInputRequestTypeDef
+# DeleteLifecyclePolicyInputTypeDef
 
 ### ContainerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteMetricPolicyInputRequestTypeDef
+# DeleteMetricPolicyInputTypeDef
 
 ### ContainerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeContainerInputRequestTypeDef
+# DescribeContainerInputTypeDef
 
 ### ContainerName
 - **Type**: typing.Optional[str]
 
 
-# DescribeContainerOutputTypeDef
-
-### Container
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_classes.ContainerTypeDef'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetContainerPolicyInputRequestTypeDef
+# GetContainerPolicyInputTypeDef
 
 ### ContainerName
 - **Type**: <class 'str'>
@@ -138,7 +142,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCorsPolicyInputRequestTypeDef
+# GetCorsPolicyInputTypeDef
 
 ### ContainerName
 - **Type**: <class 'str'>
@@ -148,7 +152,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetCorsPolicyOutputTypeDef
 
 ### CorsPolicy
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediastore_classes.CorsRuleTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediastore_classes.CorsRuleOutputTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -156,7 +160,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetLifecyclePolicyInputRequestTypeDef
+# GetLifecyclePolicyInputTypeDef
 
 ### ContainerName
 - **Type**: <class 'str'>
@@ -174,7 +178,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMetricPolicyInputRequestTypeDef
+# GetMetricPolicyInputTypeDef
 
 ### ContainerName
 - **Type**: <class 'str'>
@@ -184,7 +188,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetMetricPolicyOutputTypeDef
 
 ### MetricPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_classes.MetricPolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_classes.MetricPolicyOutputTypeDef'>
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -192,13 +196,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListContainersInputListContainersPaginateTypeDef
+# ListContainersInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediastore_classes.PaginatorConfigTypeDef]
 
 
-# ListContainersInputRequestTypeDef
+# ListContainersInputTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -213,16 +217,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.mediastore_classes.ContainerTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceInputRequestTypeDef
+
+# ListTagsForResourceInputTypeDef
 
 ### Resource
 - **Type**: <class 'str'>
@@ -238,6 +241,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+
+# MetricPolicyOutputTypeDef
+
+### ContainerLevelMetrics
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### MetricPolicyRules
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediastore_classes.MetricPolicyRuleTypeDef]]
 
 
 # MetricPolicyRuleTypeDef
@@ -258,8 +271,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MetricPolicyRules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediastore_classes.MetricPolicyRuleTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediastore_classes.MetricPolicyRuleTypeDef]]
 
+
+# MetricPolicyUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PaginatorConfigTypeDef
 
@@ -273,7 +292,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutContainerPolicyInputRequestTypeDef
+# PutContainerPolicyInputTypeDef
 
 ### ContainerName
 - **Type**: <class 'str'>
@@ -284,18 +303,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutCorsPolicyInputRequestTypeDef
+# PutCorsPolicyInputTypeDef
 
 ### ContainerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### CorsPolicy
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mediastore_classes.CorsRuleTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mediastore_classes.CorsRuleUnionTypeDef]
 - **Required**: Yes
 
 
-# PutLifecyclePolicyInputRequestTypeDef
+# PutLifecyclePolicyInputTypeDef
 
 ### ContainerName
 - **Type**: <class 'str'>
@@ -306,24 +325,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutMetricPolicyInputRequestTypeDef
+# PutMetricPolicyInputTypeDef
 
 ### ContainerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### MetricPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_classes.MetricPolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_classes.MetricPolicyUnionTypeDef'>
 - **Required**: Yes
 
 
 # ResponseMetadataTypeDef
 
 ### RequestId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### HostId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -339,22 +354,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
-
-# StartAccessLoggingInputRequestTypeDef
-
-### ContainerName
-- **Type**: <class 'str'>
-- **Required**: Yes
+### HostId
+- **Type**: typing.Optional[str]
 
 
-# StopAccessLoggingInputRequestTypeDef
+# StartAccessLoggingInputTypeDef
 
 ### ContainerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# TagResourceInputRequestTypeDef
+# StopAccessLoggingInputTypeDef
+
+### ContainerName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# TagResourceInputTypeDef
 
 ### Resource
 - **Type**: <class 'str'>
@@ -375,7 +393,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceInputRequestTypeDef
+# UntagResourceInputTypeDef
 
 ### Resource
 - **Type**: <class 'str'>

@@ -17,6 +17,12 @@
 - **Min Length**: 1
 - **Max Length**: 128
 
+### RotationTokenType
+- **Type**: string
+- **Pattern**: `^[a-zA-Z0-9\-]+$`
+- **Min Length**: 36
+- **Max Length**: 256
+
 ### ScheduleExpressionType
 - **Type**: string
 - **Pattern**: `[0-9A-Za-z\(\)#\?\*\-\/, ]+`

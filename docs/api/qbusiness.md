@@ -18,6 +18,10 @@
 - **Min Length**: 1
 - **Max Length**: 1000
 
+### AttachmentId
+- **Type**: string
+- **Pattern**: `[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}`
+
 ### AttachmentName
 - **Type**: string
 - **Pattern**: `\P{C}*`
@@ -30,11 +34,47 @@
 - **Min Length**: 0
 - **Max Length**: 36
 
+### ClientIdForOIDC
+- **Type**: string
+- **Pattern**: `[a-zA-Z0-9_.:/()*?=-]*`
+- **Min Length**: 1
+- **Max Length**: 255
+
+### ClientNamespace
+- **Type**: string
+- **Pattern**: `[a-zA-Z0-9._-]*`
+- **Min Length**: 1
+- **Max Length**: 64
+
 ### ConversationId
 - **Type**: string
 - **Pattern**: `[a-zA-Z0-9][a-zA-Z0-9-]{35}`
 - **Min Length**: 36
 - **Max Length**: 36
+
+### CustomCSSUrl
+- **Type**: string
+- **Pattern**: `(https?://[a-zA-Z0-9-_.+%/]+\.css)?`
+- **Min Length**: 0
+- **Max Length**: 1284
+
+### DataAccessorArn
+- **Type**: string
+- **Pattern**: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`
+- **Min Length**: 0
+- **Max Length**: 1284
+
+### DataAccessorId
+- **Type**: string
+- **Pattern**: `[a-zA-Z0-9][a-zA-Z0-9-]{35}`
+- **Min Length**: 36
+- **Max Length**: 36
+
+### DataAccessorName
+- **Type**: string
+- **Pattern**: `[a-zA-Z0-9][a-zA-Z0-9_-]*`
+- **Min Length**: 1
+- **Max Length**: 100
 
 ### DataSourceArn
 - **Type**: string
@@ -62,7 +102,7 @@
 
 ### Description
 - **Type**: string
-- **Pattern**: `\P{C}*`
+- **Pattern**: `[\s\S]*`
 - **Min Length**: 0
 - **Max Length**: 1000
 
@@ -86,7 +126,7 @@
 
 ### ErrorMessage
 - **Type**: string
-- **Pattern**: `\P{C}*`
+- **Pattern**: `[\s\S]*`
 - **Min Length**: 1
 - **Max Length**: 2048
 
@@ -102,11 +142,35 @@
 - **Min Length**: 36
 - **Max Length**: 36
 
+### FaviconUrl
+- **Type**: string
+- **Pattern**: `(https?://[a-zA-Z0-9-_.+%/]+\.(svg|ico))?`
+- **Min Length**: 0
+- **Max Length**: 1284
+
+### FontUrl
+- **Type**: string
+- **Pattern**: `(https?://[a-zA-Z0-9-_.+%/]+\.(ttf|woff|woff2|otf))?`
+- **Min Length**: 0
+- **Max Length**: 1284
+
+### GroupIdentifier
+- **Type**: string
+- **Pattern**: `([0-9a-f]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}`
+- **Min Length**: 1
+- **Max Length**: 47
+
 ### GroupName
 - **Type**: string
 - **Pattern**: `\P{C}*`
 - **Min Length**: 1
 - **Max Length**: 1024
+
+### IAMIdentityProviderArn
+- **Type**: string
+- **Pattern**: `arn:aws:iam::\d{12}:(oidc-provider|saml-provider)/[a-zA-Z0-9_\.\/@\-]+`
+- **Min Length**: 20
+- **Max Length**: 2048
 
 ### IdcApplicationArn
 - **Type**: string
@@ -150,6 +214,18 @@
 - **Min Length**: 1
 - **Max Length**: 2048
 
+### LogoUrl
+- **Type**: string
+- **Pattern**: `(https?://[a-zA-Z0-9-_.+%/]+\.(svg|png))?`
+- **Min Length**: 0
+- **Max Length**: 1284
+
+### MediaId
+- **Type**: string
+- **Pattern**: `[a-zA-Z0-9][a-zA-Z0-9-]{35}`
+- **Min Length**: 36
+- **Max Length**: 36
+
 ### MessageBody
 - **Type**: string
 - **Pattern**: `\P{C}*$}`
@@ -172,6 +248,12 @@
 - **Type**: string
 - **Pattern**: `(([1-9][0-9]*)|0)`
 
+### Origin
+- **Type**: string
+- **Pattern**: `(http://|https://)[a-zA-Z0-9-_.]+(?::[0-9]{1,5})?`
+- **Min Length**: 1
+- **Max Length**: 256
+
 ### PluginArn
 - **Type**: string
 - **Pattern**: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`
@@ -189,6 +271,16 @@
 - **Pattern**: `[a-zA-Z0-9][a-zA-Z0-9_-]*`
 - **Min Length**: 1
 - **Max Length**: 100
+
+### PrincipalRoleArn
+- **Type**: string
+- **Pattern**: `arn:aws:iam::[0-9]{12}:role/[a-zA-Z0-9_/+=,.@-]+`
+- **Min Length**: 1
+- **Max Length**: 1284
+
+### QIamAction
+- **Type**: string
+- **Pattern**: `qbusiness:[a-zA-Z]+`
 
 ### RetrieverArn
 - **Type**: string
@@ -220,6 +312,12 @@
 - **Min Length**: 1
 - **Max Length**: 63
 
+### SamlAuthenticationUrl
+- **Type**: string
+- **Pattern**: `https://.*`
+- **Min Length**: 1
+- **Max Length**: 1284
+
 ### SamlMetadataXML
 - **Type**: string
 - **Pattern**: `.*`
@@ -238,15 +336,33 @@
 - **Min Length**: 1
 - **Max Length**: 200
 
+### SourceAttributionMediaId
+- **Type**: string
+- **Pattern**: `[a-zA-Z0-9][a-zA-Z0-9-]{35}`
+- **Min Length**: 36
+- **Max Length**: 36
+
+### StatementId
+- **Type**: string
+- **Pattern**: `[a-zA-Z0-9_-]+`
+- **Min Length**: 1
+- **Max Length**: 100
+
 ### SubnetId
 - **Type**: string
 - **Pattern**: `[-0-9a-zA-Z]+`
 - **Min Length**: 1
 - **Max Length**: 200
 
+### SubscriptionArn
+- **Type**: string
+- **Pattern**: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`
+- **Min Length**: 10
+- **Max Length**: 1224
+
 ### SyncSchedule
 - **Type**: string
-- **Pattern**: `\P{C}*`
+- **Pattern**: `[\s\S]*`
 - **Min Length**: 0
 - **Max Length**: 998
 
@@ -286,6 +402,12 @@
 - **Min Length**: 1
 - **Max Length**: 1024
 
+### UserIdentifier
+- **Type**: string
+- **Pattern**: `([0-9a-f]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}`
+- **Min Length**: 1
+- **Max Length**: 47
+
 ### WebExperienceArn
 - **Type**: string
 - **Pattern**: `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`
@@ -300,13 +422,13 @@
 
 ### WebExperienceSubtitle
 - **Type**: string
-- **Pattern**: `\P{C}*`
+- **Pattern**: `[\s\S]*`
 - **Min Length**: 0
 - **Max Length**: 500
 
 ### WebExperienceTitle
 - **Type**: string
-- **Pattern**: `\P{C}*`
+- **Pattern**: `[\s\S]*`
 - **Min Length**: 0
 - **Max Length**: 500
 

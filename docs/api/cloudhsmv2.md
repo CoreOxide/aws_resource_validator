@@ -1,5 +1,9 @@
 # Cloudhsmv2 Service
 
+### BackupArn
+- **Type**: string
+- **Pattern**: `^(arn:aws(-(us-gov))?:cloudhsm:([a-z]{2}(-(gov|isob|iso))?-(east|west|north|south|central){1,2}-[0-9]{1}):[0-9]{12}:backup/)?backup-[2-7a-zA-Z]{11,16}`
+
 ### BackupId
 - **Type**: string
 - **Pattern**: `backup-[2-7a-zA-Z]{11,16}`
@@ -13,7 +17,11 @@
 ### Cert
 - **Type**: string
 - **Pattern**: `[a-zA-Z0-9+-/=\s]*`
-- **Max Length**: 5000
+- **Max Length**: 20000
+
+### CloudHsmArn
+- **Type**: string
+- **Pattern**: `arn:aws(-(us-gov))?:cloudhsm:([a-z]{2}(-(gov|isob|iso))?-(east|west|north|south|central){1,2}-[0-9]{1}):[0-9]{12}:(backup/backup|cluster/cluster|hsm/hsm)-[2-7a-zA-Z]{11,16}`
 
 ### ClusterId
 - **Type**: string
@@ -37,7 +45,8 @@
 
 ### HsmType
 - **Type**: string
-- **Pattern**: `(hsm1\.medium)`
+- **Pattern**: `((p|)hsm[0-9][a-z.]*\.[a-zA-Z]+)`
+- **Max Length**: 32
 
 ### IpAddress
 - **Type**: string

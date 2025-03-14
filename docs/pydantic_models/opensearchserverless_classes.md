@@ -2,27 +2,9 @@
 
 # AccessPolicyDetailTypeDef
 
-### createdDate
-- **Type**: typing.Optional[int]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### description
-- **Type**: typing.Optional[str]
-
-### lastModifiedDate
-- **Type**: typing.Optional[int]
-
-### name
-- **Type**: typing.Optional[str]
-
-### policy
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
-
-### policyVersion
-- **Type**: typing.Optional[str]
-
-### type
-- **Type**: typing.Optional[typing.Literal['data']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AccessPolicyStatsTypeDef
 
@@ -32,24 +14,9 @@
 
 # AccessPolicySummaryTypeDef
 
-### createdDate
-- **Type**: typing.Optional[int]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### description
-- **Type**: typing.Optional[str]
-
-### lastModifiedDate
-- **Type**: typing.Optional[int]
-
-### name
-- **Type**: typing.Optional[str]
-
-### policyVersion
-- **Type**: typing.Optional[str]
-
-### type
-- **Type**: typing.Optional[typing.Literal['data']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AccountSettingsDetailTypeDef
 
@@ -63,7 +30,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchGetCollectionRequestRequestTypeDef
+# BatchGetCollectionRequestTypeDef
 
 ### ids
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -87,7 +54,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchGetEffectiveLifecyclePolicyRequestRequestTypeDef
+# BatchGetEffectiveLifecyclePolicyRequestTypeDef
 
 ### resourceIdentifiers
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.opensearchserverless_classes.LifecyclePolicyResourceIdentifierTypeDef]
@@ -109,7 +76,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchGetLifecyclePolicyRequestRequestTypeDef
+# BatchGetLifecyclePolicyRequestTypeDef
 
 ### identifiers
 - **Type**: typing.Sequence[aws_resource_validator.pydantic_models.opensearchserverless_classes.LifecyclePolicyIdentifierTypeDef]
@@ -131,7 +98,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchGetVpcEndpointRequestRequestTypeDef
+# BatchGetVpcEndpointRequestTypeDef
 
 ### ids
 - **Type**: typing.Sequence[str]
@@ -164,57 +131,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # CollectionDetailTypeDef
 
-### arn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### collectionEndpoint
-- **Type**: typing.Optional[str]
-
-### createdDate
-- **Type**: typing.Optional[int]
-
-### dashboardEndpoint
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-### id
-- **Type**: typing.Optional[str]
-
-### kmsKeyArn
-- **Type**: typing.Optional[str]
-
-### lastModifiedDate
-- **Type**: typing.Optional[int]
-
-### name
-- **Type**: typing.Optional[str]
-
-### standbyReplicas
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED']]
-
-### type
-- **Type**: typing.Optional[typing.Literal['SEARCH', 'TIMESERIES', 'VECTORSEARCH']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CollectionErrorDetailTypeDef
 
-### errorCode
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### errorMessage
-- **Type**: typing.Optional[str]
-
-### id
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CollectionFiltersTypeDef
 
@@ -227,39 +152,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # CollectionSummaryTypeDef
 
-### arn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### id
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED']]
-
-
-# CreateAccessPolicyRequestRequestTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### policy
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['data']
-- **Required**: Yes
-
-### clientToken
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CreateAccessPolicyResponseTypeDef
 
@@ -274,58 +169,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # CreateCollectionDetailTypeDef
 
-### arn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### createdDate
-- **Type**: typing.Optional[int]
-
-### description
-- **Type**: typing.Optional[str]
-
-### id
-- **Type**: typing.Optional[str]
-
-### kmsKeyArn
-- **Type**: typing.Optional[str]
-
-### lastModifiedDate
-- **Type**: typing.Optional[int]
-
-### name
-- **Type**: typing.Optional[str]
-
-### standbyReplicas
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED']]
-
-### type
-- **Type**: typing.Optional[typing.Literal['SEARCH', 'TIMESERIES', 'VECTORSEARCH']]
-
-
-# CreateCollectionRequestRequestTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### clientToken
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-### standbyReplicas
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opensearchserverless_classes.TagTypeDef]]
-
-### type
-- **Type**: typing.Optional[typing.Literal['SEARCH', 'TIMESERIES', 'VECTORSEARCH']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CreateCollectionResponseTypeDef
 
@@ -338,25 +184,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLifecyclePolicyRequestRequestTypeDef
+# CreateIamIdentityCenterConfigOptionsTypeDef
 
-### name
+### instanceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### policy
-- **Type**: <class 'str'>
-- **Required**: Yes
+### userAttribute
+- **Type**: typing.Optional[typing.Literal['Email', 'UserId', 'UserName']]
 
-### type
-- **Type**: typing.Literal['retention']
-- **Required**: Yes
-
-### clientToken
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
+### groupAttribute
+- **Type**: typing.Optional[typing.Literal['GroupId', 'GroupName']]
 
 
 # CreateLifecyclePolicyResponseTypeDef
@@ -370,26 +208,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateSecurityConfigRequestRequestTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['saml']
-- **Required**: Yes
-
-### clientToken
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-### samlOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearchserverless_classes.SamlConfigOptionsTypeDef]
-
-
 # CreateSecurityConfigResponseTypeDef
 
 ### securityConfigDetail
@@ -399,27 +217,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
-
-
-# CreateSecurityPolicyRequestRequestTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### policy
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['encryption', 'network']
-- **Required**: Yes
-
-### clientToken
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
 
 
 # CreateSecurityPolicyResponseTypeDef
@@ -435,19 +232,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # CreateVpcEndpointDetailTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CreateVpcEndpointRequestTypeDef
 
 ### name
-- **Type**: typing.Optional[str]
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-### status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETING', 'FAILED', 'PENDING']]
-
-
-# CreateVpcEndpointRequestRequestTypeDef
-
-### name
+### vpcId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -455,15 +250,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
-### vpcId
-- **Type**: <class 'str'>
-- **Required**: Yes
+### securityGroupIds
+- **Type**: typing.Optional[typing.Sequence[str]]
 
 ### clientToken
 - **Type**: typing.Optional[str]
-
-### securityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
 
 
 # CreateVpcEndpointResponseTypeDef
@@ -477,41 +268,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAccessPolicyRequestRequestTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['data']
-- **Required**: Yes
-
-### clientToken
-- **Type**: typing.Optional[str]
-
-
 # DeleteCollectionDetailTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### name
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED']]
-
-
-# DeleteCollectionRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### clientToken
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DeleteCollectionResponseTypeDef
 
@@ -524,65 +285,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteLifecyclePolicyRequestRequestTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['retention']
-- **Required**: Yes
-
-### clientToken
-- **Type**: typing.Optional[str]
-
-
-# DeleteSecurityConfigRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### clientToken
-- **Type**: typing.Optional[str]
-
-
-# DeleteSecurityPolicyRequestRequestTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['encryption', 'network']
-- **Required**: Yes
-
-### clientToken
-- **Type**: typing.Optional[str]
-
-
 # DeleteVpcEndpointDetailTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### name
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETING', 'FAILED', 'PENDING']]
-
-
-# DeleteVpcEndpointRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### clientToken
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DeleteVpcEndpointResponseTypeDef
 
@@ -597,50 +304,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EffectiveLifecyclePolicyDetailTypeDef
 
-### noMinRetentionPeriod
-- **Type**: typing.Optional[bool]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### policyName
-- **Type**: typing.Optional[str]
-
-### resource
-- **Type**: typing.Optional[str]
-
-### resourceType
-- **Type**: typing.Optional[typing.Literal['index']]
-
-### retentionPeriod
-- **Type**: typing.Optional[str]
-
-### type
-- **Type**: typing.Optional[typing.Literal['retention']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EffectiveLifecyclePolicyErrorDetailTypeDef
 
-### errorCode
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### errorMessage
-- **Type**: typing.Optional[str]
-
-### resource
-- **Type**: typing.Optional[str]
-
-### type
-- **Type**: typing.Optional[typing.Literal['retention']]
-
-
-# GetAccessPolicyRequestRequestTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['data']
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # GetAccessPolicyResponseTypeDef
 
@@ -670,16 +342,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.AccessPolicyStatsTypeDef'>
 - **Required**: Yes
 
-### LifecyclePolicyStats
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.LifecyclePolicyStatsTypeDef'>
+### SecurityPolicyStats
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.SecurityPolicyStatsTypeDef'>
 - **Required**: Yes
 
 ### SecurityConfigStats
 - **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.SecurityConfigStatsTypeDef'>
 - **Required**: Yes
 
-### SecurityPolicyStats
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.SecurityPolicyStatsTypeDef'>
+### LifecyclePolicyStats
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.LifecyclePolicyStatsTypeDef'>
 - **Required**: Yes
 
 ### TotalPolicyCount
@@ -688,13 +360,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetSecurityConfigRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
 - **Required**: Yes
 
 
@@ -709,17 +374,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSecurityPolicyRequestRequestTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['encryption', 'network']
-- **Required**: Yes
-
-
 # GetSecurityPolicyResponseTypeDef
 
 ### securityPolicyDetail
@@ -731,66 +385,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# IamIdentityCenterConfigOptionsTypeDef
+
+### instanceArn
+- **Type**: typing.Optional[str]
+
+### applicationArn
+- **Type**: typing.Optional[str]
+
+### applicationName
+- **Type**: typing.Optional[str]
+
+### applicationDescription
+- **Type**: typing.Optional[str]
+
+### userAttribute
+- **Type**: typing.Optional[typing.Literal['Email', 'UserId', 'UserName']]
+
+### groupAttribute
+- **Type**: typing.Optional[typing.Literal['GroupId', 'GroupName']]
+
+
 # LifecyclePolicyDetailTypeDef
 
-### createdDate
-- **Type**: typing.Optional[int]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### description
-- **Type**: typing.Optional[str]
-
-### lastModifiedDate
-- **Type**: typing.Optional[int]
-
-### name
-- **Type**: typing.Optional[str]
-
-### policy
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
-
-### policyVersion
-- **Type**: typing.Optional[str]
-
-### type
-- **Type**: typing.Optional[typing.Literal['retention']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LifecyclePolicyErrorDetailTypeDef
 
-### errorCode
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### errorMessage
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### type
-- **Type**: typing.Optional[typing.Literal['retention']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LifecyclePolicyIdentifierTypeDef
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: typing.Literal['retention']
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LifecyclePolicyResourceIdentifierTypeDef
 
-### resource
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: typing.Literal['retention']
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LifecyclePolicyStatsTypeDef
 
@@ -800,40 +438,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # LifecyclePolicySummaryTypeDef
 
-### createdDate
-- **Type**: typing.Optional[int]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### description
-- **Type**: typing.Optional[str]
-
-### lastModifiedDate
-- **Type**: typing.Optional[int]
-
-### name
-- **Type**: typing.Optional[str]
-
-### policyVersion
-- **Type**: typing.Optional[str]
-
-### type
-- **Type**: typing.Optional[typing.Literal['retention']]
-
-
-# ListAccessPoliciesRequestRequestTypeDef
-
-### type
-- **Type**: typing.Literal['data']
-- **Required**: Yes
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-### resource
-- **Type**: typing.Optional[typing.Sequence[str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ListAccessPoliciesResponseTypeDef
 
@@ -841,25 +448,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.AccessPolicySummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListCollectionsRequestRequestTypeDef
+
+# ListCollectionsRequestTypeDef
 
 ### collectionFilters
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearchserverless_classes.CollectionFiltersTypeDef]
 
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
 
 
 # ListCollectionsResponseTypeDef
@@ -868,29 +474,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.CollectionSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# ListLifecyclePoliciesRequestRequestTypeDef
-
-### type
-- **Type**: typing.Literal['retention']
-- **Required**: Yes
-
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
-
-### resources
-- **Type**: typing.Optional[typing.Sequence[str]]
 
 
 # ListLifecyclePoliciesResponseTypeDef
@@ -899,33 +488,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.LifecyclePolicySummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
-
-
-# ListSecurityConfigsRequestRequestTypeDef
-
-### type
-- **Type**: typing.Literal['saml']
-- **Required**: Yes
-
-### maxResults
-- **Type**: typing.Optional[int]
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
 # ListSecurityConfigsResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### securityConfigSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.SecurityConfigSummaryTypeDef]
@@ -935,28 +506,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# ListSecurityPoliciesRequestRequestTypeDef
-
-### type
-- **Type**: typing.Literal['encryption', 'network']
-- **Required**: Yes
-
-### maxResults
-- **Type**: typing.Optional[int]
-
 ### nextToken
 - **Type**: typing.Optional[str]
 
-### resource
-- **Type**: typing.Optional[typing.Sequence[str]]
-
 
 # ListSecurityPoliciesResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### securityPolicySummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.SecurityPolicySummaryTypeDef]
@@ -966,8 +520,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -985,23 +542,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListVpcEndpointsRequestRequestTypeDef
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-### nextToken
-- **Type**: typing.Optional[str]
+# ListVpcEndpointsRequestTypeDef
 
 ### vpcEndpointFilters
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearchserverless_classes.VpcEndpointFiltersTypeDef]
 
+### nextToken
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
 
 # ListVpcEndpointsResponseTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### vpcEndpointSummaries
 - **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.VpcEndpointSummaryTypeDef]
@@ -1011,14 +564,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
+
 
 # ResponseMetadataTypeDef
 
 ### RequestId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### HostId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -1034,6 +586,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
+
 
 # SamlConfigOptionsTypeDef
 
@@ -1041,39 +596,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### userAttribute
+- **Type**: typing.Optional[str]
+
 ### groupAttribute
+- **Type**: typing.Optional[str]
+
+### openSearchServerlessEntityId
 - **Type**: typing.Optional[str]
 
 ### sessionTimeout
 - **Type**: typing.Optional[int]
 
-### userAttribute
-- **Type**: typing.Optional[str]
-
 
 # SecurityConfigDetailTypeDef
 
-### configVersion
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### createdDate
-- **Type**: typing.Optional[int]
-
-### description
-- **Type**: typing.Optional[str]
-
-### id
-- **Type**: typing.Optional[str]
-
-### lastModifiedDate
-- **Type**: typing.Optional[int]
-
-### samlOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearchserverless_classes.SamlConfigOptionsTypeDef]
-
-### type
-- **Type**: typing.Optional[typing.Literal['saml']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SecurityConfigStatsTypeDef
 
@@ -1083,48 +623,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SecurityConfigSummaryTypeDef
 
-### configVersion
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### createdDate
-- **Type**: typing.Optional[int]
-
-### description
-- **Type**: typing.Optional[str]
-
-### id
-- **Type**: typing.Optional[str]
-
-### lastModifiedDate
-- **Type**: typing.Optional[int]
-
-### type
-- **Type**: typing.Optional[typing.Literal['saml']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SecurityPolicyDetailTypeDef
 
-### createdDate
-- **Type**: typing.Optional[int]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### description
-- **Type**: typing.Optional[str]
-
-### lastModifiedDate
-- **Type**: typing.Optional[int]
-
-### name
-- **Type**: typing.Optional[str]
-
-### policy
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
-
-### policyVersion
-- **Type**: typing.Optional[str]
-
-### type
-- **Type**: typing.Optional[typing.Literal['encryption', 'network']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SecurityPolicyStatsTypeDef
 
@@ -1137,26 +644,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SecurityPolicySummaryTypeDef
 
-### createdDate
-- **Type**: typing.Optional[int]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### description
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### lastModifiedDate
-- **Type**: typing.Optional[int]
-
-### name
-- **Type**: typing.Optional[str]
-
-### policyVersion
-- **Type**: typing.Optional[str]
-
-### type
-- **Type**: typing.Optional[typing.Literal['encryption', 'network']]
-
-
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1178,7 +670,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1187,30 +679,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### tagKeys
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
-
-
-# UpdateAccessPolicyRequestRequestTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### policyVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['data']
-- **Required**: Yes
-
-### clientToken
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-### policy
-- **Type**: typing.Optional[str]
 
 
 # UpdateAccessPolicyResponseTypeDef
@@ -1224,7 +692,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAccountSettingsRequestRequestTypeDef
+# UpdateAccountSettingsRequestTypeDef
 
 ### capacityLimits
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearchserverless_classes.CapacityLimitsTypeDef]
@@ -1243,43 +711,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # UpdateCollectionDetailTypeDef
 
-### arn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### createdDate
-- **Type**: typing.Optional[int]
-
-### description
-- **Type**: typing.Optional[str]
-
-### id
-- **Type**: typing.Optional[str]
-
-### lastModifiedDate
-- **Type**: typing.Optional[int]
-
-### name
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED']]
-
-### type
-- **Type**: typing.Optional[typing.Literal['SEARCH', 'TIMESERIES', 'VECTORSEARCH']]
-
-
-# UpdateCollectionRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### clientToken
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UpdateCollectionResponseTypeDef
 
@@ -1292,28 +726,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateLifecyclePolicyRequestRequestTypeDef
+# UpdateIamIdentityCenterConfigOptionsTypeDef
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+### userAttribute
+- **Type**: typing.Optional[typing.Literal['Email', 'UserId', 'UserName']]
 
-### policyVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['retention']
-- **Required**: Yes
-
-### clientToken
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-### policy
-- **Type**: typing.Optional[str]
+### groupAttribute
+- **Type**: typing.Optional[typing.Literal['GroupId', 'GroupName']]
 
 
 # UpdateLifecyclePolicyResponseTypeDef
@@ -1327,26 +746,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateSecurityConfigRequestRequestTypeDef
-
-### configVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### clientToken
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-### samlOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearchserverless_classes.SamlConfigOptionsTypeDef]
-
-
 # UpdateSecurityConfigResponseTypeDef
 
 ### securityConfigDetail
@@ -1356,30 +755,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
-
-
-# UpdateSecurityPolicyRequestRequestTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### policyVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['encryption', 'network']
-- **Required**: Yes
-
-### clientToken
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-### policy
-- **Type**: typing.Optional[str]
 
 
 # UpdateSecurityPolicyResponseTypeDef
@@ -1395,46 +770,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # UpdateVpcEndpointDetailTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### lastModifiedDate
-- **Type**: typing.Optional[int]
-
-### name
-- **Type**: typing.Optional[str]
-
-### securityGroupIds
-- **Type**: typing.Optional[typing.List[str]]
-
-### status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETING', 'FAILED', 'PENDING']]
-
-### subnetIds
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# UpdateVpcEndpointRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### addSecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### addSubnetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### clientToken
-- **Type**: typing.Optional[str]
-
-### removeSecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### removeSubnetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UpdateVpcEndpointResponseTypeDef
 
@@ -1449,39 +787,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # VpcEndpointDetailTypeDef
 
-### createdDate
-- **Type**: typing.Optional[int]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### id
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### securityGroupIds
-- **Type**: typing.Optional[typing.List[str]]
-
-### status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETING', 'FAILED', 'PENDING']]
-
-### subnetIds
-- **Type**: typing.Optional[typing.List[str]]
-
-### vpcId
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # VpcEndpointErrorDetailTypeDef
 
-### errorCode
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### errorMessage
-- **Type**: typing.Optional[str]
-
-### id
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # VpcEndpointFiltersTypeDef
 
@@ -1491,13 +805,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # VpcEndpointSummaryTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### name
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETING', 'FAILED', 'PENDING']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

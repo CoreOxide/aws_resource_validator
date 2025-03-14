@@ -1,5 +1,71 @@
 # Dataexchange Classes
 
+# AcceptDataGrantRequestTypeDef
+
+### DataGrantArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# AcceptDataGrantResponseTypeDef
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SenderPrincipal
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ReceiverPrincipal
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AcceptanceState
+- **Type**: typing.Literal['ACCEPTED', 'PENDING_RECEIVER_ACCEPTANCE']
+- **Required**: Yes
+
+### AcceptedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### EndsAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### GrantDistributionScope
+- **Type**: typing.Literal['AWS_ORGANIZATION', 'NONE']
+- **Required**: Yes
+
+### DataSetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CreatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### UpdatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
 # ActionTypeDef
 
 ### ExportRevisionToS3
@@ -50,24 +116,6 @@
 - **Type**: typing.Optional[str]
 
 
-# AssetDetailsPaginatorTypeDef
-
-### S3SnapshotAsset
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.S3SnapshotAssetTypeDef]
-
-### RedshiftDataShareAsset
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.RedshiftDataShareAssetTypeDef]
-
-### ApiGatewayApiAsset
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.ApiGatewayApiAssetTypeDef]
-
-### S3DataAccessAsset
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.S3DataAccessAssetTypeDef]
-
-### LakeFormationDataPermissionAsset
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.LakeFormationDataPermissionAssetPaginatorTypeDef]
-
-
 # AssetDetailsTypeDef
 
 ### S3SnapshotAsset
@@ -84,48 +132,6 @@
 
 ### LakeFormationDataPermissionAsset
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.LakeFormationDataPermissionAssetTypeDef]
-
-
-# AssetEntryPaginatorTypeDef
-
-### Arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### AssetDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.AssetDetailsPaginatorTypeDef'>
-- **Required**: Yes
-
-### AssetType
-- **Type**: typing.Literal['API_GATEWAY_API', 'LAKE_FORMATION_DATA_PERMISSION', 'REDSHIFT_DATA_SHARE', 'S3_DATA_ACCESS', 'S3_SNAPSHOT']
-- **Required**: Yes
-
-### CreatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### DataSetId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### RevisionId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### UpdatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### SourceId
-- **Type**: typing.Optional[str]
 
 
 # AssetEntryTypeDef
@@ -207,14 +213,109 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelJobRequestRequestTypeDef
+# CancelJobRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CreateDataSetRequestRequestTypeDef
+# CreateDataGrantRequestTypeDef
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### GrantDistributionScope
+- **Type**: typing.Literal['AWS_ORGANIZATION', 'NONE']
+- **Required**: Yes
+
+### ReceiverPrincipal
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SourceDataSetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EndsAt
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.TimestampTypeDef]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+
+# CreateDataGrantResponseTypeDef
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SenderPrincipal
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ReceiverPrincipal
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AcceptanceState
+- **Type**: typing.Literal['ACCEPTED', 'PENDING_RECEIVER_ACCEPTANCE']
+- **Required**: Yes
+
+### AcceptedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### EndsAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### GrantDistributionScope
+- **Type**: typing.Literal['AWS_ORGANIZATION', 'NONE']
+- **Required**: Yes
+
+### DataSetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SourceDataSetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CreatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### UpdatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Dict[str, str]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# CreateDataSetRequestTypeDef
 
 ### AssetType
 - **Type**: typing.Literal['API_GATEWAY_API', 'LAKE_FORMATION_DATA_PERMISSION', 'REDSHIFT_DATA_SHARE', 'S3_DATA_ACCESS', 'S3_SNAPSHOT']
@@ -283,7 +384,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateEventActionRequestRequestTypeDef
+# CreateEventActionRequestTypeDef
 
 ### Action
 - **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.ActionTypeDef'>
@@ -325,57 +426,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateJobRequestRequestTypeDef
-
-### Details
-- **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.RequestDetailsTypeDef'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['CREATE_S3_DATA_ACCESS_FROM_S3_BUCKET', 'EXPORT_ASSETS_TO_S3', 'EXPORT_ASSET_TO_SIGNED_URL', 'EXPORT_REVISIONS_TO_S3', 'IMPORT_ASSETS_FROM_LAKE_FORMATION_TAG_POLICY', 'IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES', 'IMPORT_ASSETS_FROM_S3', 'IMPORT_ASSET_FROM_API_GATEWAY_API', 'IMPORT_ASSET_FROM_SIGNED_URL']
-- **Required**: Yes
-
-
-# CreateJobResponseTypeDef
-
-### Arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CreatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### Details
-- **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.ResponseDetailsTypeDef'>
-- **Required**: Yes
-
-### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.dataexchange_classes.JobErrorTypeDef]
-- **Required**: Yes
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### State
-- **Type**: typing.Literal['CANCELLED', 'COMPLETED', 'ERROR', 'IN_PROGRESS', 'TIMED_OUT', 'WAITING']
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['CREATE_S3_DATA_ACCESS_FROM_S3_BUCKET', 'EXPORT_ASSETS_TO_S3', 'EXPORT_ASSET_TO_SIGNED_URL', 'EXPORT_REVISIONS_TO_S3', 'IMPORT_ASSETS_FROM_LAKE_FORMATION_TAG_POLICY', 'IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES', 'IMPORT_ASSETS_FROM_S3', 'IMPORT_ASSET_FROM_API_GATEWAY_API', 'IMPORT_ASSET_FROM_SIGNED_URL']
-- **Required**: Yes
-
-### UpdatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# CreateRevisionRequestRequestTypeDef
+# CreateRevisionRequestTypeDef
 
 ### DataSetId
 - **Type**: <class 'str'>
@@ -446,22 +497,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateS3DataAccessFromS3BucketRequestDetailsTypeDef
 
 ### AssetSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.S3DataAccessAssetSourceEntryTypeDef'>
-- **Required**: Yes
-
-### DataSetId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### RevisionId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# CreateS3DataAccessFromS3BucketResponseDetailsPaginatorTypeDef
-
-### AssetSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.S3DataAccessAssetSourceEntryPaginatorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.S3DataAccessAssetSourceEntryUnionTypeDef'>
 - **Required**: Yes
 
 ### DataSetId
@@ -476,7 +512,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateS3DataAccessFromS3BucketResponseDetailsTypeDef
 
 ### AssetSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.S3DataAccessAssetSourceEntryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.S3DataAccessAssetSourceEntryOutputTypeDef'>
 - **Required**: Yes
 
 ### DataSetId
@@ -486,6 +522,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RevisionId
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+
+# DataGrantSummaryEntryTypeDef
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SenderPrincipal
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ReceiverPrincipal
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AcceptanceState
+- **Type**: typing.Literal['ACCEPTED', 'PENDING_RECEIVER_ACCEPTANCE']
+- **Required**: Yes
+
+### DataSetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SourceDataSetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CreatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### UpdatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### AcceptedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### EndsAt
+- **Type**: typing.Optional[datetime.datetime]
 
 
 # DataSetEntryTypeDef
@@ -532,13 +617,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DataUpdateRequestDetailsTypeDef
 
 ### DataUpdatedAt
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.TimestampTypeDef]
 
 
-# DatabaseLFTagPolicyAndPermissionsPaginatorTypeDef
+# DatabaseLFTagPolicyAndPermissionsOutputTypeDef
 
 ### Expression
-- **Type**: typing.List[aws_resource_validator.pydantic_models.dataexchange_classes.LFTagPaginatorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.dataexchange_classes.LFTagOutputTypeDef]
 - **Required**: Yes
 
 ### Permissions
@@ -557,21 +642,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DatabaseLFTagPolicyPaginatorTypeDef
+# DatabaseLFTagPolicyAndPermissionsUnionTypeDef
 
-### Expression
-- **Type**: typing.List[aws_resource_validator.pydantic_models.dataexchange_classes.LFTagPaginatorTypeDef]
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DatabaseLFTagPolicyTypeDef
 
 ### Expression
-- **Type**: typing.List[aws_resource_validator.pydantic_models.dataexchange_classes.LFTagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.dataexchange_classes.LFTagOutputTypeDef]
 - **Required**: Yes
 
 
-# DeleteAssetRequestRequestTypeDef
+# DeleteAssetRequestTypeDef
 
 ### AssetId
 - **Type**: <class 'str'>
@@ -586,21 +670,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDataSetRequestRequestTypeDef
+# DeleteDataGrantRequestTypeDef
+
+### DataGrantId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteDataSetRequestTypeDef
 
 ### DataSetId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteEventActionRequestRequestTypeDef
+# DeleteEventActionRequestTypeDef
 
 ### EventActionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteRevisionRequestRequestTypeDef
+# DeleteRevisionRequestTypeDef
 
 ### DataSetId
 - **Type**: <class 'str'>
@@ -614,7 +705,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeprecationRequestDetailsTypeDef
 
 ### DeprecationAt
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 
@@ -772,15 +863,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ExportServerSideEncryptionTypeDef
 
-### Type
-- **Type**: typing.Literal['AES256', 'aws:kms']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### KmsKeyArn
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-
-# GetAssetRequestRequestTypeDef
+# GetAssetRequestTypeDef
 
 ### AssetId
 - **Type**: <class 'str'>
@@ -842,7 +929,81 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDataSetRequestRequestTypeDef
+# GetDataGrantRequestTypeDef
+
+### DataGrantId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetDataGrantResponseTypeDef
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SenderPrincipal
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ReceiverPrincipal
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AcceptanceState
+- **Type**: typing.Literal['ACCEPTED', 'PENDING_RECEIVER_ACCEPTANCE']
+- **Required**: Yes
+
+### AcceptedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### EndsAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### GrantDistributionScope
+- **Type**: typing.Literal['AWS_ORGANIZATION', 'NONE']
+- **Required**: Yes
+
+### DataSetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SourceDataSetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CreatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### UpdatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Dict[str, str]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# GetDataSetRequestTypeDef
 
 ### DataSetId
 - **Type**: <class 'str'>
@@ -900,7 +1061,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetEventActionRequestRequestTypeDef
+# GetEventActionRequestTypeDef
 
 ### EventActionId
 - **Type**: <class 'str'>
@@ -938,14 +1099,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetJobRequestRequestTypeDef
+# GetJobRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetJobResponseTypeDef
+# GetReceivedDataGrantRequestTypeDef
+
+### DataGrantArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetReceivedDataGrantResponseTypeDef
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SenderPrincipal
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ReceiverPrincipal
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AcceptanceState
+- **Type**: typing.Literal['ACCEPTED', 'PENDING_RECEIVER_ACCEPTANCE']
+- **Required**: Yes
+
+### AcceptedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### EndsAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### GrantDistributionScope
+- **Type**: typing.Literal['AWS_ORGANIZATION', 'NONE']
+- **Required**: Yes
+
+### DataSetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 ### Arn
 - **Type**: <class 'str'>
@@ -953,26 +1161,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### CreatedAt
 - **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### Details
-- **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.ResponseDetailsTypeDef'>
-- **Required**: Yes
-
-### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.dataexchange_classes.JobErrorTypeDef]
-- **Required**: Yes
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### State
-- **Type**: typing.Literal['CANCELLED', 'COMPLETED', 'ERROR', 'IN_PROGRESS', 'TIMED_OUT', 'WAITING']
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['CREATE_S3_DATA_ACCESS_FROM_S3_BUCKET', 'EXPORT_ASSETS_TO_S3', 'EXPORT_ASSET_TO_SIGNED_URL', 'EXPORT_REVISIONS_TO_S3', 'IMPORT_ASSETS_FROM_LAKE_FORMATION_TAG_POLICY', 'IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES', 'IMPORT_ASSETS_FROM_S3', 'IMPORT_ASSET_FROM_API_GATEWAY_API', 'IMPORT_ASSET_FROM_SIGNED_URL']
 - **Required**: Yes
 
 ### UpdatedAt
@@ -984,7 +1172,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRevisionRequestRequestTypeDef
+# GetRevisionRequestTypeDef
 
 ### DataSetId
 - **Type**: <class 'str'>
@@ -1201,35 +1389,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Database
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.DatabaseLFTagPolicyAndPermissionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.DatabaseLFTagPolicyAndPermissionsUnionTypeDef]
 
 ### Table
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.TableLFTagPolicyAndPermissionsTypeDef]
-
-
-# ImportAssetsFromLakeFormationTagPolicyResponseDetailsPaginatorTypeDef
-
-### CatalogId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### RoleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DataSetId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### RevisionId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Database
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.DatabaseLFTagPolicyAndPermissionsPaginatorTypeDef]
-
-### Table
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.TableLFTagPolicyAndPermissionsPaginatorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.TableLFTagPolicyAndPermissionsUnionTypeDef]
 
 
 # ImportAssetsFromLakeFormationTagPolicyResponseDetailsTypeDef
@@ -1251,10 +1414,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Database
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.DatabaseLFTagPolicyAndPermissionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.DatabaseLFTagPolicyAndPermissionsOutputTypeDef]
 
 ### Table
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.TableLFTagPolicyAndPermissionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.TableLFTagPolicyAndPermissionsOutputTypeDef]
 
 
 # ImportAssetsFromRedshiftDataSharesRequestDetailsTypeDef
@@ -1317,73 +1480,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# JobEntryPaginatorTypeDef
-
-### Arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CreatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### Details
-- **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.ResponseDetailsPaginatorTypeDef'>
-- **Required**: Yes
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### State
-- **Type**: typing.Literal['CANCELLED', 'COMPLETED', 'ERROR', 'IN_PROGRESS', 'TIMED_OUT', 'WAITING']
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['CREATE_S3_DATA_ACCESS_FROM_S3_BUCKET', 'EXPORT_ASSETS_TO_S3', 'EXPORT_ASSET_TO_SIGNED_URL', 'EXPORT_REVISIONS_TO_S3', 'IMPORT_ASSETS_FROM_LAKE_FORMATION_TAG_POLICY', 'IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES', 'IMPORT_ASSETS_FROM_S3', 'IMPORT_ASSET_FROM_API_GATEWAY_API', 'IMPORT_ASSET_FROM_SIGNED_URL']
-- **Required**: Yes
-
-### UpdatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### Errors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dataexchange_classes.JobErrorTypeDef]]
-
-
 # JobEntryTypeDef
 
-### Arn
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### CreatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### Details
-- **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.ResponseDetailsTypeDef'>
-- **Required**: Yes
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### State
-- **Type**: typing.Literal['CANCELLED', 'COMPLETED', 'ERROR', 'IN_PROGRESS', 'TIMED_OUT', 'WAITING']
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['CREATE_S3_DATA_ACCESS_FROM_S3_BUCKET', 'EXPORT_ASSETS_TO_S3', 'EXPORT_ASSET_TO_SIGNED_URL', 'EXPORT_REVISIONS_TO_S3', 'IMPORT_ASSETS_FROM_LAKE_FORMATION_TAG_POLICY', 'IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES', 'IMPORT_ASSETS_FROM_S3', 'IMPORT_ASSET_FROM_API_GATEWAY_API', 'IMPORT_ASSET_FROM_SIGNED_URL']
-- **Required**: Yes
-
-### UpdatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### Errors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dataexchange_classes.JobErrorTypeDef]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # JobErrorTypeDef
 
@@ -1418,15 +1519,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# LFResourceDetailsPaginatorTypeDef
-
-### Database
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.DatabaseLFTagPolicyPaginatorTypeDef]
-
-### Table
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.TableLFTagPolicyPaginatorTypeDef]
-
-
 # LFResourceDetailsTypeDef
 
 ### Database
@@ -1436,7 +1528,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.TableLFTagPolicyTypeDef]
 
 
-# LFTagPaginatorTypeDef
+# LFTagOutputTypeDef
 
 ### TagKey
 - **Type**: <class 'str'>
@@ -1444,21 +1536,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### TagValues
 - **Type**: typing.List[str]
-- **Required**: Yes
-
-
-# LFTagPolicyDetailsPaginatorTypeDef
-
-### CatalogId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResourceType
-- **Type**: typing.Literal['DATABASE', 'TABLE']
-- **Required**: Yes
-
-### ResourceDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.LFResourceDetailsPaginatorTypeDef'>
 - **Required**: Yes
 
 
@@ -1488,23 +1565,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# LakeFormationDataPermissionAssetPaginatorTypeDef
+# LFTagUnionTypeDef
 
-### LakeFormationDataPermissionDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.LakeFormationDataPermissionDetailsPaginatorTypeDef'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### LakeFormationDataPermissionType
-- **Type**: typing.Literal['LFTagPolicy']
-- **Required**: Yes
-
-### Permissions
-- **Type**: typing.List[typing.Literal['DESCRIBE', 'SELECT']]
-- **Required**: Yes
-
-### RoleArn
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LakeFormationDataPermissionAssetTypeDef
 
@@ -1524,12 +1589,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LakeFormationDataPermissionDetailsPaginatorTypeDef
-
-### LFTagPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.LFTagPolicyDetailsPaginatorTypeDef]
-
-
 # LakeFormationDataPermissionDetailsTypeDef
 
 ### LFTagPolicy
@@ -1545,7 +1604,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDataSetRevisionsRequestListDataSetRevisionsPaginateTypeDef
+# ListDataGrantsRequestPaginateTypeDef
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.PaginatorConfigTypeDef]
+
+
+# ListDataGrantsRequestTypeDef
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListDataGrantsResponseTypeDef
+
+### DataGrantSummaries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.dataexchange_classes.DataGrantSummaryEntryTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListDataSetRevisionsRequestPaginateTypeDef
 
 ### DataSetId
 - **Type**: <class 'str'>
@@ -1555,7 +1643,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.PaginatorConfigTypeDef]
 
 
-# ListDataSetRevisionsRequestRequestTypeDef
+# ListDataSetRevisionsRequestTypeDef
 
 ### DataSetId
 - **Type**: <class 'str'>
@@ -1570,10 +1658,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListDataSetRevisionsResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### Revisions
 - **Type**: typing.List[aws_resource_validator.pydantic_models.dataexchange_classes.RevisionEntryTypeDef]
 - **Required**: Yes
@@ -1582,8 +1666,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListDataSetsRequestListDataSetsPaginateTypeDef
+
+# ListDataSetsRequestPaginateTypeDef
 
 ### Origin
 - **Type**: typing.Optional[str]
@@ -1592,7 +1679,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.PaginatorConfigTypeDef]
 
 
-# ListDataSetsRequestRequestTypeDef
+# ListDataSetsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1610,16 +1697,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.dataexchange_classes.DataSetEntryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListEventActionsRequestListEventActionsPaginateTypeDef
+
+# ListEventActionsRequestPaginateTypeDef
 
 ### EventSourceId
 - **Type**: typing.Optional[str]
@@ -1628,7 +1714,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.PaginatorConfigTypeDef]
 
 
-# ListEventActionsRequestRequestTypeDef
+# ListEventActionsRequestTypeDef
 
 ### EventSourceId
 - **Type**: typing.Optional[str]
@@ -1646,16 +1732,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.dataexchange_classes.EventActionEntryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListJobsRequestListJobsPaginateTypeDef
+
+# ListJobsRequestPaginateTypeDef
 
 ### DataSetId
 - **Type**: typing.Optional[str]
@@ -1667,7 +1752,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.PaginatorConfigTypeDef]
 
 
-# ListJobsRequestRequestTypeDef
+# ListJobsRequestTypeDef
 
 ### DataSetId
 - **Type**: typing.Optional[str]
@@ -1680,21 +1765,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### RevisionId
 - **Type**: typing.Optional[str]
-
-
-# ListJobsResponsePaginatorTypeDef
-
-### Jobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.dataexchange_classes.JobEntryPaginatorTypeDef]
-- **Required**: Yes
-
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
 
 
 # ListJobsResponseTypeDef
@@ -1703,16 +1773,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.dataexchange_classes.JobEntryTypeDef]
 - **Required**: Yes
 
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
 ### NextToken
-- **Type**: <class 'str'>
+- **Type**: typing.Optional[str]
+
+
+# ListReceivedDataGrantsRequestPaginateTypeDef
+
+### AcceptanceState
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['ACCEPTED', 'PENDING_RECEIVER_ACCEPTANCE']]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.PaginatorConfigTypeDef]
+
+
+# ListReceivedDataGrantsRequestTypeDef
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### AcceptanceState
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['ACCEPTED', 'PENDING_RECEIVER_ACCEPTANCE']]]
+
+
+# ListReceivedDataGrantsResponseTypeDef
+
+### DataGrantSummaries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.dataexchange_classes.ReceivedDataGrantSummariesEntryTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListRevisionAssetsRequestListRevisionAssetsPaginateTypeDef
+
+# ListRevisionAssetsRequestPaginateTypeDef
 
 ### DataSetId
 - **Type**: <class 'str'>
@@ -1726,7 +1830,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.PaginatorConfigTypeDef]
 
 
-# ListRevisionAssetsRequestRequestTypeDef
+# ListRevisionAssetsRequestTypeDef
 
 ### DataSetId
 - **Type**: <class 'str'>
@@ -1743,37 +1847,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListRevisionAssetsResponsePaginatorTypeDef
-
-### Assets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.dataexchange_classes.AssetEntryPaginatorTypeDef]
-- **Required**: Yes
-
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
 # ListRevisionAssetsResponseTypeDef
 
 ### Assets
 - **Type**: typing.List[aws_resource_validator.pydantic_models.dataexchange_classes.AssetEntryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1808,6 +1896,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ProductId
 - **Type**: typing.Optional[str]
 
+### DataGrantId
+- **Type**: typing.Optional[str]
+
 
 # PaginatorConfigTypeDef
 
@@ -1819,6 +1910,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### StartingToken
 - **Type**: typing.Optional[str]
+
+
+# ReceivedDataGrantSummariesEntryTypeDef
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SenderPrincipal
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ReceiverPrincipal
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AcceptanceState
+- **Type**: typing.Literal['ACCEPTED', 'PENDING_RECEIVER_ACCEPTANCE']
+- **Required**: Yes
+
+### DataSetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CreatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### UpdatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### AcceptedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### EndsAt
+- **Type**: typing.Optional[datetime.datetime]
 
 
 # RedshiftDataShareAssetSourceEntryTypeDef
@@ -1888,36 +2024,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.ImportAssetsFromLakeFormationTagPolicyRequestDetailsTypeDef]
 
 
-# ResponseDetailsPaginatorTypeDef
-
-### ExportAssetToSignedUrl
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.ExportAssetToSignedUrlResponseDetailsTypeDef]
-
-### ExportAssetsToS3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.ExportAssetsToS3ResponseDetailsTypeDef]
-
-### ExportRevisionsToS3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.ExportRevisionsToS3ResponseDetailsTypeDef]
-
-### ImportAssetFromSignedUrl
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.ImportAssetFromSignedUrlResponseDetailsTypeDef]
-
-### ImportAssetsFromS3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.ImportAssetsFromS3ResponseDetailsTypeDef]
-
-### ImportAssetsFromRedshiftDataShares
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.ImportAssetsFromRedshiftDataSharesResponseDetailsTypeDef]
-
-### ImportAssetFromApiGatewayApi
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.ImportAssetFromApiGatewayApiResponseDetailsTypeDef]
-
-### CreateS3DataAccessFromS3Bucket
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.CreateS3DataAccessFromS3BucketResponseDetailsPaginatorTypeDef]
-
-### ImportAssetsFromLakeFormationTagPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.ImportAssetsFromLakeFormationTagPolicyResponseDetailsPaginatorTypeDef]
-
-
 # ResponseDetailsTypeDef
 
 ### ExportAssetToSignedUrl
@@ -1954,10 +2060,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -1969,6 +2071,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # RevisionDestinationEntryTypeDef
@@ -2033,7 +2138,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RevokeRevisionRequestRequestTypeDef
+# RevokeRevisionRequestTypeDef
 
 ### DataSetId
 - **Type**: <class 'str'>
@@ -2099,7 +2204,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# S3DataAccessAssetSourceEntryPaginatorTypeDef
+# S3DataAccessAssetSourceEntryOutputTypeDef
 
 ### Bucket
 - **Type**: <class 'str'>
@@ -2130,6 +2235,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### KmsKeysToGrant
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.dataexchange_classes.KmsKeyToGrantTypeDef]]
 
+
+# S3DataAccessAssetSourceEntryUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # S3DataAccessAssetTypeDef
 
@@ -2171,22 +2282,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SchemaChangeDetailsTypeDef
 
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Literal['ADD', 'MODIFY', 'REMOVE']
-- **Required**: Yes
-
-### Description
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SchemaChangeRequestDetailsTypeDef
 
 ### SchemaChangeAt
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.dataexchange_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### Changes
@@ -2205,7 +2308,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.dataexchange_classes.S3DataAccessDetailsTypeDef]]
 
 
-# SendApiAssetRequestRequestTypeDef
+# SendApiAssetRequestTypeDef
 
 ### AssetId
 - **Type**: <class 'str'>
@@ -2250,40 +2353,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SendDataSetNotificationRequestRequestTypeDef
-
-### DataSetId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['DATA_DELAY', 'DATA_UPDATE', 'DEPRECATION', 'SCHEMA_CHANGE']
-- **Required**: Yes
-
-### Scope
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.ScopeDetailsTypeDef]
-
-### ClientToken
-- **Type**: typing.Optional[str]
-
-### Comment
-- **Type**: typing.Optional[str]
-
-### Details
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dataexchange_classes.NotificationDetailsTypeDef]
-
-
-# StartJobRequestRequestTypeDef
+# StartJobRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# TableLFTagPolicyAndPermissionsPaginatorTypeDef
+# TableLFTagPolicyAndPermissionsOutputTypeDef
 
 ### Expression
-- **Type**: typing.List[aws_resource_validator.pydantic_models.dataexchange_classes.LFTagPaginatorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.dataexchange_classes.LFTagOutputTypeDef]
 - **Required**: Yes
 
 ### Permissions
@@ -2294,7 +2374,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TableLFTagPolicyAndPermissionsTypeDef
 
 ### Expression
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.dataexchange_classes.LFTagTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.dataexchange_classes.LFTagUnionTypeDef]
 - **Required**: Yes
 
 ### Permissions
@@ -2302,21 +2382,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TableLFTagPolicyPaginatorTypeDef
+# TableLFTagPolicyAndPermissionsUnionTypeDef
 
-### Expression
-- **Type**: typing.List[aws_resource_validator.pydantic_models.dataexchange_classes.LFTagPaginatorTypeDef]
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TableLFTagPolicyTypeDef
 
 ### Expression
-- **Type**: typing.List[aws_resource_validator.pydantic_models.dataexchange_classes.LFTagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.dataexchange_classes.LFTagOutputTypeDef]
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2327,7 +2406,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2338,7 +2423,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAssetRequestRequestTypeDef
+# UpdateAssetRequestTypeDef
 
 ### AssetId
 - **Type**: <class 'str'>
@@ -2404,7 +2489,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDataSetRequestRequestTypeDef
+# UpdateDataSetRequestTypeDef
 
 ### DataSetId
 - **Type**: <class 'str'>
@@ -2464,7 +2549,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateEventActionRequestRequestTypeDef
+# UpdateEventActionRequestTypeDef
 
 ### EventActionId
 - **Type**: <class 'str'>
@@ -2505,7 +2590,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRevisionRequestRequestTypeDef
+# UpdateRevisionRequestTypeDef
 
 ### DataSetId
 - **Type**: <class 'str'>

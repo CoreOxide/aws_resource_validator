@@ -42,7 +42,7 @@
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# AssociateDelegateToResourceRequestRequestTypeDef
+# AssociateDelegateToResourceRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -57,7 +57,7 @@
 - **Required**: Yes
 
 
-# AssociateMemberToGroupRequestRequestTypeDef
+# AssociateMemberToGroupRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -72,7 +72,7 @@
 - **Required**: Yes
 
 
-# AssumeImpersonationRoleRequestRequestTypeDef
+# AssumeImpersonationRoleRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -137,7 +137,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CancelMailboxExportJobRequestRequestTypeDef
+# CancelMailboxExportJobRequestTypeDef
 
 ### ClientToken
 - **Type**: <class 'str'>
@@ -152,7 +152,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAliasRequestRequestTypeDef
+# CreateAliasRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -167,7 +167,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAvailabilityConfigurationRequestRequestTypeDef
+# CreateAvailabilityConfigurationRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -187,7 +187,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.workmail_classes.LambdaAvailabilityProviderTypeDef]
 
 
-# CreateGroupRequestRequestTypeDef
+# CreateGroupRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -212,29 +212,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateImpersonationRoleRequestRequestTypeDef
-
-### OrganizationId
-- **Type**: <class 'str'>
-- **Required**: Yes
+# CreateIdentityCenterApplicationRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### Type
-- **Type**: typing.Literal['FULL_ACCESS', 'READ_ONLY']
-- **Required**: Yes
-
-### Rules
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.workmail_classes.ImpersonationRuleTypeDef]
+### InstanceArn
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ClientToken
 - **Type**: typing.Optional[str]
 
-### Description
-- **Type**: typing.Optional[str]
+
+# CreateIdentityCenterApplicationResponseTypeDef
+
+### ApplicationArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
 
 
 # CreateImpersonationRoleResponseTypeDef
@@ -248,7 +248,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateMobileDeviceAccessRuleRequestRequestTypeDef
+# CreateMobileDeviceAccessRuleRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -304,7 +304,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateOrganizationRequestRequestTypeDef
+# CreateOrganizationRequestTypeDef
 
 ### Alias
 - **Type**: <class 'str'>
@@ -337,27 +337,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateResourceRequestRequestTypeDef
-
-### OrganizationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['EQUIPMENT', 'ROOM']
-- **Required**: Yes
-
-### Description
-- **Type**: typing.Optional[str]
-
-### HiddenFromGlobalAddressList
-- **Type**: typing.Optional[bool]
-
-
 # CreateResourceResponseTypeDef
 
 ### ResourceId
@@ -369,7 +348,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateUserRequestRequestTypeDef
+# CreateUserRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -398,6 +377,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### HiddenFromGlobalAddressList
 - **Type**: typing.Optional[bool]
 
+### IdentityProviderUserId
+- **Type**: typing.Optional[str]
+
 
 # CreateUserResponseTypeDef
 
@@ -412,16 +394,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DelegateTypeDef
 
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Literal['GROUP', 'USER']
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-
-# DeleteAccessControlRuleRequestRequestTypeDef
+# DeleteAccessControlRuleRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -432,7 +409,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAliasRequestRequestTypeDef
+# DeleteAliasRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -447,7 +424,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAvailabilityConfigurationRequestRequestTypeDef
+# DeleteAvailabilityConfigurationRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -458,14 +435,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteEmailMonitoringConfigurationRequestRequestTypeDef
+# DeleteEmailMonitoringConfigurationRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteGroupRequestRequestTypeDef
+# DeleteGroupRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -476,7 +453,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteImpersonationRoleRequestRequestTypeDef
+# DeleteIdentityCenterApplicationRequestTypeDef
+
+### ApplicationArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteIdentityProviderConfigurationRequestTypeDef
+
+### OrganizationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteImpersonationRoleRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -487,7 +478,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteMailboxPermissionsRequestRequestTypeDef
+# DeleteMailboxPermissionsRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -502,7 +493,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteMobileDeviceAccessOverrideRequestRequestTypeDef
+# DeleteMobileDeviceAccessOverrideRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -517,7 +508,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteMobileDeviceAccessRuleRequestRequestTypeDef
+# DeleteMobileDeviceAccessRuleRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -528,7 +519,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteOrganizationRequestRequestTypeDef
+# DeleteOrganizationRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -542,6 +533,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ForceDelete
+- **Type**: typing.Optional[bool]
+
+### DeleteIdentityCenterApplication
 - **Type**: typing.Optional[bool]
 
 
@@ -560,7 +554,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteResourceRequestRequestTypeDef
+# DeletePersonalAccessTokenRequestTypeDef
+
+### OrganizationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PersonalAccessTokenId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteResourceRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -571,7 +576,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteRetentionPolicyRequestRequestTypeDef
+# DeleteRetentionPolicyRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -582,7 +587,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteUserRequestRequestTypeDef
+# DeleteUserRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -593,7 +598,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeregisterFromWorkMailRequestRequestTypeDef
+# DeregisterFromWorkMailRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -604,7 +609,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeregisterMailDomainRequestRequestTypeDef
+# DeregisterMailDomainRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -615,7 +620,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEmailMonitoringConfigurationRequestRequestTypeDef
+# DescribeEmailMonitoringConfigurationRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -637,7 +642,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEntityRequestRequestTypeDef
+# DescribeEntityRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -648,26 +653,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEntityResponseTypeDef
-
-### EntityId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['GROUP', 'RESOURCE', 'USER']
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# DescribeGroupRequestRequestTypeDef
+# DescribeGroupRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -713,7 +699,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeInboundDmarcSettingsRequestRequestTypeDef
+# DescribeIdentityProviderConfigurationRequestTypeDef
+
+### OrganizationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeIdentityProviderConfigurationResponseTypeDef
+
+### AuthenticationMode
+- **Type**: typing.Literal['IDENTITY_PROVIDER_AND_DIRECTORY', 'IDENTITY_PROVIDER_ONLY']
+- **Required**: Yes
+
+### IdentityCenterConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.IdentityCenterConfigurationTypeDef'>
+- **Required**: Yes
+
+### PersonalAccessTokenConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.PersonalAccessTokenConfigurationTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# DescribeInboundDmarcSettingsRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -731,7 +743,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeMailboxExportJobRequestRequestTypeDef
+# DescribeMailboxExportJobRequestTypeDef
 
 ### JobId
 - **Type**: <class 'str'>
@@ -797,7 +809,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeOrganizationRequestRequestTypeDef
+# DescribeOrganizationRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -855,7 +867,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeResourceRequestRequestTypeDef
+# DescribeResourceRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -866,54 +878,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeResourceResponseTypeDef
-
-### ResourceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Email
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['EQUIPMENT', 'ROOM']
-- **Required**: Yes
-
-### BookingOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.BookingOptionsTypeDef'>
-- **Required**: Yes
-
-### State
-- **Type**: typing.Literal['DELETED', 'DISABLED', 'ENABLED']
-- **Required**: Yes
-
-### EnabledDate
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### DisabledDate
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### Description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### HiddenFromGlobalAddressList
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# DescribeUserRequestRequestTypeDef
+# DescribeUserRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1018,12 +983,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### IdentityProviderUserId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### IdentityProviderIdentityStoreId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
 
-# DisassociateDelegateFromResourceRequestRequestTypeDef
+# DisassociateDelegateFromResourceRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1038,7 +1011,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateMemberFromGroupRequestRequestTypeDef
+# DisassociateMemberFromGroupRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1055,15 +1028,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DnsRecordTypeDef
 
-### Type
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Hostname
-- **Type**: typing.Optional[str]
-
-### Value
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DomainTypeDef
 
@@ -1104,7 +1071,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetAccessControlEffectRequestRequestTypeDef
+# GetAccessControlEffectRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1140,7 +1107,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDefaultRetentionPolicyRequestRequestTypeDef
+# GetDefaultRetentionPolicyRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1170,7 +1137,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetImpersonationRoleEffectRequestRequestTypeDef
+# GetImpersonationRoleEffectRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1185,26 +1152,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetImpersonationRoleEffectResponseTypeDef
-
-### Type
-- **Type**: typing.Literal['FULL_ACCESS', 'READ_ONLY']
-- **Required**: Yes
-
-### Effect
-- **Type**: typing.Literal['ALLOW', 'DENY']
-- **Required**: Yes
-
-### MatchedRules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workmail_classes.ImpersonationMatchedRuleTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetImpersonationRoleRequestRequestTypeDef
+# GetImpersonationRoleRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1215,42 +1163,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetImpersonationRoleResponseTypeDef
-
-### ImpersonationRoleId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['FULL_ACCESS', 'READ_ONLY']
-- **Required**: Yes
-
-### Description
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Rules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workmail_classes.ImpersonationRuleTypeDef]
-- **Required**: Yes
-
-### DateCreated
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### DateModified
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetMailDomainRequestRequestTypeDef
+# GetMailDomainRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1288,7 +1201,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMailboxDetailsRequestRequestTypeDef
+# GetMailboxDetailsRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1314,7 +1227,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMobileDeviceAccessEffectRequestRequestTypeDef
+# GetMobileDeviceAccessEffectRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1348,7 +1261,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMobileDeviceAccessOverrideRequestRequestTypeDef
+# GetMobileDeviceAccessOverrideRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1394,6 +1307,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# GetPersonalAccessTokenMetadataRequestTypeDef
+
+### OrganizationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PersonalAccessTokenId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetPersonalAccessTokenMetadataResponseTypeDef
+
+### PersonalAccessTokenId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### UserId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DateCreated
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### DateLastUsed
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### ExpiresTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### Scopes
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
 # GroupIdentifierTypeDef
 
 ### GroupId
@@ -1424,6 +1383,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
+# IdentityCenterConfigurationTypeDef
+
+### InstanceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ApplicationArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
 # ImpersonationMatchedRuleTypeDef
 
 ### ImpersonationRuleId
@@ -1435,20 +1405,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ImpersonationRoleTypeDef
 
-### ImpersonationRoleId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ImpersonationRuleOutputTypeDef
+
+### ImpersonationRuleId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Effect
+- **Type**: typing.Literal['ALLOW', 'DENY']
+- **Required**: Yes
 
 ### Name
 - **Type**: typing.Optional[str]
 
-### Type
-- **Type**: typing.Optional[typing.Literal['FULL_ACCESS', 'READ_ONLY']]
+### Description
+- **Type**: typing.Optional[str]
 
-### DateCreated
-- **Type**: typing.Optional[datetime.datetime]
+### TargetUsers
+- **Type**: typing.Optional[typing.List[str]]
 
-### DateModified
-- **Type**: typing.Optional[datetime.datetime]
+### NotTargetUsers
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ImpersonationRuleTypeDef
@@ -1481,7 +1462,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListAccessControlRulesRequestRequestTypeDef
+# ListAccessControlRulesRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1499,7 +1480,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListAliasesRequestListAliasesPaginateTypeDef
+# ListAliasesRequestPaginateTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1513,7 +1494,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.workmail_classes.PaginatorConfigTypeDef]
 
 
-# ListAliasesRequestRequestTypeDef
+# ListAliasesRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1536,16 +1517,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListAvailabilityConfigurationsRequestListAvailabilityConfigurationsPaginateTypeDef
+
+# ListAvailabilityConfigurationsRequestPaginateTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1555,7 +1535,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.workmail_classes.PaginatorConfigTypeDef]
 
 
-# ListAvailabilityConfigurationsRequestRequestTypeDef
+# ListAvailabilityConfigurationsRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1574,16 +1554,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.workmail_classes.AvailabilityConfigurationTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListGroupMembersRequestListGroupMembersPaginateTypeDef
+
+# ListGroupMembersRequestPaginateTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1597,7 +1576,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.workmail_classes.PaginatorConfigTypeDef]
 
 
-# ListGroupMembersRequestRequestTypeDef
+# ListGroupMembersRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1620,13 +1599,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.workmail_classes.MemberTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # ListGroupsFiltersTypeDef
@@ -1647,7 +1625,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListGroupsForEntityRequestRequestTypeDef
+# ListGroupsForEntityRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1673,16 +1651,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.workmail_classes.GroupIdentifierTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListGroupsRequestListGroupsPaginateTypeDef
+
+# ListGroupsRequestPaginateTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1695,7 +1672,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.workmail_classes.PaginatorConfigTypeDef]
 
 
-# ListGroupsRequestRequestTypeDef
+# ListGroupsRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1717,16 +1694,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.workmail_classes.GroupTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListImpersonationRolesRequestRequestTypeDef
+
+# ListImpersonationRolesRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1745,16 +1721,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.workmail_classes.ImpersonationRoleTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListMailDomainsRequestRequestTypeDef
+
+# ListMailDomainsRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1773,16 +1748,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.workmail_classes.MailDomainSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListMailboxExportJobsRequestRequestTypeDef
+
+# ListMailboxExportJobsRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1801,16 +1775,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.workmail_classes.MailboxExportJobTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListMailboxPermissionsRequestListMailboxPermissionsPaginateTypeDef
+
+# ListMailboxPermissionsRequestPaginateTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1824,7 +1797,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.workmail_classes.PaginatorConfigTypeDef]
 
 
-# ListMailboxPermissionsRequestRequestTypeDef
+# ListMailboxPermissionsRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1847,16 +1820,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.workmail_classes.PermissionTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListMobileDeviceAccessOverridesRequestRequestTypeDef
+
+# ListMobileDeviceAccessOverridesRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1881,16 +1853,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.workmail_classes.MobileDeviceAccessOverrideTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListMobileDeviceAccessRulesRequestRequestTypeDef
+
+# ListMobileDeviceAccessRulesRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1908,13 +1879,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListOrganizationsRequestListOrganizationsPaginateTypeDef
+# ListOrganizationsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.workmail_classes.PaginatorConfigTypeDef]
 
 
-# ListOrganizationsRequestRequestTypeDef
+# ListOrganizationsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1929,16 +1900,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.workmail_classes.OrganizationSummaryTypeDef]
 - **Required**: Yes
 
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
 ### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListPersonalAccessTokensRequestPaginateTypeDef
+
+### OrganizationId
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+### UserId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workmail_classes.PaginatorConfigTypeDef]
+
+
+# ListPersonalAccessTokensRequestTypeDef
+
+### OrganizationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### UserId
+- **Type**: typing.Optional[str]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+
+# ListPersonalAccessTokensResponseTypeDef
+
+### PersonalAccessTokenSummaries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workmail_classes.PersonalAccessTokenSummaryTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListResourceDelegatesRequestListResourceDelegatesPaginateTypeDef
+
+# ListResourceDelegatesRequestPaginateTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1952,7 +1965,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.workmail_classes.PaginatorConfigTypeDef]
 
 
-# ListResourceDelegatesRequestRequestTypeDef
+# ListResourceDelegatesRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1975,13 +1988,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.workmail_classes.DelegateTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # ListResourcesFiltersTypeDef
@@ -1996,7 +2008,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELETED', 'DISABLED', 'ENABLED']]
 
 
-# ListResourcesRequestListResourcesPaginateTypeDef
+# ListResourcesRequestPaginateTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -2009,7 +2021,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.workmail_classes.PaginatorConfigTypeDef]
 
 
-# ListResourcesRequestRequestTypeDef
+# ListResourcesRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -2031,16 +2043,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.workmail_classes.ResourceTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -2072,8 +2083,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### State
 - **Type**: typing.Optional[typing.Literal['DELETED', 'DISABLED', 'ENABLED']]
 
+### IdentityProviderUserIdPrefix
+- **Type**: typing.Optional[str]
 
-# ListUsersRequestListUsersPaginateTypeDef
+
+# ListUsersRequestPaginateTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -2086,7 +2100,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.workmail_classes.PaginatorConfigTypeDef]
 
 
-# ListUsersRequestRequestTypeDef
+# ListUsersRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -2108,13 +2122,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.workmail_classes.UserTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # MailDomainSummaryTypeDef
@@ -2158,24 +2171,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # MemberTypeDef
 
-### Id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Name
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['GROUP', 'USER']]
-
-### State
-- **Type**: typing.Optional[typing.Literal['DELETED', 'DISABLED', 'ENABLED']]
-
-### EnabledDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### DisabledDate
-- **Type**: typing.Optional[datetime.datetime]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MobileDeviceAccessMatchedRuleTypeDef
 
@@ -2297,7 +2295,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutAccessControlRuleRequestRequestTypeDef
+# PersonalAccessTokenConfigurationTypeDef
+
+### Status
+- **Type**: typing.Literal['ACTIVE', 'INACTIVE']
+- **Required**: Yes
+
+### LifetimeInDays
+- **Type**: typing.Optional[int]
+
+
+# PersonalAccessTokenSummaryTypeDef
+
+### PersonalAccessTokenId
+- **Type**: typing.Optional[str]
+
+### UserId
+- **Type**: typing.Optional[str]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### DateCreated
+- **Type**: typing.Optional[datetime.datetime]
+
+### DateLastUsed
+- **Type**: typing.Optional[datetime.datetime]
+
+### ExpiresTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### Scopes
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# PutAccessControlRuleRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -2340,7 +2372,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# PutEmailMonitoringConfigurationRequestRequestTypeDef
+# PutEmailMonitoringConfigurationRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -2355,7 +2387,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutInboundDmarcSettingsRequestRequestTypeDef
+# PutIdentityProviderConfigurationRequestTypeDef
+
+### OrganizationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AuthenticationMode
+- **Type**: typing.Literal['IDENTITY_PROVIDER_AND_DIRECTORY', 'IDENTITY_PROVIDER_ONLY']
+- **Required**: Yes
+
+### IdentityCenterConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.IdentityCenterConfigurationTypeDef'>
+- **Required**: Yes
+
+### PersonalAccessTokenConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.workmail_classes.PersonalAccessTokenConfigurationTypeDef'>
+- **Required**: Yes
+
+
+# PutInboundDmarcSettingsRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -2366,7 +2417,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutMailboxPermissionsRequestRequestTypeDef
+# PutMailboxPermissionsRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -2385,7 +2436,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutMobileDeviceAccessOverrideRequestRequestTypeDef
+# PutMobileDeviceAccessOverrideRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -2407,7 +2458,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutRetentionPolicyRequestRequestTypeDef
+# PutRetentionPolicyRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -2437,7 +2488,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RegisterMailDomainRequestRequestTypeDef
+# RegisterMailDomainRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -2451,7 +2502,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RegisterToWorkMailRequestRequestTypeDef
+# RegisterToWorkMailRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -2466,7 +2517,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResetPasswordRequestRequestTypeDef
+# ResetPasswordRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -2483,38 +2534,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ResourceTypeDef
 
-### Id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Email
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['EQUIPMENT', 'ROOM']]
-
-### State
-- **Type**: typing.Optional[typing.Literal['DELETED', 'DISABLED', 'ENABLED']]
-
-### EnabledDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### DisabledDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### Description
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResponseMetadataTypeDef
 
 ### RequestId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### HostId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -2530,8 +2556,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# StartMailboxExportJobRequestRequestTypeDef
+
+# StartMailboxExportJobRequestTypeDef
 
 ### ClientToken
 - **Type**: <class 'str'>
@@ -2576,7 +2605,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -2598,7 +2627,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TestAvailabilityConfigurationRequestRequestTypeDef
+# TestAvailabilityConfigurationRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -2629,7 +2658,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -2640,7 +2669,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAvailabilityConfigurationRequestRequestTypeDef
+# UpdateAvailabilityConfigurationRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -2657,7 +2686,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.workmail_classes.LambdaAvailabilityProviderTypeDef]
 
 
-# UpdateDefaultMailDomainRequestRequestTypeDef
+# UpdateDefaultMailDomainRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -2668,7 +2697,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateGroupRequestRequestTypeDef
+# UpdateGroupRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -2682,33 +2711,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpdateImpersonationRoleRequestRequestTypeDef
-
-### OrganizationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ImpersonationRoleId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['FULL_ACCESS', 'READ_ONLY']
-- **Required**: Yes
-
-### Rules
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.workmail_classes.ImpersonationRuleTypeDef]
-- **Required**: Yes
-
-### Description
-- **Type**: typing.Optional[str]
-
-
-# UpdateMailboxQuotaRequestRequestTypeDef
+# UpdateMailboxQuotaRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -2723,7 +2726,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateMobileDeviceAccessRuleRequestRequestTypeDef
+# UpdateMobileDeviceAccessRuleRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -2769,7 +2772,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# UpdatePrimaryEmailAddressRequestRequestTypeDef
+# UpdatePrimaryEmailAddressRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -2784,33 +2787,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateResourceRequestRequestTypeDef
-
-### OrganizationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResourceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Name
-- **Type**: typing.Optional[str]
-
-### BookingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workmail_classes.BookingOptionsTypeDef]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['EQUIPMENT', 'ROOM']]
-
-### HiddenFromGlobalAddressList
-- **Type**: typing.Optional[bool]
-
-
-# UpdateUserRequestRequestTypeDef
+# UpdateUserRequestTypeDef
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -2865,6 +2842,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Office
 - **Type**: typing.Optional[str]
 
+### IdentityProviderUserId
+- **Type**: typing.Optional[str]
+
 
 # UserTypeDef
 
@@ -2891,5 +2871,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### DisabledDate
 - **Type**: typing.Optional[datetime.datetime]
+
+### IdentityProviderUserId
+- **Type**: typing.Optional[str]
+
+### IdentityProviderIdentityStoreId
+- **Type**: typing.Optional[str]
 
 

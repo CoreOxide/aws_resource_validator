@@ -1,6 +1,6 @@
 # Backup Gateway Classes
 
-# AssociateGatewayToServerInputRequestTypeDef
+# AssociateGatewayToServerInputTypeDef
 
 ### GatewayArn
 - **Type**: <class 'str'>
@@ -22,7 +22,7 @@
 - **Required**: Yes
 
 
-# BandwidthRateLimitIntervalTypeDef
+# BandwidthRateLimitIntervalOutputTypeDef
 
 ### DaysOfWeek
 - **Type**: typing.List[int]
@@ -48,13 +48,45 @@
 - **Type**: typing.Optional[int]
 
 
+# BandwidthRateLimitIntervalTypeDef
+
+### DaysOfWeek
+- **Type**: typing.Sequence[int]
+- **Required**: Yes
+
+### EndHourOfDay
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### EndMinuteOfHour
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### StartHourOfDay
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### StartMinuteOfHour
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### AverageUploadRateLimitInBitsPerSec
+- **Type**: typing.Optional[int]
+
+
+# BandwidthRateLimitIntervalUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # BaseValidatorModel
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateGatewayInputRequestTypeDef
+# CreateGatewayInputTypeDef
 
 ### ActivationKey
 - **Type**: <class 'str'>
@@ -83,7 +115,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteGatewayInputRequestTypeDef
+# DeleteGatewayInputTypeDef
 
 ### GatewayArn
 - **Type**: <class 'str'>
@@ -101,7 +133,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteHypervisorInputRequestTypeDef
+# DeleteHypervisorInputTypeDef
 
 ### HypervisorArn
 - **Type**: <class 'str'>
@@ -119,7 +151,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateGatewayFromServerInputRequestTypeDef
+# DisassociateGatewayFromServerInputTypeDef
 
 ### GatewayArn
 - **Type**: <class 'str'>
@@ -182,7 +214,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# GetBandwidthRateLimitScheduleInputRequestTypeDef
+# GetBandwidthRateLimitScheduleInputTypeDef
 
 ### GatewayArn
 - **Type**: <class 'str'>
@@ -192,7 +224,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetBandwidthRateLimitScheduleOutputTypeDef
 
 ### BandwidthRateLimitIntervals
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.BandwidthRateLimitIntervalTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.BandwidthRateLimitIntervalOutputTypeDef]
 - **Required**: Yes
 
 ### GatewayArn
@@ -204,7 +236,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetGatewayInputRequestTypeDef
+# GetGatewayInputTypeDef
 
 ### GatewayArn
 - **Type**: <class 'str'>
@@ -222,7 +254,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetHypervisorInputRequestTypeDef
+# GetHypervisorInputTypeDef
 
 ### HypervisorArn
 - **Type**: <class 'str'>
@@ -240,7 +272,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetHypervisorPropertyMappingsInputRequestTypeDef
+# GetHypervisorPropertyMappingsInputTypeDef
 
 ### HypervisorArn
 - **Type**: <class 'str'>
@@ -266,7 +298,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetVirtualMachineInputRequestTypeDef
+# GetVirtualMachineInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -332,7 +364,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ERROR', 'OFFLINE', 'ONLINE', 'PENDING']]
 
 
-# ImportHypervisorConfigurationInputRequestTypeDef
+# ImportHypervisorConfigurationInputTypeDef
 
 ### Host
 - **Type**: <class 'str'>
@@ -366,13 +398,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListGatewaysInputListGatewaysPaginateTypeDef
+# ListGatewaysInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_gateway_classes.PaginatorConfigTypeDef]
 
 
-# ListGatewaysInputRequestTypeDef
+# ListGatewaysInputTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -387,22 +419,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.GatewayTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListHypervisorsInputListHypervisorsPaginateTypeDef
+
+# ListHypervisorsInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_gateway_classes.PaginatorConfigTypeDef]
 
 
-# ListHypervisorsInputRequestTypeDef
+# ListHypervisorsInputTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -417,16 +448,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.HypervisorTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceInputRequestTypeDef
+
+# ListTagsForResourceInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -448,7 +478,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListVirtualMachinesInputListVirtualMachinesPaginateTypeDef
+# ListVirtualMachinesInputPaginateTypeDef
 
 ### HypervisorArn
 - **Type**: typing.Optional[str]
@@ -457,7 +487,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_gateway_classes.PaginatorConfigTypeDef]
 
 
-# ListVirtualMachinesInputRequestTypeDef
+# ListVirtualMachinesInputTypeDef
 
 ### HypervisorArn
 - **Type**: typing.Optional[str]
@@ -471,10 +501,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListVirtualMachinesOutputTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### VirtualMachines
 - **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.VirtualMachineTypeDef]
 - **Required**: Yes
@@ -482,6 +508,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # MaintenanceStartTimeTypeDef
@@ -513,10 +542,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutBandwidthRateLimitScheduleInputRequestTypeDef
+# PutBandwidthRateLimitScheduleInputTypeDef
 
 ### BandwidthRateLimitIntervals
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.backup_gateway_classes.BandwidthRateLimitIntervalTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.backup_gateway_classes.BandwidthRateLimitIntervalUnionTypeDef]
 - **Required**: Yes
 
 ### GatewayArn
@@ -535,7 +564,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutHypervisorPropertyMappingsInputRequestTypeDef
+# PutHypervisorPropertyMappingsInputTypeDef
 
 ### HypervisorArn
 - **Type**: <class 'str'>
@@ -561,7 +590,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutMaintenanceStartTimeInputRequestTypeDef
+# PutMaintenanceStartTimeInputTypeDef
 
 ### GatewayArn
 - **Type**: <class 'str'>
@@ -599,10 +628,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -615,8 +640,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# StartVirtualMachinesMetadataSyncInputRequestTypeDef
+
+# StartVirtualMachinesMetadataSyncInputTypeDef
 
 ### HypervisorArn
 - **Type**: <class 'str'>
@@ -634,7 +662,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceInputRequestTypeDef
+# TagResourceInputTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -667,7 +695,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TestHypervisorConfigurationInputRequestTypeDef
+# TestHypervisorConfigurationInputTypeDef
 
 ### GatewayArn
 - **Type**: <class 'str'>
@@ -684,7 +712,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceInputRequestTypeDef
+# UntagResourceInputTypeDef
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -706,7 +734,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateGatewayInformationInputRequestTypeDef
+# UpdateGatewayInformationInputTypeDef
 
 ### GatewayArn
 - **Type**: <class 'str'>
@@ -727,7 +755,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateGatewaySoftwareNowInputRequestTypeDef
+# UpdateGatewaySoftwareNowInputTypeDef
 
 ### GatewayArn
 - **Type**: <class 'str'>
@@ -745,7 +773,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateHypervisorInputRequestTypeDef
+# UpdateHypervisorInputTypeDef
 
 ### HypervisorArn
 - **Type**: <class 'str'>

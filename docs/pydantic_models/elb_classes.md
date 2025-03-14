@@ -16,7 +16,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AddAvailabilityZonesInputRequestTypeDef
+# AddAvailabilityZonesInputTypeDef
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -38,7 +38,7 @@
 - **Required**: Yes
 
 
-# AddTagsInputRequestTypeDef
+# AddTagsInputTypeDef
 
 ### LoadBalancerNames
 - **Type**: typing.Sequence[str]
@@ -67,7 +67,7 @@
 - **Type**: typing.Optional[str]
 
 
-# ApplySecurityGroupsToLoadBalancerInputRequestTypeDef
+# ApplySecurityGroupsToLoadBalancerInputTypeDef
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -89,7 +89,7 @@
 - **Required**: Yes
 
 
-# AttachLoadBalancerToSubnetsInputRequestTypeDef
+# AttachLoadBalancerToSubnetsInputTypeDef
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -126,7 +126,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ConfigureHealthCheckInputRequestTypeDef
+# ConfigureHealthCheckInputTypeDef
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -165,7 +165,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAccessPointInputRequestTypeDef
+# CreateAccessPointInputTypeDef
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -202,7 +202,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAppCookieStickinessPolicyInputRequestTypeDef
+# CreateAppCookieStickinessPolicyInputTypeDef
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -217,7 +217,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLBCookieStickinessPolicyInputRequestTypeDef
+# CreateLBCookieStickinessPolicyInputTypeDef
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -231,7 +231,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CreateLoadBalancerListenerInputRequestTypeDef
+# CreateLoadBalancerListenerInputTypeDef
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -242,7 +242,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLoadBalancerPolicyInputRequestTypeDef
+# CreateLoadBalancerPolicyInputTypeDef
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -267,14 +267,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAccessPointInputRequestTypeDef
+# DeleteAccessPointInputTypeDef
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteLoadBalancerListenerInputRequestTypeDef
+# DeleteLoadBalancerListenerInputTypeDef
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -285,7 +285,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteLoadBalancerPolicyInputRequestTypeDef
+# DeleteLoadBalancerPolicyInputTypeDef
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -296,7 +296,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeregisterEndPointsInputRequestTypeDef
+# DeregisterEndPointsInputTypeDef
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -318,7 +318,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAccessPointsInputDescribeLoadBalancersPaginateTypeDef
+# DescribeAccessPointsInputPaginateTypeDef
 
 ### LoadBalancerNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -327,7 +327,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.PaginatorConfigTypeDef]
 
 
-# DescribeAccessPointsInputRequestTypeDef
+# DescribeAccessPointsInputTypeDef
 
 ### LoadBalancerNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -354,13 +354,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAccountLimitsInputDescribeAccountLimitsPaginateTypeDef
+# DescribeAccountLimitsInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.PaginatorConfigTypeDef]
 
 
-# DescribeAccountLimitsInputRequestTypeDef
+# DescribeAccountLimitsInputTypeDef
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -384,7 +384,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEndPointStateInputAnyInstanceInServiceWaitTypeDef
+# DescribeEndPointStateInputTypeDef
+
+### LoadBalancerName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Instances
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.InstanceTypeDef]]
+
+
+# DescribeEndPointStateInputWaitExtraExtraTypeDef
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -397,7 +407,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.WaiterConfigTypeDef]
 
 
-# DescribeEndPointStateInputInstanceDeregisteredWaitTypeDef
+# DescribeEndPointStateInputWaitExtraTypeDef
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -410,7 +420,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.WaiterConfigTypeDef]
 
 
-# DescribeEndPointStateInputInstanceInServiceWaitTypeDef
+# DescribeEndPointStateInputWaitTypeDef
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -421,16 +431,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### WaiterConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.WaiterConfigTypeDef]
-
-
-# DescribeEndPointStateInputRequestTypeDef
-
-### LoadBalancerName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Instances
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.InstanceTypeDef]]
 
 
 # DescribeEndPointStateOutputTypeDef
@@ -444,7 +444,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeLoadBalancerAttributesInputRequestTypeDef
+# DescribeLoadBalancerAttributesInputTypeDef
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -454,7 +454,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeLoadBalancerAttributesOutputTypeDef
 
 ### LoadBalancerAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.LoadBalancerAttributesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.LoadBalancerAttributesOutputTypeDef'>
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -462,7 +462,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeLoadBalancerPoliciesInputRequestTypeDef
+# DescribeLoadBalancerPoliciesInputTypeDef
 
 ### LoadBalancerName
 - **Type**: typing.Optional[str]
@@ -482,7 +482,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeLoadBalancerPolicyTypesInputRequestTypeDef
+# DescribeLoadBalancerPolicyTypesInputTypeDef
 
 ### PolicyTypeNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -499,7 +499,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeTagsInputRequestTypeDef
+# DescribeTagsInputTypeDef
 
 ### LoadBalancerNames
 - **Type**: typing.Sequence[str]
@@ -517,7 +517,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DetachLoadBalancerFromSubnetsInputRequestTypeDef
+# DetachLoadBalancerFromSubnetsInputTypeDef
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -612,23 +612,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListenerTypeDef
 
-### Protocol
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### LoadBalancerPort
-- **Type**: <class 'int'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### InstancePort
-- **Type**: <class 'int'>
-- **Required**: Yes
+# LoadBalancerAttributesOutputTypeDef
 
-### InstanceProtocol
-- **Type**: typing.Optional[str]
+### CrossZoneLoadBalancing
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.CrossZoneLoadBalancingTypeDef]
 
-### SSLCertificateId
-- **Type**: typing.Optional[str]
+### AccessLog
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.AccessLogTypeDef]
+
+### ConnectionDraining
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.ConnectionDrainingTypeDef]
+
+### ConnectionSettings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.ConnectionSettingsTypeDef]
+
+### AdditionalAttributes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elb_classes.AdditionalAttributeTypeDef]]
 
 
 # LoadBalancerAttributesTypeDef
@@ -646,8 +649,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.elb_classes.ConnectionSettingsTypeDef]
 
 ### AdditionalAttributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elb_classes.AdditionalAttributeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elb_classes.AdditionalAttributeTypeDef]]
 
+
+# LoadBalancerAttributesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LoadBalancerDescriptionTypeDef
 
@@ -700,14 +709,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ModifyLoadBalancerAttributesInputRequestTypeDef
+# ModifyLoadBalancerAttributesInputTypeDef
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### LoadBalancerAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.LoadBalancerAttributesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.LoadBalancerAttributesUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -718,7 +727,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LoadBalancerAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.LoadBalancerAttributesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elb_classes.LoadBalancerAttributesOutputTypeDef'>
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -810,7 +819,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elb_classes.PolicyAttributeTypeDescriptionTypeDef]]
 
 
-# RegisterEndPointsInputRequestTypeDef
+# RegisterEndPointsInputTypeDef
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -832,7 +841,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveAvailabilityZonesInputRequestTypeDef
+# RemoveAvailabilityZonesInputTypeDef
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -854,7 +863,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveTagsInputRequestTypeDef
+# RemoveTagsInputTypeDef
 
 ### LoadBalancerNames
 - **Type**: typing.Sequence[str]
@@ -871,10 +880,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -887,8 +892,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# SetLoadBalancerListenerSSLCertificateInputRequestTypeDef
+
+# SetLoadBalancerListenerSSLCertificateInputTypeDef
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -903,7 +911,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetLoadBalancerPoliciesForBackendServerInputRequestTypeDef
+# SetLoadBalancerPoliciesForBackendServerInputTypeDef
 
 ### LoadBalancerName
 - **Type**: <class 'str'>
@@ -918,7 +926,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetLoadBalancerPoliciesOfListenerInputRequestTypeDef
+# SetLoadBalancerPoliciesOfListenerInputTypeDef
 
 ### LoadBalancerName
 - **Type**: <class 'str'>

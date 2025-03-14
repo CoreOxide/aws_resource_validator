@@ -15,7 +15,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchCheckLayerAvailabilityRequestRequestTypeDef
+# BatchCheckLayerAvailabilityRequestTypeDef
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -44,7 +44,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchDeleteImageRequestRequestTypeDef
+# BatchDeleteImageRequestTypeDef
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -73,7 +73,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CompleteLayerUploadRequestRequestTypeDef
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CompleteLayerUploadRequestTypeDef
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -114,7 +120,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateRepositoryRequestRequestTypeDef
+# CreateRepositoryRequestTypeDef
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -142,7 +148,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteRepositoryPolicyRequestRequestTypeDef
+# DeleteRepositoryPolicyRequestTypeDef
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -171,7 +177,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteRepositoryRequestRequestTypeDef
+# DeleteRepositoryRequestTypeDef
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -195,7 +201,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeImageTagsRequestDescribeImageTagsPaginateTypeDef
+# DescribeImageTagsRequestPaginateTypeDef
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -208,7 +214,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecr_public_classes.PaginatorConfigTypeDef]
 
 
-# DescribeImageTagsRequestRequestTypeDef
+# DescribeImageTagsRequestTypeDef
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -230,16 +236,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public_classes.ImageTagDetailTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeImagesRequestDescribeImagesPaginateTypeDef
+
+# DescribeImagesRequestPaginateTypeDef
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -255,7 +260,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecr_public_classes.PaginatorConfigTypeDef]
 
 
-# DescribeImagesRequestRequestTypeDef
+# DescribeImagesRequestTypeDef
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -280,22 +285,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public_classes.ImageDetailTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeRegistriesRequestDescribeRegistriesPaginateTypeDef
+
+# DescribeRegistriesRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecr_public_classes.PaginatorConfigTypeDef]
 
 
-# DescribeRegistriesRequestRequestTypeDef
+# DescribeRegistriesRequestTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -310,16 +314,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public_classes.RegistryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeRepositoriesRequestDescribeRepositoriesPaginateTypeDef
+
+# DescribeRepositoriesRequestPaginateTypeDef
 
 ### registryId
 - **Type**: typing.Optional[str]
@@ -331,7 +334,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecr_public_classes.PaginatorConfigTypeDef]
 
 
-# DescribeRepositoriesRequestRequestTypeDef
+# DescribeRepositoriesRequestTypeDef
 
 ### registryId
 - **Type**: typing.Optional[str]
@@ -352,13 +355,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public_classes.RepositoryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # GetAuthorizationTokenResponseTypeDef
@@ -383,7 +385,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRepositoryCatalogDataRequestRequestTypeDef
+# GetRepositoryCatalogDataRequestTypeDef
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -404,7 +406,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRepositoryPolicyRequestRequestTypeDef
+# GetRepositoryPolicyRequestTypeDef
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -511,7 +513,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# InitiateLayerUploadRequestRequestTypeDef
+# InitiateLayerUploadRequestTypeDef
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -563,7 +565,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -593,7 +595,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutImageRequestRequestTypeDef
+# PutImageRequestTypeDef
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -627,7 +629,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutRegistryCatalogDataRequestRequestTypeDef
+# PutRegistryCatalogDataRequestTypeDef
 
 ### displayName
 - **Type**: typing.Optional[str]
@@ -644,7 +646,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutRepositoryCatalogDataRequestRequestTypeDef
+# PutRepositoryCatalogDataRequestTypeDef
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -747,7 +749,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### logoImageBlob
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecr_public_classes.BlobTypeDef]
 
 ### aboutText
 - **Type**: typing.Optional[str]
@@ -804,10 +806,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -820,8 +818,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# SetRepositoryPolicyRequestRequestTypeDef
+
+# SetRepositoryPolicyRequestTypeDef
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -857,7 +858,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -877,7 +878,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -888,7 +889,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UploadLayerPartRequestRequestTypeDef
+# UploadLayerPartRequestTypeDef
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -907,7 +908,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### layerPartBlob
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### registryId

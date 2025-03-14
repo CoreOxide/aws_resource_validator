@@ -1,12 +1,27 @@
 # Codebuild Classes
 
+# AutoRetryConfigTypeDef
+
+### autoRetryLimit
+- **Type**: typing.Optional[int]
+
+### autoRetryNumber
+- **Type**: typing.Optional[int]
+
+### nextAutoRetry
+- **Type**: typing.Optional[str]
+
+### previousAutoRetry
+- **Type**: typing.Optional[str]
+
+
 # BaseValidatorModel
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchDeleteBuildsInputRequestTypeDef
+# BatchDeleteBuildsInputTypeDef
 
 ### ids
 - **Type**: typing.Sequence[str]
@@ -28,7 +43,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchGetBuildBatchesInputRequestTypeDef
+# BatchGetBuildBatchesInputTypeDef
 
 ### ids
 - **Type**: typing.Sequence[str]
@@ -50,7 +65,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchGetBuildsInputRequestTypeDef
+# BatchGetBuildsInputTypeDef
 
 ### ids
 - **Type**: typing.Sequence[str]
@@ -72,7 +87,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchGetFleetsInputRequestTypeDef
+# BatchGetFleetsInputTypeDef
 
 ### names
 - **Type**: typing.Sequence[str]
@@ -94,7 +109,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchGetProjectsInputRequestTypeDef
+# BatchGetProjectsInputTypeDef
 
 ### names
 - **Type**: typing.Sequence[str]
@@ -116,7 +131,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchGetReportGroupsInputRequestTypeDef
+# BatchGetReportGroupsInputTypeDef
 
 ### reportGroupArns
 - **Type**: typing.Sequence[str]
@@ -138,7 +153,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchGetReportsInputRequestTypeDef
+# BatchGetReportsInputTypeDef
 
 ### reportArns
 - **Type**: typing.Sequence[str]
@@ -168,6 +183,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### computeTypesAllowed
 - **Type**: typing.Optional[typing.List[str]]
 
+### fleetsAllowed
+- **Type**: typing.Optional[typing.List[str]]
+
 
 # BatchRestrictionsTypeDef
 
@@ -175,6 +193,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### computeTypesAllowed
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### fleetsAllowed
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
@@ -231,96 +252,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # BuildBatchTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: typing.Optional[str]
-
-### startTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### endTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### currentPhase
-- **Type**: typing.Optional[str]
-
-### buildBatchStatus
-- **Type**: typing.Optional[typing.Literal['FAILED', 'FAULT', 'IN_PROGRESS', 'STOPPED', 'SUCCEEDED', 'TIMED_OUT']]
-
-### sourceVersion
-- **Type**: typing.Optional[str]
-
-### resolvedSourceVersion
-- **Type**: typing.Optional[str]
-
-### projectName
-- **Type**: typing.Optional[str]
-
-### phases
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codebuild_classes.BuildBatchPhaseTypeDef]]
-
-### source
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectSourceTypeDef]
-
-### secondarySources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codebuild_classes.ProjectSourceTypeDef]]
-
-### secondarySourceVersions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codebuild_classes.ProjectSourceVersionTypeDef]]
-
-### artifacts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.BuildArtifactsTypeDef]
-
-### secondaryArtifacts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codebuild_classes.BuildArtifactsTypeDef]]
-
-### cache
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectCacheOutputTypeDef]
-
-### environment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectEnvironmentOutputTypeDef]
-
-### serviceRole
-- **Type**: typing.Optional[str]
-
-### logConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.LogsConfigTypeDef]
-
-### buildTimeoutInMinutes
-- **Type**: typing.Optional[int]
-
-### queuedTimeoutInMinutes
-- **Type**: typing.Optional[int]
-
-### complete
-- **Type**: typing.Optional[bool]
-
-### initiator
-- **Type**: typing.Optional[str]
-
-### vpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.VpcConfigOutputTypeDef]
-
-### encryptionKey
-- **Type**: typing.Optional[str]
-
-### buildBatchNumber
-- **Type**: typing.Optional[int]
-
-### fileSystemLocations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codebuild_classes.ProjectFileSystemLocationTypeDef]]
-
-### buildBatchConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectBuildBatchConfigOutputTypeDef]
-
-### buildGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codebuild_classes.BuildGroupTypeDef]]
-
-### debugSessionEnabled
-- **Type**: typing.Optional[bool]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BuildGroupTypeDef
 
@@ -342,12 +276,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # BuildNotDeletedTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### statusCode
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BuildPhaseTypeDef
 
@@ -399,102 +330,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # BuildTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: typing.Optional[str]
-
-### buildNumber
-- **Type**: typing.Optional[int]
-
-### startTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### endTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### currentPhase
-- **Type**: typing.Optional[str]
-
-### buildStatus
-- **Type**: typing.Optional[typing.Literal['FAILED', 'FAULT', 'IN_PROGRESS', 'STOPPED', 'SUCCEEDED', 'TIMED_OUT']]
-
-### sourceVersion
-- **Type**: typing.Optional[str]
-
-### resolvedSourceVersion
-- **Type**: typing.Optional[str]
-
-### projectName
-- **Type**: typing.Optional[str]
-
-### phases
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codebuild_classes.BuildPhaseTypeDef]]
-
-### source
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectSourceTypeDef]
-
-### secondarySources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codebuild_classes.ProjectSourceTypeDef]]
-
-### secondarySourceVersions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codebuild_classes.ProjectSourceVersionTypeDef]]
-
-### artifacts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.BuildArtifactsTypeDef]
-
-### secondaryArtifacts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codebuild_classes.BuildArtifactsTypeDef]]
-
-### cache
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectCacheOutputTypeDef]
-
-### environment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectEnvironmentOutputTypeDef]
-
-### serviceRole
-- **Type**: typing.Optional[str]
-
-### logs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.LogsLocationTypeDef]
-
-### timeoutInMinutes
-- **Type**: typing.Optional[int]
-
-### queuedTimeoutInMinutes
-- **Type**: typing.Optional[int]
-
-### buildComplete
-- **Type**: typing.Optional[bool]
-
-### initiator
-- **Type**: typing.Optional[str]
-
-### vpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.VpcConfigOutputTypeDef]
-
-### networkInterface
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.NetworkInterfaceTypeDef]
-
-### encryptionKey
-- **Type**: typing.Optional[str]
-
-### exportedEnvironmentVariables
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codebuild_classes.ExportedEnvironmentVariableTypeDef]]
-
-### reportArns
-- **Type**: typing.Optional[typing.List[str]]
-
-### fileSystemLocations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codebuild_classes.ProjectFileSystemLocationTypeDef]]
-
-### debugSession
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.DebugSessionTypeDef]
-
-### buildBatchArn
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CloudWatchLogsConfigTypeDef
 
@@ -532,38 +370,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # CodeCoverageTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### reportARN
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### filePath
-- **Type**: typing.Optional[str]
+# ComputeConfigurationTypeDef
 
-### lineCoveragePercentage
-- **Type**: typing.Optional[float]
-
-### linesCovered
+### vCpu
 - **Type**: typing.Optional[int]
 
-### linesMissed
+### memory
 - **Type**: typing.Optional[int]
 
-### branchCoveragePercentage
-- **Type**: typing.Optional[float]
-
-### branchesCovered
+### disk
 - **Type**: typing.Optional[int]
 
-### branchesMissed
-- **Type**: typing.Optional[int]
-
-### expired
-- **Type**: typing.Optional[datetime.datetime]
+### machineType
+- **Type**: typing.Optional[typing.Literal['GENERAL', 'NVME']]
 
 
-# CreateFleetInputRequestTypeDef
+# CreateFleetInputTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -574,12 +400,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### environmentType
-- **Type**: typing.Literal['ARM_CONTAINER', 'ARM_LAMBDA_CONTAINER', 'LINUX_CONTAINER', 'LINUX_GPU_CONTAINER', 'LINUX_LAMBDA_CONTAINER', 'WINDOWS_CONTAINER', 'WINDOWS_SERVER_2019_CONTAINER']
+- **Type**: typing.Literal['ARM_CONTAINER', 'ARM_EC2', 'ARM_LAMBDA_CONTAINER', 'LINUX_CONTAINER', 'LINUX_EC2', 'LINUX_GPU_CONTAINER', 'LINUX_LAMBDA_CONTAINER', 'MAC_ARM', 'WINDOWS_CONTAINER', 'WINDOWS_EC2', 'WINDOWS_SERVER_2019_CONTAINER']
 - **Required**: Yes
 
 ### computeType
-- **Type**: typing.Literal['BUILD_GENERAL1_2XLARGE', 'BUILD_GENERAL1_LARGE', 'BUILD_GENERAL1_MEDIUM', 'BUILD_GENERAL1_SMALL', 'BUILD_GENERAL1_XLARGE', 'BUILD_LAMBDA_10GB', 'BUILD_LAMBDA_1GB', 'BUILD_LAMBDA_2GB', 'BUILD_LAMBDA_4GB', 'BUILD_LAMBDA_8GB']
+- **Type**: typing.Literal['ATTRIBUTE_BASED_COMPUTE', 'BUILD_GENERAL1_2XLARGE', 'BUILD_GENERAL1_LARGE', 'BUILD_GENERAL1_MEDIUM', 'BUILD_GENERAL1_SMALL', 'BUILD_GENERAL1_XLARGE', 'BUILD_LAMBDA_10GB', 'BUILD_LAMBDA_1GB', 'BUILD_LAMBDA_2GB', 'BUILD_LAMBDA_4GB', 'BUILD_LAMBDA_8GB']
 - **Required**: Yes
+
+### computeConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ComputeConfigurationTypeDef]
 
 ### scalingConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ScalingConfigurationInputTypeDef]
@@ -588,7 +417,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ON_DEMAND', 'QUEUE']]
 
 ### vpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.VpcConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.VpcConfigUnionTypeDef]
+
+### proxyConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProxyConfigurationUnionTypeDef]
+
+### imageId
+- **Type**: typing.Optional[str]
 
 ### fleetServiceRole
 - **Type**: typing.Optional[str]
@@ -608,7 +443,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateProjectInputRequestTypeDef
+# CreateProjectInputTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -623,7 +458,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### environment
-- **Type**: <class 'aws_resource_validator.pydantic_models.codebuild_classes.ProjectEnvironmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codebuild_classes.ProjectEnvironmentUnionTypeDef'>
 - **Required**: Yes
 
 ### serviceRole
@@ -646,7 +481,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codebuild_classes.ProjectArtifactsTypeDef]]
 
 ### cache
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectCacheTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectCacheUnionTypeDef]
 
 ### timeoutInMinutes
 - **Type**: typing.Optional[int]
@@ -661,7 +496,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codebuild_classes.TagTypeDef]]
 
 ### vpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.VpcConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.VpcConfigUnionTypeDef]
 
 ### badgeEnabled
 - **Type**: typing.Optional[bool]
@@ -673,9 +508,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codebuild_classes.ProjectFileSystemLocationTypeDef]]
 
 ### buildBatchConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectBuildBatchConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectBuildBatchConfigUnionTypeDef]
 
 ### concurrentBuildLimit
+- **Type**: typing.Optional[int]
+
+### autoRetryLimit
 - **Type**: typing.Optional[int]
 
 
@@ -690,24 +528,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateReportGroupInputRequestTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Literal['CODE_COVERAGE', 'TEST']
-- **Required**: Yes
-
-### exportConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.codebuild_classes.ReportExportConfigTypeDef'>
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codebuild_classes.TagTypeDef]]
-
-
 # CreateReportGroupOutputTypeDef
 
 ### reportGroup
@@ -719,7 +539,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateWebhookInputRequestTypeDef
+# CreateWebhookInputTypeDef
 
 ### projectName
 - **Type**: <class 'str'>
@@ -732,7 +552,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Sequence[aws_resource_validator.pydantic_models.codebuild_classes.WebhookFilterTypeDef]]]
 
 ### buildType
-- **Type**: typing.Optional[typing.Literal['BUILD', 'BUILD_BATCH']]
+- **Type**: typing.Optional[typing.Literal['BUILD', 'BUILD_BATCH', 'RUNNER_BUILDKITE_BUILD']]
 
 ### manualCreation
 - **Type**: typing.Optional[bool]
@@ -761,13 +581,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteBuildBatchInputRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
 # DeleteBuildBatchOutputTypeDef
 
 ### statusCode
@@ -787,21 +600,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteFleetInputRequestTypeDef
+# DeleteFleetInputTypeDef
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteProjectInputRequestTypeDef
+# DeleteProjectInputTypeDef
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteReportGroupInputRequestTypeDef
+# DeleteReportGroupInputTypeDef
 
 ### arn
 - **Type**: <class 'str'>
@@ -811,21 +624,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteReportInputRequestTypeDef
+# DeleteReportInputTypeDef
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteResourcePolicyInputRequestTypeDef
+# DeleteResourcePolicyInputTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSourceCredentialsInputRequestTypeDef
+# DeleteSourceCredentialsInputTypeDef
 
 ### arn
 - **Type**: <class 'str'>
@@ -843,14 +656,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteWebhookInputRequestTypeDef
+# DeleteWebhookInputTypeDef
 
 ### projectName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeCodeCoveragesInputDescribeCodeCoveragesPaginateTypeDef
+# DescribeCodeCoveragesInputPaginateTypeDef
 
 ### reportArn
 - **Type**: <class 'str'>
@@ -872,7 +685,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.PaginatorConfigTypeDef]
 
 
-# DescribeCodeCoveragesInputRequestTypeDef
+# DescribeCodeCoveragesInputTypeDef
 
 ### reportArn
 - **Type**: <class 'str'>
@@ -899,10 +712,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DescribeCodeCoveragesOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### codeCoverages
 - **Type**: typing.List[aws_resource_validator.pydantic_models.codebuild_classes.CodeCoverageTypeDef]
 - **Required**: Yes
@@ -911,41 +720,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.codebuild_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# DescribeTestCasesInputDescribeTestCasesPaginateTypeDef
-
-### reportArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.TestCaseFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.PaginatorConfigTypeDef]
-
-
-# DescribeTestCasesInputRequestTypeDef
-
-### reportArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### nextToken
 - **Type**: typing.Optional[str]
 
-### maxResults
-- **Type**: typing.Optional[int]
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.TestCaseFilterTypeDef]
-
 
 # DescribeTestCasesOutputTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### testCases
 - **Type**: typing.List[aws_resource_validator.pydantic_models.codebuild_classes.TestCaseTypeDef]
@@ -954,6 +733,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codebuild_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # EnvironmentImageTypeDef
@@ -988,17 +770,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EnvironmentVariableTypeDef
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### value
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### type
-- **Type**: typing.Optional[typing.Literal['PARAMETER_STORE', 'PLAINTEXT', 'SECRETS_MANAGER']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ExportedEnvironmentVariableTypeDef
 
@@ -1009,13 +783,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# FleetProxyRuleOutputTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# FleetProxyRuleTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # FleetStatusTypeDef
 
 ### statusCode
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATING', 'DELETING', 'PENDING_DELETION', 'ROTATING', 'UPDATE_ROLLBACK_FAILED', 'UPDATING']]
 
 ### context
-- **Type**: typing.Optional[typing.Literal['ACTION_REQUIRED', 'CREATE_FAILED', 'UPDATE_FAILED']]
+- **Type**: typing.Optional[typing.Literal['ACTION_REQUIRED', 'CREATE_FAILED', 'INSUFFICIENT_CAPACITY', 'PENDING_DELETION', 'UPDATE_FAILED']]
 
 ### message
 - **Type**: typing.Optional[str]
@@ -1023,50 +809,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # FleetTypeDef
 
-### arn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### name
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### id
-- **Type**: typing.Optional[str]
-
-### created
-- **Type**: typing.Optional[datetime.datetime]
-
-### lastModified
-- **Type**: typing.Optional[datetime.datetime]
-
-### status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.FleetStatusTypeDef]
-
-### baseCapacity
-- **Type**: typing.Optional[int]
-
-### environmentType
-- **Type**: typing.Optional[typing.Literal['ARM_CONTAINER', 'ARM_LAMBDA_CONTAINER', 'LINUX_CONTAINER', 'LINUX_GPU_CONTAINER', 'LINUX_LAMBDA_CONTAINER', 'WINDOWS_CONTAINER', 'WINDOWS_SERVER_2019_CONTAINER']]
-
-### computeType
-- **Type**: typing.Optional[typing.Literal['BUILD_GENERAL1_2XLARGE', 'BUILD_GENERAL1_LARGE', 'BUILD_GENERAL1_MEDIUM', 'BUILD_GENERAL1_SMALL', 'BUILD_GENERAL1_XLARGE', 'BUILD_LAMBDA_10GB', 'BUILD_LAMBDA_1GB', 'BUILD_LAMBDA_2GB', 'BUILD_LAMBDA_4GB', 'BUILD_LAMBDA_8GB']]
-
-### scalingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ScalingConfigurationOutputTypeDef]
-
-### overflowBehavior
-- **Type**: typing.Optional[typing.Literal['ON_DEMAND', 'QUEUE']]
-
-### vpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.VpcConfigOutputTypeDef]
-
-### fleetServiceRole
-- **Type**: typing.Optional[str]
-
-### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codebuild_classes.TagTypeDef]]
-
-
-# GetReportGroupTrendInputRequestTypeDef
+# GetReportGroupTrendInputTypeDef
 
 ### reportGroupArn
 - **Type**: <class 'str'>
@@ -1095,7 +842,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResourcePolicyInputRequestTypeDef
+# GetResourcePolicyInputTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1120,7 +867,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ImportSourceCredentialsInputRequestTypeDef
+# ImportSourceCredentialsInputTypeDef
 
 ### token
 - **Type**: <class 'str'>
@@ -1131,7 +878,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### authType
-- **Type**: typing.Literal['BASIC_AUTH', 'CODECONNECTIONS', 'OAUTH', 'PERSONAL_ACCESS_TOKEN']
+- **Type**: typing.Literal['BASIC_AUTH', 'CODECONNECTIONS', 'OAUTH', 'PERSONAL_ACCESS_TOKEN', 'SECRETS_MANAGER']
 - **Required**: Yes
 
 ### username
@@ -1152,44 +899,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# InvalidateProjectCacheInputRequestTypeDef
+# InvalidateProjectCacheInputTypeDef
 
 ### projectName
 - **Type**: <class 'str'>
 - **Required**: Yes
-
-
-# ListBuildBatchesForProjectInputListBuildBatchesForProjectPaginateTypeDef
-
-### projectName
-- **Type**: typing.Optional[str]
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.BuildBatchFilterTypeDef]
-
-### sortOrder
-- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.PaginatorConfigTypeDef]
-
-
-# ListBuildBatchesForProjectInputRequestTypeDef
-
-### projectName
-- **Type**: typing.Optional[str]
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.BuildBatchFilterTypeDef]
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-### sortOrder
-- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
-
-### nextToken
-- **Type**: typing.Optional[str]
 
 
 # ListBuildBatchesForProjectOutputTypeDef
@@ -1198,37 +912,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codebuild_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
-
-
-# ListBuildBatchesInputListBuildBatchesPaginateTypeDef
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.BuildBatchFilterTypeDef]
-
-### sortOrder
-- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.PaginatorConfigTypeDef]
-
-
-# ListBuildBatchesInputRequestTypeDef
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.BuildBatchFilterTypeDef]
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-### sortOrder
-- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1240,16 +926,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codebuild_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListBuildsForProjectInputListBuildsForProjectPaginateTypeDef
+
+# ListBuildsForProjectInputPaginateTypeDef
 
 ### projectName
 - **Type**: <class 'str'>
@@ -1262,7 +947,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.PaginatorConfigTypeDef]
 
 
-# ListBuildsForProjectInputRequestTypeDef
+# ListBuildsForProjectInputTypeDef
 
 ### projectName
 - **Type**: <class 'str'>
@@ -1281,16 +966,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codebuild_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListBuildsInputListBuildsPaginateTypeDef
+
+# ListBuildsInputPaginateTypeDef
 
 ### sortOrder
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
@@ -1299,7 +983,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.PaginatorConfigTypeDef]
 
 
-# ListBuildsInputRequestTypeDef
+# ListBuildsInputTypeDef
 
 ### sortOrder
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
@@ -1314,13 +998,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codebuild_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # ListCuratedEnvironmentImagesOutputTypeDef
@@ -1334,7 +1017,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListFleetsInputRequestTypeDef
+# ListFleetsInputTypeDef
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1351,10 +1034,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListFleetsOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### fleets
 - **Type**: typing.List[str]
 - **Required**: Yes
@@ -1363,8 +1042,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.codebuild_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListProjectsInputListProjectsPaginateTypeDef
+
+# ListProjectsInputPaginateTypeDef
 
 ### sortBy
 - **Type**: typing.Optional[typing.Literal['CREATED_TIME', 'LAST_MODIFIED_TIME', 'NAME']]
@@ -1376,7 +1058,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.PaginatorConfigTypeDef]
 
 
-# ListProjectsInputRequestTypeDef
+# ListProjectsInputTypeDef
 
 ### sortBy
 - **Type**: typing.Optional[typing.Literal['CREATED_TIME', 'LAST_MODIFIED_TIME', 'NAME']]
@@ -1390,10 +1072,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListProjectsOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### projects
 - **Type**: typing.List[str]
 - **Required**: Yes
@@ -1402,8 +1080,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.codebuild_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListReportGroupsInputListReportGroupsPaginateTypeDef
+
+# ListReportGroupsInputPaginateTypeDef
 
 ### sortOrder
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
@@ -1415,7 +1096,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.PaginatorConfigTypeDef]
 
 
-# ListReportGroupsInputRequestTypeDef
+# ListReportGroupsInputTypeDef
 
 ### sortOrder
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
@@ -1432,10 +1113,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListReportGroupsOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### reportGroups
 - **Type**: typing.List[str]
 - **Required**: Yes
@@ -1444,48 +1121,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.codebuild_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
-
-# ListReportsForReportGroupInputListReportsForReportGroupPaginateTypeDef
-
-### reportGroupArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### sortOrder
-- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ReportFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.PaginatorConfigTypeDef]
-
-
-# ListReportsForReportGroupInputRequestTypeDef
-
-### reportGroupArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### nextToken
 - **Type**: typing.Optional[str]
-
-### sortOrder
-- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ReportFilterTypeDef]
 
 
 # ListReportsForReportGroupOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### reports
 - **Type**: typing.List[str]
 - **Required**: Yes
@@ -1493,40 +1134,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codebuild_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
-
-
-# ListReportsInputListReportsPaginateTypeDef
-
-### sortOrder
-- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ReportFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.PaginatorConfigTypeDef]
-
-
-# ListReportsInputRequestTypeDef
-
-### sortOrder
-- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
-### maxResults
-- **Type**: typing.Optional[int]
-
-### filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ReportFilterTypeDef]
-
 
 # ListReportsOutputTypeDef
-
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
 
 ### reports
 - **Type**: typing.List[str]
@@ -1536,8 +1149,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.codebuild_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListSharedProjectsInputListSharedProjectsPaginateTypeDef
+
+# ListSharedProjectsInputPaginateTypeDef
 
 ### sortBy
 - **Type**: typing.Optional[typing.Literal['ARN', 'MODIFIED_TIME']]
@@ -1549,7 +1165,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.PaginatorConfigTypeDef]
 
 
-# ListSharedProjectsInputRequestTypeDef
+# ListSharedProjectsInputTypeDef
 
 ### sortBy
 - **Type**: typing.Optional[typing.Literal['ARN', 'MODIFIED_TIME']]
@@ -1566,10 +1182,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListSharedProjectsOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### projects
 - **Type**: typing.List[str]
 - **Required**: Yes
@@ -1578,8 +1190,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.codebuild_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListSharedReportGroupsInputListSharedReportGroupsPaginateTypeDef
+
+# ListSharedReportGroupsInputPaginateTypeDef
 
 ### sortOrder
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
@@ -1591,7 +1206,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.PaginatorConfigTypeDef]
 
 
-# ListSharedReportGroupsInputRequestTypeDef
+# ListSharedReportGroupsInputTypeDef
 
 ### sortOrder
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
@@ -1608,10 +1223,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListSharedReportGroupsOutputTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### reportGroups
 - **Type**: typing.List[str]
 - **Required**: Yes
@@ -1619,6 +1230,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codebuild_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # ListSourceCredentialsOutputTypeDef
@@ -1700,37 +1314,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ProjectArtifactsTypeDef
 
-### type
-- **Type**: typing.Literal['CODEPIPELINE', 'NO_ARTIFACTS', 'S3']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### location
-- **Type**: typing.Optional[str]
-
-### path
-- **Type**: typing.Optional[str]
-
-### namespaceType
-- **Type**: typing.Optional[typing.Literal['BUILD_ID', 'NONE']]
-
-### name
-- **Type**: typing.Optional[str]
-
-### packaging
-- **Type**: typing.Optional[typing.Literal['NONE', 'ZIP']]
-
-### overrideArtifactName
-- **Type**: typing.Optional[bool]
-
-### encryptionDisabled
-- **Type**: typing.Optional[bool]
-
-### artifactIdentifier
-- **Type**: typing.Optional[str]
-
-### bucketOwnerAccess
-- **Type**: typing.Optional[typing.Literal['FULL', 'NONE', 'READ_ONLY']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProjectBadgeTypeDef
 
@@ -1777,115 +1363,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['REPORT_AGGREGATED_BATCH', 'REPORT_INDIVIDUAL_BUILDS']]
 
 
+# ProjectBuildBatchConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ProjectCacheOutputTypeDef
 
-### type
-- **Type**: typing.Literal['LOCAL', 'NO_CACHE', 'S3']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### location
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### modes
-- **Type**: typing.Optional[typing.List[typing.Literal['LOCAL_CUSTOM_CACHE', 'LOCAL_DOCKER_LAYER_CACHE', 'LOCAL_SOURCE_CACHE']]]
+# ProjectCacheUnionTypeDef
 
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-# ProjectCacheTypeDef
-
-### type
-- **Type**: typing.Literal['LOCAL', 'NO_CACHE', 'S3']
-- **Required**: Yes
-
-### location
-- **Type**: typing.Optional[str]
-
-### modes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['LOCAL_CUSTOM_CACHE', 'LOCAL_DOCKER_LAYER_CACHE', 'LOCAL_SOURCE_CACHE']]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProjectEnvironmentOutputTypeDef
 
-### type
-- **Type**: typing.Literal['ARM_CONTAINER', 'ARM_LAMBDA_CONTAINER', 'LINUX_CONTAINER', 'LINUX_GPU_CONTAINER', 'LINUX_LAMBDA_CONTAINER', 'WINDOWS_CONTAINER', 'WINDOWS_SERVER_2019_CONTAINER']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### image
-- **Type**: <class 'str'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### computeType
-- **Type**: typing.Literal['BUILD_GENERAL1_2XLARGE', 'BUILD_GENERAL1_LARGE', 'BUILD_GENERAL1_MEDIUM', 'BUILD_GENERAL1_SMALL', 'BUILD_GENERAL1_XLARGE', 'BUILD_LAMBDA_10GB', 'BUILD_LAMBDA_1GB', 'BUILD_LAMBDA_2GB', 'BUILD_LAMBDA_4GB', 'BUILD_LAMBDA_8GB']
-- **Required**: Yes
+# ProjectEnvironmentUnionTypeDef
 
-### fleet
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectFleetTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### environmentVariables
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codebuild_classes.EnvironmentVariableTypeDef]]
-
-### privilegedMode
-- **Type**: typing.Optional[bool]
-
-### certificate
-- **Type**: typing.Optional[str]
-
-### registryCredential
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.RegistryCredentialTypeDef]
-
-### imagePullCredentialsType
-- **Type**: typing.Optional[typing.Literal['CODEBUILD', 'SERVICE_ROLE']]
-
-
-# ProjectEnvironmentTypeDef
-
-### type
-- **Type**: typing.Literal['ARM_CONTAINER', 'ARM_LAMBDA_CONTAINER', 'LINUX_CONTAINER', 'LINUX_GPU_CONTAINER', 'LINUX_LAMBDA_CONTAINER', 'WINDOWS_CONTAINER', 'WINDOWS_SERVER_2019_CONTAINER']
-- **Required**: Yes
-
-### image
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### computeType
-- **Type**: typing.Literal['BUILD_GENERAL1_2XLARGE', 'BUILD_GENERAL1_LARGE', 'BUILD_GENERAL1_MEDIUM', 'BUILD_GENERAL1_SMALL', 'BUILD_GENERAL1_XLARGE', 'BUILD_LAMBDA_10GB', 'BUILD_LAMBDA_1GB', 'BUILD_LAMBDA_2GB', 'BUILD_LAMBDA_4GB', 'BUILD_LAMBDA_8GB']
-- **Required**: Yes
-
-### fleet
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectFleetTypeDef]
-
-### environmentVariables
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codebuild_classes.EnvironmentVariableTypeDef]]
-
-### privilegedMode
-- **Type**: typing.Optional[bool]
-
-### certificate
-- **Type**: typing.Optional[str]
-
-### registryCredential
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.RegistryCredentialTypeDef]
-
-### imagePullCredentialsType
-- **Type**: typing.Optional[typing.Literal['CODEBUILD', 'SERVICE_ROLE']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProjectFileSystemLocationTypeDef
 
-### type
-- **Type**: typing.Optional[typing.Literal['EFS']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### location
-- **Type**: typing.Optional[str]
-
-### mountPoint
-- **Type**: typing.Optional[str]
-
-### identifier
-- **Type**: typing.Optional[str]
-
-### mountOptions
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProjectFleetTypeDef
 
@@ -1895,37 +1407,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ProjectSourceTypeDef
 
-### type
-- **Type**: typing.Literal['BITBUCKET', 'CODECOMMIT', 'CODEPIPELINE', 'GITHUB', 'GITHUB_ENTERPRISE', 'GITLAB', 'GITLAB_SELF_MANAGED', 'NO_SOURCE', 'S3']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### location
-- **Type**: typing.Optional[str]
-
-### gitCloneDepth
-- **Type**: typing.Optional[int]
-
-### gitSubmodulesConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.GitSubmodulesConfigTypeDef]
-
-### buildspec
-- **Type**: typing.Optional[str]
-
-### auth
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.SourceAuthTypeDef]
-
-### reportBuildStatus
-- **Type**: typing.Optional[bool]
-
-### buildStatusConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.BuildStatusConfigTypeDef]
-
-### insecureSsl
-- **Type**: typing.Optional[bool]
-
-### sourceIdentifier
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProjectSourceVersionTypeDef
 
@@ -2024,8 +1508,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### resourceAccessRole
 - **Type**: typing.Optional[str]
 
+### autoRetryLimit
+- **Type**: typing.Optional[int]
 
-# PutResourcePolicyInputRequestTypeDef
+
+# ProxyConfigurationOutputTypeDef
+
+### defaultBehavior
+- **Type**: typing.Optional[typing.Literal['ALLOW_ALL', 'DENY_ALL']]
+
+### orderedProxyRules
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codebuild_classes.FleetProxyRuleOutputTypeDef]]
+
+
+# ProxyConfigurationTypeDef
+
+### defaultBehavior
+- **Type**: typing.Optional[typing.Literal['ALLOW_ALL', 'DENY_ALL']]
+
+### orderedProxyRules
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codebuild_classes.FleetProxyRuleTypeDef]]
+
+
+# ProxyConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# PutResourcePolicyInputTypeDef
 
 ### policy
 - **Type**: <class 'str'>
@@ -2075,81 +1586,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ReportGroupTrendStatsTypeDef
 
-### average
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### max
-- **Type**: typing.Optional[str]
-
-### min
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ReportGroupTypeDef
 
-### arn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### name
-- **Type**: typing.Optional[str]
-
-### type
-- **Type**: typing.Optional[typing.Literal['CODE_COVERAGE', 'TEST']]
-
-### exportConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ReportExportConfigTypeDef]
-
-### created
-- **Type**: typing.Optional[datetime.datetime]
-
-### lastModified
-- **Type**: typing.Optional[datetime.datetime]
-
-### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codebuild_classes.TagTypeDef]]
-
-### status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETING']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ReportTypeDef
 
-### arn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: typing.Optional[typing.Literal['CODE_COVERAGE', 'TEST']]
-
-### name
-- **Type**: typing.Optional[str]
-
-### reportGroupArn
-- **Type**: typing.Optional[str]
-
-### executionId
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[typing.Literal['DELETING', 'FAILED', 'GENERATING', 'INCOMPLETE', 'SUCCEEDED']]
-
-### created
-- **Type**: typing.Optional[datetime.datetime]
-
-### expired
-- **Type**: typing.Optional[datetime.datetime]
-
-### exportConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ReportExportConfigTypeDef]
-
-### truncated
-- **Type**: typing.Optional[bool]
-
-### testSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.TestReportSummaryTypeDef]
-
-### codeCoverageSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.CodeCoverageReportSummaryTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ReportWithRawDataTypeDef
 
@@ -2162,15 +1613,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ResolvedArtifactTypeDef
 
-### type
-- **Type**: typing.Optional[typing.Literal['CODEPIPELINE', 'NO_ARTIFACTS', 'S3']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### location
-- **Type**: typing.Optional[str]
-
-### identifier
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResponseMetadataTypeDef
 
@@ -2194,18 +1639,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RetryBuildBatchInputRequestTypeDef
-
-### id
-- **Type**: typing.Optional[str]
-
-### idempotencyToken
-- **Type**: typing.Optional[str]
-
-### retryType
-- **Type**: typing.Optional[typing.Literal['RETRY_ALL_BUILDS', 'RETRY_FAILED_BUILDS']]
-
-
 # RetryBuildBatchOutputTypeDef
 
 ### buildBatch
@@ -2215,15 +1648,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codebuild_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
-
-
-# RetryBuildInputRequestTypeDef
-
-### id
-- **Type**: typing.Optional[str]
-
-### idempotencyToken
-- **Type**: typing.Optional[str]
 
 
 # RetryBuildOutputTypeDef
@@ -2308,7 +1732,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### scope
-- **Type**: typing.Literal['GITHUB_GLOBAL', 'GITHUB_ORGANIZATION']
+- **Type**: typing.Literal['GITHUB_GLOBAL', 'GITHUB_ORGANIZATION', 'GITLAB_GROUP']
 - **Required**: Yes
 
 ### domain
@@ -2317,13 +1741,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SourceAuthTypeDef
 
-### type
-- **Type**: typing.Literal['CODECONNECTIONS', 'OAUTH']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### resource
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SourceCredentialsInfoTypeDef
 
@@ -2334,13 +1754,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BITBUCKET', 'GITHUB', 'GITHUB_ENTERPRISE', 'GITLAB', 'GITLAB_SELF_MANAGED']]
 
 ### authType
-- **Type**: typing.Optional[typing.Literal['BASIC_AUTH', 'CODECONNECTIONS', 'OAUTH', 'PERSONAL_ACCESS_TOKEN']]
+- **Type**: typing.Optional[typing.Literal['BASIC_AUTH', 'CODECONNECTIONS', 'OAUTH', 'PERSONAL_ACCESS_TOKEN', 'SECRETS_MANAGER']]
 
 ### resource
 - **Type**: typing.Optional[str]
 
 
-# StartBuildBatchInputRequestTypeDef
+# StartBuildBatchInputTypeDef
 
 ### projectName
 - **Type**: <class 'str'>
@@ -2389,19 +1809,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### environmentTypeOverride
-- **Type**: typing.Optional[typing.Literal['ARM_CONTAINER', 'ARM_LAMBDA_CONTAINER', 'LINUX_CONTAINER', 'LINUX_GPU_CONTAINER', 'LINUX_LAMBDA_CONTAINER', 'WINDOWS_CONTAINER', 'WINDOWS_SERVER_2019_CONTAINER']]
+- **Type**: typing.Optional[typing.Literal['ARM_CONTAINER', 'ARM_EC2', 'ARM_LAMBDA_CONTAINER', 'LINUX_CONTAINER', 'LINUX_EC2', 'LINUX_GPU_CONTAINER', 'LINUX_LAMBDA_CONTAINER', 'MAC_ARM', 'WINDOWS_CONTAINER', 'WINDOWS_EC2', 'WINDOWS_SERVER_2019_CONTAINER']]
 
 ### imageOverride
 - **Type**: typing.Optional[str]
 
 ### computeTypeOverride
-- **Type**: typing.Optional[typing.Literal['BUILD_GENERAL1_2XLARGE', 'BUILD_GENERAL1_LARGE', 'BUILD_GENERAL1_MEDIUM', 'BUILD_GENERAL1_SMALL', 'BUILD_GENERAL1_XLARGE', 'BUILD_LAMBDA_10GB', 'BUILD_LAMBDA_1GB', 'BUILD_LAMBDA_2GB', 'BUILD_LAMBDA_4GB', 'BUILD_LAMBDA_8GB']]
+- **Type**: typing.Optional[typing.Literal['ATTRIBUTE_BASED_COMPUTE', 'BUILD_GENERAL1_2XLARGE', 'BUILD_GENERAL1_LARGE', 'BUILD_GENERAL1_MEDIUM', 'BUILD_GENERAL1_SMALL', 'BUILD_GENERAL1_XLARGE', 'BUILD_LAMBDA_10GB', 'BUILD_LAMBDA_1GB', 'BUILD_LAMBDA_2GB', 'BUILD_LAMBDA_4GB', 'BUILD_LAMBDA_8GB']]
 
 ### certificateOverride
 - **Type**: typing.Optional[str]
 
 ### cacheOverride
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectCacheTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectCacheUnionTypeDef]
 
 ### serviceRoleOverride
 - **Type**: typing.Optional[str]
@@ -2431,7 +1851,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CODEBUILD', 'SERVICE_ROLE']]
 
 ### buildBatchConfigOverride
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectBuildBatchConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectBuildBatchConfigUnionTypeDef]
 
 ### debugSessionEnabled
 - **Type**: typing.Optional[bool]
@@ -2448,7 +1868,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartBuildInputRequestTypeDef
+# StartBuildInputTypeDef
 
 ### projectName
 - **Type**: <class 'str'>
@@ -2500,19 +1920,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.BuildStatusConfigTypeDef]
 
 ### environmentTypeOverride
-- **Type**: typing.Optional[typing.Literal['ARM_CONTAINER', 'ARM_LAMBDA_CONTAINER', 'LINUX_CONTAINER', 'LINUX_GPU_CONTAINER', 'LINUX_LAMBDA_CONTAINER', 'WINDOWS_CONTAINER', 'WINDOWS_SERVER_2019_CONTAINER']]
+- **Type**: typing.Optional[typing.Literal['ARM_CONTAINER', 'ARM_EC2', 'ARM_LAMBDA_CONTAINER', 'LINUX_CONTAINER', 'LINUX_EC2', 'LINUX_GPU_CONTAINER', 'LINUX_LAMBDA_CONTAINER', 'MAC_ARM', 'WINDOWS_CONTAINER', 'WINDOWS_EC2', 'WINDOWS_SERVER_2019_CONTAINER']]
 
 ### imageOverride
 - **Type**: typing.Optional[str]
 
 ### computeTypeOverride
-- **Type**: typing.Optional[typing.Literal['BUILD_GENERAL1_2XLARGE', 'BUILD_GENERAL1_LARGE', 'BUILD_GENERAL1_MEDIUM', 'BUILD_GENERAL1_SMALL', 'BUILD_GENERAL1_XLARGE', 'BUILD_LAMBDA_10GB', 'BUILD_LAMBDA_1GB', 'BUILD_LAMBDA_2GB', 'BUILD_LAMBDA_4GB', 'BUILD_LAMBDA_8GB']]
+- **Type**: typing.Optional[typing.Literal['ATTRIBUTE_BASED_COMPUTE', 'BUILD_GENERAL1_2XLARGE', 'BUILD_GENERAL1_LARGE', 'BUILD_GENERAL1_MEDIUM', 'BUILD_GENERAL1_SMALL', 'BUILD_GENERAL1_XLARGE', 'BUILD_LAMBDA_10GB', 'BUILD_LAMBDA_1GB', 'BUILD_LAMBDA_2GB', 'BUILD_LAMBDA_4GB', 'BUILD_LAMBDA_8GB']]
 
 ### certificateOverride
 - **Type**: typing.Optional[str]
 
 ### cacheOverride
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectCacheTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectCacheUnionTypeDef]
 
 ### serviceRoleOverride
 - **Type**: typing.Optional[str]
@@ -2547,6 +1967,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### fleetOverride
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectFleetTypeDef]
 
+### autoRetryLimitOverride
+- **Type**: typing.Optional[int]
+
 
 # StartBuildOutputTypeDef
 
@@ -2559,13 +1982,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopBuildBatchInputRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
 # StopBuildBatchOutputTypeDef
 
 ### buildBatch
@@ -2574,13 +1990,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codebuild_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# StopBuildInputRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
 - **Required**: Yes
 
 
@@ -2648,6 +2057,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### expired
 - **Type**: typing.Optional[datetime.datetime]
 
+### testSuiteName
+- **Type**: typing.Optional[str]
+
 
 # TestReportSummaryTypeDef
 
@@ -2664,7 +2076,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateFleetInputRequestTypeDef
+# UpdateFleetInputTypeDef
 
 ### arn
 - **Type**: <class 'str'>
@@ -2674,10 +2086,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### environmentType
-- **Type**: typing.Optional[typing.Literal['ARM_CONTAINER', 'ARM_LAMBDA_CONTAINER', 'LINUX_CONTAINER', 'LINUX_GPU_CONTAINER', 'LINUX_LAMBDA_CONTAINER', 'WINDOWS_CONTAINER', 'WINDOWS_SERVER_2019_CONTAINER']]
+- **Type**: typing.Optional[typing.Literal['ARM_CONTAINER', 'ARM_EC2', 'ARM_LAMBDA_CONTAINER', 'LINUX_CONTAINER', 'LINUX_EC2', 'LINUX_GPU_CONTAINER', 'LINUX_LAMBDA_CONTAINER', 'MAC_ARM', 'WINDOWS_CONTAINER', 'WINDOWS_EC2', 'WINDOWS_SERVER_2019_CONTAINER']]
 
 ### computeType
-- **Type**: typing.Optional[typing.Literal['BUILD_GENERAL1_2XLARGE', 'BUILD_GENERAL1_LARGE', 'BUILD_GENERAL1_MEDIUM', 'BUILD_GENERAL1_SMALL', 'BUILD_GENERAL1_XLARGE', 'BUILD_LAMBDA_10GB', 'BUILD_LAMBDA_1GB', 'BUILD_LAMBDA_2GB', 'BUILD_LAMBDA_4GB', 'BUILD_LAMBDA_8GB']]
+- **Type**: typing.Optional[typing.Literal['ATTRIBUTE_BASED_COMPUTE', 'BUILD_GENERAL1_2XLARGE', 'BUILD_GENERAL1_LARGE', 'BUILD_GENERAL1_MEDIUM', 'BUILD_GENERAL1_SMALL', 'BUILD_GENERAL1_XLARGE', 'BUILD_LAMBDA_10GB', 'BUILD_LAMBDA_1GB', 'BUILD_LAMBDA_2GB', 'BUILD_LAMBDA_4GB', 'BUILD_LAMBDA_8GB']]
+
+### computeConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ComputeConfigurationTypeDef]
 
 ### scalingConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ScalingConfigurationInputTypeDef]
@@ -2686,7 +2101,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ON_DEMAND', 'QUEUE']]
 
 ### vpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.VpcConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.VpcConfigUnionTypeDef]
+
+### proxyConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProxyConfigurationUnionTypeDef]
+
+### imageId
+- **Type**: typing.Optional[str]
 
 ### fleetServiceRole
 - **Type**: typing.Optional[str]
@@ -2706,7 +2127,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateProjectInputRequestTypeDef
+# UpdateProjectInputTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -2734,10 +2155,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codebuild_classes.ProjectArtifactsTypeDef]]
 
 ### cache
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectCacheTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectCacheUnionTypeDef]
 
 ### environment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectEnvironmentTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectEnvironmentUnionTypeDef]
 
 ### serviceRole
 - **Type**: typing.Optional[str]
@@ -2755,7 +2176,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codebuild_classes.TagTypeDef]]
 
 ### vpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.VpcConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.VpcConfigUnionTypeDef]
 
 ### badgeEnabled
 - **Type**: typing.Optional[bool]
@@ -2767,9 +2188,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codebuild_classes.ProjectFileSystemLocationTypeDef]]
 
 ### buildBatchConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectBuildBatchConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ProjectBuildBatchConfigUnionTypeDef]
 
 ### concurrentBuildLimit
+- **Type**: typing.Optional[int]
+
+### autoRetryLimit
 - **Type**: typing.Optional[int]
 
 
@@ -2784,7 +2208,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateProjectVisibilityInputRequestTypeDef
+# UpdateProjectVisibilityInputTypeDef
 
 ### projectArn
 - **Type**: <class 'str'>
@@ -2817,7 +2241,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateReportGroupInputRequestTypeDef
+# UpdateReportGroupInputTypeDef
 
 ### arn
 - **Type**: <class 'str'>
@@ -2841,7 +2265,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateWebhookInputRequestTypeDef
+# UpdateWebhookInputTypeDef
 
 ### projectName
 - **Type**: <class 'str'>
@@ -2857,7 +2281,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Sequence[aws_resource_validator.pydantic_models.codebuild_classes.WebhookFilterTypeDef]]]
 
 ### buildType
-- **Type**: typing.Optional[typing.Literal['BUILD', 'BUILD_BATCH']]
+- **Type**: typing.Optional[typing.Literal['BUILD', 'BUILD_BATCH', 'RUNNER_BUILDKITE_BUILD']]
 
 
 # UpdateWebhookOutputTypeDef
@@ -2895,19 +2319,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
+# VpcConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # WebhookFilterTypeDef
 
-### type
-- **Type**: typing.Literal['ACTOR_ACCOUNT_ID', 'BASE_REF', 'COMMIT_MESSAGE', 'EVENT', 'FILE_PATH', 'HEAD_REF', 'RELEASE_NAME', 'TAG_NAME', 'WORKFLOW_NAME']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### pattern
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### excludeMatchedPattern
-- **Type**: typing.Optional[bool]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # WebhookTypeDef
 
@@ -2927,7 +2349,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.List[aws_resource_validator.pydantic_models.codebuild_classes.WebhookFilterTypeDef]]]
 
 ### buildType
-- **Type**: typing.Optional[typing.Literal['BUILD', 'BUILD_BATCH']]
+- **Type**: typing.Optional[typing.Literal['BUILD', 'BUILD_BATCH', 'RUNNER_BUILDKITE_BUILD']]
 
 ### manualCreation
 - **Type**: typing.Optional[bool]
@@ -2937,5 +2359,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### scopeConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.codebuild_classes.ScopeConfigurationTypeDef]
+
+### status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATING', 'DELETING']]
+
+### statusMessage
+- **Type**: typing.Optional[str]
 
 

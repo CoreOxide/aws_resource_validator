@@ -6,14 +6,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DeleteHumanLoopRequestRequestTypeDef
+# DeleteHumanLoopRequestTypeDef
 
 ### HumanLoopName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeHumanLoopRequestRequestTypeDef
+# DescribeHumanLoopRequestTypeDef
 
 ### HumanLoopName
 - **Type**: <class 'str'>
@@ -98,17 +98,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListHumanLoopsRequestListHumanLoopsPaginateTypeDef
+# ListHumanLoopsRequestPaginateTypeDef
 
 ### FlowDefinitionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.TimestampTypeDef]
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
@@ -117,17 +117,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.PaginatorConfigTypeDef]
 
 
-# ListHumanLoopsRequestRequestTypeDef
+# ListHumanLoopsRequestTypeDef
 
 ### FlowDefinitionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### CreationTimeAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.TimestampTypeDef]
 
 ### CreationTimeBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.TimestampTypeDef]
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
@@ -145,13 +145,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.HumanLoopSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # PaginatorConfigTypeDef
@@ -172,10 +171,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -188,8 +183,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# StartHumanLoopRequestRequestTypeDef
+
+# StartHumanLoopRequestTypeDef
 
 ### HumanLoopName
 - **Type**: <class 'str'>
@@ -218,10 +216,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopHumanLoopRequestRequestTypeDef
+# StopHumanLoopRequestTypeDef
 
 ### HumanLoopName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

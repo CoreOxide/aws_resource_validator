@@ -46,6 +46,28 @@
 - **Type**: typing.Optional[str]
 
 
+# AccountLevelOutputTypeDef
+
+### BucketLevel
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.BucketLevelTypeDef'>
+- **Required**: Yes
+
+### ActivityMetrics
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.ActivityMetricsTypeDef]
+
+### AdvancedCostOptimizationMetrics
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.AdvancedCostOptimizationMetricsTypeDef]
+
+### AdvancedDataProtectionMetrics
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.AdvancedDataProtectionMetricsTypeDef]
+
+### DetailedStatusCodesMetrics
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.DetailedStatusCodesMetricsTypeDef]
+
+### StorageLensGroupLevel
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.StorageLensGroupLevelOutputTypeDef]
+
+
 # AccountLevelTypeDef
 
 ### BucketLevel
@@ -86,7 +108,7 @@
 - **Type**: typing.Optional[bool]
 
 
-# AssociateAccessGrantsIdentityCenterRequestRequestTypeDef
+# AssociateAccessGrantsIdentityCenterRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -136,7 +158,7 @@
 # AsyncRequestParametersTypeDef
 
 ### CreateMultiRegionAccessPointRequest
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.CreateMultiRegionAccessPointInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.CreateMultiRegionAccessPointInputOutputTypeDef]
 
 ### DeleteMultiRegionAccessPointRequest
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.DeleteMultiRegionAccessPointInputTypeDef]
@@ -195,7 +217,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAccessGrantRequestRequestTypeDef
+# CreateAccessGrantRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -269,7 +291,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAccessGrantsInstanceRequestRequestTypeDef
+# CreateAccessGrantsInstanceRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -300,12 +322,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### IdentityCenterInstanceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### IdentityCenterApplicationArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
 
-# CreateAccessGrantsLocationRequestRequestTypeDef
+# CreateAccessGrantsLocationRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -350,7 +380,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAccessPointForObjectLambdaRequestRequestTypeDef
+# CreateAccessPointForObjectLambdaRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -361,7 +391,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.ObjectLambdaConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.ObjectLambdaConfigurationUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -380,7 +410,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAccessPointRequestRequestTypeDef
+# CreateAccessPointRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -425,7 +455,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EU', 'ap-northeast-1', 'ap-south-1', 'ap-southeast-1', 'ap-southeast-2', 'cn-north-1', 'eu-central-1', 'eu-west-1', 'sa-east-1', 'us-west-1', 'us-west-2']]
 
 
-# CreateBucketRequestRequestTypeDef
+# CreateBucketRequestTypeDef
 
 ### Bucket
 - **Type**: <class 'str'>
@@ -474,14 +504,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateJobRequestRequestTypeDef
+# CreateJobRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Operation
-- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.JobOperationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.JobOperationUnionTypeDef'>
 - **Required**: Yes
 
 ### Report
@@ -504,7 +534,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Manifest
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.JobManifestTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.JobManifestUnionTypeDef]
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -513,7 +543,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.s3control_classes.S3TagTypeDef]]
 
 ### ManifestGenerator
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.JobManifestGeneratorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.JobManifestGeneratorUnionTypeDef]
 
 
 # CreateJobResultTypeDef
@@ -525,6 +555,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+
+# CreateMultiRegionAccessPointInputOutputTypeDef
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Regions
+- **Type**: typing.List[aws_resource_validator.pydantic_models.s3control_classes.RegionTypeDef]
+- **Required**: Yes
+
+### PublicAccessBlock
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.PublicAccessBlockConfigurationTypeDef]
 
 
 # CreateMultiRegionAccessPointInputTypeDef
@@ -541,7 +585,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.PublicAccessBlockConfigurationTypeDef]
 
 
-# CreateMultiRegionAccessPointRequestRequestTypeDef
+# CreateMultiRegionAccessPointInputUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CreateMultiRegionAccessPointRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -552,7 +602,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Details
-- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.CreateMultiRegionAccessPointInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.CreateMultiRegionAccessPointInputUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -567,14 +617,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateStorageLensGroupRequestRequestTypeDef
+# CreateStorageLensGroupRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### StorageLensGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.StorageLensGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.StorageLensGroupUnionTypeDef'>
 - **Required**: Yes
 
 ### Tags
@@ -596,7 +646,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# DeleteAccessGrantRequestRequestTypeDef
+# DeleteAccessGrantRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -607,21 +657,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAccessGrantsInstanceRequestRequestTypeDef
+# DeleteAccessGrantsInstanceRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteAccessGrantsInstanceResourcePolicyRequestRequestTypeDef
+# DeleteAccessGrantsInstanceResourcePolicyRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteAccessGrantsLocationRequestRequestTypeDef
+# DeleteAccessGrantsLocationRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -632,7 +682,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAccessPointForObjectLambdaRequestRequestTypeDef
+# DeleteAccessPointForObjectLambdaRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -643,7 +693,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAccessPointPolicyForObjectLambdaRequestRequestTypeDef
+# DeleteAccessPointPolicyForObjectLambdaRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -654,7 +704,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAccessPointPolicyRequestRequestTypeDef
+# DeleteAccessPointPolicyRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -665,7 +715,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAccessPointRequestRequestTypeDef
+# DeleteAccessPointRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -676,7 +726,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteBucketLifecycleConfigurationRequestRequestTypeDef
+# DeleteBucketLifecycleConfigurationRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -687,7 +737,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteBucketPolicyRequestRequestTypeDef
+# DeleteBucketPolicyRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -698,7 +748,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteBucketReplicationRequestRequestTypeDef
+# DeleteBucketReplicationRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -709,7 +759,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteBucketRequestRequestTypeDef
+# DeleteBucketRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -720,7 +770,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteBucketTaggingRequestRequestTypeDef
+# DeleteBucketTaggingRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -731,7 +781,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteJobTaggingRequestRequestTypeDef
+# DeleteJobTaggingRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -756,7 +806,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteMultiRegionAccessPointRequestRequestTypeDef
+# DeleteMultiRegionAccessPointRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -782,14 +832,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeletePublicAccessBlockRequestRequestTypeDef
+# DeletePublicAccessBlockRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteStorageLensConfigurationRequestRequestTypeDef
+# DeleteStorageLensConfigurationRequestTypeDef
 
 ### ConfigId
 - **Type**: <class 'str'>
@@ -800,7 +850,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteStorageLensConfigurationTaggingRequestRequestTypeDef
+# DeleteStorageLensConfigurationTaggingRequestTypeDef
 
 ### ConfigId
 - **Type**: <class 'str'>
@@ -811,7 +861,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteStorageLensGroupRequestRequestTypeDef
+# DeleteStorageLensGroupRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -822,7 +872,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeJobRequestRequestTypeDef
+# DescribeJobRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -844,7 +894,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeMultiRegionAccessPointOperationRequestRequestTypeDef
+# DescribeMultiRegionAccessPointOperationRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -897,7 +947,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DissociateAccessGrantsIdentityCenterRequestRequestTypeDef
+# DissociateAccessGrantsIdentityCenterRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -923,7 +973,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExcludeTypeDef
+# ExcludeOutputTypeDef
 
 ### Buckets
 - **Type**: typing.Optional[typing.List[str]]
@@ -932,11 +982,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
+# ExcludeTypeDef
+
+### Buckets
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### Regions
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
 # ExistingObjectReplicationTypeDef
 
 ### Status
 - **Type**: typing.Literal['Disabled', 'Enabled']
 - **Required**: Yes
+
+
+# GeneratedManifestEncryptionOutputTypeDef
+
+### SSES3
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### SSEKMS
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.SSEKMSEncryptionTypeDef]
 
 
 # GeneratedManifestEncryptionTypeDef
@@ -948,7 +1016,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.SSEKMSEncryptionTypeDef]
 
 
-# GetAccessGrantRequestRequestTypeDef
+# GetAccessGrantRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1002,7 +1070,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAccessGrantsInstanceForPrefixRequestRequestTypeDef
+# GetAccessGrantsInstanceForPrefixRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1028,14 +1096,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAccessGrantsInstanceRequestRequestTypeDef
+# GetAccessGrantsInstanceRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetAccessGrantsInstanceResourcePolicyRequestRequestTypeDef
+# GetAccessGrantsInstanceResourcePolicyRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1075,6 +1143,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### IdentityCenterInstanceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### IdentityCenterApplicationArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 ### CreatedAt
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
@@ -1084,7 +1160,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAccessGrantsLocationRequestRequestTypeDef
+# GetAccessGrantsLocationRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1122,7 +1198,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAccessPointConfigurationForObjectLambdaRequestRequestTypeDef
+# GetAccessPointConfigurationForObjectLambdaRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1136,7 +1212,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAccessPointConfigurationForObjectLambdaResultTypeDef
 
 ### Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.ObjectLambdaConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.ObjectLambdaConfigurationOutputTypeDef'>
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -1144,7 +1220,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAccessPointForObjectLambdaRequestRequestTypeDef
+# GetAccessPointForObjectLambdaRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1178,7 +1254,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAccessPointPolicyForObjectLambdaRequestRequestTypeDef
+# GetAccessPointPolicyForObjectLambdaRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1200,7 +1276,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAccessPointPolicyRequestRequestTypeDef
+# GetAccessPointPolicyRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1222,7 +1298,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAccessPointPolicyStatusForObjectLambdaRequestRequestTypeDef
+# GetAccessPointPolicyStatusForObjectLambdaRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1244,7 +1320,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAccessPointPolicyStatusRequestRequestTypeDef
+# GetAccessPointPolicyStatusRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1266,7 +1342,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAccessPointRequestRequestTypeDef
+# GetAccessPointRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1324,7 +1400,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetBucketLifecycleConfigurationRequestRequestTypeDef
+# GetBucketLifecycleConfigurationRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1338,7 +1414,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetBucketLifecycleConfigurationResultTypeDef
 
 ### Rules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.s3control_classes.LifecycleRuleTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.s3control_classes.LifecycleRuleOutputTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -1346,7 +1422,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetBucketPolicyRequestRequestTypeDef
+# GetBucketPolicyRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1368,7 +1444,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetBucketReplicationRequestRequestTypeDef
+# GetBucketReplicationRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1382,7 +1458,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetBucketReplicationResultTypeDef
 
 ### ReplicationConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.ReplicationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.ReplicationConfigurationOutputTypeDef'>
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -1390,7 +1466,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetBucketRequestRequestTypeDef
+# GetBucketRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1420,7 +1496,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetBucketTaggingRequestRequestTypeDef
+# GetBucketTaggingRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1442,7 +1518,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetBucketVersioningRequestRequestTypeDef
+# GetBucketVersioningRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1468,7 +1544,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDataAccessRequestRequestTypeDef
+# GetDataAccessRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1507,7 +1583,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetJobTaggingRequestRequestTypeDef
+# GetJobTaggingRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1529,7 +1605,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMultiRegionAccessPointPolicyRequestRequestTypeDef
+# GetMultiRegionAccessPointPolicyRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1551,7 +1627,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMultiRegionAccessPointPolicyStatusRequestRequestTypeDef
+# GetMultiRegionAccessPointPolicyStatusRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1573,7 +1649,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMultiRegionAccessPointRequestRequestTypeDef
+# GetMultiRegionAccessPointRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1595,7 +1671,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMultiRegionAccessPointRoutesRequestRequestTypeDef
+# GetMultiRegionAccessPointRoutesRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1632,14 +1708,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPublicAccessBlockRequestRequestTypeDef
+# GetPublicAccessBlockRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetStorageLensConfigurationRequestRequestTypeDef
+# GetStorageLensConfigurationRequestTypeDef
 
 ### ConfigId
 - **Type**: <class 'str'>
@@ -1653,7 +1729,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetStorageLensConfigurationResultTypeDef
 
 ### StorageLensConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.StorageLensConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.StorageLensConfigurationOutputTypeDef'>
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -1661,7 +1737,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetStorageLensConfigurationTaggingRequestRequestTypeDef
+# GetStorageLensConfigurationTaggingRequestTypeDef
 
 ### ConfigId
 - **Type**: <class 'str'>
@@ -1683,7 +1759,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetStorageLensGroupRequestRequestTypeDef
+# GetStorageLensGroupRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -1697,7 +1773,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetStorageLensGroupResultTypeDef
 
 ### StorageLensGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.StorageLensGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.StorageLensGroupOutputTypeDef'>
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -1714,13 +1790,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# IncludeTypeDef
+# IncludeOutputTypeDef
 
 ### Buckets
 - **Type**: typing.Optional[typing.List[str]]
 
 ### Regions
 - **Type**: typing.Optional[typing.List[str]]
+
+
+# IncludeTypeDef
+
+### Buckets
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### Regions
+- **Type**: typing.Optional[typing.Sequence[str]]
 
 
 # JobDescriptorTypeDef
@@ -1741,10 +1826,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Active', 'Cancelled', 'Cancelling', 'Complete', 'Completing', 'Failed', 'Failing', 'New', 'Paused', 'Pausing', 'Preparing', 'Ready', 'Suspended']]
 
 ### Manifest
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.JobManifestTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.JobManifestOutputTypeDef]
 
 ### Operation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.JobOperationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.JobOperationOutputTypeDef]
 
 ### Priority
 - **Type**: typing.Optional[int]
@@ -1777,7 +1862,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ManifestGenerator
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.JobManifestGeneratorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.JobManifestGeneratorOutputTypeDef]
 
 ### GeneratedManifestDescriptor
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.S3GeneratedManifestDescriptorTypeDef]
@@ -1819,16 +1904,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.JobProgressSummaryTypeDef]
 
 
+# JobManifestGeneratorFilterOutputTypeDef
+
+### EligibleForReplication
+- **Type**: typing.Optional[bool]
+
+### CreatedAfter
+- **Type**: typing.Optional[datetime.datetime]
+
+### CreatedBefore
+- **Type**: typing.Optional[datetime.datetime]
+
+### ObjectReplicationStatuses
+- **Type**: typing.Optional[typing.List[typing.Literal['COMPLETED', 'FAILED', 'NONE', 'REPLICA']]]
+
+### KeyNameConstraint
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.KeyNameConstraintOutputTypeDef]
+
+### ObjectSizeGreaterThanBytes
+- **Type**: typing.Optional[int]
+
+### ObjectSizeLessThanBytes
+- **Type**: typing.Optional[int]
+
+### MatchAnyStorageClass
+- **Type**: typing.Optional[typing.List[typing.Literal['DEEP_ARCHIVE', 'GLACIER', 'GLACIER_IR', 'INTELLIGENT_TIERING', 'ONEZONE_IA', 'STANDARD', 'STANDARD_IA']]]
+
+
 # JobManifestGeneratorFilterTypeDef
 
 ### EligibleForReplication
 - **Type**: typing.Optional[bool]
 
 ### CreatedAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.TimestampTypeDef]
 
 ### CreatedBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.TimestampTypeDef]
 
 ### ObjectReplicationStatuses
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['COMPLETED', 'FAILED', 'NONE', 'REPLICA']]]
@@ -1846,11 +1958,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['DEEP_ARCHIVE', 'GLACIER', 'GLACIER_IR', 'INTELLIGENT_TIERING', 'ONEZONE_IA', 'STANDARD', 'STANDARD_IA']]]
 
 
+# JobManifestGeneratorOutputTypeDef
+
+### S3JobManifestGenerator
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.S3JobManifestGeneratorOutputTypeDef]
+
+
 # JobManifestGeneratorTypeDef
 
 ### S3JobManifestGenerator
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.S3JobManifestGeneratorTypeDef]
 
+
+# JobManifestGeneratorUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # JobManifestLocationTypeDef
 
@@ -1864,6 +1988,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ObjectVersionId
 - **Type**: typing.Optional[str]
+
+
+# JobManifestOutputTypeDef
+
+### Spec
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.JobManifestSpecOutputTypeDef'>
+- **Required**: Yes
+
+### Location
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.JobManifestLocationTypeDef'>
+- **Required**: Yes
+
+
+# JobManifestSpecOutputTypeDef
+
+### Format
+- **Type**: typing.Literal['S3BatchOperations_CSV_20180820', 'S3InventoryReport_CSV_20161130']
+- **Required**: Yes
+
+### Fields
+- **Type**: typing.Optional[typing.List[typing.Literal['Bucket', 'Ignore', 'Key', 'VersionId']]]
 
 
 # JobManifestSpecTypeDef
@@ -1885,6 +2030,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Location
 - **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.JobManifestLocationTypeDef'>
 - **Required**: Yes
+
+
+# JobManifestUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# JobOperationOutputTypeDef
+
+### LambdaInvoke
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.LambdaInvokeOperationOutputTypeDef]
+
+### S3PutObjectCopy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.S3CopyObjectOperationOutputTypeDef]
+
+### S3PutObjectAcl
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.S3SetObjectAclOperationOutputTypeDef]
+
+### S3PutObjectTagging
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.S3SetObjectTaggingOperationOutputTypeDef]
+
+### S3DeleteObjectTagging
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### S3InitiateRestoreObject
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.S3InitiateRestoreObjectOperationTypeDef]
+
+### S3PutObjectLegalHold
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.S3SetObjectLegalHoldOperationTypeDef]
+
+### S3PutObjectRetention
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.S3SetObjectRetentionOperationOutputTypeDef]
+
+### S3ReplicateObject
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 
 # JobOperationTypeDef
@@ -1916,6 +2097,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### S3ReplicateObject
 - **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
 
+
+# JobOperationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # JobProgressSummaryTypeDef
 
@@ -1957,6 +2144,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
+# KeyNameConstraintOutputTypeDef
+
+### MatchAnyPrefix
+- **Type**: typing.Optional[typing.List[str]]
+
+### MatchAnySuffix
+- **Type**: typing.Optional[typing.List[str]]
+
+### MatchAnySubstring
+- **Type**: typing.Optional[typing.List[str]]
+
+
 # KeyNameConstraintTypeDef
 
 ### MatchAnyPrefix
@@ -1967,6 +2166,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### MatchAnySubstring
 - **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# LambdaInvokeOperationOutputTypeDef
+
+### FunctionArn
+- **Type**: typing.Optional[str]
+
+### InvocationSchemaVersion
+- **Type**: typing.Optional[str]
+
+### UserArguments
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # LambdaInvokeOperationTypeDef
@@ -1984,10 +2195,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # LifecycleConfigurationTypeDef
 
 ### Rules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.s3control_classes.LifecycleRuleTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.s3control_classes.LifecycleRuleUnionTypeDef]]
 
 
-# LifecycleExpirationTypeDef
+# LifecycleExpirationOutputTypeDef
 
 ### Date
 - **Type**: typing.Optional[datetime.datetime]
@@ -1999,13 +2210,70 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# LifecycleRuleAndOperatorTypeDef
+# LifecycleExpirationTypeDef
+
+### Date
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.TimestampTypeDef]
+
+### Days
+- **Type**: typing.Optional[int]
+
+### ExpiredObjectDeleteMarker
+- **Type**: typing.Optional[bool]
+
+
+# LifecycleExpirationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# LifecycleRuleAndOperatorOutputTypeDef
 
 ### Prefix
 - **Type**: typing.Optional[str]
 
 ### Tags
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.s3control_classes.S3TagTypeDef]]
+
+### ObjectSizeGreaterThan
+- **Type**: typing.Optional[int]
+
+### ObjectSizeLessThan
+- **Type**: typing.Optional[int]
+
+
+# LifecycleRuleAndOperatorTypeDef
+
+### Prefix
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.s3control_classes.S3TagTypeDef]]
+
+### ObjectSizeGreaterThan
+- **Type**: typing.Optional[int]
+
+### ObjectSizeLessThan
+- **Type**: typing.Optional[int]
+
+
+# LifecycleRuleAndOperatorUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# LifecycleRuleFilterOutputTypeDef
+
+### Prefix
+- **Type**: typing.Optional[str]
+
+### Tag
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.S3TagTypeDef]
+
+### And
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.LifecycleRuleAndOperatorOutputTypeDef]
 
 ### ObjectSizeGreaterThan
 - **Type**: typing.Optional[int]
@@ -2023,7 +2291,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.S3TagTypeDef]
 
 ### And
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.LifecycleRuleAndOperatorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.LifecycleRuleAndOperatorUnionTypeDef]
 
 ### ObjectSizeGreaterThan
 - **Type**: typing.Optional[int]
@@ -2032,23 +2300,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# LifecycleRuleTypeDef
+# LifecycleRuleFilterUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# LifecycleRuleOutputTypeDef
 
 ### Status
 - **Type**: typing.Literal['Disabled', 'Enabled']
 - **Required**: Yes
 
 ### Expiration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.LifecycleExpirationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.LifecycleExpirationOutputTypeDef]
 
 ### ID
 - **Type**: typing.Optional[str]
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.LifecycleRuleFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.LifecycleRuleFilterOutputTypeDef]
 
 ### Transitions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.s3control_classes.TransitionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.s3control_classes.TransitionOutputTypeDef]]
 
 ### NoncurrentVersionTransitions
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.s3control_classes.NoncurrentVersionTransitionTypeDef]]
@@ -2059,6 +2333,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### AbortIncompleteMultipartUpload
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.AbortIncompleteMultipartUploadTypeDef]
 
+
+# LifecycleRuleTypeDef
+
+### Status
+- **Type**: typing.Literal['Disabled', 'Enabled']
+- **Required**: Yes
+
+### Expiration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.LifecycleExpirationUnionTypeDef]
+
+### ID
+- **Type**: typing.Optional[str]
+
+### Filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.LifecycleRuleFilterUnionTypeDef]
+
+### Transitions
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.s3control_classes.TransitionUnionTypeDef]]
+
+### NoncurrentVersionTransitions
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.s3control_classes.NoncurrentVersionTransitionTypeDef]]
+
+### NoncurrentVersionExpiration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.NoncurrentVersionExpirationTypeDef]
+
+### AbortIncompleteMultipartUpload
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.AbortIncompleteMultipartUploadTypeDef]
+
+
+# LifecycleRuleUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ListAccessGrantEntryTypeDef
 
@@ -2104,8 +2412,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### IdentityCenterArn
 - **Type**: typing.Optional[str]
 
+### IdentityCenterInstanceArn
+- **Type**: typing.Optional[str]
 
-# ListAccessGrantsInstancesRequestRequestTypeDef
+### IdentityCenterApplicationArn
+- **Type**: typing.Optional[str]
+
+
+# ListAccessGrantsInstancesRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -2120,10 +2434,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListAccessGrantsInstancesResultTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### AccessGrantsInstancesList
 - **Type**: typing.List[aws_resource_validator.pydantic_models.s3control_classes.ListAccessGrantsInstanceEntryTypeDef]
 - **Required**: Yes
@@ -2131,6 +2441,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # ListAccessGrantsLocationsEntryTypeDef
@@ -2151,7 +2464,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAccessGrantsLocationsRequestRequestTypeDef
+# ListAccessGrantsLocationsRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -2169,10 +2482,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListAccessGrantsLocationsResultTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### AccessGrantsLocationsList
 - **Type**: typing.List[aws_resource_validator.pydantic_models.s3control_classes.ListAccessGrantsLocationsEntryTypeDef]
 - **Required**: Yes
@@ -2181,8 +2490,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListAccessGrantsRequestRequestTypeDef
+
+# ListAccessGrantsRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -2212,10 +2524,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListAccessGrantsResultTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### AccessGrantsList
 - **Type**: typing.List[aws_resource_validator.pydantic_models.s3control_classes.ListAccessGrantEntryTypeDef]
 - **Required**: Yes
@@ -2224,8 +2532,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListAccessPointsForObjectLambdaRequestListAccessPointsForObjectLambdaPaginateTypeDef
+
+# ListAccessPointsForObjectLambdaRequestPaginateTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -2235,7 +2546,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.PaginatorConfigTypeDef]
 
 
-# ListAccessPointsForObjectLambdaRequestRequestTypeDef
+# ListAccessPointsForObjectLambdaRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -2254,16 +2565,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.s3control_classes.ObjectLambdaAccessPointTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListAccessPointsRequestRequestTypeDef
+
+# ListAccessPointsRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -2285,16 +2595,76 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.s3control_classes.AccessPointTypeDef]
 - **Required**: Yes
 
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
 ### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListCallerAccessGrantsEntryTypeDef
+
+### Permission
+- **Type**: typing.Optional[typing.Literal['READ', 'READWRITE', 'WRITE']]
+
+### GrantScope
+- **Type**: typing.Optional[str]
+
+### ApplicationArn
+- **Type**: typing.Optional[str]
+
+
+# ListCallerAccessGrantsRequestPaginateTypeDef
+
+### AccountId
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+### GrantScope
+- **Type**: typing.Optional[str]
+
+### AllowedByApplication
+- **Type**: typing.Optional[bool]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.PaginatorConfigTypeDef]
+
+
+# ListCallerAccessGrantsRequestTypeDef
+
+### AccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### GrantScope
+- **Type**: typing.Optional[str]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### AllowedByApplication
+- **Type**: typing.Optional[bool]
+
+
+# ListCallerAccessGrantsResultTypeDef
+
+### CallerAccessGrantsList
+- **Type**: typing.List[aws_resource_validator.pydantic_models.s3control_classes.ListCallerAccessGrantsEntryTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListJobsRequestRequestTypeDef
+
+# ListJobsRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -2312,10 +2682,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListJobsResultTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### Jobs
 - **Type**: typing.List[aws_resource_validator.pydantic_models.s3control_classes.JobListDescriptorTypeDef]
 - **Required**: Yes
@@ -2324,8 +2690,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListMultiRegionAccessPointsRequestRequestTypeDef
+
+# ListMultiRegionAccessPointsRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -2344,16 +2713,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.s3control_classes.MultiRegionAccessPointReportTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListRegionalBucketsRequestRequestTypeDef
+
+# ListRegionalBucketsRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -2375,13 +2743,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.s3control_classes.RegionalBucketTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # ListStorageLensConfigurationEntryTypeDef
@@ -2402,7 +2769,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ListStorageLensConfigurationsRequestRequestTypeDef
+# ListStorageLensConfigurationsRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -2414,10 +2781,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListStorageLensConfigurationsResultTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### StorageLensConfigurationList
 - **Type**: typing.List[aws_resource_validator.pydantic_models.s3control_classes.ListStorageLensConfigurationEntryTypeDef]
 - **Required**: Yes
@@ -2425,6 +2788,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # ListStorageLensGroupEntryTypeDef
@@ -2442,7 +2808,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListStorageLensGroupsRequestRequestTypeDef
+# ListStorageLensGroupsRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -2454,10 +2820,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListStorageLensGroupsResultTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### StorageLensGroupList
 - **Type**: typing.List[aws_resource_validator.pydantic_models.s3control_classes.ListStorageLensGroupEntryTypeDef]
 - **Required**: Yes
@@ -2466,8 +2828,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -2615,6 +2980,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.ObjectLambdaAccessPointAliasTypeDef]
 
 
+# ObjectLambdaConfigurationOutputTypeDef
+
+### SupportingAccessPoint
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TransformationConfigurations
+- **Type**: typing.List[aws_resource_validator.pydantic_models.s3control_classes.ObjectLambdaTransformationConfigurationOutputTypeDef]
+- **Required**: Yes
+
+### CloudWatchMetricsEnabled
+- **Type**: typing.Optional[bool]
+
+### AllowedFeatures
+- **Type**: typing.Optional[typing.List[typing.Literal['GetObject-PartNumber', 'GetObject-Range', 'HeadObject-PartNumber', 'HeadObject-Range']]]
+
+
 # ObjectLambdaConfigurationTypeDef
 
 ### SupportingAccessPoint
@@ -2632,10 +3014,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['GetObject-PartNumber', 'GetObject-Range', 'HeadObject-PartNumber', 'HeadObject-Range']]]
 
 
+# ObjectLambdaConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ObjectLambdaContentTransformationTypeDef
 
 ### AwsLambda
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.AwsLambdaTransformationTypeDef]
+
+
+# ObjectLambdaTransformationConfigurationOutputTypeDef
+
+### Actions
+- **Type**: typing.List[typing.Literal['GetObject', 'HeadObject', 'ListObjects', 'ListObjectsV2']]
+- **Required**: Yes
+
+### ContentTransformation
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.ObjectLambdaContentTransformationTypeDef'>
+- **Required**: Yes
 
 
 # ObjectLambdaTransformationConfigurationTypeDef
@@ -2704,7 +3103,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# PutAccessGrantsInstanceResourcePolicyRequestRequestTypeDef
+# PutAccessGrantsInstanceResourcePolicyRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -2737,7 +3136,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutAccessPointConfigurationForObjectLambdaRequestRequestTypeDef
+# PutAccessPointConfigurationForObjectLambdaRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -2748,11 +3147,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.ObjectLambdaConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.ObjectLambdaConfigurationUnionTypeDef'>
 - **Required**: Yes
 
 
-# PutAccessPointPolicyForObjectLambdaRequestRequestTypeDef
+# PutAccessPointPolicyForObjectLambdaRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -2767,7 +3166,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutAccessPointPolicyRequestRequestTypeDef
+# PutAccessPointPolicyRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -2782,7 +3181,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutBucketLifecycleConfigurationRequestRequestTypeDef
+# PutBucketLifecycleConfigurationRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -2796,7 +3195,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.LifecycleConfigurationTypeDef]
 
 
-# PutBucketPolicyRequestRequestTypeDef
+# PutBucketPolicyRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -2814,7 +3213,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# PutBucketReplicationRequestRequestTypeDef
+# PutBucketReplicationRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -2825,11 +3224,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ReplicationConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.ReplicationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.ReplicationConfigurationUnionTypeDef'>
 - **Required**: Yes
 
 
-# PutBucketTaggingRequestRequestTypeDef
+# PutBucketTaggingRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -2844,7 +3243,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutBucketVersioningRequestRequestTypeDef
+# PutBucketVersioningRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -2862,7 +3261,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutJobTaggingRequestRequestTypeDef
+# PutJobTaggingRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -2888,7 +3287,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutMultiRegionAccessPointPolicyRequestRequestTypeDef
+# PutMultiRegionAccessPointPolicyRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -2914,7 +3313,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutPublicAccessBlockRequestRequestTypeDef
+# PutPublicAccessBlockRequestTypeDef
 
 ### PublicAccessBlockConfiguration
 - **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.PublicAccessBlockConfigurationTypeDef'>
@@ -2925,7 +3324,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutStorageLensConfigurationRequestRequestTypeDef
+# PutStorageLensConfigurationRequestTypeDef
 
 ### ConfigId
 - **Type**: <class 'str'>
@@ -2936,14 +3335,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StorageLensConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.StorageLensConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.StorageLensConfigurationUnionTypeDef'>
 - **Required**: Yes
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.s3control_classes.StorageLensTagTypeDef]]
 
 
-# PutStorageLensConfigurationTaggingRequestRequestTypeDef
+# PutStorageLensConfigurationTaggingRequestTypeDef
 
 ### ConfigId
 - **Type**: <class 'str'>
@@ -3008,6 +3407,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# ReplicationConfigurationOutputTypeDef
+
+### Role
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Rules
+- **Type**: typing.List[aws_resource_validator.pydantic_models.s3control_classes.ReplicationRuleOutputTypeDef]
+- **Required**: Yes
+
+
 # ReplicationConfigurationTypeDef
 
 ### Role
@@ -3015,8 +3425,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Rules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.s3control_classes.ReplicationRuleTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.s3control_classes.ReplicationRuleTypeDef]
 - **Required**: Yes
+
+
+# ReplicationConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ReplicationRuleAndOperatorOutputTypeDef
+
+### Prefix
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.s3control_classes.S3TagTypeDef]]
 
 
 # ReplicationRuleAndOperatorTypeDef
@@ -3025,7 +3450,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.s3control_classes.S3TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.s3control_classes.S3TagTypeDef]]
+
+
+# ReplicationRuleFilterOutputTypeDef
+
+### Prefix
+- **Type**: typing.Optional[str]
+
+### Tag
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.S3TagTypeDef]
+
+### And
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.ReplicationRuleAndOperatorOutputTypeDef]
 
 
 # ReplicationRuleFilterTypeDef
@@ -3038,6 +3475,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### And
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.ReplicationRuleAndOperatorTypeDef]
+
+
+# ReplicationRuleOutputTypeDef
+
+### Status
+- **Type**: typing.Literal['Disabled', 'Enabled']
+- **Required**: Yes
+
+### Destination
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.DestinationTypeDef'>
+- **Required**: Yes
+
+### Bucket
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ID
+- **Type**: typing.Optional[str]
+
+### Priority
+- **Type**: typing.Optional[int]
+
+### Prefix
+- **Type**: typing.Optional[str]
+
+### Filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.ReplicationRuleFilterOutputTypeDef]
+
+### SourceSelectionCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.SourceSelectionCriteriaTypeDef]
+
+### ExistingObjectReplication
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.ExistingObjectReplicationTypeDef]
+
+### DeleteMarkerReplication
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.DeleteMarkerReplicationTypeDef]
 
 
 # ReplicationRuleTypeDef
@@ -3115,6 +3588,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# S3AccessControlListOutputTypeDef
+
+### Owner
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.S3ObjectOwnerTypeDef'>
+- **Required**: Yes
+
+### Grants
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.s3control_classes.S3GrantTypeDef]]
+
+
 # S3AccessControlListTypeDef
 
 ### Owner
@@ -3125,6 +3608,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.s3control_classes.S3GrantTypeDef]]
 
 
+# S3AccessControlPolicyOutputTypeDef
+
+### AccessControlList
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.S3AccessControlListOutputTypeDef]
+
+### CannedAccessControlList
+- **Type**: typing.Optional[typing.Literal['authenticated-read', 'aws-exec-read', 'bucket-owner-full-control', 'bucket-owner-read', 'private', 'public-read', 'public-read-write']]
+
+
 # S3AccessControlPolicyTypeDef
 
 ### AccessControlList
@@ -3132,6 +3624,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### CannedAccessControlList
 - **Type**: typing.Optional[typing.Literal['authenticated-read', 'aws-exec-read', 'bucket-owner-full-control', 'bucket-owner-read', 'private', 'public-read', 'public-read-write']]
+
+
+# S3BucketDestinationOutputTypeDef
+
+### Format
+- **Type**: typing.Literal['CSV', 'Parquet']
+- **Required**: Yes
+
+### OutputSchemaVersion
+- **Type**: typing.Literal['V_1']
+- **Required**: Yes
+
+### AccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Prefix
+- **Type**: typing.Optional[str]
+
+### Encryption
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.StorageLensDataExportEncryptionOutputTypeDef]
 
 
 # S3BucketDestinationTypeDef
@@ -3159,6 +3676,63 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.StorageLensDataExportEncryptionTypeDef]
 
 
+# S3CopyObjectOperationOutputTypeDef
+
+### TargetResource
+- **Type**: typing.Optional[str]
+
+### CannedAccessControlList
+- **Type**: typing.Optional[typing.Literal['authenticated-read', 'aws-exec-read', 'bucket-owner-full-control', 'bucket-owner-read', 'private', 'public-read', 'public-read-write']]
+
+### AccessControlGrants
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.s3control_classes.S3GrantTypeDef]]
+
+### MetadataDirective
+- **Type**: typing.Optional[typing.Literal['COPY', 'REPLACE']]
+
+### ModifiedSinceConstraint
+- **Type**: typing.Optional[datetime.datetime]
+
+### NewObjectMetadata
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.S3ObjectMetadataOutputTypeDef]
+
+### NewObjectTagging
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.s3control_classes.S3TagTypeDef]]
+
+### RedirectLocation
+- **Type**: typing.Optional[str]
+
+### RequesterPays
+- **Type**: typing.Optional[bool]
+
+### StorageClass
+- **Type**: typing.Optional[typing.Literal['DEEP_ARCHIVE', 'GLACIER', 'GLACIER_IR', 'INTELLIGENT_TIERING', 'ONEZONE_IA', 'STANDARD', 'STANDARD_IA']]
+
+### UnModifiedSinceConstraint
+- **Type**: typing.Optional[datetime.datetime]
+
+### SSEAwsKmsKeyId
+- **Type**: typing.Optional[str]
+
+### TargetKeyPrefix
+- **Type**: typing.Optional[str]
+
+### ObjectLockLegalHoldStatus
+- **Type**: typing.Optional[typing.Literal['OFF', 'ON']]
+
+### ObjectLockMode
+- **Type**: typing.Optional[typing.Literal['COMPLIANCE', 'GOVERNANCE']]
+
+### ObjectLockRetainUntilDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### BucketKeyEnabled
+- **Type**: typing.Optional[bool]
+
+### ChecksumAlgorithm
+- **Type**: typing.Optional[typing.Literal['CRC32', 'CRC32C', 'CRC64NVME', 'SHA1', 'SHA256']]
+
+
 # S3CopyObjectOperationTypeDef
 
 ### TargetResource
@@ -3174,7 +3748,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COPY', 'REPLACE']]
 
 ### ModifiedSinceConstraint
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.TimestampTypeDef]
 
 ### NewObjectMetadata
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.S3ObjectMetadataTypeDef]
@@ -3192,7 +3766,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DEEP_ARCHIVE', 'GLACIER', 'GLACIER_IR', 'INTELLIGENT_TIERING', 'ONEZONE_IA', 'STANDARD', 'STANDARD_IA']]
 
 ### UnModifiedSinceConstraint
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.TimestampTypeDef]
 
 ### SSEAwsKmsKeyId
 - **Type**: typing.Optional[str]
@@ -3207,13 +3781,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLIANCE', 'GOVERNANCE']]
 
 ### ObjectLockRetainUntilDate
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.TimestampTypeDef]
 
 ### BucketKeyEnabled
 - **Type**: typing.Optional[bool]
 
 ### ChecksumAlgorithm
-- **Type**: typing.Optional[typing.Literal['CRC32', 'CRC32C', 'SHA1', 'SHA256']]
+- **Type**: typing.Optional[typing.Literal['CRC32', 'CRC32C', 'CRC64NVME', 'SHA1', 'SHA256']]
 
 
 # S3GeneratedManifestDescriptorTypeDef
@@ -3255,6 +3829,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BULK', 'STANDARD']]
 
 
+# S3JobManifestGeneratorOutputTypeDef
+
+### SourceBucket
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EnableManifestOutput
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### ExpectedBucketOwner
+- **Type**: typing.Optional[str]
+
+### ManifestOutputLocation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.S3ManifestOutputLocationOutputTypeDef]
+
+### Filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.JobManifestGeneratorFilterOutputTypeDef]
+
+
 # S3JobManifestGeneratorTypeDef
 
 ### SourceBucket
@@ -3273,6 +3867,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Filter
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.JobManifestGeneratorFilterTypeDef]
+
+
+# S3ManifestOutputLocationOutputTypeDef
+
+### Bucket
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ManifestFormat
+- **Type**: typing.Literal['S3InventoryReport_CSV_20211130']
+- **Required**: Yes
+
+### ExpectedManifestBucketOwner
+- **Type**: typing.Optional[str]
+
+### ManifestPrefix
+- **Type**: typing.Optional[str]
+
+### ManifestEncryption
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.GeneratedManifestEncryptionOutputTypeDef]
 
 
 # S3ManifestOutputLocationTypeDef
@@ -3302,6 +3916,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# S3ObjectMetadataOutputTypeDef
+
+### CacheControl
+- **Type**: typing.Optional[str]
+
+### ContentDisposition
+- **Type**: typing.Optional[str]
+
+### ContentEncoding
+- **Type**: typing.Optional[str]
+
+### ContentLanguage
+- **Type**: typing.Optional[str]
+
+### UserMetadata
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### ContentLength
+- **Type**: typing.Optional[int]
+
+### ContentMD5
+- **Type**: typing.Optional[str]
+
+### ContentType
+- **Type**: typing.Optional[str]
+
+### HttpExpiresDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### RequesterCharged
+- **Type**: typing.Optional[bool]
+
+### SSEAlgorithm
+- **Type**: typing.Optional[typing.Literal['AES256', 'KMS']]
+
+
 # S3ObjectMetadataTypeDef
 
 ### CacheControl
@@ -3329,7 +3979,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### HttpExpiresDate
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.TimestampTypeDef]
 
 ### RequesterCharged
 - **Type**: typing.Optional[bool]
@@ -3347,13 +3997,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# S3RetentionTypeDef
+# S3RetentionOutputTypeDef
 
 ### RetainUntilDate
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[datetime.datetime]
 
 ### Mode
 - **Type**: typing.Optional[typing.Literal['COMPLIANCE', 'GOVERNANCE']]
+
+
+# S3RetentionTypeDef
+
+### RetainUntilDate
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.TimestampTypeDef]
+
+### Mode
+- **Type**: typing.Optional[typing.Literal['COMPLIANCE', 'GOVERNANCE']]
+
+
+# S3SetObjectAclOperationOutputTypeDef
+
+### AccessControlPolicy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.S3AccessControlPolicyOutputTypeDef]
 
 
 # S3SetObjectAclOperationTypeDef
@@ -3369,6 +4034,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# S3SetObjectRetentionOperationOutputTypeDef
+
+### Retention
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.S3RetentionOutputTypeDef'>
+- **Required**: Yes
+
+### BypassGovernanceRetention
+- **Type**: typing.Optional[bool]
+
+
 # S3SetObjectRetentionOperationTypeDef
 
 ### Retention
@@ -3377,6 +4052,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### BypassGovernanceRetention
 - **Type**: typing.Optional[bool]
+
+
+# S3SetObjectTaggingOperationOutputTypeDef
+
+### TagSet
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.s3control_classes.S3TagTypeDef]]
 
 
 # S3SetObjectTaggingOperationTypeDef
@@ -3445,6 +4126,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# StorageLensConfigurationOutputTypeDef
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AccountLevel
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.AccountLevelOutputTypeDef'>
+- **Required**: Yes
+
+### IsEnabled
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### Include
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.IncludeOutputTypeDef]
+
+### Exclude
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.ExcludeOutputTypeDef]
+
+### DataExport
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.StorageLensDataExportOutputTypeDef]
+
+### AwsOrg
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.StorageLensAwsOrgTypeDef]
+
+### StorageLensArn
+- **Type**: typing.Optional[str]
+
+
 # StorageLensConfigurationTypeDef
 
 ### Id
@@ -3475,13 +4186,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StorageLensDataExportEncryptionTypeDef
+# StorageLensConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# StorageLensDataExportEncryptionOutputTypeDef
 
 ### SSES3
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### SSEKMS
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.SSEKMSTypeDef]
+
+
+# StorageLensDataExportEncryptionTypeDef
+
+### SSES3
+- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+
+### SSEKMS
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.SSEKMSTypeDef]
+
+
+# StorageLensDataExportOutputTypeDef
+
+### S3BucketDestination
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.S3BucketDestinationOutputTypeDef]
+
+### CloudWatchMetrics
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.CloudWatchMetricsTypeDef]
 
 
 # StorageLensDataExportTypeDef
@@ -3491,6 +4226,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### CloudWatchMetrics
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.CloudWatchMetricsTypeDef]
+
+
+# StorageLensGroupAndOperatorOutputTypeDef
+
+### MatchAnyPrefix
+- **Type**: typing.Optional[typing.List[str]]
+
+### MatchAnySuffix
+- **Type**: typing.Optional[typing.List[str]]
+
+### MatchAnyTag
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.s3control_classes.S3TagTypeDef]]
+
+### MatchObjectAge
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.MatchObjectAgeTypeDef]
+
+### MatchObjectSize
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.MatchObjectSizeTypeDef]
 
 
 # StorageLensGroupAndOperatorTypeDef
@@ -3509,6 +4262,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### MatchObjectSize
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.MatchObjectSizeTypeDef]
+
+
+# StorageLensGroupFilterOutputTypeDef
+
+### MatchAnyPrefix
+- **Type**: typing.Optional[typing.List[str]]
+
+### MatchAnySuffix
+- **Type**: typing.Optional[typing.List[str]]
+
+### MatchAnyTag
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.s3control_classes.S3TagTypeDef]]
+
+### MatchObjectAge
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.MatchObjectAgeTypeDef]
+
+### MatchObjectSize
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.MatchObjectSizeTypeDef]
+
+### And
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.StorageLensGroupAndOperatorOutputTypeDef]
+
+### Or
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.StorageLensGroupOrOperatorOutputTypeDef]
 
 
 # StorageLensGroupFilterTypeDef
@@ -3535,7 +4312,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.StorageLensGroupOrOperatorTypeDef]
 
 
-# StorageLensGroupLevelSelectionCriteriaTypeDef
+# StorageLensGroupLevelOutputTypeDef
+
+### SelectionCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.StorageLensGroupLevelSelectionCriteriaOutputTypeDef]
+
+
+# StorageLensGroupLevelSelectionCriteriaOutputTypeDef
 
 ### Include
 - **Type**: typing.Optional[typing.List[str]]
@@ -3544,10 +4327,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
+# StorageLensGroupLevelSelectionCriteriaTypeDef
+
+### Include
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### Exclude
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
 # StorageLensGroupLevelTypeDef
 
 ### SelectionCriteria
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.StorageLensGroupLevelSelectionCriteriaTypeDef]
+
+
+# StorageLensGroupOrOperatorOutputTypeDef
+
+### MatchAnyPrefix
+- **Type**: typing.Optional[typing.List[str]]
+
+### MatchAnySuffix
+- **Type**: typing.Optional[typing.List[str]]
+
+### MatchAnyTag
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.s3control_classes.S3TagTypeDef]]
+
+### MatchObjectAge
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.MatchObjectAgeTypeDef]
+
+### MatchObjectSize
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.MatchObjectSizeTypeDef]
 
 
 # StorageLensGroupOrOperatorTypeDef
@@ -3568,6 +4378,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.MatchObjectSizeTypeDef]
 
 
+# StorageLensGroupOutputTypeDef
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Filter
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.StorageLensGroupFilterOutputTypeDef'>
+- **Required**: Yes
+
+### StorageLensGroupArn
+- **Type**: typing.Optional[str]
+
+
 # StorageLensGroupTypeDef
 
 ### Name
@@ -3582,6 +4406,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# StorageLensGroupUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # StorageLensTagTypeDef
 
 ### Key
@@ -3593,7 +4423,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SubmitMultiRegionAccessPointRoutesRequestRequestTypeDef
+# SubmitMultiRegionAccessPointRoutesRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -3608,7 +4438,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -3641,7 +4471,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TransitionTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TransitionOutputTypeDef
 
 ### Date
 - **Type**: typing.Optional[datetime.datetime]
@@ -3653,7 +4489,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DEEP_ARCHIVE', 'GLACIER', 'INTELLIGENT_TIERING', 'ONEZONE_IA', 'STANDARD_IA']]
 
 
-# UntagResourceRequestRequestTypeDef
+# TransitionTypeDef
+
+### Date
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3control_classes.TimestampTypeDef]
+
+### Days
+- **Type**: typing.Optional[int]
+
+### StorageClass
+- **Type**: typing.Optional[typing.Literal['DEEP_ARCHIVE', 'GLACIER', 'INTELLIGENT_TIERING', 'ONEZONE_IA', 'STANDARD_IA']]
+
+
+# TransitionUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -3668,7 +4522,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAccessGrantsLocationRequestRequestTypeDef
+# UpdateAccessGrantsLocationRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -3710,7 +4564,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateJobPriorityRequestRequestTypeDef
+# UpdateJobPriorityRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -3740,7 +4594,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateJobStatusRequestRequestTypeDef
+# UpdateJobStatusRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -3777,7 +4631,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateStorageLensGroupRequestRequestTypeDef
+# UpdateStorageLensGroupRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -3788,7 +4642,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StorageLensGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.StorageLensGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3control_classes.StorageLensGroupUnionTypeDef'>
 - **Required**: Yes
 
 

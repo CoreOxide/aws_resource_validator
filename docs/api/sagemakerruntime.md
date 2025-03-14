@@ -38,6 +38,21 @@
 - **Min Length**: 1
 - **Max Length**: 1024
 
+### NewSessionResponseHeader
+- **Type**: string
+- **Pattern**: `^[a-zA-Z0-9](-*[a-zA-Z0-9])*;\sExpires=[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$`
+- **Max Length**: 256
+
+### SessionIdHeader
+- **Type**: string
+- **Pattern**: `^[a-zA-Z0-9](-*[a-zA-Z0-9])*$`
+- **Max Length**: 256
+
+### SessionIdOrNewSessionConstantHeader
+- **Type**: string
+- **Pattern**: `^(NEW_SESSION)$|^[a-zA-Z0-9](-*[a-zA-Z0-9])*$`
+- **Max Length**: 256
+
 ### TargetContainerHostnameHeader
 - **Type**: string
 - **Pattern**: `^[a-zA-Z0-9](-*[a-zA-Z0-9])*`

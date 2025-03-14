@@ -27,7 +27,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateConnectionInputRequestTypeDef
+# CreateConnectionInputTypeDef
 
 ### ConnectionName
 - **Type**: <class 'str'>
@@ -58,7 +58,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateHostInputRequestTypeDef
+# CreateHostInputTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -73,7 +73,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_connections_classes.VpcConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_connections_classes.VpcConfigurationUnionTypeDef]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codestar_connections_classes.TagTypeDef]]
@@ -94,7 +94,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateRepositoryLinkInputRequestTypeDef
+# CreateRepositoryLinkInputTypeDef
 
 ### ConnectionArn
 - **Type**: <class 'str'>
@@ -126,7 +126,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateSyncConfigurationInputRequestTypeDef
+# CreateSyncConfigurationInputTypeDef
 
 ### Branch
 - **Type**: <class 'str'>
@@ -170,28 +170,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteConnectionInputRequestTypeDef
+# DeleteConnectionInputTypeDef
 
 ### ConnectionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteHostInputRequestTypeDef
+# DeleteHostInputTypeDef
 
 ### HostArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteRepositoryLinkInputRequestTypeDef
+# DeleteRepositoryLinkInputTypeDef
 
 ### RepositoryLinkId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSyncConfigurationInputRequestTypeDef
+# DeleteSyncConfigurationInputTypeDef
 
 ### SyncType
 - **Type**: typing.Literal['CFN_STACK_SYNC']
@@ -202,7 +202,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetConnectionInputRequestTypeDef
+# GetConnectionInputTypeDef
 
 ### ConnectionArn
 - **Type**: <class 'str'>
@@ -220,7 +220,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetHostInputRequestTypeDef
+# GetHostInputTypeDef
 
 ### HostArn
 - **Type**: <class 'str'>
@@ -246,7 +246,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VpcConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_connections_classes.VpcConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_connections_classes.VpcConfigurationOutputTypeDef'>
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -254,7 +254,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRepositoryLinkInputRequestTypeDef
+# GetRepositoryLinkInputTypeDef
 
 ### RepositoryLinkId
 - **Type**: <class 'str'>
@@ -272,7 +272,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRepositorySyncStatusInputRequestTypeDef
+# GetRepositorySyncStatusInputTypeDef
 
 ### Branch
 - **Type**: <class 'str'>
@@ -298,7 +298,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResourceSyncStatusInputRequestTypeDef
+# GetResourceSyncStatusInputTypeDef
 
 ### ResourceName
 - **Type**: <class 'str'>
@@ -328,7 +328,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSyncBlockerSummaryInputRequestTypeDef
+# GetSyncBlockerSummaryInputTypeDef
 
 ### SyncType
 - **Type**: typing.Literal['CFN_STACK_SYNC']
@@ -350,7 +350,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSyncConfigurationInputRequestTypeDef
+# GetSyncConfigurationInputTypeDef
 
 ### SyncType
 - **Type**: typing.Literal['CFN_STACK_SYNC']
@@ -387,7 +387,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_connections_classes.VpcConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_connections_classes.VpcConfigurationOutputTypeDef]
 
 ### Status
 - **Type**: typing.Optional[str]
@@ -396,7 +396,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListConnectionsInputRequestTypeDef
+# ListConnectionsInputTypeDef
 
 ### ProviderTypeFilter
 - **Type**: typing.Optional[typing.Literal['Bitbucket', 'GitHub', 'GitHubEnterpriseServer', 'GitLab', 'GitLabSelfManaged']]
@@ -417,16 +417,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.codestar_connections_classes.ConnectionTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codestar_connections_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListHostsInputRequestTypeDef
+
+# ListHostsInputTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -441,16 +440,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.codestar_connections_classes.HostTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codestar_connections_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListRepositoryLinksInputRequestTypeDef
+
+# ListRepositoryLinksInputTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -465,16 +463,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.codestar_connections_classes.RepositoryLinkInfoTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codestar_connections_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListRepositorySyncDefinitionsInputRequestTypeDef
+
+# ListRepositorySyncDefinitionsInputTypeDef
 
 ### RepositoryLinkId
 - **Type**: <class 'str'>
@@ -491,16 +488,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.codestar_connections_classes.RepositorySyncDefinitionTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codestar_connections_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListSyncConfigurationsInputRequestTypeDef
+
+# ListSyncConfigurationsInputTypeDef
 
 ### RepositoryLinkId
 - **Type**: <class 'str'>
@@ -523,16 +519,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.codestar_connections_classes.SyncConfigurationTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.codestar_connections_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceInputRequestTypeDef
+
+# ListTagsForResourceInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -616,21 +611,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # RepositorySyncEventTypeDef
 
-### Event
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Time
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### Type
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ExternalId
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResourceSyncAttemptTypeDef
 
@@ -661,21 +644,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ResourceSyncEventTypeDef
 
-### Event
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Time
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### Type
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ExternalId
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResponseMetadataTypeDef
 
@@ -752,35 +723,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SyncBlockerTypeDef
 
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Literal['AUTOMATED']
-- **Required**: Yes
-
-### Status
-- **Type**: typing.Literal['ACTIVE', 'RESOLVED']
-- **Required**: Yes
-
-### CreatedReason
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CreatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### Contexts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codestar_connections_classes.SyncBlockerContextTypeDef]]
-
-### ResolvedReason
-- **Type**: typing.Optional[str]
-
-### ResolvedAt
-- **Type**: typing.Optional[datetime.datetime]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SyncConfigurationTypeDef
 
@@ -826,7 +771,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ANY_CHANGE', 'FILE_CHANGE']]
 
 
-# TagResourceInputRequestTypeDef
+# TagResourceInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -848,7 +793,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceInputRequestTypeDef
+# UntagResourceInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -859,7 +804,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateHostInputRequestTypeDef
+# UpdateHostInputTypeDef
 
 ### HostArn
 - **Type**: <class 'str'>
@@ -869,10 +814,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_connections_classes.VpcConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_connections_classes.VpcConfigurationUnionTypeDef]
 
 
-# UpdateRepositoryLinkInputRequestTypeDef
+# UpdateRepositoryLinkInputTypeDef
 
 ### RepositoryLinkId
 - **Type**: <class 'str'>
@@ -896,7 +841,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateSyncBlockerInputRequestTypeDef
+# UpdateSyncBlockerInputTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -934,7 +879,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateSyncConfigurationInputRequestTypeDef
+# UpdateSyncConfigurationInputTypeDef
 
 ### ResourceName
 - **Type**: <class 'str'>
@@ -974,6 +919,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# VpcConfigurationOutputTypeDef
+
+### VpcId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SubnetIds
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### SecurityGroupIds
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### TlsCertificate
+- **Type**: typing.Optional[str]
+
+
 # VpcConfigurationTypeDef
 
 ### VpcId
@@ -991,4 +954,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### TlsCertificate
 - **Type**: typing.Optional[str]
 
+
+# VpcConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

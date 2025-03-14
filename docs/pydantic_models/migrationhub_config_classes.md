@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateHomeRegionControlRequestRequestTypeDef
+# CreateHomeRegionControlRequestTypeDef
 
 ### HomeRegion
 - **Type**: <class 'str'>
@@ -31,14 +31,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteHomeRegionControlRequestRequestTypeDef
+# DeleteHomeRegionControlRequestTypeDef
 
 ### ControlId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeHomeRegionControlsRequestRequestTypeDef
+# DescribeHomeRegionControlsRequestTypeDef
 
 ### ControlId
 - **Type**: typing.Optional[str]
@@ -62,13 +62,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhub_config_classes.HomeRegionControlTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.migrationhub_config_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # GetHomeRegionResultTypeDef
@@ -103,10 +102,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -119,14 +114,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
+
 
 # TargetTypeDef
 
-### Type
-- **Type**: typing.Literal['ACCOUNT']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Id
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

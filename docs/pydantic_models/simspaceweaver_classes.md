@@ -12,7 +12,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateSnapshotInputRequestTypeDef
+# CreateSnapshotInputTypeDef
 
 ### Destination
 - **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver_classes.S3DestinationTypeDef'>
@@ -23,7 +23,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAppInputRequestTypeDef
+# DeleteAppInputTypeDef
 
 ### App
 - **Type**: <class 'str'>
@@ -38,14 +38,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteSimulationInputRequestTypeDef
+# DeleteSimulationInputTypeDef
 
 ### Simulation
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeAppInputRequestTypeDef
+# DescribeAppInputTypeDef
 
 ### App
 - **Type**: <class 'str'>
@@ -75,7 +75,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LaunchOverrides
-- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver_classes.LaunchOverridesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver_classes.LaunchOverridesOutputTypeDef'>
 - **Required**: Yes
 
 ### Name
@@ -99,7 +99,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeSimulationInputRequestTypeDef
+# DescribeSimulationInputTypeDef
 
 ### Simulation
 - **Type**: <class 'str'>
@@ -182,13 +182,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LaunchOverridesTypeDef
+# LaunchOverridesOutputTypeDef
 
 ### LaunchCommands
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# ListAppsInputRequestTypeDef
+# LaunchOverridesTypeDef
+
+### LaunchCommands
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# LaunchOverridesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ListAppsInputTypeDef
 
 ### Simulation
 - **Type**: <class 'str'>
@@ -210,16 +222,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.simspaceweaver_classes.SimulationAppMetadataTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListSimulationsInputRequestTypeDef
+
+# ListSimulationsInputTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -230,10 +241,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListSimulationsOutputTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### Simulations
 - **Type**: typing.List[aws_resource_validator.pydantic_models.simspaceweaver_classes.SimulationMetadataTypeDef]
 - **Required**: Yes
@@ -242,8 +249,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceInputRequestTypeDef
+
+# ListTagsForResourceInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -288,10 +298,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -303,6 +309,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # S3DestinationTypeDef
@@ -389,7 +398,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELETED', 'STARTED', 'STOPPED', 'UNKNOWN']]
 
 
-# StartAppInputRequestTypeDef
+# StartAppInputTypeDef
 
 ### Domain
 - **Type**: <class 'str'>
@@ -410,7 +419,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LaunchOverrides
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.simspaceweaver_classes.LaunchOverridesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.simspaceweaver_classes.LaunchOverridesUnionTypeDef]
 
 
 # StartAppOutputTypeDef
@@ -432,14 +441,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartClockInputRequestTypeDef
+# StartClockInputTypeDef
 
 ### Simulation
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StartSimulationInputRequestTypeDef
+# StartSimulationInputTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -487,7 +496,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopAppInputRequestTypeDef
+# StopAppInputTypeDef
 
 ### App
 - **Type**: <class 'str'>
@@ -502,21 +511,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopClockInputRequestTypeDef
+# StopClockInputTypeDef
 
 ### Simulation
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopSimulationInputRequestTypeDef
+# StopSimulationInputTypeDef
 
 ### Simulation
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# TagResourceInputRequestTypeDef
+# TagResourceInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -527,7 +536,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceInputRequestTypeDef
+# UntagResourceInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>

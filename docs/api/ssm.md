@@ -8,6 +8,10 @@
 - **Type**: string
 - **Pattern**: `^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
 
+### AgentVersion
+- **Type**: string
+- **Pattern**: `^[0-9]{1,6}(\.[0-9]{1,6}){2,3}$`
+
 ### AlarmName
 - **Type**: string
 - **Pattern**: `^(?!\s*$).+`
@@ -100,6 +104,18 @@
 ### DocumentVersionNumber
 - **Type**: string
 - **Pattern**: `(^[1-9][0-9]*$)`
+
+### ExcludeAccount
+- **Type**: string
+- **Pattern**: `^(ou-[a-z0-9]{4,32}-[a-z0-9]{8,32})|(\d{12})$`
+- **Min Length**: 6
+- **Max Length**: 68
+
+### ExecutionPreviewId
+- **Type**: string
+- **Pattern**: `[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}`
+- **Min Length**: 36
+- **Max Length**: 36
 
 ### ExecutionRoleName
 - **Type**: string
@@ -220,6 +236,26 @@
 - **Pattern**: `^(?!\s*$).+`
 - **Min Length**: 1
 - **Max Length**: 256
+
+### NodeAccountId
+- **Type**: string
+- **Pattern**: `[0-9]{12}`
+
+### NodeFilterValue
+- **Type**: string
+- **Pattern**: `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
+- **Min Length**: 0
+- **Max Length**: 512
+
+### NodeId
+- **Type**: string
+- **Pattern**: `(^i-(\w{8}|\w{17})$)|(^mi-\w{17}$)`
+
+### NodeOrganizationalUnitId
+- **Type**: string
+- **Pattern**: `^ou-[0-9a-z]{4,32}-[a-z0-9]{8,32}$`
+- **Min Length**: 1
+- **Max Length**: 68
 
 ### OpsAggregatorType
 - **Type**: string
@@ -419,6 +455,10 @@
 - **Pattern**: `^[\p{L}\p{Z}\p{N}_.:/=\-@]*$|resource-groups:ResourceTypeFilters|resource-groups:Name`
 - **Min Length**: 1
 - **Max Length**: 163
+
+### TargetLocationsURL
+- **Type**: string
+- **Pattern**: `^https:\/\/[-a-zA-Z0-9@:%._\+~#=]{1,253}\.s3(\.[a-z\d-]{9,16})?\.amazonaws\.com\/.{1,2000}`
 
 ### TargetType
 - **Type**: string

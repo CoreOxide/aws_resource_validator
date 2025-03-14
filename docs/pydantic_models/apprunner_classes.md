@@ -1,6 +1,6 @@
 # Apprunner Classes
 
-# AssociateCustomDomainRequestRequestTypeDef
+# AssociateCustomDomainRequestTypeDef
 
 ### ServiceArn
 - **Type**: <class 'str'>
@@ -117,17 +117,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # CertificateValidationRecordTypeDef
 
-### Name
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Value
-- **Type**: typing.Optional[str]
+# CodeConfigurationOutputTypeDef
 
-### Status
-- **Type**: typing.Optional[typing.Literal['FAILED', 'PENDING_VALIDATION', 'SUCCESS']]
+### ConfigurationSource
+- **Type**: typing.Literal['API', 'REPOSITORY']
+- **Required**: Yes
+
+### CodeConfigurationValues
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.CodeConfigurationValuesOutputTypeDef]
 
 
 # CodeConfigurationTypeDef
@@ -138,6 +139,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### CodeConfigurationValues
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.CodeConfigurationValuesTypeDef]
+
+
+# CodeConfigurationValuesOutputTypeDef
+
+### Runtime
+- **Type**: typing.Literal['CORRETTO_11', 'CORRETTO_8', 'DOTNET_6', 'GO_1', 'NODEJS_12', 'NODEJS_14', 'NODEJS_16', 'NODEJS_18', 'PHP_81', 'PYTHON_3', 'PYTHON_311', 'RUBY_31']
+- **Required**: Yes
+
+### BuildCommand
+- **Type**: typing.Optional[str]
+
+### StartCommand
+- **Type**: typing.Optional[str]
+
+### Port
+- **Type**: typing.Optional[str]
+
+### RuntimeEnvironmentVariables
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### RuntimeEnvironmentSecrets
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CodeConfigurationValuesTypeDef
@@ -160,6 +183,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### RuntimeEnvironmentSecrets
 - **Type**: typing.Optional[typing.Mapping[str, str]]
+
+
+# CodeRepositoryOutputTypeDef
+
+### RepositoryUrl
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SourceCodeVersion
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.SourceCodeVersionTypeDef'>
+- **Required**: Yes
+
+### CodeConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.CodeConfigurationOutputTypeDef]
+
+### SourceDirectory
+- **Type**: typing.Optional[str]
 
 
 # CodeRepositoryTypeDef
@@ -215,7 +255,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# CreateAutoScalingConfigurationRequestRequestTypeDef
+# CreateAutoScalingConfigurationRequestTypeDef
 
 ### AutoScalingConfigurationName
 - **Type**: <class 'str'>
@@ -245,7 +285,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateConnectionRequestRequestTypeDef
+# CreateConnectionRequestTypeDef
 
 ### ConnectionName
 - **Type**: <class 'str'>
@@ -270,7 +310,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateObservabilityConfigurationRequestRequestTypeDef
+# CreateObservabilityConfigurationRequestTypeDef
 
 ### ObservabilityConfigurationName
 - **Type**: <class 'str'>
@@ -294,38 +334,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateServiceRequestRequestTypeDef
-
-### ServiceName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SourceConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.SourceConfigurationTypeDef'>
-- **Required**: Yes
-
-### InstanceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.InstanceConfigurationTypeDef]
-
-### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.apprunner_classes.TagTypeDef]]
-
-### EncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.EncryptionConfigurationTypeDef]
-
-### HealthCheckConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.HealthCheckConfigurationTypeDef]
-
-### AutoScalingConfigurationArn
-- **Type**: typing.Optional[str]
-
-### NetworkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.NetworkConfigurationTypeDef]
-
-### ObservabilityConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.ServiceObservabilityConfigurationTypeDef]
-
-
 # CreateServiceResponseTypeDef
 
 ### Service
@@ -341,7 +349,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateVpcConnectorRequestRequestTypeDef
+# CreateVpcConnectorRequestTypeDef
 
 ### VpcConnectorName
 - **Type**: <class 'str'>
@@ -369,7 +377,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateVpcIngressConnectionRequestRequestTypeDef
+# CreateVpcIngressConnectionRequestTypeDef
 
 ### ServiceArn
 - **Type**: <class 'str'>
@@ -416,7 +424,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.apprunner_classes.CertificateValidationRecordTypeDef]]
 
 
-# DeleteAutoScalingConfigurationRequestRequestTypeDef
+# DeleteAutoScalingConfigurationRequestTypeDef
 
 ### AutoScalingConfigurationArn
 - **Type**: <class 'str'>
@@ -437,7 +445,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteConnectionRequestRequestTypeDef
+# DeleteConnectionRequestTypeDef
 
 ### ConnectionArn
 - **Type**: <class 'str'>
@@ -455,7 +463,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteObservabilityConfigurationRequestRequestTypeDef
+# DeleteObservabilityConfigurationRequestTypeDef
 
 ### ObservabilityConfigurationArn
 - **Type**: <class 'str'>
@@ -473,7 +481,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteServiceRequestRequestTypeDef
+# DeleteServiceRequestTypeDef
 
 ### ServiceArn
 - **Type**: <class 'str'>
@@ -495,7 +503,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteVpcConnectorRequestRequestTypeDef
+# DeleteVpcConnectorRequestTypeDef
 
 ### VpcConnectorArn
 - **Type**: <class 'str'>
@@ -513,7 +521,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteVpcIngressConnectionRequestRequestTypeDef
+# DeleteVpcIngressConnectionRequestTypeDef
 
 ### VpcIngressConnectionArn
 - **Type**: <class 'str'>
@@ -531,7 +539,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAutoScalingConfigurationRequestRequestTypeDef
+# DescribeAutoScalingConfigurationRequestTypeDef
 
 ### AutoScalingConfigurationArn
 - **Type**: <class 'str'>
@@ -549,7 +557,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeCustomDomainsRequestRequestTypeDef
+# DescribeCustomDomainsRequestTypeDef
 
 ### ServiceArn
 - **Type**: <class 'str'>
@@ -580,16 +588,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner_classes.VpcDNSTargetTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# DescribeObservabilityConfigurationRequestRequestTypeDef
+
+# DescribeObservabilityConfigurationRequestTypeDef
 
 ### ObservabilityConfigurationArn
 - **Type**: <class 'str'>
@@ -607,7 +614,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeServiceRequestRequestTypeDef
+# DescribeServiceRequestTypeDef
 
 ### ServiceArn
 - **Type**: <class 'str'>
@@ -625,7 +632,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeVpcConnectorRequestRequestTypeDef
+# DescribeVpcConnectorRequestTypeDef
 
 ### VpcConnectorArn
 - **Type**: <class 'str'>
@@ -643,7 +650,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeVpcIngressConnectionRequestRequestTypeDef
+# DescribeVpcIngressConnectionRequestTypeDef
 
 ### VpcIngressConnectionArn
 - **Type**: <class 'str'>
@@ -661,7 +668,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateCustomDomainRequestRequestTypeDef
+# DisassociateCustomDomainRequestTypeDef
 
 ### ServiceArn
 - **Type**: <class 'str'>
@@ -713,23 +720,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # HealthCheckConfigurationTypeDef
 
-### Protocol
-- **Type**: typing.Optional[typing.Literal['HTTP', 'TCP']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Path
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ImageConfigurationOutputTypeDef
+
+### RuntimeEnvironmentVariables
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### StartCommand
 - **Type**: typing.Optional[str]
 
-### Interval
-- **Type**: typing.Optional[int]
+### Port
+- **Type**: typing.Optional[str]
 
-### Timeout
-- **Type**: typing.Optional[int]
-
-### HealthyThreshold
-- **Type**: typing.Optional[int]
-
-### UnhealthyThreshold
-- **Type**: typing.Optional[int]
+### RuntimeEnvironmentSecrets
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ImageConfigurationTypeDef
@@ -745,6 +752,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### RuntimeEnvironmentSecrets
 - **Type**: typing.Optional[typing.Mapping[str, str]]
+
+
+# ImageRepositoryOutputTypeDef
+
+### ImageIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ImageRepositoryType
+- **Type**: typing.Literal['ECR', 'ECR_PUBLIC']
+- **Required**: Yes
+
+### ImageConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.ImageConfigurationOutputTypeDef]
 
 
 # ImageRepositoryTypeDef
@@ -788,7 +809,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAutoScalingConfigurationsRequestRequestTypeDef
+# ListAutoScalingConfigurationsRequestTypeDef
 
 ### AutoScalingConfigurationName
 - **Type**: typing.Optional[str]
@@ -809,16 +830,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner_classes.AutoScalingConfigurationSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListConnectionsRequestRequestTypeDef
+
+# ListConnectionsRequestTypeDef
 
 ### ConnectionName
 - **Type**: typing.Optional[str]
@@ -836,16 +856,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner_classes.ConnectionSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListObservabilityConfigurationsRequestRequestTypeDef
+
+# ListObservabilityConfigurationsRequestTypeDef
 
 ### ObservabilityConfigurationName
 - **Type**: typing.Optional[str]
@@ -866,16 +885,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner_classes.ObservabilityConfigurationSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListOperationsRequestRequestTypeDef
+
+# ListOperationsRequestTypeDef
 
 ### ServiceArn
 - **Type**: <class 'str'>
@@ -894,16 +912,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner_classes.OperationSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListServicesForAutoScalingConfigurationRequestRequestTypeDef
+
+# ListServicesForAutoScalingConfigurationRequestTypeDef
 
 ### AutoScalingConfigurationArn
 - **Type**: <class 'str'>
@@ -922,16 +939,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListServicesRequestRequestTypeDef
+
+# ListServicesRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -946,16 +962,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner_classes.ServiceSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -973,7 +988,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListVpcConnectorsRequestRequestTypeDef
+# ListVpcConnectorsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -988,13 +1003,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner_classes.VpcConnectorTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # ListVpcIngressConnectionsFilterTypeDef
@@ -1006,7 +1020,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListVpcIngressConnectionsRequestRequestTypeDef
+# ListVpcIngressConnectionsRequestTypeDef
 
 ### Filter
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.ListVpcIngressConnectionsFilterTypeDef]
@@ -1024,13 +1038,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner_classes.VpcIngressConnectionSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # NetworkConfigurationTypeDef
@@ -1086,29 +1099,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # OperationSummaryTypeDef
 
-### Id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[typing.Literal['CREATE_SERVICE', 'DELETE_SERVICE', 'PAUSE_SERVICE', 'RESUME_SERVICE', 'START_DEPLOYMENT', 'UPDATE_SERVICE']]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Status
-- **Type**: typing.Optional[typing.Literal['FAILED', 'IN_PROGRESS', 'PENDING', 'ROLLBACK_FAILED', 'ROLLBACK_IN_PROGRESS', 'ROLLBACK_SUCCEEDED', 'SUCCEEDED']]
-
-### TargetArn
-- **Type**: typing.Optional[str]
-
-### StartedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### EndedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### UpdatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# PauseServiceRequestRequestTypeDef
+# PauseServiceRequestTypeDef
 
 ### ServiceArn
 - **Type**: <class 'str'>
@@ -1136,10 +1131,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -1152,8 +1143,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# ResumeServiceRequestRequestTypeDef
+
+# ResumeServiceRequestTypeDef
 
 ### ServiceArn
 - **Type**: <class 'str'>
@@ -1187,95 +1181,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ServiceSummaryTypeDef
 
-### ServiceName
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### ServiceId
-- **Type**: typing.Optional[str]
-
-### ServiceArn
-- **Type**: typing.Optional[str]
-
-### ServiceUrl
-- **Type**: typing.Optional[str]
-
-### CreatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### UpdatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['CREATE_FAILED', 'DELETED', 'DELETE_FAILED', 'OPERATION_IN_PROGRESS', 'PAUSED', 'RUNNING']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ServiceTypeDef
 
-### ServiceName
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### ServiceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ServiceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CreatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### UpdatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### Status
-- **Type**: typing.Literal['CREATE_FAILED', 'DELETED', 'DELETE_FAILED', 'OPERATION_IN_PROGRESS', 'PAUSED', 'RUNNING']
-- **Required**: Yes
-
-### SourceConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.SourceConfigurationTypeDef'>
-- **Required**: Yes
-
-### InstanceConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.InstanceConfigurationTypeDef'>
-- **Required**: Yes
-
-### AutoScalingConfigurationSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.AutoScalingConfigurationSummaryTypeDef'>
-- **Required**: Yes
-
-### NetworkConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.NetworkConfigurationTypeDef'>
-- **Required**: Yes
-
-### ServiceUrl
-- **Type**: typing.Optional[str]
-
-### DeletedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### EncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.EncryptionConfigurationTypeDef]
-
-### HealthCheckConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.HealthCheckConfigurationTypeDef]
-
-### ObservabilityConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.ServiceObservabilityConfigurationTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SourceCodeVersionTypeDef
 
-### Type
-- **Type**: typing.Literal['BRANCH']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Value
-- **Type**: <class 'str'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# SourceConfigurationOutputTypeDef
+
+### CodeRepository
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.CodeRepositoryOutputTypeDef]
+
+### ImageRepository
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.ImageRepositoryOutputTypeDef]
+
+### AutoDeploymentsEnabled
+- **Type**: typing.Optional[bool]
+
+### AuthenticationConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.AuthenticationConfigurationTypeDef]
 
 
 # SourceConfigurationTypeDef
@@ -1293,7 +1227,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.AuthenticationConfigurationTypeDef]
 
 
-# StartDeploymentRequestRequestTypeDef
+# SourceConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# StartDeploymentRequestTypeDef
 
 ### ServiceArn
 - **Type**: <class 'str'>
@@ -1311,7 +1251,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1338,7 +1278,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1349,7 +1289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDefaultAutoScalingConfigurationRequestRequestTypeDef
+# UpdateDefaultAutoScalingConfigurationRequestTypeDef
 
 ### AutoScalingConfigurationArn
 - **Type**: <class 'str'>
@@ -1367,14 +1307,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateServiceRequestRequestTypeDef
+# UpdateServiceRequestTypeDef
 
 ### ServiceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### SourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.SourceConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.SourceConfigurationUnionTypeDef]
 
 ### InstanceConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.InstanceConfigurationTypeDef]
@@ -1407,7 +1347,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateVpcIngressConnectionRequestRequestTypeDef
+# UpdateVpcIngressConnectionRequestTypeDef
 
 ### VpcIngressConnectionArn
 - **Type**: <class 'str'>

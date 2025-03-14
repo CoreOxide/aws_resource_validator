@@ -79,23 +79,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # BatchJobDependencyTypeDef
 
-### JobId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[typing.Literal['N_TO_N', 'SEQUENTIAL']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BatchResourceRequirementTypeDef
 
-### Type
-- **Type**: typing.Literal['GPU', 'MEMORY', 'VCPU']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Value
-- **Type**: <class 'str'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BatchRetryStrategyTypeDef
 
@@ -129,7 +121,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreatePipeRequestRequestTypeDef
+# CreatePipeRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -154,22 +146,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['RUNNING', 'STOPPED']]
 
 ### SourceParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeSourceParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeSourceParametersUnionTypeDef]
 
 ### Enrichment
 - **Type**: typing.Optional[str]
 
 ### EnrichmentParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeEnrichmentParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeEnrichmentParametersUnionTypeDef]
 
 ### TargetParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetParametersUnionTypeDef]
 
 ### Tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### LogConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeLogConfigurationParametersTypeDef]
+
+### KmsKeyIdentifier
+- **Type**: typing.Optional[str]
 
 
 # CreatePipeResponseTypeDef
@@ -209,7 +204,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeletePipeRequestRequestTypeDef
+# DeletePipeRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -247,7 +242,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribePipeRequestRequestTypeDef
+# DescribePipeRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -322,6 +317,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### LogConfiguration
 - **Type**: <class 'aws_resource_validator.pydantic_models.pipes_classes.PipeLogConfigurationTypeDef'>
+- **Required**: Yes
+
+### KmsKeyIdentifier
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -400,14 +399,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EcsEnvironmentFileTypeDef
 
-### type
-- **Type**: typing.Literal['s3']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### value
-- **Type**: <class 'str'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EcsEnvironmentVariableTypeDef
 
@@ -436,14 +430,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EcsResourceRequirementTypeDef
 
-### type
-- **Type**: typing.Literal['GPU', 'InferenceAccelerator']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### value
-- **Type**: <class 'str'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EcsTaskOverrideOutputTypeDef
 
@@ -505,11 +494,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pipes_classes.FilterTypeDef]]
 
 
+# FilterCriteriaUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # FilterTypeDef
 
-### Pattern
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FirehoseLogDestinationParametersTypeDef
 
@@ -524,7 +519,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPipesRequestListPipesPaginateTypeDef
+# ListPipesRequestPaginateTypeDef
 
 ### NamePrefix
 - **Type**: typing.Optional[str]
@@ -545,7 +540,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PaginatorConfigTypeDef]
 
 
-# ListPipesRequestRequestTypeDef
+# ListPipesRequestTypeDef
 
 ### NamePrefix
 - **Type**: typing.Optional[str]
@@ -583,7 +578,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -718,6 +713,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### HttpParameters
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeEnrichmentHttpParametersTypeDef]
 
+
+# PipeEnrichmentParametersUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PipeLogConfigurationParametersTypeDef
 
@@ -860,7 +861,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### StartingPositionTimestamp
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.TimestampTypeDef]
 
 
 # PipeSourceManagedStreamingKafkaParametersTypeDef
@@ -938,6 +939,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### SelfManagedKafkaParameters
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeSourceSelfManagedKafkaParametersTypeDef]
 
+
+# PipeSourceParametersUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PipeSourceRabbitMQBrokerParametersTypeDef
 
@@ -1346,6 +1353,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetTimestreamParametersTypeDef]
 
 
+# PipeTargetParametersUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # PipeTargetRedshiftDataParametersOutputTypeDef
 
 ### Database
@@ -1514,21 +1527,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PlacementConstraintTypeDef
 
-### type
-- **Type**: typing.Optional[typing.Literal['distinctInstance', 'memberOf']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### expression
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PlacementStrategyTypeDef
 
-### type
-- **Type**: typing.Optional[typing.Literal['binpack', 'random', 'spread']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### field
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResponseMetadataTypeDef
 
@@ -1628,6 +1635,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
+# SelfManagedKafkaAccessConfigurationVpcUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # SingleMeasureMappingTypeDef
 
 ### MeasureValue
@@ -1643,7 +1656,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartPipeRequestRequestTypeDef
+# StartPipeRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -1681,7 +1694,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopPipeRequestRequestTypeDef
+# StopPipeRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -1719,7 +1732,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1741,7 +1754,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1752,7 +1771,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePipeRequestRequestTypeDef
+# UpdatePipeRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -1775,16 +1794,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EnrichmentParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeEnrichmentParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeEnrichmentParametersUnionTypeDef]
 
 ### Target
 - **Type**: typing.Optional[str]
 
 ### TargetParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetParametersUnionTypeDef]
 
 ### LogConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeLogConfigurationParametersTypeDef]
+
+### KmsKeyIdentifier
+- **Type**: typing.Optional[str]
 
 
 # UpdatePipeResponseTypeDef
@@ -1894,7 +1916,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdatePipeSourceParametersTypeDef
 
 ### FilterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.FilterCriteriaTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.FilterCriteriaUnionTypeDef]
 
 ### KinesisStreamParameters
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.UpdatePipeSourceKinesisStreamParametersTypeDef]
@@ -1946,7 +1968,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Vpc
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.SelfManagedKafkaAccessConfigurationVpcTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.SelfManagedKafkaAccessConfigurationVpcUnionTypeDef]
 
 
 # UpdatePipeSourceSqsQueueParametersTypeDef

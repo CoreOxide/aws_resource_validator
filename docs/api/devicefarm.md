@@ -2,7 +2,7 @@
 
 ### AmazonResourceName
 - **Type**: string
-- **Pattern**: `^arn:.+`
+- **Pattern**: `^arn:aws:devicefarm:.+`
 - **Min Length**: 32
 - **Max Length**: 1011
 
@@ -11,6 +11,12 @@
 - **Pattern**: `^arn:aws:devicefarm:.+`
 - **Min Length**: 32
 - **Max Length**: 1011
+
+### DeviceProxyHost
+- **Type**: string
+- **Pattern**: `^([a-zA-Z0-9])([a-zA-Z0-9-.]+)([a-zA-Z0-9])$`
+- **Min Length**: 1
+- **Max Length**: 255
 
 ### NonEmptyString
 - **Type**: string

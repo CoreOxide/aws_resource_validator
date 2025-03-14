@@ -2,16 +2,11 @@
 
 # AccountLimitTypeDef
 
-### Type
-- **Type**: typing.Literal['MAX_HEALTH_CHECKS_BY_OWNER', 'MAX_HOSTED_ZONES_BY_OWNER', 'MAX_REUSABLE_DELEGATION_SETS_BY_OWNER', 'MAX_TRAFFIC_POLICIES_BY_OWNER', 'MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Value
-- **Type**: <class 'int'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-
-# ActivateKeySigningKeyRequestRequestTypeDef
+# ActivateKeySigningKeyRequestTypeDef
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -36,7 +31,7 @@
 # AlarmIdentifierTypeDef
 
 ### Region
-- **Type**: typing.Literal['af-south-1', 'ap-east-1', 'ap-northeast-1', 'ap-northeast-2', 'ap-northeast-3', 'ap-south-1', 'ap-south-2', 'ap-southeast-1', 'ap-southeast-2', 'ap-southeast-3', 'ap-southeast-4', 'ca-central-1', 'ca-west-1', 'cn-north-1', 'cn-northwest-1', 'eu-central-1', 'eu-central-2', 'eu-north-1', 'eu-south-1', 'eu-south-2', 'eu-west-1', 'eu-west-2', 'eu-west-3', 'il-central-1', 'me-central-1', 'me-south-1', 'sa-east-1', 'us-east-1', 'us-east-2', 'us-gov-east-1', 'us-gov-west-1', 'us-iso-east-1', 'us-iso-west-1', 'us-isob-east-1', 'us-west-1', 'us-west-2']
+- **Type**: typing.Literal['af-south-1', 'ap-east-1', 'ap-northeast-1', 'ap-northeast-2', 'ap-northeast-3', 'ap-south-1', 'ap-south-2', 'ap-southeast-1', 'ap-southeast-2', 'ap-southeast-3', 'ap-southeast-4', 'ap-southeast-5', 'ap-southeast-7', 'ca-central-1', 'ca-west-1', 'cn-north-1', 'cn-northwest-1', 'eu-central-1', 'eu-central-2', 'eu-north-1', 'eu-south-1', 'eu-south-2', 'eu-west-1', 'eu-west-2', 'eu-west-3', 'il-central-1', 'me-central-1', 'me-south-1', 'mx-central-1', 'sa-east-1', 'us-east-1', 'us-east-2', 'us-gov-east-1', 'us-gov-west-1', 'us-iso-east-1', 'us-iso-west-1', 'us-isob-east-1', 'us-west-1', 'us-west-2']
 - **Required**: Yes
 
 ### Name
@@ -59,7 +54,7 @@
 - **Required**: Yes
 
 
-# AssociateVPCWithHostedZoneRequestRequestTypeDef
+# AssociateVPCWithHostedZoneRequestTypeDef
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -100,7 +95,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ChangeCidrCollectionRequestRequestTypeDef
+# ChangeCidrCollectionRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -143,7 +138,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ChangeResourceRecordSetsRequestRequestTypeDef
+# ChangeResourceRecordSetsRequestTypeDef
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -165,7 +160,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ChangeTagsForResourceRequestRequestTypeDef
+# ChangeTagsForResourceRequestTypeDef
 
 ### ResourceType
 - **Type**: typing.Literal['healthcheck', 'hostedzone']
@@ -189,7 +184,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceRecordSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResourceRecordSetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResourceRecordSetUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -303,7 +298,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCidrCollectionRequestRequestTypeDef
+# CreateCidrCollectionRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -314,29 +309,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCidrCollectionResponseTypeDef
-
-### Collection
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.CidrCollectionTypeDef'>
-- **Required**: Yes
-
-### Location
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# CreateHealthCheckRequestRequestTypeDef
+# CreateHealthCheckRequestTypeDef
 
 ### CallerReference
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### HealthCheckConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.HealthCheckConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.HealthCheckConfigUnionTypeDef'>
 - **Required**: Yes
 
 
@@ -355,7 +335,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateHostedZoneRequestRequestTypeDef
+# CreateHostedZoneRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -402,7 +382,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateKeySigningKeyRequestRequestTypeDef
+# CreateKeySigningKeyRequestTypeDef
 
 ### CallerReference
 - **Type**: <class 'str'>
@@ -444,7 +424,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateQueryLoggingConfigRequestRequestTypeDef
+# CreateQueryLoggingConfigRequestTypeDef
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -470,7 +450,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateReusableDelegationSetRequestRequestTypeDef
+# CreateReusableDelegationSetRequestTypeDef
 
 ### CallerReference
 - **Type**: <class 'str'>
@@ -495,7 +475,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTrafficPolicyInstanceRequestRequestTypeDef
+# CreateTrafficPolicyInstanceRequestTypeDef
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -533,7 +513,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTrafficPolicyRequestRequestTypeDef
+# CreateTrafficPolicyRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -562,7 +542,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTrafficPolicyVersionRequestRequestTypeDef
+# CreateTrafficPolicyVersionRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -591,7 +571,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateVPCAssociationAuthorizationRequestRequestTypeDef
+# CreateVPCAssociationAuthorizationRequestTypeDef
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -626,7 +606,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeactivateKeySigningKeyRequestRequestTypeDef
+# DeactivateKeySigningKeyRequestTypeDef
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -661,21 +641,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteCidrCollectionRequestRequestTypeDef
+# DeleteCidrCollectionRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteHealthCheckRequestRequestTypeDef
+# DeleteHealthCheckRequestTypeDef
 
 ### HealthCheckId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteHostedZoneRequestRequestTypeDef
+# DeleteHostedZoneRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -693,7 +673,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteKeySigningKeyRequestRequestTypeDef
+# DeleteKeySigningKeyRequestTypeDef
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -715,28 +695,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteQueryLoggingConfigRequestRequestTypeDef
+# DeleteQueryLoggingConfigRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteReusableDelegationSetRequestRequestTypeDef
+# DeleteReusableDelegationSetRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteTrafficPolicyInstanceRequestRequestTypeDef
+# DeleteTrafficPolicyInstanceRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteTrafficPolicyRequestRequestTypeDef
+# DeleteTrafficPolicyRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -747,7 +727,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteVPCAssociationAuthorizationRequestRequestTypeDef
+# DeleteVPCAssociationAuthorizationRequestTypeDef
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -769,7 +749,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisableHostedZoneDNSSECRequestRequestTypeDef
+# DisableHostedZoneDNSSECRequestTypeDef
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -787,7 +767,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateVPCFromHostedZoneRequestRequestTypeDef
+# DisassociateVPCFromHostedZoneRequestTypeDef
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -812,7 +792,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EnableHostedZoneDNSSECRequestRequestTypeDef
+# EnableHostedZoneDNSSECRequestTypeDef
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -878,13 +858,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetAccountLimitRequestRequestTypeDef
-
-### Type
-- **Type**: typing.Literal['MAX_HEALTH_CHECKS_BY_OWNER', 'MAX_HOSTED_ZONES_BY_OWNER', 'MAX_REUSABLE_DELEGATION_SETS_BY_OWNER', 'MAX_TRAFFIC_POLICIES_BY_OWNER', 'MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER']
-- **Required**: Yes
-
-
 # GetAccountLimitResponseTypeDef
 
 ### Limit
@@ -900,14 +873,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetChangeRequestRequestTypeDef
+# GetChangeRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetChangeRequestResourceRecordSetsChangedWaitTypeDef
+# GetChangeRequestWaitTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -939,7 +912,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDNSSECRequestRequestTypeDef
+# GetDNSSECRequestTypeDef
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -961,7 +934,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetGeoLocationRequestRequestTypeDef
+# GetGeoLocationRequestTypeDef
 
 ### ContinentCode
 - **Type**: typing.Optional[str]
@@ -995,7 +968,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetHealthCheckLastFailureReasonRequestRequestTypeDef
+# GetHealthCheckLastFailureReasonRequestTypeDef
 
 ### HealthCheckId
 - **Type**: <class 'str'>
@@ -1013,7 +986,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetHealthCheckRequestRequestTypeDef
+# GetHealthCheckRequestTypeDef
 
 ### HealthCheckId
 - **Type**: <class 'str'>
@@ -1031,7 +1004,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetHealthCheckStatusRequestRequestTypeDef
+# GetHealthCheckStatusRequestTypeDef
 
 ### HealthCheckId
 - **Type**: <class 'str'>
@@ -1060,17 +1033,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetHostedZoneLimitRequestRequestTypeDef
-
-### Type
-- **Type**: typing.Literal['MAX_RRSETS_BY_ZONE', 'MAX_VPCS_ASSOCIATED_BY_ZONE']
-- **Required**: Yes
-
-### HostedZoneId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
 # GetHostedZoneLimitResponseTypeDef
 
 ### Limit
@@ -1086,7 +1048,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetHostedZoneRequestRequestTypeDef
+# GetHostedZoneRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -1112,7 +1074,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetQueryLoggingConfigRequestRequestTypeDef
+# GetQueryLoggingConfigRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -1127,17 +1089,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GetReusableDelegationSetLimitRequestRequestTypeDef
-
-### Type
-- **Type**: typing.Literal['MAX_ZONES_BY_REUSABLE_DELEGATION_SET']
-- **Required**: Yes
-
-### DelegationSetId
-- **Type**: <class 'str'>
 - **Required**: Yes
 
 
@@ -1156,7 +1107,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetReusableDelegationSetRequestRequestTypeDef
+# GetReusableDelegationSetRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -1185,7 +1136,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTrafficPolicyInstanceRequestRequestTypeDef
+# GetTrafficPolicyInstanceRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -1203,7 +1154,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTrafficPolicyRequestRequestTypeDef
+# GetTrafficPolicyRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -1225,121 +1176,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# HealthCheckConfigPaginatorTypeDef
+# HealthCheckConfigOutputTypeDef
 
-### Type
-- **Type**: typing.Literal['CALCULATED', 'CLOUDWATCH_METRIC', 'HTTP', 'HTTPS', 'HTTPS_STR_MATCH', 'HTTP_STR_MATCH', 'RECOVERY_CONTROL', 'TCP']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### IPAddress
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Port
-- **Type**: typing.Optional[int]
+# HealthCheckConfigUnionTypeDef
 
-### ResourcePath
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### FullyQualifiedDomainName
-- **Type**: typing.Optional[str]
-
-### SearchString
-- **Type**: typing.Optional[str]
-
-### RequestInterval
-- **Type**: typing.Optional[int]
-
-### FailureThreshold
-- **Type**: typing.Optional[int]
-
-### MeasureLatency
-- **Type**: typing.Optional[bool]
-
-### Inverted
-- **Type**: typing.Optional[bool]
-
-### Disabled
-- **Type**: typing.Optional[bool]
-
-### HealthThreshold
-- **Type**: typing.Optional[int]
-
-### ChildHealthChecks
-- **Type**: typing.Optional[typing.List[str]]
-
-### EnableSNI
-- **Type**: typing.Optional[bool]
-
-### Regions
-- **Type**: typing.Optional[typing.List[typing.Literal['ap-northeast-1', 'ap-southeast-1', 'ap-southeast-2', 'eu-west-1', 'sa-east-1', 'us-east-1', 'us-west-1', 'us-west-2']]]
-
-### AlarmIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.AlarmIdentifierTypeDef]
-
-### InsufficientDataHealthStatus
-- **Type**: typing.Optional[typing.Literal['Healthy', 'LastKnownStatus', 'Unhealthy']]
-
-### RoutingControlArn
-- **Type**: typing.Optional[str]
-
-
-# HealthCheckConfigTypeDef
-
-### Type
-- **Type**: typing.Literal['CALCULATED', 'CLOUDWATCH_METRIC', 'HTTP', 'HTTPS', 'HTTPS_STR_MATCH', 'HTTP_STR_MATCH', 'RECOVERY_CONTROL', 'TCP']
-- **Required**: Yes
-
-### IPAddress
-- **Type**: typing.Optional[str]
-
-### Port
-- **Type**: typing.Optional[int]
-
-### ResourcePath
-- **Type**: typing.Optional[str]
-
-### FullyQualifiedDomainName
-- **Type**: typing.Optional[str]
-
-### SearchString
-- **Type**: typing.Optional[str]
-
-### RequestInterval
-- **Type**: typing.Optional[int]
-
-### FailureThreshold
-- **Type**: typing.Optional[int]
-
-### MeasureLatency
-- **Type**: typing.Optional[bool]
-
-### Inverted
-- **Type**: typing.Optional[bool]
-
-### Disabled
-- **Type**: typing.Optional[bool]
-
-### HealthThreshold
-- **Type**: typing.Optional[int]
-
-### ChildHealthChecks
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### EnableSNI
-- **Type**: typing.Optional[bool]
-
-### Regions
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ap-northeast-1', 'ap-southeast-1', 'ap-southeast-2', 'eu-west-1', 'sa-east-1', 'us-east-1', 'us-west-1', 'us-west-2']]]
-
-### AlarmIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.AlarmIdentifierTypeDef]
-
-### InsufficientDataHealthStatus
-- **Type**: typing.Optional[typing.Literal['Healthy', 'LastKnownStatus', 'Unhealthy']]
-
-### RoutingControlArn
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HealthCheckObservationTypeDef
 
@@ -1353,31 +1200,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.StatusReportTypeDef]
 
 
-# HealthCheckPaginatorTypeDef
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CallerReference
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### HealthCheckConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.HealthCheckConfigPaginatorTypeDef'>
-- **Required**: Yes
-
-### HealthCheckVersion
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### LinkedService
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.LinkedServiceTypeDef]
-
-### CloudWatchAlarmConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.CloudWatchAlarmConfigurationTypeDef]
-
-
 # HealthCheckTypeDef
 
 ### Id
@@ -1389,7 +1211,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HealthCheckConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.HealthCheckConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.HealthCheckConfigOutputTypeDef'>
 - **Required**: Yes
 
 ### HealthCheckVersion
@@ -1414,14 +1236,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # HostedZoneLimitTypeDef
 
-### Type
-- **Type**: typing.Literal['MAX_RRSETS_BY_ZONE', 'MAX_VPCS_ASSOCIATED_BY_ZONE']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Value
-- **Type**: <class 'int'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HostedZoneOwnerTypeDef
 
@@ -1531,7 +1348,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCidrBlocksRequestListCidrBlocksPaginateTypeDef
+# ListCidrBlocksRequestPaginateTypeDef
 
 ### CollectionId
 - **Type**: <class 'str'>
@@ -1544,7 +1361,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.PaginatorConfigTypeDef]
 
 
-# ListCidrBlocksRequestRequestTypeDef
+# ListCidrBlocksRequestTypeDef
 
 ### CollectionId
 - **Type**: <class 'str'>
@@ -1562,10 +1379,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListCidrBlocksResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### CidrBlocks
 - **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.CidrBlockSummaryTypeDef]
 - **Required**: Yes
@@ -1574,14 +1387,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListCidrCollectionsRequestListCidrCollectionsPaginateTypeDef
+
+# ListCidrCollectionsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.PaginatorConfigTypeDef]
 
 
-# ListCidrCollectionsRequestRequestTypeDef
+# ListCidrCollectionsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1592,10 +1408,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListCidrCollectionsResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### CidrCollections
 - **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.CollectionSummaryTypeDef]
 - **Required**: Yes
@@ -1604,8 +1416,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListCidrLocationsRequestListCidrLocationsPaginateTypeDef
+
+# ListCidrLocationsRequestPaginateTypeDef
 
 ### CollectionId
 - **Type**: <class 'str'>
@@ -1615,7 +1430,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.PaginatorConfigTypeDef]
 
 
-# ListCidrLocationsRequestRequestTypeDef
+# ListCidrLocationsRequestTypeDef
 
 ### CollectionId
 - **Type**: <class 'str'>
@@ -1630,10 +1445,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListCidrLocationsResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### CidrLocations
 - **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.LocationSummaryTypeDef]
 - **Required**: Yes
@@ -1642,8 +1453,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListGeoLocationsRequestRequestTypeDef
+
+# ListGeoLocationsRequestTypeDef
 
 ### StartContinentCode
 - **Type**: typing.Optional[str]
@@ -1689,46 +1503,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListHealthChecksRequestListHealthChecksPaginateTypeDef
+# ListHealthChecksRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.PaginatorConfigTypeDef]
 
 
-# ListHealthChecksRequestRequestTypeDef
+# ListHealthChecksRequestTypeDef
 
 ### Marker
 - **Type**: typing.Optional[str]
 
 ### MaxItems
 - **Type**: typing.Optional[str]
-
-
-# ListHealthChecksResponsePaginatorTypeDef
-
-### HealthChecks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.HealthCheckPaginatorTypeDef]
-- **Required**: Yes
-
-### Marker
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### IsTruncated
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### NextMarker
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### MaxItems
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
 
 
 # ListHealthChecksResponseTypeDef
@@ -1758,7 +1545,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListHostedZonesByNameRequestRequestTypeDef
+# ListHostedZonesByNameRequestTypeDef
 
 ### DNSName
 - **Type**: typing.Optional[str]
@@ -1805,14 +1592,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListHostedZonesByVPCRequestRequestTypeDef
+# ListHostedZonesByVPCRequestTypeDef
 
 ### VPCId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### VPCRegion
-- **Type**: typing.Literal['af-south-1', 'ap-east-1', 'ap-northeast-1', 'ap-northeast-2', 'ap-northeast-3', 'ap-south-1', 'ap-south-2', 'ap-southeast-1', 'ap-southeast-2', 'ap-southeast-3', 'ap-southeast-4', 'ca-central-1', 'ca-west-1', 'cn-north-1', 'eu-central-1', 'eu-central-2', 'eu-north-1', 'eu-south-1', 'eu-south-2', 'eu-west-1', 'eu-west-2', 'eu-west-3', 'il-central-1', 'me-central-1', 'me-south-1', 'sa-east-1', 'us-east-1', 'us-east-2', 'us-gov-east-1', 'us-gov-west-1', 'us-iso-east-1', 'us-iso-west-1', 'us-isob-east-1', 'us-west-1', 'us-west-2']
+- **Type**: typing.Literal['af-south-1', 'ap-east-1', 'ap-northeast-1', 'ap-northeast-2', 'ap-northeast-3', 'ap-south-1', 'ap-south-2', 'ap-southeast-1', 'ap-southeast-2', 'ap-southeast-3', 'ap-southeast-4', 'ap-southeast-5', 'ap-southeast-7', 'ca-central-1', 'ca-west-1', 'cn-north-1', 'cn-northwest-1', 'eu-central-1', 'eu-central-2', 'eu-north-1', 'eu-south-1', 'eu-south-2', 'eu-west-1', 'eu-west-2', 'eu-west-3', 'il-central-1', 'me-central-1', 'me-south-1', 'mx-central-1', 'sa-east-1', 'us-east-1', 'us-east-2', 'us-gov-east-1', 'us-gov-west-1', 'us-iso-east-1', 'us-iso-west-1', 'us-isob-east-1', 'us-west-1', 'us-west-2']
 - **Required**: Yes
 
 ### MaxItems
@@ -1832,16 +1619,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListHostedZonesRequestListHostedZonesPaginateTypeDef
+
+# ListHostedZonesRequestPaginateTypeDef
 
 ### DelegationSetId
 - **Type**: typing.Optional[str]
@@ -1853,7 +1639,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.PaginatorConfigTypeDef]
 
 
-# ListHostedZonesRequestRequestTypeDef
+# ListHostedZonesRequestTypeDef
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -1895,7 +1681,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListQueryLoggingConfigsRequestListQueryLoggingConfigsPaginateTypeDef
+# ListQueryLoggingConfigsRequestPaginateTypeDef
 
 ### HostedZoneId
 - **Type**: typing.Optional[str]
@@ -1904,7 +1690,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.PaginatorConfigTypeDef]
 
 
-# ListQueryLoggingConfigsRequestRequestTypeDef
+# ListQueryLoggingConfigsRequestTypeDef
 
 ### HostedZoneId
 - **Type**: typing.Optional[str]
@@ -1922,16 +1708,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.QueryLoggingConfigTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListResourceRecordSetsRequestListResourceRecordSetsPaginateTypeDef
+
+# ListResourceRecordSetsRequestPaginateTypeDef
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -1941,7 +1726,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.PaginatorConfigTypeDef]
 
 
-# ListResourceRecordSetsRequestRequestTypeDef
+# ListResourceRecordSetsRequestTypeDef
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -1951,7 +1736,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StartRecordType
-- **Type**: typing.Optional[typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'TXT']]
+- **Type**: typing.Optional[typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'HTTPS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'SSHFP', 'SVCB', 'TLSA', 'TXT']]
 
 ### StartRecordIdentifier
 - **Type**: typing.Optional[str]
@@ -1960,41 +1745,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResourceRecordSetsResponsePaginatorTypeDef
-
-### ResourceRecordSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.ResourceRecordSetPaginatorTypeDef]
-- **Required**: Yes
-
-### IsTruncated
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### NextRecordName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### NextRecordType
-- **Type**: typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'TXT']
-- **Required**: Yes
-
-### NextRecordIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### MaxItems
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
 # ListResourceRecordSetsResponseTypeDef
 
 ### ResourceRecordSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.ResourceRecordSetTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.ResourceRecordSetOutputTypeDef]
 - **Required**: Yes
 
 ### IsTruncated
@@ -2006,7 +1760,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### NextRecordType
-- **Type**: typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'TXT']
+- **Type**: typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'HTTPS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'SSHFP', 'SVCB', 'TLSA', 'TXT']
 - **Required**: Yes
 
 ### NextRecordIdentifier
@@ -2022,7 +1776,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListReusableDelegationSetsRequestRequestTypeDef
+# ListReusableDelegationSetsRequestTypeDef
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -2058,7 +1812,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceType
 - **Type**: typing.Literal['healthcheck', 'hostedzone']
@@ -2080,7 +1834,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTagsForResourcesRequestRequestTypeDef
+# ListTagsForResourcesRequestTypeDef
 
 ### ResourceType
 - **Type**: typing.Literal['healthcheck', 'hostedzone']
@@ -2102,7 +1856,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTrafficPoliciesRequestRequestTypeDef
+# ListTrafficPoliciesRequestTypeDef
 
 ### TrafficPolicyIdMarker
 - **Type**: typing.Optional[str]
@@ -2134,7 +1888,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTrafficPolicyInstancesByHostedZoneRequestRequestTypeDef
+# ListTrafficPolicyInstancesByHostedZoneRequestTypeDef
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -2144,7 +1898,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TrafficPolicyInstanceTypeMarker
-- **Type**: typing.Optional[typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'TXT']]
+- **Type**: typing.Optional[typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'HTTPS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'SSHFP', 'SVCB', 'TLSA', 'TXT']]
 
 ### MaxItems
 - **Type**: typing.Optional[str]
@@ -2161,7 +1915,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TrafficPolicyInstanceTypeMarker
-- **Type**: typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'TXT']
+- **Type**: typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'HTTPS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'SSHFP', 'SVCB', 'TLSA', 'TXT']
 - **Required**: Yes
 
 ### IsTruncated
@@ -2177,7 +1931,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTrafficPolicyInstancesByPolicyRequestRequestTypeDef
+# ListTrafficPolicyInstancesByPolicyRequestTypeDef
 
 ### TrafficPolicyId
 - **Type**: <class 'str'>
@@ -2194,7 +1948,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TrafficPolicyInstanceTypeMarker
-- **Type**: typing.Optional[typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'TXT']]
+- **Type**: typing.Optional[typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'HTTPS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'SSHFP', 'SVCB', 'TLSA', 'TXT']]
 
 ### MaxItems
 - **Type**: typing.Optional[str]
@@ -2215,7 +1969,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TrafficPolicyInstanceTypeMarker
-- **Type**: typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'TXT']
+- **Type**: typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'HTTPS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'SSHFP', 'SVCB', 'TLSA', 'TXT']
 - **Required**: Yes
 
 ### IsTruncated
@@ -2231,7 +1985,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTrafficPolicyInstancesRequestRequestTypeDef
+# ListTrafficPolicyInstancesRequestTypeDef
 
 ### HostedZoneIdMarker
 - **Type**: typing.Optional[str]
@@ -2240,7 +1994,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TrafficPolicyInstanceTypeMarker
-- **Type**: typing.Optional[typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'TXT']]
+- **Type**: typing.Optional[typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'HTTPS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'SSHFP', 'SVCB', 'TLSA', 'TXT']]
 
 ### MaxItems
 - **Type**: typing.Optional[str]
@@ -2261,7 +2015,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TrafficPolicyInstanceTypeMarker
-- **Type**: typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'TXT']
+- **Type**: typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'HTTPS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'SSHFP', 'SVCB', 'TLSA', 'TXT']
 - **Required**: Yes
 
 ### IsTruncated
@@ -2277,7 +2031,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTrafficPolicyVersionsRequestRequestTypeDef
+# ListTrafficPolicyVersionsRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -2313,7 +2067,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListVPCAssociationAuthorizationsRequestListVPCAssociationAuthorizationsPaginateTypeDef
+# ListVPCAssociationAuthorizationsRequestPaginateTypeDef
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -2326,7 +2080,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.PaginatorConfigTypeDef]
 
 
-# ListVPCAssociationAuthorizationsRequestRequestTypeDef
+# ListVPCAssociationAuthorizationsRequestTypeDef
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -2345,10 +2099,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### VPCs
 - **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.VPCTypeDef]
 - **Required**: Yes
@@ -2356,6 +2106,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # LocationSummaryTypeDef
@@ -2391,105 +2144,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResourceRecordSetPaginatorTypeDef
+# ResourceRecordSetOutputTypeDef
 
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'TXT']
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### SetIdentifier
-- **Type**: typing.Optional[str]
+# ResourceRecordSetUnionTypeDef
 
-### Weight
-- **Type**: typing.Optional[int]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Region
-- **Type**: typing.Optional[typing.Literal['af-south-1', 'ap-east-1', 'ap-northeast-1', 'ap-northeast-2', 'ap-northeast-3', 'ap-south-1', 'ap-south-2', 'ap-southeast-1', 'ap-southeast-2', 'ap-southeast-3', 'ap-southeast-4', 'ca-central-1', 'ca-west-1', 'cn-north-1', 'cn-northwest-1', 'eu-central-1', 'eu-central-2', 'eu-north-1', 'eu-south-1', 'eu-south-2', 'eu-west-1', 'eu-west-2', 'eu-west-3', 'il-central-1', 'me-central-1', 'me-south-1', 'sa-east-1', 'us-east-1', 'us-east-2', 'us-west-1', 'us-west-2']]
-
-### GeoLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.GeoLocationTypeDef]
-
-### Failover
-- **Type**: typing.Optional[typing.Literal['PRIMARY', 'SECONDARY']]
-
-### MultiValueAnswer
-- **Type**: typing.Optional[bool]
-
-### TTL
-- **Type**: typing.Optional[int]
-
-### ResourceRecords
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.route53_classes.ResourceRecordTypeDef]]
-
-### AliasTarget
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.AliasTargetTypeDef]
-
-### HealthCheckId
-- **Type**: typing.Optional[str]
-
-### TrafficPolicyInstanceId
-- **Type**: typing.Optional[str]
-
-### CidrRoutingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.CidrRoutingConfigTypeDef]
-
-### GeoProximityLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.GeoProximityLocationTypeDef]
-
-
-# ResourceRecordSetTypeDef
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'TXT']
-- **Required**: Yes
-
-### SetIdentifier
-- **Type**: typing.Optional[str]
-
-### Weight
-- **Type**: typing.Optional[int]
-
-### Region
-- **Type**: typing.Optional[typing.Literal['af-south-1', 'ap-east-1', 'ap-northeast-1', 'ap-northeast-2', 'ap-northeast-3', 'ap-south-1', 'ap-south-2', 'ap-southeast-1', 'ap-southeast-2', 'ap-southeast-3', 'ap-southeast-4', 'ca-central-1', 'ca-west-1', 'cn-north-1', 'cn-northwest-1', 'eu-central-1', 'eu-central-2', 'eu-north-1', 'eu-south-1', 'eu-south-2', 'eu-west-1', 'eu-west-2', 'eu-west-3', 'il-central-1', 'me-central-1', 'me-south-1', 'sa-east-1', 'us-east-1', 'us-east-2', 'us-west-1', 'us-west-2']]
-
-### GeoLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.GeoLocationTypeDef]
-
-### Failover
-- **Type**: typing.Optional[typing.Literal['PRIMARY', 'SECONDARY']]
-
-### MultiValueAnswer
-- **Type**: typing.Optional[bool]
-
-### TTL
-- **Type**: typing.Optional[int]
-
-### ResourceRecords
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53_classes.ResourceRecordTypeDef]]
-
-### AliasTarget
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.AliasTargetTypeDef]
-
-### HealthCheckId
-- **Type**: typing.Optional[str]
-
-### TrafficPolicyInstanceId
-- **Type**: typing.Optional[str]
-
-### CidrRoutingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.CidrRoutingConfigTypeDef]
-
-### GeoProximityLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.GeoProximityLocationTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResourceRecordTypeDef
 
@@ -2516,10 +2181,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -2532,17 +2193,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
+
 
 # ReusableDelegationSetLimitTypeDef
 
-### Type
-- **Type**: typing.Literal['MAX_ZONES_BY_REUSABLE_DELEGATION_SET']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Value
-- **Type**: <class 'int'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StatusReportTypeDef
 
@@ -2562,7 +2221,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TestDNSAnswerRequestRequestTypeDef
+# TestDNSAnswerRequestTypeDef
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -2573,7 +2232,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RecordType
-- **Type**: typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'TXT']
+- **Type**: typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'HTTPS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'SSHFP', 'SVCB', 'TLSA', 'TXT']
 - **Required**: Yes
 
 ### ResolverIP
@@ -2584,37 +2243,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### EDNS0ClientSubnetMask
 - **Type**: typing.Optional[str]
-
-
-# TestDNSAnswerResponseTypeDef
-
-### Nameserver
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### RecordName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### RecordType
-- **Type**: typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'TXT']
-- **Required**: Yes
-
-### RecordData
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### ResponseCode
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Protocol
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
 
 
 # TrafficPolicyInstanceTypeDef
@@ -2652,60 +2280,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TrafficPolicyType
-- **Type**: typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'TXT']
+- **Type**: typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'HTTPS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'SSHFP', 'SVCB', 'TLSA', 'TXT']
 - **Required**: Yes
 
 
 # TrafficPolicySummaryTypeDef
 
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'TXT']
-- **Required**: Yes
-
-### LatestVersion
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### TrafficPolicyCount
-- **Type**: <class 'int'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TrafficPolicyTypeDef
 
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Version
-- **Type**: <class 'int'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['A', 'AAAA', 'CAA', 'CNAME', 'DS', 'MX', 'NAPTR', 'NS', 'PTR', 'SOA', 'SPF', 'SRV', 'TXT']
-- **Required**: Yes
-
-### Document
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Comment
-- **Type**: typing.Optional[str]
-
-
-# UpdateHealthCheckRequestRequestTypeDef
+# UpdateHealthCheckRequestTypeDef
 
 ### HealthCheckId
 - **Type**: <class 'str'>
@@ -2771,7 +2362,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateHostedZoneCommentRequestRequestTypeDef
+# UpdateHostedZoneCommentRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -2792,7 +2383,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateTrafficPolicyCommentRequestRequestTypeDef
+# UpdateTrafficPolicyCommentRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -2818,7 +2409,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateTrafficPolicyInstanceRequestRequestTypeDef
+# UpdateTrafficPolicyInstanceRequestTypeDef
 
 ### Id
 - **Type**: <class 'str'>
@@ -2851,7 +2442,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # VPCTypeDef
 
 ### VPCRegion
-- **Type**: typing.Optional[typing.Literal['af-south-1', 'ap-east-1', 'ap-northeast-1', 'ap-northeast-2', 'ap-northeast-3', 'ap-south-1', 'ap-south-2', 'ap-southeast-1', 'ap-southeast-2', 'ap-southeast-3', 'ap-southeast-4', 'ca-central-1', 'ca-west-1', 'cn-north-1', 'eu-central-1', 'eu-central-2', 'eu-north-1', 'eu-south-1', 'eu-south-2', 'eu-west-1', 'eu-west-2', 'eu-west-3', 'il-central-1', 'me-central-1', 'me-south-1', 'sa-east-1', 'us-east-1', 'us-east-2', 'us-gov-east-1', 'us-gov-west-1', 'us-iso-east-1', 'us-iso-west-1', 'us-isob-east-1', 'us-west-1', 'us-west-2']]
+- **Type**: typing.Optional[typing.Literal['af-south-1', 'ap-east-1', 'ap-northeast-1', 'ap-northeast-2', 'ap-northeast-3', 'ap-south-1', 'ap-south-2', 'ap-southeast-1', 'ap-southeast-2', 'ap-southeast-3', 'ap-southeast-4', 'ap-southeast-5', 'ap-southeast-7', 'ca-central-1', 'ca-west-1', 'cn-north-1', 'cn-northwest-1', 'eu-central-1', 'eu-central-2', 'eu-north-1', 'eu-south-1', 'eu-south-2', 'eu-west-1', 'eu-west-2', 'eu-west-3', 'il-central-1', 'me-central-1', 'me-south-1', 'mx-central-1', 'sa-east-1', 'us-east-1', 'us-east-2', 'us-gov-east-1', 'us-gov-west-1', 'us-iso-east-1', 'us-iso-west-1', 'us-isob-east-1', 'us-west-1', 'us-west-2']]
 
 ### VPCId
 - **Type**: typing.Optional[str]

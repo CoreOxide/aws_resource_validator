@@ -10,9 +10,21 @@
 - **Min Length**: 50
 - **Max Length**: 612
 
+### KmsKeyForRepositoryCreationTemplate
+- **Type**: string
+- **Pattern**: `^$|arn:aws:kms:[a-z0-9-]+:[0-9]{12}:key\/[a-z0-9-]+`
+- **Min Length**: 0
+- **Max Length**: 2048
+
 ### LayerDigest
 - **Type**: string
 - **Pattern**: `[a-zA-Z0-9-_+.]+:[a-fA-F0-9]+`
+
+### Prefix
+- **Type**: string
+- **Pattern**: `^((?:[a-z0-9]+(?:[._-][a-z0-9]+)*/)*[a-z0-9]+(?:[._-][a-z0-9]+)*/?|ROOT)$`
+- **Min Length**: 1
+- **Max Length**: 256
 
 ### PullThroughCacheRuleRepositoryPrefix
 - **Type**: string

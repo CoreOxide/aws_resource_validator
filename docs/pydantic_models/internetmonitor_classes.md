@@ -51,7 +51,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateMonitorInputRequestTypeDef
+# CreateMonitorInputTypeDef
 
 ### MonitorName
 - **Type**: <class 'str'>
@@ -94,7 +94,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteMonitorInputRequestTypeDef
+# DeleteMonitorInputTypeDef
 
 ### MonitorName
 - **Type**: <class 'str'>
@@ -113,7 +113,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# GetHealthEventInputRequestTypeDef
+# GetHealthEventInputTypeDef
 
 ### MonitorName
 - **Type**: <class 'str'>
@@ -178,7 +178,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetInternetEventInputRequestTypeDef
+# GetInternetEventInputTypeDef
 
 ### EventId
 - **Type**: <class 'str'>
@@ -220,7 +220,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMonitorInputRequestTypeDef
+# GetMonitorInputTypeDef
 
 ### MonitorName
 - **Type**: <class 'str'>
@@ -289,7 +289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetQueryResultsInputRequestTypeDef
+# GetQueryResultsInputTypeDef
 
 ### MonitorName
 - **Type**: <class 'str'>
@@ -316,16 +316,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[typing.List[str]]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.internetmonitor_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# GetQueryStatusInputRequestTypeDef
+
+# GetQueryStatusInputTypeDef
 
 ### MonitorName
 - **Type**: <class 'str'>
@@ -502,17 +501,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.internetmonitor_classes.S3ConfigTypeDef]
 
 
-# ListHealthEventsInputListHealthEventsPaginateTypeDef
+# ListHealthEventsInputPaginateTypeDef
 
 ### MonitorName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.internetmonitor_classes.TimestampTypeDef]
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.internetmonitor_classes.TimestampTypeDef]
 
 ### EventStatus
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'RESOLVED']]
@@ -524,17 +523,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.internetmonitor_classes.PaginatorConfigTypeDef]
 
 
-# ListHealthEventsInputRequestTypeDef
+# ListHealthEventsInputTypeDef
 
 ### MonitorName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.internetmonitor_classes.TimestampTypeDef]
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.internetmonitor_classes.TimestampTypeDef]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -555,22 +554,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.internetmonitor_classes.HealthEventTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.internetmonitor_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListInternetEventsInputListInternetEventsPaginateTypeDef
+
+# ListInternetEventsInputPaginateTypeDef
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.internetmonitor_classes.TimestampTypeDef]
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.internetmonitor_classes.TimestampTypeDef]
 
 ### EventStatus
 - **Type**: typing.Optional[str]
@@ -582,7 +580,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.internetmonitor_classes.PaginatorConfigTypeDef]
 
 
-# ListInternetEventsInputRequestTypeDef
+# ListInternetEventsInputTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -591,10 +589,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.internetmonitor_classes.TimestampTypeDef]
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.internetmonitor_classes.TimestampTypeDef]
 
 ### EventStatus
 - **Type**: typing.Optional[str]
@@ -609,16 +607,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.internetmonitor_classes.InternetEventSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.internetmonitor_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListMonitorsInputListMonitorsPaginateTypeDef
+
+# ListMonitorsInputPaginateTypeDef
 
 ### MonitorStatus
 - **Type**: typing.Optional[str]
@@ -630,7 +627,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.internetmonitor_classes.PaginatorConfigTypeDef]
 
 
-# ListMonitorsInputRequestTypeDef
+# ListMonitorsInputTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -651,16 +648,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.internetmonitor_classes.MonitorTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.internetmonitor_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceInputRequestTypeDef
+
+# ListTagsForResourceInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -763,12 +759,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # QueryFieldTypeDef
 
-### Name
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResponseMetadataTypeDef
 
@@ -816,22 +809,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
-# StartQueryInputRequestTypeDef
+# StartQueryInputTypeDef
 
 ### MonitorName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.internetmonitor_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.internetmonitor_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### QueryType
-- **Type**: typing.Literal['MEASUREMENTS', 'TOP_LOCATIONS', 'TOP_LOCATION_DETAILS']
+- **Type**: typing.Literal['MEASUREMENTS', 'OVERALL_TRAFFIC_SUGGESTIONS', 'OVERALL_TRAFFIC_SUGGESTIONS_DETAILS', 'ROUTING_SUGGESTIONS', 'TOP_LOCATIONS', 'TOP_LOCATION_DETAILS']
 - **Required**: Yes
 
 ### FilterParameters
@@ -852,7 +845,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopQueryInputRequestTypeDef
+# StopQueryInputTypeDef
 
 ### MonitorName
 - **Type**: <class 'str'>
@@ -863,7 +856,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceInputRequestTypeDef
+# TagResourceInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -874,7 +867,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceInputRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -885,7 +884,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateMonitorInputRequestTypeDef
+# UpdateMonitorInputTypeDef
 
 ### MonitorName
 - **Type**: <class 'str'>

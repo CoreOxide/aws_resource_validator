@@ -1,6 +1,6 @@
 # Neptune Classes
 
-# AddRoleToDBClusterMessageRequestTypeDef
+# AddRoleToDBClusterMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -14,7 +14,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AddSourceIdentifierToSubscriptionMessageRequestTypeDef
+# AddSourceIdentifierToSubscriptionMessageTypeDef
 
 ### SubscriptionName
 - **Type**: <class 'str'>
@@ -36,7 +36,7 @@
 - **Required**: Yes
 
 
-# AddTagsToResourceMessageRequestTypeDef
+# AddTagsToResourceMessageTypeDef
 
 ### ResourceName
 - **Type**: <class 'str'>
@@ -47,7 +47,7 @@
 - **Required**: Yes
 
 
-# ApplyPendingMaintenanceActionMessageRequestTypeDef
+# ApplyPendingMaintenanceActionMessageTypeDef
 
 ### ResourceIdentifier
 - **Type**: <class 'str'>
@@ -130,7 +130,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CopyDBClusterParameterGroupMessageRequestTypeDef
+# CopyDBClusterParameterGroupMessageTypeDef
 
 ### SourceDBClusterParameterGroupIdentifier
 - **Type**: <class 'str'>
@@ -159,7 +159,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CopyDBClusterSnapshotMessageRequestTypeDef
+# CopyDBClusterSnapshotMessageTypeDef
 
 ### SourceDBClusterSnapshotIdentifier
 - **Type**: <class 'str'>
@@ -196,7 +196,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CopyDBParameterGroupMessageRequestTypeDef
+# CopyDBParameterGroupMessageTypeDef
 
 ### SourceDBParameterGroupIdentifier
 - **Type**: <class 'str'>
@@ -225,7 +225,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDBClusterEndpointMessageRequestTypeDef
+# CreateDBClusterEndpointMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -296,7 +296,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDBClusterMessageRequestTypeDef
+# CreateDBClusterMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -388,7 +388,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateDBClusterParameterGroupMessageRequestTypeDef
+# CreateDBClusterParameterGroupMessageTypeDef
 
 ### DBClusterParameterGroupName
 - **Type**: <class 'str'>
@@ -428,7 +428,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDBClusterSnapshotMessageRequestTypeDef
+# CreateDBClusterSnapshotMessageTypeDef
 
 ### DBClusterSnapshotIdentifier
 - **Type**: <class 'str'>
@@ -453,7 +453,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDBInstanceMessageRequestTypeDef
+# CreateDBInstanceMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -600,7 +600,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDBParameterGroupMessageRequestTypeDef
+# CreateDBParameterGroupMessageTypeDef
 
 ### DBParameterGroupName
 - **Type**: <class 'str'>
@@ -629,7 +629,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDBSubnetGroupMessageRequestTypeDef
+# CreateDBSubnetGroupMessageTypeDef
 
 ### DBSubnetGroupName
 - **Type**: <class 'str'>
@@ -658,7 +658,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateEventSubscriptionMessageRequestTypeDef
+# CreateEventSubscriptionMessageTypeDef
 
 ### SubscriptionName
 - **Type**: <class 'str'>
@@ -695,7 +695,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateGlobalClusterMessageRequestTypeDef
+# CreateGlobalClusterMessageTypeDef
 
 ### GlobalClusterIdentifier
 - **Type**: <class 'str'>
@@ -1479,7 +1479,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteDBClusterEndpointMessageRequestTypeDef
+# DeleteDBClusterEndpointMessageTypeDef
 
 ### DBClusterEndpointIdentifier
 - **Type**: <class 'str'>
@@ -1533,7 +1533,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDBClusterMessageRequestTypeDef
+# DeleteDBClusterMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -1546,7 +1546,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteDBClusterParameterGroupMessageRequestTypeDef
+# DeleteDBClusterParameterGroupMessageTypeDef
 
 ### DBClusterParameterGroupName
 - **Type**: <class 'str'>
@@ -1564,7 +1564,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDBClusterSnapshotMessageRequestTypeDef
+# DeleteDBClusterSnapshotMessageTypeDef
 
 ### DBClusterSnapshotIdentifier
 - **Type**: <class 'str'>
@@ -1582,7 +1582,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDBInstanceMessageRequestTypeDef
+# DeleteDBInstanceMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -1606,21 +1606,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDBParameterGroupMessageRequestTypeDef
+# DeleteDBParameterGroupMessageTypeDef
 
 ### DBParameterGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDBSubnetGroupMessageRequestTypeDef
+# DeleteDBSubnetGroupMessageTypeDef
 
 ### DBSubnetGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteEventSubscriptionMessageRequestTypeDef
+# DeleteEventSubscriptionMessageTypeDef
 
 ### SubscriptionName
 - **Type**: <class 'str'>
@@ -1638,7 +1638,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteGlobalClusterMessageRequestTypeDef
+# DeleteGlobalClusterMessageTypeDef
 
 ### GlobalClusterIdentifier
 - **Type**: <class 'str'>
@@ -1656,7 +1656,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDBClusterEndpointsMessageDescribeDBClusterEndpointsPaginateTypeDef
+# DescribeDBClusterEndpointsMessagePaginateTypeDef
 
 ### DBClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -1671,7 +1671,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBClusterEndpointsMessageRequestTypeDef
+# DescribeDBClusterEndpointsMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -1689,7 +1689,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDBClusterParameterGroupsMessageDescribeDBClusterParameterGroupsPaginateTypeDef
+# DescribeDBClusterParameterGroupsMessagePaginateTypeDef
 
 ### DBClusterParameterGroupName
 - **Type**: typing.Optional[str]
@@ -1701,7 +1701,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBClusterParameterGroupsMessageRequestTypeDef
+# DescribeDBClusterParameterGroupsMessageTypeDef
 
 ### DBClusterParameterGroupName
 - **Type**: typing.Optional[str]
@@ -1716,7 +1716,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDBClusterParametersMessageDescribeDBClusterParametersPaginateTypeDef
+# DescribeDBClusterParametersMessagePaginateTypeDef
 
 ### DBClusterParameterGroupName
 - **Type**: <class 'str'>
@@ -1732,7 +1732,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBClusterParametersMessageRequestTypeDef
+# DescribeDBClusterParametersMessageTypeDef
 
 ### DBClusterParameterGroupName
 - **Type**: <class 'str'>
@@ -1751,7 +1751,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDBClusterSnapshotAttributesMessageRequestTypeDef
+# DescribeDBClusterSnapshotAttributesMessageTypeDef
 
 ### DBClusterSnapshotIdentifier
 - **Type**: <class 'str'>
@@ -1769,7 +1769,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDBClusterSnapshotsMessageDescribeDBClusterSnapshotsPaginateTypeDef
+# DescribeDBClusterSnapshotsMessagePaginateTypeDef
 
 ### DBClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -1793,7 +1793,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBClusterSnapshotsMessageRequestTypeDef
+# DescribeDBClusterSnapshotsMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -1820,7 +1820,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DescribeDBClustersMessageDescribeDBClustersPaginateTypeDef
+# DescribeDBClustersMessagePaginateTypeDef
 
 ### DBClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -1832,7 +1832,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBClustersMessageRequestTypeDef
+# DescribeDBClustersMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -1847,7 +1847,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDBEngineVersionsMessageDescribeDBEngineVersionsPaginateTypeDef
+# DescribeDBEngineVersionsMessagePaginateTypeDef
 
 ### Engine
 - **Type**: typing.Optional[str]
@@ -1874,7 +1874,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBEngineVersionsMessageRequestTypeDef
+# DescribeDBEngineVersionsMessageTypeDef
 
 ### Engine
 - **Type**: typing.Optional[str]
@@ -1904,7 +1904,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DescribeDBInstancesMessageDBInstanceAvailableWaitTypeDef
+# DescribeDBInstancesMessagePaginateTypeDef
+
+### DBInstanceIdentifier
+- **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.neptune_classes.FilterTypeDef]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_classes.PaginatorConfigTypeDef]
+
+
+# DescribeDBInstancesMessageTypeDef
+
+### DBInstanceIdentifier
+- **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.neptune_classes.FilterTypeDef]]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
+
+### Marker
+- **Type**: typing.Optional[str]
+
+
+# DescribeDBInstancesMessageWaitExtraTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: typing.Optional[str]
@@ -1922,7 +1949,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_classes.WaiterConfigTypeDef]
 
 
-# DescribeDBInstancesMessageDBInstanceDeletedWaitTypeDef
+# DescribeDBInstancesMessageWaitTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: typing.Optional[str]
@@ -1940,34 +1967,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_classes.WaiterConfigTypeDef]
 
 
-# DescribeDBInstancesMessageDescribeDBInstancesPaginateTypeDef
-
-### DBInstanceIdentifier
-- **Type**: typing.Optional[str]
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.neptune_classes.FilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_classes.PaginatorConfigTypeDef]
-
-
-# DescribeDBInstancesMessageRequestTypeDef
-
-### DBInstanceIdentifier
-- **Type**: typing.Optional[str]
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.neptune_classes.FilterTypeDef]]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-### Marker
-- **Type**: typing.Optional[str]
-
-
-# DescribeDBParameterGroupsMessageDescribeDBParameterGroupsPaginateTypeDef
+# DescribeDBParameterGroupsMessagePaginateTypeDef
 
 ### DBParameterGroupName
 - **Type**: typing.Optional[str]
@@ -1979,7 +1979,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBParameterGroupsMessageRequestTypeDef
+# DescribeDBParameterGroupsMessageTypeDef
 
 ### DBParameterGroupName
 - **Type**: typing.Optional[str]
@@ -1994,7 +1994,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDBParametersMessageDescribeDBParametersPaginateTypeDef
+# DescribeDBParametersMessagePaginateTypeDef
 
 ### DBParameterGroupName
 - **Type**: <class 'str'>
@@ -2010,7 +2010,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBParametersMessageRequestTypeDef
+# DescribeDBParametersMessageTypeDef
 
 ### DBParameterGroupName
 - **Type**: <class 'str'>
@@ -2029,7 +2029,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDBSubnetGroupsMessageDescribeDBSubnetGroupsPaginateTypeDef
+# DescribeDBSubnetGroupsMessagePaginateTypeDef
 
 ### DBSubnetGroupName
 - **Type**: typing.Optional[str]
@@ -2041,7 +2041,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDBSubnetGroupsMessageRequestTypeDef
+# DescribeDBSubnetGroupsMessageTypeDef
 
 ### DBSubnetGroupName
 - **Type**: typing.Optional[str]
@@ -2056,7 +2056,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeEngineDefaultClusterParametersMessageRequestTypeDef
+# DescribeEngineDefaultClusterParametersMessageTypeDef
 
 ### DBParameterGroupFamily
 - **Type**: <class 'str'>
@@ -2083,7 +2083,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEngineDefaultParametersMessageDescribeEngineDefaultParametersPaginateTypeDef
+# DescribeEngineDefaultParametersMessagePaginateTypeDef
 
 ### DBParameterGroupFamily
 - **Type**: <class 'str'>
@@ -2096,7 +2096,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_classes.PaginatorConfigTypeDef]
 
 
-# DescribeEngineDefaultParametersMessageRequestTypeDef
+# DescribeEngineDefaultParametersMessageTypeDef
 
 ### DBParameterGroupFamily
 - **Type**: <class 'str'>
@@ -2123,7 +2123,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEventCategoriesMessageRequestTypeDef
+# DescribeEventCategoriesMessageTypeDef
 
 ### SourceType
 - **Type**: typing.Optional[str]
@@ -2132,7 +2132,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.neptune_classes.FilterTypeDef]]
 
 
-# DescribeEventSubscriptionsMessageDescribeEventSubscriptionsPaginateTypeDef
+# DescribeEventSubscriptionsMessagePaginateTypeDef
 
 ### SubscriptionName
 - **Type**: typing.Optional[str]
@@ -2144,7 +2144,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_classes.PaginatorConfigTypeDef]
 
 
-# DescribeEventSubscriptionsMessageRequestTypeDef
+# DescribeEventSubscriptionsMessageTypeDef
 
 ### SubscriptionName
 - **Type**: typing.Optional[str]
@@ -2159,7 +2159,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeEventsMessageDescribeEventsPaginateTypeDef
+# DescribeEventsMessagePaginateTypeDef
 
 ### SourceIdentifier
 - **Type**: typing.Optional[str]
@@ -2168,10 +2168,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['db-cluster', 'db-cluster-snapshot', 'db-instance', 'db-parameter-group', 'db-security-group', 'db-snapshot']]
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_classes.TimestampTypeDef]
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_classes.TimestampTypeDef]
 
 ### Duration
 - **Type**: typing.Optional[int]
@@ -2186,7 +2186,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_classes.PaginatorConfigTypeDef]
 
 
-# DescribeEventsMessageRequestTypeDef
+# DescribeEventsMessageTypeDef
 
 ### SourceIdentifier
 - **Type**: typing.Optional[str]
@@ -2195,10 +2195,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['db-cluster', 'db-cluster-snapshot', 'db-instance', 'db-parameter-group', 'db-security-group', 'db-snapshot']]
 
 ### StartTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_classes.TimestampTypeDef]
 
 ### EndTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_classes.TimestampTypeDef]
 
 ### Duration
 - **Type**: typing.Optional[int]
@@ -2216,7 +2216,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeGlobalClustersMessageDescribeGlobalClustersPaginateTypeDef
+# DescribeGlobalClustersMessagePaginateTypeDef
 
 ### GlobalClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -2225,7 +2225,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_classes.PaginatorConfigTypeDef]
 
 
-# DescribeGlobalClustersMessageRequestTypeDef
+# DescribeGlobalClustersMessageTypeDef
 
 ### GlobalClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -2237,7 +2237,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeOrderableDBInstanceOptionsMessageDescribeOrderableDBInstanceOptionsPaginateTypeDef
+# DescribeOrderableDBInstanceOptionsMessagePaginateTypeDef
 
 ### Engine
 - **Type**: <class 'str'>
@@ -2262,7 +2262,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_classes.PaginatorConfigTypeDef]
 
 
-# DescribeOrderableDBInstanceOptionsMessageRequestTypeDef
+# DescribeOrderableDBInstanceOptionsMessageTypeDef
 
 ### Engine
 - **Type**: <class 'str'>
@@ -2290,7 +2290,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribePendingMaintenanceActionsMessageRequestTypeDef
+# DescribePendingMaintenanceActionsMessagePaginateTypeDef
+
+### ResourceIdentifier
+- **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.neptune_classes.FilterTypeDef]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_classes.PaginatorConfigTypeDef]
+
+
+# DescribePendingMaintenanceActionsMessageTypeDef
 
 ### ResourceIdentifier
 - **Type**: typing.Optional[str]
@@ -2305,7 +2317,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeValidDBInstanceModificationsMessageRequestTypeDef
+# DescribeValidDBInstanceModificationsMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -2482,7 +2494,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# FailoverDBClusterMessageRequestTypeDef
+# FailoverDBClusterMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -2502,7 +2514,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# FailoverGlobalClusterMessageRequestTypeDef
+# FailoverGlobalClusterMessageTypeDef
 
 ### GlobalClusterIdentifier
 - **Type**: <class 'str'>
@@ -2592,7 +2604,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTagsForResourceMessageRequestTypeDef
+# ListTagsForResourceMessageTypeDef
 
 ### ResourceName
 - **Type**: <class 'str'>
@@ -2602,7 +2614,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.neptune_classes.FilterTypeDef]]
 
 
-# ModifyDBClusterEndpointMessageRequestTypeDef
+# ModifyDBClusterEndpointMessageTypeDef
 
 ### DBClusterEndpointIdentifier
 - **Type**: <class 'str'>
@@ -2665,7 +2677,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyDBClusterMessageRequestTypeDef
+# ModifyDBClusterMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -2729,7 +2741,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ModifyDBClusterParameterGroupMessageRequestTypeDef
+# ModifyDBClusterParameterGroupMessageTypeDef
 
 ### DBClusterParameterGroupName
 - **Type**: <class 'str'>
@@ -2751,7 +2763,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyDBClusterSnapshotAttributeMessageRequestTypeDef
+# ModifyDBClusterSnapshotAttributeMessageTypeDef
 
 ### DBClusterSnapshotIdentifier
 - **Type**: <class 'str'>
@@ -2779,7 +2791,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyDBInstanceMessageRequestTypeDef
+# ModifyDBInstanceMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -2905,7 +2917,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyDBParameterGroupMessageRequestTypeDef
+# ModifyDBParameterGroupMessageTypeDef
 
 ### DBParameterGroupName
 - **Type**: <class 'str'>
@@ -2916,7 +2928,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyDBSubnetGroupMessageRequestTypeDef
+# ModifyDBSubnetGroupMessageTypeDef
 
 ### DBSubnetGroupName
 - **Type**: <class 'str'>
@@ -2941,7 +2953,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyEventSubscriptionMessageRequestTypeDef
+# ModifyEventSubscriptionMessageTypeDef
 
 ### SubscriptionName
 - **Type**: <class 'str'>
@@ -2971,7 +2983,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyGlobalClusterMessageRequestTypeDef
+# ModifyGlobalClusterMessageTypeDef
 
 ### GlobalClusterIdentifier
 - **Type**: <class 'str'>
@@ -3226,7 +3238,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_classes.PendingCloudwatchLogsExportsTypeDef]
 
 
-# PromoteReadReplicaDBClusterMessageRequestTypeDef
+# PromoteReadReplicaDBClusterMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -3256,7 +3268,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# RebootDBInstanceMessageRequestTypeDef
+# RebootDBInstanceMessageTypeDef
 
 ### DBInstanceIdentifier
 - **Type**: <class 'str'>
@@ -3277,7 +3289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveFromGlobalClusterMessageRequestTypeDef
+# RemoveFromGlobalClusterMessageTypeDef
 
 ### GlobalClusterIdentifier
 - **Type**: <class 'str'>
@@ -3299,7 +3311,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveRoleFromDBClusterMessageRequestTypeDef
+# RemoveRoleFromDBClusterMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -3313,7 +3325,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RemoveSourceIdentifierFromSubscriptionMessageRequestTypeDef
+# RemoveSourceIdentifierFromSubscriptionMessageTypeDef
 
 ### SubscriptionName
 - **Type**: <class 'str'>
@@ -3335,7 +3347,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveTagsFromResourceMessageRequestTypeDef
+# RemoveTagsFromResourceMessageTypeDef
 
 ### ResourceName
 - **Type**: <class 'str'>
@@ -3346,7 +3358,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResetDBClusterParameterGroupMessageRequestTypeDef
+# ResetDBClusterParameterGroupMessageTypeDef
 
 ### DBClusterParameterGroupName
 - **Type**: <class 'str'>
@@ -3359,7 +3371,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.neptune_classes.ParameterTypeDef]]
 
 
-# ResetDBParameterGroupMessageRequestTypeDef
+# ResetDBParameterGroupMessageTypeDef
 
 ### DBParameterGroupName
 - **Type**: <class 'str'>
@@ -3387,10 +3399,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -3403,8 +3411,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# RestoreDBClusterFromSnapshotMessageRequestTypeDef
+
+# RestoreDBClusterFromSnapshotMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -3478,7 +3489,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RestoreDBClusterToPointInTimeMessageRequestTypeDef
+# RestoreDBClusterToPointInTimeMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -3492,7 +3503,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RestoreToTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_classes.TimestampTypeDef]
 
 ### UseLatestRestorableTime
 - **Type**: typing.Optional[bool]
@@ -3563,7 +3574,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# StartDBClusterMessageRequestTypeDef
+# StartDBClusterMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -3581,7 +3592,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopDBClusterMessageRequestTypeDef
+# StopDBClusterMessageTypeDef
 
 ### DBClusterIdentifier
 - **Type**: <class 'str'>
@@ -3630,6 +3641,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Value
 - **Type**: typing.Optional[str]
 
+
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TimezoneTypeDef
 

@@ -1,6 +1,6 @@
 # Directconnect Classes
 
-# AcceptDirectConnectGatewayAssociationProposalRequestRequestTypeDef
+# AcceptDirectConnectGatewayAssociationProposalRequestTypeDef
 
 ### directConnectGatewayId
 - **Type**: <class 'str'>
@@ -29,7 +29,7 @@
 - **Required**: Yes
 
 
-# AllocateConnectionOnInterconnectRequestRequestTypeDef
+# AllocateConnectionOnInterconnectRequestTypeDef
 
 ### bandwidth
 - **Type**: <class 'str'>
@@ -52,7 +52,7 @@
 - **Required**: Yes
 
 
-# AllocateHostedConnectionRequestRequestTypeDef
+# AllocateHostedConnectionRequestTypeDef
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -78,7 +78,7 @@
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.directconnect_classes.TagTypeDef]]
 
 
-# AllocatePrivateVirtualInterfaceRequestRequestTypeDef
+# AllocatePrivateVirtualInterfaceRequestTypeDef
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -93,7 +93,7 @@
 - **Required**: Yes
 
 
-# AllocatePublicVirtualInterfaceRequestRequestTypeDef
+# AllocatePublicVirtualInterfaceRequestTypeDef
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -108,7 +108,7 @@
 - **Required**: Yes
 
 
-# AllocateTransitVirtualInterfaceRequestRequestTypeDef
+# AllocateTransitVirtualInterfaceRequestTypeDef
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -134,7 +134,7 @@
 - **Required**: Yes
 
 
-# AssociateConnectionWithLagRequestRequestTypeDef
+# AssociateConnectionWithLagRequestTypeDef
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -145,7 +145,7 @@
 - **Required**: Yes
 
 
-# AssociateHostedConnectionRequestRequestTypeDef
+# AssociateHostedConnectionRequestTypeDef
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -156,7 +156,7 @@
 - **Required**: Yes
 
 
-# AssociateMacSecKeyRequestRequestTypeDef
+# AssociateMacSecKeyRequestTypeDef
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -187,7 +187,7 @@
 - **Required**: Yes
 
 
-# AssociateVirtualInterfaceRequestRequestTypeDef
+# AssociateVirtualInterfaceRequestTypeDef
 
 ### virtualInterfaceId
 - **Type**: <class 'str'>
@@ -198,20 +198,17 @@
 - **Required**: Yes
 
 
+# AssociatedCoreNetworkTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # AssociatedGatewayTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: typing.Optional[typing.Literal['transitGateway', 'virtualPrivateGateway']]
-
-### ownerAccount
-- **Type**: typing.Optional[str]
-
-### region
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BGPPeerTypeDef
 
@@ -252,7 +249,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ConfirmConnectionRequestRequestTypeDef
+# ConfirmConnectionRequestTypeDef
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -270,7 +267,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ConfirmCustomerAgreementRequestRequestTypeDef
+# ConfirmCustomerAgreementRequestTypeDef
 
 ### agreementName
 - **Type**: typing.Optional[str]
@@ -287,7 +284,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ConfirmPrivateVirtualInterfaceRequestRequestTypeDef
+# ConfirmPrivateVirtualInterfaceRequestTypeDef
 
 ### virtualInterfaceId
 - **Type**: <class 'str'>
@@ -311,7 +308,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ConfirmPublicVirtualInterfaceRequestRequestTypeDef
+# ConfirmPublicVirtualInterfaceRequestTypeDef
 
 ### virtualInterfaceId
 - **Type**: <class 'str'>
@@ -329,7 +326,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ConfirmTransitVirtualInterfaceRequestRequestTypeDef
+# ConfirmTransitVirtualInterfaceRequestTypeDef
 
 ### virtualInterfaceId
 - **Type**: <class 'str'>
@@ -526,7 +523,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateBGPPeerRequestRequestTypeDef
+# CreateBGPPeerRequestTypeDef
 
 ### virtualInterfaceId
 - **Type**: typing.Optional[str]
@@ -546,7 +543,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateConnectionRequestRequestTypeDef
+# CreateConnectionRequestTypeDef
 
 ### location
 - **Type**: <class 'str'>
@@ -573,7 +570,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CreateDirectConnectGatewayAssociationProposalRequestRequestTypeDef
+# CreateDirectConnectGatewayAssociationProposalRequestTypeDef
 
 ### directConnectGatewayId
 - **Type**: <class 'str'>
@@ -605,7 +602,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDirectConnectGatewayAssociationRequestRequestTypeDef
+# CreateDirectConnectGatewayAssociationRequestTypeDef
 
 ### directConnectGatewayId
 - **Type**: <class 'str'>
@@ -632,7 +629,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDirectConnectGatewayRequestRequestTypeDef
+# CreateDirectConnectGatewayRequestTypeDef
 
 ### directConnectGatewayName
 - **Type**: <class 'str'>
@@ -653,7 +650,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateInterconnectRequestRequestTypeDef
+# CreateInterconnectRequestTypeDef
 
 ### interconnectName
 - **Type**: <class 'str'>
@@ -677,7 +674,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateLagRequestRequestTypeDef
+# CreateLagRequestTypeDef
 
 ### numberOfConnections
 - **Type**: <class 'int'>
@@ -711,7 +708,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CreatePrivateVirtualInterfaceRequestRequestTypeDef
+# CreatePrivateVirtualInterfaceRequestTypeDef
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -722,7 +719,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePublicVirtualInterfaceRequestRequestTypeDef
+# CreatePublicVirtualInterfaceRequestTypeDef
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -733,7 +730,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTransitVirtualInterfaceRequestRequestTypeDef
+# CreateTransitVirtualInterfaceRequestTypeDef
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -764,7 +761,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteBGPPeerRequestRequestTypeDef
+# DeleteBGPPeerRequestTypeDef
 
 ### virtualInterfaceId
 - **Type**: typing.Optional[str]
@@ -790,14 +787,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteConnectionRequestRequestTypeDef
+# DeleteConnectionRequestTypeDef
 
 ### connectionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDirectConnectGatewayAssociationProposalRequestRequestTypeDef
+# DeleteDirectConnectGatewayAssociationProposalRequestTypeDef
 
 ### proposalId
 - **Type**: <class 'str'>
@@ -815,7 +812,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDirectConnectGatewayAssociationRequestRequestTypeDef
+# DeleteDirectConnectGatewayAssociationRequestTypeDef
 
 ### associationId
 - **Type**: typing.Optional[str]
@@ -838,7 +835,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDirectConnectGatewayRequestRequestTypeDef
+# DeleteDirectConnectGatewayRequestTypeDef
 
 ### directConnectGatewayId
 - **Type**: <class 'str'>
@@ -856,7 +853,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteInterconnectRequestRequestTypeDef
+# DeleteInterconnectRequestTypeDef
 
 ### interconnectId
 - **Type**: <class 'str'>
@@ -874,14 +871,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteLagRequestRequestTypeDef
+# DeleteLagRequestTypeDef
 
 ### lagId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteVirtualInterfaceRequestRequestTypeDef
+# DeleteVirtualInterfaceRequestTypeDef
 
 ### virtualInterfaceId
 - **Type**: <class 'str'>
@@ -899,7 +896,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeConnectionLoaRequestRequestTypeDef
+# DescribeConnectionLoaRequestTypeDef
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -923,14 +920,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeConnectionsOnInterconnectRequestRequestTypeDef
+# DescribeConnectionsOnInterconnectRequestTypeDef
 
 ### interconnectId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeConnectionsRequestRequestTypeDef
+# DescribeConnectionsRequestTypeDef
 
 ### connectionId
 - **Type**: typing.Optional[str]
@@ -951,7 +948,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDirectConnectGatewayAssociationProposalsRequestRequestTypeDef
+# DescribeDirectConnectGatewayAssociationProposalsRequestTypeDef
 
 ### directConnectGatewayId
 - **Type**: typing.Optional[str]
@@ -975,16 +972,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayAssociationProposalTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeDirectConnectGatewayAssociationsRequestDescribeDirectConnectGatewayAssociationsPaginateTypeDef
+
+# DescribeDirectConnectGatewayAssociationsRequestPaginateTypeDef
 
 ### associationId
 - **Type**: typing.Optional[str]
@@ -1002,7 +998,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.directconnect_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDirectConnectGatewayAssociationsRequestRequestTypeDef
+# DescribeDirectConnectGatewayAssociationsRequestTypeDef
 
 ### associationId
 - **Type**: typing.Optional[str]
@@ -1029,16 +1025,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayAssociationTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeDirectConnectGatewayAttachmentsRequestDescribeDirectConnectGatewayAttachmentsPaginateTypeDef
+
+# DescribeDirectConnectGatewayAttachmentsRequestPaginateTypeDef
 
 ### directConnectGatewayId
 - **Type**: typing.Optional[str]
@@ -1050,7 +1045,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.directconnect_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDirectConnectGatewayAttachmentsRequestRequestTypeDef
+# DescribeDirectConnectGatewayAttachmentsRequestTypeDef
 
 ### directConnectGatewayId
 - **Type**: typing.Optional[str]
@@ -1071,16 +1066,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayAttachmentTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeDirectConnectGatewaysRequestDescribeDirectConnectGatewaysPaginateTypeDef
+
+# DescribeDirectConnectGatewaysRequestPaginateTypeDef
 
 ### directConnectGatewayId
 - **Type**: typing.Optional[str]
@@ -1089,7 +1083,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.directconnect_classes.PaginatorConfigTypeDef]
 
 
-# DescribeDirectConnectGatewaysRequestRequestTypeDef
+# DescribeDirectConnectGatewaysRequestTypeDef
 
 ### directConnectGatewayId
 - **Type**: typing.Optional[str]
@@ -1107,23 +1101,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.DirectConnectGatewayTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# DescribeHostedConnectionsRequestRequestTypeDef
+
+# DescribeHostedConnectionsRequestTypeDef
 
 ### connectionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeInterconnectLoaRequestRequestTypeDef
+# DescribeInterconnectLoaRequestTypeDef
 
 ### interconnectId
 - **Type**: <class 'str'>
@@ -1147,19 +1140,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeInterconnectsRequestRequestTypeDef
+# DescribeInterconnectsRequestTypeDef
 
 ### interconnectId
 - **Type**: typing.Optional[str]
 
 
-# DescribeLagsRequestRequestTypeDef
+# DescribeLagsRequestTypeDef
 
 ### lagId
 - **Type**: typing.Optional[str]
 
 
-# DescribeLoaRequestRequestTypeDef
+# DescribeLoaRequestTypeDef
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -1172,7 +1165,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['application/pdf']]
 
 
-# DescribeRouterConfigurationRequestRequestTypeDef
+# DescribeRouterConfigurationRequestTypeDef
 
 ### virtualInterfaceId
 - **Type**: <class 'str'>
@@ -1205,7 +1198,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeTagsRequestRequestTypeDef
+# DescribeTagsRequestTypeDef
 
 ### resourceArns
 - **Type**: typing.Sequence[str]
@@ -1223,7 +1216,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeVirtualInterfacesRequestRequestTypeDef
+# DescribeVirtualInterfacesRequestTypeDef
 
 ### connectionId
 - **Type**: typing.Optional[str]
@@ -1278,6 +1271,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### allowedPrefixesToDirectConnectGateway
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.directconnect_classes.RouteFilterPrefixTypeDef]]
+
+### associatedCoreNetwork
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.directconnect_classes.AssociatedCoreNetworkTypeDef]
 
 ### virtualGatewayId
 - **Type**: typing.Optional[str]
@@ -1334,7 +1330,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DisassociateConnectionFromLagRequestRequestTypeDef
+# DisassociateConnectionFromLagRequestTypeDef
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -1345,7 +1341,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateMacSecKeyRequestRequestTypeDef
+# DisassociateMacSecKeyRequestTypeDef
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -1665,7 +1661,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListVirtualInterfaceTestHistoryRequestRequestTypeDef
+# ListVirtualInterfaceTestHistoryRequestTypeDef
 
 ### testId
 - **Type**: typing.Optional[str]
@@ -1692,13 +1688,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.directconnect_classes.VirtualInterfaceTestHistoryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.directconnect_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # LoaResponseTypeDef
@@ -2067,7 +2062,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartBgpFailoverTestRequestRequestTypeDef
+# StartBgpFailoverTestRequestTypeDef
 
 ### virtualInterfaceId
 - **Type**: <class 'str'>
@@ -2091,7 +2086,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopBgpFailoverTestRequestRequestTypeDef
+# StopBgpFailoverTestRequestTypeDef
 
 ### virtualInterfaceId
 - **Type**: <class 'str'>
@@ -2109,7 +2104,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2130,7 +2125,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2141,7 +2136,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateConnectionRequestRequestTypeDef
+# UpdateConnectionRequestTypeDef
 
 ### connectionId
 - **Type**: <class 'str'>
@@ -2154,7 +2149,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateDirectConnectGatewayAssociationRequestRequestTypeDef
+# UpdateDirectConnectGatewayAssociationRequestTypeDef
 
 ### associationId
 - **Type**: typing.Optional[str]
@@ -2177,7 +2172,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDirectConnectGatewayRequestRequestTypeDef
+# UpdateDirectConnectGatewayRequestTypeDef
 
 ### directConnectGatewayId
 - **Type**: <class 'str'>
@@ -2199,7 +2194,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateLagRequestRequestTypeDef
+# UpdateLagRequestTypeDef
 
 ### lagId
 - **Type**: <class 'str'>
@@ -2215,7 +2210,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateVirtualInterfaceAttributesRequestRequestTypeDef
+# UpdateVirtualInterfaceAttributesRequestTypeDef
 
 ### virtualInterfaceId
 - **Type**: <class 'str'>

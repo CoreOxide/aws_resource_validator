@@ -1,6 +1,6 @@
 # Signer Classes
 
-# AddProfilePermissionRequestRequestTypeDef
+# AddProfilePermissionRequestTypeDef
 
 ### profileName
 - **Type**: <class 'str'>
@@ -42,21 +42,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelSigningProfileRequestRequestTypeDef
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CancelSigningProfileRequestTypeDef
 
 ### profileName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeSigningJobRequestRequestTypeDef
+# DescribeSigningJobRequestTypeDef
 
 ### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeSigningJobRequestSuccessfulSigningJobWaitTypeDef
+# DescribeSigningJobRequestWaitTypeDef
 
 ### jobId
 - **Type**: <class 'str'>
@@ -173,10 +179,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRevocationStatusRequestRequestTypeDef
+# GetRevocationStatusRequestTypeDef
 
 ### signatureTimestamp
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.signer_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### platformId
@@ -207,7 +213,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSigningPlatformRequestRequestTypeDef
+# GetSigningPlatformRequestTypeDef
 
 ### platformId
 - **Type**: <class 'str'>
@@ -257,7 +263,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSigningProfileRequestRequestTypeDef
+# GetSigningProfileRequestTypeDef
 
 ### profileName
 - **Type**: <class 'str'>
@@ -341,7 +347,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListProfilePermissionsRequestRequestTypeDef
+# ListProfilePermissionsRequestTypeDef
 
 ### profileName
 - **Type**: <class 'str'>
@@ -365,16 +371,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.signer_classes.PermissionTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.signer_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListSigningJobsRequestListSigningJobsPaginateTypeDef
+
+# ListSigningJobsRequestPaginateTypeDef
 
 ### status
 - **Type**: typing.Optional[typing.Literal['Failed', 'InProgress', 'Succeeded']]
@@ -389,10 +394,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### signatureExpiresBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.signer_classes.TimestampTypeDef]
 
 ### signatureExpiresAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.signer_classes.TimestampTypeDef]
 
 ### jobInvoker
 - **Type**: typing.Optional[str]
@@ -401,7 +406,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.signer_classes.PaginatorConfigTypeDef]
 
 
-# ListSigningJobsRequestRequestTypeDef
+# ListSigningJobsRequestTypeDef
 
 ### status
 - **Type**: typing.Optional[typing.Literal['Failed', 'InProgress', 'Succeeded']]
@@ -422,10 +427,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### signatureExpiresBefore
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.signer_classes.TimestampTypeDef]
 
 ### signatureExpiresAfter
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.signer_classes.TimestampTypeDef]
 
 ### jobInvoker
 - **Type**: typing.Optional[str]
@@ -437,16 +442,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.signer_classes.SigningJobTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.signer_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListSigningPlatformsRequestListSigningPlatformsPaginateTypeDef
+
+# ListSigningPlatformsRequestPaginateTypeDef
 
 ### category
 - **Type**: typing.Optional[str]
@@ -461,7 +465,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.signer_classes.PaginatorConfigTypeDef]
 
 
-# ListSigningPlatformsRequestRequestTypeDef
+# ListSigningPlatformsRequestTypeDef
 
 ### category
 - **Type**: typing.Optional[str]
@@ -485,16 +489,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.signer_classes.SigningPlatformTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.signer_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListSigningProfilesRequestListSigningProfilesPaginateTypeDef
+
+# ListSigningProfilesRequestPaginateTypeDef
 
 ### includeCanceled
 - **Type**: typing.Optional[bool]
@@ -509,7 +512,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.signer_classes.PaginatorConfigTypeDef]
 
 
-# ListSigningProfilesRequestRequestTypeDef
+# ListSigningProfilesRequestTypeDef
 
 ### includeCanceled
 - **Type**: typing.Optional[bool]
@@ -533,16 +536,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.signer_classes.SigningProfileTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.signer_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -587,7 +589,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutSigningProfileRequestRequestTypeDef
+# PutSigningProfileRequestTypeDef
 
 ### profileName
 - **Type**: <class 'str'>
@@ -632,7 +634,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveProfilePermissionRequestRequestTypeDef
+# RemoveProfilePermissionRequestTypeDef
 
 ### profileName
 - **Type**: <class 'str'>
@@ -680,7 +682,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RevokeSignatureRequestRequestTypeDef
+# RevokeSignatureRequestTypeDef
 
 ### jobId
 - **Type**: <class 'str'>
@@ -694,7 +696,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RevokeSigningProfileRequestRequestTypeDef
+# RevokeSigningProfileRequestTypeDef
 
 ### profileName
 - **Type**: <class 'str'>
@@ -709,7 +711,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### effectiveTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.signer_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 
@@ -746,14 +748,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SignPayloadRequestRequestTypeDef
+# SignPayloadRequestTypeDef
 
 ### profileName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### payload
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.signer_classes.BlobTypeDef'>
 - **Required**: Yes
 
 ### payloadFormat
@@ -789,12 +791,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SignatureValidityPeriodTypeDef
 
-### value
-- **Type**: typing.Optional[int]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: typing.Optional[typing.Literal['DAYS', 'MONTHS', 'YEARS']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SignedObjectTypeDef
 
@@ -990,7 +989,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.signer_classes.S3SourceTypeDef]
 
 
-# StartSigningJobRequestRequestTypeDef
+# StartSigningJobRequestTypeDef
 
 ### source
 - **Type**: <class 'aws_resource_validator.pydantic_models.signer_classes.SourceTypeDef'>
@@ -1027,7 +1026,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1038,7 +1037,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceRequestTypeDef
 
 ### resourceArn
 - **Type**: <class 'str'>

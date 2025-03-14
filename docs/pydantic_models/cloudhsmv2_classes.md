@@ -2,12 +2,9 @@
 
 # BackupRetentionPolicyTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['DAYS']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Value
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BackupTypeDef
 
@@ -99,6 +96,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### HsmType
 - **Type**: typing.Optional[str]
 
+### HsmTypeRollbackExpiration
+- **Type**: typing.Optional[datetime.datetime]
+
 ### PreCoPassword
 - **Type**: typing.Optional[str]
 
@@ -109,7 +109,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### State
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_IN_PROGRESS', 'DEGRADED', 'DELETED', 'DELETE_IN_PROGRESS', 'INITIALIZED', 'INITIALIZE_IN_PROGRESS', 'UNINITIALIZED', 'UPDATE_IN_PROGRESS']]
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_IN_PROGRESS', 'DEGRADED', 'DELETED', 'DELETE_IN_PROGRESS', 'INITIALIZED', 'INITIALIZE_IN_PROGRESS', 'MODIFY_IN_PROGRESS', 'ROLLBACK_IN_PROGRESS', 'UNINITIALIZED', 'UPDATE_IN_PROGRESS']]
 
 ### StateMessage
 - **Type**: typing.Optional[str]
@@ -119,6 +119,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### VpcId
 - **Type**: typing.Optional[str]
+
+### NetworkType
+- **Type**: typing.Optional[typing.Literal['DUALSTACK', 'IPV4']]
 
 ### Certificates
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudhsmv2_classes.CertificatesTypeDef]
@@ -130,7 +133,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FIPS', 'NON_FIPS']]
 
 
-# CopyBackupToRegionRequestRequestTypeDef
+# CopyBackupToRegionRequestTypeDef
 
 ### DestinationRegion
 - **Type**: <class 'str'>
@@ -155,7 +158,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateClusterRequestRequestTypeDef
+# CreateClusterRequestTypeDef
 
 ### HsmType
 - **Type**: <class 'str'>
@@ -170,6 +173,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SourceBackupId
 - **Type**: typing.Optional[str]
+
+### NetworkType
+- **Type**: typing.Optional[typing.Literal['DUALSTACK', 'IPV4']]
 
 ### TagList
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudhsmv2_classes.TagTypeDef]]
@@ -189,7 +195,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateHsmRequestRequestTypeDef
+# CreateHsmRequestTypeDef
 
 ### ClusterId
 - **Type**: <class 'str'>
@@ -214,7 +220,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteBackupRequestRequestTypeDef
+# DeleteBackupRequestTypeDef
 
 ### BackupId
 - **Type**: <class 'str'>
@@ -232,7 +238,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteClusterRequestRequestTypeDef
+# DeleteClusterRequestTypeDef
 
 ### ClusterId
 - **Type**: <class 'str'>
@@ -250,7 +256,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteHsmRequestRequestTypeDef
+# DeleteHsmRequestTypeDef
 
 ### ClusterId
 - **Type**: <class 'str'>
@@ -277,7 +283,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteResourcePolicyRequestRequestTypeDef
+# DeleteResourcePolicyRequestTypeDef
 
 ### ResourceArn
 - **Type**: typing.Optional[str]
@@ -298,7 +304,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeBackupsRequestDescribeBackupsPaginateTypeDef
+# DescribeBackupsRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
@@ -313,7 +319,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudhsmv2_classes.PaginatorConfigTypeDef]
 
 
-# DescribeBackupsRequestRequestTypeDef
+# DescribeBackupsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -345,7 +351,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeClustersRequestDescribeClustersPaginateTypeDef
+# DescribeClustersRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
@@ -354,7 +360,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudhsmv2_classes.PaginatorConfigTypeDef]
 
 
-# DescribeClustersRequestRequestTypeDef
+# DescribeClustersRequestTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
@@ -395,7 +401,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetResourcePolicyRequestRequestTypeDef
+# GetResourcePolicyRequestTypeDef
 
 ### ResourceArn
 - **Type**: typing.Optional[str]
@@ -433,6 +439,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### EniIp
 - **Type**: typing.Optional[str]
 
+### EniIpV6
+- **Type**: typing.Optional[str]
+
+### HsmType
+- **Type**: typing.Optional[str]
+
 ### State
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_IN_PROGRESS', 'DEGRADED', 'DELETED', 'DELETE_IN_PROGRESS']]
 
@@ -440,7 +452,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# InitializeClusterRequestRequestTypeDef
+# InitializeClusterRequestTypeDef
 
 ### ClusterId
 - **Type**: <class 'str'>
@@ -458,7 +470,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # InitializeClusterResponseTypeDef
 
 ### State
-- **Type**: typing.Literal['ACTIVE', 'CREATE_IN_PROGRESS', 'DEGRADED', 'DELETED', 'DELETE_IN_PROGRESS', 'INITIALIZED', 'INITIALIZE_IN_PROGRESS', 'UNINITIALIZED', 'UPDATE_IN_PROGRESS']
+- **Type**: typing.Literal['ACTIVE', 'CREATE_IN_PROGRESS', 'DEGRADED', 'DELETED', 'DELETE_IN_PROGRESS', 'INITIALIZED', 'INITIALIZE_IN_PROGRESS', 'MODIFY_IN_PROGRESS', 'ROLLBACK_IN_PROGRESS', 'UNINITIALIZED', 'UPDATE_IN_PROGRESS']
 - **Required**: Yes
 
 ### StateMessage
@@ -470,7 +482,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTagsRequestListTagsPaginateTypeDef
+# ListTagsRequestPaginateTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -480,7 +492,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudhsmv2_classes.PaginatorConfigTypeDef]
 
 
-# ListTagsRequestRequestTypeDef
+# ListTagsRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -507,7 +519,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ModifyBackupAttributesRequestRequestTypeDef
+# ModifyBackupAttributesRequestTypeDef
 
 ### BackupId
 - **Type**: <class 'str'>
@@ -529,15 +541,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyClusterRequestRequestTypeDef
-
-### BackupRetentionPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsmv2_classes.BackupRetentionPolicyTypeDef'>
-- **Required**: Yes
+# ModifyClusterRequestTypeDef
 
 ### ClusterId
 - **Type**: <class 'str'>
 - **Required**: Yes
+
+### HsmType
+- **Type**: typing.Optional[str]
+
+### BackupRetentionPolicy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudhsmv2_classes.BackupRetentionPolicyTypeDef]
 
 
 # ModifyClusterResponseTypeDef
@@ -563,7 +577,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutResourcePolicyRequestRequestTypeDef
+# PutResourcePolicyRequestTypeDef
 
 ### ResourceArn
 - **Type**: typing.Optional[str]
@@ -609,7 +623,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RestoreBackupRequestRequestTypeDef
+# RestoreBackupRequestTypeDef
 
 ### BackupId
 - **Type**: <class 'str'>
@@ -627,7 +641,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -649,7 +663,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceId
 - **Type**: <class 'str'>

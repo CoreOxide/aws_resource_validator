@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateCliTokenRequestRequestTypeDef
+# CreateCliTokenRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -28,7 +28,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateEnvironmentInputRequestTypeDef
+# CreateEnvironmentInputTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -47,7 +47,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### NetworkConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mwaa_classes.NetworkConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mwaa_classes.NetworkConfigurationUnionTypeDef'>
 - **Required**: Yes
 
 ### PluginsS3Path
@@ -122,7 +122,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateWebLoginTokenRequestRequestTypeDef
+# CreateWebLoginTokenRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -152,7 +152,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteEnvironmentInputRequestTypeDef
+# DeleteEnvironmentInputTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -275,7 +275,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetEnvironmentInputRequestTypeDef
+# GetEnvironmentInputTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -286,6 +286,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Environment
 - **Type**: <class 'aws_resource_validator.pydantic_models.mwaa_classes.EnvironmentTypeDef'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.mwaa_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# InvokeRestApiRequestTypeDef
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Path
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Method
+- **Type**: typing.Literal['DELETE', 'GET', 'PATCH', 'POST', 'PUT']
+- **Required**: Yes
+
+### QueryParameters
+- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+
+### Body
+- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+
+
+# InvokeRestApiResponseTypeDef
+
+### RestApiStatusCode
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### RestApiResponse
+- **Type**: typing.Dict[str, typing.Any]
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -308,13 +344,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListEnvironmentsInputListEnvironmentsPaginateTypeDef
+# ListEnvironmentsInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa_classes.PaginatorConfigTypeDef]
 
 
-# ListEnvironmentsInputRequestTypeDef
+# ListEnvironmentsInputTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -337,7 +373,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceInputRequestTypeDef
+# ListTagsForResourceInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -398,7 +434,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Timestamp
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.mwaa_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### Dimensions
@@ -455,6 +491,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
+# NetworkConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # PaginatorConfigTypeDef
 
 ### MaxItems
@@ -467,7 +509,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PublishMetricsInputRequestTypeDef
+# PublishMetricsInputTypeDef
 
 ### EnvironmentName
 - **Type**: <class 'str'>
@@ -515,7 +557,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# TagResourceInputRequestTypeDef
+# TagResourceInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -526,7 +568,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceInputRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceInputTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -537,7 +585,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateEnvironmentInputRequestTypeDef
+# UpdateEnvironmentInputTypeDef
 
 ### Name
 - **Type**: <class 'str'>

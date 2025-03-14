@@ -17,14 +17,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # BodyTypeDef
 
-### Text
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.ContentTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Html
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.ContentTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BounceActionTypeDef
 
@@ -88,7 +91,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CloneReceiptRuleSetRequestRequestTypeDef
+# CloneReceiptRuleSetRequestTypeDef
 
 ### RuleSetName
 - **Type**: <class 'str'>
@@ -135,6 +138,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# ConnectActionTypeDef
+
+### InstanceARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### IAMRoleARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
 # ContentTypeDef
 
 ### Data
@@ -145,25 +159,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateConfigurationSetEventDestinationRequestRequestTypeDef
+# CreateConfigurationSetEventDestinationRequestTypeDef
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### EventDestination
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.EventDestinationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.EventDestinationUnionTypeDef'>
 - **Required**: Yes
 
 
-# CreateConfigurationSetRequestRequestTypeDef
+# CreateConfigurationSetRequestTypeDef
 
 ### ConfigurationSet
 - **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ConfigurationSetTypeDef'>
 - **Required**: Yes
 
 
-# CreateConfigurationSetTrackingOptionsRequestRequestTypeDef
+# CreateConfigurationSetTrackingOptionsRequestTypeDef
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
@@ -174,7 +188,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCustomVerificationEmailTemplateRequestRequestTypeDef
+# CreateCustomVerificationEmailTemplateRequestTypeDef
 
 ### TemplateName
 - **Type**: <class 'str'>
@@ -201,35 +215,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateReceiptFilterRequestRequestTypeDef
+# CreateReceiptFilterRequestTypeDef
 
 ### Filter
 - **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ReceiptFilterTypeDef'>
 - **Required**: Yes
 
 
-# CreateReceiptRuleRequestRequestTypeDef
+# CreateReceiptRuleRequestTypeDef
 
 ### RuleSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Rule
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ReceiptRuleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ReceiptRuleUnionTypeDef'>
 - **Required**: Yes
 
 ### After
 - **Type**: typing.Optional[str]
 
 
-# CreateReceiptRuleSetRequestRequestTypeDef
+# CreateReceiptRuleSetRequestTypeDef
 
 ### RuleSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CreateTemplateRequestRequestTypeDef
+# CreateTemplateRequestTypeDef
 
 ### Template
 - **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.TemplateTypeDef'>
@@ -254,7 +268,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteConfigurationSetEventDestinationRequestRequestTypeDef
+# DeleteConfigurationSetEventDestinationRequestTypeDef
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
@@ -265,28 +279,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteConfigurationSetRequestRequestTypeDef
+# DeleteConfigurationSetRequestTypeDef
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteConfigurationSetTrackingOptionsRequestRequestTypeDef
+# DeleteConfigurationSetTrackingOptionsRequestTypeDef
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteCustomVerificationEmailTemplateRequestRequestTypeDef
+# DeleteCustomVerificationEmailTemplateRequestTypeDef
 
 ### TemplateName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteIdentityPolicyRequestRequestTypeDef
+# DeleteIdentityPolicyRequestTypeDef
 
 ### Identity
 - **Type**: <class 'str'>
@@ -297,21 +311,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteIdentityRequestRequestTypeDef
+# DeleteIdentityRequestTypeDef
 
 ### Identity
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteReceiptFilterRequestRequestTypeDef
+# DeleteReceiptFilterRequestTypeDef
 
 ### FilterName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteReceiptRuleRequestRequestTypeDef
+# DeleteReceiptRuleRequestTypeDef
 
 ### RuleSetName
 - **Type**: <class 'str'>
@@ -322,21 +336,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteReceiptRuleSetRequestRequestTypeDef
+# DeleteReceiptRuleSetRequestTypeDef
 
 ### RuleSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteTemplateRequestRequestTypeDef
+# DeleteTemplateRequestTypeDef
 
 ### TemplateName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteVerifiedEmailAddressRequestRequestTypeDef
+# DeleteVerifiedEmailAddressRequestTypeDef
 
 ### EmailAddress
 - **Type**: <class 'str'>
@@ -364,7 +378,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeConfigurationSetRequestRequestTypeDef
+# DescribeConfigurationSetRequestTypeDef
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
@@ -401,7 +415,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeReceiptRuleRequestRequestTypeDef
+# DescribeReceiptRuleRequestTypeDef
 
 ### RuleSetName
 - **Type**: <class 'str'>
@@ -423,7 +437,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeReceiptRuleSetRequestRequestTypeDef
+# DescribeReceiptRuleSetRequestTypeDef
 
 ### RuleSetName
 - **Type**: <class 'str'>
@@ -510,6 +524,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.SNSDestinationTypeDef]
 
 
+# EventDestinationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ExtensionFieldTypeDef
 
 ### Name
@@ -532,7 +552,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCustomVerificationEmailTemplateRequestRequestTypeDef
+# GetCustomVerificationEmailTemplateRequestTypeDef
 
 ### TemplateName
 - **Type**: <class 'str'>
@@ -570,7 +590,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetIdentityDkimAttributesRequestRequestTypeDef
+# GetIdentityDkimAttributesRequestTypeDef
 
 ### Identities
 - **Type**: typing.Sequence[str]
@@ -588,7 +608,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetIdentityMailFromDomainAttributesRequestRequestTypeDef
+# GetIdentityMailFromDomainAttributesRequestTypeDef
 
 ### Identities
 - **Type**: typing.Sequence[str]
@@ -606,7 +626,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetIdentityNotificationAttributesRequestRequestTypeDef
+# GetIdentityNotificationAttributesRequestTypeDef
 
 ### Identities
 - **Type**: typing.Sequence[str]
@@ -624,7 +644,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetIdentityPoliciesRequestRequestTypeDef
+# GetIdentityPoliciesRequestTypeDef
 
 ### Identity
 - **Type**: <class 'str'>
@@ -646,7 +666,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetIdentityVerificationAttributesRequestIdentityExistsWaitTypeDef
+# GetIdentityVerificationAttributesRequestTypeDef
+
+### Identities
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+
+# GetIdentityVerificationAttributesRequestWaitTypeDef
 
 ### Identities
 - **Type**: typing.Sequence[str]
@@ -654,13 +681,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### WaiterConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.WaiterConfigTypeDef]
-
-
-# GetIdentityVerificationAttributesRequestRequestTypeDef
-
-### Identities
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
 
 
 # GetIdentityVerificationAttributesResponseTypeDef
@@ -704,7 +724,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTemplateRequestRequestTypeDef
+# GetTemplateRequestTypeDef
 
 ### TemplateName
 - **Type**: <class 'str'>
@@ -813,13 +833,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Event', 'RequestResponse']]
 
 
-# ListConfigurationSetsRequestListConfigurationSetsPaginateTypeDef
+# ListConfigurationSetsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.PaginatorConfigTypeDef]
 
 
-# ListConfigurationSetsRequestRequestTypeDef
+# ListConfigurationSetsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -842,13 +862,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCustomVerificationEmailTemplatesRequestListCustomVerificationEmailTemplatesPaginateTypeDef
+# ListCustomVerificationEmailTemplatesRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.PaginatorConfigTypeDef]
 
 
-# ListCustomVerificationEmailTemplatesRequestRequestTypeDef
+# ListCustomVerificationEmailTemplatesRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -871,7 +891,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListIdentitiesRequestListIdentitiesPaginateTypeDef
+# ListIdentitiesRequestPaginateTypeDef
 
 ### IdentityType
 - **Type**: typing.Optional[typing.Literal['Domain', 'EmailAddress']]
@@ -880,7 +900,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.PaginatorConfigTypeDef]
 
 
-# ListIdentitiesRequestRequestTypeDef
+# ListIdentitiesRequestTypeDef
 
 ### IdentityType
 - **Type**: typing.Optional[typing.Literal['Domain', 'EmailAddress']]
@@ -906,7 +926,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListIdentityPoliciesRequestRequestTypeDef
+# ListIdentityPoliciesRequestTypeDef
 
 ### Identity
 - **Type**: <class 'str'>
@@ -935,13 +955,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListReceiptRuleSetsRequestListReceiptRuleSetsPaginateTypeDef
+# ListReceiptRuleSetsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.PaginatorConfigTypeDef]
 
 
-# ListReceiptRuleSetsRequestRequestTypeDef
+# ListReceiptRuleSetsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -961,13 +981,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTemplatesRequestListTemplatesPaginateTypeDef
+# ListTemplatesRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.PaginatorConfigTypeDef]
 
 
-# ListTemplatesRequestRequestTypeDef
+# ListTemplatesRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1008,7 +1028,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ArrivalDate
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.TimestampTypeDef]
 
 ### ExtensionFields
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ses_classes.ExtensionFieldTypeDef]]
@@ -1048,7 +1068,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutConfigurationSetDeliveryOptionsRequestRequestTypeDef
+# PutConfigurationSetDeliveryOptionsRequestTypeDef
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
@@ -1058,7 +1078,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.DeliveryOptionsTypeDef]
 
 
-# PutIdentityPolicyRequestRequestTypeDef
+# PutIdentityPolicyRequestTypeDef
 
 ### Identity
 - **Type**: <class 'str'>
@@ -1076,7 +1096,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RawMessageTypeDef
 
 ### Data
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.BlobTypeDef'>
 - **Required**: Yes
 
 
@@ -1102,6 +1122,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SNSAction
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.SNSActionTypeDef]
+
+### ConnectAction
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.ConnectActionTypeDef]
 
 
 # ReceiptFilterTypeDef
@@ -1179,6 +1202,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
+# ReceiptRuleUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # RecipientDsnFieldsTypeDef
 
 ### Action
@@ -1199,13 +1228,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LastAttemptDate
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.TimestampTypeDef]
 
 ### ExtensionFields
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ses_classes.ExtensionFieldTypeDef]]
 
 
-# ReorderReceiptRuleSetRequestRequestTypeDef
+# ReorderReceiptRuleSetRequestTypeDef
 
 ### RuleSetName
 - **Type**: <class 'str'>
@@ -1265,6 +1294,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### KmsKeyArn
 - **Type**: typing.Optional[str]
 
+### IamRoleArn
+- **Type**: typing.Optional[str]
+
 
 # SNSActionTypeDef
 
@@ -1283,7 +1315,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SendBounceRequestRequestTypeDef
+# SendBounceRequestTypeDef
 
 ### OriginalMessageId
 - **Type**: <class 'str'>
@@ -1318,13 +1350,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SendBulkTemplatedEmailRequestRequestTypeDef
+# SendBulkTemplatedEmailRequestTypeDef
 
 ### Source
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Template
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DefaultTemplateData
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -1353,9 +1389,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### TemplateArn
 - **Type**: typing.Optional[str]
 
-### DefaultTemplateData
-- **Type**: typing.Optional[str]
-
 
 # SendBulkTemplatedEmailResponseTypeDef
 
@@ -1368,7 +1401,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SendCustomVerificationEmailRequestRequestTypeDef
+# SendCustomVerificationEmailRequestTypeDef
 
 ### EmailAddress
 - **Type**: <class 'str'>
@@ -1411,7 +1444,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# SendEmailRequestRequestTypeDef
+# SendEmailRequestTypeDef
 
 ### Source
 - **Type**: <class 'str'>
@@ -1455,7 +1488,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SendRawEmailRequestRequestTypeDef
+# SendRawEmailRequestTypeDef
 
 ### RawMessage
 - **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.RawMessageTypeDef'>
@@ -1494,7 +1527,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SendTemplatedEmailRequestRequestTypeDef
+# SendTemplatedEmailRequestTypeDef
 
 ### Source
 - **Type**: <class 'str'>
@@ -1545,13 +1578,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetActiveReceiptRuleSetRequestRequestTypeDef
+# SetActiveReceiptRuleSetRequestTypeDef
 
 ### RuleSetName
 - **Type**: typing.Optional[str]
 
 
-# SetIdentityDkimEnabledRequestRequestTypeDef
+# SetIdentityDkimEnabledRequestTypeDef
 
 ### Identity
 - **Type**: <class 'str'>
@@ -1562,7 +1595,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetIdentityFeedbackForwardingEnabledRequestRequestTypeDef
+# SetIdentityFeedbackForwardingEnabledRequestTypeDef
 
 ### Identity
 - **Type**: <class 'str'>
@@ -1573,7 +1606,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetIdentityHeadersInNotificationsEnabledRequestRequestTypeDef
+# SetIdentityHeadersInNotificationsEnabledRequestTypeDef
 
 ### Identity
 - **Type**: <class 'str'>
@@ -1588,7 +1621,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetIdentityMailFromDomainRequestRequestTypeDef
+# SetIdentityMailFromDomainRequestTypeDef
 
 ### Identity
 - **Type**: <class 'str'>
@@ -1601,7 +1634,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['RejectMessage', 'UseDefaultValue']]
 
 
-# SetIdentityNotificationTopicRequestRequestTypeDef
+# SetIdentityNotificationTopicRequestTypeDef
 
 ### Identity
 - **Type**: <class 'str'>
@@ -1615,7 +1648,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SetReceiptRulePositionRequestRequestTypeDef
+# SetReceiptRulePositionRequestTypeDef
 
 ### RuleSetName
 - **Type**: <class 'str'>
@@ -1664,7 +1697,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TestRenderTemplateRequestRequestTypeDef
+# TestRenderTemplateRequestTypeDef
 
 ### TemplateName
 - **Type**: <class 'str'>
@@ -1686,30 +1719,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # TrackingOptionsTypeDef
 
 ### CustomRedirectDomain
 - **Type**: typing.Optional[str]
 
 
-# UpdateAccountSendingEnabledRequestRequestTypeDef
+# UpdateAccountSendingEnabledRequestTypeDef
 
 ### Enabled
 - **Type**: typing.Optional[bool]
 
 
-# UpdateConfigurationSetEventDestinationRequestRequestTypeDef
+# UpdateConfigurationSetEventDestinationRequestTypeDef
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### EventDestination
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.EventDestinationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.EventDestinationUnionTypeDef'>
 - **Required**: Yes
 
 
-# UpdateConfigurationSetReputationMetricsEnabledRequestRequestTypeDef
+# UpdateConfigurationSetReputationMetricsEnabledRequestTypeDef
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
@@ -1720,7 +1759,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateConfigurationSetSendingEnabledRequestRequestTypeDef
+# UpdateConfigurationSetSendingEnabledRequestTypeDef
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
@@ -1731,7 +1770,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateConfigurationSetTrackingOptionsRequestRequestTypeDef
+# UpdateConfigurationSetTrackingOptionsRequestTypeDef
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
@@ -1742,7 +1781,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateCustomVerificationEmailTemplateRequestRequestTypeDef
+# UpdateCustomVerificationEmailTemplateRequestTypeDef
 
 ### TemplateName
 - **Type**: <class 'str'>
@@ -1764,25 +1803,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateReceiptRuleRequestRequestTypeDef
+# UpdateReceiptRuleRequestTypeDef
 
 ### RuleSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Rule
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ReceiptRuleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ReceiptRuleUnionTypeDef'>
 - **Required**: Yes
 
 
-# UpdateTemplateRequestRequestTypeDef
+# UpdateTemplateRequestTypeDef
 
 ### Template
 - **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.TemplateTypeDef'>
 - **Required**: Yes
 
 
-# VerifyDomainDkimRequestRequestTypeDef
+# VerifyDomainDkimRequestTypeDef
 
 ### Domain
 - **Type**: <class 'str'>
@@ -1800,7 +1839,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# VerifyDomainIdentityRequestRequestTypeDef
+# VerifyDomainIdentityRequestTypeDef
 
 ### Domain
 - **Type**: <class 'str'>
@@ -1818,14 +1857,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# VerifyEmailAddressRequestRequestTypeDef
+# VerifyEmailAddressRequestTypeDef
 
 ### EmailAddress
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# VerifyEmailIdentityRequestRequestTypeDef
+# VerifyEmailIdentityRequestTypeDef
 
 ### EmailAddress
 - **Type**: <class 'str'>

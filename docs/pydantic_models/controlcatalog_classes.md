@@ -36,8 +36,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### CreateTime
-- **Type**: <class 'datetime.datetime'>
+### Name
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Description
@@ -48,16 +48,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.controlcatalog_classes.AssociatedDomainSummaryTypeDef'>
 - **Required**: Yes
 
+### Objective
+- **Type**: <class 'aws_resource_validator.pydantic_models.controlcatalog_classes.AssociatedObjectiveSummaryTypeDef'>
+- **Required**: Yes
+
+### CreateTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
 ### LastUpdateTime
 - **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+
+# ControlParameterTypeDef
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# ControlSummaryTypeDef
+
+### Arn
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### Objective
-- **Type**: <class 'aws_resource_validator.pydantic_models.controlcatalog_classes.AssociatedObjectiveSummaryTypeDef'>
+### Description
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 
@@ -73,24 +95,72 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### CreateTime
-- **Type**: <class 'datetime.datetime'>
+### Name
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Description
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### CreateTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
 ### LastUpdateTime
 - **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+
+# GetControlRequestTypeDef
+
+### ControlArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetControlResponseTypeDef
+
+### Arn
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### Description
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-# ListCommonControlsRequestListCommonControlsPaginateTypeDef
+### Behavior
+- **Type**: typing.Literal['DETECTIVE', 'PREVENTIVE', 'PROACTIVE']
+- **Required**: Yes
+
+### RegionConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.controlcatalog_classes.RegionConfigurationTypeDef'>
+- **Required**: Yes
+
+### Implementation
+- **Type**: <class 'aws_resource_validator.pydantic_models.controlcatalog_classes.ImplementationDetailsTypeDef'>
+- **Required**: Yes
+
+### Parameters
+- **Type**: typing.List[aws_resource_validator.pydantic_models.controlcatalog_classes.ControlParameterTypeDef]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.controlcatalog_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# ImplementationDetailsTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ListCommonControlsRequestPaginateTypeDef
 
 ### CommonControlFilter
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.controlcatalog_classes.CommonControlFilterTypeDef]
@@ -99,16 +169,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.controlcatalog_classes.PaginatorConfigTypeDef]
 
 
-# ListCommonControlsRequestRequestTypeDef
-
-### CommonControlFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.controlcatalog_classes.CommonControlFilterTypeDef]
+# ListCommonControlsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
 
 ### NextToken
 - **Type**: typing.Optional[str]
+
+### CommonControlFilter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.controlcatalog_classes.CommonControlFilterTypeDef]
 
 
 # ListCommonControlsResponseTypeDef
@@ -117,22 +187,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.controlcatalog_classes.CommonControlSummaryTypeDef]
 - **Required**: Yes
 
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.controlcatalog_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
 ### NextToken
-- **Type**: <class 'str'>
+- **Type**: typing.Optional[str]
+
+
+# ListControlsRequestPaginateTypeDef
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.controlcatalog_classes.PaginatorConfigTypeDef]
+
+
+# ListControlsRequestTypeDef
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+
+# ListControlsResponseTypeDef
+
+### Controls
+- **Type**: typing.List[aws_resource_validator.pydantic_models.controlcatalog_classes.ControlSummaryTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.controlcatalog_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListDomainsRequestListDomainsPaginateTypeDef
+
+# ListDomainsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.controlcatalog_classes.PaginatorConfigTypeDef]
 
 
-# ListDomainsRequestRequestTypeDef
+# ListDomainsRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -147,16 +245,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.controlcatalog_classes.DomainSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.controlcatalog_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListObjectivesRequestListObjectivesPaginateTypeDef
+
+# ListObjectivesRequestPaginateTypeDef
 
 ### ObjectiveFilter
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.controlcatalog_classes.ObjectiveFilterTypeDef]
@@ -165,7 +262,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.controlcatalog_classes.PaginatorConfigTypeDef]
 
 
-# ListObjectivesRequestRequestTypeDef
+# ListObjectivesRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -179,10 +276,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListObjectivesResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### Objectives
 - **Type**: typing.List[aws_resource_validator.pydantic_models.controlcatalog_classes.ObjectiveSummaryTypeDef]
 - **Required**: Yes
@@ -190,6 +283,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.controlcatalog_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # ObjectiveFilterTypeDef
@@ -210,8 +306,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### CreateTime
-- **Type**: <class 'datetime.datetime'>
+### Name
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Description
@@ -222,12 +318,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.controlcatalog_classes.AssociatedDomainSummaryTypeDef'>
 - **Required**: Yes
 
-### LastUpdateTime
+### CreateTime
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
-### Name
-- **Type**: <class 'str'>
+### LastUpdateTime
+- **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 
@@ -241,6 +337,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### StartingToken
 - **Type**: typing.Optional[str]
+
+
+# RegionConfigurationTypeDef
+
+### Scope
+- **Type**: typing.Literal['GLOBAL', 'REGIONAL']
+- **Required**: Yes
+
+### DeployableRegions
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ResponseMetadataTypeDef

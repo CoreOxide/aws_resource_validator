@@ -1,6 +1,6 @@
 # Datapipeline Classes
 
-# ActivatePipelineInputRequestTypeDef
+# ActivatePipelineInputTypeDef
 
 ### pipelineId
 - **Type**: <class 'str'>
@@ -10,10 +10,10 @@
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datapipeline_classes.ParameterValueTypeDef]]
 
 ### startTimestamp
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datapipeline_classes.TimestampTypeDef]
 
 
-# AddTagsInputRequestTypeDef
+# AddTagsInputTypeDef
 
 ### pipelineId
 - **Type**: <class 'str'>
@@ -30,7 +30,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreatePipelineInputRequestTypeDef
+# CreatePipelineInputTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -58,7 +58,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeactivatePipelineInputRequestTypeDef
+# DeactivatePipelineInputTypeDef
 
 ### pipelineId
 - **Type**: <class 'str'>
@@ -68,14 +68,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeletePipelineInputRequestTypeDef
+# DeletePipelineInputTypeDef
 
 ### pipelineId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeObjectsInputDescribeObjectsPaginateTypeDef
+# DescribeObjectsInputPaginateTypeDef
 
 ### pipelineId
 - **Type**: <class 'str'>
@@ -92,7 +92,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.datapipeline_classes.PaginatorConfigTypeDef]
 
 
-# DescribeObjectsInputRequestTypeDef
+# DescribeObjectsInputTypeDef
 
 ### pipelineId
 - **Type**: <class 'str'>
@@ -112,7 +112,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeObjectsOutputTypeDef
 
 ### pipelineObjects
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datapipeline_classes.PipelineObjectTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datapipeline_classes.PipelineObjectOutputTypeDef]
 - **Required**: Yes
 
 ### marker
@@ -128,7 +128,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribePipelinesInputRequestTypeDef
+# DescribePipelinesInputTypeDef
 
 ### pipelineIds
 - **Type**: typing.Sequence[str]
@@ -153,7 +153,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EvaluateExpressionInputRequestTypeDef
+# EvaluateExpressionInputTypeDef
 
 ### pipelineId
 - **Type**: <class 'str'>
@@ -192,7 +192,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetPipelineDefinitionInputRequestTypeDef
+# GetPipelineDefinitionInputTypeDef
 
 ### pipelineId
 - **Type**: <class 'str'>
@@ -205,11 +205,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetPipelineDefinitionOutputTypeDef
 
 ### pipelineObjects
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datapipeline_classes.PipelineObjectTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datapipeline_classes.PipelineObjectOutputTypeDef]
 - **Required**: Yes
 
 ### parameterObjects
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datapipeline_classes.ParameterObjectTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datapipeline_classes.ParameterObjectOutputTypeDef]
 - **Required**: Yes
 
 ### parameterValues
@@ -230,13 +230,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPipelinesInputListPipelinesPaginateTypeDef
+# ListPipelinesInputPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.datapipeline_classes.PaginatorConfigTypeDef]
 
 
-# ListPipelinesInputRequestTypeDef
+# ListPipelinesInputTypeDef
 
 ### marker
 - **Type**: typing.Optional[str]
@@ -259,15 +259,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.datapipeline_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
-
-
-# OperatorTypeDef
-
-### type
-- **Type**: typing.Optional[typing.Literal['BETWEEN', 'EQ', 'GE', 'LE', 'REF_EQ']]
-
-### values
-- **Type**: typing.Optional[typing.Sequence[str]]
 
 
 # PaginatorConfigTypeDef
@@ -293,27 +284,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ParameterObjectTypeDef
+# ParameterObjectOutputTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### attributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datapipeline_classes.ParameterAttributeTypeDef]
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
+# ParameterObjectUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ParameterValueTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### stringValue
-- **Type**: <class 'str'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PipelineDescriptionTypeDef
 
@@ -338,29 +325,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PipelineIdNameTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### name
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
+# PipelineObjectOutputTypeDef
 
-# PipelineObjectTypeDef
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
+# PipelineObjectUnionTypeDef
 
-### fields
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datapipeline_classes.FieldTypeDef]
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PollForTaskInputRequestTypeDef
+# PollForTaskInputTypeDef
 
 ### workerGroup
 - **Type**: <class 'str'>
@@ -384,18 +365,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutPipelineDefinitionInputRequestTypeDef
+# PutPipelineDefinitionInputTypeDef
 
 ### pipelineId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### pipelineObjects
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.datapipeline_classes.PipelineObjectTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.datapipeline_classes.PipelineObjectUnionTypeDef]
 - **Required**: Yes
 
 ### parameterObjects
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datapipeline_classes.ParameterObjectTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datapipeline_classes.ParameterObjectUnionTypeDef]]
 
 ### parameterValues
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datapipeline_classes.ParameterValueTypeDef]]
@@ -420,7 +401,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# QueryObjectsInputQueryObjectsPaginateTypeDef
+# QueryObjectsInputPaginateTypeDef
 
 ### pipelineId
 - **Type**: <class 'str'>
@@ -437,7 +418,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.datapipeline_classes.PaginatorConfigTypeDef]
 
 
-# QueryObjectsInputRequestTypeDef
+# QueryObjectsInputTypeDef
 
 ### pipelineId
 - **Type**: <class 'str'>
@@ -482,7 +463,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datapipeline_classes.SelectorTypeDef]]
 
 
-# RemoveTagsInputRequestTypeDef
+# RemoveTagsInputTypeDef
 
 ### pipelineId
 - **Type**: <class 'str'>
@@ -493,7 +474,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ReportTaskProgressInputRequestTypeDef
+# ReportTaskProgressInputTypeDef
 
 ### taskId
 - **Type**: <class 'str'>
@@ -514,7 +495,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ReportTaskRunnerHeartbeatInputRequestTypeDef
+# ReportTaskRunnerHeartbeatInputTypeDef
 
 ### taskrunnerId
 - **Type**: <class 'str'>
@@ -544,10 +525,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -560,17 +537,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
+
 
 # SelectorTypeDef
 
-### fieldName
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### operator
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datapipeline_classes.OperatorTypeDef]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-
-# SetStatusInputRequestTypeDef
+# SetStatusInputTypeDef
 
 ### pipelineId
 - **Type**: <class 'str'>
@@ -585,7 +562,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetTaskStatusInputRequestTypeDef
+# SetTaskStatusInputTypeDef
 
 ### taskId
 - **Type**: <class 'str'>
@@ -628,21 +605,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### objects
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.datapipeline_classes.PipelineObjectTypeDef]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.datapipeline_classes.PipelineObjectOutputTypeDef]]
 
 
-# ValidatePipelineDefinitionInputRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ValidatePipelineDefinitionInputTypeDef
 
 ### pipelineId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### pipelineObjects
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.datapipeline_classes.PipelineObjectTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.datapipeline_classes.PipelineObjectUnionTypeDef]
 - **Required**: Yes
 
 ### parameterObjects
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datapipeline_classes.ParameterObjectTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datapipeline_classes.ParameterObjectUnionTypeDef]]
 
 ### parameterValues
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datapipeline_classes.ParameterValueTypeDef]]
@@ -669,19 +652,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ValidationErrorTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### errors
-- **Type**: typing.Optional[typing.List[str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ValidationWarningTypeDef
 
-### id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### warnings
-- **Type**: typing.Optional[typing.List[str]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

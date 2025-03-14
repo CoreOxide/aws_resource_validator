@@ -4,6 +4,10 @@
 - **Type**: string
 - **Pattern**: `^arn:aws[-a-z]*:eks:[-a-z0-9]+:[0-9]{12}:cluster/.+$`
 
+### IamRoleArn
+- **Type**: string
+- **Pattern**: `^arn:aws[-a-z]*:iam::[0-9]{12}:role/.+$`
+
 ### IdempotencyToken
 - **Type**: string
 - **Pattern**: `^[!-~]+$`
@@ -12,13 +16,13 @@
 
 ### KmsKeyArn
 - **Type**: string
-- **Pattern**: `^arn:aws:kms:[a-z0-9\-]+:\d+:key/[a-f0-9\-]+$`
+- **Pattern**: `^arn:aws[-a-z]*:kms:[-a-z0-9]+:[0-9]{12}:key/[-a-f0-9]+$`
 - **Min Length**: 20
 - **Max Length**: 2048
 
 ### LogGroupArn
 - **Type**: string
-- **Pattern**: `^arn:aws[a-z0-9-]*:logs:[a-z0-9-]+:\d{12}:log-group:[A-Za-z0-9\.\-\_\#/]{1,512}\:\*$`
+- **Pattern**: `^arn:aws[-a-z]*:logs:[-a-z0-9]+:[0-9]{12}:log-group:[A-Za-z0-9\.\-\_\#/]{1,512}\:\*$`
 
 ### RuleGroupsNamespaceName
 - **Type**: string

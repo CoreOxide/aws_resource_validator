@@ -15,6 +15,16 @@
 - **Required**: Yes
 
 
+# AdditionalDatasetOutputTypeDef
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Configuration
+- **Type**: typing.Optional[typing.Dict[str, typing.List[str]]]
+
+
 # AdditionalDatasetTypeDef
 
 ### Name
@@ -23,6 +33,17 @@
 
 ### Configuration
 - **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
+
+
+# AttributeConfigOutputTypeDef
+
+### AttributeName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Transformations
+- **Type**: typing.Dict[str, str]
+- **Required**: Yes
 
 
 # AttributeConfigTypeDef
@@ -57,6 +78,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.PredictorBaselineTypeDef]
 
 
+# CategoricalParameterRangeOutputTypeDef
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Values
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
 # CategoricalParameterRangeTypeDef
 
 ### Name
@@ -86,7 +118,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Auto', 'Linear', 'Logarithmic', 'ReverseLogarithmic']]
 
 
-# CreateAutoPredictorRequestRequestTypeDef
+# CreateAutoPredictorRequestTypeDef
 
 ### PredictorName
 - **Type**: <class 'str'>
@@ -105,7 +137,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.DataConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.DataConfigUnionTypeDef]
 
 ### EncryptionConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.EncryptionConfigTypeDef]
@@ -140,7 +172,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDatasetGroupRequestRequestTypeDef
+# CreateDatasetGroupRequestTypeDef
 
 ### DatasetGroupName
 - **Type**: <class 'str'>
@@ -168,7 +200,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDatasetImportJobRequestRequestTypeDef
+# CreateDatasetImportJobRequestTypeDef
 
 ### DatasetImportJobName
 - **Type**: <class 'str'>
@@ -215,7 +247,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDatasetRequestRequestTypeDef
+# CreateDatasetRequestTypeDef
 
 ### DatasetName
 - **Type**: <class 'str'>
@@ -230,7 +262,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Schema
-- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.SchemaTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.SchemaUnionTypeDef'>
 - **Required**: Yes
 
 ### DataFrequency
@@ -254,7 +286,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateExplainabilityExportRequestRequestTypeDef
+# CreateExplainabilityExportRequestTypeDef
 
 ### ExplainabilityExportName
 - **Type**: <class 'str'>
@@ -286,7 +318,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateExplainabilityRequestRequestTypeDef
+# CreateExplainabilityRequestTypeDef
 
 ### ExplainabilityName
 - **Type**: <class 'str'>
@@ -304,7 +336,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.DataSourceTypeDef]
 
 ### Schema
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.SchemaTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.SchemaUnionTypeDef]
 
 ### EnableVisualization
 - **Type**: typing.Optional[bool]
@@ -330,7 +362,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateForecastExportJobRequestRequestTypeDef
+# CreateForecastExportJobRequestTypeDef
 
 ### ForecastExportJobName
 - **Type**: <class 'str'>
@@ -362,7 +394,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateForecastRequestRequestTypeDef
+# CreateForecastRequestTypeDef
 
 ### ForecastName
 - **Type**: <class 'str'>
@@ -379,7 +411,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.forecast_classes.TagTypeDef]]
 
 ### TimeSeriesSelector
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.TimeSeriesSelectorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.TimeSeriesSelectorUnionTypeDef]
 
 
 # CreateForecastResponseTypeDef
@@ -393,7 +425,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateMonitorRequestRequestTypeDef
+# CreateMonitorRequestTypeDef
 
 ### MonitorName
 - **Type**: <class 'str'>
@@ -418,7 +450,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePredictorBacktestExportJobRequestRequestTypeDef
+# CreatePredictorBacktestExportJobRequestTypeDef
 
 ### PredictorBacktestExportJobName
 - **Type**: <class 'str'>
@@ -450,7 +482,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePredictorRequestRequestTypeDef
+# CreatePredictorRequestTypeDef
 
 ### PredictorName
 - **Type**: <class 'str'>
@@ -461,11 +493,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.InputDataConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.InputDataConfigUnionTypeDef'>
 - **Required**: Yes
 
 ### FeaturizationConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.FeaturizationConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.FeaturizationConfigUnionTypeDef'>
 - **Required**: Yes
 
 ### AlgorithmArn
@@ -490,7 +522,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.EvaluationParametersTypeDef]
 
 ### HPOConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.HyperParameterTuningJobConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.HyperParameterTuningJobConfigUnionTypeDef]
 
 ### EncryptionConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.EncryptionConfigTypeDef]
@@ -513,7 +545,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateWhatIfAnalysisRequestRequestTypeDef
+# CreateWhatIfAnalysisRequestTypeDef
 
 ### WhatIfAnalysisName
 - **Type**: <class 'str'>
@@ -524,7 +556,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TimeSeriesSelector
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.TimeSeriesSelectorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.TimeSeriesSelectorUnionTypeDef]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.forecast_classes.TagTypeDef]]
@@ -541,7 +573,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateWhatIfForecastExportRequestRequestTypeDef
+# CreateWhatIfForecastExportRequestTypeDef
 
 ### WhatIfForecastExportName
 - **Type**: <class 'str'>
@@ -573,7 +605,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateWhatIfForecastRequestRequestTypeDef
+# CreateWhatIfForecastRequestTypeDef
 
 ### WhatIfForecastName
 - **Type**: <class 'str'>
@@ -584,10 +616,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TimeSeriesTransformations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.forecast_classes.TimeSeriesTransformationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.forecast_classes.TimeSeriesTransformationUnionTypeDef]]
 
 ### TimeSeriesReplacementsDataSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.TimeSeriesReplacementsDataSourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.TimeSeriesReplacementsDataSourceUnionTypeDef]
 
 ### Tags
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.forecast_classes.TagTypeDef]]
@@ -604,6 +636,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# DataConfigOutputTypeDef
+
+### DatasetGroupArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AttributeConfigs
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.forecast_classes.AttributeConfigOutputTypeDef]]
+
+### AdditionalDatasets
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.forecast_classes.AdditionalDatasetOutputTypeDef]]
+
+
 # DataConfigTypeDef
 
 ### DatasetGroupArn
@@ -616,6 +661,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### AdditionalDatasets
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.forecast_classes.AdditionalDatasetTypeDef]]
 
+
+# DataConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DataDestinationTypeDef
 
@@ -694,105 +745,105 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# DeleteDatasetGroupRequestRequestTypeDef
+# DeleteDatasetGroupRequestTypeDef
 
 ### DatasetGroupArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDatasetImportJobRequestRequestTypeDef
+# DeleteDatasetImportJobRequestTypeDef
 
 ### DatasetImportJobArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDatasetRequestRequestTypeDef
+# DeleteDatasetRequestTypeDef
 
 ### DatasetArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteExplainabilityExportRequestRequestTypeDef
+# DeleteExplainabilityExportRequestTypeDef
 
 ### ExplainabilityExportArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteExplainabilityRequestRequestTypeDef
+# DeleteExplainabilityRequestTypeDef
 
 ### ExplainabilityArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteForecastExportJobRequestRequestTypeDef
+# DeleteForecastExportJobRequestTypeDef
 
 ### ForecastExportJobArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteForecastRequestRequestTypeDef
+# DeleteForecastRequestTypeDef
 
 ### ForecastArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteMonitorRequestRequestTypeDef
+# DeleteMonitorRequestTypeDef
 
 ### MonitorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePredictorBacktestExportJobRequestRequestTypeDef
+# DeletePredictorBacktestExportJobRequestTypeDef
 
 ### PredictorBacktestExportJobArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePredictorRequestRequestTypeDef
+# DeletePredictorRequestTypeDef
 
 ### PredictorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteResourceTreeRequestRequestTypeDef
+# DeleteResourceTreeRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteWhatIfAnalysisRequestRequestTypeDef
+# DeleteWhatIfAnalysisRequestTypeDef
 
 ### WhatIfAnalysisArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteWhatIfForecastExportRequestRequestTypeDef
+# DeleteWhatIfForecastExportRequestTypeDef
 
 ### WhatIfForecastExportArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteWhatIfForecastRequestRequestTypeDef
+# DeleteWhatIfForecastRequestTypeDef
 
 ### WhatIfForecastArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeAutoPredictorRequestRequestTypeDef
+# DescribeAutoPredictorRequestTypeDef
 
 ### PredictorArn
 - **Type**: <class 'str'>
@@ -830,7 +881,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.DataConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.DataConfigOutputTypeDef'>
 - **Required**: Yes
 
 ### EncryptionConfig
@@ -882,7 +933,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDatasetGroupRequestRequestTypeDef
+# DescribeDatasetGroupRequestTypeDef
 
 ### DatasetGroupArn
 - **Type**: <class 'str'>
@@ -924,7 +975,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDatasetImportJobRequestRequestTypeDef
+# DescribeDatasetImportJobRequestTypeDef
 
 ### DatasetImportJobArn
 - **Type**: <class 'str'>
@@ -1006,7 +1057,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDatasetRequestRequestTypeDef
+# DescribeDatasetRequestTypeDef
 
 ### DatasetArn
 - **Type**: <class 'str'>
@@ -1036,7 +1087,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Schema
-- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.SchemaTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.SchemaOutputTypeDef'>
 - **Required**: Yes
 
 ### EncryptionConfig
@@ -1060,7 +1111,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeExplainabilityExportRequestRequestTypeDef
+# DescribeExplainabilityExportRequestTypeDef
 
 ### ExplainabilityExportArn
 - **Type**: <class 'str'>
@@ -1110,7 +1161,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeExplainabilityRequestRequestTypeDef
+# DescribeExplainabilityRequestTypeDef
 
 ### ExplainabilityArn
 - **Type**: <class 'str'>
@@ -1144,7 +1195,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Schema
-- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.SchemaTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.SchemaOutputTypeDef'>
 - **Required**: Yes
 
 ### StartDateTime
@@ -1180,7 +1231,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeForecastExportJobRequestRequestTypeDef
+# DescribeForecastExportJobRequestTypeDef
 
 ### ForecastExportJobArn
 - **Type**: <class 'str'>
@@ -1230,7 +1281,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeForecastRequestRequestTypeDef
+# DescribeForecastRequestTypeDef
 
 ### ForecastArn
 - **Type**: <class 'str'>
@@ -1280,7 +1331,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TimeSeriesSelector
-- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.TimeSeriesSelectorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.TimeSeriesSelectorOutputTypeDef'>
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -1288,7 +1339,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeMonitorRequestRequestTypeDef
+# DescribeMonitorRequestTypeDef
 
 ### MonitorArn
 - **Type**: <class 'str'>
@@ -1346,7 +1397,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribePredictorBacktestExportJobRequestRequestTypeDef
+# DescribePredictorBacktestExportJobRequestTypeDef
 
 ### PredictorBacktestExportJobArn
 - **Type**: <class 'str'>
@@ -1396,7 +1447,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribePredictorRequestRequestTypeDef
+# DescribePredictorRequestTypeDef
 
 ### PredictorArn
 - **Type**: <class 'str'>
@@ -1450,15 +1501,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HPOConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.HyperParameterTuningJobConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.HyperParameterTuningJobConfigOutputTypeDef'>
 - **Required**: Yes
 
 ### InputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.InputDataConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.InputDataConfigOutputTypeDef'>
 - **Required**: Yes
 
 ### FeaturizationConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.FeaturizationConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.FeaturizationConfigOutputTypeDef'>
 - **Required**: Yes
 
 ### EncryptionConfig
@@ -1506,7 +1557,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeWhatIfAnalysisRequestRequestTypeDef
+# DescribeWhatIfAnalysisRequestTypeDef
 
 ### WhatIfAnalysisArn
 - **Type**: <class 'str'>
@@ -1548,7 +1599,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TimeSeriesSelector
-- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.TimeSeriesSelectorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.TimeSeriesSelectorOutputTypeDef'>
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -1556,7 +1607,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeWhatIfForecastExportRequestRequestTypeDef
+# DescribeWhatIfForecastExportRequestTypeDef
 
 ### WhatIfForecastExportArn
 - **Type**: <class 'str'>
@@ -1610,7 +1661,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeWhatIfForecastRequestRequestTypeDef
+# DescribeWhatIfForecastRequestTypeDef
 
 ### WhatIfForecastArn
 - **Type**: <class 'str'>
@@ -1652,11 +1703,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TimeSeriesTransformations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.forecast_classes.TimeSeriesTransformationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.forecast_classes.TimeSeriesTransformationOutputTypeDef]
 - **Required**: Yes
 
 ### TimeSeriesReplacementsDataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.TimeSeriesReplacementsDataSourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.TimeSeriesReplacementsDataSourceOutputTypeDef'>
 - **Required**: Yes
 
 ### ForecastTypes
@@ -1793,6 +1844,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
+# FeaturizationConfigOutputTypeDef
+
+### ForecastFrequency
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ForecastDimensions
+- **Type**: typing.Optional[typing.List[str]]
+
+### Featurizations
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.forecast_classes.FeaturizationOutputTypeDef]]
+
+
 # FeaturizationConfigTypeDef
 
 ### ForecastFrequency
@@ -1806,6 +1870,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.forecast_classes.FeaturizationTypeDef]]
 
 
+# FeaturizationConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# FeaturizationMethodOutputTypeDef
+
+### FeaturizationMethodName
+- **Type**: typing.Literal['filling']
+- **Required**: Yes
+
+### FeaturizationMethodParameters
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
 # FeaturizationMethodTypeDef
 
 ### FeaturizationMethodName
@@ -1814,6 +1894,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### FeaturizationMethodParameters
 - **Type**: typing.Optional[typing.Mapping[str, str]]
+
+
+# FeaturizationOutputTypeDef
+
+### AttributeName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### FeaturizationPipeline
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.forecast_classes.FeaturizationMethodOutputTypeDef]]
 
 
 # FeaturizationTypeDef
@@ -1895,7 +1985,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# GetAccuracyMetricsRequestRequestTypeDef
+# GetAccuracyMetricsRequestTypeDef
 
 ### PredictorArn
 - **Type**: <class 'str'>
@@ -1925,10 +2015,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# HyperParameterTuningJobConfigOutputTypeDef
+
+### ParameterRanges
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.ParameterRangesOutputTypeDef]
+
+
 # HyperParameterTuningJobConfigTypeDef
 
 ### ParameterRanges
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.ParameterRangesTypeDef]
+
+
+# HyperParameterTuningJobConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# InputDataConfigOutputTypeDef
+
+### DatasetGroupArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SupplementaryFeatures
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.forecast_classes.SupplementaryFeatureTypeDef]]
 
 
 # InputDataConfigTypeDef
@@ -1940,6 +2052,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### SupplementaryFeatures
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.forecast_classes.SupplementaryFeatureTypeDef]]
 
+
+# InputDataConfigUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # IntegerParameterRangeTypeDef
 
@@ -1959,13 +2077,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Auto', 'Linear', 'Logarithmic', 'ReverseLogarithmic']]
 
 
-# ListDatasetGroupsRequestListDatasetGroupsPaginateTypeDef
+# ListDatasetGroupsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.PaginatorConfigTypeDef]
 
 
-# ListDatasetGroupsRequestRequestTypeDef
+# ListDatasetGroupsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1980,16 +2098,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.forecast_classes.DatasetGroupSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListDatasetImportJobsRequestListDatasetImportJobsPaginateTypeDef
+
+# ListDatasetImportJobsRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.forecast_classes.FilterTypeDef]]
@@ -1998,7 +2115,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.PaginatorConfigTypeDef]
 
 
-# ListDatasetImportJobsRequestRequestTypeDef
+# ListDatasetImportJobsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2016,22 +2133,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.forecast_classes.DatasetImportJobSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListDatasetsRequestListDatasetsPaginateTypeDef
+
+# ListDatasetsRequestPaginateTypeDef
 
 ### PaginationConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.PaginatorConfigTypeDef]
 
 
-# ListDatasetsRequestRequestTypeDef
+# ListDatasetsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2046,16 +2162,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.forecast_classes.DatasetSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListExplainabilitiesRequestListExplainabilitiesPaginateTypeDef
+
+# ListExplainabilitiesRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.forecast_classes.FilterTypeDef]]
@@ -2064,7 +2179,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.PaginatorConfigTypeDef]
 
 
-# ListExplainabilitiesRequestRequestTypeDef
+# ListExplainabilitiesRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2082,16 +2197,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.forecast_classes.ExplainabilitySummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListExplainabilityExportsRequestListExplainabilityExportsPaginateTypeDef
+
+# ListExplainabilityExportsRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.forecast_classes.FilterTypeDef]]
@@ -2100,7 +2214,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.PaginatorConfigTypeDef]
 
 
-# ListExplainabilityExportsRequestRequestTypeDef
+# ListExplainabilityExportsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2118,16 +2232,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.forecast_classes.ExplainabilityExportSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListForecastExportJobsRequestListForecastExportJobsPaginateTypeDef
+
+# ListForecastExportJobsRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.forecast_classes.FilterTypeDef]]
@@ -2136,7 +2249,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.PaginatorConfigTypeDef]
 
 
-# ListForecastExportJobsRequestRequestTypeDef
+# ListForecastExportJobsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2154,16 +2267,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.forecast_classes.ForecastExportJobSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListForecastsRequestListForecastsPaginateTypeDef
+
+# ListForecastsRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.forecast_classes.FilterTypeDef]]
@@ -2172,7 +2284,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.PaginatorConfigTypeDef]
 
 
-# ListForecastsRequestRequestTypeDef
+# ListForecastsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2190,16 +2302,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.forecast_classes.ForecastSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListMonitorEvaluationsRequestListMonitorEvaluationsPaginateTypeDef
+
+# ListMonitorEvaluationsRequestPaginateTypeDef
 
 ### MonitorArn
 - **Type**: <class 'str'>
@@ -2212,7 +2323,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.PaginatorConfigTypeDef]
 
 
-# ListMonitorEvaluationsRequestRequestTypeDef
+# ListMonitorEvaluationsRequestTypeDef
 
 ### MonitorArn
 - **Type**: <class 'str'>
@@ -2230,10 +2341,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListMonitorEvaluationsResponseTypeDef
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### PredictorMonitorEvaluations
 - **Type**: typing.List[aws_resource_validator.pydantic_models.forecast_classes.PredictorMonitorEvaluationTypeDef]
 - **Required**: Yes
@@ -2242,8 +2349,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListMonitorsRequestListMonitorsPaginateTypeDef
+
+# ListMonitorsRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.forecast_classes.FilterTypeDef]]
@@ -2252,7 +2362,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.PaginatorConfigTypeDef]
 
 
-# ListMonitorsRequestRequestTypeDef
+# ListMonitorsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2270,16 +2380,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.forecast_classes.MonitorSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListPredictorBacktestExportJobsRequestListPredictorBacktestExportJobsPaginateTypeDef
+
+# ListPredictorBacktestExportJobsRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.forecast_classes.FilterTypeDef]]
@@ -2288,7 +2397,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.PaginatorConfigTypeDef]
 
 
-# ListPredictorBacktestExportJobsRequestRequestTypeDef
+# ListPredictorBacktestExportJobsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2306,16 +2415,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.forecast_classes.PredictorBacktestExportJobSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListPredictorsRequestListPredictorsPaginateTypeDef
+
+# ListPredictorsRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.forecast_classes.FilterTypeDef]]
@@ -2324,7 +2432,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.PaginatorConfigTypeDef]
 
 
-# ListPredictorsRequestRequestTypeDef
+# ListPredictorsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2342,16 +2450,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.forecast_classes.PredictorSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2369,7 +2476,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListWhatIfAnalysesRequestListWhatIfAnalysesPaginateTypeDef
+# ListWhatIfAnalysesRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.forecast_classes.FilterTypeDef]]
@@ -2378,7 +2485,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.PaginatorConfigTypeDef]
 
 
-# ListWhatIfAnalysesRequestRequestTypeDef
+# ListWhatIfAnalysesRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2396,16 +2503,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.forecast_classes.WhatIfAnalysisSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListWhatIfForecastExportsRequestListWhatIfForecastExportsPaginateTypeDef
+
+# ListWhatIfForecastExportsRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.forecast_classes.FilterTypeDef]]
@@ -2414,7 +2520,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.PaginatorConfigTypeDef]
 
 
-# ListWhatIfForecastExportsRequestRequestTypeDef
+# ListWhatIfForecastExportsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2432,16 +2538,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.forecast_classes.WhatIfForecastExportSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListWhatIfForecastsRequestListWhatIfForecastsPaginateTypeDef
+
+# ListWhatIfForecastsRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.forecast_classes.FilterTypeDef]]
@@ -2450,7 +2555,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.PaginatorConfigTypeDef]
 
 
-# ListWhatIfForecastsRequestRequestTypeDef
+# ListWhatIfForecastsRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2468,13 +2573,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.forecast_classes.WhatIfForecastSummaryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # MetricResultTypeDef
@@ -2560,6 +2664,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### StartingToken
 - **Type**: typing.Optional[str]
+
+
+# ParameterRangesOutputTypeDef
+
+### CategoricalParameterRanges
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.forecast_classes.CategoricalParameterRangeOutputTypeDef]]
+
+### ContinuousParameterRanges
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.forecast_classes.ContinuousParameterRangeTypeDef]]
+
+### IntegerParameterRanges
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.forecast_classes.IntegerParameterRangeTypeDef]]
 
 
 # ParameterRangesTypeDef
@@ -2709,10 +2825,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -2725,8 +2837,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
 
-# ResumeResourceRequestRequestTypeDef
+
+# ResumeResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2756,11 +2871,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['float', 'geolocation', 'integer', 'string', 'timestamp']]
 
 
+# SchemaOutputTypeDef
+
+### Attributes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.forecast_classes.SchemaAttributeTypeDef]]
+
+
 # SchemaTypeDef
 
 ### Attributes
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.forecast_classes.SchemaAttributeTypeDef]]
 
+
+# SchemaUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StatisticsTypeDef
 
@@ -2801,7 +2928,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# StopResourceRequestRequestTypeDef
+# StopResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2819,7 +2946,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2886,6 +3013,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# TimeSeriesIdentifiersOutputTypeDef
+
+### DataSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.DataSourceTypeDef]
+
+### Schema
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.SchemaOutputTypeDef]
+
+### Format
+- **Type**: typing.Optional[str]
+
+
 # TimeSeriesIdentifiersTypeDef
 
 ### DataSource
@@ -2895,6 +3034,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.SchemaTypeDef]
 
 ### Format
+- **Type**: typing.Optional[str]
+
+
+# TimeSeriesReplacementsDataSourceOutputTypeDef
+
+### S3Config
+- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.S3ConfigTypeDef'>
+- **Required**: Yes
+
+### Schema
+- **Type**: <class 'aws_resource_validator.pydantic_models.forecast_classes.SchemaOutputTypeDef'>
+- **Required**: Yes
+
+### Format
+- **Type**: typing.Optional[str]
+
+### TimestampFormat
 - **Type**: typing.Optional[str]
 
 
@@ -2915,10 +3071,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# TimeSeriesReplacementsDataSourceUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TimeSeriesSelectorOutputTypeDef
+
+### TimeSeriesIdentifiers
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.TimeSeriesIdentifiersOutputTypeDef]
+
+
 # TimeSeriesSelectorTypeDef
 
 ### TimeSeriesIdentifiers
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.TimeSeriesIdentifiersTypeDef]
+
+
+# TimeSeriesSelectorUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TimeSeriesTransformationOutputTypeDef
+
+### Action
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.forecast_classes.ActionTypeDef]
+
+### TimeSeriesConditions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.forecast_classes.TimeSeriesConditionTypeDef]]
 
 
 # TimeSeriesTransformationTypeDef
@@ -2930,7 +3113,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.forecast_classes.TimeSeriesConditionTypeDef]]
 
 
-# UntagResourceRequestRequestTypeDef
+# TimeSeriesTransformationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2941,7 +3130,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDatasetGroupRequestRequestTypeDef
+# UpdateDatasetGroupRequestTypeDef
 
 ### DatasetGroupArn
 - **Type**: <class 'str'>

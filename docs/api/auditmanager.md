@@ -79,6 +79,12 @@
 - **Pattern**: `^[\w\W\s\S]*$`
 - **Max Length**: 100
 
+### ControlCatalogId
+- **Type**: string
+- **Pattern**: `^arn:.*:controlcatalog:.*|UNCATEGORIZED`
+- **Min Length**: 13
+- **Max Length**: 2048
+
 ### ControlCommentBody
 - **Type**: string
 - **Pattern**: `^[\w\W\s\S]*$`
@@ -88,6 +94,12 @@
 - **Type**: string
 - **Pattern**: `^[\w\W\s\S]*$`
 - **Max Length**: 1000
+
+### ControlDomainId
+- **Type**: string
+- **Pattern**: `^arn:.*:controlcatalog:.*:.*:domain/.*|UNCATEGORIZED|^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$`
+- **Min Length**: 13
+- **Max Length**: 2048
 
 ### ControlName
 - **Type**: string
@@ -194,7 +206,7 @@
 
 ### KeywordValue
 - **Type**: string
-- **Pattern**: `^[a-zA-Z_0-9-\s().]+$`
+- **Pattern**: `^[a-zA-Z_0-9-\s().:\/]+$`
 - **Min Length**: 1
 - **Max Length**: 100
 
@@ -240,7 +252,7 @@
 
 ### S3Url
 - **Type**: string
-- **Pattern**: `^(S|s)3:\/\/[a-zA-Z0-9\-\.\(\)\\'\*\_\!\/]+$`
+- **Pattern**: `^[sS]3://[a-zA-Z0-9\-.()\'\*_!/]+$`
 - **Min Length**: 1
 - **Max Length**: 1024
 

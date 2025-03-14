@@ -2,51 +2,15 @@
 
 # AccessorSummaryTypeDef
 
-### Id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[typing.Literal['BILLING_TOKEN']]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'DELETED', 'PENDING_DELETION']]
-
-### CreationDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### Arn
-- **Type**: typing.Optional[str]
-
-### NetworkType
-- **Type**: typing.Optional[typing.Literal['ETHEREUM_GOERLI', 'ETHEREUM_MAINNET', 'ETHEREUM_MAINNET_AND_GOERLI', 'POLYGON_MAINNET', 'POLYGON_MUMBAI']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AccessorTypeDef
 
-### Id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Type
-- **Type**: typing.Optional[typing.Literal['BILLING_TOKEN']]
-
-### BillingToken
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'DELETED', 'PENDING_DELETION']]
-
-### CreationDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### Arn
-- **Type**: typing.Optional[str]
-
-### Tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### NetworkType
-- **Type**: typing.Optional[typing.Literal['ETHEREUM_GOERLI', 'ETHEREUM_MAINNET', 'ETHEREUM_MAINNET_AND_GOERLI', 'POLYGON_MAINNET', 'POLYGON_MUMBAI']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ApprovalThresholdPolicyTypeDef
 
@@ -66,7 +30,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateAccessorInputRequestTypeDef
+# CreateAccessorInputTypeDef
 
 ### ClientRequestToken
 - **Type**: <class 'str'>
@@ -102,7 +66,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateMemberInputRequestTypeDef
+# CreateMemberInputTypeDef
 
 ### ClientRequestToken
 - **Type**: <class 'str'>
@@ -132,7 +96,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateNetworkInputRequestTypeDef
+# CreateNetworkInputTypeDef
 
 ### ClientRequestToken
 - **Type**: <class 'str'>
@@ -183,7 +147,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateNodeInputRequestTypeDef
+# CreateNodeInputTypeDef
 
 ### ClientRequestToken
 - **Type**: <class 'str'>
@@ -215,7 +179,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateProposalInputRequestTypeDef
+# CreateProposalInputTypeDef
 
 ### ClientRequestToken
 - **Type**: <class 'str'>
@@ -230,7 +194,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Actions
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.ProposalActionsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.ProposalActionsUnionTypeDef'>
 - **Required**: Yes
 
 ### Description
@@ -251,14 +215,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAccessorInputRequestTypeDef
+# DeleteAccessorInputTypeDef
 
 ### AccessorId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteMemberInputRequestTypeDef
+# DeleteMemberInputTypeDef
 
 ### NetworkId
 - **Type**: <class 'str'>
@@ -269,7 +233,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteNodeInputRequestTypeDef
+# DeleteNodeInputTypeDef
 
 ### NetworkId
 - **Type**: <class 'str'>
@@ -283,7 +247,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetAccessorInputRequestTypeDef
+# GetAccessorInputTypeDef
 
 ### AccessorId
 - **Type**: <class 'str'>
@@ -301,7 +265,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMemberInputRequestTypeDef
+# GetMemberInputTypeDef
 
 ### NetworkId
 - **Type**: <class 'str'>
@@ -323,7 +287,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetNetworkInputRequestTypeDef
+# GetNetworkInputTypeDef
 
 ### NetworkId
 - **Type**: <class 'str'>
@@ -341,7 +305,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetNodeInputRequestTypeDef
+# GetNodeInputTypeDef
 
 ### NetworkId
 - **Type**: <class 'str'>
@@ -366,7 +330,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetProposalInputRequestTypeDef
+# GetProposalInputTypeDef
 
 ### NetworkId
 - **Type**: <class 'str'>
@@ -416,7 +380,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListAccessorsInputListAccessorsPaginateTypeDef
+# ListAccessorsInputPaginateTypeDef
 
 ### NetworkType
 - **Type**: typing.Optional[typing.Literal['ETHEREUM_GOERLI', 'ETHEREUM_MAINNET', 'ETHEREUM_MAINNET_AND_GOERLI', 'POLYGON_MAINNET', 'POLYGON_MUMBAI']]
@@ -425,7 +389,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.PaginatorConfigTypeDef]
 
 
-# ListAccessorsInputRequestTypeDef
+# ListAccessorsInputTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -451,7 +415,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListInvitationsInputRequestTypeDef
+# ListInvitationsInputTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -474,7 +438,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListMembersInputRequestTypeDef
+# ListMembersInputTypeDef
 
 ### NetworkId
 - **Type**: <class 'str'>
@@ -510,7 +474,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListNetworksInputRequestTypeDef
+# ListNetworksInputTypeDef
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -542,7 +506,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListNodesInputRequestTypeDef
+# ListNodesInputTypeDef
 
 ### NetworkId
 - **Type**: <class 'str'>
@@ -575,7 +539,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListProposalVotesInputRequestTypeDef
+# ListProposalVotesInputTypeDef
 
 ### NetworkId
 - **Type**: <class 'str'>
@@ -606,7 +570,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListProposalsInputRequestTypeDef
+# ListProposalsInputTypeDef
 
 ### NetworkId
 - **Type**: <class 'str'>
@@ -633,7 +597,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestRequestTypeDef
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1044,6 +1008,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.managedblockchain_classes.RemoveActionTypeDef]]
 
 
+# ProposalActionsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ProposalSummaryTypeDef
 
 ### ProposalId
@@ -1116,7 +1086,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RejectInvitationInputRequestTypeDef
+# RejectInvitationInputTypeDef
 
 ### InvitationId
 - **Type**: <class 'str'>
@@ -1152,7 +1122,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1163,7 +1133,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1174,7 +1144,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateMemberInputRequestTypeDef
+# UpdateMemberInputTypeDef
 
 ### NetworkId
 - **Type**: <class 'str'>
@@ -1188,7 +1158,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.MemberLogPublishingConfigurationTypeDef]
 
 
-# UpdateNodeInputRequestTypeDef
+# UpdateNodeInputTypeDef
 
 ### NetworkId
 - **Type**: <class 'str'>
@@ -1205,7 +1175,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.NodeLogPublishingConfigurationTypeDef]
 
 
-# VoteOnProposalInputRequestTypeDef
+# VoteOnProposalInputTypeDef
 
 ### NetworkId
 - **Type**: <class 'str'>

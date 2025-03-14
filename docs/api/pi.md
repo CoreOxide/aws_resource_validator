@@ -42,6 +42,12 @@
 - **Min Length**: 0
 - **Max Length**: 256
 
+### SanitizedString
+- **Type**: string
+- **Pattern**: `^[a-zA-Z0-9-_\.:/*)( ]+$`
+- **Min Length**: 0
+- **Max Length**: 256
+
 ### String
 - **Type**: string
 - **Pattern**: `.*\S.*`

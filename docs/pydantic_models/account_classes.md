@@ -1,6 +1,6 @@
 # Account Classes
 
-# AcceptPrimaryEmailUpdateRequestRequestTypeDef
+# AcceptPrimaryEmailUpdateRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -95,7 +95,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteAlternateContactRequestRequestTypeDef
+# DeleteAlternateContactRequestTypeDef
 
 ### AlternateContactType
 - **Type**: typing.Literal['BILLING', 'OPERATIONS', 'SECURITY']
@@ -105,7 +105,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DisableRegionRequestRequestTypeDef
+# DisableRegionRequestTypeDef
 
 ### RegionName
 - **Type**: <class 'str'>
@@ -122,7 +122,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EnableRegionRequestRequestTypeDef
+# EnableRegionRequestTypeDef
 
 ### RegionName
 - **Type**: <class 'str'>
@@ -132,7 +132,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetAlternateContactRequestRequestTypeDef
+# GetAlternateContactRequestTypeDef
 
 ### AlternateContactType
 - **Type**: typing.Literal['BILLING', 'OPERATIONS', 'SECURITY']
@@ -153,7 +153,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetContactInformationRequestRequestTypeDef
+# GetContactInformationRequestTypeDef
 
 ### AccountId
 - **Type**: typing.Optional[str]
@@ -170,7 +170,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPrimaryEmailRequestRequestTypeDef
+# GetPrimaryEmailRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -188,7 +188,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRegionOptStatusRequestRequestTypeDef
+# GetRegionOptStatusRequestTypeDef
 
 ### RegionName
 - **Type**: <class 'str'>
@@ -213,7 +213,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListRegionsRequestListRegionsPaginateTypeDef
+# ListRegionsRequestPaginateTypeDef
 
 ### AccountId
 - **Type**: typing.Optional[str]
@@ -225,7 +225,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.account_classes.PaginatorConfigTypeDef]
 
 
-# ListRegionsRequestRequestTypeDef
+# ListRegionsRequestTypeDef
 
 ### AccountId
 - **Type**: typing.Optional[str]
@@ -266,7 +266,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutAlternateContactRequestRequestTypeDef
+# PutAlternateContactRequestTypeDef
 
 ### AlternateContactType
 - **Type**: typing.Literal['BILLING', 'OPERATIONS', 'SECURITY']
@@ -292,7 +292,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutContactInformationRequestRequestTypeDef
+# PutContactInformationRequestTypeDef
 
 ### ContactInformation
 - **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ContactInformationTypeDef'>
@@ -333,7 +333,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartPrimaryEmailUpdateRequestRequestTypeDef
+# StartPrimaryEmailUpdateRequestTypeDef
 
 ### AccountId
 - **Type**: <class 'str'>

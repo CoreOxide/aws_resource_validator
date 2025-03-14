@@ -11,50 +11,11 @@
 
 # AppTypeDef
 
-### AppId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### StackId
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Shortname
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### DataSources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opsworks_classes.DataSourceTypeDef]]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['aws-flow-ruby', 'java', 'nodejs', 'other', 'php', 'rails', 'static']]
-
-### AppSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.SourceTypeDef]
-
-### Domains
-- **Type**: typing.Optional[typing.List[str]]
-
-### EnableSsl
-- **Type**: typing.Optional[bool]
-
-### SslConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.SslConfigurationTypeDef]
-
-### Attributes
-- **Type**: typing.Optional[typing.Dict[typing.Literal['AutoBundleOnDeploy', 'AwsFlowRubySettings', 'DocumentRoot', 'RailsEnv'], str]]
-
-### CreatedAt
-- **Type**: typing.Optional[str]
-
-### Environment
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opsworks_classes.EnvironmentVariableTypeDef]]
-
-
-# AssignInstanceRequestRequestTypeDef
+# AssignInstanceRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -65,7 +26,7 @@
 - **Required**: Yes
 
 
-# AssignVolumeRequestRequestTypeDef
+# AssignVolumeRequestTypeDef
 
 ### VolumeId
 - **Type**: <class 'str'>
@@ -75,7 +36,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AssociateElasticIpRequestRequestTypeDef
+# AssociateElasticIpRequestTypeDef
 
 ### ElasticIp
 - **Type**: <class 'str'>
@@ -85,7 +46,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AttachElasticLoadBalancerRequestRequestTypeDef
+# AttachElasticLoadBalancerRequestTypeDef
 
 ### ElasticLoadBalancerName
 - **Type**: <class 'str'>
@@ -144,6 +105,12 @@
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
+# AutoScalingThresholdsUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # BaseValidatorModel
 
 Oops! This Pydantic model is currently empty. Stay tuned!
@@ -165,21 +132,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.EbsBlockDeviceTypeDef]
 
 
-# ChefConfigurationResponseTypeDef
-
-### ManageBerkshelf
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### BerkshelfVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworks_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
 # ChefConfigurationTypeDef
 
 ### ManageBerkshelf
@@ -189,7 +141,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CloneStackRequestRequestTypeDef
+# CloneStackRequestTypeDef
 
 ### SourceStackId
 - **Type**: <class 'str'>
@@ -280,21 +232,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opsworks_classes.CloudWatchLogsLogStreamTypeDef]]
 
 
-# CloudWatchLogsConfigurationResponseTypeDef
-
-### Enabled
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### LogStreams
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opsworks_classes.CloudWatchLogsLogStreamTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworks_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
 # CloudWatchLogsConfigurationTypeDef
 
 ### Enabled
@@ -303,6 +240,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### LogStreams
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opsworks_classes.CloudWatchLogsLogStreamTypeDef]]
 
+
+# CloudWatchLogsConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CloudWatchLogsLogStreamTypeDef
 
@@ -342,78 +285,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # CommandTypeDef
 
-### CommandId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### InstanceId
-- **Type**: typing.Optional[str]
-
-### DeploymentId
-- **Type**: typing.Optional[str]
-
-### CreatedAt
-- **Type**: typing.Optional[str]
-
-### AcknowledgedAt
-- **Type**: typing.Optional[str]
-
-### CompletedAt
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[str]
-
-### ExitCode
-- **Type**: typing.Optional[int]
-
-### LogUrl
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[str]
-
-
-# CreateAppRequestRequestTypeDef
-
-### StackId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['aws-flow-ruby', 'java', 'nodejs', 'other', 'php', 'rails', 'static']
-- **Required**: Yes
-
-### Shortname
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### DataSources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opsworks_classes.DataSourceTypeDef]]
-
-### AppSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.SourceTypeDef]
-
-### Domains
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### EnableSsl
-- **Type**: typing.Optional[bool]
-
-### SslConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.SslConfigurationTypeDef]
-
-### Attributes
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['AutoBundleOnDeploy', 'AwsFlowRubySettings', 'DocumentRoot', 'RailsEnv'], str]]
-
-### Environment
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opsworks_classes.EnvironmentVariableTypeDef]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CreateAppResultTypeDef
 
@@ -426,14 +300,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateDeploymentRequestRequestTypeDef
+# CreateDeploymentRequestTypeDef
 
 ### StackId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Command
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworks_classes.DeploymentCommandTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opsworks_classes.DeploymentCommandUnionTypeDef'>
 - **Required**: Yes
 
 ### AppId
@@ -463,7 +337,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateInstanceRequestRequestTypeDef
+# CreateInstanceRequestTypeDef
 
 ### StackId
 - **Type**: <class 'str'>
@@ -534,124 +408,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLayerRequestRequestTypeDef
-
-### StackId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Literal['aws-flow-ruby', 'custom', 'db-master', 'ecs-cluster', 'java-app', 'lb', 'memcached', 'monitoring-master', 'nodejs-app', 'php-app', 'rails-app', 'web']
-- **Required**: Yes
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Shortname
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Attributes
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['BundlerVersion', 'EcsClusterArn', 'EnableHaproxyStats', 'GangliaPassword', 'GangliaUrl', 'GangliaUser', 'HaproxyHealthCheckMethod', 'HaproxyHealthCheckUrl', 'HaproxyStatsPassword', 'HaproxyStatsUrl', 'HaproxyStatsUser', 'JavaAppServer', 'JavaAppServerVersion', 'Jvm', 'JvmOptions', 'JvmVersion', 'ManageBundler', 'MemcachedMemory', 'MysqlRootPassword', 'MysqlRootPasswordUbiquitous', 'NodejsVersion', 'PassengerVersion', 'RailsStack', 'RubyVersion', 'RubygemsVersion'], str]]
-
-### CloudWatchLogsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.CloudWatchLogsConfigurationTypeDef]
-
-### CustomInstanceProfileArn
-- **Type**: typing.Optional[str]
-
-### CustomJson
-- **Type**: typing.Optional[str]
-
-### CustomSecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### Packages
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### VolumeConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opsworks_classes.VolumeConfigurationTypeDef]]
-
-### EnableAutoHealing
-- **Type**: typing.Optional[bool]
-
-### AutoAssignElasticIps
-- **Type**: typing.Optional[bool]
-
-### AutoAssignPublicIps
-- **Type**: typing.Optional[bool]
-
-### CustomRecipes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.RecipesTypeDef]
-
-### InstallUpdatesOnBoot
-- **Type**: typing.Optional[bool]
-
-### UseEbsOptimizedInstances
-- **Type**: typing.Optional[bool]
-
-### LifecycleEventConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.LifecycleEventConfigurationTypeDef]
-
-
-# CreateLayerRequestStackCreateLayerTypeDef
-
-### Type
-- **Type**: typing.Literal['aws-flow-ruby', 'custom', 'db-master', 'ecs-cluster', 'java-app', 'lb', 'memcached', 'monitoring-master', 'nodejs-app', 'php-app', 'rails-app', 'web']
-- **Required**: Yes
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Shortname
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Attributes
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['BundlerVersion', 'EcsClusterArn', 'EnableHaproxyStats', 'GangliaPassword', 'GangliaUrl', 'GangliaUser', 'HaproxyHealthCheckMethod', 'HaproxyHealthCheckUrl', 'HaproxyStatsPassword', 'HaproxyStatsUrl', 'HaproxyStatsUser', 'JavaAppServer', 'JavaAppServerVersion', 'Jvm', 'JvmOptions', 'JvmVersion', 'ManageBundler', 'MemcachedMemory', 'MysqlRootPassword', 'MysqlRootPasswordUbiquitous', 'NodejsVersion', 'PassengerVersion', 'RailsStack', 'RubyVersion', 'RubygemsVersion'], str]]
-
-### CloudWatchLogsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.CloudWatchLogsConfigurationTypeDef]
-
-### CustomInstanceProfileArn
-- **Type**: typing.Optional[str]
-
-### CustomJson
-- **Type**: typing.Optional[str]
-
-### CustomSecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### Packages
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### VolumeConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opsworks_classes.VolumeConfigurationTypeDef]]
-
-### EnableAutoHealing
-- **Type**: typing.Optional[bool]
-
-### AutoAssignElasticIps
-- **Type**: typing.Optional[bool]
-
-### AutoAssignPublicIps
-- **Type**: typing.Optional[bool]
-
-### CustomRecipes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.RecipesTypeDef]
-
-### InstallUpdatesOnBoot
-- **Type**: typing.Optional[bool]
-
-### UseEbsOptimizedInstances
-- **Type**: typing.Optional[bool]
-
-### LifecycleEventConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.LifecycleEventConfigurationTypeDef]
-
-
 # CreateLayerResultTypeDef
 
 ### LayerId
@@ -663,7 +419,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateStackRequestRequestTypeDef
+# CreateStackRequestServiceResourceCreateStackTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -727,7 +483,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateStackRequestServiceResourceCreateStackTypeDef
+# CreateStackRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -802,7 +558,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateUserProfileRequestRequestTypeDef
+# CreateUserProfileRequestTypeDef
 
 ### IamUserArn
 - **Type**: <class 'str'>
@@ -829,26 +585,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DataSourceTypeDef
-
-### Type
-- **Type**: typing.Optional[str]
-
-### Arn
-- **Type**: typing.Optional[str]
-
-### DatabaseName
-- **Type**: typing.Optional[str]
-
-
-# DeleteAppRequestRequestTypeDef
+# DeleteAppRequestTypeDef
 
 ### AppId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteInstanceRequestRequestTypeDef
+# DeleteInstanceRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -861,21 +605,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteLayerRequestRequestTypeDef
+# DeleteLayerRequestTypeDef
 
 ### LayerId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteStackRequestRequestTypeDef
+# DeleteStackRequestTypeDef
 
 ### StackId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteUserProfileRequestRequestTypeDef
+# DeleteUserProfileRequestTypeDef
 
 ### IamUserArn
 - **Type**: <class 'str'>
@@ -901,6 +645,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Args
 - **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
 
+
+# DeploymentCommandUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DeploymentTypeDef
 
@@ -941,42 +691,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# DeregisterEcsClusterRequestRequestTypeDef
+# DeregisterEcsClusterRequestTypeDef
 
 ### EcsClusterArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeregisterElasticIpRequestRequestTypeDef
+# DeregisterElasticIpRequestTypeDef
 
 ### ElasticIp
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeregisterInstanceRequestRequestTypeDef
+# DeregisterInstanceRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeregisterRdsDbInstanceRequestRequestTypeDef
+# DeregisterRdsDbInstanceRequestTypeDef
 
 ### RdsDbInstanceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeregisterVolumeRequestRequestTypeDef
+# DeregisterVolumeRequestTypeDef
 
 ### VolumeId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeAgentVersionsRequestRequestTypeDef
+# DescribeAgentVersionsRequestTypeDef
 
 ### StackId
 - **Type**: typing.Optional[str]
@@ -996,7 +746,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAppsRequestAppExistsWaitTypeDef
+# DescribeAppsRequestTypeDef
+
+### StackId
+- **Type**: typing.Optional[str]
+
+### AppIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# DescribeAppsRequestWaitTypeDef
 
 ### StackId
 - **Type**: typing.Optional[str]
@@ -1006,15 +765,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### WaiterConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.WaiterConfigTypeDef]
-
-
-# DescribeAppsRequestRequestTypeDef
-
-### StackId
-- **Type**: typing.Optional[str]
-
-### AppIds
-- **Type**: typing.Optional[typing.Sequence[str]]
 
 
 # DescribeAppsResultTypeDef
@@ -1028,7 +778,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeCommandsRequestRequestTypeDef
+# DescribeCommandsRequestTypeDef
 
 ### DeploymentId
 - **Type**: typing.Optional[str]
@@ -1051,7 +801,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDeploymentsRequestDeploymentSuccessfulWaitTypeDef
+# DescribeDeploymentsRequestTypeDef
+
+### StackId
+- **Type**: typing.Optional[str]
+
+### AppId
+- **Type**: typing.Optional[str]
+
+### DeploymentIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# DescribeDeploymentsRequestWaitTypeDef
 
 ### StackId
 - **Type**: typing.Optional[str]
@@ -1066,18 +828,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.WaiterConfigTypeDef]
 
 
-# DescribeDeploymentsRequestRequestTypeDef
-
-### StackId
-- **Type**: typing.Optional[str]
-
-### AppId
-- **Type**: typing.Optional[str]
-
-### DeploymentIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
 # DescribeDeploymentsResultTypeDef
 
 ### Deployments
@@ -1089,7 +839,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEcsClustersRequestDescribeEcsClustersPaginateTypeDef
+# DescribeEcsClustersRequestPaginateTypeDef
 
 ### EcsClusterArns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1101,7 +851,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.PaginatorConfigTypeDef]
 
 
-# DescribeEcsClustersRequestRequestTypeDef
+# DescribeEcsClustersRequestTypeDef
 
 ### EcsClusterArns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1130,7 +880,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeElasticIpsRequestRequestTypeDef
+# DescribeElasticIpsRequestTypeDef
 
 ### InstanceId
 - **Type**: typing.Optional[str]
@@ -1153,7 +903,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeElasticLoadBalancersRequestRequestTypeDef
+# DescribeElasticLoadBalancersRequestTypeDef
 
 ### StackId
 - **Type**: typing.Optional[str]
@@ -1173,7 +923,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeInstancesRequestInstanceOnlineWaitTypeDef
+# DescribeInstancesRequestTypeDef
+
+### StackId
+- **Type**: typing.Optional[str]
+
+### LayerId
+- **Type**: typing.Optional[str]
+
+### InstanceIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# DescribeInstancesRequestWaitExtraExtraExtraTypeDef
 
 ### StackId
 - **Type**: typing.Optional[str]
@@ -1188,7 +950,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.WaiterConfigTypeDef]
 
 
-# DescribeInstancesRequestInstanceRegisteredWaitTypeDef
+# DescribeInstancesRequestWaitExtraExtraTypeDef
 
 ### StackId
 - **Type**: typing.Optional[str]
@@ -1203,7 +965,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.WaiterConfigTypeDef]
 
 
-# DescribeInstancesRequestInstanceStoppedWaitTypeDef
+# DescribeInstancesRequestWaitExtraTypeDef
 
 ### StackId
 - **Type**: typing.Optional[str]
@@ -1218,7 +980,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.WaiterConfigTypeDef]
 
 
-# DescribeInstancesRequestInstanceTerminatedWaitTypeDef
+# DescribeInstancesRequestWaitTypeDef
 
 ### StackId
 - **Type**: typing.Optional[str]
@@ -1231,18 +993,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### WaiterConfig
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.WaiterConfigTypeDef]
-
-
-# DescribeInstancesRequestRequestTypeDef
-
-### StackId
-- **Type**: typing.Optional[str]
-
-### LayerId
-- **Type**: typing.Optional[str]
-
-### InstanceIds
-- **Type**: typing.Optional[typing.Sequence[str]]
 
 
 # DescribeInstancesResultTypeDef
@@ -1256,7 +1006,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeLayersRequestRequestTypeDef
+# DescribeLayersRequestTypeDef
 
 ### StackId
 - **Type**: typing.Optional[str]
@@ -1276,7 +1026,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeLoadBasedAutoScalingRequestRequestTypeDef
+# DescribeLoadBasedAutoScalingRequestTypeDef
 
 ### LayerIds
 - **Type**: typing.Sequence[str]
@@ -1316,7 +1066,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribePermissionsRequestRequestTypeDef
+# DescribePermissionsRequestTypeDef
 
 ### IamUserArn
 - **Type**: typing.Optional[str]
@@ -1336,7 +1086,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeRaidArraysRequestRequestTypeDef
+# DescribeRaidArraysRequestTypeDef
 
 ### InstanceId
 - **Type**: typing.Optional[str]
@@ -1359,7 +1109,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeRdsDbInstancesRequestRequestTypeDef
+# DescribeRdsDbInstancesRequestTypeDef
 
 ### StackId
 - **Type**: <class 'str'>
@@ -1380,7 +1130,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeServiceErrorsRequestRequestTypeDef
+# DescribeServiceErrorsRequestTypeDef
 
 ### StackId
 - **Type**: typing.Optional[str]
@@ -1403,7 +1153,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeStackProvisioningParametersRequestRequestTypeDef
+# DescribeStackProvisioningParametersRequestTypeDef
 
 ### StackId
 - **Type**: <class 'str'>
@@ -1425,7 +1175,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeStackSummaryRequestRequestTypeDef
+# DescribeStackSummaryRequestTypeDef
 
 ### StackId
 - **Type**: <class 'str'>
@@ -1443,7 +1193,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeStacksRequestRequestTypeDef
+# DescribeStacksRequestTypeDef
 
 ### StackIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1460,7 +1210,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeTimeBasedAutoScalingRequestRequestTypeDef
+# DescribeTimeBasedAutoScalingRequestTypeDef
 
 ### InstanceIds
 - **Type**: typing.Sequence[str]
@@ -1478,7 +1228,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeUserProfilesRequestRequestTypeDef
+# DescribeUserProfilesRequestTypeDef
 
 ### IamUserArns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1495,7 +1245,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeVolumesRequestRequestTypeDef
+# DescribeVolumesRequestTypeDef
 
 ### InstanceId
 - **Type**: typing.Optional[str]
@@ -1521,7 +1271,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DetachElasticLoadBalancerRequestRequestTypeDef
+# DetachElasticLoadBalancerRequestTypeDef
 
 ### ElasticLoadBalancerName
 - **Type**: <class 'str'>
@@ -1532,7 +1282,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateElasticIpRequestRequestTypeDef
+# DisassociateElasticIpRequestTypeDef
 
 ### ElasticIp
 - **Type**: <class 'str'>
@@ -1641,7 +1391,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# GetHostnameSuggestionRequestRequestTypeDef
+# GetHostnameSuggestionRequestTypeDef
 
 ### LayerId
 - **Type**: <class 'str'>
@@ -1663,7 +1413,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GrantAccessRequestRequestTypeDef
+# GrantAccessRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -1819,93 +1569,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['hvm', 'paravirtual']]
 
 
-# InstancesCountResponseTypeDef
-
-### Assigning
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Booting
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### ConnectionLost
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Deregistering
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Online
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Pending
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Rebooting
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Registered
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Registering
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Requested
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### RunningSetup
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### SetupFailed
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### ShuttingDown
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### StartFailed
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### StopFailed
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Stopped
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Stopping
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Terminated
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Terminating
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Unassigning
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworks_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
 # InstancesCountTypeDef
 
 ### Assigning
@@ -1971,86 +1634,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # LayerTypeDef
 
-### Arn
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### StackId
-- **Type**: typing.Optional[str]
-
-### LayerId
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['aws-flow-ruby', 'custom', 'db-master', 'ecs-cluster', 'java-app', 'lb', 'memcached', 'monitoring-master', 'nodejs-app', 'php-app', 'rails-app', 'web']]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Shortname
-- **Type**: typing.Optional[str]
-
-### Attributes
-- **Type**: typing.Optional[typing.Dict[typing.Literal['BundlerVersion', 'EcsClusterArn', 'EnableHaproxyStats', 'GangliaPassword', 'GangliaUrl', 'GangliaUser', 'HaproxyHealthCheckMethod', 'HaproxyHealthCheckUrl', 'HaproxyStatsPassword', 'HaproxyStatsUrl', 'HaproxyStatsUser', 'JavaAppServer', 'JavaAppServerVersion', 'Jvm', 'JvmOptions', 'JvmVersion', 'ManageBundler', 'MemcachedMemory', 'MysqlRootPassword', 'MysqlRootPasswordUbiquitous', 'NodejsVersion', 'PassengerVersion', 'RailsStack', 'RubyVersion', 'RubygemsVersion'], str]]
-
-### CloudWatchLogsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.CloudWatchLogsConfigurationOutputTypeDef]
-
-### CustomInstanceProfileArn
-- **Type**: typing.Optional[str]
-
-### CustomJson
-- **Type**: typing.Optional[str]
-
-### CustomSecurityGroupIds
-- **Type**: typing.Optional[typing.List[str]]
-
-### DefaultSecurityGroupNames
-- **Type**: typing.Optional[typing.List[str]]
-
-### Packages
-- **Type**: typing.Optional[typing.List[str]]
-
-### VolumeConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opsworks_classes.VolumeConfigurationTypeDef]]
-
-### EnableAutoHealing
-- **Type**: typing.Optional[bool]
-
-### AutoAssignElasticIps
-- **Type**: typing.Optional[bool]
-
-### AutoAssignPublicIps
-- **Type**: typing.Optional[bool]
-
-### DefaultRecipes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.RecipesOutputTypeDef]
-
-### CustomRecipes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.RecipesOutputTypeDef]
-
-### CreatedAt
-- **Type**: typing.Optional[str]
-
-### InstallUpdatesOnBoot
-- **Type**: typing.Optional[bool]
-
-### UseEbsOptimizedInstances
-- **Type**: typing.Optional[bool]
-
-### LifecycleEventConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.LifecycleEventConfigurationTypeDef]
-
-
-# LifecycleEventConfigurationResponseTypeDef
-
-### Shutdown
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworks_classes.ShutdownEventConfigurationTypeDef'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworks_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LifecycleEventConfigurationTypeDef
 
@@ -2058,7 +1644,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.ShutdownEventConfigurationTypeDef]
 
 
-# ListTagsRequestRequestTypeDef
+# ListTagsRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2111,27 +1697,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # OperatingSystemTypeDef
 
-### Name
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Id
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[str]
-
-### ConfigurationManagers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opsworks_classes.OperatingSystemConfigurationManagerTypeDef]]
-
-### ReportedName
-- **Type**: typing.Optional[str]
-
-### ReportedVersion
-- **Type**: typing.Optional[str]
-
-### Supported
-- **Type**: typing.Optional[bool]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PaginatorConfigTypeDef
 
@@ -2235,7 +1803,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# RebootInstanceRequestRequestTypeDef
+# RebootInstanceRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2260,33 +1828,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# RecipesResponseTypeDef
-
-### Setup
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### Configure
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### Deploy
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### Undeploy
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### Shutdown
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworks_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
 # RecipesTypeDef
 
 ### Setup
@@ -2305,7 +1846,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# RegisterEcsClusterRequestRequestTypeDef
+# RecipesUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# RegisterEcsClusterRequestTypeDef
 
 ### EcsClusterArn
 - **Type**: <class 'str'>
@@ -2327,7 +1874,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RegisterElasticIpRequestRequestTypeDef
+# RegisterElasticIpRequestTypeDef
 
 ### ElasticIp
 - **Type**: <class 'str'>
@@ -2349,7 +1896,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RegisterInstanceRequestRequestTypeDef
+# RegisterInstanceRequestTypeDef
 
 ### StackId
 - **Type**: <class 'str'>
@@ -2385,7 +1932,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RegisterRdsDbInstanceRequestRequestTypeDef
+# RegisterRdsDbInstanceRequestTypeDef
 
 ### StackId
 - **Type**: <class 'str'>
@@ -2404,7 +1951,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RegisterVolumeRequestRequestTypeDef
+# RegisterVolumeRequestTypeDef
 
 ### StackId
 - **Type**: <class 'str'>
@@ -2476,26 +2023,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ServiceErrorTypeDef
 
-### ServiceErrorId
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### StackId
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### InstanceId
-- **Type**: typing.Optional[str]
-
-### Type
-- **Type**: typing.Optional[str]
-
-### Message
-- **Type**: typing.Optional[str]
-
-### CreatedAt
-- **Type**: typing.Optional[str]
-
-
-# SetLoadBasedAutoScalingRequestRequestTypeDef
+# SetLoadBasedAutoScalingRequestTypeDef
 
 ### LayerId
 - **Type**: <class 'str'>
@@ -2505,13 +2037,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### UpScaling
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.AutoScalingThresholdsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.AutoScalingThresholdsUnionTypeDef]
 
 ### DownScaling
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.AutoScalingThresholdsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.AutoScalingThresholdsUnionTypeDef]
 
 
-# SetPermissionRequestRequestTypeDef
+# SetPermissionRequestTypeDef
 
 ### StackId
 - **Type**: <class 'str'>
@@ -2531,14 +2063,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SetTimeBasedAutoScalingRequestRequestTypeDef
+# SetTimeBasedAutoScalingRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### AutoScalingSchedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.WeeklyAutoScalingScheduleTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.WeeklyAutoScalingScheduleUnionTypeDef]
 
 
 # ShutdownEventConfigurationTypeDef
@@ -2550,57 +2082,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# SourceResponseTypeDef
-
-### Type
-- **Type**: typing.Literal['archive', 'git', 's3', 'svn']
-- **Required**: Yes
-
-### Url
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Username
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Password
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SshKey
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Revision
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworks_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
 # SourceTypeDef
 
-### Type
-- **Type**: typing.Optional[typing.Literal['archive', 'git', 's3', 'svn']]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Url
-- **Type**: typing.Optional[str]
-
-### Username
-- **Type**: typing.Optional[str]
-
-### Password
-- **Type**: typing.Optional[str]
-
-### SshKey
-- **Type**: typing.Optional[str]
-
-### Revision
-- **Type**: typing.Optional[str]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SslConfigurationTypeDef
 
@@ -2614,21 +2100,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Chain
 - **Type**: typing.Optional[str]
-
-
-# StackConfigurationManagerResponseTypeDef
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Version
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworks_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
 
 
 # StackConfigurationManagerTypeDef
@@ -2730,21 +2201,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartInstanceRequestRequestTypeDef
+# StartInstanceRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StartStackRequestRequestTypeDef
+# StartStackRequestTypeDef
 
 ### StackId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopInstanceRequestRequestTypeDef
+# StopInstanceRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2754,14 +2225,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# StopStackRequestRequestTypeDef
+# StopStackRequestTypeDef
 
 ### StackId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2796,21 +2267,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.WeeklyAutoScalingScheduleOutputTypeDef]
 
 
-# UnassignInstanceRequestRequestTypeDef
+# UnassignInstanceRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# UnassignVolumeRequestRequestTypeDef
+# UnassignVolumeRequestTypeDef
 
 ### VolumeId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2821,44 +2292,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAppRequestRequestTypeDef
-
-### AppId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### DataSources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opsworks_classes.DataSourceTypeDef]]
-
-### Type
-- **Type**: typing.Optional[typing.Literal['aws-flow-ruby', 'java', 'nodejs', 'other', 'php', 'rails', 'static']]
-
-### AppSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.SourceTypeDef]
-
-### Domains
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### EnableSsl
-- **Type**: typing.Optional[bool]
-
-### SslConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.SslConfigurationTypeDef]
-
-### Attributes
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['AutoBundleOnDeploy', 'AwsFlowRubySettings', 'DocumentRoot', 'RailsEnv'], str]]
-
-### Environment
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opsworks_classes.EnvironmentVariableTypeDef]]
-
-
-# UpdateElasticIpRequestRequestTypeDef
+# UpdateElasticIpRequestTypeDef
 
 ### ElasticIp
 - **Type**: <class 'str'>
@@ -2868,7 +2302,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateInstanceRequestRequestTypeDef
+# UpdateInstanceRequestTypeDef
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -2908,7 +2342,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateLayerRequestRequestTypeDef
+# UpdateLayerRequestTypeDef
 
 ### LayerId
 - **Type**: <class 'str'>
@@ -2924,7 +2358,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[typing.Literal['BundlerVersion', 'EcsClusterArn', 'EnableHaproxyStats', 'GangliaPassword', 'GangliaUrl', 'GangliaUser', 'HaproxyHealthCheckMethod', 'HaproxyHealthCheckUrl', 'HaproxyStatsPassword', 'HaproxyStatsUrl', 'HaproxyStatsUser', 'JavaAppServer', 'JavaAppServerVersion', 'Jvm', 'JvmOptions', 'JvmVersion', 'ManageBundler', 'MemcachedMemory', 'MysqlRootPassword', 'MysqlRootPasswordUbiquitous', 'NodejsVersion', 'PassengerVersion', 'RailsStack', 'RubyVersion', 'RubygemsVersion'], str]]
 
 ### CloudWatchLogsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.CloudWatchLogsConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.CloudWatchLogsConfigurationUnionTypeDef]
 
 ### CustomInstanceProfileArn
 - **Type**: typing.Optional[str]
@@ -2951,7 +2385,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### CustomRecipes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.RecipesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.RecipesUnionTypeDef]
 
 ### InstallUpdatesOnBoot
 - **Type**: typing.Optional[bool]
@@ -2963,13 +2397,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworks_classes.LifecycleEventConfigurationTypeDef]
 
 
-# UpdateMyUserProfileRequestRequestTypeDef
+# UpdateMyUserProfileRequestTypeDef
 
 ### SshPublicKey
 - **Type**: typing.Optional[str]
 
 
-# UpdateRdsDbInstanceRequestRequestTypeDef
+# UpdateRdsDbInstanceRequestTypeDef
 
 ### RdsDbInstanceArn
 - **Type**: <class 'str'>
@@ -2982,7 +2416,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateStackRequestRequestTypeDef
+# UpdateStackRequestTypeDef
 
 ### StackId
 - **Type**: <class 'str'>
@@ -3040,7 +2474,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateUserProfileRequestRequestTypeDef
+# UpdateUserProfileRequestTypeDef
 
 ### IamUserArn
 - **Type**: <class 'str'>
@@ -3056,7 +2490,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpdateVolumeRequestRequestTypeDef
+# UpdateVolumeRequestTypeDef
 
 ### VolumeId
 - **Type**: <class 'str'>
@@ -3215,4 +2649,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Sunday
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
+
+# WeeklyAutoScalingScheduleUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

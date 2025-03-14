@@ -2,15 +2,27 @@
 
 ### Arn
 - **Type**: string
-- **Pattern**: `arn:aws[a-z\-]*:timestream\-influxdb:[a-z0-9\-]+:[0-9]{12}:(db\-instance|db\-parameter\-group)/[a-zA-Z0-9]{3,64}`
+- **Pattern**: `arn:aws[a-z\-]*:timestream\-influxdb:[a-z0-9\-]+:[0-9]{12}:(db\-instance|db\-cluster|db\-parameter\-group)/[a-zA-Z0-9]{3,64}`
 - **Min Length**: 1
 - **Max Length**: 1011
 
 ### Bucket
 - **Type**: string
-- **Pattern**: `[^_][^"]*`
+- **Pattern**: `[^_"][^"]*`
 - **Min Length**: 2
 - **Max Length**: 64
+
+### DbClusterId
+- **Type**: string
+- **Pattern**: `[a-zA-Z0-9]+`
+- **Min Length**: 3
+- **Max Length**: 64
+
+### DbClusterName
+- **Type**: string
+- **Pattern**: `[a-zA-z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*`
+- **Min Length**: 3
+- **Max Length**: 40
 
 ### DbInstanceId
 - **Type**: string
@@ -26,7 +38,7 @@
 
 ### DbInstanceName
 - **Type**: string
-- **Pattern**: `[a-zA-z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*`
+- **Pattern**: `[a-zA-Z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*`
 - **Min Length**: 3
 - **Max Length**: 40
 
@@ -44,7 +56,7 @@
 
 ### DbParameterGroupName
 - **Type**: string
-- **Pattern**: `[a-zA-z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*`
+- **Pattern**: `[a-zA-Z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*`
 - **Min Length**: 3
 - **Max Length**: 64
 

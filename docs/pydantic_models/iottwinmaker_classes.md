@@ -28,14 +28,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchPutPropertyValuesRequestRequestTypeDef
+# BatchPutPropertyValuesRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### entries
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.iottwinmaker_classes.PropertyValueEntryTypeDef, aws_resource_validator.pydantic_models.iottwinmaker_classes.PropertyValueEntryOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iottwinmaker_classes.PropertyValueEntryUnionTypeDef]
 - **Required**: Yes
 
 
@@ -60,7 +60,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['TIER_1', 'TIER_2', 'TIER_3', 'TIER_4']]
 
 
-# CancelMetadataTransferJobRequestRequestTypeDef
+# CancelMetadataTransferJobRequestTypeDef
 
 ### metadataTransferJobId
 - **Type**: <class 'str'>
@@ -96,12 +96,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ColumnDescriptionTypeDef
 
-### name
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### type
-- **Type**: typing.Optional[typing.Literal['EDGE', 'NODE', 'VALUE']]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ComponentPropertyGroupRequestTypeDef
 
@@ -299,7 +296,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.iottwinmaker_classes.ComponentPropertyGroupRequestTypeDef]]
 
 
-# CreateComponentTypeRequestRequestTypeDef
+# CreateComponentTypeRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -356,7 +353,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateEntityRequestRequestTypeDef
+# CreateEntityRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -408,10 +405,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateMetadataTransferJobRequestRequestTypeDef
+# CreateMetadataTransferJobRequestTypeDef
 
 ### sources
-- **Type**: typing.Sequence[typing.Union[aws_resource_validator.pydantic_models.iottwinmaker_classes.SourceConfigurationTypeDef, aws_resource_validator.pydantic_models.iottwinmaker_classes.SourceConfigurationOutputTypeDef]]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iottwinmaker_classes.SourceConfigurationUnionTypeDef]
 - **Required**: Yes
 
 ### destination
@@ -448,7 +445,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateSceneRequestRequestTypeDef
+# CreateSceneRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -490,7 +487,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateSyncJobRequestRequestTypeDef
+# CreateSyncJobRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -527,7 +524,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateWorkspaceRequestRequestTypeDef
+# CreateWorkspaceRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -563,47 +560,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DataConnectorTypeDef
 
-### isNative
-- **Type**: typing.Optional[bool]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DataTypeOutputTypeDef
 
-### type
-- **Type**: typing.Literal['BOOLEAN', 'DOUBLE', 'INTEGER', 'LIST', 'LONG', 'MAP', 'RELATIONSHIP', 'STRING']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### nestedType
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### allowedValues
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iottwinmaker_classes.DataValueOutputTypeDef]]
+# DataTypeUnionTypeDef
 
-### unitOfMeasure
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### relationship
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iottwinmaker_classes.RelationshipTypeDef]
-
-
-# DataTypeTypeDef
-
-### type
-- **Type**: typing.Literal['BOOLEAN', 'DOUBLE', 'INTEGER', 'LIST', 'LONG', 'MAP', 'RELATIONSHIP', 'STRING']
-- **Required**: Yes
-
-### nestedType
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
-
-### allowedValues
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iottwinmaker_classes.DataValueTypeDef]]
-
-### unitOfMeasure
-- **Type**: typing.Optional[str]
-
-### relationship
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iottwinmaker_classes.RelationshipTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DataValueOutputTypeDef
 
@@ -653,10 +624,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### listValue
-- **Type**: typing.Optional[typing.Sequence[typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 ### mapValue
-- **Type**: typing.Optional[typing.Mapping[str, typing.Dict[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Mapping[str, typing.Mapping[str, typing.Any]]]
 
 ### relationshipValue
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.iottwinmaker_classes.RelationshipValueTypeDef]
@@ -665,7 +636,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteComponentTypeRequestRequestTypeDef
+# DataValueUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DeleteComponentTypeRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -687,7 +664,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteEntityRequestRequestTypeDef
+# DeleteEntityRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -712,7 +689,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteSceneRequestRequestTypeDef
+# DeleteSceneRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -723,7 +700,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteSyncJobRequestRequestTypeDef
+# DeleteSyncJobRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -745,7 +722,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteWorkspaceRequestRequestTypeDef
+# DeleteWorkspaceRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -765,16 +742,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DestinationConfigurationTypeDef
 
-### type
-- **Type**: typing.Literal['iotsitewise', 'iottwinmaker', 's3']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### s3Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iottwinmaker_classes.S3DestinationConfigurationTypeDef]
-
-### iotTwinMakerConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iottwinmaker_classes.IotTwinMakerDestinationConfigurationTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EntityPropertyReferenceOutputTypeDef
 
@@ -813,6 +783,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### entityId
 - **Type**: typing.Optional[str]
 
+
+# EntityPropertyReferenceUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EntitySummaryTypeDef
 
@@ -859,7 +835,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExecuteQueryRequestRequestTypeDef
+# ExecuteQueryRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -886,13 +862,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.iottwinmaker_classes.RowTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.iottwinmaker_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # FilterByAssetModelTypeDef
@@ -966,7 +941,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# GetComponentTypeRequestRequestTypeDef
+# GetComponentTypeRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -1052,7 +1027,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetEntityRequestRequestTypeDef
+# GetEntityRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -1122,7 +1097,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMetadataTransferJobRequestRequestTypeDef
+# GetMetadataTransferJobRequestTypeDef
 
 ### metadataTransferJobId
 - **Type**: <class 'str'>
@@ -1195,7 +1170,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPropertyValueHistoryRequestRequestTypeDef
+# GetPropertyValueHistoryRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -1221,10 +1196,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iottwinmaker_classes.PropertyFilterTypeDef]]
 
 ### startDateTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iottwinmaker_classes.TimestampTypeDef]
 
 ### endDateTime
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iottwinmaker_classes.TimestampTypeDef]
 
 ### interpolation
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.iottwinmaker_classes.InterpolationParametersTypeDef]
@@ -1251,16 +1226,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.iottwinmaker_classes.PropertyValueHistoryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.iottwinmaker_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetPropertyValueRequestRequestTypeDef
+
+# GetPropertyValueRequestTypeDef
 
 ### selectedProperties
 - **Type**: typing.Sequence[str]
@@ -1301,10 +1275,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.iottwinmaker_classes.PropertyLatestValueTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### tabularPropertyValues
 - **Type**: typing.List[typing.List[typing.Dict[str, aws_resource_validator.pydantic_models.iottwinmaker_classes.DataValueOutputTypeDef]]]
 - **Required**: Yes
@@ -1313,8 +1283,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.iottwinmaker_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# GetSceneRequestRequestTypeDef
+
+# GetSceneRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -1376,7 +1349,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSyncJobRequestRequestTypeDef
+# GetSyncJobRequestTypeDef
 
 ### syncSource
 - **Type**: <class 'str'>
@@ -1421,7 +1394,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetWorkspaceRequestRequestTypeDef
+# GetWorkspaceRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -1552,7 +1525,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ListComponentTypesRequestRequestTypeDef
+# ListComponentTypesRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -1578,10 +1551,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.iottwinmaker_classes.ComponentTypeSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### maxResults
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -1590,8 +1559,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.iottwinmaker_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListComponentsRequestRequestTypeDef
+
+# ListComponentsRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -1617,13 +1589,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.iottwinmaker_classes.ComponentSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.iottwinmaker_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # ListEntitiesFilterTypeDef
@@ -1638,7 +1609,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListEntitiesRequestRequestTypeDef
+# ListEntitiesRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -1660,13 +1631,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.iottwinmaker_classes.EntitySummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.iottwinmaker_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # ListMetadataTransferJobsFilterTypeDef
@@ -1678,7 +1648,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CANCELLED', 'CANCELLING', 'COMPLETED', 'ERROR', 'PENDING', 'RUNNING', 'VALIDATING']]
 
 
-# ListMetadataTransferJobsRequestRequestTypeDef
+# ListMetadataTransferJobsRequestTypeDef
 
 ### sourceType
 - **Type**: typing.Literal['iotsitewise', 'iottwinmaker', 's3']
@@ -1704,16 +1674,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.iottwinmaker_classes.MetadataTransferJobSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.iottwinmaker_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListPropertiesRequestRequestTypeDef
+
+# ListPropertiesRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -1742,16 +1711,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.iottwinmaker_classes.PropertySummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.iottwinmaker_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListScenesRequestRequestTypeDef
+
+# ListScenesRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -1770,16 +1738,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.iottwinmaker_classes.SceneSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.iottwinmaker_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListSyncJobsRequestRequestTypeDef
+
+# ListSyncJobsRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -1798,16 +1765,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.iottwinmaker_classes.SyncJobSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.iottwinmaker_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListSyncResourcesRequestRequestTypeDef
+
+# ListSyncResourcesRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -1833,16 +1799,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.iottwinmaker_classes.SyncResourceSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.iottwinmaker_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### resourceARN
 - **Type**: <class 'str'>
@@ -1861,16 +1826,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.iottwinmaker_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListWorkspacesRequestRequestTypeDef
+
+# ListWorkspacesRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1885,13 +1849,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.iottwinmaker_classes.WorkspaceSummaryTypeDef]
 - **Required**: Yes
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.iottwinmaker_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # MetadataTransferJobProgressTypeDef
@@ -1995,7 +1958,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PropertyDefinitionRequestTypeDef
 
 ### dataType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iottwinmaker_classes.DataTypeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iottwinmaker_classes.DataTypeUnionTypeDef]
 
 ### isRequiredInEntity
 - **Type**: typing.Optional[bool]
@@ -2010,7 +1973,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### defaultValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iottwinmaker_classes.DataValueTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iottwinmaker_classes.DataValueUnionTypeDef]
 
 ### configuration
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -2065,15 +2028,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PropertyFilterTypeDef
 
-### propertyName
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### operator
-- **Type**: typing.Optional[str]
-
-### value
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iottwinmaker_classes.DataValueTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PropertyGroupRequestTypeDef
 
@@ -2115,7 +2072,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.iottwinmaker_classes.PropertyDefinitionRequestTypeDef]
 
 ### value
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iottwinmaker_classes.DataValueTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iottwinmaker_classes.DataValueUnionTypeDef]
 
 ### updateType
 - **Type**: typing.Optional[typing.Literal['CREATE', 'DELETE', 'RESET_VALUE', 'UPDATE']]
@@ -2162,12 +2119,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PropertyValueEntryTypeDef
 
 ### entityPropertyReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.iottwinmaker_classes.EntityPropertyReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iottwinmaker_classes.EntityPropertyReferenceUnionTypeDef'>
 - **Required**: Yes
 
 ### propertyValues
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iottwinmaker_classes.PropertyValueTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iottwinmaker_classes.PropertyValueUnionTypeDef]]
 
+
+# PropertyValueEntryUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PropertyValueHistoryTypeDef
 
@@ -2195,15 +2158,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PropertyValueTypeDef
 
 ### value
-- **Type**: <class 'aws_resource_validator.pydantic_models.iottwinmaker_classes.DataValueTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iottwinmaker_classes.DataValueUnionTypeDef'>
 - **Required**: Yes
 
 ### timestamp
-- **Type**: typing.Union[datetime.datetime, str, NoneType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iottwinmaker_classes.TimestampTypeDef]
 
 ### time
 - **Type**: typing.Optional[str]
 
+
+# PropertyValueUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RelationshipTypeDef
 
@@ -2302,35 +2271,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SourceConfigurationOutputTypeDef
 
-### type
-- **Type**: typing.Literal['iotsitewise', 'iottwinmaker', 's3']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### s3Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iottwinmaker_classes.S3SourceConfigurationTypeDef]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### iotSiteWiseConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iottwinmaker_classes.IotSiteWiseSourceConfigurationOutputTypeDef]
+# SourceConfigurationUnionTypeDef
 
-### iotTwinMakerConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iottwinmaker_classes.IotTwinMakerSourceConfigurationOutputTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-
-# SourceConfigurationTypeDef
-
-### type
-- **Type**: typing.Literal['iotsitewise', 'iottwinmaker', 's3']
-- **Required**: Yes
-
-### s3Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iottwinmaker_classes.S3SourceConfigurationTypeDef]
-
-### iotSiteWiseConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iottwinmaker_classes.IotSiteWiseSourceConfigurationTypeDef]
-
-### iotTwinMakerConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iottwinmaker_classes.IotTwinMakerSourceConfigurationTypeDef]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StatusTypeDef
 
@@ -2422,7 +2371,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iottwinmaker_classes.PropertyFilterTypeDef]]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### resourceARN
 - **Type**: <class 'str'>
@@ -2433,7 +2382,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceRequestTypeDef
 
 ### resourceARN
 - **Type**: <class 'str'>
@@ -2444,7 +2399,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateComponentTypeRequestRequestTypeDef
+# UpdateComponentTypeRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -2502,7 +2457,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateEntityRequestRequestTypeDef
+# UpdateEntityRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -2543,7 +2498,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePricingPlanRequestRequestTypeDef
+# UpdatePricingPlanRequestTypeDef
 
 ### pricingMode
 - **Type**: typing.Literal['BASIC', 'STANDARD', 'TIERED_BUNDLE']
@@ -2568,7 +2523,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateSceneRequestRequestTypeDef
+# UpdateSceneRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>
@@ -2602,7 +2557,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateWorkspaceRequestRequestTypeDef
+# UpdateWorkspaceRequestTypeDef
 
 ### workspaceId
 - **Type**: <class 'str'>

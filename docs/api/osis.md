@@ -1,5 +1,13 @@
 # Osis Service
 
+### BlueprintFormat
+- **Type**: string
+- **Pattern**: `(YAML|JSON)`
+
+### CidrBlock
+- **Type**: string
+- **Pattern**: `^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/(3[0-2]|[12]?[0-9])$`
+
 ### LogGroup
 - **Type**: string
 - **Pattern**: `\/aws\/vendedlogs\/[\.\-_/#A-Za-z0-9]+`

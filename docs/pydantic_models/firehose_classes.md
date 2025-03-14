@@ -36,7 +36,7 @@
 - **Type**: typing.Optional[typing.Literal['AllDocuments', 'FailedDocumentsOnly']]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
 
 ### CloudWatchLoggingOptions
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
@@ -99,7 +99,7 @@
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationUpdateTypeDef]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
 
 ### CloudWatchLoggingOptions
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
@@ -156,7 +156,7 @@
 - **Type**: typing.Optional[typing.Literal['AllDocuments', 'FailedDocumentsOnly']]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
 
 ### CloudWatchLoggingOptions
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
@@ -243,7 +243,7 @@
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationUpdateTypeDef]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
 
 ### CloudWatchLoggingOptions
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
@@ -275,6 +275,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
+# BlobTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # BufferingHintsTypeDef
 
 ### SizeInMBs
@@ -282,6 +288,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### IntervalInSeconds
 - **Type**: typing.Optional[int]
+
+
+# CatalogConfigurationTypeDef
+
+### CatalogARN
+- **Type**: typing.Optional[str]
+
+### WarehouseLocation
+- **Type**: typing.Optional[str]
 
 
 # CloudWatchLoggingOptionsTypeDef
@@ -309,14 +324,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateDeliveryStreamInputRequestTypeDef
+# CreateDeliveryStreamInputTypeDef
 
 ### DeliveryStreamName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### DeliveryStreamType
-- **Type**: typing.Optional[typing.Literal['DirectPut', 'KinesisStreamAsSource', 'MSKAsSource']]
+- **Type**: typing.Optional[typing.Literal['DatabaseAsSource', 'DirectPut', 'KinesisStreamAsSource', 'MSKAsSource']]
+
+### DirectPutSourceConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DirectPutSourceConfigurationTypeDef]
 
 ### KinesisStreamSourceConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.KinesisStreamSourceConfigurationTypeDef]
@@ -357,6 +375,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### SnowflakeDestinationConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeDestinationConfigurationTypeDef]
 
+### IcebergDestinationConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.IcebergDestinationConfigurationTypeDef]
+
+### DatabaseSourceConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DatabaseSourceConfigurationTypeDef]
+
 
 # CreateDeliveryStreamOutputTypeDef
 
@@ -390,16 +414,128 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SchemaConfigurationTypeDef]
 
 ### InputFormatConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.InputFormatConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.InputFormatConfigurationUnionTypeDef]
 
 ### OutputFormatConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.OutputFormatConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.OutputFormatConfigurationUnionTypeDef]
 
 ### Enabled
 - **Type**: typing.Optional[bool]
 
 
-# DeleteDeliveryStreamInputRequestTypeDef
+# DataFormatConversionConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DatabaseColumnListOutputTypeDef
+
+### Include
+- **Type**: typing.Optional[typing.List[str]]
+
+### Exclude
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# DatabaseColumnListTypeDef
+
+### Include
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### Exclude
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# DatabaseListOutputTypeDef
+
+### Include
+- **Type**: typing.Optional[typing.List[str]]
+
+### Exclude
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# DatabaseListTypeDef
+
+### Include
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### Exclude
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# DatabaseSnapshotInfoTypeDef
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Table
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### RequestTimestamp
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### RequestedBy
+- **Type**: typing.Literal['FIREHOSE', 'USER']
+- **Required**: Yes
+
+### Status
+- **Type**: typing.Literal['COMPLETE', 'IN_PROGRESS', 'SUSPENDED']
+- **Required**: Yes
+
+### FailureDescription
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.FailureDescriptionTypeDef]
+
+
+# DatabaseSourceAuthenticationConfigurationTypeDef
+
+### SecretsManagerConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.SecretsManagerConfigurationTypeDef'>
+- **Required**: Yes
+
+
+# DatabaseSourceConfigurationTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DatabaseSourceDescriptionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DatabaseSourceVPCConfigurationTypeDef
+
+### VpcEndpointServiceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DatabaseTableListOutputTypeDef
+
+### Include
+- **Type**: typing.Optional[typing.List[str]]
+
+### Exclude
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# DatabaseTableListTypeDef
+
+### Include
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### Exclude
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# DeleteDeliveryStreamInputTypeDef
 
 ### DeliveryStreamName
 - **Type**: <class 'str'>
@@ -424,7 +560,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DeliveryStreamType
-- **Type**: typing.Literal['DirectPut', 'KinesisStreamAsSource', 'MSKAsSource']
+- **Type**: typing.Literal['DatabaseAsSource', 'DirectPut', 'KinesisStreamAsSource', 'MSKAsSource']
 - **Required**: Yes
 
 ### VersionId
@@ -480,7 +616,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.FailureDescriptionTypeDef]
 
 
-# DescribeDeliveryStreamInputRequestTypeDef
+# DescribeDeliveryStreamInputTypeDef
 
 ### DeliveryStreamName
 - **Type**: <class 'str'>
@@ -516,11 +652,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeserializerTypeDef
 
 ### OpenXJsonSerDe
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.OpenXJsonSerDeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.OpenXJsonSerDeUnionTypeDef]
 
 ### HiveJsonSerDe
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HiveJsonSerDeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HiveJsonSerDeUnionTypeDef]
 
+
+# DeserializerUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DestinationDescriptionTypeDef
 
@@ -554,6 +696,68 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### AmazonOpenSearchServerlessDestinationDescription
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AmazonOpenSearchServerlessDestinationDescriptionTypeDef]
+
+### IcebergDestinationDescription
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.IcebergDestinationDescriptionTypeDef]
+
+
+# DestinationTableConfigurationOutputTypeDef
+
+### DestinationTableName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DestinationDatabaseName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### UniqueKeys
+- **Type**: typing.Optional[typing.List[str]]
+
+### PartitionSpec
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.PartitionSpecOutputTypeDef]
+
+### S3ErrorOutputPrefix
+- **Type**: typing.Optional[str]
+
+
+# DestinationTableConfigurationTypeDef
+
+### DestinationTableName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DestinationDatabaseName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### UniqueKeys
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PartitionSpec
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.PartitionSpecUnionTypeDef]
+
+### S3ErrorOutputPrefix
+- **Type**: typing.Optional[str]
+
+
+# DestinationTableConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DirectPutSourceConfigurationTypeDef
+
+### ThroughputHintInMBs
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+
+# DirectPutSourceDescriptionTypeDef
+
+### ThroughputHintInMBs
+- **Type**: typing.Optional[int]
 
 
 # DocumentIdOptionsTypeDef
@@ -617,7 +821,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AllDocuments', 'FailedDocumentsOnly']]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
 
 ### CloudWatchLoggingOptions
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
@@ -704,7 +908,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationUpdateTypeDef]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
 
 ### CloudWatchLoggingOptions
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
@@ -757,7 +961,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
@@ -766,7 +970,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfigurationTypeDef]
 
 ### DataFormatConversionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DataFormatConversionConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DataFormatConversionConfigurationUnionTypeDef]
 
 ### DynamicPartitioningConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DynamicPartitioningConfigurationTypeDef]
@@ -858,7 +1062,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
@@ -867,7 +1071,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationUpdateTypeDef]
 
 ### DataFormatConversionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DataFormatConversionConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DataFormatConversionConfigurationUnionTypeDef]
 
 ### DynamicPartitioningConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DynamicPartitioningConfigurationTypeDef]
@@ -881,14 +1085,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # FailureDescriptionTypeDef
 
-### Type
-- **Type**: typing.Literal['CREATE_ENI_FAILED', 'CREATE_KMS_GRANT_FAILED', 'DELETE_ENI_FAILED', 'DISABLED_KMS_KEY', 'ENI_ACCESS_DENIED', 'INVALID_KMS_KEY', 'KMS_ACCESS_DENIED', 'KMS_KEY_NOT_FOUND', 'KMS_OPT_IN_REQUIRED', 'RETIRE_KMS_GRANT_FAILED', 'SECURITY_GROUP_ACCESS_DENIED', 'SECURITY_GROUP_NOT_FOUND', 'SUBNET_ACCESS_DENIED', 'SUBNET_NOT_FOUND', 'UNKNOWN_ERROR']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Details
-- **Type**: <class 'str'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HiveJsonSerDeOutputTypeDef
 
@@ -901,6 +1100,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### TimestampFormats
 - **Type**: typing.Optional[typing.Sequence[str]]
 
+
+# HiveJsonSerDeUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HttpEndpointBufferingHintsTypeDef
 
@@ -961,10 +1166,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
 
 ### RequestConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointRequestConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointRequestConfigurationUnionTypeDef]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
 
 ### RoleARN
 - **Type**: typing.Optional[str]
@@ -1024,10 +1229,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
 
 ### RequestConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointRequestConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointRequestConfigurationUnionTypeDef]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
 
 ### RoleARN
 - **Type**: typing.Optional[str]
@@ -1063,10 +1268,136 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.firehose_classes.HttpEndpointCommonAttributeTypeDef]]
 
 
+# HttpEndpointRequestConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # HttpEndpointRetryOptionsTypeDef
 
 ### DurationInSeconds
 - **Type**: typing.Optional[int]
+
+
+# IcebergDestinationConfigurationTypeDef
+
+### RoleARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CatalogConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.CatalogConfigurationTypeDef'>
+- **Required**: Yes
+
+### S3Configuration
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfigurationTypeDef'>
+- **Required**: Yes
+
+### DestinationTableConfigurationList
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.firehose_classes.DestinationTableConfigurationUnionTypeDef]]
+
+### SchemaEvolutionConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SchemaEvolutionConfigurationTypeDef]
+
+### TableCreationConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.TableCreationConfigurationTypeDef]
+
+### BufferingHints
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.BufferingHintsTypeDef]
+
+### CloudWatchLoggingOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+
+### ProcessingConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
+
+### S3BackupMode
+- **Type**: typing.Optional[typing.Literal['AllData', 'FailedDataOnly']]
+
+### RetryOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.RetryOptionsTypeDef]
+
+### AppendOnly
+- **Type**: typing.Optional[bool]
+
+
+# IcebergDestinationDescriptionTypeDef
+
+### DestinationTableConfigurationList
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.firehose_classes.DestinationTableConfigurationOutputTypeDef]]
+
+### SchemaEvolutionConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SchemaEvolutionConfigurationTypeDef]
+
+### TableCreationConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.TableCreationConfigurationTypeDef]
+
+### BufferingHints
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.BufferingHintsTypeDef]
+
+### CloudWatchLoggingOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+
+### ProcessingConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationOutputTypeDef]
+
+### S3BackupMode
+- **Type**: typing.Optional[typing.Literal['AllData', 'FailedDataOnly']]
+
+### RetryOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.RetryOptionsTypeDef]
+
+### RoleARN
+- **Type**: typing.Optional[str]
+
+### AppendOnly
+- **Type**: typing.Optional[bool]
+
+### CatalogConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CatalogConfigurationTypeDef]
+
+### S3DestinationDescription
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationDescriptionTypeDef]
+
+
+# IcebergDestinationUpdateTypeDef
+
+### DestinationTableConfigurationList
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.firehose_classes.DestinationTableConfigurationUnionTypeDef]]
+
+### SchemaEvolutionConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SchemaEvolutionConfigurationTypeDef]
+
+### TableCreationConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.TableCreationConfigurationTypeDef]
+
+### BufferingHints
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.BufferingHintsTypeDef]
+
+### CloudWatchLoggingOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
+
+### ProcessingConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
+
+### S3BackupMode
+- **Type**: typing.Optional[typing.Literal['AllData', 'FailedDataOnly']]
+
+### RetryOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.RetryOptionsTypeDef]
+
+### RoleARN
+- **Type**: typing.Optional[str]
+
+### AppendOnly
+- **Type**: typing.Optional[bool]
+
+### CatalogConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CatalogConfigurationTypeDef]
+
+### S3Configuration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationConfigurationTypeDef]
 
 
 # InputFormatConfigurationOutputTypeDef
@@ -1078,8 +1409,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # InputFormatConfigurationTypeDef
 
 ### Deserializer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DeserializerTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DeserializerUnionTypeDef]
 
+
+# InputFormatConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # KMSEncryptionConfigTypeDef
 
@@ -1111,13 +1448,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ListDeliveryStreamsInputRequestTypeDef
+# ListDeliveryStreamsInputTypeDef
 
 ### Limit
 - **Type**: typing.Optional[int]
 
 ### DeliveryStreamType
-- **Type**: typing.Optional[typing.Literal['DirectPut', 'KinesisStreamAsSource', 'MSKAsSource']]
+- **Type**: typing.Optional[typing.Literal['DatabaseAsSource', 'DirectPut', 'KinesisStreamAsSource', 'MSKAsSource']]
 
 ### ExclusiveStartDeliveryStreamName
 - **Type**: typing.Optional[str]
@@ -1138,7 +1475,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTagsForDeliveryStreamInputRequestTypeDef
+# ListTagsForDeliveryStreamInputTypeDef
 
 ### DeliveryStreamName
 - **Type**: <class 'str'>
@@ -1180,6 +1517,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.AuthenticationConfigurationTypeDef'>
 - **Required**: Yes
 
+### ReadFromTimestamp
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.TimestampTypeDef]
+
 
 # MSKSourceDescriptionTypeDef
 
@@ -1193,6 +1533,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.AuthenticationConfigurationTypeDef]
 
 ### DeliveryStartTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### ReadFromTimestamp
 - **Type**: typing.Optional[datetime.datetime]
 
 
@@ -1219,6 +1562,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ColumnToJsonKeyMappings
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
+
+# OpenXJsonSerDeUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # OrcSerDeOutputTypeDef
 
@@ -1286,6 +1635,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['V0_11', 'V0_12']]
 
 
+# OrcSerDeUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # OutputFormatConfigurationOutputTypeDef
 
 ### Serializer
@@ -1295,8 +1650,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # OutputFormatConfigurationTypeDef
 
 ### Serializer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SerializerTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SerializerUnionTypeDef]
 
+
+# OutputFormatConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ParquetSerDeTypeDef
 
@@ -1319,6 +1680,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['V1', 'V2']]
 
 
+# PartitionFieldTypeDef
+
+### SourceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# PartitionSpecOutputTypeDef
+
+### Identity
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.firehose_classes.PartitionFieldTypeDef]]
+
+
+# PartitionSpecTypeDef
+
+### Identity
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.firehose_classes.PartitionFieldTypeDef]]
+
+
+# PartitionSpecUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
 # ProcessingConfigurationOutputTypeDef
 
 ### Enabled
@@ -1334,18 +1720,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Processors
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.firehose_classes.ProcessorTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.firehose_classes.ProcessorUnionTypeDef]]
 
+
+# ProcessingConfigurationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProcessorOutputTypeDef
 
-### Type
-- **Type**: typing.Literal['AppendDelimiterToRecord', 'CloudWatchLogProcessing', 'Decompression', 'Lambda', 'MetadataExtraction', 'RecordDeAggregation']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Parameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.firehose_classes.ProcessorParameterTypeDef]]
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProcessorParameterTypeDef
 
@@ -1358,17 +1746,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ProcessorTypeDef
+# ProcessorUnionTypeDef
 
-### Type
-- **Type**: typing.Literal['AppendDelimiterToRecord', 'CloudWatchLogProcessing', 'Decompression', 'Lambda', 'MetadataExtraction', 'RecordDeAggregation']
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Parameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.firehose_classes.ProcessorParameterTypeDef]]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-
-# PutRecordBatchInputRequestTypeDef
+# PutRecordBatchInputTypeDef
 
 ### DeliveryStreamName
 - **Type**: <class 'str'>
@@ -1410,7 +1794,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutRecordInputRequestTypeDef
+# PutRecordInputTypeDef
 
 ### DeliveryStreamName
 - **Type**: <class 'str'>
@@ -1439,7 +1823,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RecordTypeDef
 
 ### Data
-- **Type**: typing.Union[str, bytes, typing.IO[typing.Any]]
+- **Type**: <class 'aws_resource_validator.pydantic_models.firehose_classes.BlobTypeDef'>
 - **Required**: Yes
 
 
@@ -1471,7 +1855,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.RedshiftRetryOptionsTypeDef]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
@@ -1550,7 +1934,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationUpdateTypeDef]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
 
 ### S3BackupMode
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
@@ -1708,6 +2092,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# SchemaEvolutionConfigurationTypeDef
+
+### Enabled
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+
 # SecretsManagerConfigurationTypeDef
 
 ### Enabled
@@ -1736,7 +2127,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ParquetSerDeTypeDef]
 
 ### OrcSerDe
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.OrcSerDeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.OrcSerDeUnionTypeDef]
+
+
+# SerializerUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# SnowflakeBufferingHintsTypeDef
+
+### SizeInMBs
+- **Type**: typing.Optional[int]
+
+### IntervalInSeconds
+- **Type**: typing.Optional[int]
 
 
 # SnowflakeDestinationConfigurationTypeDef
@@ -1793,7 +2199,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
 
 ### RetryOptions
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeRetryOptionsTypeDef]
@@ -1803,6 +2209,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SecretsManagerConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SecretsManagerConfigurationTypeDef]
+
+### BufferingHints
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeBufferingHintsTypeDef]
 
 
 # SnowflakeDestinationDescriptionTypeDef
@@ -1858,6 +2267,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### SecretsManagerConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SecretsManagerConfigurationTypeDef]
 
+### BufferingHints
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeBufferingHintsTypeDef]
+
 
 # SnowflakeDestinationUpdateTypeDef
 
@@ -1898,7 +2310,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
 
 ### RoleARN
 - **Type**: typing.Optional[str]
@@ -1914,6 +2326,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SecretsManagerConfiguration
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SecretsManagerConfigurationTypeDef]
+
+### BufferingHints
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeBufferingHintsTypeDef]
 
 
 # SnowflakeRetryOptionsTypeDef
@@ -1940,11 +2355,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SourceDescriptionTypeDef
 
+### DirectPutSourceDescription
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DirectPutSourceDescriptionTypeDef]
+
 ### KinesisStreamSourceDescription
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.KinesisStreamSourceDescriptionTypeDef]
 
 ### MSKSourceDescription
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.MSKSourceDescriptionTypeDef]
+
+### DatabaseSourceDescription
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DatabaseSourceDescriptionTypeDef]
 
 
 # SplunkBufferingHintsTypeDef
@@ -1983,7 +2404,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AllEvents', 'FailedEventsOnly']]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
 
 ### CloudWatchLoggingOptions
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
@@ -2055,7 +2476,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.S3DestinationUpdateTypeDef]
 
 ### ProcessingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.ProcessingConfigurationUnionTypeDef]
 
 ### CloudWatchLoggingOptions
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.CloudWatchLoggingOptionsTypeDef]
@@ -2073,7 +2494,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# StartDeliveryStreamEncryptionInputRequestTypeDef
+# StartDeliveryStreamEncryptionInputTypeDef
 
 ### DeliveryStreamName
 - **Type**: <class 'str'>
@@ -2083,14 +2504,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.DeliveryStreamEncryptionConfigurationInputTypeDef]
 
 
-# StopDeliveryStreamEncryptionInputRequestTypeDef
+# StopDeliveryStreamEncryptionInputTypeDef
 
 ### DeliveryStreamName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# TagDeliveryStreamInputRequestTypeDef
+# TableCreationConfigurationTypeDef
+
+### Enabled
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+
+# TagDeliveryStreamInputTypeDef
 
 ### DeliveryStreamName
 - **Type**: <class 'str'>
@@ -2111,7 +2539,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagDeliveryStreamInputRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagDeliveryStreamInputTypeDef
 
 ### DeliveryStreamName
 - **Type**: <class 'str'>
@@ -2122,7 +2556,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDestinationInputRequestTypeDef
+# UpdateDestinationInputTypeDef
 
 ### DeliveryStreamName
 - **Type**: <class 'str'>
@@ -2162,6 +2596,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### SnowflakeDestinationUpdate
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.SnowflakeDestinationUpdateTypeDef]
+
+### IcebergDestinationUpdate
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.firehose_classes.IcebergDestinationUpdateTypeDef]
 
 
 # VpcConfigurationDescriptionTypeDef

@@ -1,6 +1,6 @@
 # License Manager Classes
 
-# AcceptGrantRequestRequestTypeDef
+# AcceptGrantRequestTypeDef
 
 ### GrantArn
 - **Type**: <class 'str'>
@@ -49,7 +49,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CheckInLicenseRequestRequestTypeDef
+# CheckInLicenseRequestTypeDef
 
 ### LicenseConsumptionToken
 - **Type**: <class 'str'>
@@ -59,7 +59,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CheckoutBorrowLicenseRequestRequestTypeDef
+# CheckoutBorrowLicenseRequestTypeDef
 
 ### LicenseArn
 - **Type**: <class 'str'>
@@ -123,7 +123,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CheckoutLicenseRequestRequestTypeDef
+# CheckoutLicenseRequestTypeDef
 
 ### ProductSKU
 - **Type**: <class 'str'>
@@ -212,7 +212,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_classes.BorrowConfigurationTypeDef]
 
 
-# CreateGrantRequestRequestTypeDef
+# CreateGrantRequestTypeDef
 
 ### ClientToken
 - **Type**: <class 'str'>
@@ -258,7 +258,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateGrantVersionRequestRequestTypeDef
+# CreateGrantVersionRequestTypeDef
 
 ### ClientToken
 - **Type**: <class 'str'>
@@ -306,7 +306,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLicenseConfigurationRequestRequestTypeDef
+# CreateLicenseConfigurationRequestTypeDef
 
 ### Name
 - **Type**: <class 'str'>
@@ -335,7 +335,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### ProductInformationList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_classes.ProductInformationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_classes.ProductInformationUnionTypeDef]]
 
 
 # CreateLicenseConfigurationResponseTypeDef
@@ -349,7 +349,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLicenseConversionTaskForResourceRequestRequestTypeDef
+# CreateLicenseConversionTaskForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -375,35 +375,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLicenseManagerReportGeneratorRequestRequestTypeDef
-
-### ReportGeneratorName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Sequence[typing.Literal['LicenseConfigurationSummaryReport', 'LicenseConfigurationUsageReport']]
-- **Required**: Yes
-
-### ReportContext
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_classes.ReportContextTypeDef'>
-- **Required**: Yes
-
-### ReportFrequency
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_classes.ReportFrequencyTypeDef'>
-- **Required**: Yes
-
-### ClientToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_classes.TagTypeDef]]
-
-
 # CreateLicenseManagerReportGeneratorResponseTypeDef
 
 ### LicenseManagerReportGeneratorArn
@@ -415,7 +386,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLicenseRequestRequestTypeDef
+# CreateLicenseRequestTypeDef
 
 ### LicenseName
 - **Type**: <class 'str'>
@@ -480,7 +451,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLicenseVersionRequestRequestTypeDef
+# CreateLicenseVersionRequestTypeDef
 
 ### LicenseArn
 - **Type**: <class 'str'>
@@ -548,7 +519,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTokenRequestRequestTypeDef
+# CreateTokenRequestTypeDef
 
 ### LicenseArn
 - **Type**: <class 'str'>
@@ -597,7 +568,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteGrantRequestRequestTypeDef
+# DeleteGrantRequestTypeDef
 
 ### GrantArn
 - **Type**: <class 'str'>
@@ -630,21 +601,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteLicenseConfigurationRequestRequestTypeDef
+# DeleteLicenseConfigurationRequestTypeDef
 
 ### LicenseConfigurationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteLicenseManagerReportGeneratorRequestRequestTypeDef
+# DeleteLicenseManagerReportGeneratorRequestTypeDef
 
 ### LicenseManagerReportGeneratorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteLicenseRequestRequestTypeDef
+# DeleteLicenseRequestTypeDef
 
 ### LicenseArn
 - **Type**: <class 'str'>
@@ -670,7 +641,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteTokenRequestRequestTypeDef
+# DeleteTokenRequestTypeDef
 
 ### TokenId
 - **Type**: <class 'str'>
@@ -732,7 +703,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExtendLicenseConsumptionRequestRequestTypeDef
+# ExtendLicenseConsumptionRequestTypeDef
 
 ### LicenseConsumptionToken
 - **Type**: <class 'str'>
@@ -766,7 +737,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# GetAccessTokenRequestRequestTypeDef
+# GetAccessTokenRequestTypeDef
 
 ### Token
 - **Type**: <class 'str'>
@@ -787,7 +758,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetGrantRequestRequestTypeDef
+# GetGrantRequestTypeDef
 
 ### GrantArn
 - **Type**: <class 'str'>
@@ -808,7 +779,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetLicenseConfigurationRequestRequestTypeDef
+# GetLicenseConfigurationRequestTypeDef
 
 ### LicenseConfigurationArn
 - **Type**: <class 'str'>
@@ -874,7 +845,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ProductInformationList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_classes.ProductInformationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_classes.ProductInformationOutputTypeDef]
 - **Required**: Yes
 
 ### AutomatedDiscoveryInformation
@@ -890,7 +861,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetLicenseConversionTaskRequestRequestTypeDef
+# GetLicenseConversionTaskRequestTypeDef
 
 ### LicenseConversionTaskId
 - **Type**: <class 'str'>
@@ -940,7 +911,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetLicenseManagerReportGeneratorRequestRequestTypeDef
+# GetLicenseManagerReportGeneratorRequestTypeDef
 
 ### LicenseManagerReportGeneratorArn
 - **Type**: <class 'str'>
@@ -958,7 +929,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetLicenseRequestRequestTypeDef
+# GetLicenseRequestTypeDef
 
 ### LicenseArn
 - **Type**: <class 'str'>
@@ -979,7 +950,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetLicenseUsageRequestRequestTypeDef
+# GetLicenseUsageRequestTypeDef
 
 ### LicenseArn
 - **Type**: <class 'str'>
@@ -1171,57 +1142,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LicenseConfigurationPaginatorTypeDef
-
-### LicenseConfigurationId
-- **Type**: typing.Optional[str]
-
-### LicenseConfigurationArn
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### LicenseCountingType
-- **Type**: typing.Optional[typing.Literal['Core', 'Instance', 'Socket', 'vCPU']]
-
-### LicenseRules
-- **Type**: typing.Optional[typing.List[str]]
-
-### LicenseCount
-- **Type**: typing.Optional[int]
-
-### LicenseCountHardLimit
-- **Type**: typing.Optional[bool]
-
-### DisassociateWhenNotFound
-- **Type**: typing.Optional[bool]
-
-### ConsumedLicenses
-- **Type**: typing.Optional[int]
-
-### Status
-- **Type**: typing.Optional[str]
-
-### OwnerAccountId
-- **Type**: typing.Optional[str]
-
-### ConsumedLicenseSummaryList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.license_manager_classes.ConsumedLicenseSummaryTypeDef]]
-
-### ManagedResourceSummaryList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.license_manager_classes.ManagedResourceSummaryTypeDef]]
-
-### ProductInformationList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.license_manager_classes.ProductInformationPaginatorTypeDef]]
-
-### AutomatedDiscoveryInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_classes.AutomatedDiscoveryInformationTypeDef]
-
-
 # LicenseConfigurationTypeDef
 
 ### LicenseConfigurationId
@@ -1267,7 +1187,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.license_manager_classes.ManagedResourceSummaryTypeDef]]
 
 ### ProductInformationList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.license_manager_classes.ProductInformationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.license_manager_classes.ProductInformationOutputTypeDef]]
 
 ### AutomatedDiscoveryInformation
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_classes.AutomatedDiscoveryInformationTypeDef]
@@ -1418,7 +1338,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.license_manager_classes.EntitlementUsageTypeDef]]
 
 
-# ListAssociationsForLicenseConfigurationRequestListAssociationsForLicenseConfigurationPaginateTypeDef
+# ListAssociationsForLicenseConfigurationRequestPaginateTypeDef
 
 ### LicenseConfigurationArn
 - **Type**: <class 'str'>
@@ -1428,7 +1348,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_classes.PaginatorConfigTypeDef]
 
 
-# ListAssociationsForLicenseConfigurationRequestRequestTypeDef
+# ListAssociationsForLicenseConfigurationRequestTypeDef
 
 ### LicenseConfigurationArn
 - **Type**: <class 'str'>
@@ -1447,16 +1367,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_classes.LicenseConfigurationAssociationTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListDistributedGrantsRequestRequestTypeDef
+
+# ListDistributedGrantsRequestTypeDef
 
 ### GrantArns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1477,16 +1396,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_classes.GrantTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListFailuresForLicenseConfigurationOperationsRequestRequestTypeDef
+
+# ListFailuresForLicenseConfigurationOperationsRequestTypeDef
 
 ### LicenseConfigurationArn
 - **Type**: <class 'str'>
@@ -1505,16 +1423,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_classes.LicenseOperationFailureTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListLicenseConfigurationsRequestListLicenseConfigurationsPaginateTypeDef
+
+# ListLicenseConfigurationsRequestPaginateTypeDef
 
 ### LicenseConfigurationArns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1526,7 +1443,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_classes.PaginatorConfigTypeDef]
 
 
-# ListLicenseConfigurationsRequestRequestTypeDef
+# ListLicenseConfigurationsRequestTypeDef
 
 ### LicenseConfigurationArns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1541,37 +1458,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_classes.FilterTypeDef]]
 
 
-# ListLicenseConfigurationsResponsePaginatorTypeDef
-
-### LicenseConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_classes.LicenseConfigurationPaginatorTypeDef]
-- **Required**: Yes
-
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
 # ListLicenseConfigurationsResponseTypeDef
 
 ### LicenseConfigurations
 - **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_classes.LicenseConfigurationTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListLicenseConversionTasksRequestRequestTypeDef
+
+# ListLicenseConversionTasksRequestTypeDef
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1589,16 +1490,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_classes.LicenseConversionTaskTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListLicenseManagerReportGeneratorsRequestRequestTypeDef
+
+# ListLicenseManagerReportGeneratorsRequestTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_classes.FilterTypeDef]]
@@ -1616,16 +1516,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_classes.ReportGeneratorTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListLicenseSpecificationsForResourceRequestListLicenseSpecificationsForResourcePaginateTypeDef
+
+# ListLicenseSpecificationsForResourceRequestPaginateTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1635,7 +1534,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_classes.PaginatorConfigTypeDef]
 
 
-# ListLicenseSpecificationsForResourceRequestRequestTypeDef
+# ListLicenseSpecificationsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1654,16 +1553,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_classes.LicenseSpecificationTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListLicenseVersionsRequestRequestTypeDef
+
+# ListLicenseVersionsRequestTypeDef
 
 ### LicenseArn
 - **Type**: <class 'str'>
@@ -1682,16 +1580,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_classes.LicenseTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListLicensesRequestRequestTypeDef
+
+# ListLicensesRequestTypeDef
 
 ### LicenseArns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1712,16 +1609,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_classes.LicenseTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListReceivedGrantsForOrganizationRequestRequestTypeDef
+
+# ListReceivedGrantsForOrganizationRequestTypeDef
 
 ### LicenseArn
 - **Type**: <class 'str'>
@@ -1743,16 +1639,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_classes.GrantTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListReceivedGrantsRequestRequestTypeDef
+
+# ListReceivedGrantsRequestTypeDef
 
 ### GrantArns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1773,16 +1668,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_classes.GrantTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListReceivedLicensesForOrganizationRequestRequestTypeDef
+
+# ListReceivedLicensesForOrganizationRequestTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_classes.FilterTypeDef]]
@@ -1800,16 +1694,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_classes.GrantedLicenseTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListReceivedLicensesRequestRequestTypeDef
+
+# ListReceivedLicensesRequestTypeDef
 
 ### LicenseArns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1830,16 +1723,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_classes.GrantedLicenseTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListResourceInventoryRequestListResourceInventoryPaginateTypeDef
+
+# ListResourceInventoryRequestPaginateTypeDef
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_classes.InventoryFilterTypeDef]]
@@ -1848,7 +1740,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_classes.PaginatorConfigTypeDef]
 
 
-# ListResourceInventoryRequestRequestTypeDef
+# ListResourceInventoryRequestTypeDef
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1866,16 +1758,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_classes.ResourceInventoryTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1893,7 +1784,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTokensRequestRequestTypeDef
+# ListTokensRequestTypeDef
 
 ### TokenIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1914,16 +1805,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_classes.TokenDataTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### NextToken
+- **Type**: typing.Optional[str]
 
-# ListUsageForLicenseConfigurationRequestListUsageForLicenseConfigurationPaginateTypeDef
+
+# ListUsageForLicenseConfigurationRequestPaginateTypeDef
 
 ### LicenseConfigurationArn
 - **Type**: <class 'str'>
@@ -1936,7 +1826,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_classes.PaginatorConfigTypeDef]
 
 
-# ListUsageForLicenseConfigurationRequestRequestTypeDef
+# ListUsageForLicenseConfigurationRequestTypeDef
 
 ### LicenseConfigurationArn
 - **Type**: <class 'str'>
@@ -1958,13 +1848,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_classes.LicenseConfigurationUsageTypeDef]
 - **Required**: Yes
 
-### NextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
 
 
 # ManagedResourceSummaryTypeDef
@@ -2010,7 +1899,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProductInformationFilterPaginatorTypeDef
+# ProductInformationFilterOutputTypeDef
 
 ### ProductInformationFilterName
 - **Type**: <class 'str'>
@@ -2038,14 +1927,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ProductInformationPaginatorTypeDef
+# ProductInformationFilterUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ProductInformationOutputTypeDef
 
 ### ResourceType
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ProductInformationFilterList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_classes.ProductInformationFilterPaginatorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_classes.ProductInformationFilterOutputTypeDef]
 - **Required**: Yes
 
 
@@ -2056,9 +1951,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ProductInformationFilterList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.license_manager_classes.ProductInformationFilterTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.license_manager_classes.ProductInformationFilterUnionTypeDef]
 - **Required**: Yes
 
+
+# ProductInformationUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProvisionalConfigurationTypeDef
 
@@ -2079,7 +1980,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['CheckInLicense', 'CheckoutBorrowLicense', 'CheckoutLicense', 'CreateGrant', 'CreateToken', 'ExtendConsumptionLicense', 'ListPurchasedLicenses']]]
 
 
-# RejectGrantRequestRequestTypeDef
+# RejectGrantRequestTypeDef
 
 ### GrantArn
 - **Type**: <class 'str'>
@@ -2102,6 +2003,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ResponseMetadata
 - **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_classes.ResponseMetadataTypeDef'>
+- **Required**: Yes
+
+
+# ReportContextOutputTypeDef
+
+### licenseConfigurationArns
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2130,7 +2038,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['LicenseConfigurationSummaryReport', 'LicenseConfigurationUsageReport']]]
 
 ### ReportContext
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_classes.ReportContextTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_classes.ReportContextOutputTypeDef]
 
 ### ReportFrequency
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_classes.ReportFrequencyTypeDef]
@@ -2190,10 +2098,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -2206,6 +2110,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
+### HostId
+- **Type**: typing.Optional[str]
+
 
 # S3LocationTypeDef
 
@@ -2216,7 +2123,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2260,7 +2167,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceRequestRequestTypeDef
+# UntagResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2271,7 +2178,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateLicenseConfigurationRequestRequestTypeDef
+# UpdateLicenseConfigurationRequestTypeDef
 
 ### LicenseConfigurationArn
 - **Type**: <class 'str'>
@@ -2296,43 +2203,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ProductInformationList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_classes.ProductInformationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_classes.ProductInformationUnionTypeDef]]
 
 ### DisassociateWhenNotFound
 - **Type**: typing.Optional[bool]
 
 
-# UpdateLicenseManagerReportGeneratorRequestRequestTypeDef
-
-### LicenseManagerReportGeneratorArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ReportGeneratorName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Type
-- **Type**: typing.Sequence[typing.Literal['LicenseConfigurationSummaryReport', 'LicenseConfigurationUsageReport']]
-- **Required**: Yes
-
-### ReportContext
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_classes.ReportContextTypeDef'>
-- **Required**: Yes
-
-### ReportFrequency
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_classes.ReportFrequencyTypeDef'>
-- **Required**: Yes
-
-### ClientToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Description
-- **Type**: typing.Optional[str]
-
-
-# UpdateLicenseSpecificationsForResourceRequestRequestTypeDef
+# UpdateLicenseSpecificationsForResourceRequestTypeDef
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2345,7 +2222,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_classes.LicenseSpecificationTypeDef]]
 
 
-# UpdateServiceSettingsRequestRequestTypeDef
+# UpdateServiceSettingsRequestTypeDef
 
 ### S3BucketArn
 - **Type**: typing.Optional[str]

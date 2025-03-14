@@ -30,54 +30,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # CampaignSummaryTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### connectInstanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CampaignTypeDef
 
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### connectInstanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### dialerConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.connectcampaigns_classes.DialerConfigTypeDef'>
-- **Required**: Yes
-
-### outboundCallConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.connectcampaigns_classes.OutboundCallConfigTypeDef'>
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# CreateCampaignRequestRequestTypeDef
+# CreateCampaignRequestTypeDef
 
 ### name
 - **Type**: <class 'str'>
@@ -99,49 +62,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateCampaignResponseTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.connectcampaigns_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# DeleteCampaignRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# DeleteConnectInstanceConfigRequestRequestTypeDef
+# DeleteConnectInstanceConfigRequestTypeDef
 
 ### connectInstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteInstanceOnboardingJobRequestRequestTypeDef
+# DeleteInstanceOnboardingJobRequestTypeDef
 
 ### connectInstanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# DescribeCampaignRequestRequestTypeDef
-
-### id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -168,7 +98,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### expirationTime
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.connectcampaigns_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### attributes
@@ -219,17 +149,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # FailedRequestTypeDef
 
-### clientToken
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### id
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### failureCode
-- **Type**: typing.Optional[typing.Literal['InvalidInput', 'RequestThrottled', 'UnknownError']]
-
-
-# GetCampaignStateBatchRequestRequestTypeDef
+# GetCampaignStateBatchRequestTypeDef
 
 ### campaignIds
 - **Type**: typing.Sequence[str]
@@ -251,13 +175,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCampaignStateRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
 # GetCampaignStateResponseTypeDef
 
 ### state
@@ -269,7 +186,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetConnectInstanceConfigRequestRequestTypeDef
+# GetConnectInstanceConfigRequestTypeDef
 
 ### connectInstanceId
 - **Type**: <class 'str'>
@@ -287,7 +204,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetInstanceOnboardingJobStatusRequestRequestTypeDef
+# GetInstanceOnboardingJobStatusRequestTypeDef
 
 ### connectInstanceId
 - **Type**: <class 'str'>
@@ -322,14 +239,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # InstanceIdFilterTypeDef
 
-### value
-- **Type**: <class 'str'>
-- **Required**: Yes
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### operator
-- **Type**: typing.Literal['Eq']
-- **Required**: Yes
-
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # InstanceOnboardingJobStatusTypeDef
 
@@ -345,7 +257,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EVENT_BRIDGE_ACCESS_DENIED', 'EVENT_BRIDGE_MANAGED_RULE_LIMIT_EXCEEDED', 'IAM_ACCESS_DENIED', 'INTERNAL_FAILURE', 'KMS_ACCESS_DENIED', 'KMS_KEY_NOT_FOUND']]
 
 
-# ListCampaignsRequestListCampaignsPaginateTypeDef
+# ListCampaignsRequestPaginateTypeDef
 
 ### filters
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcampaigns_classes.CampaignFiltersTypeDef]
@@ -354,7 +266,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcampaigns_classes.PaginatorConfigTypeDef]
 
 
-# ListCampaignsRequestRequestTypeDef
+# ListCampaignsRequestTypeDef
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -368,10 +280,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListCampaignsResponseTypeDef
 
-### nextToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### campaignSummaryList
 - **Type**: typing.List[aws_resource_validator.pydantic_models.connectcampaigns_classes.CampaignSummaryTypeDef]
 - **Required**: Yes
@@ -380,8 +288,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'aws_resource_validator.pydantic_models.connectcampaigns_classes.ResponseMetadataTypeDef'>
 - **Required**: Yes
 
+### nextToken
+- **Type**: typing.Optional[str]
 
-# ListTagsForResourceRequestRequestTypeDef
+
+# ListTagsForResourceRequestTypeDef
 
 ### arn
 - **Type**: <class 'str'>
@@ -427,13 +338,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PauseCampaignRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
 # PredictiveDialerConfigTypeDef
 
 ### bandwidthAllocation
@@ -452,17 +356,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### dialingCapacity
 - **Type**: typing.Optional[float]
-
-
-# PutDialRequestBatchRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### dialRequests
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.connectcampaigns_classes.DialRequestTypeDef]
-- **Required**: Yes
 
 
 # PutDialRequestBatchResponseTypeDef
@@ -502,21 +395,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResumeCampaignRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# StartCampaignRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# StartInstanceOnboardingJobRequestRequestTypeDef
+# StartInstanceOnboardingJobRequestTypeDef
 
 ### connectInstanceId
 - **Type**: <class 'str'>
@@ -538,13 +417,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopCampaignRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
 # SuccessfulCampaignStateResponseTypeDef
 
 ### campaignId
@@ -556,14 +428,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SuccessfulRequestTypeDef
 
-### clientToken
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### id
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-
-# TagResourceRequestRequestTypeDef
+# TagResourceRequestTypeDef
 
 ### arn
 - **Type**: <class 'str'>
@@ -574,7 +443,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestRequestTypeDef
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UntagResourceRequestTypeDef
 
 ### arn
 - **Type**: <class 'str'>
@@ -583,43 +458,5 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### tagKeys
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
-
-
-# UpdateCampaignDialerConfigRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### dialerConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.connectcampaigns_classes.DialerConfigTypeDef'>
-- **Required**: Yes
-
-
-# UpdateCampaignNameRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# UpdateCampaignOutboundCallConfigRequestRequestTypeDef
-
-### id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### connectContactFlowId
-- **Type**: typing.Optional[str]
-
-### connectSourcePhoneNumber
-- **Type**: typing.Optional[str]
-
-### answerMachineDetectionConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.connectcampaigns_classes.AnswerMachineDetectionConfigTypeDef]
 
 

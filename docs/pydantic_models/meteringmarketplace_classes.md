@@ -6,10 +6,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchMeterUsageRequestRequestTypeDef
+# BatchMeterUsageRequestTypeDef
 
 ### UsageRecords
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.meteringmarketplace_classes.UsageRecordTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.meteringmarketplace_classes.UsageRecordUnionTypeDef]
 - **Required**: Yes
 
 ### ProductCode
@@ -24,7 +24,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UnprocessedRecords
-- **Type**: typing.List[aws_resource_validator.pydantic_models.meteringmarketplace_classes.UsageRecordTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.meteringmarketplace_classes.UsageRecordOutputTypeDef]
 - **Required**: Yes
 
 ### ResponseMetadata
@@ -32,14 +32,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# MeterUsageRequestRequestTypeDef
+# MeterUsageRequestTypeDef
 
 ### ProductCode
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Timestamp
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'aws_resource_validator.pydantic_models.meteringmarketplace_classes.TimestampTypeDef'>
 - **Required**: Yes
 
 ### UsageDimension
@@ -53,7 +53,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### UsageAllocations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.meteringmarketplace_classes.UsageAllocationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.meteringmarketplace_classes.UsageAllocationUnionTypeDef]]
 
 
 # MeterUsageResultTypeDef
@@ -67,7 +67,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RegisterUsageRequestRequestTypeDef
+# RegisterUsageRequestTypeDef
 
 ### ProductCode
 - **Type**: <class 'str'>
@@ -96,7 +96,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResolveCustomerRequestRequestTypeDef
+# ResolveCustomerRequestTypeDef
 
 ### RegistrationToken
 - **Type**: <class 'str'>
@@ -128,10 +128,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -143,6 +139,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # TagTypeDef
@@ -156,6 +155,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# TimestampTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# UsageAllocationOutputTypeDef
+
+### AllocatedUsageQuantity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.meteringmarketplace_classes.TagTypeDef]]
+
+
 # UsageAllocationTypeDef
 
 ### AllocatedUsageQuantity
@@ -166,22 +181,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.meteringmarketplace_classes.TagTypeDef]]
 
 
-# UsageRecordResultTypeDef
+# UsageAllocationUnionTypeDef
 
-### UsageRecord
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.meteringmarketplace_classes.UsageRecordTypeDef]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### MeteringRecordId
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Status
-- **Type**: typing.Optional[typing.Literal['CustomerNotSubscribed', 'DuplicateRecord', 'Success']]
-
-
-# UsageRecordTypeDef
+# UsageRecordOutputTypeDef
 
 ### Timestamp
-- **Type**: typing.Union[datetime.datetime, str]
+- **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### CustomerIdentifier
@@ -196,6 +205,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### UsageAllocations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.meteringmarketplace_classes.UsageAllocationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.meteringmarketplace_classes.UsageAllocationOutputTypeDef]]
 
+
+# UsageRecordResultTypeDef
+
+### UsageRecord
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.meteringmarketplace_classes.UsageRecordOutputTypeDef]
+
+### MeteringRecordId
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['CustomerNotSubscribed', 'DuplicateRecord', 'Success']]
+
+
+# UsageRecordTypeDef
+
+### Timestamp
+- **Type**: <class 'aws_resource_validator.pydantic_models.meteringmarketplace_classes.TimestampTypeDef'>
+- **Required**: Yes
+
+### CustomerIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Dimension
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Quantity
+- **Type**: typing.Optional[int]
+
+### UsageAllocations
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.meteringmarketplace_classes.UsageAllocationUnionTypeDef]]
+
+
+# UsageRecordUnionTypeDef
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

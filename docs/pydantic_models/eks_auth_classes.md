@@ -1,6 +1,6 @@
 # Eks Auth Classes
 
-# AssumeRoleForPodIdentityRequestRequestTypeDef
+# AssumeRoleForPodIdentityRequestTypeDef
 
 ### clusterName
 - **Type**: <class 'str'>
@@ -91,10 +91,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
 ### HTTPStatusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
@@ -106,6 +102,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RetryAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+### HostId
+- **Type**: typing.Optional[str]
 
 
 # SubjectTypeDef
