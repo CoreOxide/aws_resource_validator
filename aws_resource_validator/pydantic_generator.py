@@ -129,7 +129,12 @@ def generate_pydantic_models(type_defs: Dict[str, Dict[str, str]], service_name:
             if nested != name:
                 generate_model(nested)
 
-        model_lines = [f"class {name}(BaseValidatorModel):"]
+        # Remove "TypeDef" postfix if present
+        class_name = name
+        if class_name.endswith("TypeDef"):
+            class_name = class_name[:-len("TypeDef")]
+
+        model_lines = [f"class {class_name}(BaseValidatorModel):"]
         if fields:
             for field_name, field_type in fields.items():
                 if 'Optional[' in field_type:
@@ -144,7 +149,7 @@ def generate_pydantic_models(type_defs: Dict[str, Dict[str, str]], service_name:
             f.write('\n'.join(model_lines))
             f.write("\n")
 
-        generated.add(name)
+        generated.add(class_name)
 
     with open(file_path, 'w', encoding='utf-8') as f:
         for imp in sorted(imports.union(type_imports.values())):
